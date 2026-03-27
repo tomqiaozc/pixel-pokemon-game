@@ -52,6 +52,13 @@ const Game = (() => {
             }
         } else if (state === 'battle') {
             updateBattle(dt);
+        } else if (state === 'evolution') {
+            Evolution.update(dt);
+            Evolution.render(ctx, canvas.width, canvas.height);
+            if (!Evolution.isActive()) {
+                state = 'overworld';
+                Renderer.centerCamera(player.x + TILE / 2, player.y + TILE / 2);
+            }
         }
 
         requestAnimationFrame(loop);
@@ -171,6 +178,18 @@ const Game = (() => {
     function getState() { return state; }
     function setState(s) { state = s; }
 
+    function startEvolution(prePokemon, postPokemon) {
+        Evolution.start(prePokemon, postPokemon, (wasCancelled) => {
+            if (!wasCancelled) {
+                // Update player's starter if it evolved
+                if (player.starter && player.starter.name === prePokemon.name) {
+                    player.starter = { ...player.starter, name: postPokemon.name, type: postPokemon.type };
+                }
+            }
+        });
+        state = 'evolution';
+    }
+
     function startBattle(enemyData) {
         const starterMoves = {
             'Bulbasaur':  [
@@ -227,5 +246,5 @@ const Game = (() => {
         init();
     }
 
-    return { player, getState, setState, startBattle };
+    return { player, getState, setState, startBattle, startEvolution };
 })();
