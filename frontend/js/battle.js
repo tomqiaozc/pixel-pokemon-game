@@ -424,19 +424,32 @@ const Battle = (() => {
 
     // Enemy move pools by type
     const ENEMY_MOVES_BY_TYPE = {
-        Normal:   [{ name: 'Tackle', type: 'Normal', power: 40 }, { name: 'Scratch', type: 'Normal', power: 40 }],
-        Fire:     [{ name: 'Ember', type: 'Fire', power: 40 }, { name: 'Tackle', type: 'Normal', power: 40 }],
-        Water:    [{ name: 'Water Gun', type: 'Water', power: 40 }, { name: 'Tackle', type: 'Normal', power: 40 }],
-        Grass:    [{ name: 'Vine Whip', type: 'Grass', power: 45 }, { name: 'Tackle', type: 'Normal', power: 40 }],
-        Electric: [{ name: 'Thunder Shock', type: 'Electric', power: 40 }, { name: 'Tackle', type: 'Normal', power: 40 }],
-        Bug:      [{ name: 'Bug Bite', type: 'Bug', power: 30 }, { name: 'Tackle', type: 'Normal', power: 40 }],
-        Flying:   [{ name: 'Gust', type: 'Flying', power: 40 }, { name: 'Tackle', type: 'Normal', power: 40 }],
-        Poison:   [{ name: 'Poison Sting', type: 'Poison', power: 15 }, { name: 'Tackle', type: 'Normal', power: 40 }],
-        Rock:     [{ name: 'Rock Throw', type: 'Rock', power: 50 }, { name: 'Tackle', type: 'Normal', power: 40 }],
-        Ground:   [{ name: 'Mud-Slap', type: 'Ground', power: 20 }, { name: 'Tackle', type: 'Normal', power: 40 }],
-        Ghost:    [{ name: 'Lick', type: 'Ghost', power: 30 }, { name: 'Tackle', type: 'Normal', power: 40 }],
-        Psychic:  [{ name: 'Confusion', type: 'Psychic', power: 50 }, { name: 'Tackle', type: 'Normal', power: 40 }],
+        Normal:   [{ name: 'Tackle', type: 'Normal', power: 40, contact: true }, { name: 'Scratch', type: 'Normal', power: 40, contact: true }],
+        Fire:     [{ name: 'Ember', type: 'Fire', power: 40, contact: false }, { name: 'Tackle', type: 'Normal', power: 40, contact: true }],
+        Water:    [{ name: 'Water Gun', type: 'Water', power: 40, contact: false }, { name: 'Tackle', type: 'Normal', power: 40, contact: true }],
+        Grass:    [{ name: 'Vine Whip', type: 'Grass', power: 45, contact: true }, { name: 'Tackle', type: 'Normal', power: 40, contact: true }],
+        Electric: [{ name: 'Thunder Shock', type: 'Electric', power: 40, contact: false }, { name: 'Tackle', type: 'Normal', power: 40, contact: true }],
+        Bug:      [{ name: 'Bug Bite', type: 'Bug', power: 30, contact: true }, { name: 'Tackle', type: 'Normal', power: 40, contact: true }],
+        Flying:   [{ name: 'Gust', type: 'Flying', power: 40, contact: false }, { name: 'Tackle', type: 'Normal', power: 40, contact: true }],
+        Poison:   [{ name: 'Poison Sting', type: 'Poison', power: 15, contact: false }, { name: 'Tackle', type: 'Normal', power: 40, contact: true }],
+        Rock:     [{ name: 'Rock Throw', type: 'Rock', power: 50, contact: false }, { name: 'Tackle', type: 'Normal', power: 40, contact: true }],
+        Ground:   [{ name: 'Mud-Slap', type: 'Ground', power: 20, contact: false }, { name: 'Tackle', type: 'Normal', power: 40, contact: true }],
+        Ghost:    [{ name: 'Lick', type: 'Ghost', power: 30, contact: true }, { name: 'Tackle', type: 'Normal', power: 40, contact: true }],
+        Psychic:  [{ name: 'Confusion', type: 'Psychic', power: 50, contact: false }, { name: 'Tackle', type: 'Normal', power: 40, contact: true }],
     };
+
+    // Contact moves lookup for player moves (non-exhaustive — defaults to true for physical moves)
+    const NON_CONTACT_MOVES = new Set([
+        'Ember', 'Water Gun', 'Thunder Shock', 'Gust', 'Poison Sting', 'Rock Throw',
+        'Mud-Slap', 'Confusion', 'Razor Leaf', 'Thunderbolt', 'Flamethrower', 'Ice Beam',
+        'Surf', 'Psychic', 'Shadow Ball', 'Sludge Bomb', 'Swift', 'Bubble Beam',
+    ]);
+
+    function isContactMove(move) {
+        if (move.contact !== undefined) return move.contact;
+        if (move.power === 0) return false;
+        return !NON_CONTACT_MOVES.has(move.name);
+    }
 
     function getEnemyMoves(enemyType) {
         return ENEMY_MOVES_BY_TYPE[enemyType] || ENEMY_MOVES_BY_TYPE.Normal;
@@ -535,6 +548,25 @@ const Battle = (() => {
             textQueue.push(Weather.getWeatherMessage());
         }
 
+        // Status-inflicting moves (SFX-FE03)
+        if (playerMove.name === 'Toxic' && !enemyStatus) {
+            enemyStatus = 'toxic';
+            textQueue.push(`${enemyPokemon.name} was badly poisoned!`);
+            StatusFx.showStatusApplied('toxic', canvasW * 0.7, canvasH * 0.25);
+        } else if (playerMove.name === 'Confuse Ray' && enemyStatus !== 'confusion') {
+            enemyStatus = 'confusion';
+            textQueue.push(`${enemyPokemon.name} became confused!`);
+            StatusFx.showStatusApplied('confusion', canvasW * 0.7, canvasH * 0.25);
+        } else if (playerMove.name === 'Thunder Wave' && !enemyStatus) {
+            enemyStatus = 'paralysis';
+            textQueue.push(`${enemyPokemon.name} is paralyzed!`);
+            StatusFx.showStatusApplied('paralysis', canvasW * 0.7, canvasH * 0.25);
+        } else if (playerMove.name === 'Will-O-Wisp' && !enemyStatus) {
+            enemyStatus = 'burn';
+            textQueue.push(`${enemyPokemon.name} was burned!`);
+            StatusFx.showStatusApplied('burn', canvasW * 0.7, canvasH * 0.25);
+        }
+
         enemyPokemon.hp = Math.max(0, enemyPokemon.hp - playerDmg);
         enemyShake = 300;
         enemyFlash = 200;
@@ -547,20 +579,20 @@ const Battle = (() => {
                 age: 0,
             });
 
-            // Contact ability triggers (enemy's)
-            if (enemyAbility === 'Static' && playerMove.power > 0 && Math.random() < 0.3 && !playerStatus) {
+            // Contact ability triggers (enemy's) — only on contact moves (ABL-FE11)
+            if (enemyAbility === 'Static' && isContactMove(playerMove) && Math.random() < 0.3 && !playerStatus) {
                 playerStatus = 'paralysis';
                 AbilityFx.showActivation(enemyPokemon.name, 'Static', canvasW * 0.7, canvasH * 0.25);
                 textQueue.push(AbilityFx.getActivationMessage(enemyPokemon.name, 'Static'));
                 textQueue.push(`${playerPokemon.name} is paralyzed!`);
                 StatusFx.showStatusApplied('paralysis', canvasW * 0.22, canvasH * 0.52);
-            } else if (enemyAbility === 'Flame Body' && playerMove.power > 0 && Math.random() < 0.3 && !playerStatus) {
+            } else if (enemyAbility === 'Flame Body' && isContactMove(playerMove) && Math.random() < 0.3 && !playerStatus) {
                 playerStatus = 'burn';
                 AbilityFx.showActivation(enemyPokemon.name, 'Flame Body', canvasW * 0.7, canvasH * 0.25);
                 textQueue.push(AbilityFx.getActivationMessage(enemyPokemon.name, 'Flame Body'));
                 textQueue.push(`${playerPokemon.name} was burned!`);
                 StatusFx.showStatusApplied('burn', canvasW * 0.22, canvasH * 0.52);
-            } else if (enemyAbility === 'Poison Point' && playerMove.power > 0 && Math.random() < 0.3 && !playerStatus) {
+            } else if (enemyAbility === 'Poison Point' && isContactMove(playerMove) && Math.random() < 0.3 && !playerStatus) {
                 playerStatus = 'poison';
                 AbilityFx.showActivation(enemyPokemon.name, 'Poison Point', canvasW * 0.7, canvasH * 0.25);
                 textQueue.push(AbilityFx.getActivationMessage(enemyPokemon.name, 'Poison Point'));
@@ -569,19 +601,19 @@ const Battle = (() => {
             }
 
             // Contact ability triggers (player's — ABL-FE02)
-            if (playerAbility === 'Static' && playerMove.power > 0 && Math.random() < 0.3 && !enemyStatus) {
+            if (playerAbility === 'Static' && isContactMove(playerMove) && Math.random() < 0.3 && !enemyStatus) {
                 enemyStatus = 'paralysis';
                 AbilityFx.showActivation(playerPokemon.name, 'Static', canvasW * 0.22, canvasH * 0.52);
                 textQueue.push(AbilityFx.getActivationMessage(playerPokemon.name, 'Static'));
                 textQueue.push(`${enemyPokemon.name} is paralyzed!`);
                 StatusFx.showStatusApplied('paralysis', canvasW * 0.7, canvasH * 0.25);
-            } else if (playerAbility === 'Flame Body' && playerMove.power > 0 && Math.random() < 0.3 && !enemyStatus) {
+            } else if (playerAbility === 'Flame Body' && isContactMove(playerMove) && Math.random() < 0.3 && !enemyStatus) {
                 enemyStatus = 'burn';
                 AbilityFx.showActivation(playerPokemon.name, 'Flame Body', canvasW * 0.22, canvasH * 0.52);
                 textQueue.push(AbilityFx.getActivationMessage(playerPokemon.name, 'Flame Body'));
                 textQueue.push(`${enemyPokemon.name} was burned!`);
                 StatusFx.showStatusApplied('burn', canvasW * 0.7, canvasH * 0.25);
-            } else if (playerAbility === 'Poison Point' && playerMove.power > 0 && Math.random() < 0.3 && !enemyStatus) {
+            } else if (playerAbility === 'Poison Point' && isContactMove(playerMove) && Math.random() < 0.3 && !enemyStatus) {
                 enemyStatus = 'poison';
                 AbilityFx.showActivation(playerPokemon.name, 'Poison Point', canvasW * 0.22, canvasH * 0.52);
                 textQueue.push(AbilityFx.getActivationMessage(playerPokemon.name, 'Poison Point'));
@@ -639,6 +671,25 @@ const Battle = (() => {
             textQueue.push(`${playerPokemon.name} fainted!`);
             battleOver = true;
             battleResult = 'lose';
+            return;
+        }
+
+        // Enemy move secondary effects (SFX-FE04)
+        if (enemyDmg > 0 && !playerStatus) {
+            const secondaryEffects = {
+                'Thunder Shock': { status: 'paralysis', chance: 0.1, msg: 'paralyzed' },
+                'Thunderbolt':   { status: 'paralysis', chance: 0.1, msg: 'paralyzed' },
+                'Ember':         { status: 'burn', chance: 0.1, msg: 'burned' },
+                'Flamethrower':  { status: 'burn', chance: 0.1, msg: 'burned' },
+                'Poison Sting':  { status: 'poison', chance: 0.3, msg: 'poisoned' },
+                'Lick':          { status: 'paralysis', chance: 0.3, msg: 'paralyzed' },
+            };
+            const effect = secondaryEffects[enemyMove.name];
+            if (effect && Math.random() < effect.chance) {
+                playerStatus = effect.status;
+                textQueue.push(`${playerPokemon.name} was ${effect.msg}!`);
+                StatusFx.showStatusApplied(effect.status, canvasW * 0.22, canvasH * 0.52);
+            }
         }
     }
 
@@ -835,12 +886,14 @@ const Battle = (() => {
         } else if (item.action === 'use') {
             // Status cure items
             item.qty--;
-            phase = 'text';
+            phase = 'animating';
+            introTimer = 0;
             menuMode = 'main';
 
             if (item.id === 'antidote' && (playerStatus === 'poison' || playerStatus === 'toxic')) {
                 textQueue = [StatusFx.getStatusCureText(playerStatus, playerPokemon.name)];
                 playerStatus = null;
+                toxicTurnCount = 0;
             } else if (item.id === 'parlyz-heal' && playerStatus === 'paralysis') {
                 textQueue = [StatusFx.getStatusCureText('paralysis', playerPokemon.name)];
                 playerStatus = null;
@@ -859,6 +912,7 @@ const Battle = (() => {
                     textQueue = [StatusFx.getStatusCureText(playerStatus, playerPokemon.name)];
                     playerStatus = null;
                     statusTurnCounter = 0;
+                    toxicTurnCount = 0;
                 } else {
                     textQueue = [`Used ${item.name}! But it had no effect...`];
                 }
@@ -866,9 +920,9 @@ const Battle = (() => {
                 textQueue = [`Used ${item.name}!`];
             }
 
-            textIndex = 0;
-            charIndex = 0;
-            textTimer = 0;
+            // Enemy still attacks after using cure item (SFX-FE09)
+            appendEnemyAttack();
+            appendEndOfTurnEffects();
         }
     }
 
@@ -897,7 +951,30 @@ const Battle = (() => {
         // Burn reduces physical damage (simplified: all damaging moves are physical)
         const burnMult = (isPlayer && playerStatus === 'burn') || (!isPlayer && enemyStatus === 'burn') ? 0.5 : 1;
 
-        const damage = Math.max(effectiveness > 0 ? 1 : 0, Math.floor(base * rand * stab * effectiveness * stageMult * weatherMult * burnMult));
+        // Overgrow/Blaze/Torrent: 1.5x boost when HP <= 1/3 (ABL-FE05)
+        let abilityMult = 1;
+        const attacker = isPlayer ? playerPokemon : enemyPokemon;
+        const attackerAbility = isPlayer ? playerAbility : enemyAbility;
+        if (attacker.hp <= attacker.maxHp / 3) {
+            if (attackerAbility === 'Overgrow' && moveType === 'Grass') abilityMult = 1.5;
+            else if (attackerAbility === 'Blaze' && moveType === 'Fire') abilityMult = 1.5;
+            else if (attackerAbility === 'Torrent' && moveType === 'Water') abilityMult = 1.5;
+        }
+
+        // Levitate: immune to Ground moves (ABL-FE06)
+        const defender = isPlayer ? enemyPokemon : playerPokemon;
+        const defenderAbility = isPlayer ? enemyAbility : playerAbility;
+        if (defenderAbility === 'Levitate' && moveType === 'Ground') {
+            return { damage: 0, effectiveness: 0 };
+        }
+
+        let damage = Math.max(effectiveness > 0 ? 1 : 0, Math.floor(base * rand * stab * effectiveness * stageMult * weatherMult * burnMult * abilityMult));
+
+        // Sturdy: survive with 1 HP from full (ABL-FE06)
+        if (defenderAbility === 'Sturdy' && defender.hp === defender.maxHp && damage >= defender.hp) {
+            damage = defender.hp - 1;
+        }
+
         return { damage, effectiveness };
     }
 
