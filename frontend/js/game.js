@@ -10,6 +10,7 @@ const Game = (() => {
     let canvas, ctx;
     let pendingBadge = null;
     let previousState = null;
+    let pendingDefeatedTrainer = null;
 
     // Player state
     const player = {
@@ -145,8 +146,8 @@ const Game = (() => {
         const trainerResult = TrainerEncounter.update(dt);
         if (trainerResult.encountering) return;
         if (trainerResult.startBattle) {
+            pendingDefeatedTrainer = { mapId: MapLoader.getCurrentMapId(), name: trainerResult.trainer.name };
             startBattle(trainerResult.trainer.pokemon[0], { canRun: false, battleType: 'trainer' });
-            TrainerEncounter.defeatTrainer(MapLoader.getCurrentMapId(), trainerResult.trainer.name);
             return;
         }
 
@@ -279,6 +280,10 @@ const Game = (() => {
                 return;
             }
             if (door.targetMap === 'viridian_gym') {
+                if (BadgeCase.getBadgeCount() < 7) {
+                    Dialogue.start('Sign', ['This gym is locked. You need at least 7 badges to enter.']);
+                    return;
+                }
                 Gym.enter('viridian');
                 state = 'gym';
                 return;
@@ -448,6 +453,12 @@ const Game = (() => {
                     });
                 }
             }
+
+            // Mark route trainer as defeated only after winning
+            if (result.result === 'win' && pendingDefeatedTrainer) {
+                TrainerEncounter.defeatTrainer(pendingDefeatedTrainer.mapId, pendingDefeatedTrainer.name);
+            }
+            pendingDefeatedTrainer = null;
 
             if (pendingBadge && result.result === 'win') {
                 BadgeCase.earnBadge(pendingBadge.index);
