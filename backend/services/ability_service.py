@@ -6,8 +6,9 @@ import random
 from pathlib import Path
 from typing import Optional
 
-from ..models.battle import BattlePokemon, StatusEvent
+from ..models.battle import BattlePokemon, BattleState, StatusEvent
 from ..models.pokemon import Move
+from ..models.weather import WeatherEvent
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 
@@ -273,3 +274,82 @@ def ability_prevents_stat_drop(pokemon: BattlePokemon, stat: str) -> bool:
         return True
 
     return False
+
+
+# --- Weather abilities ---
+
+_WEATHER_ABILITIES: dict[str, str] = {
+    "drizzle": "rain",
+    "drought": "sun",
+    "sand_stream": "sandstorm",
+    "snow_warning": "hail",
+}
+
+_WEATHER_SPEED_ABILITIES: dict[str, str] = {
+    "swift_swim": "rain",
+    "chlorophyll": "sun",
+    "sand_rush": "sandstorm",
+}
+
+
+def process_weather_ability_on_switch_in(
+    pokemon: BattlePokemon,
+    role: str,
+    battle: BattleState,
+) -> list[WeatherEvent]:
+    """Process weather-setting abilities on switch-in (Drizzle, Drought, etc.)."""
+    if not pokemon.ability_id:
+        return []
+
+    weather = _WEATHER_ABILITIES.get(pokemon.ability_id)
+    if weather is None:
+        return []
+
+    from .weather_service import set_weather
+    evt = set_weather(battle, weather, duration=0)  # indefinite
+    ab = get_ability(pokemon.ability_id)
+    ab_name = ab["name"] if ab else pokemon.ability_id
+    evt.message = f"{pokemon.name}'s {ab_name} set the weather to {evt.message.split('!')[0].split(' ')[-1]}!"
+    return [evt]
+
+
+def get_weather_speed_multiplier(pokemon: BattlePokemon, weather: str | None) -> float:
+    """Get speed multiplier from weather-speed abilities (Swift Swim, Chlorophyll, Sand Rush)."""
+    if not pokemon.ability_id or weather is None:
+        return 1.0
+
+    required_weather = _WEATHER_SPEED_ABILITIES.get(pokemon.ability_id)
+    if required_weather and required_weather == weather:
+        return 2.0
+
+    return 1.0
+
+
+def process_ability_weather_end_of_turn(
+    pokemon: BattlePokemon,
+    role: str,
+    weather: str | None,
+) -> list[WeatherEvent]:
+    """Process weather-related end-of-turn abilities (Rain Dish, etc.)."""
+    if not pokemon.ability_id or pokemon.current_hp <= 0 or weather is None:
+        return []
+
+    events: list[WeatherEvent] = []
+
+    # Rain Dish: heal 1/16 HP in rain
+    if pokemon.ability_id == "rain_dish" and weather == "rain":
+        if pokemon.current_hp < pokemon.max_hp:
+            heal = max(1, pokemon.max_hp // 16)
+            actual = min(heal, pokemon.max_hp - pokemon.current_hp)
+            pokemon.current_hp += actual
+            ab = get_ability(pokemon.ability_id)
+            ab_name = ab["name"] if ab else "Rain Dish"
+            events.append(WeatherEvent(
+                event_type="weather_heal",
+                weather="rain",
+                pokemon=role,
+                damage=-actual,
+                message=f"{pokemon.name}'s {ab_name} restored a little HP!",
+            ))
+
+    return events

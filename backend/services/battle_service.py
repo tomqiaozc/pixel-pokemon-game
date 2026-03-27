@@ -12,6 +12,7 @@ from ..models.battle import (
     TurnResult,
 )
 from ..models.pokemon import Move
+from ..models.weather import WeatherEvent
 from .encounter_service import get_move_data
 from .status_service import (
     get_effective_stat,
@@ -24,7 +25,17 @@ from .ability_service import (
     process_ability_damage_modifier,
     process_ability_end_of_turn,
     process_ability_on_hit,
+    process_ability_weather_end_of_turn,
     process_switch_in_ability,
+)
+from .weather_service import (
+    WEATHER_MOVES,
+    decrement_weather_turns,
+    get_sandstorm_spdef_boost,
+    get_weather_accuracy_override,
+    get_weather_damage_multiplier,
+    process_weather_damage,
+    process_weather_move,
 )
 
 # In-memory battle storage
@@ -196,6 +207,7 @@ def _calculate_damage(
     attacker: BattlePokemon,
     defender: BattlePokemon,
     move: Move,
+    weather: str | None = None,
 ) -> tuple[int, str, bool]:
     """Calculate damage using Gen 1-style formula.
 
@@ -203,8 +215,6 @@ def _calculate_damage(
     """
     if move.power == 0:
         return 0, "normal", False
-
-    # Accuracy check handled by caller
 
     # Critical hit check (1/16 chance)
     is_critical = random.randint(1, 16) == 1
@@ -216,6 +226,9 @@ def _calculate_damage(
     if category == "special":
         attack_stat = get_effective_stat(attacker, "sp_attack")
         defense_stat = get_effective_stat(defender, "sp_defense")
+        # Sandstorm Sp.Def boost for Rock types
+        spdef_boost = get_sandstorm_spdef_boost(defender, weather)
+        defense_stat = int(defense_stat * spdef_boost)
     else:
         attack_stat = get_effective_stat(attacker, "attack")
         defense_stat = get_effective_stat(defender, "defense")
@@ -226,13 +239,16 @@ def _calculate_damage(
     # Type effectiveness
     type_eff = _get_type_effectiveness(move.type, defender.types)
 
+    # Weather damage modifier
+    weather_mod = get_weather_damage_multiplier(move.type, weather)
+
     # Random factor (0.85 to 1.0)
     random_factor = random.uniform(0.85, 1.0)
 
     # Gen 1-style damage formula
     level_factor = (2 * attacker.level / 5) + 2
     base_damage = (level_factor * move.power * attack_stat / defense_stat) / 50 + 2
-    modifier = stab * type_eff * random_factor * crit_modifier
+    modifier = stab * type_eff * random_factor * crit_modifier * weather_mod
     damage = max(1, math.floor(base_damage * modifier))
 
     if type_eff == 0.0:
@@ -293,7 +309,10 @@ def process_action(
         return None
 
     events: list[TurnEvent] = []
+    weather_events: list[WeatherEvent] = []
     battle.turn_count += 1
+
+    current_weather = battle.weather.current_weather
 
     # Handle run
     if action == "run":
@@ -304,7 +323,7 @@ def process_action(
                 ran_away=False,
                 run_failed=True,
             )
-        if _try_run(get_effective_stat(battle.player_pokemon, "speed"), get_effective_stat(battle.enemy_pokemon, "speed")):
+        if _try_run(get_effective_stat(battle.player_pokemon, "speed", current_weather), get_effective_stat(battle.enemy_pokemon, "speed", current_weather)):
             battle.is_over = True
             return TurnResult(events=[], battle_over=True, ran_away=True)
         else:
@@ -312,7 +331,7 @@ def process_action(
             enemy_move = _choose_enemy_move(battle.enemy_pokemon)
             if random.randint(1, 100) <= enemy_move.accuracy:
                 dmg, eff, crit = _calculate_damage(
-                    battle.enemy_pokemon, battle.player_pokemon, enemy_move
+                    battle.enemy_pokemon, battle.player_pokemon, enemy_move, current_weather
                 )
                 battle.player_pokemon.current_hp = max(
                     0, battle.player_pokemon.current_hp - dmg
@@ -352,8 +371,8 @@ def process_action(
     status_events: list[StatusEvent] = []
 
     # Determine turn order by effective speed
-    player_speed = get_effective_stat(battle.player_pokemon, "speed")
-    enemy_speed = get_effective_stat(battle.enemy_pokemon, "speed")
+    player_speed = get_effective_stat(battle.player_pokemon, "speed", current_weather)
+    enemy_speed = get_effective_stat(battle.enemy_pokemon, "speed", current_weather)
     player_first = player_speed >= enemy_speed
 
     if player_first:
@@ -381,8 +400,11 @@ def process_action(
         if not can_move:
             continue
 
-        # Accuracy check
-        if random.randint(1, 100) > move.accuracy:
+        # Weather-setting moves (power=0 status moves)
+        if move.name in WEATHER_MOVES:
+            w_events = process_weather_move(move.name, battle)
+            weather_events.extend(w_events)
+            current_weather = battle.weather.current_weather
             events.append(
                 TurnEvent(
                     attacker=role,
@@ -396,7 +418,27 @@ def process_action(
             )
             continue
 
-        dmg, eff, crit = _calculate_damage(attacker, defender, move)
+        # Accuracy check (with weather override)
+        move_accuracy = move.accuracy
+        weather_acc = get_weather_accuracy_override(move.name, current_weather)
+        if weather_acc is not None:
+            move_accuracy = weather_acc
+
+        if random.randint(1, 100) > move_accuracy:
+            events.append(
+                TurnEvent(
+                    attacker=role,
+                    move=move.name,
+                    damage=0,
+                    effectiveness="normal",
+                    critical=False,
+                    target_hp_remaining=defender.current_hp,
+                    target_fainted=False,
+                )
+            )
+            continue
+
+        dmg, eff, crit = _calculate_damage(attacker, defender, move, current_weather)
 
         # Ability: check type immunity (Levitate, Water Absorb, Flash Fire)
         attacker_role = role
@@ -474,6 +516,27 @@ def process_action(
             ab_eot = process_ability_end_of_turn(pokemon, role)
             status_events.extend(ab_eot)
 
+    # End-of-turn weather ability effects (Rain Dish, etc.)
+    if not battle.is_over and battle.weather.current_weather is not None:
+        for role, pokemon in [("player", battle.player_pokemon), ("enemy", battle.enemy_pokemon)]:
+            w_ab_events = process_ability_weather_end_of_turn(pokemon, role, battle.weather.current_weather)
+            weather_events.extend(w_ab_events)
+
+    # End-of-turn weather damage (sandstorm, hail)
+    if not battle.is_over:
+        w_dmg_events = process_weather_damage(battle)
+        weather_events.extend(w_dmg_events)
+        for role, pokemon in [("player", battle.player_pokemon), ("enemy", battle.enemy_pokemon)]:
+            if pokemon.current_hp <= 0:
+                battle.is_over = True
+                battle.winner = "enemy" if role == "player" else "player"
+                break
+
+    # Decrement weather turns
+    w_end = decrement_weather_turns(battle)
+    if w_end:
+        weather_events.append(w_end)
+
     # Reset flinch at end of turn
     battle.player_pokemon.flinched = False
     battle.enemy_pokemon.flinched = False
@@ -483,6 +546,7 @@ def process_action(
     return TurnResult(
         events=events,
         status_events=status_events,
+        weather_events=weather_events,
         battle_over=battle.is_over,
         winner=battle.winner,
     )

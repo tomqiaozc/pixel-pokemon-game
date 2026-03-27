@@ -24,7 +24,7 @@ def _stage_multiplier(stage: int) -> float:
         return 2.0 / (2 - stage)
 
 
-def get_effective_stat(pokemon: BattlePokemon, stat_name: str) -> int:
+def get_effective_stat(pokemon: BattlePokemon, stat_name: str, weather: str | None = None) -> int:
     """Get a stat value with stage modifiers applied."""
     base = getattr(pokemon.stats, stat_name)
     stage = getattr(pokemon.stat_stages, stat_name, 0)
@@ -37,6 +37,12 @@ def get_effective_stat(pokemon: BattlePokemon, stat_name: str) -> int:
     # Paralysis quarters speed
     if stat_name == "speed" and pokemon.status == "par":
         modified = modified // 4
+
+    # Weather speed abilities (Swift Swim, Chlorophyll, Sand Rush)
+    if stat_name == "speed" and weather is not None:
+        from .ability_service import get_weather_speed_multiplier
+        weather_mult = get_weather_speed_multiplier(pokemon, weather)
+        modified = int(modified * weather_mult)
 
     return max(1, modified)
 
