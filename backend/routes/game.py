@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException
-from pydantic import BaseModel
+from pydantic import BaseModel, ValidationError
 
 from ..services.game_service import create_game, get_game, save_game
 
@@ -33,7 +33,10 @@ def game_state(game_id: str):
 
 @router.post("/{game_id}/save")
 def save(game_id: str, req: SaveGameRequest):
-    state = save_game(game_id, req.player)
+    try:
+        state = save_game(game_id, req.player)
+    except ValidationError as e:
+        raise HTTPException(status_code=422, detail=str(e))
     if state is None:
         raise HTTPException(status_code=404, detail="Game not found")
     return state
