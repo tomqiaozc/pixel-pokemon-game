@@ -54,6 +54,13 @@ const PauseMenu = (() => {
 
         // Sync party from game state
         syncParty();
+
+        // Sync inventory from backend (fall back to local mock if unavailable)
+        API.getInventory().then(data => {
+            if (data && data.items) {
+                syncInventoryFromBackend(data.items);
+            }
+        });
     }
 
     function close() {
@@ -74,6 +81,7 @@ const PauseMenu = (() => {
                     maxHp: poke.maxHp,
                     type: poke.type,
                     typeColor: poke.typeColor,
+                    status: poke.status || null,
                 });
             }
         } else if (Game.player.starter) {
@@ -85,6 +93,37 @@ const PauseMenu = (() => {
                 maxHp: 20,
                 type: Game.player.starter.type,
                 typeColor: Game.player.starter.typeColor,
+            });
+        }
+    }
+
+    // Map category strings from backend item data to our tab keys
+    const CATEGORY_MAP = {
+        potion: 'potions', potions: 'potions', healing: 'potions',
+        pokeball: 'pokeballs', pokeballs: 'pokeballs', ball: 'pokeballs',
+        battle: 'battle', status: 'battle',
+        key: 'key', key_item: 'key',
+    };
+
+    function syncInventoryFromBackend(items) {
+        // Clear current inventory
+        inventory.potions = [];
+        inventory.pokeballs = [];
+        inventory.battle = [];
+        inventory.key = [];
+
+        for (const item of items) {
+            const cat = CATEGORY_MAP[item.category] || 'battle';
+            inventory[cat].push({
+                id: item.item_id || item.id,
+                name: item.name || item.item_name || 'Item',
+                qty: item.quantity || item.qty || 1,
+                desc: item.description || item.desc || '',
+                category: cat,
+                color: cat === 'potions' ? '#d048d0'
+                     : cat === 'pokeballs' ? '#e04040'
+                     : cat === 'battle' ? '#48a048'
+                     : '#c0c040',
             });
         }
     }
@@ -118,16 +157,38 @@ const PauseMenu = (() => {
                 else if (menuIndex === 9) {
                     // Save game to backend
                     const p = Game.player;
+                    const currentMap = typeof MapLoader !== 'undefined' ? MapLoader.getCurrentMapId() : 'pallet_town';
                     API.saveGame({
-                        name: 'Red',
-                        team: p.party.map(poke => ({
-                            name: poke.name, types: [poke.type],
-                            level: poke.level, id: 0,
-                            stats: { hp: poke.maxHp, attack: 10, defense: 10, sp_attack: 10, sp_defense: 10, speed: 10 },
-                            moves: [], sprite: '',
+                        name: p.name || 'Red',
+                        team: (p.party || []).map(poke => ({
+                            name: poke.name,
+                            types: [poke.type].concat(poke.type2 ? [poke.type2] : []),
+                            level: poke.level,
+                            id: poke.speciesId || 0,
+                            stats: {
+                                hp: poke.maxHp, attack: poke.attack || 10,
+                                defense: poke.defense || 10, sp_attack: poke.spAttack || 10,
+                                sp_defense: poke.spDefense || 10, speed: poke.speed || 10,
+                            },
+                            current_hp: poke.hp,
+                            moves: (poke.moves || []).map(m => ({
+                                name: m.name, type: m.type, power: m.power || 0,
+                            })),
+                            sprite: poke.sprite || '',
                         })),
-                        position: { x: Math.floor(p.x), y: Math.floor(p.y), map_id: 'pallet_town', facing: 'down' },
-                        inventory: [],
+                        position: {
+                            x: Math.floor(p.x), y: Math.floor(p.y),
+                            map_id: currentMap,
+                            facing: p.facing || 'down',
+                        },
+                        inventory: Object.values(inventory).flat().map(item => ({
+                            item_id: item.id, quantity: item.qty,
+                        })),
+                        money: (typeof PlayerStats !== 'undefined' ? PlayerStats.getStats().money : null) || p.money || 3000,
+                        badges: typeof BadgeCase !== 'undefined'
+                            ? BadgeCase.badges.map((b, i) => b.earned ? i : -1).filter(i => i >= 0)
+                            : [],
+                        play_time: typeof PlayerStats !== 'undefined' ? PlayerStats.getStats().playTime : '0:00',
                     });
                     subScreen = 'save';
                     actionCooldown = 200;
@@ -181,12 +242,29 @@ const PauseMenu = (() => {
             }
             if (action) {
                 actionCooldown = 200;
-                if (bagAction === 0) { /* Use item - placeholder */ }
+                if (bagAction === 0 && items[bagIndex]) {
+                    // Use item — call backend API
+                    const item = items[bagIndex];
+                    API.useItem(item.id, partyIndex).then(data => {
+                        if (data && data.success !== false) {
+                            item.qty--;
+                            if (item.qty <= 0) items.splice(bagIndex, 1);
+                            if (bagIndex >= items.length) bagIndex = Math.max(0, items.length - 1);
+                            // Refresh party data if item affected HP
+                            syncParty();
+                        }
+                    });
+                }
                 else if (bagAction === 2 && items[bagIndex]) {
-                    // Toss item
-                    items[bagIndex].qty--;
-                    if (items[bagIndex].qty <= 0) items.splice(bagIndex, 1);
-                    if (bagIndex >= items.length) bagIndex = Math.max(0, items.length - 1);
+                    // Toss item — call backend API
+                    const item = items[bagIndex];
+                    API.tossItem(item.id, 1).then(data => {
+                        if (data && data.success !== false) {
+                            item.qty--;
+                            if (item.qty <= 0) items.splice(bagIndex, 1);
+                            if (bagIndex >= items.length) bagIndex = Math.max(0, items.length - 1);
+                        }
+                    });
                 }
                 bagAction = -1;
             }

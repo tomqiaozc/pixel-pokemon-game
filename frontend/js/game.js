@@ -455,6 +455,9 @@ const Game = (() => {
         }, enemyData, options);
 
         state = 'battle';
+
+        // Notify backend of battle start (fire-and-forget)
+        API.startBattle(enemyData);
     }
 
     // Species ID mapping for EXP award calls
@@ -546,6 +549,9 @@ const Game = (() => {
                         maxExp: 100,
                     });
                 }
+                // Register caught in pokedex (syncs to backend)
+                const dexEntry = Pokedex.entries.find(e => e.name === caught.name);
+                if (dexEntry) Pokedex.markCaught(dexEntry.id);
             }
 
             // Mark route trainer as defeated only after winning

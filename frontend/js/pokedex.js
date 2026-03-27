@@ -327,8 +327,18 @@ const Pokedex = (() => {
     }
 
     // Public API to mark Pokemon
-    function markSeen(id) { if (!status[id]) status[id] = 'seen'; }
-    function markCaught(id) { status[id] = 'caught'; }
+    function markSeen(id) {
+        if (!status[id]) {
+            status[id] = 'seen';
+            // Sync with backend
+            API.registerSeen(id);
+        }
+    }
+    function markCaught(id) {
+        status[id] = 'caught';
+        // Sync with backend
+        API.registerCaught(id);
+    }
 
     return { open, close, isActive, update, render, markSeen, markCaught, entries };
 })();
