@@ -43,6 +43,11 @@ const Game = (() => {
         const dt = timestamp - lastTime;
         lastTime = timestamp;
 
+        // Track play time and check achievements
+        PlayerStats.updatePlayTime(dt);
+        Achievements.update(dt);
+        Achievements.checkAchievements();
+
         if (state === 'starter') {
             updateStarter(dt);
         } else if (state === 'overworld') {
@@ -63,6 +68,8 @@ const Game = (() => {
             if (PauseMenu.isActive()) {
                 PauseMenu.render(ctx, canvas.width, canvas.height);
             }
+            // Render achievement popup (on top of everything)
+            Achievements.renderPopup(ctx, canvas.width, canvas.height);
         } else if (state === 'cutscene') {
             updateCutscene(dt);
             Renderer.render(player, dt);
@@ -294,6 +301,7 @@ const Game = (() => {
             if (player.animTimer >= ANIM_INTERVAL) {
                 player.animFrame = (player.animFrame % 2) + 1;
                 player.animTimer = 0;
+                PlayerStats.increment('steps');
             }
         } else {
             player.moving = false;
@@ -470,6 +478,18 @@ const Game = (() => {
                 player.party[0].hp = Math.max(0, result.playerHp);
             }
 
+            // Track battle stats
+            if (result.result === 'win') {
+                PlayerStats.increment('battlesWon');
+                if (player.party[0]) PlayerStats.recordBattlePokemon(player.party[0].name);
+            } else if (result.result === 'lose') {
+                PlayerStats.increment('battlesLost');
+            } else if (result.result === 'catch') {
+                PlayerStats.increment('battlesWon');
+                PlayerStats.increment('pokemonCaught');
+                if (result.enemyPokemon) PlayerStats.increment('pokemonSeen');
+            }
+
             // Award EXP after battle victory (fire-and-forget with local fallback)
             if (result.result === 'win' && result.enemyPokemon && player.party[0]) {
                 const defeatedName = result.enemyPokemon.name;
@@ -529,6 +549,7 @@ const Game = (() => {
             // Mark route trainer as defeated only after winning
             if (result.result === 'win' && pendingDefeatedTrainer) {
                 TrainerEncounter.defeatTrainer(pendingDefeatedTrainer.mapId, pendingDefeatedTrainer.name);
+                PlayerStats.increment('trainersDefeated');
             }
             pendingDefeatedTrainer = null;
 
