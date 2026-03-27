@@ -1,0 +1,50 @@
+[
+  {
+    "id": "pewter_gym",
+    "name": "Pewter City Gym",
+    "city": "Pewter City",
+    "type_specialty": "rock",
+    "badge_name": "Boulder Badge",
+    "badge_id": "boulder",
+    "map_id": "pewter_gym",
+    "gym_trainers": ["pewter_gym_trainer_1"],
+    "leader": {
+      "id": "brock",
+      "name": "Brock",
+      "sprite_id": "brock",
+      "badge_id": "boulder",
+      "reward_money": 1400,
+      "ai_difficulty": "hard",
+      "dialogue_before": "I'm Brock, the Pewter City Gym Leader! I believe in rock-hard defense! Show me your best!",
+      "dialogue_after": "Your Pokemon's attacks overwhelmed my defense... Take this Boulder Badge as proof of your victory!",
+      "pokemon_team": [
+        {"species_id": 17, "name": "Geodude", "level": 12, "moves": ["Tackle", "Defense Curl"]},
+        {"species_id": 18, "name": "Onix", "level": 14, "moves": ["Tackle", "Screech", "Rock Throw", "Bind"]}
+      ]
+    }
+  },
+  {
+    "id": "cerulean_gym",
+    "name": "Cerulean City Gym",
+    "city": "Cerulean City",
+    "type_specialty": "water",
+    "badge_name": "Cascade Badge",
+    "badge_id": "cascade",
+    "map_id": "cerulean_gym",
+    "gym_trainers": [],
+    "leader": {
+      "id": "misty",
+      "name": "Misty",
+      "sprite_id": "misty",
+      "badge_id": "cascade",
+      "reward_money": 2100,
+      "ai_difficulty": "hard",
+      "dialogue_before": "I'm the Cerulean City Gym Leader, Misty! My water-type Pokemon are going to make a splash!",
+      "dialogue_after": "You really are strong... Fine, take this Cascade Badge!",
+      "pokemon_team": [
+        {"species_id": 21, "name": "Staryu", "level": 18, "moves": ["Water Gun", "Tackle", "Harden"]},
+        {"species_id": 22, "name": "Starmie", "level": 21, "moves": ["Water Gun", "Tackle", "Swift"]}
+      ]
+    }
+  }
+]
