@@ -5,7 +5,7 @@ const Game = (() => {
     const MOVE_SPEED = 1.5; // pixels per frame
     const ANIM_INTERVAL = 150; // ms between walk frames
 
-    // Game states: starter, overworld, battle, evolution, pokecenter
+    // Game states: starter, overworld, battle, evolution, pokecenter, gym
     let state = 'starter';
     let canvas, ctx;
 
@@ -27,6 +27,7 @@ const Game = (() => {
         Input.init();
         Renderer.init();
         NPC.init();
+        Routes.registerAll();
         canvas = document.getElementById('game-canvas');
         ctx = canvas.getContext('2d');
         StarterSelect.reset();
@@ -67,6 +68,26 @@ const Game = (() => {
                 state = 'overworld';
                 Renderer.centerCamera(player.x + TILE / 2, player.y + TILE / 2);
             }
+        } else if (state === 'gym') {
+            const result = Gym.update(dt);
+            Gym.render(ctx, canvas.width, canvas.height);
+            if (result.exited) {
+                state = 'overworld';
+                Renderer.centerCamera(player.x + TILE / 2, player.y + TILE / 2);
+            }
+            if (result.battleLeader) {
+                const leaderPokemon = {
+                    name: result.leader.type === 'Rock' ? 'Onix' : 'Rhydon',
+                    level: result.leader.type === 'Rock' ? 14 : 50,
+                    hp: result.leader.type === 'Rock' ? 35 : 105,
+                    maxHp: result.leader.type === 'Rock' ? 35 : 105,
+                    type: result.leader.type,
+                };
+                startBattle(leaderPokemon);
+            }
+            if (result.battleTrainer) {
+                startBattle(result.trainer.pokemon[0]);
+            }
         }
 
         requestAnimationFrame(loop);
@@ -88,13 +109,49 @@ const Game = (() => {
                 maxExp: 100,
             }];
             state = 'overworld';
+            loadMap('pallet_town');
             Renderer.centerCamera(player.x + TILE / 2, player.y + TILE / 2);
         }
     }
 
     function updateOverworld(dt) {
+        // Update map transitions
+        const transResult = MapLoader.update(dt);
+        if (transResult.transitioning) {
+            if (transResult.loaded) {
+                loadMap(MapLoader.getCurrentMapId());
+                player.x = transResult.spawnX;
+                player.y = transResult.spawnY;
+                player.dir = transResult.spawnDir || 0;
+                Encounters.reset();
+            }
+            return;
+        }
+
         // Update NPC animations
         NPC.update(dt);
+
+        // Update trainer encounter sequence
+        const trainerResult = TrainerEncounter.update(dt);
+        if (trainerResult.encountering) return;
+        if (trainerResult.startBattle) {
+            startBattle(trainerResult.trainer.pokemon[0]);
+            TrainerEncounter.defeatTrainer(MapLoader.getCurrentMapId(), trainerResult.trainer.name);
+            return;
+        }
+
+        // Update ledge jumps
+        const ledgeResult = Ledges.update(dt);
+        if (ledgeResult.jumping) {
+            player.x = ledgeResult.x;
+            player.y = ledgeResult.y;
+            Renderer.centerCamera(player.x + TILE / 2, player.y + TILE / 2);
+            return;
+        }
+        if (ledgeResult.landed) {
+            player.x = ledgeResult.x;
+            player.y = ledgeResult.y;
+        }
 
         // Handle pause menu
         if (PauseMenu.isActive()) {
@@ -111,14 +168,19 @@ const Game = (() => {
         // Update dialogue if active
         if (Dialogue.isActive()) {
             Dialogue.update(dt);
-            return; // Lock player movement during dialogue
+            return;
         }
 
-        // Check for NPC interaction (action key)
+        // Check for NPC/sign interaction (action key)
         if (Input.isActionPressed()) {
             const npc = NPC.checkInteraction(player.x, player.y, player.dir);
             if (npc) {
                 Dialogue.start(npc.name, npc.dialogue);
+                return;
+            }
+            const sign = Signs.checkInteraction(player.x, player.y, player.dir);
+            if (sign) {
+                Dialogue.start('Sign', sign.text);
                 return;
             }
         }
@@ -128,6 +190,9 @@ const Game = (() => {
         if (movement) {
             player.moving = true;
             player.dir = movement.dir;
+
+            // Try ledge jump before normal movement
+            if (Ledges.tryJump(player.x, player.y, movement.dir)) return;
 
             // Calculate new position
             let newX = player.x + movement.dx * MOVE_SPEED;
@@ -184,18 +249,52 @@ const Game = (() => {
         // Center camera on player
         Renderer.centerCamera(player.x + TILE / 2, player.y + TILE / 2);
 
-        // Check if player stepped on a door tile (Pokemon Center entry)
-        const playerTileX = Math.floor((player.x + TILE / 2) / TILE);
-        const playerTileY = Math.floor((player.y + TILE / 2) / TILE);
-        if (GameMap.getTile(playerTileX, playerTileY) === GameMap.T.DOOR) {
-            enterPokeCenter();
+        // Check map exits
+        const exit = MapLoader.checkExits(player.x, player.y);
+        if (exit) {
+            MapLoader.transitionTo(exit.targetMap, exit.spawnX, exit.spawnY, exit.spawnDir);
             return;
         }
+
+        // Check doors
+        const door = MapLoader.checkDoors(player.x, player.y);
+        if (door) {
+            if (door.targetMap === 'pokecenter') {
+                enterPokeCenter();
+                return;
+            }
+            if (door.targetMap === 'pewter_gym') {
+                Gym.enter('pewter');
+                state = 'gym';
+                return;
+            }
+            if (door.targetMap === 'viridian_gym') {
+                Gym.enter('viridian');
+                state = 'gym';
+                return;
+            }
+            MapLoader.transitionTo(door.targetMap, door.spawnX, door.spawnY, door.spawnDir);
+            return;
+        }
+
+        // Trainer line-of-sight check
+        TrainerEncounter.checkLineOfSight(player.x, player.y);
 
         // Encounter check
         const encounter = Encounters.update(dt, player);
         if (encounter.startBattle) {
             startBattle(encounter.enemy);
+        }
+    }
+
+    // Load a map by id
+    function loadMap(mapId) {
+        MapLoader.setCurrentMap(mapId);
+        const map = MapLoader.getCurrentMap();
+        if (!map) return;
+        GameMap.loadMapData(map.data, map.width, map.height);
+        if (map.trainers) {
+            TrainerEncounter.loadTrainers(mapId, map.trainers);
         }
     }
 
