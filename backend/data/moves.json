@@ -42,5 +42,11 @@
   "Swift": {"name": "Swift", "type": "normal", "category": "special", "power": 60, "accuracy": 100, "pp": 20, "contact": false},
   "Rock Slide": {"name": "Rock Slide", "type": "rock", "category": "physical", "power": 75, "accuracy": 90, "pp": 10, "contact": false},
   "Earthquake": {"name": "Earthquake", "type": "ground", "category": "physical", "power": 100, "accuracy": 100, "pp": 10, "contact": false},
-  "Self-Destruct": {"name": "Self-Destruct", "type": "normal", "category": "physical", "power": 200, "accuracy": 100, "pp": 5, "contact": false}
+  "Self-Destruct": {"name": "Self-Destruct", "type": "normal", "category": "physical", "power": 200, "accuracy": 100, "pp": 5, "contact": false},
+  "Rain Dance": {"name": "Rain Dance", "type": "water", "category": "status", "power": 0, "accuracy": 100, "pp": 5, "contact": false, "weather_effect": "rain"},
+  "Sunny Day": {"name": "Sunny Day", "type": "fire", "category": "status", "power": 0, "accuracy": 100, "pp": 5, "contact": false, "weather_effect": "sun"},
+  "Sandstorm": {"name": "Sandstorm", "type": "rock", "category": "status", "power": 0, "accuracy": 100, "pp": 10, "contact": false, "weather_effect": "sandstorm"},
+  "Hail": {"name": "Hail", "type": "ice", "category": "status", "power": 0, "accuracy": 100, "pp": 10, "contact": false, "weather_effect": "hail"},
+  "Blizzard": {"name": "Blizzard", "type": "ice", "category": "special", "power": 110, "accuracy": 70, "pp": 5, "contact": false},
+  "Ice Beam": {"name": "Ice Beam", "type": "ice", "category": "special", "power": 90, "accuracy": 100, "pp": 10, "contact": false}
 }

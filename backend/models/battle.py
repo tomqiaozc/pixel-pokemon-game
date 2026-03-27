@@ -5,6 +5,7 @@ from typing import Optional
 from pydantic import BaseModel
 
 from .pokemon import Move, Stats
+from .weather import WeatherEvent, WeatherState
 
 
 class StatStages(BaseModel):
@@ -47,6 +48,7 @@ class BattleState(BaseModel):
     winner: Optional[str] = None  # "player" or "enemy" or None
     can_run: bool = True
     log: list[dict] = []
+    weather: WeatherState = WeatherState()
 
 
 class BattleStartRequest(BaseModel):
@@ -85,6 +87,7 @@ class StatusEvent(BaseModel):
 class TurnResult(BaseModel):
     events: list[TurnEvent]
     status_events: list[StatusEvent] = []
+    weather_events: list[WeatherEvent] = []
     battle_over: bool
     winner: Optional[str] = None
     ran_away: bool = False
