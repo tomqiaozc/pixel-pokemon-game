@@ -9,6 +9,7 @@ class Position(BaseModel):
     x: int = 0
     y: int = 0
     map_id: str = "pallet_town"
+    facing: str = "down"
 
 
 class InventoryItem(BaseModel):
