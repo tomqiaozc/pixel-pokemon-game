@@ -10,6 +10,26 @@ from ..services.encounter_service import (
 
 router = APIRouter(prefix="/api/encounter", tags=["encounter"])
 
+STARTER_IDS = [1, 4, 7]  # Bulbasaur, Charmander, Squirtle
+
+
+@router.get("/starters")
+def list_starters():
+    """Return the 3 starter Pokemon with preview data."""
+    starters = []
+    for sid in STARTER_IDS:
+        species = get_species(sid)
+        if species:
+            starters.append({
+                "id": species.id,
+                "name": species.name,
+                "types": species.types,
+                "sprite": species.sprite,
+                "base_stats": species.stats.model_dump(),
+                "description": f"A {'/'.join(species.types).title()}-type Pokemon",
+            })
+    return starters
+
 
 @router.post("/check", response_model=EncounterCheckResponse)
 def encounter_check(req: EncounterCheckRequest):

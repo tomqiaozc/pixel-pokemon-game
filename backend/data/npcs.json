@@ -1,0 +1,62 @@
+[
+  {
+    "id": "prof_oak",
+    "name": "Professor Oak",
+    "sprite_id": "prof_oak",
+    "position": {"x": 6, "y": 3},
+    "map_id": "pallet_town",
+    "facing": "down",
+    "npc_type": "professor",
+    "dialogue_tree_id": "prof_oak_intro"
+  },
+  {
+    "id": "mom",
+    "name": "Mom",
+    "sprite_id": "mom",
+    "position": {"x": 3, "y": 4},
+    "map_id": "pallet_town",
+    "facing": "down",
+    "npc_type": "generic",
+    "dialogue_tree_id": "mom_dialogue"
+  },
+  {
+    "id": "rival",
+    "name": "Blue",
+    "sprite_id": "rival",
+    "position": {"x": 8, "y": 3},
+    "map_id": "pallet_town",
+    "facing": "left",
+    "npc_type": "trainer",
+    "dialogue_tree_id": "rival_intro"
+  },
+  {
+    "id": "townsfolk_1",
+    "name": "Bug Catcher",
+    "sprite_id": "townsfolk_m",
+    "position": {"x": 5, "y": 8},
+    "map_id": "pallet_town",
+    "facing": "up",
+    "npc_type": "generic",
+    "dialogue_tree_id": "townsfolk_1_dialogue"
+  },
+  {
+    "id": "townsfolk_2",
+    "name": "Lass",
+    "sprite_id": "townsfolk_f",
+    "position": {"x": 10, "y": 6},
+    "map_id": "pallet_town",
+    "facing": "left",
+    "npc_type": "generic",
+    "dialogue_tree_id": "townsfolk_2_dialogue"
+  },
+  {
+    "id": "nurse_joy",
+    "name": "Nurse Joy",
+    "sprite_id": "nurse",
+    "position": {"x": 5, "y": 2},
+    "map_id": "pokemon_center",
+    "facing": "down",
+    "npc_type": "nurse",
+    "dialogue_tree_id": "nurse_dialogue"
+  }
+]
