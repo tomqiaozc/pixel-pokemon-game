@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Optional
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 class ItemEffect(BaseModel):
@@ -44,20 +44,20 @@ class UseItemResult(BaseModel):
 class TossItemRequest(BaseModel):
     game_id: str
     item_id: int
-    quantity: int
+    quantity: int = Field(gt=0)
 
 
 class BuyRequest(BaseModel):
     game_id: str
     shop_id: str
     item_id: int
-    quantity: int
+    quantity: int = Field(gt=0)
 
 
 class SellRequest(BaseModel):
     game_id: str
     item_id: int
-    quantity: int
+    quantity: int = Field(gt=0)
 
 
 class ShopItem(BaseModel):
@@ -91,3 +91,4 @@ class CatchResult(BaseModel):
     shakes: int  # 0-3
     caught: bool
     message: str
+    stored_in: Optional[str] = None  # "party", "pc", "pc_full"

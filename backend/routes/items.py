@@ -19,6 +19,7 @@ from ..services.item_service import (
     toss_item,
     use_item,
 )
+from ..services.pokedex_service import auto_deposit, register_caught
 
 router = APIRouter(prefix="/api", tags=["items"])
 
@@ -126,5 +127,25 @@ def catch_pokemon(req: CatchRequest):
     if result.caught:
         battle.is_over = True
         battle.winner = "player"
+
+        # Add caught Pokemon to player's party or PC
+        caught_pokemon = enemy.model_dump()
+        # Reset HP to current (battle HP)
+        caught_pokemon.pop("catch_rate", None)
+        caught_pokemon.pop("base_exp", None)
+
+        if game:
+            team = game["player"].get("team", [])
+            if len(team) < 6:
+                team.append(caught_pokemon)
+                result.stored_in = "party"
+            else:
+                if auto_deposit(req.game_id, caught_pokemon):
+                    result.stored_in = "pc"
+                else:
+                    result.stored_in = "pc_full"
+
+            # Register in Pokedex
+            register_caught(req.game_id, enemy.species_id)
 
     return result
