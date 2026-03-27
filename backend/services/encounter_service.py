@@ -113,6 +113,10 @@ def generate_wild_pokemon(species_id: int, level: int) -> WildPokemon:
 
     moves = _generate_moves_for_level(species, level)
 
+    # Select random ability from species pool
+    from .ability_service import select_ability
+    ability_id = select_ability(species.abilities)
+
     return WildPokemon(
         species_id=species.id,
         name=species.name,
@@ -124,6 +128,7 @@ def generate_wild_pokemon(species_id: int, level: int) -> WildPokemon:
         catch_rate=species.catch_rate,
         base_exp=species.base_exp,
         sprite=species.sprite,
+        ability_id=ability_id,
     )
 
 

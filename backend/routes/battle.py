@@ -36,6 +36,7 @@ def battle_start(req: BattleStartRequest):
         "max_hp": lead["stats"]["hp"],
         "moves": lead["moves"],
         "sprite": lead["sprite"],
+        "ability_id": lead.get("ability_id"),
     }
 
     if req.wild_pokemon:
@@ -57,6 +58,7 @@ def battle_start(req: BattleStartRequest):
             "max_hp": wild.current_hp,
             "moves": [m.model_dump() for m in wild.moves],
             "sprite": wild.sprite,
+            "ability_id": wild.ability_id,
         }
         battle = start_battle(player_pokemon, enemy_pokemon, "wild")
 

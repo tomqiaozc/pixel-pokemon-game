@@ -33,6 +33,8 @@ class BattlePokemon(BaseModel):
     confused: bool = False
     confused_turns: int = 0
     flinched: bool = False
+    ability_id: Optional[str] = None
+    flash_fire_activated: bool = False
 
 
 class BattleState(BaseModel):
@@ -70,12 +72,14 @@ class TurnEvent(BaseModel):
 
 class StatusEvent(BaseModel):
     pokemon: str  # "player" or "enemy"
-    event_type: str  # "status_applied", "status_cured", "status_damage", "status_prevented", "stat_change", "confused_hit_self"
+    event_type: str  # "status_applied", "status_cured", "status_damage", "status_prevented", "stat_change", "confused_hit_self", "ability_activated"
     status: Optional[str] = None
     damage: Optional[int] = None
     stat: Optional[str] = None
     stages: Optional[int] = None
     message: str = ""
+    ability_id: Optional[str] = None
+    ability_name: Optional[str] = None
 
 
 class TurnResult(BaseModel):
