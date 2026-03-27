@@ -3,7 +3,7 @@
 const PauseMenu = (() => {
     let active = false;
     let menuIndex = 0;
-    let subScreen = null; // null, 'party', 'bag', 'pokedex', 'save'
+    let subScreen = null; // null, 'party', 'bag', 'pokedex', 'trainercard', 'leaderboard', 'badges', 'save'
     let actionCooldown = 0;
     let slideProgress = 0;
 
@@ -35,7 +35,7 @@ const PauseMenu = (() => {
     // Party screen state
     let partyIndex = 0;
 
-    const MENU_ITEMS = ['Pokemon', 'Bag', 'Pokedex', 'Quests', 'Badges', 'Save', 'Close'];
+    const MENU_ITEMS = ['Pokemon', 'Bag', 'Pokedex', 'Trainer Card', 'Leaderboard', 'Quests', 'Badges', 'Save', 'Close'];
     const BAG_TABS = ['Potions', 'Balls', 'Battle', 'Key Items'];
     const BAG_TAB_KEYS = ['potions', 'pokeballs', 'battle', 'key'];
 
@@ -109,9 +109,11 @@ const PauseMenu = (() => {
                 if (menuIndex === 0) { subScreen = 'party'; partyIndex = 0; }
                 else if (menuIndex === 1) { subScreen = 'bag'; bagTab = 0; bagIndex = 0; bagAction = -1; }
                 else if (menuIndex === 2) { subScreen = 'pokedex'; Pokedex.open(); }
-                else if (menuIndex === 3) { Quests.openJournal(); close(); }
-                else if (menuIndex === 4) { subScreen = 'badges'; BadgeCase.open(); }
-                else if (menuIndex === 5) {
+                else if (menuIndex === 3) { subScreen = 'trainercard'; TrainerCard.open(); }
+                else if (menuIndex === 4) { subScreen = 'leaderboard'; Leaderboard.open(); }
+                else if (menuIndex === 5) { Quests.openJournal(); close(); }
+                else if (menuIndex === 6) { subScreen = 'badges'; BadgeCase.open(); }
+                else if (menuIndex === 7) {
                     // Save game to backend
                     const p = Game.player;
                     API.saveGame({
@@ -128,7 +130,7 @@ const PauseMenu = (() => {
                     subScreen = 'save';
                     actionCooldown = 200;
                 }
-                else if (menuIndex === 6) { close(); }
+                else if (menuIndex === 8) { close(); }
             }
             if (back) { close(); actionCooldown = 200; }
         } else if (subScreen === 'party') {
@@ -138,6 +140,12 @@ const PauseMenu = (() => {
         } else if (subScreen === 'pokedex') {
             Pokedex.update(dt);
             if (!Pokedex.isActive()) { subScreen = null; }
+        } else if (subScreen === 'trainercard') {
+            TrainerCard.update(dt);
+            if (!TrainerCard.isActive()) { subScreen = null; }
+        } else if (subScreen === 'leaderboard') {
+            Leaderboard.update(dt);
+            if (!Leaderboard.isActive()) { subScreen = null; }
         } else if (subScreen === 'badges') {
             BadgeCase.update(dt);
             if (!BadgeCase.isActive()) { subScreen = null; }
@@ -203,6 +211,10 @@ const PauseMenu = (() => {
             renderBag(ctx, canvasW, canvasH);
         } else if (subScreen === 'pokedex') {
             Pokedex.render(ctx, canvasW, canvasH);
+        } else if (subScreen === 'trainercard') {
+            TrainerCard.render(ctx, canvasW, canvasH);
+        } else if (subScreen === 'leaderboard') {
+            Leaderboard.render(ctx, canvasW, canvasH);
         } else if (subScreen === 'badges') {
             BadgeCase.render(ctx, canvasW, canvasH);
         } else if (subScreen === 'save') {
