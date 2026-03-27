@@ -25,6 +25,7 @@ const Game = (() => {
     function init() {
         Input.init();
         Renderer.init();
+        NPC.init();
         canvas = document.getElementById('game-canvas');
         ctx = canvas.getContext('2d');
         StarterSelect.reset();
@@ -41,6 +42,10 @@ const Game = (() => {
         } else if (state === 'overworld') {
             updateOverworld(dt);
             Renderer.render(player, dt);
+            // Render dialogue overlay on top of overworld
+            if (Dialogue.isActive()) {
+                Dialogue.render(ctx, canvas.width, canvas.height);
+            }
         } else if (state === 'battle') {
             updateBattle(dt);
         }
@@ -60,6 +65,24 @@ const Game = (() => {
     }
 
     function updateOverworld(dt) {
+        // Update NPC animations
+        NPC.update(dt);
+
+        // Update dialogue if active
+        if (Dialogue.isActive()) {
+            Dialogue.update(dt);
+            return; // Lock player movement during dialogue
+        }
+
+        // Check for NPC interaction (action key)
+        if (Input.isActionPressed()) {
+            const npc = NPC.checkInteraction(player.x, player.y, player.dir);
+            if (npc) {
+                Dialogue.start(npc.name, npc.dialogue);
+                return;
+            }
+        }
+
         const movement = Input.getMovement();
 
         if (movement) {
@@ -84,7 +107,8 @@ const Game = (() => {
                 const tileBottom = Math.floor((player.y + TILE - 1) / TILE);
                 const tileX      = Math.floor(checkX / TILE);
 
-                if (GameMap.isSolid(tileX, tileTop) || GameMap.isSolid(tileX, tileBottom)) {
+                if (GameMap.isSolid(tileX, tileTop) || GameMap.isSolid(tileX, tileBottom) ||
+                    NPC.isSolid(tileX, tileTop) || NPC.isSolid(tileX, tileBottom)) {
                     newX = player.x;
                 }
             }
@@ -96,7 +120,8 @@ const Game = (() => {
                 const tileRight = Math.floor((newX + TILE - margin - 1) / TILE);
                 const tileY     = Math.floor(checkY / TILE);
 
-                if (GameMap.isSolid(tileLeft, tileY) || GameMap.isSolid(tileRight, tileY)) {
+                if (GameMap.isSolid(tileLeft, tileY) || GameMap.isSolid(tileRight, tileY) ||
+                    NPC.isSolid(tileLeft, tileY) || NPC.isSolid(tileRight, tileY)) {
                     newY = player.y;
                 }
             }
