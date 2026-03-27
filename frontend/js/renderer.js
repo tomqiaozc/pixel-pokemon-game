@@ -76,6 +76,9 @@ const Renderer = (() => {
             }
         }
 
+        // Draw NPCs
+        NPC.render(ctx, camX, camY, SCALE);
+
         // Draw player
         const playerScreenX = (player.x - camX) * SCALE;
         const playerScreenY = (player.y - camY) * SCALE;
