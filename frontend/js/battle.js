@@ -165,7 +165,7 @@ const Battle = (() => {
             if (transitionAlpha >= 1 && transitionDir > 0) {
                 transitionAlpha = 1;
                 transitionDir = 0;
-                return { done: true, result: battleResult };
+                return { done: true, result: battleResult, playerHp: playerPokemon ? playerPokemon.hp : 0 };
             }
         }
 

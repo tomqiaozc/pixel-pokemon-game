@@ -131,6 +131,10 @@ const Encounters = (() => {
             maxHp: hp,
         };
 
+        // Mark Pokemon as seen in Pokedex
+        const dexEntry = Pokedex.entries.find(e => e.name === template.name);
+        if (dexEntry) Pokedex.markSeen(dexEntry.id);
+
         // Show exclamation mark
         exclamation = {
             wx: player.x + TILE / 2,

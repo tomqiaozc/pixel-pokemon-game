@@ -18,6 +18,7 @@ const Game = (() => {
         animTimer: 0,
         moving: false,
         starter: null,   // Chosen starter Pokemon
+        party: [],       // Array of Pokemon with current stats (hp, level, etc.)
     };
 
     let lastTime = 0;
@@ -77,6 +78,15 @@ const Game = (() => {
 
         if (result.done) {
             player.starter = result.starter;
+            player.party = [{
+                name: result.starter.name,
+                type: result.starter.type,
+                level: 5,
+                hp: 20,
+                maxHp: 20,
+                exp: 0,
+                maxExp: 100,
+            }];
             state = 'overworld';
             Renderer.centerCamera(player.x + TILE / 2, player.y + TILE / 2);
         }
@@ -232,16 +242,17 @@ const Game = (() => {
             ],
         };
 
-        const starterName = player.starter ? player.starter.name : 'Charmander';
-        const starterType = player.starter ? player.starter.type : 'Fire';
+        const lead = player.party[0];
+        const starterName = lead ? lead.name : 'Charmander';
+        const starterType = lead ? lead.type : 'Fire';
 
         Battle.start({
             name: starterName,
-            level: 5,
-            hp: 20,
-            maxHp: 20,
-            exp: 0,
-            maxExp: 100,
+            level: lead ? lead.level : 5,
+            hp: lead ? lead.hp : 20,
+            maxHp: lead ? lead.maxHp : 20,
+            exp: lead ? lead.exp : 0,
+            maxExp: lead ? lead.maxExp : 100,
             type: starterType,
             moves: starterMoves[starterName] || starterMoves['Charmander'],
         }, enemyData);
@@ -254,6 +265,10 @@ const Game = (() => {
         Battle.render();
 
         if (result.done) {
+            // Sync HP back to party after battle
+            if (player.party[0] && result.playerHp !== undefined) {
+                player.party[0].hp = Math.max(0, result.playerHp);
+            }
             state = 'overworld';
             Renderer.centerCamera(player.x + TILE / 2, player.y + TILE / 2);
         }

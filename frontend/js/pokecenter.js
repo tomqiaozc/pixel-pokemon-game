@@ -123,6 +123,12 @@ const PokeCenter = (() => {
             healFrame = Math.floor(healTimer / 200) % 4;
             if (healTimer > 2000) {
                 phase = 'done';
+                // Restore all party Pokemon to full HP
+                if (Game.player.party) {
+                    for (const poke of Game.player.party) {
+                        poke.hp = poke.maxHp;
+                    }
+                }
                 Dialogue.start('Nurse Joy', [
                     'Your Pokemon have been fully healed!',
                     'We hope to see you again!',
