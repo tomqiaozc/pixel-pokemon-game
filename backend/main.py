@@ -11,6 +11,7 @@ from .routes.map import router as map_router
 from .routes.npc import router as npc_router
 from .routes.pokedex import router as pokedex_router
 from .routes.pokemon import router as pokemon_router
+from .routes.trade import router as trade_router
 
 app = FastAPI(title="Pixel Pokemon Game API", version="0.1.0")
 
@@ -32,6 +33,7 @@ app.include_router(gym_router)
 app.include_router(items_router)
 app.include_router(map_router)
 app.include_router(pokedex_router)
+app.include_router(trade_router)
 
 
 @app.get("/api/health")
