@@ -177,6 +177,17 @@ def check_ability_type_immunity(
         ))
         return True, events
 
+    # Wonder Guard: immune to non-super-effective damaging moves
+    if defender.ability_id == "wonder_guard" and move.power > 0:
+        from .battle_service import _get_type_effectiveness
+        type_eff = _get_type_effectiveness(move.type, defender.types)
+        if type_eff <= 1.0:
+            events.append(_ability_event(
+                defender, defender_role, "ability_activated",
+                f"{defender.name}'s Wonder Guard blocked the attack!",
+            ))
+            return True, events
+
     return False, events
 
 
@@ -224,6 +235,32 @@ def process_ability_on_hit(
     return events
 
 
+# --- On-KO abilities ---
+
+def process_ability_on_ko(
+    attacker: BattlePokemon,
+    attacker_role: str,
+) -> list[StatusEvent]:
+    """Process abilities that trigger when the attacker KOs a Pokemon (e.g. Moxie)."""
+    if not attacker.ability_id or attacker.current_hp <= 0:
+        return []
+
+    events = []
+
+    # Moxie: +1 Attack on KO
+    if attacker.ability_id == "moxie":
+        from .status_service import apply_stat_change
+        evt = apply_stat_change(attacker, "attack", 1, attacker_role)
+        if evt:
+            events.append(_ability_event(
+                attacker, attacker_role, "ability_activated",
+                f"{attacker.name}'s Moxie raised its Attack!",
+            ))
+            events.append(evt)
+
+    return events
+
+
 # --- End-of-turn abilities ---
 
 def process_ability_end_of_turn(
@@ -258,6 +295,9 @@ def ability_prevents_status(pokemon: BattlePokemon, status: str) -> bool:
         return False
 
     if pokemon.ability_id == "limber" and status == "par":
+        return True
+
+    if pokemon.ability_id == "water_veil" and status == "brn":
         return True
 
     return False

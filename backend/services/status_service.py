@@ -294,6 +294,7 @@ _MOVE_STATUS_EFFECTS: dict[str, dict] = {
     # Primary status moves
     "Thunder Wave": {"status": "par", "chance": 100, "target": "enemy"},
     "Sleep Powder": {"status": "slp", "chance": 75, "target": "enemy"},
+    "Toxic": {"status": "tox", "chance": 90, "target": "enemy"},
     # Secondary effects (applied after damage)
     "Thunderbolt": {"status": "par", "chance": 10, "target": "enemy"},
     "Flamethrower": {"status": "brn", "chance": 10, "target": "enemy"},
@@ -312,6 +313,19 @@ _MOVE_STAT_EFFECTS: dict[str, dict] = {
     "Defense Curl": {"stat": "defense", "stages": 1, "target": "self"},
     "Harden": {"stat": "defense", "stages": 1, "target": "self"},
     "Agility": {"stat": "speed", "stages": 2, "target": "self"},
+}
+
+# Confusion-inflicting moves
+_MOVE_CONFUSION_EFFECTS: dict[str, int] = {
+    "Confuse Ray": 100,
+}
+
+# Flinch-inflicting moves (chance as percentage, only on damage)
+_MOVE_FLINCH_EFFECTS: dict[str, int] = {
+    "Bite": 30,
+    "Headbutt": 30,
+    "Hyper Fang": 10,
+    "Rock Slide": 30,
 }
 
 
@@ -345,6 +359,32 @@ def process_move_effects(
             evt = apply_status(target, eff["status"], target_role)
             if evt:
                 events.append(evt)
+
+    # Confusion effects
+    if move_name in _MOVE_CONFUSION_EFFECTS:
+        chance = _MOVE_CONFUSION_EFFECTS[move_name]
+        if random.randint(1, 100) <= chance:
+            if not defender.confused:
+                defender.confused = True
+                defender.confused_turns = random.randint(2, 5)
+                events.append(StatusEvent(
+                    pokemon=defender_role,
+                    event_type="status_applied",
+                    status="confusion",
+                    message=f"{defender.name} became confused!",
+                ))
+
+    # Flinch effects (only when move dealt damage)
+    if move_name in _MOVE_FLINCH_EFFECTS and did_damage:
+        chance = _MOVE_FLINCH_EFFECTS[move_name]
+        if random.randint(1, 100) <= chance:
+            defender.flinched = True
+            events.append(StatusEvent(
+                pokemon=defender_role,
+                event_type="status_applied",
+                status="flinch",
+                message=f"{defender.name} flinched!",
+            ))
 
     # Fire move thaws frozen target
     if defender.status == "frz" and did_damage:

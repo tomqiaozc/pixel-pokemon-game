@@ -48,5 +48,8 @@
   "Sandstorm": {"name": "Sandstorm", "type": "rock", "category": "status", "power": 0, "accuracy": 100, "pp": 10, "contact": false, "weather_effect": "sandstorm"},
   "Hail": {"name": "Hail", "type": "ice", "category": "status", "power": 0, "accuracy": 100, "pp": 10, "contact": false, "weather_effect": "hail"},
   "Blizzard": {"name": "Blizzard", "type": "ice", "category": "special", "power": 110, "accuracy": 70, "pp": 5, "contact": false},
-  "Ice Beam": {"name": "Ice Beam", "type": "ice", "category": "special", "power": 90, "accuracy": 100, "pp": 10, "contact": false}
+  "Ice Beam": {"name": "Ice Beam", "type": "ice", "category": "special", "power": 90, "accuracy": 100, "pp": 10, "contact": false},
+  "Toxic": {"name": "Toxic", "type": "poison", "category": "status", "power": 0, "accuracy": 90, "pp": 10, "contact": false},
+  "Confuse Ray": {"name": "Confuse Ray", "type": "ghost", "category": "status", "power": 0, "accuracy": 100, "pp": 10, "contact": false},
+  "Headbutt": {"name": "Headbutt", "type": "normal", "category": "physical", "power": 70, "accuracy": 100, "pp": 15, "contact": true}
 }
