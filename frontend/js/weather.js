@@ -267,14 +267,17 @@ const Weather = (() => {
     }
 
     // Tick a turn in battle (returns damage messages if applicable)
+    // turnsRemaining === 0 means indefinite (ability-triggered weather)
     function tickTurn() {
         if (currentWeather === 'clear') return null;
 
-        turnsRemaining--;
-        if (turnsRemaining <= 0) {
-            const msg = getEndMessage();
-            clearWeather();
-            return { ended: true, message: msg };
+        if (turnsRemaining > 0) {
+            turnsRemaining--;
+            if (turnsRemaining <= 0) {
+                const msg = getEndMessage();
+                clearWeather();
+                return { ended: true, message: msg };
+            }
         }
         return { ended: false };
     }
@@ -284,13 +287,14 @@ const Weather = (() => {
         return currentWeather === 'sandstorm' || currentWeather === 'hail';
     }
 
-    // Types immune to weather damage
+    // Types immune to weather damage (accepts single type string or array of types)
     function isImmuneToWeatherDamage(pokemonType) {
+        const types = Array.isArray(pokemonType) ? pokemonType : [pokemonType];
         if (currentWeather === 'sandstorm') {
-            return ['Rock', 'Ground', 'Steel'].includes(pokemonType);
+            return types.some(t => ['Rock', 'Ground', 'Steel'].includes(t));
         }
         if (currentWeather === 'hail') {
-            return pokemonType === 'Ice';
+            return types.some(t => t === 'Ice');
         }
         return true;
     }
