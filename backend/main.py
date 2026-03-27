@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from .routes.battle import router as battle_router
 from .routes.encounter import router as encounter_router
+from .routes.evolution import router as evolution_router
 from .routes.game import router as game_router
 from .routes.npc import router as npc_router
 from .routes.pokemon import router as pokemon_router
@@ -22,6 +23,7 @@ app.include_router(game_router)
 app.include_router(encounter_router)
 app.include_router(battle_router)
 app.include_router(npc_router)
+app.include_router(evolution_router)
 
 
 @app.get("/api/health")
