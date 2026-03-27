@@ -19,6 +19,13 @@ from .status_service import (
     process_status_before_move,
     process_status_end_of_turn,
 )
+from .ability_service import (
+    check_ability_type_immunity,
+    process_ability_damage_modifier,
+    process_ability_end_of_turn,
+    process_ability_on_hit,
+    process_switch_in_ability,
+)
 
 # In-memory battle storage
 _battles: dict[str, BattleState] = {}
@@ -390,6 +397,32 @@ def process_action(
             continue
 
         dmg, eff, crit = _calculate_damage(attacker, defender, move)
+
+        # Ability: check type immunity (Levitate, Water Absorb, Flash Fire)
+        attacker_role = role
+        defender_role = "enemy" if role == "player" else "player"
+        immune, ab_events = check_ability_type_immunity(defender, move, defender_role)
+        status_events.extend(ab_events)
+        if immune:
+            events.append(
+                TurnEvent(
+                    attacker=role,
+                    move=move.name,
+                    damage=0,
+                    effectiveness="immune",
+                    critical=False,
+                    target_hp_remaining=defender.current_hp,
+                    target_fainted=False,
+                )
+            )
+            continue
+
+        # Ability: damage modifiers (Overgrow/Blaze/Torrent, Flash Fire boost, Sturdy)
+        dmg, ab_dmg_events = process_ability_damage_modifier(
+            attacker, defender, move, dmg, attacker_role, defender_role,
+        )
+        status_events.extend(ab_dmg_events)
+
         did_damage = dmg > 0
         defender.current_hp = max(0, defender.current_hp - dmg)
         fainted = defender.current_hp == 0
@@ -408,12 +441,17 @@ def process_action(
 
         # Process move secondary effects (status infliction, stat changes)
         if not fainted:
-            attacker_role = role
-            defender_role = "enemy" if role == "player" else "player"
             move_effects = process_move_effects(
                 move.name, attacker, defender, attacker_role, defender_role, did_damage
             )
             status_events.extend(move_effects)
+
+            # Ability: on-hit contact abilities (Static, Flame Body, Poison Point)
+            if did_damage:
+                hit_events = process_ability_on_hit(
+                    attacker, defender, move, attacker_role, defender_role,
+                )
+                status_events.extend(hit_events)
 
         if fainted:
             battle.is_over = True
@@ -429,6 +467,12 @@ def process_action(
                 battle.is_over = True
                 battle.winner = "enemy" if role == "player" else "player"
                 break
+
+    # End-of-turn ability effects (Speed Boost, etc.)
+    if not battle.is_over:
+        for role, pokemon in [("player", battle.player_pokemon), ("enemy", battle.enemy_pokemon)]:
+            ab_eot = process_ability_end_of_turn(pokemon, role)
+            status_events.extend(ab_eot)
 
     # Reset flinch at end of turn
     battle.player_pokemon.flinched = False

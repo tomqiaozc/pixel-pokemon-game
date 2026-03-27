@@ -27,6 +27,7 @@ class PokemonSpecies(BaseModel):
     learnset: list[LearnsetEntry]
     evolution: Optional[EvolutionData]
     sprite: str
+    abilities: list[str] = []
 
 
 class EncounterEntry(BaseModel):
@@ -54,6 +55,7 @@ class WildPokemon(BaseModel):
     catch_rate: int
     base_exp: int
     sprite: str
+    ability_id: Optional[str] = None
 
 
 class EncounterCheckRequest(BaseModel):

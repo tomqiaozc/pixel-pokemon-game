@@ -9,6 +9,7 @@ class Move(BaseModel):
     power: int
     accuracy: int
     pp: int
+    contact: bool = False
 
 
 class Stats(BaseModel):

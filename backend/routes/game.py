@@ -52,6 +52,7 @@ def choose_starter(req: ChooseStarterRequest):
         "moves": [m.model_dump() for m in starter.moves],
         "sprite": starter.sprite,
         "level": starter.level,
+        "ability_id": starter.ability_id,
     }
 
     # Create game with IV-calculated starter
