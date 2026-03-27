@@ -402,5 +402,144 @@
     ],
     "evolution": null,
     "sprite": "raichu.png"
+  },
+  {
+    "id": 17,
+    "name": "Geodude",
+    "types": ["rock", "ground"],
+    "base_exp": 60,
+    "catch_rate": 255,
+    "stats": {
+      "hp": 40,
+      "attack": 80,
+      "defense": 100,
+      "sp_attack": 30,
+      "sp_defense": 30,
+      "speed": 20
+    },
+    "learnset": [
+      {"level": 1, "move": "Tackle"},
+      {"level": 1, "move": "Defense Curl"},
+      {"level": 11, "move": "Rock Throw"},
+      {"level": 16, "move": "Self-Destruct"},
+      {"level": 21, "move": "Rock Slide"},
+      {"level": 26, "move": "Earthquake"}
+    ],
+    "evolution": null,
+    "sprite": "geodude.png"
+  },
+  {
+    "id": 18,
+    "name": "Onix",
+    "types": ["rock", "ground"],
+    "base_exp": 77,
+    "catch_rate": 45,
+    "stats": {
+      "hp": 35,
+      "attack": 45,
+      "defense": 160,
+      "sp_attack": 30,
+      "sp_defense": 45,
+      "speed": 70
+    },
+    "learnset": [
+      {"level": 1, "move": "Tackle"},
+      {"level": 1, "move": "Screech"},
+      {"level": 9, "move": "Bind"},
+      {"level": 13, "move": "Rock Throw"},
+      {"level": 19, "move": "Rock Slide"},
+      {"level": 25, "move": "Earthquake"}
+    ],
+    "evolution": null,
+    "sprite": "onix.png"
+  },
+  {
+    "id": 19,
+    "name": "Caterpie",
+    "types": ["bug"],
+    "base_exp": 39,
+    "catch_rate": 255,
+    "stats": {
+      "hp": 45,
+      "attack": 30,
+      "defense": 35,
+      "sp_attack": 20,
+      "sp_defense": 20,
+      "speed": 45
+    },
+    "learnset": [
+      {"level": 1, "move": "Tackle"},
+      {"level": 1, "move": "String Shot"}
+    ],
+    "evolution": null,
+    "sprite": "caterpie.png"
+  },
+  {
+    "id": 20,
+    "name": "Weedle",
+    "types": ["bug", "poison"],
+    "base_exp": 39,
+    "catch_rate": 255,
+    "stats": {
+      "hp": 40,
+      "attack": 35,
+      "defense": 30,
+      "sp_attack": 20,
+      "sp_defense": 20,
+      "speed": 50
+    },
+    "learnset": [
+      {"level": 1, "move": "Poison Sting"},
+      {"level": 1, "move": "String Shot"}
+    ],
+    "evolution": null,
+    "sprite": "weedle.png"
+  },
+  {
+    "id": 21,
+    "name": "Staryu",
+    "types": ["water"],
+    "base_exp": 68,
+    "catch_rate": 225,
+    "stats": {
+      "hp": 30,
+      "attack": 45,
+      "defense": 55,
+      "sp_attack": 70,
+      "sp_defense": 55,
+      "speed": 85
+    },
+    "learnset": [
+      {"level": 1, "move": "Tackle"},
+      {"level": 6, "move": "Harden"},
+      {"level": 11, "move": "Water Gun"},
+      {"level": 17, "move": "Swift"},
+      {"level": 22, "move": "Bubble Beam"}
+    ],
+    "evolution": {"to": 22, "level": 0},
+    "sprite": "staryu.png"
+  },
+  {
+    "id": 22,
+    "name": "Starmie",
+    "types": ["water", "psychic"],
+    "base_exp": 182,
+    "catch_rate": 60,
+    "stats": {
+      "hp": 60,
+      "attack": 75,
+      "defense": 85,
+      "sp_attack": 100,
+      "sp_defense": 85,
+      "speed": 115
+    },
+    "learnset": [
+      {"level": 1, "move": "Tackle"},
+      {"level": 1, "move": "Water Gun"},
+      {"level": 1, "move": "Swift"},
+      {"level": 1, "move": "Hydro Pump"}
+    ],
+    "evolution": null,
+    "sprite": "starmie.png"
   }
 ]

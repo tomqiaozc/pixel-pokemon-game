@@ -1,0 +1,69 @@
+[
+  {
+    "id": "youngster_joey",
+    "name": "Joey",
+    "trainer_class": "Youngster",
+    "sprite_id": "youngster",
+    "pokemon_team": [
+      {"species_id": 13, "name": "Rattata", "level": 6, "moves": ["Tackle", "Tail Whip"]}
+    ],
+    "reward_money": 120,
+    "sight_range": 3,
+    "dialogue_before": "I like shorts! They're comfy and easy to wear!",
+    "dialogue_after": "I lost, but my Rattata is in the top percentage!"
+  },
+  {
+    "id": "bug_catcher_rick",
+    "name": "Rick",
+    "trainer_class": "Bug Catcher",
+    "sprite_id": "bug_catcher",
+    "pokemon_team": [
+      {"species_id": 19, "name": "Caterpie", "level": 7, "moves": ["Tackle", "String Shot"]},
+      {"species_id": 20, "name": "Weedle", "level": 7, "moves": ["Poison Sting", "String Shot"]}
+    ],
+    "reward_money": 140,
+    "sight_range": 4,
+    "dialogue_before": "Yo! You can't pass without battling me!",
+    "dialogue_after": "Ugh, my bugs weren't strong enough..."
+  },
+  {
+    "id": "lass_sally",
+    "name": "Sally",
+    "trainer_class": "Lass",
+    "sprite_id": "lass",
+    "pokemon_team": [
+      {"species_id": 10, "name": "Pidgey", "level": 9, "moves": ["Tackle", "Sand Attack", "Gust"]}
+    ],
+    "reward_money": 180,
+    "sight_range": 3,
+    "dialogue_before": "Let's have a Pokemon battle!",
+    "dialogue_after": "Oh no, I lost! You're pretty good."
+  },
+  {
+    "id": "pewter_gym_trainer_1",
+    "name": "Liam",
+    "trainer_class": "Camper",
+    "sprite_id": "camper",
+    "pokemon_team": [
+      {"species_id": 17, "name": "Geodude", "level": 10, "moves": ["Tackle", "Defense Curl"]}
+    ],
+    "reward_money": 200,
+    "sight_range": 3,
+    "dialogue_before": "You dare challenge Brock? You'll have to get through me first!",
+    "dialogue_after": "Go ahead, but Brock is way tougher than me."
+  },
+  {
+    "id": "youngster_ben",
+    "name": "Ben",
+    "trainer_class": "Youngster",
+    "sprite_id": "youngster",
+    "pokemon_team": [
+      {"species_id": 13, "name": "Rattata", "level": 8, "moves": ["Tackle", "Tail Whip", "Quick Attack"]},
+      {"species_id": 10, "name": "Pidgey", "level": 7, "moves": ["Tackle", "Sand Attack"]}
+    ],
+    "reward_money": 160,
+    "sight_range": 3,
+    "dialogue_before": "Hey! I saw you looking over here!",
+    "dialogue_after": "Wow, you're tougher than you look!"
+  }
+]
