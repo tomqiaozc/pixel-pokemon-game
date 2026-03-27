@@ -1,0 +1,191 @@
+[
+  {
+    "id": 1,
+    "name": "Bulbasaur",
+    "types": ["grass", "poison"],
+    "stats": {
+      "hp": 45,
+      "attack": 49,
+      "defense": 49,
+      "sp_attack": 65,
+      "sp_defense": 65,
+      "speed": 45
+    },
+    "moves": [
+      {"name": "Tackle", "type": "normal", "power": 40, "accuracy": 100, "pp": 35},
+      {"name": "Vine Whip", "type": "grass", "power": 45, "accuracy": 100, "pp": 25},
+      {"name": "Razor Leaf", "type": "grass", "power": 55, "accuracy": 95, "pp": 25},
+      {"name": "Solar Beam", "type": "grass", "power": 120, "accuracy": 100, "pp": 10}
+    ],
+    "sprite": "bulbasaur.png",
+    "level": 5
+  },
+  {
+    "id": 2,
+    "name": "Ivysaur",
+    "types": ["grass", "poison"],
+    "stats": {
+      "hp": 60,
+      "attack": 62,
+      "defense": 63,
+      "sp_attack": 80,
+      "sp_defense": 80,
+      "speed": 60
+    },
+    "moves": [
+      {"name": "Tackle", "type": "normal", "power": 40, "accuracy": 100, "pp": 35},
+      {"name": "Vine Whip", "type": "grass", "power": 45, "accuracy": 100, "pp": 25},
+      {"name": "Razor Leaf", "type": "grass", "power": 55, "accuracy": 95, "pp": 25},
+      {"name": "Solar Beam", "type": "grass", "power": 120, "accuracy": 100, "pp": 10}
+    ],
+    "sprite": "ivysaur.png",
+    "level": 16
+  },
+  {
+    "id": 3,
+    "name": "Venusaur",
+    "types": ["grass", "poison"],
+    "stats": {
+      "hp": 80,
+      "attack": 82,
+      "defense": 83,
+      "sp_attack": 100,
+      "sp_defense": 100,
+      "speed": 80
+    },
+    "moves": [
+      {"name": "Tackle", "type": "normal", "power": 40, "accuracy": 100, "pp": 35},
+      {"name": "Vine Whip", "type": "grass", "power": 45, "accuracy": 100, "pp": 25},
+      {"name": "Razor Leaf", "type": "grass", "power": 55, "accuracy": 95, "pp": 25},
+      {"name": "Solar Beam", "type": "grass", "power": 120, "accuracy": 100, "pp": 10}
+    ],
+    "sprite": "venusaur.png",
+    "level": 32
+  },
+  {
+    "id": 4,
+    "name": "Charmander",
+    "types": ["fire"],
+    "stats": {
+      "hp": 39,
+      "attack": 52,
+      "defense": 43,
+      "sp_attack": 60,
+      "sp_defense": 50,
+      "speed": 65
+    },
+    "moves": [
+      {"name": "Scratch", "type": "normal", "power": 40, "accuracy": 100, "pp": 35},
+      {"name": "Ember", "type": "fire", "power": 40, "accuracy": 100, "pp": 25},
+      {"name": "Flamethrower", "type": "fire", "power": 90, "accuracy": 100, "pp": 15},
+      {"name": "Fire Spin", "type": "fire", "power": 35, "accuracy": 85, "pp": 15}
+    ],
+    "sprite": "charmander.png",
+    "level": 5
+  },
+  {
+    "id": 5,
+    "name": "Charmeleon",
+    "types": ["fire"],
+    "stats": {
+      "hp": 58,
+      "attack": 64,
+      "defense": 58,
+      "sp_attack": 80,
+      "sp_defense": 65,
+      "speed": 80
+    },
+    "moves": [
+      {"name": "Scratch", "type": "normal", "power": 40, "accuracy": 100, "pp": 35},
+      {"name": "Ember", "type": "fire", "power": 40, "accuracy": 100, "pp": 25},
+      {"name": "Flamethrower", "type": "fire", "power": 90, "accuracy": 100, "pp": 15},
+      {"name": "Slash", "type": "normal", "power": 70, "accuracy": 100, "pp": 20}
+    ],
+    "sprite": "charmeleon.png",
+    "level": 16
+  },
+  {
+    "id": 6,
+    "name": "Charizard",
+    "types": ["fire", "flying"],
+    "stats": {
+      "hp": 78,
+      "attack": 84,
+      "defense": 78,
+      "sp_attack": 109,
+      "sp_defense": 85,
+      "speed": 100
+    },
+    "moves": [
+      {"name": "Slash", "type": "normal", "power": 70, "accuracy": 100, "pp": 20},
+      {"name": "Flamethrower", "type": "fire", "power": 90, "accuracy": 100, "pp": 15},
+      {"name": "Fire Blast", "type": "fire", "power": 110, "accuracy": 85, "pp": 5},
+      {"name": "Wing Attack", "type": "flying", "power": 60, "accuracy": 100, "pp": 35}
+    ],
+    "sprite": "charizard.png",
+    "level": 36
+  },
+  {
+    "id": 7,
+    "name": "Squirtle",
+    "types": ["water"],
+    "stats": {
+      "hp": 44,
+      "attack": 48,
+      "defense": 65,
+      "sp_attack": 50,
+      "sp_defense": 64,
+      "speed": 43
+    },
+    "moves": [
+      {"name": "Tackle", "type": "normal", "power": 40, "accuracy": 100, "pp": 35},
+      {"name": "Water Gun", "type": "water", "power": 40, "accuracy": 100, "pp": 25},
+      {"name": "Bubble Beam", "type": "water", "power": 65, "accuracy": 100, "pp": 20},
+      {"name": "Hydro Pump", "type": "water", "power": 110, "accuracy": 80, "pp": 5}
+    ],
+    "sprite": "squirtle.png",
+    "level": 5
+  },
+  {
+    "id": 8,
+    "name": "Wartortle",
+    "types": ["water"],
+    "stats": {
+      "hp": 59,
+      "attack": 63,
+      "defense": 80,
+      "sp_attack": 65,
+      "sp_defense": 80,
+      "speed": 58
+    },
+    "moves": [
+      {"name": "Tackle", "type": "normal", "power": 40, "accuracy": 100, "pp": 35},
+      {"name": "Water Gun", "type": "water", "power": 40, "accuracy": 100, "pp": 25},
+      {"name": "Bubble Beam", "type": "water", "power": 65, "accuracy": 100, "pp": 20},
+      {"name": "Hydro Pump", "type": "water", "power": 110, "accuracy": 80, "pp": 5}
+    ],
+    "sprite": "wartortle.png",
+    "level": 16
+  },
+  {
+    "id": 9,
+    "name": "Blastoise",
+    "types": ["water"],
+    "stats": {
+      "hp": 79,
+      "attack": 83,
+      "defense": 100,
+      "sp_attack": 85,
+      "sp_defense": 105,
+      "speed": 78
+    },
+    "moves": [
+      {"name": "Tackle", "type": "normal", "power": 40, "accuracy": 100, "pp": 35},
+      {"name": "Water Gun", "type": "water", "power": 40, "accuracy": 100, "pp": 25},
+      {"name": "Bubble Beam", "type": "water", "power": 65, "accuracy": 100, "pp": 20},
+      {"name": "Hydro Pump", "type": "water", "power": 110, "accuracy": 80, "pp": 5}
+    ],
+    "sprite": "blastoise.png",
+    "level": 36
+  }
+]
