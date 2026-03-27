@@ -40,37 +40,58 @@ const NPC = (() => {
 
     function init() {
         npcs.length = 0;
+    }
 
-        // Place NPCs in the starter town
-        addNPC('Prof. Oak', 'professor', 10, 11, 0, [
-            "Hello there! Welcome to the world of Pokemon!",
-            "This town is peaceful, but wild Pokemon lurk in the tall grass.",
-            "Be careful out there, young trainer!",
-        ]);
+    // Load NPCs for the given map from MapLoader's registered config
+    function loadForMap(mapId) {
+        npcs.length = 0;
 
-        addNPC('Nurse Joy', 'nurse', 5, 6, 0, [
-            "Welcome to the Pokemon Center!",
-            "Let me heal your Pokemon to full health.",
-            "Your Pokemon are fighting fit! Come back anytime.",
-        ]);
+        const map = MapLoader.getCurrentMap();
+        if (map && map.npcs) {
+            for (const npcDef of map.npcs) {
+                addNPC(npcDef.name, npcDef.type || 'townsfolk', npcDef.x, npcDef.y, npcDef.dir || 0, npcDef.dialogue || []);
+            }
+        }
 
-        addNPC('Shopkeeper', 'shopkeeper', 22, 6, 0, [
-            "Welcome to the Poke Mart!",
-            "We have Potions, Poke Balls, and more!",
-            "Come back when you need supplies.",
-        ]);
-
-        addNPC('Youngster', 'townsfolk', 18, 14, 2, [
-            "I love Pokemon! Do you have one too?",
-            "The tall grass to the west has lots of wild Pokemon!",
-            "I want to catch them all someday!",
-        ]);
-
-        addNPC('Girl', 'townsfolk', 6, 18, 3, [
-            "Have you seen the pond to the east?",
-            "I heard there are water Pokemon there, but I can't reach them.",
-            "Maybe someday someone will teach a Pokemon to Surf!",
-        ]);
+        // Fallback hardcoded NPCs per map (until maps carry NPC data)
+        if (npcs.length === 0) {
+            if (mapId === 'pallet_town') {
+                addNPC('Prof. Oak', 'professor', 10, 11, 0, [
+                    "Hello there! Welcome to the world of Pokemon!",
+                    "This town is peaceful, but wild Pokemon lurk in the tall grass.",
+                    "Be careful out there, young trainer!",
+                ]);
+                addNPC('Girl', 'townsfolk', 6, 18, 3, [
+                    "Have you seen the pond to the east?",
+                    "I heard there are water Pokemon there, but I can't reach them.",
+                    "Maybe someday someone will teach a Pokemon to Surf!",
+                ]);
+            } else if (mapId === 'viridian_city') {
+                addNPC('Nurse Joy', 'nurse', 5, 6, 0, [
+                    "Welcome to the Pokemon Center!",
+                    "Let me heal your Pokemon to full health.",
+                    "Your Pokemon are fighting fit! Come back anytime.",
+                ]);
+                addNPC('Shopkeeper', 'shopkeeper', 22, 6, 0, [
+                    "Welcome to the Poke Mart!",
+                    "We have Potions, Poke Balls, and more!",
+                    "Come back when you need supplies.",
+                ]);
+                addNPC('Youngster', 'townsfolk', 18, 14, 2, [
+                    "Viridian Forest is just north of here.",
+                    "Be careful, it's full of bug Pokemon!",
+                ]);
+            } else if (mapId === 'pewter_city') {
+                addNPC('Nurse Joy', 'nurse', 5, 6, 0, [
+                    "Welcome to the Pokemon Center!",
+                    "We'll take care of your Pokemon.",
+                ]);
+                addNPC('Youngster', 'townsfolk', 18, 14, 2, [
+                    "Brock is the Gym Leader here.",
+                    "He uses Rock-type Pokemon. Be prepared!",
+                ]);
+            }
+        }
     }
 
     function addNPC(name, type, tileX, tileY, dir, dialogue) {
@@ -218,5 +239,5 @@ const NPC = (() => {
         return false;
     }
 
-    return { init, update, render, checkInteraction, isSolid, npcs };
+    return { init, loadForMap, update, render, checkInteraction, isSolid, npcs };
 })();

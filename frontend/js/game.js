@@ -303,6 +303,7 @@ const Game = (() => {
         const map = MapLoader.getCurrentMap();
         if (!map) return;
         GameMap.loadMapData(map.data, map.width, map.height);
+        NPC.loadForMap(mapId);
         if (map.trainers) {
             TrainerEncounter.loadTrainers(mapId, map.trainers);
         }

@@ -349,7 +349,6 @@ const Routes = (() => {
             ],
             doors: [
                 { x: 5, y: 6, targetMap: 'pokecenter', spawnX: 7, spawnY: 9 },
-                { x: 12, y: 16, targetMap: 'oak_lab', spawnX: 5, spawnY: 8 },
             ],
         });
 
