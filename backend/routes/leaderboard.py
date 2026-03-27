@@ -1,6 +1,7 @@
 """Leaderboard, stats, and achievement API routes."""
 from fastapi import APIRouter, HTTPException
 
+from ..services.game_service import get_game
 from ..services.leaderboard_service import (
     check_achievements,
     get_achievements,
@@ -44,10 +45,18 @@ def player_stats(player_id: str):
 
 @router.get("/player/{player_id}/achievements")
 def player_achievements(player_id: str):
+    # H4: Return 404 for nonexistent players
+    game = get_game(player_id)
+    if game is None:
+        raise HTTPException(status_code=404, detail="Player not found")
     return get_achievements(player_id)
 
 
 @router.post("/achievements/check/{player_id}")
 def check_player_achievements(player_id: str):
+    # M4: Return 404 for nonexistent players
+    game = get_game(player_id)
+    if game is None:
+        raise HTTPException(status_code=404, detail="Player not found")
     result = check_achievements(player_id)
     return result

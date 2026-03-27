@@ -19,6 +19,11 @@ from ..services.item_service import (
     toss_item,
     use_item,
 )
+from ..services.leaderboard_service import (
+    check_achievements,
+    record_money_spent,
+    record_pokemon_caught,
+)
 from ..services.pokedex_service import auto_deposit, register_caught
 
 router = APIRouter(prefix="/api", tags=["items"])
@@ -74,6 +79,15 @@ def buy(req: BuyRequest):
     result = buy_item(req.game_id, req.shop_id, req.item_id, req.quantity)
     if result is None:
         raise HTTPException(status_code=404, detail="Game not found")
+    # C1/C2: Record money spent and check achievements after successful purchase
+    if result.success:
+        total_cost = 0
+        item = get_item(req.item_id)
+        if item:
+            total_cost = item.price * req.quantity
+        if total_cost > 0:
+            record_money_spent(req.game_id, total_cost)
+            check_achievements(req.game_id)
     return result
 
 
@@ -147,5 +161,9 @@ def catch_pokemon(req: CatchRequest):
 
             # Register in Pokedex
             register_caught(req.game_id, enemy.species_id)
+
+        # C1/C2: Record Pokemon caught and check achievements
+        record_pokemon_caught(req.game_id)
+        check_achievements(req.game_id)
 
     return result

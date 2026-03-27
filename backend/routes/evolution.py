@@ -18,6 +18,7 @@ from ..services.evolution_service import (
     get_pending_moves,
 )
 from ..services.game_service import get_game
+from ..services.leaderboard_service import check_achievements, record_evolution
 
 router = APIRouter(prefix="/api/evolution", tags=["evolution"])
 
@@ -47,6 +48,10 @@ def evolve(game_id: str, pokemon_index: int):
     pokemon["name"] = result.new_name
     pokemon["stats"] = result.new_stats
     pokemon["moves"] = [m.model_dump() for m in result.new_moves]
+
+    # C1/C2: Record evolution and check achievements
+    record_evolution(game_id)
+    check_achievements(game_id)
 
     return result
 

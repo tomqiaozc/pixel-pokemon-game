@@ -437,6 +437,9 @@ def _resolve_pvp_turn(
 
 def _finalize_battle(session: PvPSession, battle: BattleState, result: PvPTurnResult) -> None:
     """Record battle result and update history."""
+    # Deferred import to avoid circular dependency
+    from .leaderboard_service import check_achievements, record_pvp_result
+
     winner_id = session.player1_id if result.winner == "player1" else session.player2_id
     loser_id = session.player2_id if result.winner == "player1" else session.player1_id
 
@@ -459,9 +462,18 @@ def _finalize_battle(session: PvPSession, battle: BattleState, result: PvPTurnRe
     _record_history(session.player1_id, p2_name, "win" if winner_id == session.player1_id else "loss", battle.turn_count)
     _record_history(session.player2_id, p1_name, "win" if winner_id == session.player2_id else "loss", battle.turn_count)
 
+    # C1/C2: Record PvP results and check achievements for both players
+    record_pvp_result(winner_id, won=True)
+    record_pvp_result(loser_id, won=False)
+    check_achievements(winner_id)
+    check_achievements(loser_id)
+
 
 def forfeit_battle(session_id: str, player_id: str) -> PvPBattleResult:
     """Forfeit a PvP battle."""
+    # Deferred import to avoid circular dependency
+    from .leaderboard_service import check_achievements, record_pvp_result
+
     session = get_pvp_session(session_id)
     if session is None:
         raise ValueError("PvP session not found or expired")
@@ -501,6 +513,12 @@ def forfeit_battle(session_id: str, player_id: str) -> PvPBattleResult:
                     "win" if winner_id == session.player1_id else "loss", turns, forfeit=True)
     _record_history(session.player2_id, p1_name,
                     "win" if winner_id == session.player2_id else "loss", turns, forfeit=True)
+
+    # C1/C2: Record PvP results and check achievements for both players
+    record_pvp_result(winner_id, won=True)
+    record_pvp_result(loser_id, won=False)
+    check_achievements(winner_id)
+    check_achievements(loser_id)
 
     return result
 

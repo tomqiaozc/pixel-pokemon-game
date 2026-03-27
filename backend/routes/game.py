@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, ValidationError
 
 from ..services.encounter_service import generate_wild_pokemon, get_species
-from ..services.game_service import create_game, create_game_with_starter, get_game, save_game
+from ..services.game_service import create_game, create_game_with_starter, get_game, save_game, update_play_time
 
 router = APIRouter(prefix="/api/game", tags=["game"])
 
@@ -19,6 +19,10 @@ class ChooseStarterRequest(BaseModel):
 
 class SaveGameRequest(BaseModel):
     player: dict
+
+
+class UpdatePlayTimeRequest(BaseModel):
+    seconds: int
 
 
 @router.post("/new")
@@ -76,3 +80,12 @@ def save(game_id: str, req: SaveGameRequest):
     if state is None:
         raise HTTPException(status_code=404, detail="Game not found")
     return state
+
+
+@router.post("/{game_id}/play-time")
+def update_play_time_endpoint(game_id: str, req: UpdatePlayTimeRequest):
+    """M2: Update the play time for a game session."""
+    result = update_play_time(game_id, req.seconds)
+    if result is None:
+        raise HTTPException(status_code=404, detail="Game not found")
+    return {"play_time_seconds": result["play_time_seconds"]}
