@@ -1,0 +1,114 @@
+{
+  "overgrow": {
+    "id": "overgrow",
+    "name": "Overgrow",
+    "description": "Boosts Grass-type moves by 50% when HP is below 1/3",
+    "trigger_types": ["before_damage"],
+    "trigger_data": {"move_type": "grass", "hp_threshold": 0.33, "boost": 1.5}
+  },
+  "blaze": {
+    "id": "blaze",
+    "name": "Blaze",
+    "description": "Boosts Fire-type moves by 50% when HP is below 1/3",
+    "trigger_types": ["before_damage"],
+    "trigger_data": {"move_type": "fire", "hp_threshold": 0.33, "boost": 1.5}
+  },
+  "torrent": {
+    "id": "torrent",
+    "name": "Torrent",
+    "description": "Boosts Water-type moves by 50% when HP is below 1/3",
+    "trigger_types": ["before_damage"],
+    "trigger_data": {"move_type": "water", "hp_threshold": 0.33, "boost": 1.5}
+  },
+  "static": {
+    "id": "static",
+    "name": "Static",
+    "description": "30% chance to paralyze attacker on contact",
+    "trigger_types": ["on_hit"],
+    "trigger_data": {"chance": 0.3, "status": "par", "contact_only": true}
+  },
+  "intimidate": {
+    "id": "intimidate",
+    "name": "Intimidate",
+    "description": "Lowers opponent's Attack by 1 stage on switch-in",
+    "trigger_types": ["on_switch_in"],
+    "trigger_data": {"stat": "attack", "stages": -1}
+  },
+  "sturdy": {
+    "id": "sturdy",
+    "name": "Sturdy",
+    "description": "Survives a one-hit KO with 1 HP when at full HP",
+    "trigger_types": ["on_take_damage"],
+    "trigger_data": {"survive_ohko": true}
+  },
+  "levitate": {
+    "id": "levitate",
+    "name": "Levitate",
+    "description": "Immune to Ground-type moves",
+    "trigger_types": ["on_take_damage"],
+    "trigger_data": {"immune_type": "ground"}
+  },
+  "speed_boost": {
+    "id": "speed_boost",
+    "name": "Speed Boost",
+    "description": "Speed rises by 1 stage at the end of each turn",
+    "trigger_types": ["end_of_turn"],
+    "trigger_data": {"stat": "speed", "stages": 1}
+  },
+  "poison_point": {
+    "id": "poison_point",
+    "name": "Poison Point",
+    "description": "30% chance to poison attacker on contact",
+    "trigger_types": ["on_hit"],
+    "trigger_data": {"chance": 0.3, "status": "psn", "contact_only": true}
+  },
+  "flame_body": {
+    "id": "flame_body",
+    "name": "Flame Body",
+    "description": "30% chance to burn attacker on contact",
+    "trigger_types": ["on_hit"],
+    "trigger_data": {"chance": 0.3, "status": "brn", "contact_only": true}
+  },
+  "water_absorb": {
+    "id": "water_absorb",
+    "name": "Water Absorb",
+    "description": "Heals 25% HP when hit by a Water-type move",
+    "trigger_types": ["on_take_damage"],
+    "trigger_data": {"absorb_type": "water", "heal_fraction": 0.25}
+  },
+  "flash_fire": {
+    "id": "flash_fire",
+    "name": "Flash Fire",
+    "description": "Immune to Fire moves; boosts own Fire moves by 50% when hit",
+    "trigger_types": ["on_take_damage"],
+    "trigger_data": {"absorb_type": "fire", "boost_type": "fire", "boost": 1.5}
+  },
+  "limber": {
+    "id": "limber",
+    "name": "Limber",
+    "description": "Immune to paralysis",
+    "trigger_types": ["on_status"],
+    "trigger_data": {"immune_status": "par"}
+  },
+  "keen_eye": {
+    "id": "keen_eye",
+    "name": "Keen Eye",
+    "description": "Prevents accuracy reduction",
+    "trigger_types": ["on_stat_change"],
+    "trigger_data": {"protect_stat": "accuracy", "protect_direction": "down"}
+  },
+  "rock_head": {
+    "id": "rock_head",
+    "name": "Rock Head",
+    "description": "No recoil damage from recoil moves",
+    "trigger_types": ["passive"],
+    "trigger_data": {"prevent_recoil": true}
+  },
+  "run_away": {
+    "id": "run_away",
+    "name": "Run Away",
+    "description": "Guarantees escape from wild battles",
+    "trigger_types": ["passive"],
+    "trigger_data": {"guaranteed_run": true}
+  }
+}

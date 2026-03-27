@@ -39,6 +39,12 @@ const PauseMenu = (() => {
     const BAG_TABS = ['Potions', 'Balls', 'Battle', 'Key Items'];
     const BAG_TAB_KEYS = ['potions', 'pokeballs', 'battle', 'key'];
 
+    // Status condition display in party
+    const STATUS_COLORS = {
+        poison: '#a040a0', burn: '#f08030', paralysis: '#f8d030',
+        sleep: '#8898b0', freeze: '#98d8d8', toxic: '#702070',
+    };
+
     function open() {
         active = true;
         menuIndex = 0;
@@ -232,6 +238,9 @@ const PauseMenu = (() => {
         ctx.lineWidth = 3;
         ctx.strokeRect(mx, my, menuW, menuH);
 
+        // Time display at top
+        DayCycle.renderTimeDisplay(ctx, mx + 10, my - 6);
+
         // Menu items
         ctx.font = 'bold 16px monospace';
         for (let i = 0; i < MENU_ITEMS.length; i++) {
@@ -335,6 +344,25 @@ const PauseMenu = (() => {
                 ctx.font = '10px monospace';
                 ctx.textAlign = 'right';
                 ctx.fillText(`${poke.hp}/${poke.maxHp}`, barX + barW, barY + 28);
+
+                // Status condition badge
+                if (poke.status) {
+                    const sColor = STATUS_COLORS[poke.status] || '#808080';
+                    const sAbbr = poke.status === 'toxic' ? 'TOX'
+                                : poke.status === 'poison' ? 'PSN'
+                                : poke.status === 'burn' ? 'BRN'
+                                : poke.status === 'paralysis' ? 'PAR'
+                                : poke.status === 'sleep' ? 'SLP'
+                                : poke.status === 'freeze' ? 'FRZ' : '';
+                    if (sAbbr) {
+                        ctx.fillStyle = sColor;
+                        ctx.fillRect(slotX + 130, slotY + 6, 30, 14);
+                        ctx.fillStyle = '#ffffff';
+                        ctx.font = 'bold 9px monospace';
+                        ctx.textAlign = 'center';
+                        ctx.fillText(sAbbr, slotX + 145, slotY + 17);
+                    }
+                }
 
                 // Simple sprite indicator
                 ctx.fillStyle = TYPE_COLORS[poke.type] || '#a0a0a0';

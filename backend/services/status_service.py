@@ -42,9 +42,13 @@ def get_effective_stat(pokemon: BattlePokemon, stat_name: str) -> int:
 
 
 def can_apply_status(pokemon: BattlePokemon, status: str) -> bool:
-    """Check if a status can be applied (considering type immunities and existing status)."""
+    """Check if a status can be applied (considering type immunities, existing status, and abilities)."""
     if pokemon.status is not None:
         return False  # already has a primary status
+    # Ability immunity check
+    from .ability_service import ability_prevents_status
+    if ability_prevents_status(pokemon, status):
+        return False
     immune_types = _STATUS_IMMUNITIES.get(status, [])
     for t in pokemon.types:
         if t in immune_types:
@@ -55,7 +59,19 @@ def can_apply_status(pokemon: BattlePokemon, status: str) -> bool:
 def apply_status(pokemon: BattlePokemon, status: str, role: str) -> StatusEvent | None:
     """Try to apply a primary status condition. Returns event or None."""
     if not can_apply_status(pokemon, status):
-        # Check if immune
+        # Check if ability immunity
+        from .ability_service import ability_prevents_status, get_ability_name
+        if ability_prevents_status(pokemon, status):
+            ab_name = get_ability_name(pokemon.ability_id) if pokemon.ability_id else "ability"
+            return StatusEvent(
+                pokemon=role,
+                event_type="status_prevented",
+                status=status,
+                message=f"{pokemon.name}'s {ab_name} prevents {_status_name(status)}!",
+                ability_id=pokemon.ability_id,
+                ability_name=ab_name,
+            )
+        # Check if immune by type
         immune_types = _STATUS_IMMUNITIES.get(status, [])
         for t in pokemon.types:
             if t in immune_types:
@@ -220,6 +236,20 @@ def process_status_end_of_turn(pokemon: BattlePokemon, role: str) -> list[Status
 
 def apply_stat_change(pokemon: BattlePokemon, stat: str, stages: int, role: str) -> StatusEvent | None:
     """Apply stat stage change. Returns event or None if already at max/min."""
+    # Ability check for stat drop prevention
+    if stages < 0:
+        from .ability_service import ability_prevents_stat_drop, get_ability_name
+        if ability_prevents_stat_drop(pokemon, stat):
+            ab_name = get_ability_name(pokemon.ability_id) if pokemon.ability_id else "ability"
+            return StatusEvent(
+                pokemon=role,
+                event_type="stat_change",
+                stat=stat,
+                stages=0,
+                message=f"{pokemon.name}'s {ab_name} prevents {stat} from being lowered!",
+                ability_id=pokemon.ability_id,
+                ability_name=ab_name,
+            )
     current = getattr(pokemon.stat_stages, stat, 0)
     new_val = max(-6, min(6, current + stages))
     if new_val == current:
