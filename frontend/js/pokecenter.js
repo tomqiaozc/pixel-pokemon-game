@@ -126,6 +126,15 @@ const PokeCenter = (() => {
             return { exited: false };
         }
 
+        // PvP phase — delegate to PvP module
+        if (phase === 'pvp') {
+            PvP.update(dt);
+            if (!PvP.isActive()) {
+                phase = 'idle';
+            }
+            return { exited: false };
+        }
+
         // Healing animation
         if (phase === 'healing') {
             healTimer += dt;
@@ -167,6 +176,7 @@ const PokeCenter = (() => {
                     [
                         { text: 'Heal', value: 'heal' },
                         { text: 'Trade', value: 'trade' },
+                        { text: 'Battle', value: 'battle' },
                         { text: 'Cancel', value: 'cancel' },
                     ],
                     (choice) => {
@@ -178,6 +188,13 @@ const PokeCenter = (() => {
                                 onComplete: () => {
                                     phase = 'trade';
                                     Trading.open();
+                                },
+                            });
+                        } else if (choice === 'battle') {
+                            Dialogue.start('Nurse Joy', ['Head to the Battle Room! Good luck!'], {
+                                onComplete: () => {
+                                    phase = 'pvp';
+                                    PvP.open();
                                 },
                             });
                         } else {
@@ -267,6 +284,11 @@ const PokeCenter = (() => {
         // Trade overlay
         if (phase === 'trade') {
             Trading.render(ctx, canvasW, canvasH);
+        }
+
+        // PvP overlay
+        if (phase === 'pvp') {
+            PvP.render(ctx, canvasW, canvasH);
         }
 
         // Dialogue overlay

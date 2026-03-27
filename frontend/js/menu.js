@@ -3,7 +3,7 @@
 const PauseMenu = (() => {
     let active = false;
     let menuIndex = 0;
-    let subScreen = null; // null, 'party', 'bag', 'pokedex', 'trainercard', 'leaderboard', 'trade', 'badges', 'save'
+    let subScreen = null; // null, 'party', 'bag', 'pokedex', 'trainercard', 'leaderboard', 'trade', 'pvp', 'badges', 'save'
     let actionCooldown = 0;
     let slideProgress = 0;
 
@@ -35,7 +35,7 @@ const PauseMenu = (() => {
     // Party screen state
     let partyIndex = 0;
 
-    const MENU_ITEMS = ['Pokemon', 'Bag', 'Pokedex', 'Trainer Card', 'Leaderboard', 'Trade', 'Quests', 'Badges', 'Save', 'Close'];
+    const MENU_ITEMS = ['Pokemon', 'Bag', 'Pokedex', 'Trainer Card', 'Leaderboard', 'Trade', 'PvP Battle', 'Quests', 'Badges', 'Save', 'Close'];
     const BAG_TABS = ['Potions', 'Balls', 'Battle', 'Key Items'];
     const BAG_TAB_KEYS = ['potions', 'pokeballs', 'battle', 'key'];
 
@@ -112,9 +112,10 @@ const PauseMenu = (() => {
                 else if (menuIndex === 3) { subScreen = 'trainercard'; TrainerCard.open(); }
                 else if (menuIndex === 4) { subScreen = 'leaderboard'; Leaderboard.open(); }
                 else if (menuIndex === 5) { subScreen = 'trade'; Trading.open(); }
-                else if (menuIndex === 6) { Quests.openJournal(); close(); }
-                else if (menuIndex === 7) { subScreen = 'badges'; BadgeCase.open(); }
-                else if (menuIndex === 8) {
+                else if (menuIndex === 6) { subScreen = 'pvp'; PvP.open(); }
+                else if (menuIndex === 7) { Quests.openJournal(); close(); }
+                else if (menuIndex === 8) { subScreen = 'badges'; BadgeCase.open(); }
+                else if (menuIndex === 9) {
                     // Save game to backend
                     const p = Game.player;
                     API.saveGame({
@@ -131,7 +132,7 @@ const PauseMenu = (() => {
                     subScreen = 'save';
                     actionCooldown = 200;
                 }
-                else if (menuIndex === 9) { close(); }
+                else if (menuIndex === 10) { close(); }
             }
             if (back) { close(); actionCooldown = 200; }
         } else if (subScreen === 'party') {
@@ -150,6 +151,9 @@ const PauseMenu = (() => {
         } else if (subScreen === 'trade') {
             Trading.update(dt);
             if (!Trading.isActive()) { subScreen = null; }
+        } else if (subScreen === 'pvp') {
+            PvP.update(dt);
+            if (!PvP.isActive()) { subScreen = null; }
         } else if (subScreen === 'badges') {
             BadgeCase.update(dt);
             if (!BadgeCase.isActive()) { subScreen = null; }
@@ -221,6 +225,8 @@ const PauseMenu = (() => {
             Leaderboard.render(ctx, canvasW, canvasH);
         } else if (subScreen === 'trade') {
             Trading.render(ctx, canvasW, canvasH);
+        } else if (subScreen === 'pvp') {
+            PvP.render(ctx, canvasW, canvasH);
         } else if (subScreen === 'badges') {
             BadgeCase.render(ctx, canvasW, canvasH);
         } else if (subScreen === 'save') {

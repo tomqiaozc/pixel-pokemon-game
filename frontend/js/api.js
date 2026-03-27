@@ -200,10 +200,68 @@ const API = (() => {
         }
     }
 
+    // --- PvP API ---
+
+    async function pvpCreate(format) {
+        if (!gameId) return null;
+        try {
+            const res = await fetch(`${BASE_URL}/pvp/create`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ game_id: gameId, format }),
+            });
+            if (!res.ok) return null;
+            return await res.json();
+        } catch {
+            return null;
+        }
+    }
+
+    async function pvpJoin(battleCode) {
+        if (!gameId) return null;
+        try {
+            const res = await fetch(`${BASE_URL}/pvp/join`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ game_id: gameId, battle_code: battleCode }),
+            });
+            if (!res.ok) return null;
+            return await res.json();
+        } catch {
+            return null;
+        }
+    }
+
+    async function pvpAction(battleId, action) {
+        if (!gameId) return null;
+        try {
+            const res = await fetch(`${BASE_URL}/pvp/action`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ game_id: gameId, battle_id: battleId, action }),
+            });
+            if (!res.ok) return null;
+            return await res.json();
+        } catch {
+            return null;
+        }
+    }
+
+    async function pvpState(battleId) {
+        try {
+            const res = await fetch(`${BASE_URL}/pvp/state?battle_id=${battleId}`);
+            if (!res.ok) return null;
+            return await res.json();
+        } catch {
+            return null;
+        }
+    }
+
     return {
         createGame, getGameId, healParty, registerSeen,
         registerCaught, saveGame, getInventory, useItem,
         awardExp, checkEncounter,
         tradeOffer, tradeConfirm, tradeStatus,
+        pvpCreate, pvpJoin, pvpAction, pvpState,
     };
 })();
