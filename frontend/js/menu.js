@@ -59,15 +59,26 @@ const PauseMenu = (() => {
 
     function syncParty() {
         party.length = 0;
-        const starter = Game.player.starter;
-        if (starter) {
+        if (Game.player.party && Game.player.party.length > 0) {
+            for (const poke of Game.player.party) {
+                party.push({
+                    name: poke.name,
+                    level: poke.level,
+                    hp: poke.hp,
+                    maxHp: poke.maxHp,
+                    type: poke.type,
+                    typeColor: poke.typeColor,
+                });
+            }
+        } else if (Game.player.starter) {
+            // Fallback for backwards compatibility
             party.push({
-                name: starter.name,
+                name: Game.player.starter.name,
                 level: 5,
                 hp: 20,
                 maxHp: 20,
-                type: starter.type,
-                typeColor: starter.typeColor,
+                type: Game.player.starter.type,
+                typeColor: Game.player.starter.typeColor,
             });
         }
     }
