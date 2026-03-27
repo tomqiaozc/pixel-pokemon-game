@@ -3,7 +3,7 @@
 const PauseMenu = (() => {
     let active = false;
     let menuIndex = 0;
-    let subScreen = null; // null, 'party', 'bag', 'save'
+    let subScreen = null; // null, 'party', 'bag', 'pokedex', 'save'
     let actionCooldown = 0;
     let slideProgress = 0;
 
@@ -35,7 +35,7 @@ const PauseMenu = (() => {
     // Party screen state
     let partyIndex = 0;
 
-    const MENU_ITEMS = ['Pokemon', 'Bag', 'Save', 'Close'];
+    const MENU_ITEMS = ['Pokemon', 'Bag', 'Pokedex', 'Save', 'Close'];
     const BAG_TABS = ['Potions', 'Balls', 'Battle', 'Key Items'];
     const BAG_TAB_KEYS = ['potions', 'pokeballs', 'battle', 'key'];
 
@@ -91,14 +91,18 @@ const PauseMenu = (() => {
                 actionCooldown = 200;
                 if (menuIndex === 0) { subScreen = 'party'; partyIndex = 0; }
                 else if (menuIndex === 1) { subScreen = 'bag'; bagTab = 0; bagIndex = 0; bagAction = -1; }
-                else if (menuIndex === 2) { /* Save - placeholder */ }
-                else if (menuIndex === 3) { close(); }
+                else if (menuIndex === 2) { subScreen = 'pokedex'; Pokedex.open(); }
+                else if (menuIndex === 3) { /* Save - placeholder */ }
+                else if (menuIndex === 4) { close(); }
             }
             if (back) { close(); actionCooldown = 200; }
         } else if (subScreen === 'party') {
             updateParty(dt, mov, action, back);
         } else if (subScreen === 'bag') {
             updateBag(dt, mov, action, back);
+        } else if (subScreen === 'pokedex') {
+            Pokedex.update(dt);
+            if (!Pokedex.isActive()) { subScreen = null; }
         }
     }
 
@@ -157,6 +161,8 @@ const PauseMenu = (() => {
             renderParty(ctx, canvasW, canvasH);
         } else if (subScreen === 'bag') {
             renderBag(ctx, canvasW, canvasH);
+        } else if (subScreen === 'pokedex') {
+            Pokedex.render(ctx, canvasW, canvasH);
         }
     }
 
