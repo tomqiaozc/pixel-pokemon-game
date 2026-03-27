@@ -80,7 +80,7 @@ def battle_action(req: BattleActionRequest):
     if req.action == "fight" and req.move_index is None:
         raise HTTPException(status_code=400, detail="move_index required for fight action")
 
-    result = process_action(req.battle_id, req.action, req.move_index)
+    result = process_action(req.battle_id, req.action, req.move_index, game_id=req.game_id)
     if result is None:
         raise HTTPException(status_code=400, detail="Could not process action")
 

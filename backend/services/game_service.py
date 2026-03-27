@@ -85,3 +85,14 @@ def save_game(game_id: str, player_data: dict) -> dict | None:
     player = Player(**player_data)
     _games[game_id]["player"] = player.model_dump()
     return _games[game_id]
+
+
+def update_play_time(game_id: str, seconds: int) -> dict | None:
+    """M2: Update play_time_seconds for a game. Called by frontend to sync elapsed time."""
+    game = _games.get(game_id)
+    if game is None:
+        return None
+    if seconds < 0:
+        return game
+    game["play_time_seconds"] = seconds
+    return game

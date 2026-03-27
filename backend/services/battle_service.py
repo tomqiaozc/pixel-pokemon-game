@@ -304,6 +304,7 @@ def process_action(
     battle_id: str,
     action: str,
     move_index: int | None = None,
+    game_id: str | None = None,
 ) -> TurnResult | None:
     """Process a player action and resolve the turn."""
     battle = _battles.get(battle_id)
@@ -518,6 +519,11 @@ def process_action(
             status_events.extend(ko_events)
             battle.is_over = True
             battle.winner = role
+            # C1: Record battle won if player wins
+            if role == "player" and game_id:
+                from .leaderboard_service import check_achievements, record_battle_won
+                record_battle_won(game_id)
+                check_achievements(game_id)
             break
 
     # End-of-turn status damage (poison, burn, toxic)
@@ -528,6 +534,11 @@ def process_action(
             if pokemon.current_hp <= 0:
                 battle.is_over = True
                 battle.winner = "enemy" if role == "player" else "player"
+                # C1: Record battle won if player wins via status damage
+                if battle.winner == "player" and game_id:
+                    from .leaderboard_service import check_achievements, record_battle_won
+                    record_battle_won(game_id)
+                    check_achievements(game_id)
                 break
 
     # End-of-turn ability effects (Speed Boost, etc.)
@@ -550,6 +561,11 @@ def process_action(
             if pokemon.current_hp <= 0:
                 battle.is_over = True
                 battle.winner = "enemy" if role == "player" else "player"
+                # C1: Record battle won if player wins via weather damage
+                if battle.winner == "player" and game_id:
+                    from .leaderboard_service import check_achievements, record_battle_won
+                    record_battle_won(game_id)
+                    check_achievements(game_id)
                 break
 
     # Decrement weather turns

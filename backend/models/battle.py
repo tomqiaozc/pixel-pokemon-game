@@ -66,6 +66,7 @@ class BattleActionRequest(BaseModel):
     battle_id: str
     action: str  # "fight", "run"
     move_index: Optional[int] = None  # required when action="fight"
+    game_id: Optional[str] = None  # for tracking stats
 
 
 class TurnEvent(BaseModel):
