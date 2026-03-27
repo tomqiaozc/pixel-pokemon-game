@@ -1,10 +1,12 @@
 from fastapi import APIRouter, HTTPException
 
+from ..models.ai import AIContext
 from ..models.battle import (
     BattleActionRequest,
     BattleStartRequest,
     BattleStateResponse,
 )
+from ..services.ai_service import get_ai_action
 from ..services.battle_service import get_battle, process_action, start_battle
 from ..services.encounter_service import generate_wild_pokemon
 from ..services.game_service import get_game
@@ -89,3 +91,11 @@ def battle_state(battle_id: str):
     if battle is None:
         raise HTTPException(status_code=404, detail="Battle not found")
     return BattleStateResponse(battle=battle)
+
+
+@router.post("/ai-action")
+def ai_action(req: AIContext):
+    decision = get_ai_action(req.battle_id, req.difficulty)
+    if decision is None:
+        raise HTTPException(status_code=400, detail="Cannot get AI action")
+    return decision
