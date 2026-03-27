@@ -54,6 +54,11 @@ const Battle = (() => {
     let playerAbility = null;
     let enemyAbility = null;
     let statusTurnCounter = 0;  // for sleep/toxic tracking
+    let toxicTurnCount = 0;     // escalating toxic damage counter (player)
+    let enemyToxicTurnCount = 0; // escalating toxic damage counter (enemy)
+    let playerAttackStage = 0;  // stat stage modifier for attack
+    let enemyAttackStage = 0;
+    let savedWeather = 'clear'; // weather state before battle
 
     const TEXT_SPEED = 25;
     const TYPE_COLORS = {
@@ -162,6 +167,11 @@ const Battle = (() => {
         playerAbility = playerData.ability || null;
         enemyAbility = enemyData.ability || null;
         statusTurnCounter = 0;
+        toxicTurnCount = 0;
+        enemyToxicTurnCount = 0;
+        playerAttackStage = 0;
+        enemyAttackStage = 0;
+        savedWeather = Weather.getWeather();
         textQueue = [`Wild ${enemyPokemon.name} appeared!`];
         textIndex = 0;
         charIndex = 0;
@@ -172,16 +182,37 @@ const Battle = (() => {
         StatusFx.reset();
         AbilityFx.reset();
 
-        // Check switch-in abilities
+        // Check switch-in abilities (enemy)
         if (enemyAbility) {
             const weatherType = AbilityFx.getWeatherAbility(enemyAbility);
             if (weatherType) {
                 Weather.setWeather(weatherType, 5);
+                AbilityFx.showActivation(enemyPokemon.name, enemyAbility, canvasW * 0.7, canvasH * 0.25);
                 textQueue.push(AbilityFx.getActivationMessage(enemyPokemon.name, enemyAbility));
                 textQueue.push(Weather.getWeatherMessage());
             } else if (enemyAbility === 'Intimidate') {
+                playerAttackStage = Math.max(-6, playerAttackStage - 1);
+                AbilityFx.showActivation(enemyPokemon.name, enemyAbility, canvasW * 0.7, canvasH * 0.25);
                 textQueue.push(AbilityFx.getActivationMessage(enemyPokemon.name, enemyAbility));
                 textQueue.push(`${playerPokemon.name}'s Attack fell!`);
+                StatusFx.showStatChange('Attack', -1, canvasW * 0.22, canvasH * 0.52);
+            }
+        }
+
+        // Check switch-in abilities (player)
+        if (playerAbility) {
+            const weatherType = AbilityFx.getWeatherAbility(playerAbility);
+            if (weatherType) {
+                Weather.setWeather(weatherType, 5);
+                AbilityFx.showActivation(playerPokemon.name, playerAbility, canvasW * 0.22, canvasH * 0.52);
+                textQueue.push(AbilityFx.getActivationMessage(playerPokemon.name, playerAbility));
+                textQueue.push(Weather.getWeatherMessage());
+            } else if (playerAbility === 'Intimidate') {
+                enemyAttackStage = Math.max(-6, enemyAttackStage - 1);
+                AbilityFx.showActivation(playerPokemon.name, playerAbility, canvasW * 0.22, canvasH * 0.52);
+                textQueue.push(AbilityFx.getActivationMessage(playerPokemon.name, playerAbility));
+                textQueue.push(`${enemyPokemon.name}'s Attack fell!`);
+                StatusFx.showStatChange('Attack', -1, canvasW * 0.7, canvasH * 0.25);
             }
         }
 
@@ -237,6 +268,12 @@ const Battle = (() => {
             if (transitionAlpha >= 1 && transitionDir > 0) {
                 transitionAlpha = 1;
                 transitionDir = 0;
+                // Restore pre-battle weather state (WX-FE01)
+                if (savedWeather === 'clear') {
+                    Weather.clearWeather();
+                } else {
+                    Weather.setWeather(savedWeather, 5);
+                }
                 return { done: true, result: battleResult, playerHp: playerPokemon ? playerPokemon.hp : 0, enemyPokemon: enemyPokemon };
             }
         }
@@ -446,9 +483,36 @@ const Battle = (() => {
             }
         }
 
+        // Confusion self-hit check (SFX-FE02)
+        if (playerStatus === 'confusion') {
+            textQueue.push(StatusFx.getStatusPreventText('confusion', playerPokemon.name));
+            StatusFx.showStatusApplied('confusion', canvasW * 0.22, canvasH * 0.52);
+            if (Math.random() < 0.33) {
+                // Hit self in confusion
+                const confDmg = Math.max(1, Math.floor(((2 * playerPokemon.level / 5 + 2) * 40 / 50) + 2));
+                playerPokemon.hp = Math.max(0, playerPokemon.hp - confDmg);
+                textQueue.push(`It hurt itself in its confusion!`);
+                playerShake = 300;
+                if (playerPokemon.hp <= 0) {
+                    textQueue.push(`${playerPokemon.name} fainted!`);
+                    battleOver = true;
+                    battleResult = 'lose';
+                    return;
+                }
+                appendEnemyAttack();
+                appendEndOfTurnEffects();
+                return;
+            }
+            // 33% snap out
+            if (Math.random() < 0.25) {
+                textQueue.push(StatusFx.getStatusCureText('confusion', playerPokemon.name));
+                playerStatus = null;
+            }
+        }
+
         // Player attacks
         playerMove.pp--;
-        const playerResult = calculateDamage(playerMove.power, playerPokemon.level, playerMove.type, playerPokemon.type, enemyPokemon.type);
+        const playerResult = calculateDamage(playerMove.power, playerPokemon.level, playerMove.type, playerPokemon.type, enemyPokemon.type, playerAttackStage, true);
         const playerDmg = playerResult.damage;
         textQueue.push(`${playerPokemon.name} used ${playerMove.name}!`);
 
@@ -463,6 +527,13 @@ const Battle = (() => {
 
         // Spawn attack particles
         spawnAttackParticles(playerMove.type, canvasW * 0.7, canvasH * 0.25);
+
+        // Weather-setting moves (WX-FE02)
+        const WEATHER_MOVES = { 'Rain Dance': 'rain', 'Sunny Day': 'sun', 'Sandstorm': 'sandstorm', 'Hail': 'hail' };
+        if (WEATHER_MOVES[playerMove.name]) {
+            Weather.setWeather(WEATHER_MOVES[playerMove.name], 5);
+            textQueue.push(Weather.getWeatherMessage());
+        }
 
         enemyPokemon.hp = Math.max(0, enemyPokemon.hp - playerDmg);
         enemyShake = 300;
@@ -479,19 +550,43 @@ const Battle = (() => {
             // Contact ability triggers (enemy's)
             if (enemyAbility === 'Static' && playerMove.power > 0 && Math.random() < 0.3 && !playerStatus) {
                 playerStatus = 'paralysis';
+                AbilityFx.showActivation(enemyPokemon.name, 'Static', canvasW * 0.7, canvasH * 0.25);
                 textQueue.push(AbilityFx.getActivationMessage(enemyPokemon.name, 'Static'));
                 textQueue.push(`${playerPokemon.name} is paralyzed!`);
                 StatusFx.showStatusApplied('paralysis', canvasW * 0.22, canvasH * 0.52);
             } else if (enemyAbility === 'Flame Body' && playerMove.power > 0 && Math.random() < 0.3 && !playerStatus) {
                 playerStatus = 'burn';
+                AbilityFx.showActivation(enemyPokemon.name, 'Flame Body', canvasW * 0.7, canvasH * 0.25);
                 textQueue.push(AbilityFx.getActivationMessage(enemyPokemon.name, 'Flame Body'));
                 textQueue.push(`${playerPokemon.name} was burned!`);
                 StatusFx.showStatusApplied('burn', canvasW * 0.22, canvasH * 0.52);
             } else if (enemyAbility === 'Poison Point' && playerMove.power > 0 && Math.random() < 0.3 && !playerStatus) {
                 playerStatus = 'poison';
+                AbilityFx.showActivation(enemyPokemon.name, 'Poison Point', canvasW * 0.7, canvasH * 0.25);
                 textQueue.push(AbilityFx.getActivationMessage(enemyPokemon.name, 'Poison Point'));
                 textQueue.push(`${playerPokemon.name} was poisoned!`);
                 StatusFx.showStatusApplied('poison', canvasW * 0.22, canvasH * 0.52);
+            }
+
+            // Contact ability triggers (player's — ABL-FE02)
+            if (playerAbility === 'Static' && playerMove.power > 0 && Math.random() < 0.3 && !enemyStatus) {
+                enemyStatus = 'paralysis';
+                AbilityFx.showActivation(playerPokemon.name, 'Static', canvasW * 0.22, canvasH * 0.52);
+                textQueue.push(AbilityFx.getActivationMessage(playerPokemon.name, 'Static'));
+                textQueue.push(`${enemyPokemon.name} is paralyzed!`);
+                StatusFx.showStatusApplied('paralysis', canvasW * 0.7, canvasH * 0.25);
+            } else if (playerAbility === 'Flame Body' && playerMove.power > 0 && Math.random() < 0.3 && !enemyStatus) {
+                enemyStatus = 'burn';
+                AbilityFx.showActivation(playerPokemon.name, 'Flame Body', canvasW * 0.22, canvasH * 0.52);
+                textQueue.push(AbilityFx.getActivationMessage(playerPokemon.name, 'Flame Body'));
+                textQueue.push(`${enemyPokemon.name} was burned!`);
+                StatusFx.showStatusApplied('burn', canvasW * 0.7, canvasH * 0.25);
+            } else if (playerAbility === 'Poison Point' && playerMove.power > 0 && Math.random() < 0.3 && !enemyStatus) {
+                enemyStatus = 'poison';
+                AbilityFx.showActivation(playerPokemon.name, 'Poison Point', canvasW * 0.22, canvasH * 0.52);
+                textQueue.push(AbilityFx.getActivationMessage(playerPokemon.name, 'Poison Point'));
+                textQueue.push(`${enemyPokemon.name} was poisoned!`);
+                StatusFx.showStatusApplied('poison', canvasW * 0.7, canvasH * 0.25);
             }
         }
 
@@ -511,7 +606,7 @@ const Battle = (() => {
         // Enemy attacks — pick type-appropriate move
         const enemyMoves = getEnemyMoves(enemyPokemon.type);
         const enemyMove = enemyMoves[Math.floor(Math.random() * enemyMoves.length)];
-        const enemyResult = calculateDamage(enemyMove.power, enemyPokemon.level, enemyMove.type, enemyPokemon.type, playerPokemon.type);
+        const enemyResult = calculateDamage(enemyMove.power, enemyPokemon.level, enemyMove.type, enemyPokemon.type, playerPokemon.type, enemyAttackStage, false);
         const enemyDmg = enemyResult.damage;
 
         textQueue.push(`Wild ${enemyPokemon.name} used ${enemyMove.name}!`);
@@ -553,7 +648,13 @@ const Battle = (() => {
 
         // Player status damage
         if (playerStatus === 'poison' || playerStatus === 'toxic') {
-            const dmg = Math.max(1, Math.floor(playerPokemon.maxHp / (playerStatus === 'toxic' ? 8 : 8)));
+            let dmg;
+            if (playerStatus === 'toxic') {
+                toxicTurnCount++;
+                dmg = Math.max(1, Math.floor(playerPokemon.maxHp * toxicTurnCount / 16));
+            } else {
+                dmg = Math.max(1, Math.floor(playerPokemon.maxHp / 8));
+            }
             playerPokemon.hp = Math.max(0, playerPokemon.hp - dmg);
             textQueue.push(StatusFx.getStatusDamageText(playerStatus, playerPokemon.name));
             if (playerPokemon.hp <= 0) {
@@ -577,7 +678,13 @@ const Battle = (() => {
 
         // Enemy status damage
         if (enemyStatus === 'poison' || enemyStatus === 'toxic') {
-            const dmg = Math.max(1, Math.floor(enemyPokemon.maxHp / 8));
+            let dmg;
+            if (enemyStatus === 'toxic') {
+                enemyToxicTurnCount++;
+                dmg = Math.max(1, Math.floor(enemyPokemon.maxHp * enemyToxicTurnCount / 16));
+            } else {
+                dmg = Math.max(1, Math.floor(enemyPokemon.maxHp / 8));
+            }
             enemyPokemon.hp = Math.max(0, enemyPokemon.hp - dmg);
             textQueue.push(StatusFx.getStatusDamageText(enemyStatus, enemyPokemon.name));
             if (enemyPokemon.hp <= 0) {
@@ -631,11 +738,20 @@ const Battle = (() => {
             textQueue.push(weatherResult.message);
         }
 
+        // Speed Boost ability (player)
+        if (playerAbility === 'Speed Boost') {
+            textQueue.push(AbilityFx.getActivationMessage(playerPokemon.name, 'Speed Boost'));
+            textQueue.push(StatusFx.getStatChangeText(playerPokemon.name, 'Speed', 1));
+            StatusFx.showStatChange('Speed', 1, canvasW * 0.3, canvasH * 0.55);
+            AbilityFx.showActivation(playerPokemon.name, 'Speed Boost');
+        }
+
         // Speed Boost ability (enemy)
         if (enemyAbility === 'Speed Boost') {
             textQueue.push(AbilityFx.getActivationMessage(enemyPokemon.name, 'Speed Boost'));
             textQueue.push(StatusFx.getStatChangeText(enemyPokemon.name, 'Speed', 1));
             StatusFx.showStatChange('Speed', 1, canvasW * 0.7, canvasH * 0.25);
+            AbilityFx.showActivation(enemyPokemon.name, 'Speed Boost');
         }
     }
 
@@ -756,13 +872,32 @@ const Battle = (() => {
         }
     }
 
-    function calculateDamage(power, level, moveType, attackerType, defenderType) {
+    function calculateDamage(power, level, moveType, attackerType, defenderType, attackStage, isPlayer) {
         if (power === 0) return { damage: 0, effectiveness: 1 };
         const base = Math.floor(((2 * level / 5 + 2) * power / 50) + 2);
         const rand = 0.85 + Math.random() * 0.15;
         const stab = (moveType === attackerType) ? 1.5 : 1;
         const effectiveness = getTypeEffectiveness(moveType, defenderType);
-        const damage = Math.max(effectiveness > 0 ? 1 : 0, Math.floor(base * rand * stab * effectiveness));
+
+        // Stat stage modifier for attack (ABL-FE03)
+        const stage = attackStage || 0;
+        const stageMult = stage >= 0 ? (2 + stage) / 2 : 2 / (2 - stage);
+
+        // Weather damage multiplier (WX-FE03)
+        let weatherMult = 1;
+        const weather = Weather.getWeather();
+        if (weather === 'rain') {
+            if (moveType === 'Water') weatherMult = 1.5;
+            else if (moveType === 'Fire') weatherMult = 0.5;
+        } else if (weather === 'sun') {
+            if (moveType === 'Fire') weatherMult = 1.5;
+            else if (moveType === 'Water') weatherMult = 0.5;
+        }
+
+        // Burn reduces physical damage (simplified: all damaging moves are physical)
+        const burnMult = (isPlayer && playerStatus === 'burn') || (!isPlayer && enemyStatus === 'burn') ? 0.5 : 1;
+
+        const damage = Math.max(effectiveness > 0 ? 1 : 0, Math.floor(base * rand * stab * effectiveness * stageMult * weatherMult * burnMult));
         return { damage, effectiveness };
     }
 

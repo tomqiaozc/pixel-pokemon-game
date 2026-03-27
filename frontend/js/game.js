@@ -5,7 +5,7 @@ const Game = (() => {
     const MOVE_SPEED = 1.5; // pixels per frame
     const ANIM_INTERVAL = 150; // ms between walk frames
 
-    // Game states: starter, overworld, battle, evolution, pokecenter, gym, badge_award
+    // Game states: starter, overworld, battle, evolution, pokecenter, gym, badge_award, minigame, cutscene
     let state = 'starter';
     let canvas, ctx;
     let pendingBadge = null;
@@ -30,6 +30,7 @@ const Game = (() => {
         Input.init();
         Renderer.init();
         NPC.init();
+        Quests.init();
         Routes.registerAll();
         canvas = document.getElementById('game-canvas');
         ctx = canvas.getContext('2d');
@@ -51,9 +52,30 @@ const Game = (() => {
             if (Dialogue.isActive()) {
                 Dialogue.render(ctx, canvas.width, canvas.height);
             }
+            // Render quest HUD
+            Quests.updateHUD(dt);
+            Quests.renderHUD(ctx, canvas.width, canvas.height);
+            // Render quest journal overlay
+            if (Quests.isJournalOpen()) {
+                Quests.renderJournal(ctx, canvas.width, canvas.height);
+            }
             // Render pause menu overlay
             if (PauseMenu.isActive()) {
                 PauseMenu.render(ctx, canvas.width, canvas.height);
+            }
+        } else if (state === 'cutscene') {
+            updateCutscene(dt);
+            Renderer.render(player, dt);
+            Cutscene.renderOverlay(ctx, canvas.width, canvas.height);
+            if (Dialogue.isActive()) {
+                Dialogue.render(ctx, canvas.width, canvas.height);
+            }
+        } else if (state === 'minigame') {
+            MiniGames.update(dt);
+            MiniGames.render(ctx, canvas.width, canvas.height);
+            if (!MiniGames.isActive()) {
+                state = 'overworld';
+                Renderer.centerCamera(player.x + TILE / 2, player.y + TILE / 2);
             }
         } else if (state === 'battle') {
             updateBattle(dt);
@@ -118,6 +140,7 @@ const Game = (() => {
             }];
             state = 'overworld';
             loadMap('pallet_town');
+            Quests.onStarterChosen();
             Renderer.centerCamera(player.x + TILE / 2, player.y + TILE / 2);
 
             // Create backend game session (fire-and-forget)
@@ -168,6 +191,18 @@ const Game = (() => {
         if (ledgeResult.landed) {
             player.x = ledgeResult.x;
             player.y = ledgeResult.y;
+        }
+
+        // Handle quest journal
+        if (Quests.isJournalOpen()) {
+            Quests.updateJournal(dt);
+            return;
+        }
+
+        // Open quest journal with Q
+        if (Input.isDown('q') || Input.isDown('Q')) {
+            Quests.openJournal();
+            return;
         }
 
         // Handle pause menu
@@ -308,6 +343,32 @@ const Game = (() => {
         }
     }
 
+    function updateCutscene(dt) {
+        if (!Cutscene.isActive()) {
+            state = 'overworld';
+            return;
+        }
+        const result = Cutscene.update(dt);
+        if (result && result.startBattle) {
+            startBattle(result.enemy, result.options);
+        }
+        if (Dialogue.isActive()) {
+            Dialogue.update(dt);
+        }
+    }
+
+    function startCutscene(steps) {
+        Cutscene.start(steps);
+        state = 'cutscene';
+    }
+
+    function startMiniGame(gameType) {
+        if (gameType === 'slots') MiniGames.startSlots();
+        else if (gameType === 'memory') MiniGames.startMemory();
+        else if (gameType === 'quiz') MiniGames.startQuiz();
+        state = 'minigame';
+    }
+
     // Load a map by id
     function loadMap(mapId) {
         MapLoader.setCurrentMap(mapId);
@@ -315,6 +376,7 @@ const Game = (() => {
         if (!map) return;
         GameMap.loadMapData(map.data, map.width, map.height);
         NPC.loadForMap(mapId);
+        Quests.onMapEnter(mapId);
         if (map.trainers) {
             TrainerEncounter.loadTrainers(mapId, map.trainers);
         }
@@ -468,6 +530,7 @@ const Game = (() => {
 
             if (pendingBadge && result.result === 'win') {
                 BadgeCase.earnBadge(pendingBadge.index);
+                Quests.onBadgeEarned(pendingBadge.index);
                 badgeAwardTimer = 0;
                 badgeAwardBadge = pendingBadge;
                 pendingBadge = null;
@@ -543,5 +606,5 @@ const Game = (() => {
         init();
     }
 
-    return { player, getState, setState, startBattle, startEvolution, enterPokeCenter };
+    return { player, getState, setState, startBattle, startEvolution, enterPokeCenter, startCutscene, startMiniGame };
 })();

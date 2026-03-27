@@ -110,5 +110,61 @@
     "description": "Guarantees escape from wild battles",
     "trigger_types": ["passive"],
     "trigger_data": {"guaranteed_run": true}
+  },
+  "drizzle": {
+    "id": "drizzle",
+    "name": "Drizzle",
+    "description": "Summons rain when entering battle",
+    "trigger_types": ["on_switch_in"],
+    "trigger_data": {"weather": "rain", "indefinite": true}
+  },
+  "drought": {
+    "id": "drought",
+    "name": "Drought",
+    "description": "Intensifies the sun when entering battle",
+    "trigger_types": ["on_switch_in"],
+    "trigger_data": {"weather": "sun", "indefinite": true}
+  },
+  "sand_stream": {
+    "id": "sand_stream",
+    "name": "Sand Stream",
+    "description": "Summons sandstorm when entering battle",
+    "trigger_types": ["on_switch_in"],
+    "trigger_data": {"weather": "sandstorm", "indefinite": true}
+  },
+  "snow_warning": {
+    "id": "snow_warning",
+    "name": "Snow Warning",
+    "description": "Summons hail when entering battle",
+    "trigger_types": ["on_switch_in"],
+    "trigger_data": {"weather": "hail", "indefinite": true}
+  },
+  "swift_swim": {
+    "id": "swift_swim",
+    "name": "Swift Swim",
+    "description": "Doubles Speed in rain",
+    "trigger_types": ["passive"],
+    "trigger_data": {"weather": "rain", "stat": "speed", "multiplier": 2.0}
+  },
+  "chlorophyll": {
+    "id": "chlorophyll",
+    "name": "Chlorophyll",
+    "description": "Doubles Speed in sun",
+    "trigger_types": ["passive"],
+    "trigger_data": {"weather": "sun", "stat": "speed", "multiplier": 2.0}
+  },
+  "sand_rush": {
+    "id": "sand_rush",
+    "name": "Sand Rush",
+    "description": "Doubles Speed in sandstorm",
+    "trigger_types": ["passive"],
+    "trigger_data": {"weather": "sandstorm", "stat": "speed", "multiplier": 2.0}
+  },
+  "rain_dish": {
+    "id": "rain_dish",
+    "name": "Rain Dish",
+    "description": "Heals 1/16 HP at end of each turn in rain",
+    "trigger_types": ["end_of_turn"],
+    "trigger_data": {"weather": "rain", "heal_fraction": 0.0625}
   }
 }

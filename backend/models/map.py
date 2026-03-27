@@ -58,6 +58,7 @@ class GameMap(BaseModel):
     trainers: list[MapTrainer] = []
     encounter_zones: list[EncounterZone] = []
     buildings: list[MapBuilding] = []
+    default_weather: Optional[str] = None
 
 
 class MapTransitionRequest(BaseModel):
