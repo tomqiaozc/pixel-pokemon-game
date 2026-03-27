@@ -186,7 +186,7 @@ const Battle = (() => {
         if (enemyAbility) {
             const weatherType = AbilityFx.getWeatherAbility(enemyAbility);
             if (weatherType) {
-                Weather.setWeather(weatherType, 5);
+                Weather.setWeather(weatherType, 0);
                 AbilityFx.showActivation(enemyPokemon.name, enemyAbility, canvasW * 0.7, canvasH * 0.25);
                 textQueue.push(AbilityFx.getActivationMessage(enemyPokemon.name, enemyAbility));
                 textQueue.push(Weather.getWeatherMessage());
@@ -203,7 +203,7 @@ const Battle = (() => {
         if (playerAbility) {
             const weatherType = AbilityFx.getWeatherAbility(playerAbility);
             if (weatherType) {
-                Weather.setWeather(weatherType, 5);
+                Weather.setWeather(weatherType, 0);
                 AbilityFx.showActivation(playerPokemon.name, playerAbility, canvasW * 0.22, canvasH * 0.52);
                 textQueue.push(AbilityFx.getActivationMessage(playerPokemon.name, playerAbility));
                 textQueue.push(Weather.getWeatherMessage());
@@ -759,7 +759,7 @@ const Battle = (() => {
 
         // Weather damage
         if (Weather.doesDamage()) {
-            if (!Weather.isImmuneToWeatherDamage(playerPokemon.type)) {
+            if (!Weather.isImmuneToWeatherDamage([playerPokemon.type, playerPokemon.type2].filter(Boolean))) {
                 const wdmg = Math.max(1, Math.floor(playerPokemon.maxHp / 16));
                 playerPokemon.hp = Math.max(0, playerPokemon.hp - wdmg);
                 textQueue.push(Weather.getWeatherDamageMessage(playerPokemon.name));
@@ -770,7 +770,7 @@ const Battle = (() => {
                     return;
                 }
             }
-            if (!Weather.isImmuneToWeatherDamage(enemyPokemon.type)) {
+            if (!Weather.isImmuneToWeatherDamage([enemyPokemon.type, enemyPokemon.type2].filter(Boolean))) {
                 const wdmg = Math.max(1, Math.floor(enemyPokemon.maxHp / 16));
                 enemyPokemon.hp = Math.max(0, enemyPokemon.hp - wdmg);
                 textQueue.push(Weather.getWeatherDamageMessage(enemyPokemon.name));
