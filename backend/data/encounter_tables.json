@@ -1,0 +1,33 @@
+{
+  "route_1": {
+    "name": "Route 1",
+    "encounter_type": "grass",
+    "base_encounter_rate": 0.20,
+    "encounters": [
+      {"species_id": 10, "min_level": 3, "max_level": 5, "weight": 40},
+      {"species_id": 13, "min_level": 2, "max_level": 4, "weight": 45},
+      {"species_id": 15, "min_level": 3, "max_level": 5, "weight": 15}
+    ]
+  },
+  "route_2": {
+    "name": "Route 2",
+    "encounter_type": "grass",
+    "base_encounter_rate": 0.20,
+    "encounters": [
+      {"species_id": 10, "min_level": 4, "max_level": 7, "weight": 30},
+      {"species_id": 11, "min_level": 7, "max_level": 9, "weight": 10},
+      {"species_id": 13, "min_level": 3, "max_level": 6, "weight": 35},
+      {"species_id": 15, "min_level": 3, "max_level": 5, "weight": 25}
+    ]
+  },
+  "viridian_forest": {
+    "name": "Viridian Forest",
+    "encounter_type": "grass",
+    "base_encounter_rate": 0.25,
+    "encounters": [
+      {"species_id": 10, "min_level": 4, "max_level": 7, "weight": 35},
+      {"species_id": 13, "min_level": 3, "max_level": 5, "weight": 30},
+      {"species_id": 15, "min_level": 3, "max_level": 5, "weight": 35}
+    ]
+  }
+}
