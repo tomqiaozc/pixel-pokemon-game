@@ -5,7 +5,7 @@ const Game = (() => {
     const MOVE_SPEED = 1.5; // pixels per frame
     const ANIM_INTERVAL = 150; // ms between walk frames
 
-    // Game states: starter, overworld, battle
+    // Game states: starter, overworld, battle, evolution, pokecenter
     let state = 'starter';
     let canvas, ctx;
 
@@ -56,6 +56,13 @@ const Game = (() => {
             Evolution.update(dt);
             Evolution.render(ctx, canvas.width, canvas.height);
             if (!Evolution.isActive()) {
+                state = 'overworld';
+                Renderer.centerCamera(player.x + TILE / 2, player.y + TILE / 2);
+            }
+        } else if (state === 'pokecenter') {
+            const result = PokeCenter.update(dt);
+            PokeCenter.render(ctx, canvas.width, canvas.height);
+            if (result.exited) {
                 state = 'overworld';
                 Renderer.centerCamera(player.x + TILE / 2, player.y + TILE / 2);
             }
@@ -167,6 +174,14 @@ const Game = (() => {
         // Center camera on player
         Renderer.centerCamera(player.x + TILE / 2, player.y + TILE / 2);
 
+        // Check if player stepped on a door tile (Pokemon Center entry)
+        const playerTileX = Math.floor((player.x + TILE / 2) / TILE);
+        const playerTileY = Math.floor((player.y + TILE / 2) / TILE);
+        if (GameMap.getTile(playerTileX, playerTileY) === GameMap.T.DOOR) {
+            enterPokeCenter();
+            return;
+        }
+
         // Encounter check
         const encounter = Encounters.update(dt, player);
         if (encounter.startBattle) {
@@ -188,6 +203,11 @@ const Game = (() => {
             }
         });
         state = 'evolution';
+    }
+
+    function enterPokeCenter() {
+        PokeCenter.enter();
+        state = 'pokecenter';
     }
 
     function startBattle(enemyData) {
@@ -246,5 +266,5 @@ const Game = (() => {
         init();
     }
 
-    return { player, getState, setState, startBattle, startEvolution };
+    return { player, getState, setState, startBattle, startEvolution, enterPokeCenter };
 })();
