@@ -363,6 +363,10 @@ const Routes = (() => {
                 { edge: 'north', targetMap: 'viridian_city', spawnX: 14, spawnY: 23, spawnDir: 1 },
             ],
             trainers: route1Trainers,
+            ledges: [
+                { x1: 3, x2: 7, y: 12 },
+                { x1: 13, x2: 17, y: 22 },
+            ],
         });
 
         const viridianCity = buildViridianCity();
