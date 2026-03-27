@@ -5,8 +5,8 @@ const Game = (() => {
     const MOVE_SPEED = 1.5; // pixels per frame
     const ANIM_INTERVAL = 150; // ms between walk frames
 
-    // Game states
-    let state = 'starter'; // starter, overworld
+    // Game states: starter, overworld, battle
+    let state = 'starter';
     let canvas, ctx;
 
     // Player state
@@ -41,6 +41,8 @@ const Game = (() => {
         } else if (state === 'overworld') {
             updateOverworld(dt);
             Renderer.render(player, dt);
+        } else if (state === 'battle') {
+            updateBattle(dt);
         }
 
         requestAnimationFrame(loop);
@@ -122,6 +124,55 @@ const Game = (() => {
     function getState() { return state; }
     function setState(s) { state = s; }
 
+    function startBattle(enemyData) {
+        const starterMoves = {
+            'Bulbasaur':  [
+                { name: 'Tackle', type: 'Normal', power: 40, pp: 35, maxPp: 35 },
+                { name: 'Vine Whip', type: 'Grass', power: 45, pp: 25, maxPp: 25 },
+                { name: 'Growl', type: 'Normal', power: 0, pp: 40, maxPp: 40 },
+                { name: 'Leech Seed', type: 'Grass', power: 0, pp: 10, maxPp: 10 },
+            ],
+            'Charmander': [
+                { name: 'Scratch', type: 'Normal', power: 40, pp: 35, maxPp: 35 },
+                { name: 'Ember', type: 'Fire', power: 40, pp: 25, maxPp: 25 },
+                { name: 'Growl', type: 'Normal', power: 0, pp: 40, maxPp: 40 },
+                { name: 'Smokescreen', type: 'Normal', power: 0, pp: 20, maxPp: 20 },
+            ],
+            'Squirtle':   [
+                { name: 'Tackle', type: 'Normal', power: 40, pp: 35, maxPp: 35 },
+                { name: 'Water Gun', type: 'Water', power: 40, pp: 25, maxPp: 25 },
+                { name: 'Tail Whip', type: 'Normal', power: 0, pp: 30, maxPp: 30 },
+                { name: 'Withdraw', type: 'Water', power: 0, pp: 40, maxPp: 40 },
+            ],
+        };
+
+        const starterName = player.starter ? player.starter.name : 'Charmander';
+        const starterType = player.starter ? player.starter.type : 'Fire';
+
+        Battle.start({
+            name: starterName,
+            level: 5,
+            hp: 20,
+            maxHp: 20,
+            exp: 0,
+            maxExp: 100,
+            type: starterType,
+            moves: starterMoves[starterName] || starterMoves['Charmander'],
+        }, enemyData);
+
+        state = 'battle';
+    }
+
+    function updateBattle(dt) {
+        const result = Battle.update(dt);
+        Battle.render();
+
+        if (result.done) {
+            state = 'overworld';
+            Renderer.centerCamera(player.x + TILE / 2, player.y + TILE / 2);
+        }
+    }
+
     // Start the game when DOM is ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
@@ -129,5 +180,5 @@ const Game = (() => {
         init();
     }
 
-    return { player, getState, setState };
+    return { player, getState, setState, startBattle };
 })();
