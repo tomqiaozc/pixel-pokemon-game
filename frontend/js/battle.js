@@ -41,6 +41,7 @@ const Battle = (() => {
     let transitionDir = -1; // -1 = fading in, 1 = fading out
     let battleOver = false;
     let battleResult = null; // 'win', 'lose', 'run'
+    let canRun = true;
 
     const TEXT_SPEED = 25;
     const TYPE_COLORS = {
@@ -72,7 +73,7 @@ const Battle = (() => {
         { name: '---', type: 'Normal', power: 0, pp: 0, maxPp: 0 },
     ];
 
-    function start(playerData, enemyData) {
+    function start(playerData, enemyData, options) {
         playerPokemon = {
             name: playerData.name || 'Pikachu',
             level: playerData.level || 5,
@@ -99,6 +100,7 @@ const Battle = (() => {
         transitionDir = -1;
         battleOver = false;
         battleResult = null;
+        canRun = !(options && options.canRun === false);
         menuChoice = 0;
         moveChoice = 0;
         menuMode = 'main';
@@ -213,7 +215,15 @@ const Battle = (() => {
                         moveChoice = 0;
                     } else if (menuChoice === 3) {
                         // Run
-                        executeRun();
+                        if (canRun) {
+                            executeRun();
+                        } else {
+                            phase = 'text';
+                            textQueue = ['Can\'t escape from a trainer battle!'];
+                            textIndex = 0;
+                            charIndex = 0;
+                            textTimer = 0;
+                        }
                     }
                     // Bag and Pokemon not implemented yet
                 } else if (menuMode === 'fight') {
@@ -718,14 +728,15 @@ const Battle = (() => {
             const bh = menuItemH - 2;
 
             // Button background
-            ctx.fillStyle = i === menuChoice ? colors[i] : '#d0d0c8';
+            const disabled = (i === 3 && !canRun);
+            ctx.fillStyle = disabled ? '#a0a098' : (i === menuChoice ? colors[i] : '#d0d0c8');
             ctx.fillRect(bx, by, bw, bh);
             ctx.strokeStyle = '#404040';
             ctx.lineWidth = 2;
             ctx.strokeRect(bx, by, bw, bh);
 
             // Button text
-            ctx.fillStyle = i === menuChoice ? '#ffffff' : '#404040';
+            ctx.fillStyle = disabled ? '#808078' : (i === menuChoice ? '#ffffff' : '#404040');
             ctx.font = 'bold 13px monospace';
             ctx.textAlign = 'center';
             ctx.fillText(labels[i], bx + bw / 2, by + bh / 2 + 5);
