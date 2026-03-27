@@ -104,6 +104,16 @@ const Renderer = (() => {
         // Draw encounter overlay effects (grass rustles, exclamation, transitions)
         Encounters.renderOverlay(ctx, camX, camY, SCALE, canvasW, canvasH);
 
+        // Draw overworld weather particles (rain, hail, sand)
+        Weather.renderOverworld(ctx, canvasW, canvasH);
+
+        // Draw day/night tint overlay
+        DayCycle.renderOverlay(ctx, canvasW, canvasH, performance.now());
+
+        // Draw lamp glow at night
+        const currentMapId = MapLoader.getCurrentMapId();
+        DayCycle.renderLamps(ctx, camX, camY, SCALE, currentMapId);
+
         // Draw map transition overlay (fade + map name popup)
         MapLoader.renderTransition(ctx, canvasW, canvasH);
     }
