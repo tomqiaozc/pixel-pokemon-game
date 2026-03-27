@@ -316,6 +316,31 @@ def ability_prevents_stat_drop(pokemon: BattlePokemon, stat: str) -> bool:
     return False
 
 
+# --- Weather evasion abilities ---
+
+_WEATHER_EVASION_ABILITIES: dict[str, str] = {
+    "sand_veil": "sandstorm",
+    "snow_cloak": "hail",
+}
+
+_WEATHER_EVASION_CHANCE = 0.20  # 20% evasion boost
+
+
+def get_weather_evasion_check(pokemon: BattlePokemon, weather: str | None) -> bool:
+    """Check if a Pokemon's weather evasion ability causes a dodge.
+
+    Returns True if the attack should miss due to Sand Veil / Snow Cloak.
+    """
+    if not pokemon.ability_id or weather is None:
+        return False
+
+    required_weather = _WEATHER_EVASION_ABILITIES.get(pokemon.ability_id)
+    if required_weather and required_weather == weather:
+        return random.random() < _WEATHER_EVASION_CHANCE
+
+    return False
+
+
 # --- Weather abilities ---
 
 _WEATHER_ABILITIES: dict[str, str] = {

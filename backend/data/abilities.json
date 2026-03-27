@@ -187,5 +187,19 @@
     "description": "Boosts Attack by 1 stage when knocking out a Pokemon",
     "trigger_types": ["on_ko"],
     "trigger_data": {"stat": "attack", "stages": 1}
+  },
+  "sand_veil": {
+    "id": "sand_veil",
+    "name": "Sand Veil",
+    "description": "20% evasion boost in sandstorm",
+    "trigger_types": ["passive"],
+    "trigger_data": {"weather": "sandstorm", "evasion_chance": 0.20}
+  },
+  "snow_cloak": {
+    "id": "snow_cloak",
+    "name": "Snow Cloak",
+    "description": "20% evasion boost in hail",
+    "trigger_types": ["passive"],
+    "trigger_data": {"weather": "hail", "evasion_chance": 0.20}
   }
 }

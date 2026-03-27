@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from pydantic import BaseModel
+from pydantic import BaseModel, field_validator
 
 
 class Move(BaseModel):
@@ -10,6 +10,11 @@ class Move(BaseModel):
     accuracy: int
     pp: int
     contact: bool = False
+
+    @field_validator("type", mode="before")
+    @classmethod
+    def normalize_type(cls, v: str) -> str:
+        return v.lower()
 
 
 class Stats(BaseModel):
