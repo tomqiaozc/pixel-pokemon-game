@@ -104,15 +104,20 @@ const Renderer = (() => {
         // Draw encounter overlay effects (grass rustles, exclamation, transitions)
         Encounters.renderOverlay(ctx, camX, camY, SCALE, canvasW, canvasH);
 
-        // Draw overworld weather particles (rain, hail, sand)
+        // Draw day/night tint overlay (rendered BEFORE weather so particles show on top)
+        const currentMapId = MapLoader.getCurrentMapId();
+        const mapConfig = MapLoader.getCurrentMap();
+        if (!mapConfig || !mapConfig.isIndoor) {
+            DayCycle.renderOverlay(ctx, canvasW, canvasH, performance.now());
+        }
+
+        // Draw overworld weather particles (rain, hail, sand) — AFTER tint so they're visible at night
         Weather.renderOverworld(ctx, canvasW, canvasH);
 
-        // Draw day/night tint overlay
-        DayCycle.renderOverlay(ctx, canvasW, canvasH, performance.now());
-
-        // Draw lamp glow at night
-        const currentMapId = MapLoader.getCurrentMapId();
-        DayCycle.renderLamps(ctx, camX, camY, SCALE, currentMapId);
+        // Draw lamp glow at night (after tint, after weather)
+        if (!mapConfig || !mapConfig.isIndoor) {
+            DayCycle.renderLamps(ctx, camX, camY, SCALE, currentMapId);
+        }
 
         // Draw map transition overlay (fade + map name popup)
         MapLoader.renderTransition(ctx, canvasW, canvasH);

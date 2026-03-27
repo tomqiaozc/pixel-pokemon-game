@@ -36,6 +36,8 @@ const MapLoader = (() => {
             npcs: config.npcs || [],
             trainers: config.trainers || [],
             tileTypes: config.tileTypes || null, // custom tile types for this map
+            isIndoor: config.isIndoor || false,   // skip day/night tint for indoor maps
+            lamps: config.lamps || [],            // lamp positions (tile coords) for night glow
         };
     }
 

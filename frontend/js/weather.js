@@ -13,6 +13,21 @@ const Weather = (() => {
     // Battle weather state
     let battleActive = false;
 
+    // Overworld weather system
+    let overworldTimer = 0;
+    const OVERWORLD_WEATHER_INTERVAL = 120000; // Check every 2 game-minutes
+    let overworldWeatherActive = false;
+    let overworldWeatherDuration = 0;
+
+    // Per-map weather configuration
+    const MAP_WEATHER = {
+        route_1:        { types: ['rain'], chance: 0.15 },
+        route_2:        { types: ['rain'], chance: 0.20 },
+        viridian_city:  { types: ['rain'], chance: 0.10 },
+        pewter_city:    { types: ['sandstorm'], chance: 0.10 },
+        pallet_town:    { types: ['rain'], chance: 0.08 },
+    };
+
     function setWeather(type, turns) {
         currentWeather = type;
         turnsRemaining = turns || 5;
@@ -290,10 +305,48 @@ const Weather = (() => {
         return '';
     }
 
+    // Update overworld weather (called from game loop)
+    function updateOverworld(dt, mapId) {
+        if (overworldWeatherActive) {
+            overworldWeatherDuration -= dt;
+            if (overworldWeatherDuration <= 0) {
+                clearWeather();
+                overworldWeatherActive = false;
+            }
+            return;
+        }
+
+        overworldTimer += dt;
+        if (overworldTimer < OVERWORLD_WEATHER_INTERVAL) return;
+        overworldTimer = 0;
+
+        const config = MAP_WEATHER[mapId];
+        if (!config) return;
+
+        if (Math.random() < config.chance) {
+            const type = config.types[Math.floor(Math.random() * config.types.length)];
+            const duration = 30000 + Math.random() * 60000; // 30-90 seconds
+            setWeather(type, 99); // 99 turns — overworld doesn't use turn counter
+            overworldWeatherActive = true;
+            overworldWeatherDuration = duration;
+        }
+    }
+
+    // Called when player enters a new map
+    function onMapChange(mapId) {
+        // Clear overworld weather on map change (each map rolls its own)
+        if (overworldWeatherActive) {
+            clearWeather();
+            overworldWeatherActive = false;
+        }
+        overworldTimer = 0;
+    }
+
     return {
         setWeather, clearWeather, getWeather, update,
         renderBattle, renderOverworld, renderWeatherIcon,
         getWeatherMessage, getEndMessage,
         tickTurn, doesDamage, isImmuneToWeatherDamage, getWeatherDamageMessage,
+        updateOverworld, onMapChange,
     };
 })();

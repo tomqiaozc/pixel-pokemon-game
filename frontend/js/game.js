@@ -155,6 +155,9 @@ const Game = (() => {
         // Update weather particles
         Weather.update(dt);
 
+        // Update overworld weather triggers (random weather per map)
+        Weather.updateOverworld(dt, MapLoader.getCurrentMapId());
+
         // Update map transitions
         const transResult = MapLoader.update(dt);
         if (transResult.transitioning) {
@@ -377,6 +380,7 @@ const Game = (() => {
         GameMap.loadMapData(map.data, map.width, map.height);
         NPC.loadForMap(mapId);
         Quests.onMapEnter(mapId);
+        Weather.onMapChange(mapId);
         if (map.trainers) {
             TrainerEncounter.loadTrainers(mapId, map.trainers);
         }

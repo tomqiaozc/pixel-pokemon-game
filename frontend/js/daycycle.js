@@ -34,13 +34,6 @@ const DayCycle = (() => {
         });
     }
 
-    // Lamp positions per map (tile coords)
-    const MAP_LAMPS = {
-        pallet_town:   [{ x: 10, y: 8 }, { x: 18, y: 8 }, { x: 14, y: 14 }],
-        viridian_city: [{ x: 8, y: 6 }, { x: 16, y: 6 }, { x: 12, y: 12 }, { x: 20, y: 12 }],
-        pewter_city:   [{ x: 10, y: 6 }, { x: 18, y: 6 }, { x: 14, y: 10 }],
-    };
-
     function update(dt) {
         accumulator += dt;
         const msPerMinute = REAL_MS_PER_GAME_HOUR / 60;
@@ -139,12 +132,13 @@ const DayCycle = (() => {
         }
     }
 
-    // Render lamp glow effects at night
+    // Render lamp glow effects at night (reads lamp positions from map config)
     function renderLamps(ctx, camX, camY, scale, mapId) {
         if (!isNight() || currentTintAlpha < 0.2) return;
 
-        const lamps = MAP_LAMPS[mapId];
-        if (!lamps) return;
+        const mapConfig = MapLoader.getCurrentMap();
+        const lamps = mapConfig ? mapConfig.lamps : [];
+        if (!lamps || lamps.length === 0) return;
 
         const TILE = 16;
         const glowAlpha = Math.min(1, (currentTintAlpha - 0.2) / 0.25) * 0.6;
