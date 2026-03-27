@@ -7,11 +7,18 @@ import uuid
 from ..models.battle import (
     BattlePokemon,
     BattleState,
+    StatusEvent,
     TurnEvent,
     TurnResult,
 )
 from ..models.pokemon import Move
 from .encounter_service import get_move_data
+from .status_service import (
+    get_effective_stat,
+    process_move_effects,
+    process_status_before_move,
+    process_status_end_of_turn,
+)
 
 # In-memory battle storage
 _battles: dict[str, BattleState] = {}
@@ -196,15 +203,15 @@ def _calculate_damage(
     is_critical = random.randint(1, 16) == 1
     crit_modifier = 2.0 if is_critical else 1.0
 
-    # Determine attack/defense stats based on move category
+    # Determine attack/defense stats based on move category (with stat stages)
     md = get_move_data(move.name)
     category = md.get("category", "physical") if md else "physical"
     if category == "special":
-        attack_stat = attacker.stats.sp_attack
-        defense_stat = defender.stats.sp_defense
+        attack_stat = get_effective_stat(attacker, "sp_attack")
+        defense_stat = get_effective_stat(defender, "sp_defense")
     else:
-        attack_stat = attacker.stats.attack
-        defense_stat = defender.stats.defense
+        attack_stat = get_effective_stat(attacker, "attack")
+        defense_stat = get_effective_stat(defender, "defense")
 
     # STAB (Same Type Attack Bonus)
     stab = 1.5 if move.type in attacker.types else 1.0
@@ -290,7 +297,7 @@ def process_action(
                 ran_away=False,
                 run_failed=True,
             )
-        if _try_run(battle.player_pokemon.stats.speed, battle.enemy_pokemon.stats.speed):
+        if _try_run(get_effective_stat(battle.player_pokemon, "speed"), get_effective_stat(battle.enemy_pokemon, "speed")):
             battle.is_over = True
             return TurnResult(events=[], battle_over=True, ran_away=True)
         else:
@@ -335,8 +342,12 @@ def process_action(
     player_move = battle.player_pokemon.moves[move_index]
     enemy_move = _choose_enemy_move(battle.enemy_pokemon)
 
-    # Determine turn order by speed
-    player_first = battle.player_pokemon.stats.speed >= battle.enemy_pokemon.stats.speed
+    status_events: list[StatusEvent] = []
+
+    # Determine turn order by effective speed
+    player_speed = get_effective_stat(battle.player_pokemon, "speed")
+    enemy_speed = get_effective_stat(battle.enemy_pokemon, "speed")
+    player_first = player_speed >= enemy_speed
 
     if player_first:
         first = ("player", battle.player_pokemon, battle.enemy_pokemon, player_move)
@@ -348,6 +359,19 @@ def process_action(
     for role, attacker, defender, move in [first, second]:
         # Skip if attacker already fainted
         if attacker.current_hp <= 0:
+            continue
+
+        # Process status effects before move (paralysis, sleep, freeze, confusion)
+        can_move, pre_events = process_status_before_move(attacker, role)
+        status_events.extend(pre_events)
+
+        # Check if attacker fainted from confusion self-hit
+        if attacker.current_hp <= 0:
+            battle.is_over = True
+            battle.winner = "enemy" if role == "player" else "player"
+            break
+
+        if not can_move:
             continue
 
         # Accuracy check
@@ -366,6 +390,7 @@ def process_action(
             continue
 
         dmg, eff, crit = _calculate_damage(attacker, defender, move)
+        did_damage = dmg > 0
         defender.current_hp = max(0, defender.current_hp - dmg)
         fainted = defender.current_hp == 0
 
@@ -381,15 +406,39 @@ def process_action(
             )
         )
 
+        # Process move secondary effects (status infliction, stat changes)
+        if not fainted:
+            attacker_role = role
+            defender_role = "enemy" if role == "player" else "player"
+            move_effects = process_move_effects(
+                move.name, attacker, defender, attacker_role, defender_role, did_damage
+            )
+            status_events.extend(move_effects)
+
         if fainted:
             battle.is_over = True
             battle.winner = role
             break
 
+    # End-of-turn status damage (poison, burn, toxic)
+    if not battle.is_over:
+        for role, pokemon in [("player", battle.player_pokemon), ("enemy", battle.enemy_pokemon)]:
+            eot_events = process_status_end_of_turn(pokemon, role)
+            status_events.extend(eot_events)
+            if pokemon.current_hp <= 0:
+                battle.is_over = True
+                battle.winner = "enemy" if role == "player" else "player"
+                break
+
+    # Reset flinch at end of turn
+    battle.player_pokemon.flinched = False
+    battle.enemy_pokemon.flinched = False
+
     battle.log.extend([e.model_dump() for e in events])
 
     return TurnResult(
         events=events,
+        status_events=status_events,
         battle_over=battle.is_over,
         winner=battle.winner,
     )
