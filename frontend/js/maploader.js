@@ -202,6 +202,10 @@ const MapLoader = (() => {
         }
     }
 
+    function setCurrentMap(mapId) {
+        currentMapId = mapId;
+    }
+
     function isTransitioning() {
         return transitioning;
     }
@@ -210,6 +214,7 @@ const MapLoader = (() => {
         registerMap,
         getCurrentMap,
         getCurrentMapId,
+        setCurrentMap,
         getMapName,
         checkExits,
         checkDoors,

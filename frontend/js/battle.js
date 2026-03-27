@@ -21,7 +21,12 @@ const Battle = (() => {
     // Menu state
     let menuChoice = 0;     // 0=Fight, 1=Bag, 2=Pokemon, 3=Run
     let moveChoice = 0;     // 0-3 for moves
-    let menuMode = 'main';  // main, fight
+    let menuMode = 'main';  // main, fight, bag, pokemon
+
+    // Bag state
+    let bagItems = [];     // items available in battle
+    let bagIndex = 0;
+    let battleType = 'wild'; // 'wild' or 'trainer'
 
     // Animation
     let playerShake = 0;
@@ -41,6 +46,7 @@ const Battle = (() => {
     let transitionDir = -1; // -1 = fading in, 1 = fading out
     let battleOver = false;
     let battleResult = null; // 'win', 'lose', 'run'
+    let canRun = true;
 
     const TEXT_SPEED = 25;
     const TYPE_COLORS = {
@@ -72,7 +78,7 @@ const Battle = (() => {
         { name: '---', type: 'Normal', power: 0, pp: 0, maxPp: 0 },
     ];
 
-    function start(playerData, enemyData) {
+    function start(playerData, enemyData, options) {
         playerPokemon = {
             name: playerData.name || 'Pikachu',
             level: playerData.level || 5,
@@ -99,6 +105,8 @@ const Battle = (() => {
         transitionDir = -1;
         battleOver = false;
         battleResult = null;
+        canRun = !(options && options.canRun === false);
+        battleType = (options && options.battleType) || 'wild';
         menuChoice = 0;
         moveChoice = 0;
         menuMode = 'main';
@@ -165,7 +173,7 @@ const Battle = (() => {
             if (transitionAlpha >= 1 && transitionDir > 0) {
                 transitionAlpha = 1;
                 transitionDir = 0;
-                return { done: true, result: battleResult, playerHp: playerPokemon ? playerPokemon.hp : 0 };
+                return { done: true, result: battleResult, playerHp: playerPokemon ? playerPokemon.hp : 0, enemyPokemon: enemyPokemon };
             }
         }
 
@@ -201,6 +209,9 @@ const Battle = (() => {
                     if (mov.dx < 0 && moveChoice % 2 === 1) { moveChoice--; actionCooldown = 150; }
                     if (mov.dx > 0 && moveChoice % 2 === 0) { moveChoice++; actionCooldown = 150; }
                     moveChoice = Math.max(0, Math.min(3, moveChoice));
+                } else if (menuMode === 'bag') {
+                    if (mov.dy < 0) { bagIndex = Math.max(0, bagIndex - 1); actionCooldown = 150; }
+                    if (mov.dy > 0) { bagIndex = Math.min(Math.max(0, bagItems.length - 1), bagIndex + 1); actionCooldown = 150; }
                 }
             }
 
@@ -211,21 +222,48 @@ const Battle = (() => {
                         // Fight
                         menuMode = 'fight';
                         moveChoice = 0;
+                    } else if (menuChoice === 1) {
+                        // Bag
+                        bagItems = getBattleItems();
+                        bagIndex = 0;
+                        menuMode = 'bag';
+                    } else if (menuChoice === 2) {
+                        // Pokemon
+                        menuMode = 'pokemon';
                     } else if (menuChoice === 3) {
                         // Run
-                        executeRun();
+                        if (canRun) {
+                            executeRun();
+                        } else {
+                            phase = 'text';
+                            textQueue = ['Can\'t escape from a trainer battle!'];
+                            textIndex = 0;
+                            charIndex = 0;
+                            textTimer = 0;
+                        }
                     }
-                    // Bag and Pokemon not implemented yet
                 } else if (menuMode === 'fight') {
                     const move = playerPokemon.moves[moveChoice];
                     if (move.name !== '---' && move.pp > 0) {
                         executeTurn(move);
                     }
+                } else if (menuMode === 'bag') {
+                    if (bagItems.length > 0) {
+                        useBagItem(bagItems[bagIndex]);
+                    }
+                } else if (menuMode === 'pokemon') {
+                    // Pokemon view — currently read-only (party of 1)
+                    phase = 'text';
+                    textQueue = ['No other Pokemon to switch to!'];
+                    textIndex = 0;
+                    charIndex = 0;
+                    textTimer = 0;
+                    menuMode = 'main';
                 }
             }
 
-            // B key to go back
-            if ((Input.isDown('b') || Input.isDown('B') || Input.isDown('Escape')) && menuMode === 'fight' && actionCooldown <= 0) {
+            // B key to go back from sub-menus
+            if ((Input.isDown('b') || Input.isDown('B') || Input.isDown('Escape')) && menuMode !== 'main' && actionCooldown <= 0) {
                 menuMode = 'main';
                 actionCooldown = 200;
             }
@@ -357,6 +395,108 @@ const Battle = (() => {
         textTimer = 0;
         battleOver = true;
         battleResult = 'run';
+    }
+
+    function getBattleItems() {
+        const inv = PauseMenu.inventory;
+        const items = [];
+        // Potions (usable in battle)
+        for (const p of inv.potions) {
+            if (p.qty > 0) items.push({ ...p, action: 'heal' });
+        }
+        // Pokeballs (only in wild battles)
+        if (battleType === 'wild') {
+            for (const b of inv.pokeballs) {
+                if (b.qty > 0) items.push({ ...b, action: 'catch' });
+            }
+        }
+        // Battle items (antidotes etc)
+        for (const b of inv.battle) {
+            if (b.qty > 0) items.push({ ...b, action: 'use' });
+        }
+        return items;
+    }
+
+    function useBagItem(item) {
+        if (!item || item.qty <= 0) return;
+
+        if (item.action === 'catch') {
+            // Throw pokeball
+            item.qty--;
+            const catchRate = Math.random();
+            const hpRatio = enemyPokemon.hp / enemyPokemon.maxHp;
+            const catchChance = (1 - hpRatio * 0.5) * 0.4; // ~20-40% base chance
+
+            phase = 'text';
+            menuMode = 'main';
+
+            if (catchRate < catchChance) {
+                textQueue = [
+                    `You threw a ${item.name}!`,
+                    'Wiggle... Wiggle... Wiggle...',
+                    `Gotcha! ${enemyPokemon.name} was caught!`,
+                ];
+                battleOver = true;
+                battleResult = 'catch';
+            } else {
+                textQueue = [
+                    `You threw a ${item.name}!`,
+                    'Wiggle... Wiggle...',
+                    'Oh no! The Pokemon broke free!',
+                ];
+            }
+            textIndex = 0;
+            charIndex = 0;
+            textTimer = 0;
+        } else if (item.action === 'heal') {
+            // Use potion
+            const healAmount = item.id === 'super-potion' ? 50 : 20;
+            const before = playerPokemon.hp;
+            playerPokemon.hp = Math.min(playerPokemon.maxHp, playerPokemon.hp + healAmount);
+            const healed = playerPokemon.hp - before;
+            item.qty--;
+
+            phase = 'animating';
+            introTimer = 0;
+            menuMode = 'main';
+            textQueue = [`Used ${item.name}! Restored ${healed} HP.`];
+
+            // Enemy still attacks after using item
+            const enemyMoves = [
+                { name: 'Tackle', type: 'Normal', power: 40 },
+                { name: 'Scratch', type: 'Normal', power: 40 },
+            ];
+            const enemyMove = enemyMoves[Math.floor(Math.random() * enemyMoves.length)];
+            const enemyDmg = calculateDamage(enemyMove.power, enemyPokemon.level);
+            textQueue.push(`Wild ${enemyPokemon.name} used ${enemyMove.name}!`);
+            playerPokemon.hp = Math.max(0, playerPokemon.hp - enemyDmg);
+
+            setTimeout(() => {
+                playerShake = 300;
+                playerFlash = 200;
+                if (enemyDmg > 0) {
+                    damageNumbers.push({
+                        x: canvasW * 0.25, y: canvasH * 0.5,
+                        value: enemyDmg, age: 0,
+                    });
+                }
+            }, 400);
+
+            if (playerPokemon.hp <= 0) {
+                textQueue.push(`${playerPokemon.name} fainted!`);
+                battleOver = true;
+                battleResult = 'lose';
+            }
+        } else {
+            // Status item — placeholder
+            phase = 'text';
+            menuMode = 'main';
+            textQueue = [`Used ${item.name}!`];
+            item.qty--;
+            textIndex = 0;
+            charIndex = 0;
+            textTimer = 0;
+        }
     }
 
     function calculateDamage(power, level) {
@@ -669,6 +809,10 @@ const Battle = (() => {
                 drawMainMenu(panelY, panelH);
             } else if (menuMode === 'fight') {
                 drawFightMenu(panelY, panelH);
+            } else if (menuMode === 'bag') {
+                drawBagMenu(panelY, panelH);
+            } else if (menuMode === 'pokemon') {
+                drawPokemonMenu(panelY, panelH);
             }
         } else if (phase === 'result') {
             drawTextBox(panelY);
@@ -718,14 +862,15 @@ const Battle = (() => {
             const bh = menuItemH - 2;
 
             // Button background
-            ctx.fillStyle = i === menuChoice ? colors[i] : '#d0d0c8';
+            const disabled = (i === 3 && !canRun);
+            ctx.fillStyle = disabled ? '#a0a098' : (i === menuChoice ? colors[i] : '#d0d0c8');
             ctx.fillRect(bx, by, bw, bh);
             ctx.strokeStyle = '#404040';
             ctx.lineWidth = 2;
             ctx.strokeRect(bx, by, bw, bh);
 
             // Button text
-            ctx.fillStyle = i === menuChoice ? '#ffffff' : '#404040';
+            ctx.fillStyle = disabled ? '#808078' : (i === menuChoice ? '#ffffff' : '#404040');
             ctx.font = 'bold 13px monospace';
             ctx.textAlign = 'center';
             ctx.fillText(labels[i], bx + bw / 2, by + bh / 2 + 5);
@@ -775,6 +920,108 @@ const Battle = (() => {
         ctx.textAlign = 'right';
         ctx.fillText('B / Esc: Back', canvasW - 20, panelY + panelH - 8);
 
+        ctx.textAlign = 'left';
+    }
+
+    function drawBagMenu(panelY, panelH) {
+        // Title
+        ctx.fillStyle = '#202020';
+        ctx.font = 'bold 14px monospace';
+        ctx.textAlign = 'left';
+        ctx.fillText('BAG', 20, panelY + 20);
+
+        if (bagItems.length === 0) {
+            ctx.fillStyle = '#808080';
+            ctx.font = '14px monospace';
+            ctx.fillText('No items to use!', 20, panelY + 50);
+        } else {
+            const maxVisible = 3;
+            const scrollOffset = Math.max(0, bagIndex - maxVisible + 1);
+            for (let i = 0; i < Math.min(maxVisible, bagItems.length); i++) {
+                const idx = i + scrollOffset;
+                if (idx >= bagItems.length) break;
+                const item = bagItems[idx];
+                const iy = panelY + 28 + i * 26;
+
+                if (idx === bagIndex) {
+                    ctx.fillStyle = 'rgba(64, 128, 192, 0.3)';
+                    ctx.fillRect(14, iy - 4, canvasW - 28, 24);
+                }
+
+                // Item color dot
+                ctx.fillStyle = item.color || '#a0a0a0';
+                ctx.fillRect(20, iy, 14, 14);
+
+                // Item name
+                ctx.fillStyle = idx === bagIndex ? '#202020' : '#606060';
+                ctx.font = idx === bagIndex ? 'bold 13px monospace' : '13px monospace';
+                ctx.textAlign = 'left';
+                ctx.fillText(item.name, 42, iy + 12);
+
+                // Quantity
+                ctx.textAlign = 'right';
+                ctx.fillText(`x${item.qty}`, canvasW - 20, iy + 12);
+            }
+        }
+
+        // Back hint
+        ctx.fillStyle = '#808080';
+        ctx.font = '10px monospace';
+        ctx.textAlign = 'right';
+        ctx.fillText('B / Esc: Back', canvasW - 20, panelY + panelH - 8);
+        ctx.textAlign = 'left';
+    }
+
+    function drawPokemonMenu(panelY, panelH) {
+        ctx.fillStyle = '#202020';
+        ctx.font = 'bold 14px monospace';
+        ctx.textAlign = 'left';
+        ctx.fillText('POKEMON', 20, panelY + 20);
+
+        if (playerPokemon) {
+            const iy = panelY + 30;
+            ctx.fillStyle = 'rgba(64, 128, 192, 0.3)';
+            ctx.fillRect(14, iy, canvasW - 28, 36);
+
+            // Type color indicator
+            const typeColor = TYPE_COLORS[playerPokemon.type] || '#a0a0a0';
+            ctx.fillStyle = typeColor;
+            ctx.fillRect(20, iy + 4, 28, 28);
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 14px monospace';
+            ctx.textAlign = 'center';
+            ctx.fillText(playerPokemon.name[0], 34, iy + 23);
+
+            // Name and level
+            ctx.fillStyle = '#202020';
+            ctx.font = 'bold 13px monospace';
+            ctx.textAlign = 'left';
+            ctx.fillText(`${playerPokemon.name}  Lv${playerPokemon.level}`, 56, iy + 16);
+
+            // HP
+            const hpRatio = playerPokemon.hp / playerPokemon.maxHp;
+            const barX = 56;
+            const barW = 120;
+            const barY = iy + 22;
+            ctx.fillStyle = '#303030';
+            ctx.fillRect(barX, barY, barW, 8);
+            let hpColor = '#48c048';
+            if (hpRatio < 0.5) hpColor = '#f8c830';
+            if (hpRatio < 0.2) hpColor = '#e04038';
+            ctx.fillStyle = hpColor;
+            ctx.fillRect(barX + 1, barY + 1, (barW - 2) * hpRatio, 6);
+
+            ctx.fillStyle = '#606060';
+            ctx.font = '11px monospace';
+            ctx.textAlign = 'right';
+            ctx.fillText(`${Math.ceil(playerPokemon.hp)}/${playerPokemon.maxHp}`, barX + barW + 50, barY + 8);
+        }
+
+        // Back hint
+        ctx.fillStyle = '#808080';
+        ctx.font = '10px monospace';
+        ctx.textAlign = 'right';
+        ctx.fillText('B / Esc: Back', canvasW - 20, panelY + panelH - 8);
         ctx.textAlign = 'left';
     }
 

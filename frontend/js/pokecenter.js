@@ -129,6 +129,8 @@ const PokeCenter = (() => {
                         poke.hp = poke.maxHp;
                     }
                 }
+                // Sync with backend (fire-and-forget)
+                API.healParty();
                 Dialogue.start('Nurse Joy', [
                     'Your Pokemon have been fully healed!',
                     'We hope to see you again!',

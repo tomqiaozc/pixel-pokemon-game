@@ -5,9 +5,11 @@ const Game = (() => {
     const MOVE_SPEED = 1.5; // pixels per frame
     const ANIM_INTERVAL = 150; // ms between walk frames
 
-    // Game states: starter, overworld, battle, evolution, pokecenter, gym
+    // Game states: starter, overworld, battle, evolution, pokecenter, gym, badge_award
     let state = 'starter';
     let canvas, ctx;
+    let pendingBadge = null;
+    let previousState = null;
 
     // Player state
     const player = {
@@ -83,11 +85,16 @@ const Game = (() => {
                     maxHp: result.leader.type === 'Rock' ? 35 : 105,
                     type: result.leader.type,
                 };
-                startBattle(leaderPokemon);
+                pendingBadge = result.badge;
+                previousState = 'gym';
+                startBattle(leaderPokemon, { canRun: false, battleType: 'trainer' });
             }
             if (result.battleTrainer) {
-                startBattle(result.trainer.pokemon[0]);
+                previousState = 'gym';
+                startBattle(result.trainer.pokemon[0], { canRun: false, battleType: 'trainer' });
             }
+        } else if (state === 'badge_award') {
+            updateBadgeAward(dt);
         }
 
         requestAnimationFrame(loop);
@@ -111,6 +118,9 @@ const Game = (() => {
             state = 'overworld';
             loadMap('pallet_town');
             Renderer.centerCamera(player.x + TILE / 2, player.y + TILE / 2);
+
+            // Create backend game session (fire-and-forget)
+            API.createGame('Red', result.starter.name);
         }
     }
 
@@ -135,7 +145,7 @@ const Game = (() => {
         const trainerResult = TrainerEncounter.update(dt);
         if (trainerResult.encountering) return;
         if (trainerResult.startBattle) {
-            startBattle(trainerResult.trainer.pokemon[0]);
+            startBattle(trainerResult.trainer.pokemon[0], { canRun: false, battleType: 'trainer' });
             TrainerEncounter.defeatTrainer(MapLoader.getCurrentMapId(), trainerResult.trainer.name);
             return;
         }
@@ -293,6 +303,7 @@ const Game = (() => {
         const map = MapLoader.getCurrentMap();
         if (!map) return;
         GameMap.loadMapData(map.data, map.width, map.height);
+        NPC.loadForMap(mapId);
         if (map.trainers) {
             TrainerEncounter.loadTrainers(mapId, map.trainers);
         }
@@ -319,7 +330,7 @@ const Game = (() => {
         state = 'pokecenter';
     }
 
-    function startBattle(enemyData) {
+    function startBattle(enemyData, options) {
         const starterMoves = {
             'Bulbasaur':  [
                 { name: 'Tackle', type: 'Normal', power: 40, pp: 35, maxPp: 35 },
@@ -354,7 +365,7 @@ const Game = (() => {
             maxExp: lead ? lead.maxExp : 100,
             type: starterType,
             moves: starterMoves[starterName] || starterMoves['Charmander'],
-        }, enemyData);
+        }, enemyData, options);
 
         state = 'battle';
     }
@@ -368,8 +379,90 @@ const Game = (() => {
             if (player.party[0] && result.playerHp !== undefined) {
                 player.party[0].hp = Math.max(0, result.playerHp);
             }
-            state = 'overworld';
-            Renderer.centerCamera(player.x + TILE / 2, player.y + TILE / 2);
+
+            // Add caught Pokemon to party
+            if (result.result === 'catch' && result.enemyPokemon) {
+                const caught = result.enemyPokemon;
+                if (player.party.length < 6) {
+                    player.party.push({
+                        name: caught.name,
+                        type: caught.type,
+                        level: caught.level,
+                        hp: caught.hp,
+                        maxHp: caught.maxHp,
+                        exp: 0,
+                        maxExp: 100,
+                    });
+                }
+            }
+
+            if (pendingBadge && result.result === 'win') {
+                BadgeCase.earnBadge(pendingBadge.index);
+                badgeAwardTimer = 0;
+                badgeAwardBadge = pendingBadge;
+                pendingBadge = null;
+                previousState = null;
+                state = 'badge_award';
+                return;
+            }
+
+            if (previousState === 'gym') {
+                previousState = null;
+                pendingBadge = null;
+                state = 'gym';
+            } else {
+                state = 'overworld';
+                Renderer.centerCamera(player.x + TILE / 2, player.y + TILE / 2);
+            }
+        }
+    }
+
+    let badgeAwardTimer = 0;
+    let badgeAwardBadge = null;
+
+    function updateBadgeAward(dt) {
+        badgeAwardTimer += dt;
+
+        ctx.fillStyle = '#000000';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        const progress = Math.min(1, badgeAwardTimer / 500);
+        ctx.globalAlpha = progress;
+
+        ctx.fillStyle = '#f8d830';
+        ctx.font = 'bold 22px monospace';
+        ctx.textAlign = 'center';
+        ctx.fillText('Badge Earned!', canvas.width / 2, canvas.height / 2 - 60);
+
+        if (badgeAwardBadge) {
+            const badgeSize = 40 + Math.sin(badgeAwardTimer * 0.003) * 4;
+            TrainerBattle.drawBadge(ctx, canvas.width / 2, canvas.height / 2 + 10, badgeSize, badgeAwardBadge.index, true);
+
+            ctx.fillStyle = '#f8f8f8';
+            ctx.font = 'bold 16px monospace';
+            ctx.fillText(badgeAwardBadge.name, canvas.width / 2, canvas.height / 2 + 70);
+
+            const shineAlpha = Math.sin(badgeAwardTimer * 0.005) * 0.3 + 0.3;
+            ctx.globalAlpha = shineAlpha;
+            ctx.fillStyle = '#ffffff';
+            ctx.beginPath();
+            ctx.arc(canvas.width / 2 - 15, canvas.height / 2 - 5, 6, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        ctx.globalAlpha = 1;
+
+        if (badgeAwardTimer > 1500) {
+            ctx.fillStyle = '#a0a0a0';
+            ctx.font = '12px monospace';
+            ctx.fillText('Press any key to continue', canvas.width / 2, canvas.height / 2 + 110);
+        }
+
+        ctx.textAlign = 'left';
+
+        if (badgeAwardTimer > 1500 && (Input.isActionPressed() || Input.isDown('Escape'))) {
+            badgeAwardBadge = null;
+            state = 'gym';
         }
     }
 

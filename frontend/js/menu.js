@@ -35,7 +35,7 @@ const PauseMenu = (() => {
     // Party screen state
     let partyIndex = 0;
 
-    const MENU_ITEMS = ['Pokemon', 'Bag', 'Pokedex', 'Save', 'Close'];
+    const MENU_ITEMS = ['Pokemon', 'Bag', 'Pokedex', 'Badges', 'Save', 'Close'];
     const BAG_TABS = ['Potions', 'Balls', 'Battle', 'Key Items'];
     const BAG_TAB_KEYS = ['potions', 'pokeballs', 'battle', 'key'];
 
@@ -103,8 +103,25 @@ const PauseMenu = (() => {
                 if (menuIndex === 0) { subScreen = 'party'; partyIndex = 0; }
                 else if (menuIndex === 1) { subScreen = 'bag'; bagTab = 0; bagIndex = 0; bagAction = -1; }
                 else if (menuIndex === 2) { subScreen = 'pokedex'; Pokedex.open(); }
-                else if (menuIndex === 3) { /* Save - placeholder */ }
-                else if (menuIndex === 4) { close(); }
+                else if (menuIndex === 3) { subScreen = 'badges'; BadgeCase.open(); }
+                else if (menuIndex === 4) {
+                    // Save game to backend
+                    const p = Game.player;
+                    API.saveGame({
+                        name: 'Red',
+                        team: p.party.map(poke => ({
+                            name: poke.name, types: [poke.type],
+                            level: poke.level, id: 0,
+                            stats: { hp: poke.maxHp, attack: 10, defense: 10, sp_attack: 10, sp_defense: 10, speed: 10 },
+                            moves: [], sprite: '',
+                        })),
+                        position: { x: Math.floor(p.x), y: Math.floor(p.y), map_id: 'pallet_town', facing: 'down' },
+                        inventory: [],
+                    });
+                    subScreen = 'save';
+                    actionCooldown = 200;
+                }
+                else if (menuIndex === 5) { close(); }
             }
             if (back) { close(); actionCooldown = 200; }
         } else if (subScreen === 'party') {
@@ -114,6 +131,11 @@ const PauseMenu = (() => {
         } else if (subScreen === 'pokedex') {
             Pokedex.update(dt);
             if (!Pokedex.isActive()) { subScreen = null; }
+        } else if (subScreen === 'badges') {
+            BadgeCase.update(dt);
+            if (!BadgeCase.isActive()) { subScreen = null; }
+        } else if (subScreen === 'save') {
+            if (action || back) { subScreen = null; actionCooldown = 200; }
         }
     }
 
@@ -174,6 +196,26 @@ const PauseMenu = (() => {
             renderBag(ctx, canvasW, canvasH);
         } else if (subScreen === 'pokedex') {
             Pokedex.render(ctx, canvasW, canvasH);
+        } else if (subScreen === 'badges') {
+            BadgeCase.render(ctx, canvasW, canvasH);
+        } else if (subScreen === 'save') {
+            const boxW = 260;
+            const boxH = 60;
+            const bx = (canvasW - boxW) / 2;
+            const by = (canvasH - boxH) / 2;
+            ctx.fillStyle = '#f8f8f0';
+            ctx.fillRect(bx, by, boxW, boxH);
+            ctx.strokeStyle = '#404040';
+            ctx.lineWidth = 3;
+            ctx.strokeRect(bx, by, boxW, boxH);
+            ctx.fillStyle = '#202020';
+            ctx.font = 'bold 16px monospace';
+            ctx.textAlign = 'center';
+            ctx.fillText('Game saved!', canvasW / 2, by + 28);
+            ctx.font = '11px monospace';
+            ctx.fillStyle = '#808080';
+            ctx.fillText('Press any key', canvasW / 2, by + 48);
+            ctx.textAlign = 'left';
         }
     }
 
