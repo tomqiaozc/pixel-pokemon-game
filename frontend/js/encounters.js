@@ -21,13 +21,39 @@ const Encounters = (() => {
     let grassRustles = []; // particle effects for stepping in grass
     let exclamation = null; // "!" popup
 
-    // Wild Pokemon pool
+    // Per-route encounter tables
+    const ROUTE_ENCOUNTERS = {
+        route_1: [
+            { name: 'Pidgey',    type: 'Flying', level: [2, 5], hp: 14 },
+            { name: 'Rattata',   type: 'Normal', level: [2, 4], hp: 12 },
+        ],
+        route_2: [
+            { name: 'Caterpie',  type: 'Bug',    level: [3, 6], hp: 11 },
+            { name: 'Weedle',    type: 'Bug',    level: [3, 6], hp: 11 },
+            { name: 'Rattata',   type: 'Normal', level: [3, 5], hp: 12 },
+            { name: 'Pidgey',    type: 'Flying', level: [3, 5], hp: 14 },
+        ],
+        pallet_town: [
+            { name: 'Pidgey',    type: 'Flying', level: [2, 4], hp: 14 },
+            { name: 'Rattata',   type: 'Normal', level: [2, 3], hp: 12 },
+        ],
+        viridian_city: [
+            { name: 'Pidgey',    type: 'Flying', level: [3, 5], hp: 14 },
+            { name: 'Oddish',    type: 'Grass',  level: [3, 5], hp: 15 },
+        ],
+        pewter_city: [
+            { name: 'Pidgey',    type: 'Flying', level: [4, 6], hp: 14 },
+            { name: 'Oddish',    type: 'Grass',  level: [4, 6], hp: 15 },
+        ],
+    };
+
+    // Fallback pool used when map has no specific encounters
     const WILD_POKEMON = [
-        { name: 'Pidgey',    type: 'Flying',  level: [2, 5], hp: 14, color: '#c0a870' },
-        { name: 'Rattata',   type: 'Normal',  level: [2, 4], hp: 12, color: '#a060c0' },
-        { name: 'Caterpie',  type: 'Bug',     level: [2, 4], hp: 11, color: '#68b838' },
-        { name: 'Weedle',    type: 'Bug',     level: [2, 4], hp: 11, color: '#b08830' },
-        { name: 'Oddish',    type: 'Grass',   level: [3, 5], hp: 15, color: '#4878c8' },
+        { name: 'Pidgey',    type: 'Flying',  level: [2, 5], hp: 14 },
+        { name: 'Rattata',   type: 'Normal',  level: [2, 4], hp: 12 },
+        { name: 'Caterpie',  type: 'Bug',     level: [2, 4], hp: 11 },
+        { name: 'Weedle',    type: 'Bug',     level: [2, 4], hp: 11 },
+        { name: 'Oddish',    type: 'Grass',   level: [3, 5], hp: 15 },
     ];
 
     function reset() {
@@ -118,8 +144,10 @@ const Encounters = (() => {
     }
 
     function triggerEncounter(player) {
-        // Pick a random wild Pokemon
-        const template = WILD_POKEMON[Math.floor(Math.random() * WILD_POKEMON.length)];
+        // Use per-route encounter table based on current map
+        const currentMap = MapLoader.getCurrentMapId();
+        const pool = ROUTE_ENCOUNTERS[currentMap] || WILD_POKEMON;
+        const template = pool[Math.floor(Math.random() * pool.length)];
         const level = template.level[0] + Math.floor(Math.random() * (template.level[1] - template.level[0] + 1));
         const hp = template.hp + Math.floor(level * 1.5);
 

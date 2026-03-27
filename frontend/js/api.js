@@ -124,8 +124,43 @@ const API = (() => {
         }
     }
 
+    async function awardExp(pokemonIndex, defeatedSpeciesId, defeatedLevel) {
+        if (!gameId) return null;
+        try {
+            const res = await fetch(`${BASE_URL}/evolution/award-exp`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    game_id: gameId,
+                    pokemon_index: pokemonIndex,
+                    defeated_species_id: defeatedSpeciesId,
+                    defeated_level: defeatedLevel,
+                }),
+            });
+            if (!res.ok) return null;
+            return await res.json();
+        } catch {
+            return null;
+        }
+    }
+
+    async function checkEncounter(areaId) {
+        try {
+            const res = await fetch(`${BASE_URL}/encounter/check`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ area_id: areaId }),
+            });
+            if (!res.ok) return null;
+            return await res.json();
+        } catch {
+            return null;
+        }
+    }
+
     return {
         createGame, getGameId, healParty, registerSeen,
         registerCaught, saveGame, getInventory, useItem,
+        awardExp, checkEncounter,
     };
 })();
