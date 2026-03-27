@@ -56,6 +56,24 @@ def create_game(player_name: str, starter_pokemon_id: int) -> dict:
     return game_state
 
 
+def create_game_with_starter(player_name: str, starter_data: dict) -> dict:
+    """Create a game with a pre-built starter Pokemon dict (with IVs applied)."""
+    game_id = uuid.uuid4().hex[:8]
+    game_state = {
+        "id": game_id,
+        "player": {
+            "name": player_name,
+            "team": [starter_data],
+            "position": {"x": 0, "y": 0, "map_id": "pallet_town", "facing": "down"},
+            "inventory": [],
+        },
+        "badges": 0,
+        "play_time_seconds": 0,
+    }
+    _games[game_id] = game_state
+    return game_state
+
+
 def get_game(game_id: str) -> dict | None:
     return _games.get(game_id)
 

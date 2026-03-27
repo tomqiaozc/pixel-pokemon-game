@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, ValidationError
 
 from ..services.encounter_service import generate_wild_pokemon, get_species
-from ..services.game_service import create_game, get_game, save_game
+from ..services.game_service import create_game, create_game_with_starter, get_game, save_game
 
 router = APIRouter(prefix="/api/game", tags=["game"])
 
@@ -54,11 +54,8 @@ def choose_starter(req: ChooseStarterRequest):
         "level": starter.level,
     }
 
-    # Create game with this starter
-    try:
-        return create_game(req.player_name, req.starter_id)
-    except ValueError as e:
-        raise HTTPException(status_code=400, detail=str(e))
+    # Create game with IV-calculated starter
+    return create_game_with_starter(req.player_name, starter_data)
 
 
 @router.get("/{game_id}")
