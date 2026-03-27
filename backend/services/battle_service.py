@@ -25,6 +25,7 @@ from .ability_service import (
     process_ability_damage_modifier,
     process_ability_end_of_turn,
     process_ability_on_hit,
+    process_ability_on_ko,
     process_ability_weather_end_of_turn,
     process_switch_in_ability,
 )
@@ -440,7 +441,7 @@ def process_action(
 
         dmg, eff, crit = _calculate_damage(attacker, defender, move, current_weather)
 
-        # Ability: check type immunity (Levitate, Water Absorb, Flash Fire)
+        # Ability: check type immunity (Levitate, Water Absorb, Flash Fire, Wonder Guard)
         attacker_role = role
         defender_role = "enemy" if role == "player" else "player"
         immune, ab_events = check_ability_type_immunity(defender, move, defender_role)
@@ -496,6 +497,9 @@ def process_action(
                 status_events.extend(hit_events)
 
         if fainted:
+            # Ability: on-KO abilities (Moxie)
+            ko_events = process_ability_on_ko(attacker, role)
+            status_events.extend(ko_events)
             battle.is_over = True
             battle.winner = role
             break

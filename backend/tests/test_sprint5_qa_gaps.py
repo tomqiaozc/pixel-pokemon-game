@@ -331,11 +331,11 @@ class TestAbilityDataComplete:
             assert "trigger_data" in ab, f"{ab_id} missing 'trigger_data'"
 
     def test_ability_count(self):
-        """Verify we have exactly 24 abilities."""
+        """Verify we have 27 abilities (24 base + 3 QA additions)."""
         from backend.services.ability_service import _abilities_db, _load_abilities
         if not _abilities_db:
             _load_abilities()
-        assert len(_abilities_db) == 24
+        assert len(_abilities_db) == 27
 
     def test_get_ability_name_returns_display_name(self):
         assert get_ability_name("overgrow") == "Overgrow"

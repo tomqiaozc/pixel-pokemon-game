@@ -166,5 +166,26 @@
     "description": "Heals 1/16 HP at end of each turn in rain",
     "trigger_types": ["end_of_turn"],
     "trigger_data": {"weather": "rain", "heal_fraction": 0.0625}
+  },
+  "water_veil": {
+    "id": "water_veil",
+    "name": "Water Veil",
+    "description": "Immune to burns",
+    "trigger_types": ["on_status"],
+    "trigger_data": {"immune_status": "brn"}
+  },
+  "wonder_guard": {
+    "id": "wonder_guard",
+    "name": "Wonder Guard",
+    "description": "Only super-effective moves deal damage",
+    "trigger_types": ["on_take_damage"],
+    "trigger_data": {"block_non_super_effective": true}
+  },
+  "moxie": {
+    "id": "moxie",
+    "name": "Moxie",
+    "description": "Boosts Attack by 1 stage when knocking out a Pokemon",
+    "trigger_types": ["on_ko"],
+    "trigger_data": {"stat": "attack", "stages": 1}
   }
 }
