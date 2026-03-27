@@ -158,9 +158,52 @@ const API = (() => {
         }
     }
 
+    // --- Trading API ---
+
+    async function tradeOffer(pokemonIndex) {
+        if (!gameId) return null;
+        try {
+            const res = await fetch(`${BASE_URL}/trade/offer`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ game_id: gameId, pokemon_index: pokemonIndex }),
+            });
+            if (!res.ok) return null;
+            return await res.json();
+        } catch {
+            return null;
+        }
+    }
+
+    async function tradeConfirm(tradeId) {
+        if (!gameId) return null;
+        try {
+            const res = await fetch(`${BASE_URL}/trade/confirm`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ game_id: gameId, trade_id: tradeId }),
+            });
+            if (!res.ok) return null;
+            return await res.json();
+        } catch {
+            return null;
+        }
+    }
+
+    async function tradeStatus(tradeId) {
+        try {
+            const res = await fetch(`${BASE_URL}/trade/status?trade_id=${tradeId}`);
+            if (!res.ok) return null;
+            return await res.json();
+        } catch {
+            return null;
+        }
+    }
+
     return {
         createGame, getGameId, healParty, registerSeen,
         registerCaught, saveGame, getInventory, useItem,
         awardExp, checkEncounter,
+        tradeOffer, tradeConfirm, tradeStatus,
     };
 })();
