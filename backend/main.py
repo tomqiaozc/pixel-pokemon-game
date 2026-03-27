@@ -7,6 +7,7 @@ from .routes.evolution import router as evolution_router
 from .routes.game import router as game_router
 from .routes.gym import router as gym_router
 from .routes.items import router as items_router
+from .routes.leaderboard import router as leaderboard_router
 from .routes.map import router as map_router
 from .routes.npc import router as npc_router
 from .routes.pokedex import router as pokedex_router
@@ -36,6 +37,7 @@ app.include_router(map_router)
 app.include_router(pokedex_router)
 app.include_router(trade_router)
 app.include_router(pvp_router)
+app.include_router(leaderboard_router)
 
 
 @app.get("/api/health")
