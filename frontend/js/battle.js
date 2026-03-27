@@ -48,6 +48,13 @@ const Battle = (() => {
     let battleResult = null; // 'win', 'lose', 'run'
     let canRun = true;
 
+    // Battle status conditions
+    let playerStatus = null;  // poison, burn, paralysis, sleep, freeze, toxic, confusion
+    let enemyStatus = null;
+    let playerAbility = null;
+    let enemyAbility = null;
+    let statusTurnCounter = 0;  // for sleep/toxic tracking
+
     const TEXT_SPEED = 25;
     const TYPE_COLORS = {
         Normal:   '#a8a878',
@@ -117,6 +124,7 @@ const Battle = (() => {
             type: playerData.type || 'Normal',
             moves: playerData.moves || DEFAULT_MOVES.slice(),
             colors: playerData.colors || null,
+            ability: playerData.ability || null,
         };
         enemyPokemon = {
             name: enemyData.name || 'Pidgey',
@@ -125,6 +133,7 @@ const Battle = (() => {
             maxHp: enemyData.maxHp || 15,
             type: enemyData.type || 'Normal',
             colors: enemyData.colors || null,
+            ability: enemyData.ability || null,
         };
 
         phase = 'intro';
@@ -148,11 +157,33 @@ const Battle = (() => {
         enemyFaint = 0;
         playerHpDisplay = playerPokemon.hp;
         enemyHpDisplay = enemyPokemon.hp;
+        playerStatus = null;
+        enemyStatus = null;
+        playerAbility = playerData.ability || null;
+        enemyAbility = enemyData.ability || null;
+        statusTurnCounter = 0;
         textQueue = [`Wild ${enemyPokemon.name} appeared!`];
         textIndex = 0;
         charIndex = 0;
         textTimer = 0;
         actionCooldown = 300;
+
+        // Reset visual effect modules
+        StatusFx.reset();
+        AbilityFx.reset();
+
+        // Check switch-in abilities
+        if (enemyAbility) {
+            const weatherType = AbilityFx.getWeatherAbility(enemyAbility);
+            if (weatherType) {
+                Weather.setWeather(weatherType, 5);
+                textQueue.push(AbilityFx.getActivationMessage(enemyPokemon.name, enemyAbility));
+                textQueue.push(Weather.getWeatherMessage());
+            } else if (enemyAbility === 'Intimidate') {
+                textQueue.push(AbilityFx.getActivationMessage(enemyPokemon.name, enemyAbility));
+                textQueue.push(`${playerPokemon.name}'s Attack fell!`);
+            }
+        }
 
         canvas = document.getElementById('game-canvas');
         ctx = canvas.getContext('2d');
@@ -190,6 +221,11 @@ const Battle = (() => {
             p.vy += 0.002 * dt; // gravity
         }
         particles = particles.filter(p => p.age < p.life);
+
+        // Update visual effect modules
+        StatusFx.update(dt);
+        AbilityFx.update(dt);
+        Weather.update(dt);
 
         // Transition fade
         if (transitionDir !== 0) {
@@ -374,6 +410,42 @@ const Battle = (() => {
         introTimer = 0;
         textQueue = [];
 
+        // Check if player is prevented from acting by status
+        if (playerStatus === 'paralysis' && Math.random() < 0.25) {
+            textQueue.push(StatusFx.getStatusPreventText('paralysis', playerPokemon.name));
+            StatusFx.showStatusApplied('paralysis', canvasW * 0.22, canvasH * 0.52);
+            // Enemy still attacks
+            appendEnemyAttack();
+            appendEndOfTurnEffects();
+            return;
+        }
+        if (playerStatus === 'sleep') {
+            statusTurnCounter++;
+            if (statusTurnCounter < 2 + Math.floor(Math.random() * 2)) {
+                textQueue.push(StatusFx.getStatusPreventText('sleep', playerPokemon.name));
+                StatusFx.showStatusApplied('sleep', canvasW * 0.22, canvasH * 0.52);
+                appendEnemyAttack();
+                appendEndOfTurnEffects();
+                return;
+            } else {
+                textQueue.push(StatusFx.getStatusCureText('sleep', playerPokemon.name));
+                playerStatus = null;
+                statusTurnCounter = 0;
+            }
+        }
+        if (playerStatus === 'freeze') {
+            if (Math.random() < 0.8) {
+                textQueue.push(StatusFx.getStatusPreventText('freeze', playerPokemon.name));
+                StatusFx.showStatusApplied('freeze', canvasW * 0.22, canvasH * 0.52);
+                appendEnemyAttack();
+                appendEndOfTurnEffects();
+                return;
+            } else {
+                textQueue.push(StatusFx.getStatusCureText('freeze', playerPokemon.name));
+                playerStatus = null;
+            }
+        }
+
         // Player attacks
         playerMove.pp--;
         const playerResult = calculateDamage(playerMove.power, playerPokemon.level, playerMove.type, playerPokemon.type, enemyPokemon.type);
@@ -403,6 +475,24 @@ const Battle = (() => {
                 value: playerDmg,
                 age: 0,
             });
+
+            // Contact ability triggers (enemy's)
+            if (enemyAbility === 'Static' && playerMove.power > 0 && Math.random() < 0.3 && !playerStatus) {
+                playerStatus = 'paralysis';
+                textQueue.push(AbilityFx.getActivationMessage(enemyPokemon.name, 'Static'));
+                textQueue.push(`${playerPokemon.name} is paralyzed!`);
+                StatusFx.showStatusApplied('paralysis', canvasW * 0.22, canvasH * 0.52);
+            } else if (enemyAbility === 'Flame Body' && playerMove.power > 0 && Math.random() < 0.3 && !playerStatus) {
+                playerStatus = 'burn';
+                textQueue.push(AbilityFx.getActivationMessage(enemyPokemon.name, 'Flame Body'));
+                textQueue.push(`${playerPokemon.name} was burned!`);
+                StatusFx.showStatusApplied('burn', canvasW * 0.22, canvasH * 0.52);
+            } else if (enemyAbility === 'Poison Point' && playerMove.power > 0 && Math.random() < 0.3 && !playerStatus) {
+                playerStatus = 'poison';
+                textQueue.push(AbilityFx.getActivationMessage(enemyPokemon.name, 'Poison Point'));
+                textQueue.push(`${playerPokemon.name} was poisoned!`);
+                StatusFx.showStatusApplied('poison', canvasW * 0.22, canvasH * 0.52);
+            }
         }
 
         if (enemyPokemon.hp <= 0) {
@@ -412,6 +502,12 @@ const Battle = (() => {
             return;
         }
 
+        appendEnemyAttack();
+        appendEndOfTurnEffects();
+    }
+
+    // Separate function for enemy attack (reused when player is status-blocked)
+    function appendEnemyAttack() {
         // Enemy attacks — pick type-appropriate move
         const enemyMoves = getEnemyMoves(enemyPokemon.type);
         const enemyMove = enemyMoves[Math.floor(Math.random() * enemyMoves.length)];
@@ -430,7 +526,7 @@ const Battle = (() => {
 
         playerPokemon.hp = Math.max(0, playerPokemon.hp - enemyDmg);
 
-        // Delayed player hit effects (set in animation timer)
+        // Delayed player hit effects
         setTimeout(() => {
             playerShake = 300;
             playerFlash = 200;
@@ -448,6 +544,98 @@ const Battle = (() => {
             textQueue.push(`${playerPokemon.name} fainted!`);
             battleOver = true;
             battleResult = 'lose';
+        }
+    }
+
+    // End-of-turn: status damage, weather damage, ability triggers
+    function appendEndOfTurnEffects() {
+        if (battleOver) return;
+
+        // Player status damage
+        if (playerStatus === 'poison' || playerStatus === 'toxic') {
+            const dmg = Math.max(1, Math.floor(playerPokemon.maxHp / (playerStatus === 'toxic' ? 8 : 8)));
+            playerPokemon.hp = Math.max(0, playerPokemon.hp - dmg);
+            textQueue.push(StatusFx.getStatusDamageText(playerStatus, playerPokemon.name));
+            if (playerPokemon.hp <= 0) {
+                textQueue.push(`${playerPokemon.name} fainted!`);
+                battleOver = true;
+                battleResult = 'lose';
+                return;
+            }
+        }
+        if (playerStatus === 'burn') {
+            const dmg = Math.max(1, Math.floor(playerPokemon.maxHp / 16));
+            playerPokemon.hp = Math.max(0, playerPokemon.hp - dmg);
+            textQueue.push(StatusFx.getStatusDamageText('burn', playerPokemon.name));
+            if (playerPokemon.hp <= 0) {
+                textQueue.push(`${playerPokemon.name} fainted!`);
+                battleOver = true;
+                battleResult = 'lose';
+                return;
+            }
+        }
+
+        // Enemy status damage
+        if (enemyStatus === 'poison' || enemyStatus === 'toxic') {
+            const dmg = Math.max(1, Math.floor(enemyPokemon.maxHp / 8));
+            enemyPokemon.hp = Math.max(0, enemyPokemon.hp - dmg);
+            textQueue.push(StatusFx.getStatusDamageText(enemyStatus, enemyPokemon.name));
+            if (enemyPokemon.hp <= 0) {
+                textQueue.push(`Wild ${enemyPokemon.name} fainted!`);
+                battleOver = true;
+                battleResult = 'win';
+                return;
+            }
+        }
+        if (enemyStatus === 'burn') {
+            const dmg = Math.max(1, Math.floor(enemyPokemon.maxHp / 16));
+            enemyPokemon.hp = Math.max(0, enemyPokemon.hp - dmg);
+            textQueue.push(StatusFx.getStatusDamageText('burn', enemyPokemon.name));
+            if (enemyPokemon.hp <= 0) {
+                textQueue.push(`Wild ${enemyPokemon.name} fainted!`);
+                battleOver = true;
+                battleResult = 'win';
+                return;
+            }
+        }
+
+        // Weather damage
+        if (Weather.doesDamage()) {
+            if (!Weather.isImmuneToWeatherDamage(playerPokemon.type)) {
+                const wdmg = Math.max(1, Math.floor(playerPokemon.maxHp / 16));
+                playerPokemon.hp = Math.max(0, playerPokemon.hp - wdmg);
+                textQueue.push(Weather.getWeatherDamageMessage(playerPokemon.name));
+                if (playerPokemon.hp <= 0) {
+                    textQueue.push(`${playerPokemon.name} fainted!`);
+                    battleOver = true;
+                    battleResult = 'lose';
+                    return;
+                }
+            }
+            if (!Weather.isImmuneToWeatherDamage(enemyPokemon.type)) {
+                const wdmg = Math.max(1, Math.floor(enemyPokemon.maxHp / 16));
+                enemyPokemon.hp = Math.max(0, enemyPokemon.hp - wdmg);
+                textQueue.push(Weather.getWeatherDamageMessage(enemyPokemon.name));
+                if (enemyPokemon.hp <= 0) {
+                    textQueue.push(`Wild ${enemyPokemon.name} fainted!`);
+                    battleOver = true;
+                    battleResult = 'win';
+                    return;
+                }
+            }
+        }
+
+        // Weather turn tick
+        const weatherResult = Weather.tickTurn();
+        if (weatherResult && weatherResult.ended) {
+            textQueue.push(weatherResult.message);
+        }
+
+        // Speed Boost ability (enemy)
+        if (enemyAbility === 'Speed Boost') {
+            textQueue.push(AbilityFx.getActivationMessage(enemyPokemon.name, 'Speed Boost'));
+            textQueue.push(StatusFx.getStatChangeText(enemyPokemon.name, 'Speed', 1));
+            StatusFx.showStatChange('Speed', 1, canvasW * 0.7, canvasH * 0.25);
         }
     }
 
@@ -526,40 +714,42 @@ const Battle = (() => {
             textQueue = [`Used ${item.name}! Restored ${healed} HP.`];
 
             // Enemy still attacks after using item
-            const enemyMoves = getEnemyMoves(enemyPokemon.type);
-            const enemyMove = enemyMoves[Math.floor(Math.random() * enemyMoves.length)];
-            const enemyResult = calculateDamage(enemyMove.power, enemyPokemon.level, enemyMove.type, enemyPokemon.type, playerPokemon.type);
-            const enemyDmg = enemyResult.damage;
-            textQueue.push(`Wild ${enemyPokemon.name} used ${enemyMove.name}!`);
-            if (enemyResult.effectiveness >= 2) {
-                textQueue.push("It's super effective!");
-            } else if (enemyResult.effectiveness > 0 && enemyResult.effectiveness <= 0.5) {
-                textQueue.push("It's not very effective...");
-            }
-            playerPokemon.hp = Math.max(0, playerPokemon.hp - enemyDmg);
-
-            setTimeout(() => {
-                playerShake = 300;
-                playerFlash = 200;
-                if (enemyDmg > 0) {
-                    damageNumbers.push({
-                        x: canvasW * 0.25, y: canvasH * 0.5,
-                        value: enemyDmg, age: 0,
-                    });
-                }
-            }, 400);
-
-            if (playerPokemon.hp <= 0) {
-                textQueue.push(`${playerPokemon.name} fainted!`);
-                battleOver = true;
-                battleResult = 'lose';
-            }
-        } else {
-            // Status item — placeholder
+            appendEnemyAttack();
+            appendEndOfTurnEffects();
+        } else if (item.action === 'use') {
+            // Status cure items
+            item.qty--;
             phase = 'text';
             menuMode = 'main';
-            textQueue = [`Used ${item.name}!`];
-            item.qty--;
+
+            if (item.id === 'antidote' && (playerStatus === 'poison' || playerStatus === 'toxic')) {
+                textQueue = [StatusFx.getStatusCureText(playerStatus, playerPokemon.name)];
+                playerStatus = null;
+            } else if (item.id === 'parlyz-heal' && playerStatus === 'paralysis') {
+                textQueue = [StatusFx.getStatusCureText('paralysis', playerPokemon.name)];
+                playerStatus = null;
+            } else if (item.id === 'burn-heal' && playerStatus === 'burn') {
+                textQueue = [StatusFx.getStatusCureText('burn', playerPokemon.name)];
+                playerStatus = null;
+            } else if (item.id === 'awakening' && playerStatus === 'sleep') {
+                textQueue = [StatusFx.getStatusCureText('sleep', playerPokemon.name)];
+                playerStatus = null;
+                statusTurnCounter = 0;
+            } else if (item.id === 'ice-heal' && playerStatus === 'freeze') {
+                textQueue = [StatusFx.getStatusCureText('freeze', playerPokemon.name)];
+                playerStatus = null;
+            } else if (item.id === 'full-heal') {
+                if (playerStatus) {
+                    textQueue = [StatusFx.getStatusCureText(playerStatus, playerPokemon.name)];
+                    playerStatus = null;
+                    statusTurnCounter = 0;
+                } else {
+                    textQueue = [`Used ${item.name}! But it had no effect...`];
+                }
+            } else {
+                textQueue = [`Used ${item.name}!`];
+            }
+
             textIndex = 0;
             charIndex = 0;
             textTimer = 0;
@@ -602,6 +792,9 @@ const Battle = (() => {
         // Battle background
         drawBattleBackground();
 
+        // Weather overlay (behind Pokemon, above background)
+        Weather.renderBattle(ctx, canvasW, canvasH);
+
         // Enemy Pokemon (top-right)
         const enemyX = canvasW * 0.68;
         const enemyY = canvasH * 0.22;
@@ -619,6 +812,26 @@ const Battle = (() => {
 
         // Player info panel (bottom-right)
         drawInfoPanel(playerPokemon, playerHpDisplay, canvasW - 260, canvasH * 0.42, true);
+
+        // Status icons next to HP bars
+        if (enemyStatus) {
+            StatusFx.renderStatusIcon(ctx, enemyStatus, 180, 38);
+        }
+        if (playerStatus) {
+            StatusFx.renderStatusIcon(ctx, playerStatus, canvasW - 80, canvasH * 0.42 + 38);
+        }
+
+        // Ability labels under info panels
+        if (enemyAbility) {
+            AbilityFx.renderAbilityLabel(ctx, enemyAbility, 30, 78);
+        }
+        if (playerAbility) {
+            AbilityFx.renderAbilityLabel(ctx, playerAbility, canvasW - 250, canvasH * 0.42 + 78);
+        }
+
+        // Status/Ability visual effects
+        StatusFx.render(ctx);
+        AbilityFx.render(ctx);
 
         // Particles
         for (const p of particles) {

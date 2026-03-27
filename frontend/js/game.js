@@ -126,6 +126,12 @@ const Game = (() => {
     }
 
     function updateOverworld(dt) {
+        // Update day/night cycle
+        DayCycle.update(dt);
+
+        // Update weather particles
+        Weather.update(dt);
+
         // Update map transitions
         const transResult = MapLoader.update(dt);
         if (transResult.transitioning) {

@@ -24,26 +24,33 @@ const Encounters = (() => {
     // Per-route encounter tables
     const ROUTE_ENCOUNTERS = {
         route_1: [
-            { name: 'Pidgey',    type: 'Flying', level: [2, 5], hp: 14 },
-            { name: 'Rattata',   type: 'Normal', level: [2, 4], hp: 12 },
+            { name: 'Pidgey',    type: 'Flying', level: [2, 5], hp: 14, time: 'day' },
+            { name: 'Rattata',   type: 'Normal', level: [2, 4], hp: 12, time: 'any' },
+            { name: 'Hoothoot',  type: 'Flying', level: [2, 5], hp: 14, time: 'night' },
+            { name: 'Zubat',     type: 'Poison', level: [2, 4], hp: 12, time: 'night' },
         ],
         route_2: [
-            { name: 'Caterpie',  type: 'Bug',    level: [3, 6], hp: 11 },
-            { name: 'Weedle',    type: 'Bug',    level: [3, 6], hp: 11 },
-            { name: 'Rattata',   type: 'Normal', level: [3, 5], hp: 12 },
-            { name: 'Pidgey',    type: 'Flying', level: [3, 5], hp: 14 },
+            { name: 'Caterpie',  type: 'Bug',    level: [3, 6], hp: 11, time: 'day' },
+            { name: 'Weedle',    type: 'Bug',    level: [3, 6], hp: 11, time: 'day' },
+            { name: 'Rattata',   type: 'Normal', level: [3, 5], hp: 12, time: 'any' },
+            { name: 'Pidgey',    type: 'Flying', level: [3, 5], hp: 14, time: 'day' },
+            { name: 'Hoothoot',  type: 'Flying', level: [3, 5], hp: 14, time: 'night' },
+            { name: 'Gastly',    type: 'Ghost',  level: [3, 5], hp: 11, time: 'night' },
         ],
         pallet_town: [
-            { name: 'Pidgey',    type: 'Flying', level: [2, 4], hp: 14 },
-            { name: 'Rattata',   type: 'Normal', level: [2, 3], hp: 12 },
+            { name: 'Pidgey',    type: 'Flying', level: [2, 4], hp: 14, time: 'day' },
+            { name: 'Rattata',   type: 'Normal', level: [2, 3], hp: 12, time: 'any' },
+            { name: 'Hoothoot',  type: 'Flying', level: [2, 4], hp: 14, time: 'night' },
         ],
         viridian_city: [
-            { name: 'Pidgey',    type: 'Flying', level: [3, 5], hp: 14 },
-            { name: 'Oddish',    type: 'Grass',  level: [3, 5], hp: 15 },
+            { name: 'Pidgey',    type: 'Flying', level: [3, 5], hp: 14, time: 'day' },
+            { name: 'Oddish',    type: 'Grass',  level: [3, 5], hp: 15, time: 'night' },
+            { name: 'Zubat',     type: 'Poison', level: [3, 5], hp: 12, time: 'night' },
         ],
         pewter_city: [
-            { name: 'Pidgey',    type: 'Flying', level: [4, 6], hp: 14 },
-            { name: 'Oddish',    type: 'Grass',  level: [4, 6], hp: 15 },
+            { name: 'Pidgey',    type: 'Flying', level: [4, 6], hp: 14, time: 'day' },
+            { name: 'Oddish',    type: 'Grass',  level: [4, 6], hp: 15, time: 'night' },
+            { name: 'Geodude',   type: 'Rock',   level: [4, 6], hp: 16, time: 'any' },
         ],
     };
 
@@ -146,8 +153,15 @@ const Encounters = (() => {
     function triggerEncounter(player) {
         // Use per-route encounter table based on current map
         const currentMap = MapLoader.getCurrentMapId();
-        const pool = ROUTE_ENCOUNTERS[currentMap] || WILD_POKEMON;
-        const template = pool[Math.floor(Math.random() * pool.length)];
+        const fullPool = ROUTE_ENCOUNTERS[currentMap] || WILD_POKEMON;
+
+        // Filter by time of day
+        const isNight = DayCycle.isNight();
+        const timeFilter = isNight ? 'night' : 'day';
+        const pool = fullPool.filter(p => !p.time || p.time === 'any' || p.time === timeFilter);
+        const template = pool.length > 0
+            ? pool[Math.floor(Math.random() * pool.length)]
+            : fullPool[Math.floor(Math.random() * fullPool.length)];
         const level = template.level[0] + Math.floor(Math.random() * (template.level[1] - template.level[0] + 1));
         const hp = template.hp + Math.floor(level * 1.5);
 
