@@ -117,6 +117,15 @@ const PokeCenter = (() => {
             return { exited: false };
         }
 
+        // Trade phase — delegate to Trading module
+        if (phase === 'trade') {
+            Trading.update(dt);
+            if (!Trading.isActive()) {
+                phase = 'idle';
+            }
+            return { exited: false };
+        }
+
         // Healing animation
         if (phase === 'healing') {
             healTimer += dt;
@@ -154,15 +163,23 @@ const PokeCenter = (() => {
             if (Math.abs(facingTileX - nurseX) <= 1 && facingTileY === nurseY + 1) {
                 // Interacting with counter near nurse
                 Dialogue.startChoice('Nurse Joy',
-                    'Welcome! Shall I heal your Pokemon?',
+                    'Welcome! What can I help you with?',
                     [
-                        { text: 'Yes', value: 'yes' },
-                        { text: 'No', value: 'no' },
+                        { text: 'Heal', value: 'heal' },
+                        { text: 'Trade', value: 'trade' },
+                        { text: 'Cancel', value: 'cancel' },
                     ],
                     (choice) => {
-                        if (choice === 'yes') {
+                        if (choice === 'heal') {
                             phase = 'healing';
                             healTimer = 0;
+                        } else if (choice === 'trade') {
+                            Dialogue.start('Nurse Joy', ['Please step into the Trade Room!'], {
+                                onComplete: () => {
+                                    phase = 'trade';
+                                    Trading.open();
+                                },
+                            });
                         } else {
                             Dialogue.start('Nurse Joy', ['Okay, come back anytime!']);
                         }
@@ -246,6 +263,11 @@ const PokeCenter = (() => {
         const pScreenY = offsetY + playerY * TILE * scale;
         const sprite = Sprites.drawPlayer(playerDir, playerAnimFrame);
         ctx.drawImage(sprite, pScreenX, pScreenY, TILE * scale, TILE * scale);
+
+        // Trade overlay
+        if (phase === 'trade') {
+            Trading.render(ctx, canvasW, canvasH);
+        }
 
         // Dialogue overlay
         if (Dialogue.isActive()) {
