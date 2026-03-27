@@ -7,6 +7,16 @@ from pydantic import BaseModel
 from .pokemon import Move, Stats
 
 
+class StatStages(BaseModel):
+    attack: int = 0
+    defense: int = 0
+    sp_attack: int = 0
+    sp_defense: int = 0
+    speed: int = 0
+    accuracy: int = 0
+    evasion: int = 0
+
+
 class BattlePokemon(BaseModel):
     species_id: int
     name: str
@@ -17,6 +27,12 @@ class BattlePokemon(BaseModel):
     max_hp: int
     moves: list[Move]
     sprite: str
+    status: Optional[str] = None
+    status_turns: int = 0
+    stat_stages: StatStages = StatStages()
+    confused: bool = False
+    confused_turns: int = 0
+    flinched: bool = False
 
 
 class BattleState(BaseModel):
@@ -52,8 +68,19 @@ class TurnEvent(BaseModel):
     target_fainted: bool
 
 
+class StatusEvent(BaseModel):
+    pokemon: str  # "player" or "enemy"
+    event_type: str  # "status_applied", "status_cured", "status_damage", "status_prevented", "stat_change", "confused_hit_self"
+    status: Optional[str] = None
+    damage: Optional[int] = None
+    stat: Optional[str] = None
+    stages: Optional[int] = None
+    message: str = ""
+
+
 class TurnResult(BaseModel):
     events: list[TurnEvent]
+    status_events: list[StatusEvent] = []
     battle_over: bool
     winner: Optional[str] = None
     ran_away: bool = False
