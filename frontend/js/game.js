@@ -32,6 +32,8 @@ const Game = (() => {
         NPC.init();
         Quests.init();
         Routes.registerAll();
+        PlayerStats.load();
+        Achievements.loadEarned();
         canvas = document.getElementById('game-canvas');
         ctx = canvas.getContext('2d');
         StarterSelect.reset();

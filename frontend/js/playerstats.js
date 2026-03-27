@@ -13,8 +13,43 @@ const PlayerStats = (() => {
         itemsUsed: 0,
         playTimeMs: 0,
         favoritePokemon: 'None',
-        battlesByPokemon: {}, // { name: count } to determine favorite
+        battlesByPokemon: {},
     };
+
+    let saveTimer = 0;
+    const SAVE_INTERVAL = 30000;
+
+    function load() {
+        try {
+            const saved = localStorage.getItem('pokemon_player_stats');
+            if (saved) {
+                const data = JSON.parse(saved);
+                for (const key of Object.keys(data)) {
+                    if (key in stats) stats[key] = data[key];
+                }
+            }
+        } catch { /* ignore */ }
+
+        API.getPlayerStats().then(data => {
+            if (data && typeof data === 'object') {
+                for (const key of Object.keys(data)) {
+                    if (key in stats) stats[key] = data[key];
+                }
+                persistLocal();
+            }
+        });
+    }
+
+    function persistLocal() {
+        try {
+            localStorage.setItem('pokemon_player_stats', JSON.stringify(stats));
+        } catch { /* ignore */ }
+    }
+
+    function save() {
+        persistLocal();
+        API.savePlayerStats(stats);
+    }
 
     function increment(key, amount) {
         if (typeof stats[key] === 'number') {
@@ -34,7 +69,6 @@ const PlayerStats = (() => {
         if (!stats.battlesByPokemon[name]) stats.battlesByPokemon[name] = 0;
         stats.battlesByPokemon[name]++;
 
-        // Update favorite (most battles)
         let maxName = 'None';
         let maxCount = 0;
         for (const [n, c] of Object.entries(stats.battlesByPokemon)) {
@@ -45,15 +79,17 @@ const PlayerStats = (() => {
 
     function updatePlayTime(dt) {
         stats.playTimeMs += dt;
+        saveTimer += dt;
+        if (saveTimer >= SAVE_INTERVAL) {
+            saveTimer = 0;
+            save();
+        }
     }
 
     function getStats() {
-        // Count Pokedex stats from entries if available
         if (typeof Pokedex !== 'undefined' && Pokedex.entries) {
             let seen = 0;
             let caught = 0;
-            // Pokedex status is internal, estimate from entries
-            // We track our own counts via increment
         }
 
         const totalMs = stats.playTimeMs;
@@ -66,5 +102,5 @@ const PlayerStats = (() => {
         };
     }
 
-    return { increment, set, get, getStats, recordBattlePokemon, updatePlayTime };
+    return { increment, set, get, getStats, recordBattlePokemon, updatePlayTime, load, save };
 })();
