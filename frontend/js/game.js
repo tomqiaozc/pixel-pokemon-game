@@ -1,9 +1,13 @@
-// game.js — Main game loop and player logic
+// game.js — Main game loop with state management
 
 const Game = (() => {
     const TILE = Sprites.TILE;
     const MOVE_SPEED = 1.5; // pixels per frame
     const ANIM_INTERVAL = 150; // ms between walk frames
+
+    // Game states
+    let state = 'starter'; // starter, overworld
+    let canvas, ctx;
 
     // Player state
     const player = {
@@ -13,6 +17,7 @@ const Game = (() => {
         animFrame: 0,    // 0=stand, 1=walk1, 2=walk2
         animTimer: 0,
         moving: false,
+        starter: null,   // Chosen starter Pokemon
     };
 
     let lastTime = 0;
@@ -20,7 +25,9 @@ const Game = (() => {
     function init() {
         Input.init();
         Renderer.init();
-        Renderer.centerCamera(player.x + TILE / 2, player.y + TILE / 2);
+        canvas = document.getElementById('game-canvas');
+        ctx = canvas.getContext('2d');
+        StarterSelect.reset();
         lastTime = performance.now();
         requestAnimationFrame(loop);
     }
@@ -29,13 +36,28 @@ const Game = (() => {
         const dt = timestamp - lastTime;
         lastTime = timestamp;
 
-        update(dt);
-        Renderer.render(player, dt);
+        if (state === 'starter') {
+            updateStarter(dt);
+        } else if (state === 'overworld') {
+            updateOverworld(dt);
+            Renderer.render(player, dt);
+        }
 
         requestAnimationFrame(loop);
     }
 
-    function update(dt) {
+    function updateStarter(dt) {
+        const result = StarterSelect.update(dt, canvas);
+        StarterSelect.render(ctx, canvas.width, canvas.height);
+
+        if (result.done) {
+            player.starter = result.starter;
+            state = 'overworld';
+            Renderer.centerCamera(player.x + TILE / 2, player.y + TILE / 2);
+        }
+    }
+
+    function updateOverworld(dt) {
         const movement = Input.getMovement();
 
         if (movement) {
@@ -47,7 +69,6 @@ const Game = (() => {
             let newY = player.y + movement.dy * MOVE_SPEED;
 
             // Collision detection — check corners of player bounding box
-            // Player hitbox is slightly smaller than full tile for smoother movement
             const margin = 3;
             const left   = newX + margin;
             const right  = newX + TILE - margin - 1;
@@ -62,7 +83,7 @@ const Game = (() => {
                 const tileX      = Math.floor(checkX / TILE);
 
                 if (GameMap.isSolid(tileX, tileTop) || GameMap.isSolid(tileX, tileBottom)) {
-                    newX = player.x; // Block horizontal
+                    newX = player.x;
                 }
             }
 
@@ -74,7 +95,7 @@ const Game = (() => {
                 const tileY     = Math.floor(checkY / TILE);
 
                 if (GameMap.isSolid(tileLeft, tileY) || GameMap.isSolid(tileRight, tileY)) {
-                    newY = player.y; // Block vertical
+                    newY = player.y;
                 }
             }
 
@@ -84,7 +105,7 @@ const Game = (() => {
             // Walk animation
             player.animTimer += dt;
             if (player.animTimer >= ANIM_INTERVAL) {
-                player.animFrame = (player.animFrame % 2) + 1; // cycle 1 -> 2 -> 1
+                player.animFrame = (player.animFrame % 2) + 1;
                 player.animTimer = 0;
             }
         } else {
@@ -97,6 +118,10 @@ const Game = (() => {
         Renderer.centerCamera(player.x + TILE / 2, player.y + TILE / 2);
     }
 
+    // Expose for other modules
+    function getState() { return state; }
+    function setState(s) { state = s; }
+
     // Start the game when DOM is ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
@@ -104,5 +129,5 @@ const Game = (() => {
         init();
     }
 
-    return { player };
+    return { player, getState, setState };
 })();
