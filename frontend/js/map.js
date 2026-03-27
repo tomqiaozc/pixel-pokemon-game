@@ -21,11 +21,18 @@ const GameMap = (() => {
     const SOLID = new Set([T.WATER, T.TREE, T.ROCK, T.HOUSE_WALL, T.HOUSE_ROOF]);
 
     // Map data — a small starter town (30x25 tiles)
-    const MAP_W = 30;
-    const MAP_H = 25;
+    let MAP_W = 30;
+    let MAP_H = 25;
 
     // prettier-ignore
-    const mapData = buildStarterMap();
+    let mapData = buildStarterMap();
+
+    // Load new map data (for multi-map support)
+    function loadMapData(data, width, height) {
+        mapData = data;
+        MAP_W = width;
+        MAP_H = height;
+    }
 
     function buildStarterMap() {
         const m = [];
@@ -139,12 +146,13 @@ const GameMap = (() => {
 
     return {
         T,
-        MAP_W,
-        MAP_H,
+        get MAP_W() { return MAP_W; },
+        get MAP_H() { return MAP_H; },
         TILE,
         getTile,
         isSolid,
         isTallGrass,
-        mapData,
+        get mapData() { return mapData; },
+        loadMapData,
     };
 })();

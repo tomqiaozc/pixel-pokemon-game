@@ -79,14 +79,47 @@ const Renderer = (() => {
         // Draw NPCs
         NPC.render(ctx, camX, camY, SCALE);
 
-        // Draw player
+        // Draw sign posts
+        const mapId = MapLoader.getCurrentMapId();
+        const signs = Signs.getSignsForMap(mapId);
+        for (const sign of signs) {
+            const signScreenX = (sign.x * TILE - camX) * SCALE;
+            const signScreenY = (sign.y * TILE - camY) * SCALE;
+            drawSignPost(ctx, signScreenX, signScreenY, SCALE);
+        }
+
+        // Draw trainer NPCs
+        TrainerEncounter.render(ctx, camX, camY, SCALE);
+
+        // Draw player (with ledge arc height offset)
+        const arcHeight = Ledges.getArcHeight();
         const playerScreenX = (player.x - camX) * SCALE;
-        const playerScreenY = (player.y - camY) * SCALE;
+        const playerScreenY = (player.y - camY - arcHeight) * SCALE;
         const playerSprite = Sprites.drawPlayer(player.dir, player.animFrame);
         ctx.drawImage(playerSprite, playerScreenX, playerScreenY, TILE * SCALE, TILE * SCALE);
 
+        // Draw ledge dust particles
+        Ledges.renderDust(ctx, camX, camY, SCALE);
+
         // Draw encounter overlay effects (grass rustles, exclamation, transitions)
         Encounters.renderOverlay(ctx, camX, camY, SCALE, canvasW, canvasH);
+
+        // Draw map transition overlay (fade + map name popup)
+        MapLoader.renderTransition(ctx, canvasW, canvasH);
+    }
+
+    function drawSignPost(ctx, x, y, scale) {
+        const s = scale;
+        // Wooden post
+        ctx.fillStyle = '#806030';
+        ctx.fillRect(x + 6 * s, y + 6 * s, 4 * s, 10 * s);
+        // Sign board
+        ctx.fillStyle = '#a08040';
+        ctx.fillRect(x + 2 * s, y + 2 * s, 12 * s, 8 * s);
+        // Border
+        ctx.strokeStyle = '#604020';
+        ctx.lineWidth = s;
+        ctx.strokeRect(x + 2 * s, y + 2 * s, 12 * s, 8 * s);
     }
 
     function getTileSprite(type) {
