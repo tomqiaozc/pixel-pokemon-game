@@ -70,6 +70,34 @@ const Battle = (() => {
         Fairy:    '#ee99ac',
     };
 
+    // Type effectiveness chart (attacker -> defender -> multiplier)
+    const TYPE_CHART = {
+        Fire:     { Grass: 2, Bug: 2, Ice: 2, Steel: 2, Water: 0.5, Rock: 0.5, Fire: 0.5, Dragon: 0.5 },
+        Water:    { Fire: 2, Rock: 2, Ground: 2, Water: 0.5, Grass: 0.5, Dragon: 0.5 },
+        Grass:    { Water: 2, Rock: 2, Ground: 2, Fire: 0.5, Grass: 0.5, Poison: 0.5, Flying: 0.5, Bug: 0.5, Dragon: 0.5, Steel: 0.5 },
+        Electric: { Water: 2, Flying: 2, Ground: 0, Electric: 0.5, Grass: 0.5, Dragon: 0.5 },
+        Normal:   { Rock: 0.5, Steel: 0.5, Ghost: 0 },
+        Fighting: { Normal: 2, Rock: 2, Ice: 2, Dark: 2, Steel: 2, Poison: 0.5, Flying: 0.5, Psychic: 0.5, Bug: 0.5, Fairy: 0.5, Ghost: 0 },
+        Flying:   { Grass: 2, Bug: 2, Fighting: 2, Rock: 0.5, Electric: 0.5, Steel: 0.5 },
+        Poison:   { Grass: 2, Fairy: 2, Poison: 0.5, Ground: 0.5, Rock: 0.5, Ghost: 0.5, Steel: 0 },
+        Ground:   { Fire: 2, Electric: 2, Poison: 2, Rock: 2, Steel: 2, Grass: 0.5, Bug: 0.5, Flying: 0 },
+        Psychic:  { Fighting: 2, Poison: 2, Psychic: 0.5, Steel: 0.5, Dark: 0 },
+        Bug:      { Grass: 2, Psychic: 2, Dark: 2, Fire: 0.5, Fighting: 0.5, Poison: 0.5, Flying: 0.5, Ghost: 0.5, Steel: 0.5, Fairy: 0.5 },
+        Rock:     { Fire: 2, Ice: 2, Flying: 2, Bug: 2, Fighting: 0.5, Ground: 0.5, Steel: 0.5 },
+        Ghost:    { Psychic: 2, Ghost: 2, Dark: 0.5, Normal: 0 },
+        Dragon:   { Dragon: 2, Steel: 0.5, Fairy: 0 },
+        Ice:      { Grass: 2, Ground: 2, Flying: 2, Dragon: 2, Fire: 0.5, Water: 0.5, Ice: 0.5, Steel: 0.5 },
+        Dark:     { Psychic: 2, Ghost: 2, Fighting: 0.5, Dark: 0.5, Fairy: 0.5 },
+        Steel:    { Ice: 2, Rock: 2, Fairy: 2, Fire: 0.5, Water: 0.5, Electric: 0.5, Steel: 0.5 },
+        Fairy:    { Fighting: 2, Dragon: 2, Dark: 2, Fire: 0.5, Poison: 0.5, Steel: 0.5 },
+    };
+
+    function getTypeEffectiveness(moveType, defenderType) {
+        const chart = TYPE_CHART[moveType];
+        if (!chart) return 1;
+        return chart[defenderType] !== undefined ? chart[defenderType] : 1;
+    }
+
     // Default moves if none provided
     const DEFAULT_MOVES = [
         { name: 'Tackle', type: 'Normal', power: 40, pp: 35, maxPp: 35 },
@@ -321,6 +349,26 @@ const Battle = (() => {
         return { done: false };
     }
 
+    // Enemy move pools by type
+    const ENEMY_MOVES_BY_TYPE = {
+        Normal:   [{ name: 'Tackle', type: 'Normal', power: 40 }, { name: 'Scratch', type: 'Normal', power: 40 }],
+        Fire:     [{ name: 'Ember', type: 'Fire', power: 40 }, { name: 'Tackle', type: 'Normal', power: 40 }],
+        Water:    [{ name: 'Water Gun', type: 'Water', power: 40 }, { name: 'Tackle', type: 'Normal', power: 40 }],
+        Grass:    [{ name: 'Vine Whip', type: 'Grass', power: 45 }, { name: 'Tackle', type: 'Normal', power: 40 }],
+        Electric: [{ name: 'Thunder Shock', type: 'Electric', power: 40 }, { name: 'Tackle', type: 'Normal', power: 40 }],
+        Bug:      [{ name: 'Bug Bite', type: 'Bug', power: 30 }, { name: 'Tackle', type: 'Normal', power: 40 }],
+        Flying:   [{ name: 'Gust', type: 'Flying', power: 40 }, { name: 'Tackle', type: 'Normal', power: 40 }],
+        Poison:   [{ name: 'Poison Sting', type: 'Poison', power: 15 }, { name: 'Tackle', type: 'Normal', power: 40 }],
+        Rock:     [{ name: 'Rock Throw', type: 'Rock', power: 50 }, { name: 'Tackle', type: 'Normal', power: 40 }],
+        Ground:   [{ name: 'Mud-Slap', type: 'Ground', power: 20 }, { name: 'Tackle', type: 'Normal', power: 40 }],
+        Ghost:    [{ name: 'Lick', type: 'Ghost', power: 30 }, { name: 'Tackle', type: 'Normal', power: 40 }],
+        Psychic:  [{ name: 'Confusion', type: 'Psychic', power: 50 }, { name: 'Tackle', type: 'Normal', power: 40 }],
+    };
+
+    function getEnemyMoves(enemyType) {
+        return ENEMY_MOVES_BY_TYPE[enemyType] || ENEMY_MOVES_BY_TYPE.Normal;
+    }
+
     function executeTurn(playerMove) {
         phase = 'animating';
         introTimer = 0;
@@ -328,8 +376,18 @@ const Battle = (() => {
 
         // Player attacks
         playerMove.pp--;
-        const playerDmg = calculateDamage(playerMove.power, playerPokemon.level);
+        const playerResult = calculateDamage(playerMove.power, playerPokemon.level, playerMove.type, playerPokemon.type, enemyPokemon.type);
+        const playerDmg = playerResult.damage;
         textQueue.push(`${playerPokemon.name} used ${playerMove.name}!`);
+
+        // Type effectiveness message
+        if (playerResult.effectiveness >= 2) {
+            textQueue.push("It's super effective!");
+        } else if (playerResult.effectiveness > 0 && playerResult.effectiveness <= 0.5) {
+            textQueue.push("It's not very effective...");
+        } else if (playerResult.effectiveness === 0) {
+            textQueue.push("It had no effect...");
+        }
 
         // Spawn attack particles
         spawnAttackParticles(playerMove.type, canvasW * 0.7, canvasH * 0.25);
@@ -354,15 +412,21 @@ const Battle = (() => {
             return;
         }
 
-        // Enemy attacks (pick random move)
-        const enemyMoves = [
-            { name: 'Tackle', type: 'Normal', power: 40 },
-            { name: 'Scratch', type: 'Normal', power: 40 },
-        ];
+        // Enemy attacks — pick type-appropriate move
+        const enemyMoves = getEnemyMoves(enemyPokemon.type);
         const enemyMove = enemyMoves[Math.floor(Math.random() * enemyMoves.length)];
-        const enemyDmg = calculateDamage(enemyMove.power, enemyPokemon.level);
+        const enemyResult = calculateDamage(enemyMove.power, enemyPokemon.level, enemyMove.type, enemyPokemon.type, playerPokemon.type);
+        const enemyDmg = enemyResult.damage;
 
         textQueue.push(`Wild ${enemyPokemon.name} used ${enemyMove.name}!`);
+
+        if (enemyResult.effectiveness >= 2) {
+            textQueue.push("It's super effective!");
+        } else if (enemyResult.effectiveness > 0 && enemyResult.effectiveness <= 0.5) {
+            textQueue.push("It's not very effective...");
+        } else if (enemyResult.effectiveness === 0) {
+            textQueue.push("It had no effect...");
+        }
 
         playerPokemon.hp = Math.max(0, playerPokemon.hp - enemyDmg);
 
@@ -462,13 +526,16 @@ const Battle = (() => {
             textQueue = [`Used ${item.name}! Restored ${healed} HP.`];
 
             // Enemy still attacks after using item
-            const enemyMoves = [
-                { name: 'Tackle', type: 'Normal', power: 40 },
-                { name: 'Scratch', type: 'Normal', power: 40 },
-            ];
+            const enemyMoves = getEnemyMoves(enemyPokemon.type);
             const enemyMove = enemyMoves[Math.floor(Math.random() * enemyMoves.length)];
-            const enemyDmg = calculateDamage(enemyMove.power, enemyPokemon.level);
+            const enemyResult = calculateDamage(enemyMove.power, enemyPokemon.level, enemyMove.type, enemyPokemon.type, playerPokemon.type);
+            const enemyDmg = enemyResult.damage;
             textQueue.push(`Wild ${enemyPokemon.name} used ${enemyMove.name}!`);
+            if (enemyResult.effectiveness >= 2) {
+                textQueue.push("It's super effective!");
+            } else if (enemyResult.effectiveness > 0 && enemyResult.effectiveness <= 0.5) {
+                textQueue.push("It's not very effective...");
+            }
             playerPokemon.hp = Math.max(0, playerPokemon.hp - enemyDmg);
 
             setTimeout(() => {
@@ -499,11 +566,14 @@ const Battle = (() => {
         }
     }
 
-    function calculateDamage(power, level) {
-        if (power === 0) return 0;
+    function calculateDamage(power, level, moveType, attackerType, defenderType) {
+        if (power === 0) return { damage: 0, effectiveness: 1 };
         const base = Math.floor(((2 * level / 5 + 2) * power / 50) + 2);
         const rand = 0.85 + Math.random() * 0.15;
-        return Math.max(1, Math.floor(base * rand));
+        const stab = (moveType === attackerType) ? 1.5 : 1;
+        const effectiveness = getTypeEffectiveness(moveType, defenderType);
+        const damage = Math.max(effectiveness > 0 ? 1 : 0, Math.floor(base * rand * stab * effectiveness));
+        return { damage, effectiveness };
     }
 
     function spawnAttackParticles(type, cx, cy) {

@@ -370,6 +370,19 @@ const Game = (() => {
         state = 'battle';
     }
 
+    // Species ID mapping for EXP award calls
+    const SPECIES_IDS = {
+        'Bulbasaur': 1, 'Ivysaur': 2, 'Venusaur': 3,
+        'Charmander': 4, 'Charmeleon': 5, 'Charizard': 6,
+        'Squirtle': 7, 'Wartortle': 8, 'Blastoise': 9,
+        'Caterpie': 10, 'Metapod': 11, 'Butterfree': 12,
+        'Weedle': 13, 'Kakuna': 14, 'Beedrill': 15,
+        'Pidgey': 16, 'Pidgeotto': 17, 'Pidgeot': 18,
+        'Rattata': 19, 'Raticate': 20,
+        'Oddish': 43, 'Geodude': 74, 'Onix': 95, 'Rhydon': 112,
+        'Sandslash': 28, 'Dugtrio': 51,
+    };
+
     function updateBattle(dt) {
         const result = Battle.update(dt);
         Battle.render();
@@ -378,6 +391,46 @@ const Game = (() => {
             // Sync HP back to party after battle
             if (player.party[0] && result.playerHp !== undefined) {
                 player.party[0].hp = Math.max(0, result.playerHp);
+            }
+
+            // Award EXP after battle victory (fire-and-forget with local fallback)
+            if (result.result === 'win' && result.enemyPokemon && player.party[0]) {
+                const defeatedName = result.enemyPokemon.name;
+                const defeatedLevel = result.enemyPokemon.level;
+                const speciesId = SPECIES_IDS[defeatedName] || 19;
+
+                // Local EXP calculation as fallback
+                const expGained = Math.floor((defeatedLevel * 50) / 7) + 10;
+                player.party[0].exp = (player.party[0].exp || 0) + expGained;
+
+                // Check for level up
+                if (player.party[0].exp >= player.party[0].maxExp) {
+                    player.party[0].level++;
+                    player.party[0].exp -= player.party[0].maxExp;
+                    player.party[0].maxExp = Math.floor(player.party[0].maxExp * 1.2);
+                    const hpGain = 2 + Math.floor(Math.random() * 3);
+                    player.party[0].maxHp += hpGain;
+                    player.party[0].hp = Math.min(player.party[0].hp + hpGain, player.party[0].maxHp);
+                }
+
+                // Backend EXP award (async, updates server-side state)
+                API.awardExp(0, speciesId, defeatedLevel).then(expResult => {
+                    if (expResult && expResult.leveled_up && player.party[0]) {
+                        player.party[0].level = expResult.new_level;
+                        if (expResult.new_stats) {
+                            player.party[0].maxHp = expResult.new_stats.hp || player.party[0].maxHp;
+                        }
+                    }
+                    if (expResult && expResult.can_evolve && player.party[0]) {
+                        // Trigger evolution check
+                        const prePokemon = { name: player.party[0].name, type: player.party[0].type };
+                        const evoMap = { Bulbasaur: 'Ivysaur', Charmander: 'Charmeleon', Squirtle: 'Wartortle' };
+                        const evoName = evoMap[player.party[0].name];
+                        if (evoName) {
+                            startEvolution(prePokemon, { name: evoName, type: player.party[0].type });
+                        }
+                    }
+                });
             }
 
             // Add caught Pokemon to party
