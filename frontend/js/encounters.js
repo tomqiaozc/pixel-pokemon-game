@@ -195,7 +195,7 @@ const Encounters = (() => {
                 if (p.level) pendingEnemy.level = p.level;
                 if (p.current_hp || p.hp) {
                     pendingEnemy.hp = p.current_hp || p.hp;
-                    pendingEnemy.maxHp = p.max_hp || p.hp;
+                    pendingEnemy.maxHp = (p.stats && p.stats.hp) || p.max_hp || p.hp;
                 }
                 if (p.types && p.types[0]) pendingEnemy.type = p.types[0];
                 if (p.moves) pendingEnemy.moves = p.moves;

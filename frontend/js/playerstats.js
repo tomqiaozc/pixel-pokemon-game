@@ -19,6 +19,34 @@ const PlayerStats = (() => {
     let saveTimer = 0;
     const SAVE_INTERVAL = 30000;
 
+    // Map backend snake_case keys to frontend camelCase keys
+    const SNAKE_TO_CAMEL = {
+        total_battles_won: 'battlesWon',
+        pvp_wins: 'battlesWon', // fallback alias
+        pvp_losses: 'battlesLost',
+        total_pokemon_caught: 'pokemonCaught',
+        pokedex_seen: 'pokemonSeen',
+        play_time_seconds: 'playTimeMs',
+    };
+
+    function applyBackendStats(data) {
+        for (const key of Object.keys(data)) {
+            // Direct camelCase match
+            if (key in stats) {
+                stats[key] = data[key];
+            }
+            // snake_case → camelCase mapping
+            const mapped = SNAKE_TO_CAMEL[key];
+            if (mapped && mapped in stats) {
+                if (key === 'play_time_seconds') {
+                    stats[mapped] = data[key] * 1000; // seconds → ms
+                } else {
+                    stats[mapped] = data[key];
+                }
+            }
+        }
+    }
+
     function load() {
         try {
             const saved = localStorage.getItem('pokemon_player_stats');
@@ -32,9 +60,7 @@ const PlayerStats = (() => {
 
         API.getPlayerStats().then(data => {
             if (data && typeof data === 'object') {
-                for (const key of Object.keys(data)) {
-                    if (key in stats) stats[key] = data[key];
-                }
+                applyBackendStats(data);
                 persistLocal();
             }
         });
@@ -48,7 +74,15 @@ const PlayerStats = (() => {
 
     function save() {
         persistLocal();
-        API.savePlayerStats(stats);
+        // Send snake_case payload to backend
+        API.savePlayerStats({
+            total_battles_won: stats.battlesWon,
+            pvp_losses: stats.battlesLost,
+            total_pokemon_caught: stats.pokemonCaught,
+            pokedex_seen: stats.pokemonSeen,
+            play_time_seconds: Math.floor(stats.playTimeMs / 1000),
+            pvp_wins: stats.battlesWon,
+        });
     }
 
     function increment(key, amount) {
