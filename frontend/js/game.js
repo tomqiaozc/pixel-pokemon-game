@@ -87,11 +87,11 @@ const Game = (() => {
                 };
                 pendingBadge = result.badge;
                 previousState = 'gym';
-                startBattle(leaderPokemon, { canRun: false });
+                startBattle(leaderPokemon, { canRun: false, battleType: 'trainer' });
             }
             if (result.battleTrainer) {
                 previousState = 'gym';
-                startBattle(result.trainer.pokemon[0], { canRun: false });
+                startBattle(result.trainer.pokemon[0], { canRun: false, battleType: 'trainer' });
             }
         } else if (state === 'badge_award') {
             updateBadgeAward(dt);
@@ -142,7 +142,7 @@ const Game = (() => {
         const trainerResult = TrainerEncounter.update(dt);
         if (trainerResult.encountering) return;
         if (trainerResult.startBattle) {
-            startBattle(trainerResult.trainer.pokemon[0], { canRun: false });
+            startBattle(trainerResult.trainer.pokemon[0], { canRun: false, battleType: 'trainer' });
             TrainerEncounter.defeatTrainer(MapLoader.getCurrentMapId(), trainerResult.trainer.name);
             return;
         }
@@ -374,6 +374,22 @@ const Game = (() => {
             // Sync HP back to party after battle
             if (player.party[0] && result.playerHp !== undefined) {
                 player.party[0].hp = Math.max(0, result.playerHp);
+            }
+
+            // Add caught Pokemon to party
+            if (result.result === 'catch' && result.enemyPokemon) {
+                const caught = result.enemyPokemon;
+                if (player.party.length < 6) {
+                    player.party.push({
+                        name: caught.name,
+                        type: caught.type,
+                        level: caught.level,
+                        hp: caught.hp,
+                        maxHp: caught.maxHp,
+                        exp: 0,
+                        maxExp: 100,
+                    });
+                }
             }
 
             if (pendingBadge && result.result === 'win') {
