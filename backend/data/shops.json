@@ -1,0 +1,22 @@
+{
+  "pallet_shop": {
+    "name": "Pallet Town Shop",
+    "items": [
+      {"item_id": 7, "stock": -1},
+      {"item_id": 1, "stock": -1}
+    ]
+  },
+  "viridian_shop": {
+    "name": "Viridian City Pokemart",
+    "items": [
+      {"item_id": 7, "stock": -1},
+      {"item_id": 8, "stock": -1},
+      {"item_id": 1, "stock": -1},
+      {"item_id": 2, "stock": -1},
+      {"item_id": 3, "stock": -1},
+      {"item_id": 4, "stock": -1},
+      {"item_id": 5, "stock": -1},
+      {"item_id": 6, "stock": -1}
+    ]
+  }
+}
