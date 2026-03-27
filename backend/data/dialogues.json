@@ -1,0 +1,63 @@
+{
+  "prof_oak_intro": {
+    "id": "prof_oak_intro",
+    "nodes": [
+      {"id": "start", "text": "Hello there! Welcome to the world of Pokemon!", "next": "intro2"},
+      {"id": "intro2", "text": "My name is Oak. People call me the Pokemon Professor.", "next": "intro3"},
+      {"id": "intro3", "text": "This world is inhabited by creatures called Pokemon!", "next": "intro4"},
+      {"id": "intro4", "text": "For some people, Pokemon are pets. Others use them for fights.", "next": "intro5"},
+      {"id": "intro5", "text": "Myself... I study Pokemon as a profession.", "next": "choose_starter"},
+      {"id": "choose_starter", "text": "Now, which Pokemon would you like to start with?", "choices": [
+        {"label": "Bulbasaur", "next": "chose_bulbasaur"},
+        {"label": "Charmander", "next": "chose_charmander"},
+        {"label": "Squirtle", "next": "chose_squirtle"}
+      ]},
+      {"id": "chose_bulbasaur", "text": "Ah, Bulbasaur! An excellent choice! Take good care of it!", "action": {"type": "give_pokemon", "value": "1"}, "next": null},
+      {"id": "chose_charmander", "text": "Charmander, the fire type! A spirited choice!", "action": {"type": "give_pokemon", "value": "4"}, "next": null},
+      {"id": "chose_squirtle", "text": "Squirtle! A fine Water-type Pokemon! Treat it well!", "action": {"type": "give_pokemon", "value": "7"}, "next": null}
+    ]
+  },
+  "mom_dialogue": {
+    "id": "mom_dialogue",
+    "nodes": [
+      {"id": "start", "text": "Good morning, sweetie! Are you heading out on your adventure?", "next": "mom2"},
+      {"id": "mom2", "text": "Make sure to visit Professor Oak's lab before you leave town.", "next": "mom3"},
+      {"id": "mom3", "text": "Be careful out there! And don't forget to call!", "next": null}
+    ]
+  },
+  "rival_intro": {
+    "id": "rival_intro",
+    "nodes": [
+      {"id": "start", "text": "Hey! I'm Blue, Professor Oak's grandson.", "next": "rival2"},
+      {"id": "rival2", "text": "Gramps said he had a Pokemon for me too!", "next": "rival3"},
+      {"id": "rival3", "text": "I'll pick the one that's stronger than yours! Smell ya later!", "next": null}
+    ]
+  },
+  "townsfolk_1_dialogue": {
+    "id": "townsfolk_1_dialogue",
+    "nodes": [
+      {"id": "start", "text": "The tall grass is full of wild Pokemon!", "next": "tip"},
+      {"id": "tip", "text": "You'll need your own Pokemon to safely pass through.", "next": null}
+    ]
+  },
+  "townsfolk_2_dialogue": {
+    "id": "townsfolk_2_dialogue",
+    "nodes": [
+      {"id": "start", "text": "Welcome to Pallet Town!", "next": "info"},
+      {"id": "info", "text": "This is a small and quiet town. Professor Oak's lab is to the north.", "next": null}
+    ]
+  },
+  "nurse_dialogue": {
+    "id": "nurse_dialogue",
+    "nodes": [
+      {"id": "start", "text": "Welcome to the Pokemon Center!", "next": "heal_prompt"},
+      {"id": "heal_prompt", "text": "Would you like me to heal your Pokemon?", "choices": [
+        {"label": "Yes, please!", "next": "healing"},
+        {"label": "No, thanks", "next": "goodbye"}
+      ]},
+      {"id": "healing", "text": "OK, I'll take your Pokemon for a moment...", "action": {"type": "heal"}, "next": "healed"},
+      {"id": "healed", "text": "Your Pokemon are fighting fit! We hope to see you again!", "next": null},
+      {"id": "goodbye", "text": "OK! We hope to see you again!", "next": null}
+    ]
+  }
+}
