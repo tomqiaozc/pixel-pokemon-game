@@ -29,8 +29,42 @@ const Achievements = (() => {
     let popupTimer = 0;
     const POPUP_DURATION = 3000;
     const POPUP_SLIDE = 300;
+    let dirty = false;
+    let checkTimer = 0;
+    const CHECK_INTERVAL = 5000;
 
-    function checkAchievements() {
+    function loadEarned() {
+        try {
+            const saved = localStorage.getItem('pokemon_achievements');
+            if (saved) {
+                const ids = JSON.parse(saved);
+                for (const id of ids) earned.add(id);
+            }
+        } catch { /* ignore */ }
+
+        API.getAchievements().then(data => {
+            if (data && Array.isArray(data.achievements)) {
+                for (const id of data.achievements) earned.add(id);
+                persistLocal();
+            }
+        });
+    }
+
+    function persistLocal() {
+        try {
+            localStorage.setItem('pokemon_achievements', JSON.stringify([...earned]));
+        } catch { /* ignore */ }
+    }
+
+    function saveToBackend() {
+        if (!dirty) return;
+        dirty = false;
+        persistLocal();
+        API.saveAchievements([...earned]);
+    }
+
+    function checkAchievements(force) {
+        if (!force) return;
         const stats = typeof PlayerStats !== 'undefined' ? PlayerStats.getStats() : {};
         const badges = typeof BadgeCase !== 'undefined' ? BadgeCase.getBadgeCount() : 0;
 
@@ -41,11 +75,20 @@ const Achievements = (() => {
             if (ach.check(checkData)) {
                 earned.add(ach.id);
                 popupQueue.push(ach);
+                dirty = true;
             }
         }
+
+        if (dirty) saveToBackend();
     }
 
     function update(dt) {
+        checkTimer += dt;
+        if (checkTimer >= CHECK_INTERVAL) {
+            checkTimer = 0;
+            checkAchievements(true);
+        }
+
         // Process popup queue
         if (currentPopup) {
             popupTimer += dt;
@@ -73,7 +116,7 @@ const Achievements = (() => {
             slideY = 0;
         }
 
-        const popW = 300;
+        const popW = Math.min(300, canvasW - 20);
         const popH = 50;
         const px = (canvasW - popW) / 2;
         const py = 8 + slideY;
@@ -110,7 +153,9 @@ const Achievements = (() => {
         ctx.textAlign = 'left';
     }
 
-    // Render achievement list (for Trainer Card back or separate screen)
+    // Render achievement list with scrolling
+    let listScroll = 0;
+
     function renderList(ctx, cx, cy, w, h) {
         ctx.fillStyle = 'rgba(0, 0, 0, 0.85)';
         ctx.fillRect(cx, cy, w, h);
@@ -125,15 +170,22 @@ const Achievements = (() => {
 
         const lineH = 22;
         const startY = cy + 34;
+        const maxVisible = Math.floor((h - 54) / lineH);
+        const maxScroll = Math.max(0, ACHIEVEMENTS.length - maxVisible);
+        listScroll = Math.min(listScroll, maxScroll);
 
-        for (let i = 0; i < ACHIEVEMENTS.length; i++) {
-            const ach = ACHIEVEMENTS[i];
+        const mov = Input.getMovement();
+        if (mov) {
+            if (mov.dy > 0 && listScroll < maxScroll) listScroll++;
+            if (mov.dy < 0 && listScroll > 0) listScroll--;
+        }
+
+        for (let i = 0; i < maxVisible && (i + listScroll) < ACHIEVEMENTS.length; i++) {
+            const ach = ACHIEVEMENTS[i + listScroll];
             const y = startY + i * lineH;
-            if (y + lineH > cy + h - 10) break;
 
             const isEarned = earned.has(ach.id);
 
-            // Checkbox
             ctx.fillStyle = isEarned ? '#48c048' : '#404040';
             ctx.fillRect(cx + 10, y, 14, 14);
             if (isEarned) {
@@ -143,20 +195,24 @@ const Achievements = (() => {
                 ctx.fillText('V', cx + 17, y + 12);
             }
 
-            // Name
             ctx.fillStyle = isEarned ? '#c0e0c0' : '#606060';
             ctx.font = '11px monospace';
             ctx.textAlign = 'left';
             ctx.fillText(ach.name, cx + 30, y + 12);
 
-            // Description
             ctx.fillStyle = isEarned ? '#809080' : '#404040';
             ctx.font = '9px monospace';
             ctx.textAlign = 'right';
             ctx.fillText(ach.desc, cx + w - 10, y + 12);
         }
 
-        // Count
+        if (ACHIEVEMENTS.length > maxVisible) {
+            ctx.fillStyle = '#809080';
+            ctx.font = '9px monospace';
+            ctx.textAlign = 'center';
+            ctx.fillText(`${listScroll + 1}-${Math.min(listScroll + maxVisible, ACHIEVEMENTS.length)} of ${ACHIEVEMENTS.length}`, cx + w / 2, cy + h - 22);
+        }
+
         ctx.fillStyle = '#809080';
         ctx.font = '10px monospace';
         ctx.textAlign = 'center';
@@ -171,6 +227,6 @@ const Achievements = (() => {
 
     return {
         checkAchievements, update, renderPopup, renderList,
-        getEarnedCount, getTotalCount, isEarned,
+        getEarnedCount, getTotalCount, isEarned, loadEarned,
     };
 })();

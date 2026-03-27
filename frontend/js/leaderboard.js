@@ -8,7 +8,7 @@ const Leaderboard = (() => {
 
     const TAB_NAMES = ['Top Trainers', 'Battles', 'Pokedex', 'Speedrun'];
 
-    // Mock leaderboard data per category (will be replaced by backend API)
+    // Mock leaderboard data per category (fallback when backend unavailable)
     const MOCK_DATA = {
         trainers: [
             { rank: 1, name: 'RED', score: '8 Badges', detail: '12:34:00' },
@@ -61,6 +61,7 @@ const Leaderboard = (() => {
     };
 
     const CATEGORY_KEYS = ['trainers', 'battles', 'pokedex', 'speedrun'];
+    const API_CATEGORIES = ['trainers', 'pvp', 'pokedex', 'trainers'];
     const COLUMN_HEADERS = [
         { col1: 'Badges', col2: 'Time' },
         { col1: 'Win Rate', col2: 'Record' },
@@ -68,11 +69,31 @@ const Leaderboard = (() => {
         { col1: 'Time', col2: 'Gyms' },
     ];
 
+    // Live data fetched from backend (falls back to MOCK_DATA)
+    const liveData = { trainers: null, battles: null, pokedex: null, speedrun: null };
+
+    function getData(tabIndex) {
+        const key = CATEGORY_KEYS[tabIndex];
+        return liveData[key] || MOCK_DATA[key];
+    }
+
+    async function fetchLeaderboard(tabIndex) {
+        const apiCat = API_CATEGORIES[tabIndex];
+        const key = CATEGORY_KEYS[tabIndex];
+        const result = await API.getLeaderboard(apiCat);
+        if (result && Array.isArray(result)) {
+            liveData[key] = result;
+        }
+    }
+
     function open() {
         active = true;
         tab = 0;
         scrollIndex = 0;
         actionCooldown = 250;
+        for (let i = 0; i < CATEGORY_KEYS.length; i++) {
+            fetchLeaderboard(i);
+        }
     }
 
     function close() {
@@ -93,7 +114,7 @@ const Leaderboard = (() => {
             if (mov.dx < 0) { tab = Math.max(0, tab - 1); scrollIndex = 0; actionCooldown = 200; }
             if (mov.dy < 0) { scrollIndex = Math.max(0, scrollIndex - 1); actionCooldown = 150; }
             if (mov.dy > 0) {
-                const data = MOCK_DATA[CATEGORY_KEYS[tab]];
+                const data = getData(tab);
                 scrollIndex = Math.min(Math.max(0, data.length - 6), scrollIndex + 1);
                 actionCooldown = 150;
             }
@@ -140,7 +161,7 @@ const Leaderboard = (() => {
 
         const contentY = py + 54;
         const headers = COLUMN_HEADERS[tab];
-        const data = MOCK_DATA[CATEGORY_KEYS[tab]];
+        const data = getData(tab);
 
         // Column headers
         ctx.fillStyle = '#387038';
@@ -160,40 +181,34 @@ const Leaderboard = (() => {
             const entry = visible[i];
             const y = contentY + 20 + i * 24;
 
-            // Row background
             const isPlayer = entry.name === 'PLAYER';
             ctx.fillStyle = isPlayer ? 'rgba(72, 192, 72, 0.15)' : (i % 2 === 0 ? 'rgba(255, 255, 255, 0.03)' : 'rgba(0, 0, 0, 0.05)');
             ctx.fillRect(px + 4, y, panelW - 8, 22);
 
-            // Rank with medal colors
             const rankColors = { 1: '#f8d030', 2: '#c0c0c0', 3: '#c08030' };
             ctx.fillStyle = rankColors[entry.rank] || '#70a070';
             ctx.font = 'bold 11px monospace';
             ctx.textAlign = 'left';
-            // Trophy icon for top 3
             if (entry.rank <= 3) {
                 const trophies = { 1: 'G', 2: 'S', 3: 'B' };
                 ctx.fillText(trophies[entry.rank], px + 10, y + 16);
             }
             ctx.fillText(`${entry.rank}`, px + 22, y + 16);
 
-            // Name
             ctx.fillStyle = isPlayer ? '#48c048' : '#c0d0c0';
             ctx.font = '11px monospace';
             ctx.fillText(entry.name, px + 36, y + 16);
 
-            // Score
             ctx.fillStyle = '#a0c0a0';
             ctx.fillText(entry.score, px + 130, y + 16);
 
-            // Detail
             ctx.textAlign = 'right';
             ctx.fillStyle = '#809080';
             ctx.font = '10px monospace';
             ctx.fillText(entry.detail, px + panelW - 10, y + 16);
         }
 
-        // Player rank (if not visible)
+        // Player rank
         const playerRank = getPlayerRank(tab);
         ctx.fillStyle = '#48c048';
         ctx.font = '10px monospace';
@@ -217,7 +232,6 @@ const Leaderboard = (() => {
     }
 
     function getPlayerRank(category) {
-        // Compute player's rank based on live game stats
         const badges = typeof BadgeCase !== 'undefined' ? BadgeCase.getBadgeCount() : 0;
         const stats = typeof PlayerStats !== 'undefined' ? PlayerStats.getStats() : {};
         const wins = stats.battlesWon || 0;
@@ -225,7 +239,6 @@ const Leaderboard = (() => {
         const caught = stats.pokemonCaught || 0;
         const total = typeof Pokedex !== 'undefined' ? Pokedex.entries.length : 151;
 
-        // Simple rank estimation based on mock data comparison
         if (category === 0) return Math.max(1, 11 - badges);
         if (category === 1) {
             const rate = wins + losses > 0 ? wins / (wins + losses) : 0;
@@ -241,7 +254,16 @@ const Leaderboard = (() => {
             if (pct >= 0.5) return 5;
             return Math.max(6, 11 - Math.floor(caught / 10));
         }
-        return 10; // Speedrun default
+        if (category === 3) {
+            const timeMs = stats.playTimeMs || 0;
+            const timeH = timeMs / 3600000;
+            if (badges >= 8 && timeH < 3) return 1;
+            if (badges >= 8 && timeH < 4) return 3;
+            if (badges >= 7 && timeH < 5) return 5;
+            if (badges >= 5 && timeH < 6) return 7;
+            return Math.max(1, Math.min(10, 11 - badges));
+        }
+        return 10;
     }
 
     return { open, close, isActive, update, render };

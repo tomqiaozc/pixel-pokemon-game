@@ -3,12 +3,14 @@
 const TrainerCard = (() => {
     let active = false;
     let actionCooldown = 0;
+    let closeCooldown = 0;
     let flipTimer = 0;
     let showBack = false;
 
     function open() {
         active = true;
         actionCooldown = 250;
+        closeCooldown = 400;
         flipTimer = 0;
         showBack = false;
     }
@@ -22,16 +24,17 @@ const TrainerCard = (() => {
     function update(dt) {
         if (!active) return;
         actionCooldown = Math.max(0, actionCooldown - dt);
+        closeCooldown = Math.max(0, closeCooldown - dt);
         flipTimer += dt;
 
         const action = Input.isActionPressed() && actionCooldown <= 0;
-        const back = (Input.isDown('Escape') || Input.isDown('b') || Input.isDown('B')) && actionCooldown <= 0;
+        const back = (Input.isDown('Escape') || Input.isDown('b') || Input.isDown('B')) && closeCooldown <= 0;
 
         if (action) {
             showBack = !showBack;
             actionCooldown = 300;
         }
-        if (back) { close(); actionCooldown = 200; }
+        if (back) { close(); closeCooldown = 200; }
     }
 
     function render(ctx, canvasW, canvasH) {
@@ -127,19 +130,21 @@ const TrainerCard = (() => {
         ctx.font = '12px monospace';
         ctx.textAlign = 'left';
 
-        // Name
+        // Name — read from Game.player
         ctx.fillStyle = '#e0e0e0';
         ctx.fillText('Name:', infoX, infoY);
         ctx.fillStyle = '#ffffff';
         ctx.font = 'bold 14px monospace';
-        ctx.fillText('RED', infoX + 60, infoY);
+        const playerName = (typeof Game !== 'undefined' && Game.player && Game.player.name) ? Game.player.name : 'RED';
+        ctx.fillText(playerName, infoX + 60, infoY);
 
-        // IDNo
+        // IDNo — read from API game ID
         ctx.font = '12px monospace';
         ctx.fillStyle = '#e0e0e0';
         ctx.fillText('IDNo:', infoX, infoY + lineH);
         ctx.fillStyle = '#ffffff';
-        ctx.fillText('00001', infoX + 60, infoY + lineH);
+        const playerId = (typeof API !== 'undefined' && API.getGameId()) ? String(API.getGameId()).padStart(5, '0') : '00001';
+        ctx.fillText(playerId, infoX + 60, infoY + lineH);
 
         // Money
         ctx.fillStyle = '#e0e0e0';
@@ -180,7 +185,6 @@ const TrainerCard = (() => {
             const hasBadge = typeof BadgeCase !== 'undefined' && BadgeCase.hasBadge(i);
 
             if (hasBadge) {
-                // Use TrainerBattle.drawBadge if available
                 if (typeof TrainerBattle !== 'undefined' && TrainerBattle.drawBadge) {
                     TrainerBattle.drawBadge(ctx, bx + 12, badgeY + 22, 14, i, true);
                 } else {
@@ -188,7 +192,6 @@ const TrainerCard = (() => {
                     ctx.fillRect(bx + 4, badgeY + 12, 16, 16);
                 }
             } else {
-                // Empty badge slot
                 ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
                 ctx.fillRect(bx + 4, badgeY + 12, 16, 16);
                 ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
@@ -212,7 +215,6 @@ const TrainerCard = (() => {
         ctx.fillText('BATTLE RECORD', cx + cardW / 2, cy + 24);
 
         const startY = cy + 44;
-        const lineH = 26;
         const labelX = cx + 20;
         const valX = cx + cardW - 20;
 
@@ -229,8 +231,11 @@ const TrainerCard = (() => {
             { label: 'Items Used', value: stats.itemsUsed || 0 },
         ];
 
-        // Favorite Pokemon
         const fav = stats.favoritePokemon || 'None';
+
+        // Compute line height to fit available card space
+        const availH = cardH - 44 - 50;
+        const lineH = Math.min(26, Math.floor(availH / (statLines.length + 1.5)));
 
         for (let i = 0; i < statLines.length; i++) {
             const y = startY + i * lineH;
@@ -251,15 +256,17 @@ const TrainerCard = (() => {
 
         // Favorite Pokemon section
         const favY = startY + statLines.length * lineH + 8;
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
-        ctx.fillRect(cx + 8, favY, cardW - 16, 30);
-        ctx.fillStyle = '#f8d830';
-        ctx.font = 'bold 12px monospace';
-        ctx.textAlign = 'left';
-        ctx.fillText('Favorite Pokemon:', labelX, favY + 20);
-        ctx.fillStyle = '#ffffff';
-        ctx.textAlign = 'right';
-        ctx.fillText(fav, valX, favY + 20);
+        if (favY + 30 < cy + cardH - 10) {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
+            ctx.fillRect(cx + 8, favY, cardW - 16, 30);
+            ctx.fillStyle = '#f8d830';
+            ctx.font = 'bold 12px monospace';
+            ctx.textAlign = 'left';
+            ctx.fillText('Favorite Pokemon:', labelX, favY + 20);
+            ctx.fillStyle = '#ffffff';
+            ctx.textAlign = 'right';
+            ctx.fillText(fav, valX, favY + 20);
+        }
 
         ctx.textAlign = 'left';
     }

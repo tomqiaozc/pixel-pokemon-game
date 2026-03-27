@@ -200,6 +200,72 @@ const API = (() => {
         }
     }
 
+    // --- Leaderboard API ---
+
+    async function getLeaderboard(category) {
+        try {
+            const res = await fetch(`${BASE_URL}/leaderboard/${category}`);
+            if (!res.ok) return null;
+            return await res.json();
+        } catch {
+            return null;
+        }
+    }
+
+    // --- Player Stats & Achievements API ---
+
+    async function getPlayerStats() {
+        if (!gameId) return null;
+        try {
+            const res = await fetch(`${BASE_URL}/player/${gameId}/stats`);
+            if (!res.ok) return null;
+            return await res.json();
+        } catch {
+            return null;
+        }
+    }
+
+    async function savePlayerStats(statsData) {
+        if (!gameId) return null;
+        try {
+            const res = await fetch(`${BASE_URL}/player/${gameId}/stats`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(statsData),
+            });
+            if (!res.ok) return null;
+            return await res.json();
+        } catch {
+            return null;
+        }
+    }
+
+    async function getAchievements() {
+        if (!gameId) return null;
+        try {
+            const res = await fetch(`${BASE_URL}/player/${gameId}/achievements`);
+            if (!res.ok) return null;
+            return await res.json();
+        } catch {
+            return null;
+        }
+    }
+
+    async function saveAchievements(achievementIds) {
+        if (!gameId) return null;
+        try {
+            const res = await fetch(`${BASE_URL}/player/${gameId}/achievements`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ achievements: achievementIds }),
+            });
+            if (!res.ok) return null;
+            return await res.json();
+        } catch {
+            return null;
+        }
+    }
+
     // --- PvP API ---
 
     async function pvpCreate(format) {
@@ -262,6 +328,8 @@ const API = (() => {
         registerCaught, saveGame, getInventory, useItem,
         awardExp, checkEncounter,
         tradeOffer, tradeConfirm, tradeStatus,
+        getLeaderboard, getPlayerStats, savePlayerStats,
+        getAchievements, saveAchievements,
         pvpCreate, pvpJoin, pvpAction, pvpState,
     };
 })();
