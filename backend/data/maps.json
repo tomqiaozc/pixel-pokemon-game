@@ -1,0 +1,253 @@
+[
+  {
+    "id": "pallet_town",
+    "name": "pallet_town",
+    "display_name": "Pallet Town",
+    "map_type": "town",
+    "width": 20,
+    "height": 20,
+    "connections": [
+      {"direction": "north", "target_map_id": "route_1", "entry_x": 10, "entry_y": 39}
+    ],
+    "npcs": [
+      {"npc_id": "townsfolk_1", "x": 5, "y": 8, "facing": "up"},
+      {"npc_id": "townsfolk_2", "x": 10, "y": 6, "facing": "left"}
+    ],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": [
+      {"name": "Player House", "x": 3, "y": 3, "width": 4, "height": 4, "door_x": 4, "door_y": 7, "interior_map_id": "player_house"},
+      {"name": "Oak's Lab", "x": 10, "y": 3, "width": 6, "height": 5, "door_x": 12, "door_y": 8, "interior_map_id": "oaks_lab"}
+    ]
+  },
+  {
+    "id": "player_house",
+    "name": "player_house",
+    "display_name": "Player's House",
+    "map_type": "interior",
+    "width": 8,
+    "height": 8,
+    "connections": [],
+    "npcs": [
+      {"npc_id": "mom", "x": 3, "y": 4, "facing": "down"}
+    ],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": []
+  },
+  {
+    "id": "oaks_lab",
+    "name": "oaks_lab",
+    "display_name": "Oak's Pokemon Lab",
+    "map_type": "interior",
+    "width": 10,
+    "height": 10,
+    "connections": [],
+    "npcs": [
+      {"npc_id": "prof_oak", "x": 5, "y": 3, "facing": "down"},
+      {"npc_id": "rival", "x": 7, "y": 3, "facing": "left"}
+    ],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": []
+  },
+  {
+    "id": "route_1",
+    "name": "route_1",
+    "display_name": "Route 1",
+    "map_type": "route",
+    "width": 20,
+    "height": 40,
+    "connections": [
+      {"direction": "south", "target_map_id": "pallet_town", "entry_x": 10, "entry_y": 0},
+      {"direction": "north", "target_map_id": "viridian_city", "entry_x": 12, "entry_y": 24}
+    ],
+    "npcs": [],
+    "trainers": [
+      {"trainer_id": "youngster_joey", "x": 10, "y": 15, "facing": "left", "sight_range": 3}
+    ],
+    "encounter_zones": [
+      {"x": 3, "y": 5, "width": 6, "height": 5, "encounter_table_id": "route_1"},
+      {"x": 12, "y": 18, "width": 5, "height": 6, "encounter_table_id": "route_1"},
+      {"x": 5, "y": 30, "width": 8, "height": 4, "encounter_table_id": "route_1"}
+    ],
+    "buildings": []
+  },
+  {
+    "id": "viridian_city",
+    "name": "viridian_city",
+    "display_name": "Viridian City",
+    "map_type": "town",
+    "width": 25,
+    "height": 25,
+    "connections": [
+      {"direction": "south", "target_map_id": "route_1", "entry_x": 10, "entry_y": 0},
+      {"direction": "north", "target_map_id": "route_2", "entry_x": 10, "entry_y": 34}
+    ],
+    "npcs": [
+      {"npc_id": "viridian_townsfolk_1", "x": 8, "y": 10, "facing": "down"},
+      {"npc_id": "viridian_townsfolk_2", "x": 15, "y": 14, "facing": "left"},
+      {"npc_id": "viridian_townsfolk_3", "x": 20, "y": 8, "facing": "up"},
+      {"npc_id": "old_man", "x": 5, "y": 3, "facing": "down"}
+    ],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": [
+      {"name": "Pokemon Center", "x": 10, "y": 4, "width": 5, "height": 4, "door_x": 12, "door_y": 8, "interior_map_id": "viridian_pokemon_center"},
+      {"name": "Poke Mart", "x": 18, "y": 4, "width": 4, "height": 4, "door_x": 19, "door_y": 8, "interior_map_id": "viridian_pokemart"},
+      {"name": "Viridian Gym", "x": 3, "y": 15, "width": 6, "height": 5, "door_x": 6, "door_y": 20, "interior_map_id": "viridian_gym"}
+    ]
+  },
+  {
+    "id": "viridian_pokemon_center",
+    "name": "viridian_pokemon_center",
+    "display_name": "Viridian City Pokemon Center",
+    "map_type": "interior",
+    "width": 10,
+    "height": 8,
+    "connections": [],
+    "npcs": [
+      {"npc_id": "nurse_joy", "x": 5, "y": 2, "facing": "down"}
+    ],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": []
+  },
+  {
+    "id": "viridian_pokemart",
+    "name": "viridian_pokemart",
+    "display_name": "Viridian City Poke Mart",
+    "map_type": "interior",
+    "width": 8,
+    "height": 8,
+    "connections": [],
+    "npcs": [
+      {"npc_id": "viridian_shopkeeper", "x": 4, "y": 2, "facing": "down"}
+    ],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": []
+  },
+  {
+    "id": "viridian_gym",
+    "name": "viridian_gym",
+    "display_name": "Viridian City Gym",
+    "map_type": "gym",
+    "width": 12,
+    "height": 15,
+    "connections": [],
+    "npcs": [],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": []
+  },
+  {
+    "id": "route_2",
+    "name": "route_2",
+    "display_name": "Route 2",
+    "map_type": "route",
+    "width": 20,
+    "height": 35,
+    "connections": [
+      {"direction": "south", "target_map_id": "viridian_city", "entry_x": 12, "entry_y": 0},
+      {"direction": "north", "target_map_id": "pewter_city", "entry_x": 12, "entry_y": 24}
+    ],
+    "npcs": [],
+    "trainers": [
+      {"trainer_id": "bug_catcher_rick", "x": 8, "y": 12, "facing": "right", "sight_range": 4},
+      {"trainer_id": "lass_sally", "x": 14, "y": 22, "facing": "left", "sight_range": 3}
+    ],
+    "encounter_zones": [
+      {"x": 4, "y": 5, "width": 6, "height": 5, "encounter_table_id": "route_2"},
+      {"x": 10, "y": 16, "width": 7, "height": 6, "encounter_table_id": "route_2"},
+      {"x": 3, "y": 26, "width": 5, "height": 4, "encounter_table_id": "route_2"}
+    ],
+    "buildings": []
+  },
+  {
+    "id": "pewter_city",
+    "name": "pewter_city",
+    "display_name": "Pewter City",
+    "map_type": "town",
+    "width": 25,
+    "height": 25,
+    "connections": [
+      {"direction": "south", "target_map_id": "route_2", "entry_x": 10, "entry_y": 0},
+      {"direction": "east", "target_map_id": "route_3", "entry_x": 0, "entry_y": 12}
+    ],
+    "npcs": [
+      {"npc_id": "pewter_townsfolk_1", "x": 10, "y": 10, "facing": "down"},
+      {"npc_id": "pewter_townsfolk_2", "x": 18, "y": 15, "facing": "left"},
+      {"npc_id": "gym_guide", "x": 8, "y": 18, "facing": "right"}
+    ],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": [
+      {"name": "Pokemon Center", "x": 14, "y": 4, "width": 5, "height": 4, "door_x": 16, "door_y": 8, "interior_map_id": "pewter_pokemon_center"},
+      {"name": "Pewter Gym", "x": 5, "y": 14, "width": 7, "height": 6, "door_x": 8, "door_y": 20, "interior_map_id": "pewter_gym"},
+      {"name": "Pewter Museum", "x": 14, "y": 14, "width": 6, "height": 5, "door_x": 16, "door_y": 19, "interior_map_id": "pewter_museum"}
+    ]
+  },
+  {
+    "id": "pewter_pokemon_center",
+    "name": "pewter_pokemon_center",
+    "display_name": "Pewter City Pokemon Center",
+    "map_type": "interior",
+    "width": 10,
+    "height": 8,
+    "connections": [],
+    "npcs": [
+      {"npc_id": "nurse_joy_pewter", "x": 5, "y": 2, "facing": "down"}
+    ],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": []
+  },
+  {
+    "id": "pewter_gym",
+    "name": "pewter_gym",
+    "display_name": "Pewter City Gym",
+    "map_type": "gym",
+    "width": 12,
+    "height": 15,
+    "connections": [],
+    "npcs": [
+      {"npc_id": "gym_guide", "x": 2, "y": 12, "facing": "right"}
+    ],
+    "trainers": [
+      {"trainer_id": "pewter_gym_trainer_1", "x": 6, "y": 8, "facing": "down", "sight_range": 3}
+    ],
+    "encounter_zones": [],
+    "buildings": []
+  },
+  {
+    "id": "pewter_museum",
+    "name": "pewter_museum",
+    "display_name": "Pewter Museum of Science",
+    "map_type": "interior",
+    "width": 12,
+    "height": 10,
+    "connections": [],
+    "npcs": [
+      {"npc_id": "museum_guide", "x": 6, "y": 3, "facing": "down"}
+    ],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": []
+  },
+  {
+    "id": "route_3",
+    "name": "route_3",
+    "display_name": "Route 3",
+    "map_type": "route",
+    "width": 20,
+    "height": 30,
+    "connections": [
+      {"direction": "west", "target_map_id": "pewter_city", "entry_x": 24, "entry_y": 12}
+    ],
+    "npcs": [],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": []
+  }
+]
