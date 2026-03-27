@@ -46,6 +46,10 @@ const Game = (() => {
             if (Dialogue.isActive()) {
                 Dialogue.render(ctx, canvas.width, canvas.height);
             }
+            // Render pause menu overlay
+            if (PauseMenu.isActive()) {
+                PauseMenu.render(ctx, canvas.width, canvas.height);
+            }
         } else if (state === 'battle') {
             updateBattle(dt);
         }
@@ -67,6 +71,18 @@ const Game = (() => {
     function updateOverworld(dt) {
         // Update NPC animations
         NPC.update(dt);
+
+        // Handle pause menu
+        if (PauseMenu.isActive()) {
+            PauseMenu.update(dt);
+            return;
+        }
+
+        // Open pause menu with Escape
+        if (Input.isDown('Escape')) {
+            PauseMenu.open();
+            return;
+        }
 
         // Update dialogue if active
         if (Dialogue.isActive()) {
