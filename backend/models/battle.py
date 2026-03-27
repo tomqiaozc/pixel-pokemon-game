@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Optional
 
-from pydantic import BaseModel
+from pydantic import BaseModel, field_validator
 
 from .pokemon import Move, Stats
 from .weather import WeatherEvent, WeatherState
@@ -36,6 +36,12 @@ class BattlePokemon(BaseModel):
     flinched: bool = False
     ability_id: Optional[str] = None
     flash_fire_activated: bool = False
+    held_item: Optional[str] = None
+
+    @field_validator("types", mode="before")
+    @classmethod
+    def normalize_types(cls, v: list[str]) -> list[str]:
+        return [t.lower() for t in v]
 
 
 class BattleState(BaseModel):

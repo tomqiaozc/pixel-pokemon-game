@@ -22,6 +22,7 @@ from .status_service import (
 )
 from .ability_service import (
     check_ability_type_immunity,
+    get_weather_evasion_check,
     process_ability_damage_modifier,
     process_ability_end_of_turn,
     process_ability_on_hit,
@@ -403,7 +404,7 @@ def process_action(
 
         # Weather-setting moves (power=0 status moves)
         if move.name in WEATHER_MOVES:
-            w_events = process_weather_move(move.name, battle)
+            w_events = process_weather_move(move.name, battle, user=attacker)
             weather_events.extend(w_events)
             current_weather = battle.weather.current_weather
             events.append(
@@ -419,11 +420,26 @@ def process_action(
             )
             continue
 
-        # Accuracy check (with weather override)
+        # Accuracy check (with weather override and weather evasion abilities)
         move_accuracy = move.accuracy
         weather_acc = get_weather_accuracy_override(move.name, current_weather)
         if weather_acc is not None:
             move_accuracy = weather_acc
+
+        # Weather evasion check (Sand Veil in sandstorm, Snow Cloak in hail)
+        if get_weather_evasion_check(defender, current_weather):
+            events.append(
+                TurnEvent(
+                    attacker=role,
+                    move=move.name,
+                    damage=0,
+                    effectiveness="normal",
+                    critical=False,
+                    target_hp_remaining=defender.current_hp,
+                    target_fainted=False,
+                )
+            )
+            continue
 
         if random.randint(1, 100) > move_accuracy:
             events.append(

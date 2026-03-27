@@ -41,6 +41,14 @@ WEATHER_MOVES: dict[str, str] = {
     "Hail": "hail",
 }
 
+# Held items that extend weather duration (5 -> 8 turns)
+_WEATHER_ROCKS: dict[str, str] = {
+    "damp_rock": "rain",
+    "heat_rock": "sun",
+    "smooth_rock": "sandstorm",
+    "icy_rock": "hail",
+}
+
 
 def set_weather(
     battle: BattleState,
@@ -157,10 +165,20 @@ def get_sandstorm_spdef_boost(defender: BattlePokemon, weather: str | None) -> f
     return 1.0
 
 
-def process_weather_move(move_name: str, battle: BattleState) -> list[WeatherEvent]:
+def get_weather_rock_duration(pokemon: BattlePokemon, weather: str) -> int:
+    """Return weather duration considering held weather rock items. Default 5, rock extends to 8."""
+    if pokemon.held_item:
+        rock_weather = _WEATHER_ROCKS.get(pokemon.held_item)
+        if rock_weather == weather:
+            return 8
+    return 5
+
+
+def process_weather_move(move_name: str, battle: BattleState, user: BattlePokemon | None = None) -> list[WeatherEvent]:
     """Process a weather-setting move. Returns weather events."""
     weather = WEATHER_MOVES.get(move_name)
     if weather is None:
         return []
-    evt = set_weather(battle, weather, duration=5)
+    duration = get_weather_rock_duration(user, weather) if user else 5
+    evt = set_weather(battle, weather, duration=duration)
     return [evt]
