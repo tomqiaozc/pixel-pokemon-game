@@ -140,7 +140,13 @@ def get_player_stats(player_id: str) -> PlayerStats | None:
 
 # --- Leaderboards ---
 
+def _clamp_limit(limit: int) -> int:
+    """H1: Validate and clamp leaderboard limit to [1, 100]."""
+    return max(1, min(limit, 100))
+
+
 def get_trainer_leaderboard(limit: int = 10) -> list[TrainerLeaderboardEntry]:
+    limit = _clamp_limit(limit)
     entries = []
     for gid, game in _games.items():
         badges = len(_earned_badges.get(gid, set()))
@@ -167,6 +173,7 @@ def get_trainer_leaderboard(limit: int = 10) -> list[TrainerLeaderboardEntry]:
 
 
 def get_pvp_leaderboard(limit: int = 10, min_battles: int = 5) -> list[PvPLeaderboardEntry]:
+    limit = _clamp_limit(limit)
     player_records: dict[str, dict] = {}
     for pid, history in _pvp_history.items():
         wins = sum(1 for h in history if h.result == "win")
@@ -184,7 +191,11 @@ def get_pvp_leaderboard(limit: int = 10, min_battles: int = 5) -> list[PvPLeader
             "win_rate": round(wins / total * 100, 1) if total > 0 else 0.0,
         }
 
-    sorted_records = sorted(player_records.values(), key=lambda e: -e["win_rate"])
+    # H2: Sort by win_rate descending, then by total wins descending as tie-breaker
+    sorted_records = sorted(
+        player_records.values(),
+        key=lambda e: (-e["win_rate"], -e["wins"]),
+    )
     return [
         PvPLeaderboardEntry(
             rank=i + 1,
@@ -200,6 +211,7 @@ def get_pvp_leaderboard(limit: int = 10, min_battles: int = 5) -> list[PvPLeader
 
 
 def get_pokedex_leaderboard(limit: int = 10) -> list[PokedexLeaderboardEntry]:
+    limit = _clamp_limit(limit)
     entries = []
     for gid, game in _games.items():
         dex = get_pokedex_stats(gid)
@@ -303,4 +315,8 @@ def check_achievements(player_id: str) -> AchievementCheckResult:
 
 
 def get_achievements(player_id: str) -> list[Achievement]:
+    # H4: Only return achievements for existing players
+    game = get_game(player_id)
+    if game is None:
+        return []
     return list(_get_achievements(player_id).values())
