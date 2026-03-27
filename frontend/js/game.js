@@ -118,6 +118,9 @@ const Game = (() => {
             state = 'overworld';
             loadMap('pallet_town');
             Renderer.centerCamera(player.x + TILE / 2, player.y + TILE / 2);
+
+            // Create backend game session (fire-and-forget)
+            API.createGame('Red', result.starter.name);
         }
     }
 
