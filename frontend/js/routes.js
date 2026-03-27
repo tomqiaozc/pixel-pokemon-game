@@ -350,6 +350,7 @@ const Routes = (() => {
             doors: [
                 { x: 5, y: 6, targetMap: 'pokecenter', spawnX: 7, spawnY: 9 },
             ],
+            lamps: [{ x: 10, y: 8 }, { x: 18, y: 8 }, { x: 14, y: 14 }],
         });
 
         const route1 = buildRoute1();
@@ -383,6 +384,7 @@ const Routes = (() => {
                 { x: 5, y: 7, targetMap: 'pokecenter', spawnX: 7, spawnY: 9 },
                 { x: 14, y: 5, targetMap: 'viridian_gym', spawnX: 7, spawnY: 15 },
             ],
+            lamps: [{ x: 8, y: 6 }, { x: 16, y: 6 }, { x: 12, y: 12 }, { x: 20, y: 12 }],
         });
 
         const route2 = buildRoute2();
@@ -411,6 +413,7 @@ const Routes = (() => {
                 { x: 5, y: 7, targetMap: 'pokecenter', spawnX: 7, spawnY: 9 },
                 { x: 21, y: 6, targetMap: 'pewter_gym', spawnX: 6, spawnY: 13 },
             ],
+            lamps: [{ x: 10, y: 6 }, { x: 18, y: 6 }, { x: 14, y: 10 }],
         });
     }
 

@@ -28,6 +28,7 @@ const Encounters = (() => {
             { name: 'Rattata',   type: 'Normal', level: [2, 4], hp: 12, time: 'any' },
             { name: 'Hoothoot',  type: 'Flying', level: [2, 5], hp: 14, time: 'night' },
             { name: 'Zubat',     type: 'Poison', level: [2, 4], hp: 12, time: 'night' },
+            { name: 'Murkrow',   type: 'Flying', level: [3, 5], hp: 14, time: 'evening' },
         ],
         route_2: [
             { name: 'Caterpie',  type: 'Bug',    level: [3, 6], hp: 11, time: 'day' },
@@ -36,6 +37,7 @@ const Encounters = (() => {
             { name: 'Pidgey',    type: 'Flying', level: [3, 5], hp: 14, time: 'day' },
             { name: 'Hoothoot',  type: 'Flying', level: [3, 5], hp: 14, time: 'night' },
             { name: 'Gastly',    type: 'Ghost',  level: [3, 5], hp: 11, time: 'night' },
+            { name: 'Spinarak',  type: 'Bug',    level: [3, 5], hp: 13, time: 'evening' },
         ],
         pallet_town: [
             { name: 'Pidgey',    type: 'Flying', level: [2, 4], hp: 14, time: 'day' },
@@ -155,10 +157,17 @@ const Encounters = (() => {
         const currentMap = MapLoader.getCurrentMapId();
         const fullPool = ROUTE_ENCOUNTERS[currentMap] || WILD_POKEMON;
 
-        // Filter by time of day
-        const isNight = DayCycle.isNight();
-        const timeFilter = isNight ? 'night' : 'day';
-        const pool = fullPool.filter(p => !p.time || p.time === 'any' || p.time === timeFilter);
+        // Filter by time of day using 4-period system
+        const period = DayCycle.getPeriod(); // morning, day, evening, night
+        const pool = fullPool.filter(p => {
+            if (!p.time || p.time === 'any') return true;
+            if (p.time === period) return true;
+            // Evening counts as night-eligible (dusk Pokemon appear)
+            if (p.time === 'night' && period === 'evening') return true;
+            // Morning counts as day-eligible (dawn Pokemon appear)
+            if (p.time === 'day' && period === 'morning') return true;
+            return false;
+        });
         const template = pool.length > 0
             ? pool[Math.floor(Math.random() * pool.length)]
             : fullPool[Math.floor(Math.random() * fullPool.length)];
