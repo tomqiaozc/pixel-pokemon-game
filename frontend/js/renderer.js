@@ -81,6 +81,9 @@ const Renderer = (() => {
         const playerScreenY = (player.y - camY) * SCALE;
         const playerSprite = Sprites.drawPlayer(player.dir, player.animFrame);
         ctx.drawImage(playerSprite, playerScreenX, playerScreenY, TILE * SCALE, TILE * SCALE);
+
+        // Draw encounter overlay effects (grass rustles, exclamation, transitions)
+        Encounters.renderOverlay(ctx, camX, camY, SCALE, canvasW, canvasH);
     }
 
     function getTileSprite(type) {
@@ -99,5 +102,5 @@ const Renderer = (() => {
         }
     }
 
-    return { init, centerCamera, render, SCALE, TILE };
+    return { init, centerCamera, render, SCALE, TILE, getCamX: () => camX, getCamY: () => camY };
 })();

@@ -118,6 +118,12 @@ const Game = (() => {
 
         // Center camera on player
         Renderer.centerCamera(player.x + TILE / 2, player.y + TILE / 2);
+
+        // Encounter check
+        const encounter = Encounters.update(dt, player);
+        if (encounter.startBattle) {
+            startBattle(encounter.enemy);
+        }
     }
 
     // Expose for other modules
