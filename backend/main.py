@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from .routes.encounter import router as encounter_router
 from .routes.game import router as game_router
 from .routes.pokemon import router as pokemon_router
 
@@ -16,6 +17,7 @@ app.add_middleware(
 
 app.include_router(pokemon_router)
 app.include_router(game_router)
+app.include_router(encounter_router)
 
 
 @app.get("/api/health")
