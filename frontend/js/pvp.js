@@ -53,10 +53,16 @@ const PvP = (() => {
     let playerShake = 0;
     let enemyShake = 0;
 
-    // PvP stats
+    // PvP stats (loaded from PlayerStats when available)
     let pvpWins = 0;
     let pvpLosses = 0;
     let pvpRating = 1000;
+
+    // Backend session state
+    let sessionId = null;
+    let pollTimer = 0;
+    const POLL_INTERVAL = 2000;
+    let useMock = false;
 
     // Type colors
     const TYPE_COLORS = {
@@ -214,9 +220,24 @@ const PvP = (() => {
         playerAction = null;
         codeDigits = [0, 0, 0, 0, 0, 0, 0, 0];
         codeIndex = 0;
+        sessionId = null;
+        pollTimer = 0;
+        useMock = false;
+
+        // Load PvP stats from PlayerStats if available
+        if (typeof PlayerStats !== 'undefined') {
+            const stats = PlayerStats.getStats();
+            pvpWins = stats.pvpWins || 0;
+            pvpLosses = stats.pvpLosses || 0;
+        }
     }
 
     function close() {
+        // Clean up backend session if active
+        if (sessionId && !useMock) {
+            API.pvpForfeit(sessionId);
+            sessionId = null;
+        }
         active = false;
         phase = 'lobby';
     }
@@ -263,6 +284,15 @@ const PvP = (() => {
                 if (connectOption === 0) {
                     phase = 'matchmaking';
                     matchTimer = 0;
+                    pollTimer = 0;
+                    // Create PvP session via backend
+                    API.pvpCreate().then(data => {
+                        if (data && data.session) {
+                            sessionId = data.session.id;
+                        } else {
+                            useMock = true;
+                        }
+                    });
                 } else if (connectOption === 1) {
                     phase = 'code_entry';
                     codeDigits = [0, 0, 0, 0, 0, 0, 0, 0];
@@ -283,17 +313,57 @@ const PvP = (() => {
             if (mov.dx < 0) { codeIndex = Math.max(0, codeIndex - 1); actionCooldown = 120; }
         }
         if (action) {
+            const code = codeDigits.join('');
             phase = 'matchmaking';
             matchTimer = 0;
+            pollTimer = 0;
             actionCooldown = 200;
+            // Join PvP session via backend
+            API.pvpJoin(code).then(data => {
+                if (data && data.session) {
+                    sessionId = data.session.id;
+                } else {
+                    useMock = true;
+                }
+            });
         }
         if (back) { phase = 'lobby'; lobbyScreen = 'connect'; actionCooldown = 200; }
     }
 
     function updateMatchmaking(dt, action, back) {
         matchTimer += dt;
-        // Simulate finding opponent after ~3 seconds
-        if (matchTimer > 3000) {
+        pollTimer += dt;
+
+        // Poll backend for opponent joining
+        if (sessionId && !useMock && pollTimer >= POLL_INTERVAL) {
+            pollTimer = 0;
+            API.pvpState(sessionId).then(data => {
+                if (data && data.session && data.session.player2_id) {
+                    opponent = { name: 'Opponent', id: data.session.player2_id, rating: '???' };
+                    // Use backend pokemon data if available
+                    if (data.player2_pokemon) {
+                        opponentParty = [data.player2_pokemon].map(p => ({
+                            name: p.name, level: p.level || 30,
+                            type: (p.types && p.types[0]) || 'Normal',
+                            hp: p.current_hp || p.hp || 80, maxHp: p.max_hp || p.maxHp || 80,
+                            moves: p.moves || [],
+                        }));
+                    } else {
+                        opponentParty = generateOpponentParty('BLUE');
+                    }
+                    phase = 'team_preview';
+                    previewTimer = 0;
+                    playerLead = 0;
+                    selectedIndex = 0;
+                    playerReady = false;
+                    opponentReady = false;
+                    actionCooldown = 300;
+                }
+            });
+        }
+
+        // Mock fallback
+        if ((useMock || !sessionId) && matchTimer > 3000) {
             const idx = Math.floor(Math.random() * MOCK_OPPONENTS.length);
             opponent = MOCK_OPPONENTS[idx];
             opponentParty = generateOpponentParty(opponent.name);
@@ -305,7 +375,10 @@ const PvP = (() => {
             opponentReady = false;
             actionCooldown = 300;
         }
-        if (back) { phase = 'lobby'; lobbyScreen = 'connect'; actionCooldown = 200; }
+        if (back) {
+            if (sessionId) { API.pvpForfeit(sessionId); sessionId = null; }
+            phase = 'lobby'; lobbyScreen = 'connect'; actionCooldown = 200;
+        }
     }
 
     function updateTeamPreview(dt, mov, action, back) {
@@ -323,11 +396,34 @@ const PvP = (() => {
                 playerLead = selectedIndex;
                 playerReady = true;
                 actionCooldown = 200;
+                // Notify backend
+                if (sessionId && !useMock) {
+                    API.pvpReady(sessionId, playerLead).then(data => {
+                        if (data && data.battle_started) {
+                            opponentReady = true;
+                        }
+                    });
+                }
             }
         }
 
-        // Simulate opponent ready after ~2s
-        if (previewTimer > 2000 && !opponentReady) {
+        // Poll backend for opponent ready
+        if (sessionId && !useMock && playerReady && !opponentReady) {
+            pollTimer += dt;
+            if (pollTimer >= POLL_INTERVAL) {
+                pollTimer = 0;
+                API.pvpState(sessionId).then(data => {
+                    if (data && data.session) {
+                        if (data.session.player1_ready && data.session.player2_ready) {
+                            opponentReady = true;
+                        }
+                    }
+                });
+            }
+        }
+
+        // Mock fallback for opponent ready
+        if ((useMock || !sessionId) && previewTimer > 2000 && !opponentReady) {
             opponentReady = true;
         }
 
@@ -442,7 +538,16 @@ const PvP = (() => {
                     textTimer = 0;
                 } else if (moveChoice === 2) {
                     // Forfeit
+                    if (sessionId && !useMock) {
+                        API.pvpForfeit(sessionId);
+                    }
                     battleResult = 'lose';
+                    pvpLosses++;
+                    pvpRating = Math.max(800, pvpRating - 20);
+                    if (typeof PlayerStats !== 'undefined') {
+                        PlayerStats.increment('battlesLost');
+                        PlayerStats.increment('pvpLosses');
+                    }
                     battleLog.push('You forfeited the battle!');
                     battleLog.push(`${opponent.name} wins!`);
                     logIndex = battleLog.length - 2;
@@ -489,10 +594,85 @@ const PvP = (() => {
 
     function updateTurnWait(dt, action, back) {
         turnTimer += dt;
-        // Simulate opponent action after ~1.5s
-        if (turnTimer > 1500) {
+        pollTimer += dt;
+
+        // Send action to backend and poll for resolution
+        if (sessionId && !useMock && pollTimer >= POLL_INTERVAL) {
+            pollTimer = 0;
+            const moveIdx = playerAction ? playerAction.moveIndex : 0;
+            API.pvpAction(sessionId, 'fight', moveIdx).then(data => {
+                if (data && data.turn_number) {
+                    // Turn resolved by backend — apply results
+                    applyBackendTurnResult(data);
+                } else if (data && !data.waiting) {
+                    // Fallback to local resolution
+                    resolveTurn();
+                }
+                // If data.waiting, keep polling
+            });
+        }
+
+        // Mock fallback
+        if ((useMock || !sessionId) && turnTimer > 1500) {
             resolveTurn();
         }
+    }
+
+    function applyBackendTurnResult(data) {
+        battleLog = [];
+        if (data.events) {
+            for (const evt of data.events) {
+                battleLog.push(`${evt.attacker || '???'} used ${evt.move || 'a move'}!`);
+                if (evt.damage > 0) {
+                    battleLog.push(`It dealt ${evt.damage} damage!`);
+                }
+                if (evt.target_fainted) {
+                    battleLog.push(`${evt.attacker === playerPokemon.name ? enemyPokemon.name : playerPokemon.name} fainted!`);
+                }
+            }
+        }
+
+        // Update HP from backend
+        if (data.player1_pokemon) {
+            playerPokemon.hp = data.player1_pokemon.current_hp || data.player1_pokemon.hp || playerPokemon.hp;
+        }
+        if (data.player2_pokemon) {
+            enemyPokemon.hp = data.player2_pokemon.current_hp || data.player2_pokemon.hp || enemyPokemon.hp;
+        }
+
+        if (data.battle_over) {
+            if (data.winner === API.getGameId() || data.winner === 'player1') {
+                battleResult = 'win';
+                pvpWins++;
+                pvpRating += 25;
+                if (typeof PlayerStats !== 'undefined') {
+                    PlayerStats.increment('battlesWon');
+                    PlayerStats.increment('pvpWins');
+                }
+            } else {
+                battleResult = 'lose';
+                pvpLosses++;
+                pvpRating = Math.max(800, pvpRating - 20);
+                if (typeof PlayerStats !== 'undefined') {
+                    PlayerStats.increment('battlesLost');
+                    PlayerStats.increment('pvpLosses');
+                }
+            }
+            phase = 'animating';
+            animTimer = 0;
+        } else {
+            turnNumber = data.turn_number || turnNumber + 1;
+            phase = 'battle';
+            battleMenuMode = 'main';
+            moveChoice = 0;
+            playerAction = null;
+            turnTimer = 0;
+            actionCooldown = 300;
+        }
+
+        logIndex = 0;
+        charIdx = 0;
+        textTimer = 0;
     }
 
     function resolveTurn() {
@@ -520,6 +700,10 @@ const PvP = (() => {
             battleResult = 'win';
             pvpWins++;
             pvpRating += 25;
+            if (typeof PlayerStats !== 'undefined') {
+                PlayerStats.increment('battlesWon');
+                PlayerStats.increment('pvpWins');
+            }
             logIndex = 0;
             charIdx = 0;
             textTimer = 0;
@@ -545,6 +729,10 @@ const PvP = (() => {
             battleResult = 'lose';
             pvpLosses++;
             pvpRating = Math.max(800, pvpRating - 20);
+            if (typeof PlayerStats !== 'undefined') {
+                PlayerStats.increment('battlesLost');
+                PlayerStats.increment('pvpLosses');
+            }
             logIndex = 0;
             charIdx = 0;
             textTimer = 0;

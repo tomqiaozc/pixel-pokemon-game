@@ -23,6 +23,18 @@ const BadgeCase = (() => {
         selectedIndex = 0;
         actionCooldown = 250;
         shineTimer = 0;
+
+        // Sync badges from backend
+        API.getBadges().then(data => {
+            if (data && data.badges) {
+                for (const badge of data.badges) {
+                    const idx = typeof badge === 'number' ? badge : badge.index;
+                    if (idx >= 0 && idx < badges.length) {
+                        badges[idx].earned = true;
+                    }
+                }
+            }
+        });
     }
 
     function close() {
@@ -34,6 +46,8 @@ const BadgeCase = (() => {
     function earnBadge(index) {
         if (index >= 0 && index < badges.length) {
             badges[index].earned = true;
+            // Sync badge award with backend
+            API.awardBadge(index);
         }
     }
 

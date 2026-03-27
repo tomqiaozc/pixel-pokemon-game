@@ -15,16 +15,20 @@ const Trading = (() => {
     let codeIndex = 0;
     let connectOption = 0; // 0=Quick Match, 1=Trade Code, 2=Cancel
 
-    // Simulated partner data (mock until backend is wired)
+    // Fallback partner data (used when backend is unavailable)
     const MOCK_PARTNERS = [
         { name: 'BLUE', id: 'TR-4829' },
         { name: 'LANCE', id: 'TR-7712' },
         { name: 'MISTY', id: 'TR-2205' },
     ];
     let partnerTrainer = null;
-
-    // Simulated partner party
     let partnerParty = [];
+
+    // Backend session state
+    let sessionId = null;
+    let pollTimer = 0;
+    const POLL_INTERVAL = 2000;
+    let useMock = false; // falls back to mock if backend unavailable
 
     // Type colors for display
     const TYPE_COLORS = {
@@ -51,6 +55,9 @@ const Trading = (() => {
         codeDigits = [0, 0, 0, 0, 0, 0, 0, 0];
         codeIndex = 0;
         connectOption = 0;
+        sessionId = null;
+        pollTimer = 0;
+        useMock = false;
     }
 
     function close() {
@@ -137,9 +144,16 @@ const Trading = (() => {
         if (action) {
             actionCooldown = 200;
             if (connectOption === 0) {
-                // Quick match
+                // Quick match — create trade session via backend
                 phase = 'waiting';
                 waitTimer = 0;
+                API.tradeCreate().then(data => {
+                    if (data && data.session) {
+                        sessionId = data.session.id;
+                    } else {
+                        useMock = true;
+                    }
+                });
             } else if (connectOption === 1) {
                 // Trade code
                 phase = 'code_entry';
@@ -172,18 +186,58 @@ const Trading = (() => {
             }
         }
         if (action) {
-            // Submit code — start waiting for match
+            // Submit code — join trade session via backend
+            const code = codeDigits.join('');
             phase = 'waiting';
             waitTimer = 0;
             actionCooldown = 200;
+            API.tradeJoin(code).then(data => {
+                if (data && data.session) {
+                    sessionId = data.session.id;
+                    if (data.player1_team) {
+                        partnerTrainer = { name: 'Partner', id: data.session.player1_id || 'TR-????' };
+                        partnerParty = (data.player1_team || []).map(p => ({
+                            name: p.name, level: p.level || 10,
+                            type: (p.types && p.types[0]) || p.type || 'Normal',
+                            hp: p.current_hp || p.hp || 50, maxHp: p.max_hp || p.maxHp || 50,
+                        }));
+                    }
+                } else {
+                    useMock = true;
+                }
+            });
         }
         if (back) { phase = 'connect'; actionCooldown = 200; }
     }
 
     function updateWaiting(dt, action, back) {
         waitTimer += dt;
-        // Simulate finding a partner after ~3 seconds
-        if (waitTimer > 3000) {
+        pollTimer += dt;
+
+        if (sessionId && !useMock && pollTimer >= POLL_INTERVAL) {
+            pollTimer = 0;
+            API.tradeStatus(sessionId).then(data => {
+                if (data && data.session && data.session.player2_id) {
+                    // Partner found
+                    partnerTrainer = { name: 'Partner', id: data.session.player2_id };
+                    partnerParty = (data.player2_team || []).map(p => ({
+                        name: p.name, level: p.level || 10,
+                        type: (p.types && p.types[0]) || p.type || 'Normal',
+                        hp: p.current_hp || p.hp || 50, maxHp: p.max_hp || p.maxHp || 50,
+                    }));
+                    if (partnerParty.length === 0) {
+                        partnerParty = generatePartnerParty('BLUE');
+                    }
+                    phase = 'selecting';
+                    selectedIndex = 0;
+                    partnerSelectedIndex = -1;
+                    actionCooldown = 300;
+                }
+            });
+        }
+
+        // Mock fallback after timeout
+        if ((useMock || !sessionId) && waitTimer > 3000) {
             const idx = Math.floor(Math.random() * MOCK_PARTNERS.length);
             partnerTrainer = MOCK_PARTNERS[idx];
             partnerParty = generatePartnerParty(partnerTrainer.name);
@@ -192,7 +246,12 @@ const Trading = (() => {
             partnerSelectedIndex = -1;
             actionCooldown = 300;
         }
-        if (back) { phase = 'connect'; actionCooldown = 200; }
+        if (back) {
+            if (sessionId) API.tradeDelete(sessionId);
+            phase = 'connect';
+            sessionId = null;
+            actionCooldown = 200;
+        }
     }
 
     function updateSelecting(dt, mov, action, back) {
@@ -204,28 +263,54 @@ const Trading = (() => {
         if (action && party.length > 0) {
             const check = canTrade(selectedIndex);
             if (!check.ok) {
-                // Flash a warning — stay on selecting
                 actionCooldown = 500;
             } else {
-                // Simulate partner selecting after a short wait
+                // Offer pokemon via backend
+                if (sessionId && !useMock) {
+                    API.tradeOffer(sessionId, selectedIndex);
+                }
                 phase = 'partner_wait';
                 waitTimer = 0;
+                pollTimer = 0;
                 actionCooldown = 200;
             }
         }
         if (back) {
-            // Disconnect
+            if (sessionId) API.tradeCancel(sessionId);
             phase = 'connect';
             partnerTrainer = null;
             partnerParty = [];
+            sessionId = null;
             actionCooldown = 200;
         }
     }
 
     function updatePartnerWait(dt, action, back) {
         waitTimer += dt;
-        // Simulate partner selecting after ~2 seconds
-        if (waitTimer > 2000) {
+        pollTimer += dt;
+
+        // Poll backend for partner's offer
+        if (sessionId && !useMock && pollTimer >= POLL_INTERVAL) {
+            pollTimer = 0;
+            API.tradeStatus(sessionId).then(data => {
+                if (data && data.session) {
+                    const s = data.session;
+                    // Check if partner has offered
+                    const partnerOffer = s.player2_offer || s.player1_offer;
+                    if (partnerOffer && partnerOffer.pokemon_index !== undefined) {
+                        partnerSelectedIndex = partnerOffer.pokemon_index;
+                        if (partnerSelectedIndex >= partnerParty.length) {
+                            partnerSelectedIndex = 0;
+                        }
+                        phase = 'preview';
+                        actionCooldown = 300;
+                    }
+                }
+            });
+        }
+
+        // Mock fallback
+        if ((useMock || !sessionId) && waitTimer > 2000) {
             partnerSelectedIndex = Math.floor(Math.random() * partnerParty.length);
             phase = 'preview';
             actionCooldown = 300;
@@ -253,8 +338,13 @@ const Trading = (() => {
     function updateConfirming(dt, mov, action, back) {
         if (action) {
             confirmed = true;
+            // Confirm trade via backend
+            if (sessionId && !useMock) {
+                API.tradeConfirm(sessionId);
+            }
             phase = 'partner_confirm';
             waitTimer = 0;
+            pollTimer = 0;
             actionCooldown = 200;
         }
         if (back) {
@@ -265,16 +355,34 @@ const Trading = (() => {
 
     function updatePartnerConfirm(dt, action, back) {
         waitTimer += dt;
-        // Simulate partner confirming after ~1.5 seconds
-        if (waitTimer > 1500) {
+        pollTimer += dt;
+
+        // Poll backend for partner confirmation
+        if (sessionId && !useMock && pollTimer >= POLL_INTERVAL) {
+            pollTimer = 0;
+            API.tradeStatus(sessionId).then(data => {
+                if (data && data.session) {
+                    const s = data.session;
+                    if (s.status === 'completed' || (s.player1_confirmed && s.player2_confirmed)) {
+                        partnerConfirmed = true;
+                        phase = 'animating';
+                        tradeAnimation = 0;
+                        actionCooldown = 200;
+                    }
+                }
+            });
+        }
+
+        // Mock fallback
+        if ((useMock || !sessionId) && waitTimer > 1500) {
             partnerConfirmed = true;
             phase = 'animating';
             tradeAnimation = 0;
             actionCooldown = 200;
         }
         if (back) {
-            // Cancel trade
             confirmed = false;
+            if (sessionId && !useMock) API.tradeCancel(sessionId);
             phase = 'preview';
             actionCooldown = 200;
         }

@@ -182,9 +182,26 @@ const Encounters = (() => {
             maxHp: hp,
         };
 
-        // Mark Pokemon as seen in Pokedex
+        // Mark Pokemon as seen in Pokedex (also syncs to backend via pokedex.js)
         const dexEntry = Pokedex.entries.find(e => e.name === template.name);
         if (dexEntry) Pokedex.markSeen(dexEntry.id);
+
+        // Optionally enrich encounter data from backend (fire-and-forget)
+        API.checkEncounter(currentMap).then(data => {
+            if (data && data.pokemon) {
+                // Backend returned encounter data — use it if it has more detail
+                const p = data.pokemon;
+                if (p.name) pendingEnemy.name = p.name;
+                if (p.level) pendingEnemy.level = p.level;
+                if (p.current_hp || p.hp) {
+                    pendingEnemy.hp = p.current_hp || p.hp;
+                    pendingEnemy.maxHp = p.max_hp || p.hp;
+                }
+                if (p.types && p.types[0]) pendingEnemy.type = p.types[0];
+                if (p.moves) pendingEnemy.moves = p.moves;
+                if (p.species_id) pendingEnemy.speciesId = p.species_id;
+            }
+        });
 
         // Show exclamation mark
         exclamation = {
