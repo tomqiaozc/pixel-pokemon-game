@@ -1,11 +1,122 @@
 [
-  {"id": 1, "name": "Potion", "description": "Restores 20 HP", "category": "potion", "price": 300, "sell_price": 150, "effect": {"type": "heal_hp", "amount": 20}},
-  {"id": 2, "name": "Super Potion", "description": "Restores 50 HP", "category": "potion", "price": 700, "sell_price": 350, "effect": {"type": "heal_hp", "amount": 50}},
-  {"id": 3, "name": "Antidote", "description": "Cures poison", "category": "status_heal", "price": 100, "sell_price": 50, "effect": {"type": "cure_status", "status": "poison"}},
-  {"id": 4, "name": "Paralyze Heal", "description": "Cures paralysis", "category": "status_heal", "price": 200, "sell_price": 100, "effect": {"type": "cure_status", "status": "paralysis"}},
-  {"id": 5, "name": "Full Heal", "description": "Cures all status conditions", "category": "status_heal", "price": 600, "sell_price": 300, "effect": {"type": "cure_status", "status": "all"}},
-  {"id": 6, "name": "Revive", "description": "Revives fainted Pokemon to half HP", "category": "potion", "price": 1500, "sell_price": 750, "effect": {"type": "revive", "amount": 0.5}},
-  {"id": 7, "name": "Pokeball", "description": "A ball for catching Pokemon", "category": "pokeball", "price": 200, "sell_price": 100, "effect": {"type": "catch", "modifier": 1.0}},
-  {"id": 8, "name": "Great Ball", "description": "A good ball with a higher catch rate", "category": "pokeball", "price": 600, "sell_price": 300, "effect": {"type": "catch", "modifier": 1.5}},
-  {"id": 9, "name": "Ultra Ball", "description": "A high-performance ball", "category": "pokeball", "price": 1200, "sell_price": 600, "effect": {"type": "catch", "modifier": 2.0}}
+  {
+    "id": 1,
+    "name": "Potion",
+    "description": "Restores 20 HP",
+    "category": "potion",
+    "price": 300,
+    "sell_price": 150,
+    "effect": {
+      "type": "heal_hp",
+      "amount": 20
+    }
+  },
+  {
+    "id": 2,
+    "name": "Super Potion",
+    "description": "Restores 50 HP",
+    "category": "potion",
+    "price": 700,
+    "sell_price": 350,
+    "effect": {
+      "type": "heal_hp",
+      "amount": 50
+    }
+  },
+  {
+    "id": 3,
+    "name": "Antidote",
+    "description": "Cures poison",
+    "category": "status_heal",
+    "price": 100,
+    "sell_price": 50,
+    "effect": {
+      "type": "cure_status",
+      "status": "poison"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Paralyze Heal",
+    "description": "Cures paralysis",
+    "category": "status_heal",
+    "price": 200,
+    "sell_price": 100,
+    "effect": {
+      "type": "cure_status",
+      "status": "paralysis"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Full Heal",
+    "description": "Cures all status conditions",
+    "category": "status_heal",
+    "price": 600,
+    "sell_price": 300,
+    "effect": {
+      "type": "cure_status",
+      "status": "all"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Revive",
+    "description": "Revives fainted Pokemon to half HP",
+    "category": "potion",
+    "price": 1500,
+    "sell_price": 750,
+    "effect": {
+      "type": "revive",
+      "amount": 0.5
+    }
+  },
+  {
+    "id": 7,
+    "name": "Pokeball",
+    "description": "A ball for catching Pokemon",
+    "category": "pokeball",
+    "price": 200,
+    "sell_price": 100,
+    "effect": {
+      "type": "catch",
+      "modifier": 1.0
+    }
+  },
+  {
+    "id": 8,
+    "name": "Great Ball",
+    "description": "A good ball with a higher catch rate",
+    "category": "pokeball",
+    "price": 600,
+    "sell_price": 300,
+    "effect": {
+      "type": "catch",
+      "modifier": 1.5
+    }
+  },
+  {
+    "id": 9,
+    "name": "Ultra Ball",
+    "description": "A high-performance ball",
+    "category": "pokeball",
+    "price": 1200,
+    "sell_price": 600,
+    "effect": {
+      "type": "catch",
+      "modifier": 2.0
+    }
+  },
+  {
+    "id": 10,
+    "name": "Master Ball",
+    "description": "The best ball. It will catch any Pokemon without fail.",
+    "category": "pokeball",
+    "price": 0,
+    "sell_price": 0,
+    "effect": {
+      "type": "catch",
+      "modifier": 255.0
+    }
+  }
 ]
