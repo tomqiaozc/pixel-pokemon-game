@@ -513,3 +513,27 @@ class TestStoneEvolutionAPI:
             "game_id": "bad", "pokemon_index": 0, "stone_id": "fire_stone"
         })
         assert resp.status_code == 404
+
+    def test_stone_evolution_records_achievement(self, game):
+        """BUG #171: Stone evolution must call record_evolution + check_achievements."""
+        from backend.services.leaderboard_service import _player_stats
+        gid = game["id"]
+        # Clear any existing stats
+        _player_stats.pop(gid, None)
+        # Set up Eevee for evolution
+        _games[gid]["player"]["team"][0] = {
+            "id": 133, "name": "Eevee", "types": ["normal"], "level": 25,
+            "stats": {"hp": 65, "attack": 55, "defense": 50, "sp_attack": 45, "sp_defense": 65, "speed": 55},
+            "current_hp": 65, "max_hp": 65,
+            "moves": [{"name": "Tackle", "type": "normal", "power": 40, "accuracy": 100, "pp": 35}],
+            "sprite": "eevee.png",
+        }
+        resp = client.post("/api/evolution/stone", json={
+            "game_id": gid, "pokemon_index": 0, "stone_id": "fire_stone"
+        })
+        assert resp.status_code == 200
+        # After stone evolution, evolution count should be incremented
+        stats = _player_stats.get(gid, {})
+        assert stats.get("evolutions", 0) >= 1, (
+            "Stone evolution did not call record_evolution() — evolutions stat is 0"
+        )

@@ -11,6 +11,7 @@ from ..services.held_item_service import (
     remove_held_item,
 )
 from ..services.game_service import get_game
+from ..services.leaderboard_service import check_achievements, record_evolution
 
 router = APIRouter(prefix="/api", tags=["held-items"])
 
@@ -77,4 +78,9 @@ def use_stone(req: StoneEvolutionRequest):
     result = execute_stone_evolution(pokemon, req.stone_id)
     if result is None:
         raise HTTPException(status_code=400, detail="This Pokemon cannot evolve with that stone")
+
+    # Record evolution and check achievements (matching level-based evolve route)
+    record_evolution(req.game_id)
+    check_achievements(req.game_id)
+
     return result
