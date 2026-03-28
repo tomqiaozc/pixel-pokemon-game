@@ -633,15 +633,17 @@ const Berry = (() => {
             if (action) {
                 actionCooldown = 200;
                 if (pouchAction === 0 && pouchList[pouchIndex]) {
-                    // Give berry to Pokemon — use backend API
+                    // Give berry to Pokemon as held item
                     const berry = pouchList[pouchIndex];
                     const party = Game.player.party;
                     if (party && party.length > 0) {
-                        API.post ? null : null; // Give endpoint uses /api/berry/give
-                        // For now show held item locally
-                        const poke = party[0]; // TODO: party selection
+                        const poke = party[pouchTargetIndex] || party[0];
                         poke.heldItem = { id: berry.berry_id, name: berry.name };
                         berry.quantity--;
+                        if (berry.quantity <= 0) {
+                            pouchList.splice(pouchIndex, 1);
+                            if (pouchIndex >= pouchList.length) pouchIndex = Math.max(0, pouchList.length - 1);
+                        }
                         showNotify(`${poke.name} is holding ${berry.name}!`);
                     } else {
                         showNotify('No Pokemon in party!');
