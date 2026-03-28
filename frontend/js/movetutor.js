@@ -49,7 +49,7 @@ const MoveTutor = (() => {
     let tmInventory = [];       // [{ id, name, type, power, pp, isHM }]
 
     // ---- HM moves (non-deletable) ----
-    const HM_MOVES = new Set(['Cut', 'Fly', 'Surf', 'Strength', 'Flash', 'Whirlpool', 'Waterfall', 'Dive']);
+    const HM_MOVES = new Set(['Cut', 'Fly', 'Surf', 'Strength', 'Flash']);
 
     function isHMMove(moveName) {
         return HM_MOVES.has(moveName);
@@ -118,6 +118,7 @@ const MoveTutor = (() => {
             pp: tmItem.movePP || tmItem.pp || 10,
             maxPp: tmItem.moveMaxPP || tmItem.maxPp || tmItem.pp || 10,
             isHM: !!tmItem.isHM,
+            itemId: tmItem.id || tmItem.item_id || null,
         };
 
         // All party Pokemon shown; compatibility check on selection
@@ -234,8 +235,10 @@ const MoveTutor = (() => {
             // For reminder source, load forgotten moves for this Pokemon
             if (source === 'reminder') {
                 API.getReminderMoves(pokemonIdx).then(data => {
-                    if (data && Array.isArray(data) && data.length > 0) {
-                        availableMoves = data.map(m => ({
+                    const moveList = data && data.forgotten_moves ? data.forgotten_moves
+                                   : (data && Array.isArray(data) ? data : []);
+                    if (moveList.length > 0) {
+                        availableMoves = moveList.map(m => ({
                             name: m.name,
                             type: m.type || 'Normal',
                             power: m.power || 0,
@@ -344,6 +347,12 @@ const MoveTutor = (() => {
         teachTimer = 0;
         teachSparkles = [];
         phase = 'teaching';
+
+        // Charge tutor move cost
+        if (source === 'tutor' && newMove.cost > 0) {
+            const currentMoney = PlayerStats.get('money') || 0;
+            PlayerStats.set('money', Math.max(0, currentMoney - newMove.cost));
+        }
 
         // Apply the move locally
         if (!pokemon.moves) pokemon.moves = [];

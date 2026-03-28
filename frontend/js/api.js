@@ -644,12 +644,12 @@ const API = (() => {
     // --- Move Tutor & TM/HM ---
 
     async function getTutorMoves(mapId) {
-        return get(`${BASE_URL}/moves/tutor/${mapId}`);
+        return get(`${BASE_URL}/tutor/moves/${mapId}`);
     }
 
     async function checkMoveCompatibility(pokemonIndex, moveName) {
         if (!gameId) return null;
-        return post(`${BASE_URL}/moves/compatibility`, {
+        return post(`${BASE_URL}/tutor/compatibility`, {
             game_id: gameId,
             pokemon_index: pokemonIndex,
             move_name: moveName,
@@ -658,7 +658,7 @@ const API = (() => {
 
     async function teachMove(pokemonIndex, moveName, replaceSlot) {
         if (!gameId) return null;
-        return post(`${BASE_URL}/moves/teach`, {
+        return post(`${BASE_URL}/tutor/teach`, {
             game_id: gameId,
             pokemon_index: pokemonIndex,
             move_name: moveName,
@@ -668,7 +668,7 @@ const API = (() => {
 
     async function getReminderMoves(pokemonIndex) {
         if (!gameId) return null;
-        return get(`${BASE_URL}/moves/reminder/${gameId}/${pokemonIndex}`);
+        return get(`${BASE_URL}/tutor/reminder/${gameId}/${pokemonIndex}`);
     }
 
     // --- Daycare & Breeding ---

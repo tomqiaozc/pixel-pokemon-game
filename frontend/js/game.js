@@ -14,6 +14,7 @@ const Game = (() => {
     let pendingCutsceneBattle = false;
     let pendingLegendarySpeciesId = null;
     let pendingRivalStageNum = null;
+    let pendingFishBattle = false;
 
     // Legendary spawn points — matches backend seed data locations
     const LEGENDARY_SPAWNS = {
@@ -308,7 +309,10 @@ const Game = (() => {
             const fishResult = Fishing.updateFishing(dt);
             if (fishResult && fishResult.startBattle) {
                 const enemy = Fishing.buildFishEnemy();
-                PlayerStats.increment('fishCaught');
+                // Mark seen in Pokedex (S9-H02)
+                const dexEntry = Pokedex.entries.find(e => e.name === enemy.name);
+                if (dexEntry) Pokedex.markSeen(dexEntry.id);
+                pendingFishBattle = true;
                 startBattle(enemy);
             }
             return;
@@ -598,6 +602,7 @@ const Game = (() => {
         Quests.onMapEnter(mapId);
         Weather.onMapChange(mapId);
         Berry.loadPlotsForMap(mapId);
+        Fishing.resetSurf(); // S9-H08: clear surfing state on map transition
         if (map.trainers) {
             TrainerEncounter.loadTrainers(mapId, map.trainers);
         }
@@ -879,6 +884,14 @@ const Game = (() => {
                 PlayerStats.increment('trainersDefeated');
             }
             pendingDefeatedTrainer = null;
+
+            // Fish battle post-outcome (S9-H02: track fishCaught only after win/catch)
+            if (pendingFishBattle) {
+                pendingFishBattle = false;
+                if (result.result === 'win' || result.result === 'catch') {
+                    PlayerStats.increment('fishCaught');
+                }
+            }
 
             if (pendingBadge && result.result === 'win') {
                 BadgeCase.earnBadge(pendingBadge.index);
