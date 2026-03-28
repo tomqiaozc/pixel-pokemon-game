@@ -427,6 +427,62 @@ const API = (() => {
         });
     }
 
+    // --- Quests & Story Flags ---
+
+    async function getQuests() {
+        if (!gameId) return null;
+        return get(`${BASE_URL}/quests?game_id=${gameId}`);
+    }
+
+    async function getQuest(questId) {
+        if (!gameId) return null;
+        return get(`${BASE_URL}/quests/${questId}?game_id=${gameId}`);
+    }
+
+    async function checkQuestProgress(eventType, eventData) {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/quests/check-progress`, {
+            game_id: gameId,
+            event_type: eventType,
+            event_data: eventData || {},
+        });
+    }
+
+    async function completeQuest(questId) {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/quests/${questId}/complete`, { game_id: gameId });
+    }
+
+    async function getQuestFlags() {
+        if (!gameId) return null;
+        return get(`${BASE_URL}/flags?game_id=${gameId}`);
+    }
+
+    async function setStoryFlag(flagName) {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/flags/set`, {
+            game_id: gameId,
+            flag_name: flagName,
+        });
+    }
+
+    async function checkMapAccess(mapId) {
+        if (!gameId) return null;
+        return get(`${BASE_URL}/maps/${mapId}/accessible?game_id=${gameId}`);
+    }
+
+    // --- Rival ---
+
+    async function getRival() {
+        if (!gameId) return null;
+        return get(`${BASE_URL}/rival?game_id=${gameId}`);
+    }
+
+    async function startRivalBattle() {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/rival/battle`, { game_id: gameId });
+    }
+
     // --- Maps ---
 
     async function getMaps() {
@@ -465,6 +521,11 @@ const API = (() => {
         getLeaderboard,
         // Stats & Achievements
         getPlayerStats, savePlayerStats, getAchievements, saveAchievements,
+        // Quests & Flags
+        getQuests, getQuest, checkQuestProgress, completeQuest,
+        getQuestFlags, setStoryFlag, checkMapAccess,
+        // Rival
+        getRival, startRivalBattle,
         // Maps
         getMaps,
     };
