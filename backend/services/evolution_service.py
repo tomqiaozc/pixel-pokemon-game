@@ -130,6 +130,11 @@ def award_exp(
     # EXP formula: (base_exp * defeated_level) / 7
     exp_gained = max(1, (defeated_species.base_exp * defeated_level) // 7)
 
+    # Lucky Egg: 1.5x EXP boost
+    from .held_item_service import get_exp_multiplier
+    exp_mult = get_exp_multiplier(pokemon.get("held_item"))
+    exp_gained = max(1, int(exp_gained * exp_mult))
+
     old_level = pokemon["level"]
     current_exp = pokemon.get("exp", _exp_for_level(old_level))
     new_total_exp = current_exp + exp_gained

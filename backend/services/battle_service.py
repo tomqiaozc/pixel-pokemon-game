@@ -39,6 +39,12 @@ from .weather_service import (
     process_weather_damage,
     process_weather_move,
 )
+from .held_item_service import (
+    apply_focus_sash,
+    get_held_item_damage_modifier,
+    process_held_item_after_attack,
+    process_held_item_end_of_turn,
+)
 
 # In-memory battle storage
 _battles: dict[str, BattleState] = {}
@@ -244,13 +250,18 @@ def _calculate_damage(
     # Weather damage modifier
     weather_mod = get_weather_damage_multiplier(move.type, weather)
 
+    # Held item damage modifier
+    held_item_mod = get_held_item_damage_modifier(
+        attacker.held_item, move.type, category
+    )
+
     # Random factor (0.85 to 1.0)
     random_factor = random.uniform(0.85, 1.0)
 
     # Gen 1-style damage formula
     level_factor = (2 * attacker.level / 5) + 2
     base_damage = (level_factor * move.power * attack_stat / defense_stat) / 50 + 2
-    modifier = stab * type_eff * random_factor * crit_modifier * weather_mod
+    modifier = stab * type_eff * random_factor * crit_modifier * weather_mod * held_item_mod
     damage = max(1, math.floor(base_damage * modifier))
 
     if type_eff == 0.0:
@@ -484,8 +495,20 @@ def process_action(
         status_events.extend(ab_dmg_events)
 
         did_damage = dmg > 0
-        defender.current_hp = max(0, defender.current_hp - dmg)
-        fainted = defender.current_hp == 0
+
+        # Focus Sash: survive OHKO at 1 HP if at full HP
+        if dmg >= defender.current_hp and defender.held_item == "focus_sash" and defender.current_hp == defender.max_hp:
+            defender.current_hp = 1
+            defender.held_item = None
+            fainted = False
+            status_events.append(StatusEvent(
+                pokemon=defender_role,
+                event_type="ability_activated",
+                message=f"{defender.name} hung on using its Focus Sash!",
+            ))
+        else:
+            defender.current_hp = max(0, defender.current_hp - dmg)
+            fainted = defender.current_hp == 0
 
         events.append(
             TurnEvent(
@@ -512,6 +535,20 @@ def process_action(
                     attacker, defender, move, attacker_role, defender_role,
                 )
                 status_events.extend(hit_events)
+
+        # Held item: Life Orb recoil after attacking
+        if did_damage and attacker.held_item == "life_orb":
+            lo_recoil = max(1, attacker.max_hp // 10)
+            attacker.current_hp = max(0, attacker.current_hp - lo_recoil)
+            status_events.append(StatusEvent(
+                pokemon=role,
+                event_type="ability_activated",
+                message=f"{attacker.name} lost {lo_recoil} HP from Life Orb recoil!",
+            ))
+            if attacker.current_hp <= 0:
+                battle.is_over = True
+                battle.winner = "enemy" if role == "player" else "player"
+                break
 
         if fainted:
             # Ability: on-KO abilities (Moxie)
@@ -546,6 +583,21 @@ def process_action(
         for role, pokemon in [("player", battle.player_pokemon), ("enemy", battle.enemy_pokemon)]:
             ab_eot = process_ability_end_of_turn(pokemon, role)
             status_events.extend(ab_eot)
+
+    # End-of-turn held item effects (Leftovers heal)
+    if not battle.is_over:
+        for role, pokemon in [("player", battle.player_pokemon), ("enemy", battle.enemy_pokemon)]:
+            if pokemon.held_item == "leftovers" and pokemon.current_hp < pokemon.max_hp:
+                heal = max(1, pokemon.max_hp // 16)
+                old_hp = pokemon.current_hp
+                pokemon.current_hp = min(pokemon.max_hp, pokemon.current_hp + heal)
+                actual_heal = pokemon.current_hp - old_hp
+                if actual_heal > 0:
+                    status_events.append(StatusEvent(
+                        pokemon=role,
+                        event_type="ability_activated",
+                        message=f"{pokemon.name}'s Leftovers restored {actual_heal} HP!",
+                    ))
 
     # End-of-turn weather ability effects (Rain Dish, etc.)
     if not battle.is_over and battle.weather.current_weather is not None:

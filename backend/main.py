@@ -8,6 +8,7 @@ from .routes.encounter import router as encounter_router
 from .routes.evolution import router as evolution_router
 from .routes.game import router as game_router
 from .routes.gym import router as gym_router
+from .routes.held_items import router as held_items_router
 from .routes.items import router as items_router
 from .routes.leaderboard import router as leaderboard_router
 from .routes.legendary import router as legendary_router
@@ -38,6 +39,7 @@ app.include_router(battle_router)
 app.include_router(npc_router)
 app.include_router(evolution_router)
 app.include_router(gym_router)
+app.include_router(held_items_router)
 app.include_router(items_router)
 app.include_router(map_router)
 app.include_router(pokedex_router)
