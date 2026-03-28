@@ -228,6 +228,9 @@ class TestMemoryGame:
         gid = game["id"]
         # Start session
         client.post("/api/minigames/memory/start", json={"game_id": gid, "difficulty": "easy"})
+        # Backdate start time so claimed time passes server clock validation
+        import time as _time
+        _memory_sessions[f"{gid}:easy"] = _time.time() - 31
         # Complete
         resp = client.post("/api/minigames/memory/complete", json={
             "game_id": gid, "difficulty": "easy",
@@ -254,22 +257,30 @@ class TestMemoryGame:
     def test_complete_fast_time_bonus(self):
         game = _make_game()
         gid = game["id"]
+        import time as _time
+        max_time = MEMORY_DIFFICULTY["medium"]["max_time"]
+        fast_time = max_time * 0.3
+        slow_time = max_time * 0.9
+
         # Start
         client.post("/api/minigames/memory/start", json={"game_id": gid, "difficulty": "medium"})
+        # Backdate start time so claimed time passes server clock validation
+        _memory_sessions[f"{gid}:medium"] = _time.time() - fast_time - 1
         # Complete quickly (under 50% max time)
-        max_time = MEMORY_DIFFICULTY["medium"]["max_time"]
         resp = client.post("/api/minigames/memory/complete", json={
             "game_id": gid, "difficulty": "medium",
-            "time_seconds": max_time * 0.3, "pairs_matched": 10,
+            "time_seconds": fast_time, "pairs_matched": 10,
         })
         fast_coins = resp.json()["coins_earned"]
 
         # Start another
         client.post("/api/minigames/memory/start", json={"game_id": gid, "difficulty": "medium"})
+        # Backdate start time for slow completion
+        _memory_sessions[f"{gid}:medium"] = _time.time() - slow_time - 1
         # Complete slowly
         resp = client.post("/api/minigames/memory/complete", json={
             "game_id": gid, "difficulty": "medium",
-            "time_seconds": max_time * 0.9, "pairs_matched": 10,
+            "time_seconds": slow_time, "pairs_matched": 10,
         })
         slow_coins = resp.json()["coins_earned"]
 
@@ -291,9 +302,12 @@ class TestMemoryGame:
     def test_hard_difficulty_more_coins(self):
         game = _make_game()
         gid = game["id"]
+        import time as _time
         # Easy — complete all pairs quickly
         client.post("/api/minigames/memory/start", json={"game_id": gid, "difficulty": "easy"})
         easy_pairs = MEMORY_DIFFICULTY["easy"]["pairs"]
+        # Backdate start time so claimed 20s passes server clock validation
+        _memory_sessions[f"{gid}:easy"] = _time.time() - 21
         resp = client.post("/api/minigames/memory/complete", json={
             "game_id": gid, "difficulty": "easy",
             "time_seconds": 20, "pairs_matched": easy_pairs,
@@ -303,6 +317,8 @@ class TestMemoryGame:
         # Hard — complete all pairs quickly
         client.post("/api/minigames/memory/start", json={"game_id": gid, "difficulty": "hard"})
         hard_pairs = MEMORY_DIFFICULTY["hard"]["pairs"]
+        # Backdate start time so claimed 30s passes server clock validation
+        _memory_sessions[f"{gid}:hard"] = _time.time() - 31
         resp = client.post("/api/minigames/memory/complete", json={
             "game_id": gid, "difficulty": "hard",
             "time_seconds": 30, "pairs_matched": hard_pairs,

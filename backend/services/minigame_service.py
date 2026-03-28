@@ -267,6 +267,15 @@ def complete_memory_game(
             message="Invalid completion time",
         )
 
+    # Validate claimed time against server clock (prevent instant completions)
+    actual_elapsed = time.time() - start_time
+    if time_seconds > actual_elapsed + 2:
+        return MemoryCompleteResult(
+            valid=False, coins_earned=0,
+            coins_before=_get_coins(game_id), coins_after=_get_coins(game_id),
+            message="Claimed time exceeds actual elapsed time",
+        )
+
     # Validate pairs
     if pairs_matched < 1 or pairs_matched > cfg["pairs"]:
         return MemoryCompleteResult(
