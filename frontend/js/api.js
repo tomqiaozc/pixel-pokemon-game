@@ -429,7 +429,7 @@ const API = (() => {
 
     async function getAchievementNotifications() {
         if (!gameId) return null;
-        return get(`${BASE_URL}/player/${gameId}/achievements/notifications`);
+        return get(`${BASE_URL}/achievements/recent/${gameId}`);
     }
 
     // --- Quests & Story Flags ---
