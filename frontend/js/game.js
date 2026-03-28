@@ -68,10 +68,9 @@ const Game = (() => {
         const dt = timestamp - lastTime;
         lastTime = timestamp;
 
-        // Track play time and check achievements
+        // Track play time and update achievement poll timer
         PlayerStats.updatePlayTime(dt);
         Achievements.update(dt);
-        Achievements.checkAchievements();
 
         if (state === 'starter') {
             updateStarter(dt);
@@ -322,6 +321,8 @@ const Game = (() => {
             }
             // Daycare NPC check
             if (Daycare.checkNpcInteraction(player.x, player.y, player.dir)) {
+                return;
+            }
             const npc = NPC.checkInteraction(player.x, player.y, player.dir);
             if (npc) {
                 // Quest-gated NPC interactions
@@ -567,6 +568,7 @@ const Game = (() => {
                 if (player.starter && player.starter.name === prePokemon.name) {
                     player.starter = { ...player.starter, name: postPokemon.name, type: postPokemon.type };
                 }
+                Achievements.checkAchievements();
             }
         });
         state = 'evolution';
@@ -659,12 +661,14 @@ const Game = (() => {
             if (result.result === 'win') {
                 PlayerStats.increment('battlesWon');
                 if (player.party[0]) PlayerStats.recordBattlePokemon(player.party[0].name);
+                Achievements.checkAchievements();
             } else if (result.result === 'lose') {
                 PlayerStats.increment('battlesLost');
             } else if (result.result === 'catch') {
                 PlayerStats.increment('battlesWon');
                 PlayerStats.increment('pokemonCaught');
                 if (result.enemyPokemon) PlayerStats.increment('pokemonSeen');
+                Achievements.checkAchievements();
             }
 
             // Award EXP after battle victory (fire-and-forget with local fallback)

@@ -1,4 +1,5 @@
 // achievements.js — Achievement tracking, medal tiers, progress bars & popup notifications
+// Consumes backend achievement definitions (35 achievements, 8 categories)
 
 const Achievements = (() => {
     // Medal tier thresholds — achievements with progressive tiers
@@ -9,69 +10,21 @@ const Achievements = (() => {
         platinum: { color: '#e5e4e2', label: 'Platinum', icon: 'P' },
     };
 
-    // Achievement categories
+    // Achievement categories — matches backend's 8 categories
     const CATEGORIES = {
-        battle:    { name: 'Battle',    color: '#e04040' },
-        capture:   { name: 'Capture',   color: '#e05040' },
-        explore:   { name: 'Explore',   color: '#40a040' },
-        collect:   { name: 'Collect',   color: '#6890f0' },
-        training:  { name: 'Training',  color: '#f8d030' },
+        collection: { name: 'Collection', color: '#6890f0' },
+        battle:     { name: 'Battle',     color: '#e04040' },
+        gym:        { name: 'Gym',        color: '#a040a0' },
+        evolution:  { name: 'Evolution',  color: '#f8d030' },
+        story:      { name: 'Story',      color: '#40a040' },
+        minigame:   { name: 'Minigame',   color: '#f09030' },
+        economy:    { name: 'Economy',    color: '#c0a040' },
+        farming:    { name: 'Farming',    color: '#78c850' },
     };
 
-    // Full achievement definitions with progress tracking
-    const ACHIEVEMENTS = [
-        // Battle achievements
-        { id: 'first_win',       name: 'First Victory',       desc: 'Win your first battle',
-          category: 'battle', tier: null, check: s => s.battlesWon >= 1, progress: s => Math.min(1, s.battlesWon), target: 1 },
-        { id: 'win_10',          name: 'Battle Veteran',      desc: 'Win 10 battles',
-          category: 'battle', tier: 'bronze', check: s => s.battlesWon >= 10, progress: s => Math.min(10, s.battlesWon), target: 10 },
-        { id: 'win_50',          name: 'Battle Expert',       desc: 'Win 50 battles',
-          category: 'battle', tier: 'silver', check: s => s.battlesWon >= 50, progress: s => Math.min(50, s.battlesWon), target: 50 },
-        { id: 'win_100',         name: 'Battle Legend',        desc: 'Win 100 battles',
-          category: 'battle', tier: 'gold', check: s => s.battlesWon >= 100, progress: s => Math.min(100, s.battlesWon), target: 100 },
-        { id: 'win_500',         name: 'Battle God',           desc: 'Win 500 battles',
-          category: 'battle', tier: 'platinum', check: s => s.battlesWon >= 500, progress: s => Math.min(500, s.battlesWon), target: 500 },
-        { id: 'trainer_1',       name: 'Rival Defeated',       desc: 'Defeat your first trainer',
-          category: 'battle', tier: null, check: s => s.trainersDefeated >= 1, progress: s => Math.min(1, s.trainersDefeated), target: 1 },
-        { id: 'trainer_10',      name: 'Trainer Crusher',      desc: 'Defeat 10 trainers',
-          category: 'battle', tier: 'bronze', check: s => s.trainersDefeated >= 10, progress: s => Math.min(10, s.trainersDefeated), target: 10 },
-
-        // Capture achievements
-        { id: 'first_catch',     name: 'First Catch!',         desc: 'Catch your first wild Pokemon',
-          category: 'capture', tier: null, check: s => s.pokemonCaught >= 1, progress: s => Math.min(1, s.pokemonCaught), target: 1 },
-        { id: 'catch_10',        name: 'Pokemon Collector',    desc: 'Catch 10 Pokemon',
-          category: 'capture', tier: 'bronze', check: s => s.pokemonCaught >= 10, progress: s => Math.min(10, s.pokemonCaught), target: 10 },
-        { id: 'catch_50',        name: 'Pokemon Hunter',       desc: 'Catch 50 Pokemon',
-          category: 'capture', tier: 'silver', check: s => s.pokemonCaught >= 50, progress: s => Math.min(50, s.pokemonCaught), target: 50 },
-        { id: 'catch_150',       name: 'Pokemon Master',       desc: 'Catch 150 Pokemon',
-          category: 'capture', tier: 'platinum', check: s => s.pokemonCaught >= 150, progress: s => Math.min(150, s.pokemonCaught), target: 150 },
-
-        // Explore achievements
-        { id: 'steps_1000',      name: 'Adventurer',           desc: 'Walk 1,000 steps',
-          category: 'explore', tier: 'bronze', check: s => s.steps >= 1000, progress: s => Math.min(1000, s.steps), target: 1000 },
-        { id: 'steps_10000',     name: 'World Traveler',       desc: 'Walk 10,000 steps',
-          category: 'explore', tier: 'silver', check: s => s.steps >= 10000, progress: s => Math.min(10000, s.steps), target: 10000 },
-        { id: 'steps_50000',     name: 'Globe Trotter',        desc: 'Walk 50,000 steps',
-          category: 'explore', tier: 'gold', check: s => s.steps >= 50000, progress: s => Math.min(50000, s.steps), target: 50000 },
-
-        // Collect achievements
-        { id: 'badge_1',         name: 'Badge Collector',      desc: 'Earn your first gym badge',
-          category: 'collect', tier: null, check: s => s.badges >= 1, progress: s => Math.min(1, s.badges), target: 1 },
-        { id: 'badge_4',         name: 'Halfway There',        desc: 'Earn 4 gym badges',
-          category: 'collect', tier: 'silver', check: s => s.badges >= 4, progress: s => Math.min(4, s.badges), target: 4 },
-        { id: 'badge_8',         name: 'Pokemon Champion',     desc: 'Earn all 8 gym badges',
-          category: 'collect', tier: 'gold', check: s => s.badges >= 8, progress: s => Math.min(8, s.badges), target: 8 },
-        { id: 'pokedex_50',      name: 'Pokedex: 50%',         desc: 'See 50% of all Pokemon',
-          category: 'collect', tier: 'silver', check: s => s.pokemonSeen >= 75, progress: s => Math.min(75, s.pokemonSeen), target: 75 },
-
-        // Training achievements
-        { id: 'evolve_1',        name: 'Evolution!',           desc: 'Evolve a Pokemon for the first time',
-          category: 'training', tier: null, check: s => s.pokemonEvolved >= 1, progress: s => Math.min(1, s.pokemonEvolved), target: 1 },
-        { id: 'evolve_10',       name: 'Evolution Expert',     desc: 'Evolve 10 Pokemon',
-          category: 'training', tier: 'silver', check: s => s.pokemonEvolved >= 10, progress: s => Math.min(10, s.pokemonEvolved), target: 10 },
-        { id: 'legendary_catch', name: 'Legendary Hunter',     desc: 'Catch a legendary Pokemon',
-          category: 'training', tier: 'gold', check: s => (s.legendariesCaught || 0) >= 1, progress: s => Math.min(1, s.legendariesCaught || 0), target: 1 },
-    ];
+    // Dynamic achievement list — loaded from backend, replaces old hardcoded list
+    // Each entry: { id, name, description, category, tier, completed, progress, target }
+    let ACHIEVEMENTS = [];
 
     // State
     const earned = new Set();
@@ -80,9 +33,10 @@ const Achievements = (() => {
     let popupTimer = 0;
     const POPUP_DURATION = 3500;
     const POPUP_SLIDE = 300;
-    let dirty = false;
     let checkTimer = 0;
     const CHECK_INTERVAL = 5000;
+    let notifyTimer = 0;
+    const NOTIFY_INTERVAL = 8000;
 
     // Achievement list screen state
     let listOpen = false;
@@ -91,6 +45,7 @@ const Achievements = (() => {
     let listCategory = null; // null = all, or category key
 
     function loadEarned() {
+        // Load local cache first for instant display
         try {
             const saved = localStorage.getItem('pokemon_achievements');
             if (saved) {
@@ -99,12 +54,26 @@ const Achievements = (() => {
             }
         } catch { /* ignore */ }
 
+        // Fetch full achievement list from backend (raw array of Achievement objects)
         API.getAchievements().then(data => {
-            if (data && Array.isArray(data.achievements)) {
-                for (const id of data.achievements) earned.add(id);
+            if (data && Array.isArray(data)) {
+                ACHIEVEMENTS = data.map(a => ({
+                    id: a.id,
+                    name: a.name,
+                    desc: a.description || a.desc || '',
+                    category: a.category || 'collection',
+                    tier: a.tier || 'bronze',
+                    completed: a.completed || false,
+                    progress: a.progress || 0,
+                    target: a.target || 1,
+                }));
+                // Mark completed ones as earned
+                for (const a of data) {
+                    if (a.completed) earned.add(a.id);
+                }
                 persistLocal();
             }
-        });
+        }).catch(() => {});
     }
 
     function persistLocal() {
@@ -114,35 +83,102 @@ const Achievements = (() => {
     }
 
     function saveToBackend() {
-        if (!dirty) return;
-        dirty = false;
-        persistLocal();
-        API.saveAchievements([...earned]);
+        API.saveAchievements([...earned]).then(data => {
+            if (data && Array.isArray(data.newly_earned)) {
+                for (const ach of data.newly_earned) {
+                    if (!earned.has(ach.id)) {
+                        earned.add(ach.id);
+                        popupQueue.push({
+                            id: ach.id,
+                            name: ach.name,
+                            desc: ach.description || ach.desc || '',
+                            category: ach.category || 'collection',
+                            tier: ach.tier || 'bronze',
+                        });
+                    }
+                }
+                // Update ACHIEVEMENTS with fresh data
+                if (Array.isArray(data.all_achievements)) {
+                    ACHIEVEMENTS = data.all_achievements.map(a => ({
+                        id: a.id,
+                        name: a.name,
+                        desc: a.description || a.desc || '',
+                        category: a.category || 'collection',
+                        tier: a.tier || 'bronze',
+                        completed: a.completed || false,
+                        progress: a.progress || 0,
+                        target: a.target || 1,
+                    }));
+                }
+                persistLocal();
+            }
+        }).catch(() => {});
     }
 
-    function checkAchievements(force) {
-        if (!force) return;
-        const stats = typeof PlayerStats !== 'undefined' ? PlayerStats.getStats() : {};
-        const badges = typeof BadgeCase !== 'undefined' ? BadgeCase.getBadgeCount() : 0;
-        const checkData = { ...stats, badges };
-
-        for (const ach of ACHIEVEMENTS) {
-            if (earned.has(ach.id)) continue;
-            if (ach.check(checkData)) {
-                earned.add(ach.id);
-                popupQueue.push(ach);
-                dirty = true;
+    function checkAchievements() {
+        // Trigger server-side achievement check — backend evaluates all conditions
+        API.saveAchievements([...earned]).then(data => {
+            if (data && Array.isArray(data.newly_earned)) {
+                for (const ach of data.newly_earned) {
+                    if (!earned.has(ach.id)) {
+                        earned.add(ach.id);
+                        popupQueue.push({
+                            id: ach.id,
+                            name: ach.name,
+                            desc: ach.description || ach.desc || '',
+                            category: ach.category || 'collection',
+                            tier: ach.tier || 'bronze',
+                        });
+                    }
+                }
+                if (Array.isArray(data.all_achievements)) {
+                    ACHIEVEMENTS = data.all_achievements.map(a => ({
+                        id: a.id,
+                        name: a.name,
+                        desc: a.description || a.desc || '',
+                        category: a.category || 'collection',
+                        tier: a.tier || 'bronze',
+                        completed: a.completed || false,
+                        progress: a.progress || 0,
+                        target: a.target || 1,
+                    }));
+                }
+                persistLocal();
             }
-        }
+        }).catch(() => {});
+    }
 
-        if (dirty) saveToBackend();
+    function pollNotifications() {
+        API.getAchievementNotifications().then(data => {
+            if (data && Array.isArray(data)) {
+                for (const notif of data) {
+                    if (!earned.has(notif.achievement_id)) {
+                        earned.add(notif.achievement_id);
+                        popupQueue.push({
+                            id: notif.achievement_id,
+                            name: notif.achievement_name,
+                            desc: notif.description || '',
+                            category: notif.category || 'collection',
+                            tier: notif.tier || 'bronze',
+                        });
+                        persistLocal();
+                    }
+                }
+            }
+        }).catch(() => {});
     }
 
     function update(dt) {
         checkTimer += dt;
         if (checkTimer >= CHECK_INTERVAL) {
             checkTimer = 0;
-            checkAchievements(true);
+            checkAchievements();
+        }
+
+        notifyTimer += dt;
+        if (notifyTimer >= NOTIFY_INTERVAL) {
+            notifyTimer = 0;
+            pollNotifications();
         }
 
         // Process popup queue
@@ -277,6 +313,25 @@ const Achievements = (() => {
         listCursor = 0;
         listScroll = 0;
         listCategory = null;
+        // Refresh from backend when opening
+        API.getAchievements().then(data => {
+            if (data && Array.isArray(data)) {
+                ACHIEVEMENTS = data.map(a => ({
+                    id: a.id,
+                    name: a.name,
+                    desc: a.description || a.desc || '',
+                    category: a.category || 'collection',
+                    tier: a.tier || 'bronze',
+                    completed: a.completed || false,
+                    progress: a.progress || 0,
+                    target: a.target || 1,
+                }));
+                for (const a of data) {
+                    if (a.completed) earned.add(a.id);
+                }
+                persistLocal();
+            }
+        }).catch(() => {});
     }
 
     function closeList() {
@@ -292,7 +347,6 @@ const Achievements = (() => {
 
     function updateList(dt) {
         if (!listOpen) return;
-        const action = Input.isActionPressed();
         const back = Input.isDown('Escape') || Input.isDown('b') || Input.isDown('B');
         const mov = Input.getMovement();
 
@@ -367,14 +421,10 @@ const Achievements = (() => {
         if (listCursor < listScroll) listScroll = listCursor;
         if (listCursor >= listScroll + maxVisible) listScroll = listCursor - maxVisible + 1;
 
-        const stats = typeof PlayerStats !== 'undefined' ? PlayerStats.getStats() : {};
-        const badges = typeof BadgeCase !== 'undefined' ? BadgeCase.getBadgeCount() : 0;
-        const checkData = { ...stats, badges };
-
         for (let i = 0; i < maxVisible && (i + listScroll) < filtered.length; i++) {
             const ach = filtered[i + listScroll];
             const y = listY + i * itemH;
-            const isEarned = earned.has(ach.id);
+            const isEarned = earned.has(ach.id) || ach.completed;
             const isCursor = (i + listScroll) === listCursor;
 
             // Row background
@@ -415,9 +465,10 @@ const Achievements = (() => {
             ctx.font = '9px monospace';
             ctx.fillText(ach.desc, cx + 42, y + 28);
 
-            // Progress bar
-            const progCurrent = ach.progress(checkData);
-            const progRatio = progCurrent / ach.target;
+            // Progress bar (uses backend-provided progress/target)
+            const progCurrent = ach.progress || 0;
+            const progTarget = ach.target || 1;
+            const progRatio = progCurrent / progTarget;
             const barX = cx + 42;
             const barY = y + 32;
             const barW = w - 100;
@@ -439,7 +490,7 @@ const Achievements = (() => {
             ctx.fillStyle = isEarned ? '#48c048' : '#607080';
             ctx.font = '8px monospace';
             ctx.textAlign = 'right';
-            ctx.fillText(isEarned ? 'Complete!' : `${progCurrent}/${ach.target}`, cx + w - 12, y + 38);
+            ctx.fillText(isEarned ? 'Complete!' : `${progCurrent}/${progTarget}`, cx + w - 12, y + 38);
 
             // Tier label
             if (ach.tier && MEDAL_TIERS[ach.tier]) {
@@ -451,7 +502,7 @@ const Achievements = (() => {
         }
 
         // Count at bottom
-        const earnedInFilter = filtered.filter(a => earned.has(a.id)).length;
+        const earnedInFilter = filtered.filter(a => earned.has(a.id) || a.completed).length;
         ctx.fillStyle = '#607080';
         ctx.font = '10px monospace';
         ctx.textAlign = 'center';
@@ -469,7 +520,7 @@ const Achievements = (() => {
     function getMedalCounts() {
         const counts = { bronze: 0, silver: 0, gold: 0, platinum: 0, total: 0 };
         for (const ach of ACHIEVEMENTS) {
-            if (earned.has(ach.id) && ach.tier && MEDAL_TIERS[ach.tier]) {
+            if ((earned.has(ach.id) || ach.completed) && ach.tier && MEDAL_TIERS[ach.tier]) {
                 counts[ach.tier]++;
                 counts.total++;
             }
