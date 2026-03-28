@@ -1,158 +1,84 @@
 # Pixel Pokemon Game
 
-A retro pixel-art Pokemon game built with HTML5 Canvas and Python FastAPI.
+A retro pixel-art Pokemon game built with HTML5 Canvas and Python FastAPI. 9 sprints of content with battles, gyms, trading, breeding, fishing, and more.
+
+**GitHub:** https://github.com/tomqiaozc/pixel-pokemon-game
 
 ## Features
 
-### Core Gameplay
-- **Overworld Exploration** — 5 interconnected maps (Pallet Town, Route 1, Viridian City, Route 2, Pewter City) with smooth 60fps movement, collision detection, camera following
-- **Player Movement** — 4-direction walking with WASD/arrow keys, pixel-art character sprite
-- **Starter Pokemon Selection** — choose from Bulbasaur, Charmander, or Squirtle with IV-calculated stats
-- **Turn-based Battle System** — Gen 1-style damage formula with STAB, type effectiveness (18 types), critical hits, speed-based turn order
-- **Wild Pokemon Encounters** — random encounters in tall grass with per-route spawn tables and configurable rates
-- **Pokemon Catching** — Pokeball catch mechanic with catch rate calculation, auto-deposit to PC when party full
-- **Trainer Battles** — line-of-sight trainer encounters, 3-tier AI (wild/trainer/leader), pre-battle dialogue
+### Core Gameplay (Sprints 1-4)
+- **Overworld Exploration** — 5+ interconnected maps with 60fps movement, collision, camera
+- **Starter Selection** — Bulbasaur, Charmander, or Squirtle with IV-calculated stats
+- **Turn-based Battles** — Gen 1 damage formula, STAB, 18-type effectiveness, critical hits
+- **Wild Encounters** — per-route spawn tables, time-of-day filtering, configurable rates
+- **Pokemon Catching** — catch rate calculation, auto-deposit to PC when party full
+- **Trainer Battles** — line-of-sight detection, 3-tier AI (wild/trainer/leader)
+- **Gym System** — Pewter City gym, badge collection, gym puzzles
+- **Evolution & EXP** — level-up evolution with animations, move learning
+- **Items & Shop** — buy/sell, potions/revives/status heals, Pokeballs
+- **Pokemon Center** — heal team, PC Box storage
+- **Pokedex** — seen/caught tracking, species detail view
 
-### Pokemon Systems
-- **Evolution & EXP** — level-up evolution with animations, EXP curve, move learning on evolution
-- **Items & Inventory** — buy/sell at shops, use potions/revives/status heals, Pokeball management
-- **Pokemon Center** — heal team, PC Box for Pokemon storage
-- **Pokedex** — seen/caught tracking, species list with detail view
-- **Status Conditions** — 6 status effects, volatile conditions, stat stages (-6 to +6)
+### Advanced Systems (Sprints 5-6)
+- **Status Conditions** — 6 primary + volatile conditions, stat stages (-6 to +6)
+- **Pokemon Abilities** — 15+ abilities (Intimidate, Levitate, Wonder Guard, etc.)
+- **Weather System** — Rain, Sun, Sandstorm, Hail with battle modifiers
+- **Day/Night Cycle** — real-time lighting, time-based encounters
+- **Trading** — Pokemon trading between players
+- **PvP Battles** — multiplayer battle lobby with matchmaking
+- **Leaderboard** — player stats, rankings, trainer card
 
-### World & NPCs
-- **Multi-map System** — seamless map transitions with fade effects, map name popups
-- **Gym Battles** — Pewter City gym with Brock, badge collection, gym puzzle layouts
-- **NPC Dialogue** — typewriter text, dialogue trees with branching choices
-- **Signs & Ledges** — interactive sign posts, one-way ledge jumping with arc animation
-- **Trainer Encounters** — line-of-sight detection, "!" alert, walk-to-player trigger
+### Story & Content (Sprint 7)
+- **Quest System** — story quests, area gating, progress flags, quest markers
+- **Rival System** — scaling team, encounters at story checkpoints
+- **Cutscene Engine** — scripted sequences for key story moments
+- **Mini-Games** — Game Corner with slots, memory match, quiz; coin currency, prizes
+- **Legendary Pokemon** — overworld aura, special battle mechanics, unique catch rates
 
-### UI
-- **Pause Menu** — party management, inventory, save/load
-- **Badge Case** — 8 Kanto badge slots with shine animation
-- **Battle UI** — HP bars, move selection with PP/type display, Bag/Pokemon/Run options
+### Farming & Breeding (Sprint 8)
+- **Berry Farming** — 10 types, 7 plots, real-time growth, watering, battle effects
+- **Pokemon Breeding** — daycare, egg groups, gender, IV inheritance, step-based hatching
+- **Achievements** — 35 achievements, 8 categories, medal tiers, notifications
+
+### Fishing, Items & Moves (Sprint 9)
+- **Fishing** — cast/bite/reel QTE, 3 rod tiers, 14 water Pokemon species
+- **Surfing** — overworld water movement, water encounters
+- **Held Items** — 28 items with battle effects (Focus Sash, Life Orb, Leftovers, etc.)
+- **Evolution Stones** — 5 stones with Eevee eeveelutions
+- **Move Tutor** — 3 tutors with badge requirements, move costs
+- **TM/HM System** — 10 TMs (single-use) + 5 HMs (reusable, non-deletable)
 
 ## Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
-| Frontend | HTML5 Canvas, Vanilla JavaScript |
+| Frontend | HTML5 Canvas, Vanilla JavaScript (42 modules) |
 | Backend | Python 3.11+, FastAPI, Pydantic |
-| Art | Programmatic pixel art (drawn via Canvas API) |
-| Storage | In-memory (JSON seed data) |
-| Tests | pytest (backend), 250+ automated tests |
+| Art | Programmatic pixel art (Canvas API, no external images) |
+| Storage | In-memory with JSON seed data |
+| Tests | pytest — **1295 automated tests** |
+| PRs | 92 merged, sprint-based with QA gates |
 
 ## Getting Started
 
 ### Backend
 ```bash
 cd backend
-pip install -r requirements.txt
-uvicorn main:app --reload --port 8000
+pip install fastapi uvicorn pydantic
+python3 -m uvicorn main:app --reload --port 8001
 ```
 
 ### Frontend
 ```bash
-cd frontend
-python -m http.server 8080
-# Open http://localhost:8080
+python3 -m http.server 8000 --directory frontend
 ```
 
-## API Endpoints
+Open **http://localhost:8000** in your browser.
 
-### Game & Pokemon
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/health` | Health check |
-| GET | `/api/pokemon` | List all Pokemon |
-| GET | `/api/pokemon/{id}` | Get Pokemon by ID |
-| POST | `/api/game/new` | Create new game |
-| GET | `/api/game/{id}` | Get game state |
-| POST | `/api/game/{id}/save` | Save game state |
-
-### Battle
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/api/battle/start` | Initialize battle |
-| POST | `/api/battle/action` | Fight, catch, or run |
-| GET | `/api/battle/state/{id}` | Get battle state |
-| POST | `/api/battle/catch` | Attempt to catch Pokemon |
-
-### Encounter & Maps
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/api/encounter/check` | Check for wild encounter |
-| GET | `/api/encounter/species` | List all species |
-| GET | `/api/maps/{map_id}` | Get map data |
-| GET | `/api/maps/current/{game_id}` | Get current map |
-
-### Evolution & Items
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/api/evolution/evolve` | Evolve a Pokemon |
-| POST | `/api/evolution/award-exp` | Award EXP after battle |
-| GET | `/api/inventory/{game_id}` | Get player inventory |
-| POST | `/api/shop/buy` | Buy items |
-| POST | `/api/shop/sell` | Sell items |
-
-### Pokemon Center, Pokedex & Gyms
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/api/pokemon-center/heal/{game_id}` | Heal team |
-| GET | `/api/pokedex/{game_id}` | Get Pokedex data |
-| GET | `/api/npcs/{map_id}` | Get NPCs for map |
-| GET | `/api/gyms/{gym_id}` | Get gym data |
-
-## Project Structure
-
-```
-pixel-pokemon-game/
-├── frontend/
-│   ├── index.html              # Entry point
-│   ├── css/style.css           # Game styling
-│   └── js/
-│       ├── game.js             # Main game loop & state
-│       ├── renderer.js         # Canvas pixel rendering
-│       ├── map.js              # Tile map & collision
-│       ├── maploader.js        # Multi-map loading & transitions
-│       ├── routes.js           # Route/town map definitions
-│       ├── sprites.js          # Programmatic sprite drawing
-│       ├── input.js            # Keyboard input handler
-│       ├── starter.js          # Starter selection screen
-│       ├── battle.js           # Battle UI & animations
-│       ├── encounters.js       # Wild encounter triggers
-│       ├── evolution.js        # Evolution animations
-│       ├── menu.js             # Pause menu & inventory
-│       ├── dialogue.js         # NPC dialogue system
-│       ├── npc.js              # NPC rendering & interaction
-│       ├── pokecenter.js       # Pokemon Center UI
-│       ├── pokedex.js          # Pokedex UI
-│       ├── gym.js              # Gym interior layouts
-│       ├── badges.js           # Badge case UI
-│       ├── trainer.js          # Trainer battle UI
-│       ├── trainerencounter.js # Trainer line-of-sight
-│       ├── signs.js            # Sign interaction
-│       └── ledges.js           # Ledge jumping
-├── backend/
-│   ├── main.py                 # FastAPI app setup
-│   ├── requirements.txt
-│   ├── models/                 # Pydantic data models
-│   │   ├── pokemon.py          # Pokemon, moves, stats
-│   │   ├── player.py           # Player, team, inventory
-│   │   ├── battle.py           # Battle state & actions
-│   │   ├── encounter.py        # Wild encounters
-│   │   ├── evolution.py        # Evolution & EXP
-│   │   ├── item.py             # Items & shop
-│   │   ├── map.py              # Maps & routes
-│   │   ├── npc.py              # NPCs & dialogue
-│   │   ├── gym.py              # Gyms & badges
-│   │   ├── pokedex.py          # Pokedex tracking
-│   │   └── ai.py               # Trainer AI models
-│   ├── routes/                 # API endpoint handlers
-│   ├── services/               # Business logic
-│   ├── data/                   # JSON seed data
-│   └── tests/                  # pytest test suites
-└── README.md
+### Run Tests
+```bash
+cd backend
+python3 -m pytest -q
 ```
 
 ## Controls
@@ -163,10 +89,57 @@ pixel-pokemon-game/
 | A / Arrow Left | Move left |
 | S / Arrow Down | Move down |
 | D / Arrow Right | Move right |
-| Enter / Space | Confirm / Interact |
-| Escape | Pause menu |
+| Z / Enter | Confirm / Interact / Fish |
+| X / Escape | Cancel / Pause menu |
 | 1-4 | Select move in battle |
+
+## Project Structure
+
+```
+pixel-pokemon-game/
+├── frontend/
+│   ├── index.html
+│   ├── css/style.css
+│   └── js/                     # 42 modules
+│       ├── game.js             # Main game loop & state machine
+│       ├── api.js              # Backend API client
+│       ├── renderer.js         # Canvas rendering & camera
+│       ├── map.js              # Tile map & collision
+│       ├── sprites.js          # Programmatic sprite drawing
+│       ├── battle.js           # Battle UI & animations
+│       ├── menu.js             # Pause menu, inventory, TM/HM bag
+│       ├── berry.js            # Berry farming UI
+│       ├── daycare.js          # Daycare & breeding UI
+│       ├── fishing.js          # Fishing mini-game & surfing
+│       ├── movetutor.js        # Move Tutor & TM/HM UI
+│       ├── achievements.js     # Achievement UI & notifications
+│       ├── minigames.js        # Game Corner mini-games
+│       ├── legendary.js        # Legendary encounter effects
+│       ├── quests.js           # Quest system & markers
+│       ├── rival.js            # Rival NPC system
+│       └── ... (25 more modules)
+├── backend/
+│   ├── main.py                 # FastAPI app & router registration
+│   ├── models/                 # 15 Pydantic model files
+│   ├── routes/                 # 16 API route files
+│   ├── services/               # 10 business logic services
+│   ├── data/                   # JSON seed data (species, moves, items, maps)
+│   └── tests/                  # 33 test files, 1295 tests
+└── README.md
+```
 
 ## Development
 
-This project is actively developed with sprint-based planning and continuous delivery. 250+ automated tests cover all API endpoints, battle mechanics, evolution, items, encounters, and integration flows.
+Built with an autonomous agent team using sprint-based development:
+- **Team Lead** (Opus) — orchestration, code review, merge management
+- **Frontend Dev** (Haiku) — HTML5 Canvas game client
+- **Backend Dev** (Haiku) — FastAPI server & business logic
+- **QA Tester A** (Haiku) — gap coverage tests & backend bugs
+- **QA Tester B** (Haiku) — frontend code review & integration testing
+
+Each sprint: Dev → QA → Bug Fix → Merge. 92 PRs merged through Sprint 9.
+
+### Next: Sprint 10 (Planned)
+- Secret Areas & Hidden Locations
+- HM Overworld Puzzles (Cut, Surf, Strength)
+- Cave System exploration
