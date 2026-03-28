@@ -13,6 +13,7 @@ const Game = (() => {
     let pendingDefeatedTrainer = null;
     let pendingCutsceneBattle = false;
     let pendingLegendarySpeciesId = null;
+    let pendingRivalStageNum = null;
 
     // Legendary spawn points — matches backend seed data locations
     const LEGENDARY_SPAWNS = {
@@ -493,6 +494,7 @@ const Game = (() => {
         if (rivalCheck) {
             const encounter = Rival.triggerEncounter(mapId);
             if (encounter) {
+                pendingRivalStageNum = encounter.stageNum;
                 const rivalName = Rival.getName();
                 const rivalStarter = Rival.getStarter();
                 const scene = Cutscene.SCENES.rival_route2(rivalName, rivalStarter, encounter.team);
@@ -743,6 +745,15 @@ const Game = (() => {
                 } else if (result.result === 'lose') {
                     // Player lost — legendary returns to available
                     API.legendaryFled(specId).catch(() => {});
+                }
+            }
+
+            // Rival post-battle outcome reporting
+            if (pendingRivalStageNum !== null) {
+                const stageNum = pendingRivalStageNum;
+                pendingRivalStageNum = null;
+                if (result.result === 'win') {
+                    Rival.completeEncounter(stageNum);
                 }
             }
 

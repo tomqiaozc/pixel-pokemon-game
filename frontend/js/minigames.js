@@ -248,9 +248,8 @@ const MiniGames = (() => {
     function nextLocalQuizQuestion() {
         if (quizRound >= quizTotal) {
             quizDone = true;
-            // Fallback local reward
-            const reward = quizScore * 5 + (quizScore === quizTotal ? 50 : 0);
-            coins += reward;
+            // Offline mode — no coin reward without backend
+            quizResult = 'Offline mode — practice only, no coins awarded';
             return;
         }
         const q = QUIZ_BANK[quizRound % QUIZ_BANK.length];
