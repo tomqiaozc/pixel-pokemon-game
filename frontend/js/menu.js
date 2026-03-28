@@ -3,7 +3,7 @@
 const PauseMenu = (() => {
     let active = false;
     let menuIndex = 0;
-    let subScreen = null; // null, 'party', 'bag', 'pokedex', 'trainercard', 'leaderboard', 'trade', 'pvp', 'badges', 'save'
+    let subScreen = null; // null, 'party', 'bag', 'pokedex', 'trainercard', 'leaderboard', 'trade', 'pvp', 'badges', 'achievements', 'save'
     let actionCooldown = 0;
     let slideProgress = 0;
 
@@ -35,7 +35,7 @@ const PauseMenu = (() => {
     // Party screen state
     let partyIndex = 0;
 
-    const MENU_ITEMS = ['Pokemon', 'Bag', 'Pokedex', 'Trainer Card', 'Leaderboard', 'Trade', 'PvP Battle', 'Quests', 'Badges', 'Save', 'Close'];
+    const MENU_ITEMS = ['Pokemon', 'Bag', 'Pokedex', 'Trainer Card', 'Achievements', 'Leaderboard', 'Trade', 'PvP Battle', 'Quests', 'Badges', 'Save', 'Close'];
     const BAG_TABS = ['Potions', 'Balls', 'Battle', 'Key Items'];
     const BAG_TAB_KEYS = ['potions', 'pokeballs', 'battle', 'key'];
 
@@ -149,12 +149,13 @@ const PauseMenu = (() => {
                 else if (menuIndex === 1) { subScreen = 'bag'; bagTab = 0; bagIndex = 0; bagAction = -1; }
                 else if (menuIndex === 2) { subScreen = 'pokedex'; Pokedex.open(); }
                 else if (menuIndex === 3) { subScreen = 'trainercard'; TrainerCard.open(); }
-                else if (menuIndex === 4) { subScreen = 'leaderboard'; Leaderboard.open(); }
-                else if (menuIndex === 5) { subScreen = 'trade'; Trading.open(); }
-                else if (menuIndex === 6) { subScreen = 'pvp'; PvP.open(); }
-                else if (menuIndex === 7) { Quests.openJournal(); close(); }
-                else if (menuIndex === 8) { subScreen = 'badges'; BadgeCase.open(); }
-                else if (menuIndex === 9) {
+                else if (menuIndex === 4) { subScreen = 'achievements'; Achievements.openList(); }
+                else if (menuIndex === 5) { subScreen = 'leaderboard'; Leaderboard.open(); }
+                else if (menuIndex === 6) { subScreen = 'trade'; Trading.open(); }
+                else if (menuIndex === 7) { subScreen = 'pvp'; PvP.open(); }
+                else if (menuIndex === 8) { Quests.openJournal(); close(); }
+                else if (menuIndex === 9) { subScreen = 'badges'; BadgeCase.open(); }
+                else if (menuIndex === 10) {
                     // Save game to backend
                     const p = Game.player;
                     const currentMap = typeof MapLoader !== 'undefined' ? MapLoader.getCurrentMapId() : 'pallet_town';
@@ -193,7 +194,7 @@ const PauseMenu = (() => {
                     subScreen = 'save';
                     actionCooldown = 200;
                 }
-                else if (menuIndex === 10) { close(); }
+                else if (menuIndex === 11) { close(); }
             }
             if (back) { close(); actionCooldown = 200; }
         } else if (subScreen === 'party') {
@@ -218,6 +219,9 @@ const PauseMenu = (() => {
         } else if (subScreen === 'badges') {
             BadgeCase.update(dt);
             if (!BadgeCase.isActive()) { subScreen = null; }
+        } else if (subScreen === 'achievements') {
+            Achievements.updateList(dt);
+            if (!Achievements.isListOpen()) { subScreen = null; }
         } else if (subScreen === 'save') {
             if (action || back) { subScreen = null; actionCooldown = 200; }
         }
@@ -307,6 +311,8 @@ const PauseMenu = (() => {
             PvP.render(ctx, canvasW, canvasH);
         } else if (subScreen === 'badges') {
             BadgeCase.render(ctx, canvasW, canvasH);
+        } else if (subScreen === 'achievements') {
+            Achievements.renderList(ctx, 20, 10, canvasW - 40, canvasH - 20);
         } else if (subScreen === 'save') {
             const boxW = 260;
             const boxH = 60;
