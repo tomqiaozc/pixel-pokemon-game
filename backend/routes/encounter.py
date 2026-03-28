@@ -1,8 +1,10 @@
 from fastapi import APIRouter, HTTPException
+from pydantic import BaseModel
 
 from ..models.encounter import EncounterCheckRequest, EncounterCheckResponse
 from ..services.encounter_service import (
     check_encounter,
+    fish_encounter,
     generate_wild_pokemon,
     get_all_species,
     get_species,
@@ -11,6 +13,12 @@ from ..services.encounter_service import (
 router = APIRouter(prefix="/api/encounter", tags=["encounter"])
 
 STARTER_IDS = [1, 4, 7]  # Bulbasaur, Charmander, Squirtle
+VALID_ROD_TIERS = {"old", "good", "super"}
+
+
+class FishRequest(BaseModel):
+    area_id: str
+    rod_tier: str
 
 
 @router.get("/starters")
@@ -57,3 +65,13 @@ def generate_pokemon(species_id: int, level: int):
         return generate_wild_pokemon(species_id, level)
     except ValueError as e:
         raise HTTPException(status_code=404, detail=str(e))
+
+
+@router.post("/fish", response_model=EncounterCheckResponse)
+def encounter_fish(req: FishRequest):
+    if req.rod_tier not in VALID_ROD_TIERS:
+        raise HTTPException(status_code=400, detail=f"Invalid rod tier: {req.rod_tier}")
+    result = fish_encounter(req.area_id, req.rod_tier)
+    if result is None:
+        raise HTTPException(status_code=404, detail="No fishing table for this area")
+    return result

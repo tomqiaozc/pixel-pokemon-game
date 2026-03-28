@@ -14,7 +14,9 @@
       {"npc_id": "townsfolk_2", "x": 10, "y": 6, "facing": "left"}
     ],
     "trainers": [],
-    "encounter_zones": [],
+    "encounter_zones": [
+      {"x": 10, "y": 14, "width": 4, "height": 4, "encounter_table_id": "pallet_town_surfing"}
+    ],
     "buildings": [
       {"name": "Player House", "x": 3, "y": 3, "width": 4, "height": 4, "door_x": 4, "door_y": 7, "interior_map_id": "player_house"},
       {"name": "Oak's Lab", "x": 10, "y": 3, "width": 6, "height": 5, "door_x": 12, "door_y": 8, "interior_map_id": "oaks_lab"}
