@@ -90,7 +90,7 @@ const Game = (() => {
             Berry.renderPlots(ctx, Renderer.getCamX(), Renderer.getCamY(), Renderer.SCALE, MapLoader.getCurrentMapId());
             Berry.update(dt);
             // Render daycare NPC on route_1
-            Daycare.renderNpc(ctx);
+            Daycare.renderNpc(ctx, Renderer.getCamX(), Renderer.getCamY(), Renderer.SCALE, MapLoader.getCurrentMapId());
             Daycare.updateNotify(dt);
             // Render dialogue overlay on top of overworld
             if (Dialogue.isActive()) {
@@ -320,7 +320,7 @@ const Game = (() => {
                 return;
             }
             // Daycare NPC check
-            if (Daycare.checkNpcInteraction(player.x, player.y, player.dir)) {
+            if (Daycare.checkNpcInteraction(player.x, player.y, player.dir, MapLoader.getCurrentMapId())) {
                 return;
             }
             const npc = NPC.checkInteraction(player.x, player.y, player.dir);

@@ -1,469 +1,2029 @@
 [
   {
-    "id": 1, "name": "Bulbasaur", "types": ["grass", "poison"], "base_exp": 64, "catch_rate": 45,
-    "abilities": ["overgrow"],
+    "id": 1,
+    "name": "Bulbasaur",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "base_exp": 64,
+    "catch_rate": 45,
+    "abilities": [
+      "overgrow"
+    ],
     "gender_ratio": 12.5,
-    "egg_groups": ["monster", "grass"],
-    "stats": {"hp": 45, "attack": 49, "defense": 49, "sp_attack": 65, "sp_defense": 65, "speed": 45},
-    "learnset": [
-      {"level": 1, "move": "Tackle"}, {"level": 3, "move": "Growl"}, {"level": 7, "move": "Vine Whip"},
-      {"level": 13, "move": "Razor Leaf"}, {"level": 20, "move": "Sleep Powder"}, {"level": 27, "move": "Solar Beam"}
+    "egg_groups": [
+      "monster",
+      "grass"
     ],
-    "evolution": {"to": 2, "level": 16}, "sprite": "bulbasaur.png"
+    "stats": {
+      "hp": 45,
+      "attack": 49,
+      "defense": 49,
+      "sp_attack": 65,
+      "sp_defense": 65,
+      "speed": 45
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 3,
+        "move": "Growl"
+      },
+      {
+        "level": 7,
+        "move": "Vine Whip"
+      },
+      {
+        "level": 13,
+        "move": "Razor Leaf"
+      },
+      {
+        "level": 20,
+        "move": "Sleep Powder"
+      },
+      {
+        "level": 27,
+        "move": "Solar Beam"
+      }
+    ],
+    "evolution": {
+      "to": 2,
+      "level": 16
+    },
+    "sprite": "bulbasaur.png"
   },
   {
-    "id": 2, "name": "Ivysaur", "types": ["grass", "poison"], "base_exp": 142, "catch_rate": 45,
-    "abilities": ["overgrow"],
+    "id": 2,
+    "name": "Ivysaur",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "base_exp": 142,
+    "catch_rate": 45,
+    "abilities": [
+      "overgrow"
+    ],
     "gender_ratio": 12.5,
-    "egg_groups": ["monster", "grass"],
-    "stats": {"hp": 60, "attack": 62, "defense": 63, "sp_attack": 80, "sp_defense": 80, "speed": 60},
-    "learnset": [
-      {"level": 1, "move": "Tackle"}, {"level": 3, "move": "Growl"}, {"level": 7, "move": "Vine Whip"},
-      {"level": 13, "move": "Razor Leaf"}, {"level": 22, "move": "Sleep Powder"}, {"level": 30, "move": "Solar Beam"}
+    "egg_groups": [
+      "monster",
+      "grass"
     ],
-    "evolution": {"to": 3, "level": 32}, "sprite": "ivysaur.png"
+    "stats": {
+      "hp": 60,
+      "attack": 62,
+      "defense": 63,
+      "sp_attack": 80,
+      "sp_defense": 80,
+      "speed": 60
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 3,
+        "move": "Growl"
+      },
+      {
+        "level": 7,
+        "move": "Vine Whip"
+      },
+      {
+        "level": 13,
+        "move": "Razor Leaf"
+      },
+      {
+        "level": 22,
+        "move": "Sleep Powder"
+      },
+      {
+        "level": 30,
+        "move": "Solar Beam"
+      }
+    ],
+    "evolution": {
+      "to": 3,
+      "level": 32
+    },
+    "sprite": "ivysaur.png"
   },
   {
-    "id": 3, "name": "Venusaur", "types": ["grass", "poison"], "base_exp": 236, "catch_rate": 45,
-    "abilities": ["overgrow"],
+    "id": 3,
+    "name": "Venusaur",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "base_exp": 236,
+    "catch_rate": 45,
+    "abilities": [
+      "overgrow"
+    ],
     "gender_ratio": 12.5,
-    "egg_groups": ["monster", "grass"],
-    "stats": {"hp": 80, "attack": 82, "defense": 83, "sp_attack": 100, "sp_defense": 100, "speed": 80},
-    "learnset": [
-      {"level": 1, "move": "Tackle"}, {"level": 3, "move": "Growl"}, {"level": 7, "move": "Vine Whip"},
-      {"level": 13, "move": "Razor Leaf"}, {"level": 22, "move": "Sleep Powder"},
-      {"level": 32, "move": "Solar Beam"}, {"level": 40, "move": "Synthesis"}
+    "egg_groups": [
+      "monster",
+      "grass"
     ],
-    "evolution": null, "sprite": "venusaur.png"
+    "stats": {
+      "hp": 80,
+      "attack": 82,
+      "defense": 83,
+      "sp_attack": 100,
+      "sp_defense": 100,
+      "speed": 80
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 3,
+        "move": "Growl"
+      },
+      {
+        "level": 7,
+        "move": "Vine Whip"
+      },
+      {
+        "level": 13,
+        "move": "Razor Leaf"
+      },
+      {
+        "level": 22,
+        "move": "Sleep Powder"
+      },
+      {
+        "level": 32,
+        "move": "Solar Beam"
+      },
+      {
+        "level": 40,
+        "move": "Synthesis"
+      }
+    ],
+    "evolution": null,
+    "sprite": "venusaur.png"
   },
   {
-    "id": 4, "name": "Charmander", "types": ["fire"], "base_exp": 62, "catch_rate": 45,
-    "abilities": ["blaze"],
+    "id": 4,
+    "name": "Charmander",
+    "types": [
+      "fire"
+    ],
+    "base_exp": 62,
+    "catch_rate": 45,
+    "abilities": [
+      "blaze"
+    ],
     "gender_ratio": 12.5,
-    "egg_groups": ["monster", "dragon"],
-    "stats": {"hp": 39, "attack": 52, "defense": 43, "sp_attack": 60, "sp_defense": 50, "speed": 65},
-    "learnset": [
-      {"level": 1, "move": "Scratch"}, {"level": 4, "move": "Growl"}, {"level": 7, "move": "Ember"},
-      {"level": 13, "move": "Fire Spin"}, {"level": 19, "move": "Slash"}, {"level": 25, "move": "Flamethrower"}
+    "egg_groups": [
+      "monster",
+      "dragon"
     ],
-    "evolution": {"to": 5, "level": 16}, "sprite": "charmander.png"
+    "stats": {
+      "hp": 39,
+      "attack": 52,
+      "defense": 43,
+      "sp_attack": 60,
+      "sp_defense": 50,
+      "speed": 65
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Scratch"
+      },
+      {
+        "level": 4,
+        "move": "Growl"
+      },
+      {
+        "level": 7,
+        "move": "Ember"
+      },
+      {
+        "level": 13,
+        "move": "Fire Spin"
+      },
+      {
+        "level": 19,
+        "move": "Slash"
+      },
+      {
+        "level": 25,
+        "move": "Flamethrower"
+      }
+    ],
+    "evolution": {
+      "to": 5,
+      "level": 16
+    },
+    "sprite": "charmander.png"
   },
   {
-    "id": 5, "name": "Charmeleon", "types": ["fire"], "base_exp": 142, "catch_rate": 45,
-    "abilities": ["blaze"],
+    "id": 5,
+    "name": "Charmeleon",
+    "types": [
+      "fire"
+    ],
+    "base_exp": 142,
+    "catch_rate": 45,
+    "abilities": [
+      "blaze"
+    ],
     "gender_ratio": 12.5,
-    "egg_groups": ["monster", "dragon"],
-    "stats": {"hp": 58, "attack": 64, "defense": 58, "sp_attack": 80, "sp_defense": 65, "speed": 80},
-    "learnset": [
-      {"level": 1, "move": "Scratch"}, {"level": 4, "move": "Growl"}, {"level": 7, "move": "Ember"},
-      {"level": 13, "move": "Fire Spin"}, {"level": 19, "move": "Slash"},
-      {"level": 25, "move": "Flamethrower"}, {"level": 33, "move": "Fire Blast"}
+    "egg_groups": [
+      "monster",
+      "dragon"
     ],
-    "evolution": {"to": 6, "level": 36}, "sprite": "charmeleon.png"
+    "stats": {
+      "hp": 58,
+      "attack": 64,
+      "defense": 58,
+      "sp_attack": 80,
+      "sp_defense": 65,
+      "speed": 80
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Scratch"
+      },
+      {
+        "level": 4,
+        "move": "Growl"
+      },
+      {
+        "level": 7,
+        "move": "Ember"
+      },
+      {
+        "level": 13,
+        "move": "Fire Spin"
+      },
+      {
+        "level": 19,
+        "move": "Slash"
+      },
+      {
+        "level": 25,
+        "move": "Flamethrower"
+      },
+      {
+        "level": 33,
+        "move": "Fire Blast"
+      }
+    ],
+    "evolution": {
+      "to": 6,
+      "level": 36
+    },
+    "sprite": "charmeleon.png"
   },
   {
-    "id": 6, "name": "Charizard", "types": ["fire", "flying"], "base_exp": 240, "catch_rate": 45,
-    "abilities": ["blaze"],
+    "id": 6,
+    "name": "Charizard",
+    "types": [
+      "fire",
+      "flying"
+    ],
+    "base_exp": 240,
+    "catch_rate": 45,
+    "abilities": [
+      "blaze"
+    ],
     "gender_ratio": 12.5,
-    "egg_groups": ["monster", "dragon"],
-    "stats": {"hp": 78, "attack": 84, "defense": 78, "sp_attack": 109, "sp_defense": 85, "speed": 100},
-    "learnset": [
-      {"level": 1, "move": "Scratch"}, {"level": 4, "move": "Growl"}, {"level": 7, "move": "Ember"},
-      {"level": 13, "move": "Fire Spin"}, {"level": 19, "move": "Slash"},
-      {"level": 25, "move": "Flamethrower"}, {"level": 36, "move": "Wing Attack"}, {"level": 46, "move": "Fire Blast"}
+    "egg_groups": [
+      "monster",
+      "dragon"
     ],
-    "evolution": null, "sprite": "charizard.png"
+    "stats": {
+      "hp": 78,
+      "attack": 84,
+      "defense": 78,
+      "sp_attack": 109,
+      "sp_defense": 85,
+      "speed": 100
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Scratch"
+      },
+      {
+        "level": 4,
+        "move": "Growl"
+      },
+      {
+        "level": 7,
+        "move": "Ember"
+      },
+      {
+        "level": 13,
+        "move": "Fire Spin"
+      },
+      {
+        "level": 19,
+        "move": "Slash"
+      },
+      {
+        "level": 25,
+        "move": "Flamethrower"
+      },
+      {
+        "level": 36,
+        "move": "Wing Attack"
+      },
+      {
+        "level": 46,
+        "move": "Fire Blast"
+      }
+    ],
+    "evolution": null,
+    "sprite": "charizard.png"
   },
   {
-    "id": 7, "name": "Squirtle", "types": ["water"], "base_exp": 63, "catch_rate": 45,
-    "abilities": ["torrent"],
+    "id": 7,
+    "name": "Squirtle",
+    "types": [
+      "water"
+    ],
+    "base_exp": 63,
+    "catch_rate": 45,
+    "abilities": [
+      "torrent"
+    ],
     "gender_ratio": 12.5,
-    "egg_groups": ["monster", "water1"],
-    "stats": {"hp": 44, "attack": 48, "defense": 65, "sp_attack": 50, "sp_defense": 64, "speed": 43},
-    "learnset": [
-      {"level": 1, "move": "Tackle"}, {"level": 4, "move": "Tail Whip"}, {"level": 7, "move": "Water Gun"},
-      {"level": 13, "move": "Bubble Beam"}, {"level": 19, "move": "Bite"}, {"level": 25, "move": "Hydro Pump"}
+    "egg_groups": [
+      "monster",
+      "water1"
     ],
-    "evolution": {"to": 8, "level": 16}, "sprite": "squirtle.png"
+    "stats": {
+      "hp": 44,
+      "attack": 48,
+      "defense": 65,
+      "sp_attack": 50,
+      "sp_defense": 64,
+      "speed": 43
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 4,
+        "move": "Tail Whip"
+      },
+      {
+        "level": 7,
+        "move": "Water Gun"
+      },
+      {
+        "level": 13,
+        "move": "Bubble Beam"
+      },
+      {
+        "level": 19,
+        "move": "Bite"
+      },
+      {
+        "level": 25,
+        "move": "Hydro Pump"
+      }
+    ],
+    "evolution": {
+      "to": 8,
+      "level": 16
+    },
+    "sprite": "squirtle.png"
   },
   {
-    "id": 8, "name": "Wartortle", "types": ["water"], "base_exp": 142, "catch_rate": 45,
-    "abilities": ["torrent"],
+    "id": 8,
+    "name": "Wartortle",
+    "types": [
+      "water"
+    ],
+    "base_exp": 142,
+    "catch_rate": 45,
+    "abilities": [
+      "torrent"
+    ],
     "gender_ratio": 12.5,
-    "egg_groups": ["monster", "water1"],
-    "stats": {"hp": 59, "attack": 63, "defense": 80, "sp_attack": 65, "sp_defense": 80, "speed": 58},
-    "learnset": [
-      {"level": 1, "move": "Tackle"}, {"level": 4, "move": "Tail Whip"}, {"level": 7, "move": "Water Gun"},
-      {"level": 13, "move": "Bubble Beam"}, {"level": 19, "move": "Bite"},
-      {"level": 25, "move": "Hydro Pump"}, {"level": 31, "move": "Skull Bash"}
+    "egg_groups": [
+      "monster",
+      "water1"
     ],
-    "evolution": {"to": 9, "level": 36}, "sprite": "wartortle.png"
+    "stats": {
+      "hp": 59,
+      "attack": 63,
+      "defense": 80,
+      "sp_attack": 65,
+      "sp_defense": 80,
+      "speed": 58
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 4,
+        "move": "Tail Whip"
+      },
+      {
+        "level": 7,
+        "move": "Water Gun"
+      },
+      {
+        "level": 13,
+        "move": "Bubble Beam"
+      },
+      {
+        "level": 19,
+        "move": "Bite"
+      },
+      {
+        "level": 25,
+        "move": "Hydro Pump"
+      },
+      {
+        "level": 31,
+        "move": "Skull Bash"
+      }
+    ],
+    "evolution": {
+      "to": 9,
+      "level": 36
+    },
+    "sprite": "wartortle.png"
   },
   {
-    "id": 9, "name": "Blastoise", "types": ["water"], "base_exp": 239, "catch_rate": 45,
-    "abilities": ["torrent"],
+    "id": 9,
+    "name": "Blastoise",
+    "types": [
+      "water"
+    ],
+    "base_exp": 239,
+    "catch_rate": 45,
+    "abilities": [
+      "torrent"
+    ],
     "gender_ratio": 12.5,
-    "egg_groups": ["monster", "water1"],
-    "stats": {"hp": 79, "attack": 83, "defense": 100, "sp_attack": 85, "sp_defense": 105, "speed": 78},
-    "learnset": [
-      {"level": 1, "move": "Tackle"}, {"level": 4, "move": "Tail Whip"}, {"level": 7, "move": "Water Gun"},
-      {"level": 13, "move": "Bubble Beam"}, {"level": 19, "move": "Bite"},
-      {"level": 25, "move": "Hydro Pump"}, {"level": 31, "move": "Skull Bash"}, {"level": 42, "move": "Hydro Cannon"}
+    "egg_groups": [
+      "monster",
+      "water1"
     ],
-    "evolution": null, "sprite": "blastoise.png"
-  },
-  {
-    "id": 10, "name": "Pidgey", "types": ["normal", "flying"], "base_exp": 50, "catch_rate": 255,
-    "abilities": ["keen_eye"],
-    "gender_ratio": 50.0,
-    "egg_groups": ["flying"],
-    "stats": {"hp": 40, "attack": 45, "defense": 40, "sp_attack": 35, "sp_defense": 35, "speed": 56},
+    "stats": {
+      "hp": 79,
+      "attack": 83,
+      "defense": 100,
+      "sp_attack": 85,
+      "sp_defense": 105,
+      "speed": 78
+    },
     "learnset": [
-      {"level": 1, "move": "Tackle"}, {"level": 5, "move": "Sand Attack"}, {"level": 9, "move": "Gust"},
-      {"level": 15, "move": "Quick Attack"}, {"level": 21, "move": "Wing Attack"}
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 4,
+        "move": "Tail Whip"
+      },
+      {
+        "level": 7,
+        "move": "Water Gun"
+      },
+      {
+        "level": 13,
+        "move": "Bubble Beam"
+      },
+      {
+        "level": 19,
+        "move": "Bite"
+      },
+      {
+        "level": 25,
+        "move": "Hydro Pump"
+      },
+      {
+        "level": 31,
+        "move": "Skull Bash"
+      },
+      {
+        "level": 42,
+        "move": "Hydro Cannon"
+      }
     ],
-    "evolution": {"to": 11, "level": 18}, "sprite": "pidgey.png"
+    "evolution": null,
+    "sprite": "blastoise.png"
   },
   {
-    "id": 11, "name": "Pidgeotto", "types": ["normal", "flying"], "base_exp": 122, "catch_rate": 120,
-    "abilities": ["keen_eye"],
+    "id": 10,
+    "name": "Pidgey",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "base_exp": 50,
+    "catch_rate": 255,
+    "abilities": [
+      "keen_eye"
+    ],
     "gender_ratio": 50.0,
-    "egg_groups": ["flying"],
-    "stats": {"hp": 63, "attack": 60, "defense": 55, "sp_attack": 50, "sp_defense": 50, "speed": 71},
+    "egg_groups": [
+      "flying"
+    ],
+    "stats": {
+      "hp": 40,
+      "attack": 45,
+      "defense": 40,
+      "sp_attack": 35,
+      "sp_defense": 35,
+      "speed": 56
+    },
     "learnset": [
-      {"level": 1, "move": "Tackle"}, {"level": 5, "move": "Sand Attack"}, {"level": 9, "move": "Gust"},
-      {"level": 15, "move": "Quick Attack"}, {"level": 21, "move": "Wing Attack"}, {"level": 27, "move": "Agility"}
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 5,
+        "move": "Sand Attack"
+      },
+      {
+        "level": 9,
+        "move": "Gust"
+      },
+      {
+        "level": 15,
+        "move": "Quick Attack"
+      },
+      {
+        "level": 21,
+        "move": "Wing Attack"
+      }
     ],
-    "evolution": {"to": 12, "level": 36}, "sprite": "pidgeotto.png"
+    "evolution": {
+      "to": 11,
+      "level": 18
+    },
+    "sprite": "pidgey.png"
   },
   {
-    "id": 12, "name": "Pidgeot", "types": ["normal", "flying"], "base_exp": 216, "catch_rate": 45,
-    "abilities": ["keen_eye"],
+    "id": 11,
+    "name": "Pidgeotto",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "base_exp": 122,
+    "catch_rate": 120,
+    "abilities": [
+      "keen_eye"
+    ],
     "gender_ratio": 50.0,
-    "egg_groups": ["flying"],
-    "stats": {"hp": 83, "attack": 80, "defense": 75, "sp_attack": 70, "sp_defense": 70, "speed": 101},
+    "egg_groups": [
+      "flying"
+    ],
+    "stats": {
+      "hp": 63,
+      "attack": 60,
+      "defense": 55,
+      "sp_attack": 50,
+      "sp_defense": 50,
+      "speed": 71
+    },
     "learnset": [
-      {"level": 1, "move": "Tackle"}, {"level": 5, "move": "Sand Attack"}, {"level": 9, "move": "Gust"},
-      {"level": 15, "move": "Quick Attack"}, {"level": 21, "move": "Wing Attack"},
-      {"level": 27, "move": "Agility"}, {"level": 38, "move": "Mirror Move"}
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 5,
+        "move": "Sand Attack"
+      },
+      {
+        "level": 9,
+        "move": "Gust"
+      },
+      {
+        "level": 15,
+        "move": "Quick Attack"
+      },
+      {
+        "level": 21,
+        "move": "Wing Attack"
+      },
+      {
+        "level": 27,
+        "move": "Agility"
+      }
     ],
-    "evolution": null, "sprite": "pidgeot.png"
+    "evolution": {
+      "to": 12,
+      "level": 36
+    },
+    "sprite": "pidgeotto.png"
   },
   {
-    "id": 13, "name": "Rattata", "types": ["normal"], "base_exp": 51, "catch_rate": 255,
-    "abilities": ["run_away"],
+    "id": 12,
+    "name": "Pidgeot",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "base_exp": 216,
+    "catch_rate": 45,
+    "abilities": [
+      "keen_eye"
+    ],
     "gender_ratio": 50.0,
-    "egg_groups": ["field"],
-    "stats": {"hp": 30, "attack": 56, "defense": 35, "sp_attack": 25, "sp_defense": 35, "speed": 72},
+    "egg_groups": [
+      "flying"
+    ],
+    "stats": {
+      "hp": 83,
+      "attack": 80,
+      "defense": 75,
+      "sp_attack": 70,
+      "sp_defense": 70,
+      "speed": 101
+    },
     "learnset": [
-      {"level": 1, "move": "Tackle"}, {"level": 4, "move": "Tail Whip"}, {"level": 7, "move": "Quick Attack"},
-      {"level": 14, "move": "Bite"}, {"level": 20, "move": "Hyper Fang"}
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 5,
+        "move": "Sand Attack"
+      },
+      {
+        "level": 9,
+        "move": "Gust"
+      },
+      {
+        "level": 15,
+        "move": "Quick Attack"
+      },
+      {
+        "level": 21,
+        "move": "Wing Attack"
+      },
+      {
+        "level": 27,
+        "move": "Agility"
+      },
+      {
+        "level": 38,
+        "move": "Mirror Move"
+      }
     ],
-    "evolution": {"to": 14, "level": 20}, "sprite": "rattata.png"
+    "evolution": null,
+    "sprite": "pidgeot.png"
   },
   {
-    "id": 14, "name": "Raticate", "types": ["normal"], "base_exp": 145, "catch_rate": 127,
-    "abilities": ["run_away"],
+    "id": 13,
+    "name": "Rattata",
+    "types": [
+      "normal"
+    ],
+    "base_exp": 51,
+    "catch_rate": 255,
+    "abilities": [
+      "run_away"
+    ],
     "gender_ratio": 50.0,
-    "egg_groups": ["field"],
-    "stats": {"hp": 55, "attack": 81, "defense": 60, "sp_attack": 50, "sp_defense": 70, "speed": 97},
+    "egg_groups": [
+      "field"
+    ],
+    "stats": {
+      "hp": 30,
+      "attack": 56,
+      "defense": 35,
+      "sp_attack": 25,
+      "sp_defense": 35,
+      "speed": 72
+    },
     "learnset": [
-      {"level": 1, "move": "Tackle"}, {"level": 4, "move": "Tail Whip"}, {"level": 7, "move": "Quick Attack"},
-      {"level": 14, "move": "Bite"}, {"level": 20, "move": "Hyper Fang"}, {"level": 27, "move": "Super Fang"}
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 4,
+        "move": "Tail Whip"
+      },
+      {
+        "level": 7,
+        "move": "Quick Attack"
+      },
+      {
+        "level": 14,
+        "move": "Bite"
+      },
+      {
+        "level": 20,
+        "move": "Hyper Fang"
+      }
     ],
-    "evolution": null, "sprite": "raticate.png"
+    "evolution": {
+      "to": 14,
+      "level": 20
+    },
+    "sprite": "rattata.png"
   },
   {
-    "id": 15, "name": "Pikachu", "types": ["electric"], "base_exp": 112, "catch_rate": 190,
-    "abilities": ["static"],
+    "id": 14,
+    "name": "Raticate",
+    "types": [
+      "normal"
+    ],
+    "base_exp": 145,
+    "catch_rate": 127,
+    "abilities": [
+      "run_away"
+    ],
     "gender_ratio": 50.0,
-    "egg_groups": ["field", "fairy"],
-    "stats": {"hp": 35, "attack": 55, "defense": 40, "sp_attack": 50, "sp_defense": 50, "speed": 90},
+    "egg_groups": [
+      "field"
+    ],
+    "stats": {
+      "hp": 55,
+      "attack": 81,
+      "defense": 60,
+      "sp_attack": 50,
+      "sp_defense": 70,
+      "speed": 97
+    },
     "learnset": [
-      {"level": 1, "move": "Thunder Shock"}, {"level": 5, "move": "Growl"}, {"level": 10, "move": "Quick Attack"},
-      {"level": 15, "move": "Thunder Wave"}, {"level": 20, "move": "Slam"}, {"level": 26, "move": "Thunderbolt"}
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 4,
+        "move": "Tail Whip"
+      },
+      {
+        "level": 7,
+        "move": "Quick Attack"
+      },
+      {
+        "level": 14,
+        "move": "Bite"
+      },
+      {
+        "level": 20,
+        "move": "Hyper Fang"
+      },
+      {
+        "level": 27,
+        "move": "Super Fang"
+      }
     ],
-    "evolution": null, "sprite": "pikachu.png"
+    "evolution": null,
+    "sprite": "raticate.png"
   },
   {
-    "id": 16, "name": "Raichu", "types": ["electric"], "base_exp": 218, "catch_rate": 75,
-    "abilities": ["static"],
+    "id": 15,
+    "name": "Pikachu",
+    "types": [
+      "electric"
+    ],
+    "base_exp": 112,
+    "catch_rate": 190,
+    "abilities": [
+      "static"
+    ],
     "gender_ratio": 50.0,
-    "egg_groups": ["field", "fairy"],
-    "stats": {"hp": 60, "attack": 90, "defense": 55, "sp_attack": 90, "sp_defense": 80, "speed": 110},
+    "egg_groups": [
+      "field",
+      "fairy"
+    ],
+    "stats": {
+      "hp": 35,
+      "attack": 55,
+      "defense": 40,
+      "sp_attack": 50,
+      "sp_defense": 50,
+      "speed": 90
+    },
     "learnset": [
-      {"level": 1, "move": "Thunder Shock"}, {"level": 1, "move": "Quick Attack"},
-      {"level": 1, "move": "Thunderbolt"}, {"level": 1, "move": "Thunder"}
+      {
+        "level": 1,
+        "move": "Thunder Shock"
+      },
+      {
+        "level": 5,
+        "move": "Growl"
+      },
+      {
+        "level": 10,
+        "move": "Quick Attack"
+      },
+      {
+        "level": 15,
+        "move": "Thunder Wave"
+      },
+      {
+        "level": 20,
+        "move": "Slam"
+      },
+      {
+        "level": 26,
+        "move": "Thunderbolt"
+      }
     ],
-    "evolution": null, "sprite": "raichu.png"
+    "evolution": null,
+    "sprite": "pikachu.png"
   },
   {
-    "id": 17, "name": "Geodude", "types": ["rock", "ground"], "base_exp": 60, "catch_rate": 255,
-    "abilities": ["rock_head", "sturdy"],
+    "id": 16,
+    "name": "Raichu",
+    "types": [
+      "electric"
+    ],
+    "base_exp": 218,
+    "catch_rate": 75,
+    "abilities": [
+      "static"
+    ],
     "gender_ratio": 50.0,
-    "egg_groups": ["mineral"],
-    "stats": {"hp": 40, "attack": 80, "defense": 100, "sp_attack": 30, "sp_defense": 30, "speed": 20},
+    "egg_groups": [
+      "field",
+      "fairy"
+    ],
+    "stats": {
+      "hp": 60,
+      "attack": 90,
+      "defense": 55,
+      "sp_attack": 90,
+      "sp_defense": 80,
+      "speed": 110
+    },
     "learnset": [
-      {"level": 1, "move": "Tackle"}, {"level": 1, "move": "Defense Curl"}, {"level": 11, "move": "Rock Throw"},
-      {"level": 16, "move": "Self-Destruct"}, {"level": 21, "move": "Rock Slide"}, {"level": 26, "move": "Earthquake"}
+      {
+        "level": 1,
+        "move": "Thunder Shock"
+      },
+      {
+        "level": 1,
+        "move": "Quick Attack"
+      },
+      {
+        "level": 1,
+        "move": "Thunderbolt"
+      },
+      {
+        "level": 1,
+        "move": "Thunder"
+      }
     ],
-    "evolution": null, "sprite": "geodude.png"
+    "evolution": null,
+    "sprite": "raichu.png"
   },
   {
-    "id": 18, "name": "Onix", "types": ["rock", "ground"], "base_exp": 77, "catch_rate": 45,
-    "abilities": ["rock_head", "sturdy"],
+    "id": 17,
+    "name": "Geodude",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "base_exp": 60,
+    "catch_rate": 255,
+    "abilities": [
+      "rock_head",
+      "sturdy"
+    ],
     "gender_ratio": 50.0,
-    "egg_groups": ["mineral"],
-    "stats": {"hp": 35, "attack": 45, "defense": 160, "sp_attack": 30, "sp_defense": 45, "speed": 70},
+    "egg_groups": [
+      "mineral"
+    ],
+    "stats": {
+      "hp": 40,
+      "attack": 80,
+      "defense": 100,
+      "sp_attack": 30,
+      "sp_defense": 30,
+      "speed": 20
+    },
     "learnset": [
-      {"level": 1, "move": "Tackle"}, {"level": 1, "move": "Screech"}, {"level": 9, "move": "Bind"},
-      {"level": 13, "move": "Rock Throw"}, {"level": 19, "move": "Rock Slide"}, {"level": 25, "move": "Earthquake"}
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 1,
+        "move": "Defense Curl"
+      },
+      {
+        "level": 11,
+        "move": "Rock Throw"
+      },
+      {
+        "level": 16,
+        "move": "Self-Destruct"
+      },
+      {
+        "level": 21,
+        "move": "Rock Slide"
+      },
+      {
+        "level": 26,
+        "move": "Earthquake"
+      }
     ],
-    "evolution": null, "sprite": "onix.png"
+    "evolution": null,
+    "sprite": "geodude.png"
   },
   {
-    "id": 19, "name": "Caterpie", "types": ["bug"], "base_exp": 39, "catch_rate": 255,
-    "abilities": ["run_away"],
+    "id": 18,
+    "name": "Onix",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "base_exp": 77,
+    "catch_rate": 45,
+    "abilities": [
+      "rock_head",
+      "sturdy"
+    ],
     "gender_ratio": 50.0,
-    "egg_groups": ["bug"],
-    "stats": {"hp": 45, "attack": 30, "defense": 35, "sp_attack": 20, "sp_defense": 20, "speed": 45},
-    "learnset": [{"level": 1, "move": "Tackle"}, {"level": 1, "move": "String Shot"}],
-    "evolution": null, "sprite": "caterpie.png"
+    "egg_groups": [
+      "mineral"
+    ],
+    "stats": {
+      "hp": 35,
+      "attack": 45,
+      "defense": 160,
+      "sp_attack": 30,
+      "sp_defense": 45,
+      "speed": 70
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 1,
+        "move": "Screech"
+      },
+      {
+        "level": 9,
+        "move": "Bind"
+      },
+      {
+        "level": 13,
+        "move": "Rock Throw"
+      },
+      {
+        "level": 19,
+        "move": "Rock Slide"
+      },
+      {
+        "level": 25,
+        "move": "Earthquake"
+      }
+    ],
+    "evolution": null,
+    "sprite": "onix.png"
   },
   {
-    "id": 20, "name": "Weedle", "types": ["bug", "poison"], "base_exp": 39, "catch_rate": 255,
-    "abilities": ["poison_point"],
+    "id": 19,
+    "name": "Caterpie",
+    "types": [
+      "bug"
+    ],
+    "base_exp": 39,
+    "catch_rate": 255,
+    "abilities": [
+      "run_away"
+    ],
     "gender_ratio": 50.0,
-    "egg_groups": ["bug"],
-    "stats": {"hp": 40, "attack": 35, "defense": 30, "sp_attack": 20, "sp_defense": 20, "speed": 50},
-    "learnset": [{"level": 1, "move": "Poison Sting"}, {"level": 1, "move": "String Shot"}],
-    "evolution": null, "sprite": "weedle.png"
+    "egg_groups": [
+      "bug"
+    ],
+    "stats": {
+      "hp": 45,
+      "attack": 30,
+      "defense": 35,
+      "sp_attack": 20,
+      "sp_defense": 20,
+      "speed": 45
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 1,
+        "move": "String Shot"
+      }
+    ],
+    "evolution": null,
+    "sprite": "caterpie.png"
   },
   {
-    "id": 21, "name": "Staryu", "types": ["water"], "base_exp": 68, "catch_rate": 225,
-    "abilities": ["water_absorb"],
+    "id": 20,
+    "name": "Weedle",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "base_exp": 39,
+    "catch_rate": 255,
+    "abilities": [
+      "poison_point"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "bug"
+    ],
+    "stats": {
+      "hp": 40,
+      "attack": 35,
+      "defense": 30,
+      "sp_attack": 20,
+      "sp_defense": 20,
+      "speed": 50
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Poison Sting"
+      },
+      {
+        "level": 1,
+        "move": "String Shot"
+      }
+    ],
+    "evolution": null,
+    "sprite": "weedle.png"
+  },
+  {
+    "id": 21,
+    "name": "Staryu",
+    "types": [
+      "water"
+    ],
+    "base_exp": 68,
+    "catch_rate": 225,
+    "abilities": [
+      "water_absorb"
+    ],
     "gender_ratio": null,
-    "egg_groups": ["water3"],
-    "stats": {"hp": 30, "attack": 45, "defense": 55, "sp_attack": 70, "sp_defense": 55, "speed": 85},
-    "learnset": [
-      {"level": 1, "move": "Tackle"}, {"level": 6, "move": "Harden"}, {"level": 11, "move": "Water Gun"},
-      {"level": 17, "move": "Swift"}, {"level": 22, "move": "Bubble Beam"}
+    "egg_groups": [
+      "water3"
     ],
-    "evolution": {"to": 22, "level": 0}, "sprite": "staryu.png"
+    "stats": {
+      "hp": 30,
+      "attack": 45,
+      "defense": 55,
+      "sp_attack": 70,
+      "sp_defense": 55,
+      "speed": 85
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 6,
+        "move": "Harden"
+      },
+      {
+        "level": 11,
+        "move": "Water Gun"
+      },
+      {
+        "level": 17,
+        "move": "Swift"
+      },
+      {
+        "level": 22,
+        "move": "Bubble Beam"
+      }
+    ],
+    "evolution": {
+      "to": 22,
+      "level": 0
+    },
+    "sprite": "staryu.png"
   },
   {
-    "id": 22, "name": "Starmie", "types": ["water", "psychic"], "base_exp": 182, "catch_rate": 60,
-    "abilities": ["water_absorb"],
+    "id": 22,
+    "name": "Starmie",
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "base_exp": 182,
+    "catch_rate": 60,
+    "abilities": [
+      "water_absorb"
+    ],
     "gender_ratio": null,
-    "egg_groups": ["water3"],
-    "stats": {"hp": 60, "attack": 75, "defense": 85, "sp_attack": 100, "sp_defense": 85, "speed": 115},
-    "learnset": [
-      {"level": 1, "move": "Tackle"}, {"level": 1, "move": "Water Gun"},
-      {"level": 1, "move": "Swift"}, {"level": 1, "move": "Hydro Pump"}
+    "egg_groups": [
+      "water3"
     ],
-    "evolution": null, "sprite": "starmie.png"
+    "stats": {
+      "hp": 60,
+      "attack": 75,
+      "defense": 85,
+      "sp_attack": 100,
+      "sp_defense": 85,
+      "speed": 115
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 1,
+        "move": "Water Gun"
+      },
+      {
+        "level": 1,
+        "move": "Swift"
+      },
+      {
+        "level": 1,
+        "move": "Hydro Pump"
+      }
+    ],
+    "evolution": null,
+    "sprite": "starmie.png"
   },
   {
-    "id": 133, "name": "Eevee", "types": ["normal"], "base_exp": 65, "catch_rate": 45,
-    "abilities": ["run_away", "adaptability"],
+    "id": 132,
+    "name": "Ditto",
+    "types": [
+      "normal"
+    ],
+    "base_exp": 101,
+    "catch_rate": 35,
+    "abilities": [
+      "limber"
+    ],
+    "gender_ratio": null,
+    "egg_groups": [
+      "ditto"
+    ],
+    "stats": {
+      "hp": 48,
+      "attack": 48,
+      "defense": 48,
+      "sp_attack": 48,
+      "sp_defense": 48,
+      "speed": 48
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Transform"
+      }
+    ],
+    "evolution": null,
+    "sprite": "ditto.png"
+  },
+  {
+    "id": 133,
+    "name": "Eevee",
+    "types": [
+      "normal"
+    ],
+    "base_exp": 65,
+    "catch_rate": 45,
+    "abilities": [
+      "run_away",
+      "adaptability"
+    ],
     "gender_ratio": 12.5,
-    "egg_groups": ["field"],
-    "stats": {"hp": 55, "attack": 55, "defense": 50, "sp_attack": 45, "sp_defense": 65, "speed": 55},
-    "learnset": [
-      {"level": 1, "move": "Tackle"}, {"level": 1, "move": "Tail Whip"}, {"level": 5, "move": "Sand Attack"},
-      {"level": 9, "move": "Growl"}, {"level": 13, "move": "Quick Attack"}, {"level": 17, "move": "Bite"},
-      {"level": 21, "move": "Swift"}, {"level": 25, "move": "Headbutt"}
+    "egg_groups": [
+      "field"
     ],
-    "evolution": null, "sprite": "eevee.png"
+    "stats": {
+      "hp": 55,
+      "attack": 55,
+      "defense": 50,
+      "sp_attack": 45,
+      "sp_defense": 65,
+      "speed": 55
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 1,
+        "move": "Tail Whip"
+      },
+      {
+        "level": 5,
+        "move": "Sand Attack"
+      },
+      {
+        "level": 9,
+        "move": "Growl"
+      },
+      {
+        "level": 13,
+        "move": "Quick Attack"
+      },
+      {
+        "level": 17,
+        "move": "Bite"
+      },
+      {
+        "level": 21,
+        "move": "Swift"
+      },
+      {
+        "level": 25,
+        "move": "Headbutt"
+      }
+    ],
+    "evolution": null,
+    "sprite": "eevee.png"
   },
   {
-    "id": 137, "name": "Porygon", "types": ["normal"], "base_exp": 79, "catch_rate": 45,
-    "abilities": ["trace"],
+    "id": 137,
+    "name": "Porygon",
+    "types": [
+      "normal"
+    ],
+    "base_exp": 79,
+    "catch_rate": 45,
+    "abilities": [
+      "trace"
+    ],
     "gender_ratio": null,
-    "egg_groups": ["mineral"],
-    "stats": {"hp": 65, "attack": 60, "defense": 70, "sp_attack": 85, "sp_defense": 75, "speed": 40},
-    "learnset": [
-      {"level": 1, "move": "Tackle"}, {"level": 1, "move": "Harden"}, {"level": 9, "move": "Swift"},
-      {"level": 15, "move": "Thunder Shock"}, {"level": 23, "move": "Ice Beam"}, {"level": 29, "move": "Thunderbolt"}
+    "egg_groups": [
+      "mineral"
     ],
-    "evolution": null, "sprite": "porygon.png"
+    "stats": {
+      "hp": 65,
+      "attack": 60,
+      "defense": 70,
+      "sp_attack": 85,
+      "sp_defense": 75,
+      "speed": 40
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 1,
+        "move": "Harden"
+      },
+      {
+        "level": 9,
+        "move": "Swift"
+      },
+      {
+        "level": 15,
+        "move": "Thunder Shock"
+      },
+      {
+        "level": 23,
+        "move": "Ice Beam"
+      },
+      {
+        "level": 29,
+        "move": "Thunderbolt"
+      }
+    ],
+    "evolution": null,
+    "sprite": "porygon.png"
   },
   {
-    "id": 147, "name": "Dratini", "types": ["dragon"], "base_exp": 60, "catch_rate": 45,
-    "abilities": ["shed_skin"],
-    "gender_ratio": 50.0,
-    "egg_groups": ["water1", "dragon"],
-    "stats": {"hp": 41, "attack": 64, "defense": 45, "sp_attack": 50, "sp_defense": 50, "speed": 50},
-    "learnset": [
-      {"level": 1, "move": "Tackle"}, {"level": 5, "move": "Thunder Wave"}, {"level": 11, "move": "Slam"},
-      {"level": 15, "move": "Agility"}, {"level": 21, "move": "Headbutt"}
+    "id": 147,
+    "name": "Dratini",
+    "types": [
+      "dragon"
     ],
-    "evolution": null, "sprite": "dratini.png"
+    "base_exp": 60,
+    "catch_rate": 45,
+    "abilities": [
+      "shed_skin"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "water1",
+      "dragon"
+    ],
+    "stats": {
+      "hp": 41,
+      "attack": 64,
+      "defense": 45,
+      "sp_attack": 50,
+      "sp_defense": 50,
+      "speed": 50
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 5,
+        "move": "Thunder Wave"
+      },
+      {
+        "level": 11,
+        "move": "Slam"
+      },
+      {
+        "level": 15,
+        "move": "Agility"
+      },
+      {
+        "level": 21,
+        "move": "Headbutt"
+      }
+    ],
+    "evolution": null,
+    "sprite": "dratini.png"
   },
   {
-    "id": 54, "name": "Psyduck", "types": ["water"], "base_exp": 64, "catch_rate": 190,
-    "abilities": ["damp", "cloud_nine"],
-    "gender_ratio": 50.0,
-    "egg_groups": ["water1", "field"],
-    "stats": {"hp": 50, "attack": 52, "defense": 48, "sp_attack": 65, "sp_defense": 50, "speed": 55},
-    "learnset": [
-      {"level": 1, "move": "Scratch"}, {"level": 1, "move": "Tail Whip"}, {"level": 5, "move": "Water Gun"},
-      {"level": 10, "move": "Confuse Ray"}, {"level": 16, "move": "Headbutt"}, {"level": 22, "move": "Bubble Beam"},
-      {"level": 28, "move": "Psychic"}
+    "id": 54,
+    "name": "Psyduck",
+    "types": [
+      "water"
     ],
-    "evolution": {"to": 55, "level": 33}, "sprite": "psyduck.png"
+    "base_exp": 64,
+    "catch_rate": 190,
+    "abilities": [
+      "damp",
+      "cloud_nine"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "water1",
+      "field"
+    ],
+    "stats": {
+      "hp": 50,
+      "attack": 52,
+      "defense": 48,
+      "sp_attack": 65,
+      "sp_defense": 50,
+      "speed": 55
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Scratch"
+      },
+      {
+        "level": 1,
+        "move": "Tail Whip"
+      },
+      {
+        "level": 5,
+        "move": "Water Gun"
+      },
+      {
+        "level": 10,
+        "move": "Confuse Ray"
+      },
+      {
+        "level": 16,
+        "move": "Headbutt"
+      },
+      {
+        "level": 22,
+        "move": "Bubble Beam"
+      },
+      {
+        "level": 28,
+        "move": "Psychic"
+      }
+    ],
+    "evolution": {
+      "to": 55,
+      "level": 33
+    },
+    "sprite": "psyduck.png"
   },
   {
-    "id": 55, "name": "Golduck", "types": ["water"], "base_exp": 175, "catch_rate": 75,
-    "abilities": ["damp", "cloud_nine"],
-    "gender_ratio": 50.0,
-    "egg_groups": ["water1", "field"],
-    "stats": {"hp": 80, "attack": 82, "defense": 78, "sp_attack": 95, "sp_defense": 80, "speed": 85},
-    "learnset": [
-      {"level": 1, "move": "Scratch"}, {"level": 1, "move": "Water Gun"},
-      {"level": 1, "move": "Confuse Ray"}, {"level": 1, "move": "Psychic"},
-      {"level": 33, "move": "Hydro Pump"}
+    "id": 55,
+    "name": "Golduck",
+    "types": [
+      "water"
     ],
-    "evolution": null, "sprite": "golduck.png"
+    "base_exp": 175,
+    "catch_rate": 75,
+    "abilities": [
+      "damp",
+      "cloud_nine"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "water1",
+      "field"
+    ],
+    "stats": {
+      "hp": 80,
+      "attack": 82,
+      "defense": 78,
+      "sp_attack": 95,
+      "sp_defense": 80,
+      "speed": 85
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Scratch"
+      },
+      {
+        "level": 1,
+        "move": "Water Gun"
+      },
+      {
+        "level": 1,
+        "move": "Confuse Ray"
+      },
+      {
+        "level": 1,
+        "move": "Psychic"
+      },
+      {
+        "level": 33,
+        "move": "Hydro Pump"
+      }
+    ],
+    "evolution": null,
+    "sprite": "golduck.png"
   },
   {
-    "id": 60, "name": "Poliwag", "types": ["water"], "base_exp": 60, "catch_rate": 255,
-    "abilities": ["water_absorb", "damp"],
-    "gender_ratio": 50.0,
-    "egg_groups": ["water1"],
-    "stats": {"hp": 40, "attack": 50, "defense": 40, "sp_attack": 40, "sp_defense": 40, "speed": 90},
-    "learnset": [
-      {"level": 1, "move": "Water Gun"}, {"level": 5, "move": "Bubble Beam"},
-      {"level": 11, "move": "Headbutt"}, {"level": 15, "move": "Slam"},
-      {"level": 21, "move": "Hydro Pump"}
+    "id": 60,
+    "name": "Poliwag",
+    "types": [
+      "water"
     ],
-    "evolution": {"to": 61, "level": 25}, "sprite": "poliwag.png"
+    "base_exp": 60,
+    "catch_rate": 255,
+    "abilities": [
+      "water_absorb",
+      "damp"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "water1"
+    ],
+    "stats": {
+      "hp": 40,
+      "attack": 50,
+      "defense": 40,
+      "sp_attack": 40,
+      "sp_defense": 40,
+      "speed": 90
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Water Gun"
+      },
+      {
+        "level": 5,
+        "move": "Bubble Beam"
+      },
+      {
+        "level": 11,
+        "move": "Headbutt"
+      },
+      {
+        "level": 15,
+        "move": "Slam"
+      },
+      {
+        "level": 21,
+        "move": "Hydro Pump"
+      }
+    ],
+    "evolution": {
+      "to": 61,
+      "level": 25
+    },
+    "sprite": "poliwag.png"
   },
   {
-    "id": 61, "name": "Poliwhirl", "types": ["water"], "base_exp": 135, "catch_rate": 120,
-    "abilities": ["water_absorb", "damp"],
-    "gender_ratio": 50.0,
-    "egg_groups": ["water1"],
-    "stats": {"hp": 65, "attack": 65, "defense": 65, "sp_attack": 50, "sp_defense": 50, "speed": 90},
-    "learnset": [
-      {"level": 1, "move": "Water Gun"}, {"level": 1, "move": "Bubble Beam"},
-      {"level": 1, "move": "Headbutt"}, {"level": 25, "move": "Slam"},
-      {"level": 33, "move": "Hydro Pump"}
+    "id": 61,
+    "name": "Poliwhirl",
+    "types": [
+      "water"
     ],
-    "evolution": null, "sprite": "poliwhirl.png"
+    "base_exp": 135,
+    "catch_rate": 120,
+    "abilities": [
+      "water_absorb",
+      "damp"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "water1"
+    ],
+    "stats": {
+      "hp": 65,
+      "attack": 65,
+      "defense": 65,
+      "sp_attack": 50,
+      "sp_defense": 50,
+      "speed": 90
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Water Gun"
+      },
+      {
+        "level": 1,
+        "move": "Bubble Beam"
+      },
+      {
+        "level": 1,
+        "move": "Headbutt"
+      },
+      {
+        "level": 25,
+        "move": "Slam"
+      },
+      {
+        "level": 33,
+        "move": "Hydro Pump"
+      }
+    ],
+    "evolution": null,
+    "sprite": "poliwhirl.png"
   },
   {
-    "id": 72, "name": "Tentacool", "types": ["water", "poison"], "base_exp": 67, "catch_rate": 190,
-    "abilities": ["clear_body", "liquid_ooze"],
-    "gender_ratio": 50.0,
-    "egg_groups": ["water3"],
-    "stats": {"hp": 40, "attack": 40, "defense": 35, "sp_attack": 50, "sp_defense": 100, "speed": 70},
-    "learnset": [
-      {"level": 1, "move": "Poison Sting"}, {"level": 5, "move": "Water Gun"},
-      {"level": 10, "move": "Confuse Ray"}, {"level": 15, "move": "Toxic"},
-      {"level": 22, "move": "Bubble Beam"}, {"level": 30, "move": "Hydro Pump"}
+    "id": 72,
+    "name": "Tentacool",
+    "types": [
+      "water",
+      "poison"
     ],
-    "evolution": {"to": 73, "level": 30}, "sprite": "tentacool.png"
+    "base_exp": 67,
+    "catch_rate": 190,
+    "abilities": [
+      "clear_body",
+      "liquid_ooze"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "water3"
+    ],
+    "stats": {
+      "hp": 40,
+      "attack": 40,
+      "defense": 35,
+      "sp_attack": 50,
+      "sp_defense": 100,
+      "speed": 70
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Poison Sting"
+      },
+      {
+        "level": 5,
+        "move": "Water Gun"
+      },
+      {
+        "level": 10,
+        "move": "Confuse Ray"
+      },
+      {
+        "level": 15,
+        "move": "Toxic"
+      },
+      {
+        "level": 22,
+        "move": "Bubble Beam"
+      },
+      {
+        "level": 30,
+        "move": "Hydro Pump"
+      }
+    ],
+    "evolution": {
+      "to": 73,
+      "level": 30
+    },
+    "sprite": "tentacool.png"
   },
   {
-    "id": 73, "name": "Tentacruel", "types": ["water", "poison"], "base_exp": 180, "catch_rate": 60,
-    "abilities": ["clear_body", "liquid_ooze"],
-    "gender_ratio": 50.0,
-    "egg_groups": ["water3"],
-    "stats": {"hp": 80, "attack": 70, "defense": 65, "sp_attack": 80, "sp_defense": 120, "speed": 100},
-    "learnset": [
-      {"level": 1, "move": "Poison Sting"}, {"level": 1, "move": "Water Gun"},
-      {"level": 1, "move": "Toxic"}, {"level": 1, "move": "Bubble Beam"},
-      {"level": 30, "move": "Hydro Pump"}
+    "id": 73,
+    "name": "Tentacruel",
+    "types": [
+      "water",
+      "poison"
     ],
-    "evolution": null, "sprite": "tentacruel.png"
+    "base_exp": 180,
+    "catch_rate": 60,
+    "abilities": [
+      "clear_body",
+      "liquid_ooze"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "water3"
+    ],
+    "stats": {
+      "hp": 80,
+      "attack": 70,
+      "defense": 65,
+      "sp_attack": 80,
+      "sp_defense": 120,
+      "speed": 100
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Poison Sting"
+      },
+      {
+        "level": 1,
+        "move": "Water Gun"
+      },
+      {
+        "level": 1,
+        "move": "Toxic"
+      },
+      {
+        "level": 1,
+        "move": "Bubble Beam"
+      },
+      {
+        "level": 30,
+        "move": "Hydro Pump"
+      }
+    ],
+    "evolution": null,
+    "sprite": "tentacruel.png"
   },
   {
-    "id": 90, "name": "Shellder", "types": ["water"], "base_exp": 61, "catch_rate": 190,
-    "abilities": ["shell_armor"],
-    "gender_ratio": 50.0,
-    "egg_groups": ["water3"],
-    "stats": {"hp": 30, "attack": 65, "defense": 100, "sp_attack": 45, "sp_defense": 25, "speed": 40},
-    "learnset": [
-      {"level": 1, "move": "Tackle"}, {"level": 1, "move": "Harden"},
-      {"level": 8, "move": "Water Gun"}, {"level": 15, "move": "Ice Beam"},
-      {"level": 22, "move": "Bubble Beam"}
+    "id": 90,
+    "name": "Shellder",
+    "types": [
+      "water"
     ],
-    "evolution": null, "sprite": "shellder.png"
+    "base_exp": 61,
+    "catch_rate": 190,
+    "abilities": [
+      "shell_armor"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "water3"
+    ],
+    "stats": {
+      "hp": 30,
+      "attack": 65,
+      "defense": 100,
+      "sp_attack": 45,
+      "sp_defense": 25,
+      "speed": 40
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 1,
+        "move": "Harden"
+      },
+      {
+        "level": 8,
+        "move": "Water Gun"
+      },
+      {
+        "level": 15,
+        "move": "Ice Beam"
+      },
+      {
+        "level": 22,
+        "move": "Bubble Beam"
+      }
+    ],
+    "evolution": null,
+    "sprite": "shellder.png"
   },
   {
-    "id": 116, "name": "Horsea", "types": ["water"], "base_exp": 59, "catch_rate": 225,
-    "abilities": ["swift_swim"],
-    "gender_ratio": 50.0,
-    "egg_groups": ["water1", "dragon"],
-    "stats": {"hp": 30, "attack": 40, "defense": 70, "sp_attack": 70, "sp_defense": 25, "speed": 60},
-    "learnset": [
-      {"level": 1, "move": "Water Gun"}, {"level": 5, "move": "Bubble Beam"},
-      {"level": 11, "move": "Agility"}, {"level": 18, "move": "Headbutt"},
-      {"level": 25, "move": "Hydro Pump"}
+    "id": 116,
+    "name": "Horsea",
+    "types": [
+      "water"
     ],
-    "evolution": {"to": 117, "level": 32}, "sprite": "horsea.png"
+    "base_exp": 59,
+    "catch_rate": 225,
+    "abilities": [
+      "swift_swim"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "water1",
+      "dragon"
+    ],
+    "stats": {
+      "hp": 30,
+      "attack": 40,
+      "defense": 70,
+      "sp_attack": 70,
+      "sp_defense": 25,
+      "speed": 60
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Water Gun"
+      },
+      {
+        "level": 5,
+        "move": "Bubble Beam"
+      },
+      {
+        "level": 11,
+        "move": "Agility"
+      },
+      {
+        "level": 18,
+        "move": "Headbutt"
+      },
+      {
+        "level": 25,
+        "move": "Hydro Pump"
+      }
+    ],
+    "evolution": {
+      "to": 117,
+      "level": 32
+    },
+    "sprite": "horsea.png"
   },
   {
-    "id": 117, "name": "Seadra", "types": ["water"], "base_exp": 154, "catch_rate": 75,
-    "abilities": ["swift_swim"],
-    "gender_ratio": 50.0,
-    "egg_groups": ["water1", "dragon"],
-    "stats": {"hp": 55, "attack": 65, "defense": 95, "sp_attack": 95, "sp_defense": 45, "speed": 85},
-    "learnset": [
-      {"level": 1, "move": "Water Gun"}, {"level": 1, "move": "Bubble Beam"},
-      {"level": 1, "move": "Agility"}, {"level": 32, "move": "Hydro Pump"}
+    "id": 117,
+    "name": "Seadra",
+    "types": [
+      "water"
     ],
-    "evolution": null, "sprite": "seadra.png"
+    "base_exp": 154,
+    "catch_rate": 75,
+    "abilities": [
+      "swift_swim"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "water1",
+      "dragon"
+    ],
+    "stats": {
+      "hp": 55,
+      "attack": 65,
+      "defense": 95,
+      "sp_attack": 95,
+      "sp_defense": 45,
+      "speed": 85
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Water Gun"
+      },
+      {
+        "level": 1,
+        "move": "Bubble Beam"
+      },
+      {
+        "level": 1,
+        "move": "Agility"
+      },
+      {
+        "level": 32,
+        "move": "Hydro Pump"
+      }
+    ],
+    "evolution": null,
+    "sprite": "seadra.png"
   },
   {
-    "id": 118, "name": "Goldeen", "types": ["water"], "base_exp": 64, "catch_rate": 225,
-    "abilities": ["swift_swim", "water_veil"],
-    "gender_ratio": 50.0,
-    "egg_groups": ["water2"],
-    "stats": {"hp": 45, "attack": 67, "defense": 60, "sp_attack": 35, "sp_defense": 50, "speed": 63},
-    "learnset": [
-      {"level": 1, "move": "Tackle"}, {"level": 5, "move": "Tail Whip"},
-      {"level": 10, "move": "Water Gun"}, {"level": 15, "move": "Headbutt"},
-      {"level": 22, "move": "Bubble Beam"}, {"level": 29, "move": "Hydro Pump"}
+    "id": 118,
+    "name": "Goldeen",
+    "types": [
+      "water"
     ],
-    "evolution": {"to": 119, "level": 33}, "sprite": "goldeen.png"
+    "base_exp": 64,
+    "catch_rate": 225,
+    "abilities": [
+      "swift_swim",
+      "water_veil"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "water2"
+    ],
+    "stats": {
+      "hp": 45,
+      "attack": 67,
+      "defense": 60,
+      "sp_attack": 35,
+      "sp_defense": 50,
+      "speed": 63
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 5,
+        "move": "Tail Whip"
+      },
+      {
+        "level": 10,
+        "move": "Water Gun"
+      },
+      {
+        "level": 15,
+        "move": "Headbutt"
+      },
+      {
+        "level": 22,
+        "move": "Bubble Beam"
+      },
+      {
+        "level": 29,
+        "move": "Hydro Pump"
+      }
+    ],
+    "evolution": {
+      "to": 119,
+      "level": 33
+    },
+    "sprite": "goldeen.png"
   },
   {
-    "id": 119, "name": "Seaking", "types": ["water"], "base_exp": 158, "catch_rate": 60,
-    "abilities": ["swift_swim", "water_veil"],
-    "gender_ratio": 50.0,
-    "egg_groups": ["water2"],
-    "stats": {"hp": 80, "attack": 92, "defense": 65, "sp_attack": 65, "sp_defense": 80, "speed": 68},
-    "learnset": [
-      {"level": 1, "move": "Tackle"}, {"level": 1, "move": "Water Gun"},
-      {"level": 1, "move": "Headbutt"}, {"level": 33, "move": "Bubble Beam"},
-      {"level": 40, "move": "Hydro Pump"}
+    "id": 119,
+    "name": "Seaking",
+    "types": [
+      "water"
     ],
-    "evolution": null, "sprite": "seaking.png"
+    "base_exp": 158,
+    "catch_rate": 60,
+    "abilities": [
+      "swift_swim",
+      "water_veil"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "water2"
+    ],
+    "stats": {
+      "hp": 80,
+      "attack": 92,
+      "defense": 65,
+      "sp_attack": 65,
+      "sp_defense": 80,
+      "speed": 68
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 1,
+        "move": "Water Gun"
+      },
+      {
+        "level": 1,
+        "move": "Headbutt"
+      },
+      {
+        "level": 33,
+        "move": "Bubble Beam"
+      },
+      {
+        "level": 40,
+        "move": "Hydro Pump"
+      }
+    ],
+    "evolution": null,
+    "sprite": "seaking.png"
   },
   {
-    "id": 129, "name": "Magikarp", "types": ["water"], "base_exp": 40, "catch_rate": 255,
-    "abilities": ["swift_swim"],
-    "gender_ratio": 50.0,
-    "egg_groups": ["water2", "dragon"],
-    "stats": {"hp": 20, "attack": 10, "defense": 55, "sp_attack": 15, "sp_defense": 20, "speed": 80},
-    "learnset": [
-      {"level": 1, "move": "Tackle"}, {"level": 15, "move": "Slam"}
+    "id": 129,
+    "name": "Magikarp",
+    "types": [
+      "water"
     ],
-    "evolution": {"to": 130, "level": 20}, "sprite": "magikarp.png"
+    "base_exp": 40,
+    "catch_rate": 255,
+    "abilities": [
+      "swift_swim"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "water2",
+      "dragon"
+    ],
+    "stats": {
+      "hp": 20,
+      "attack": 10,
+      "defense": 55,
+      "sp_attack": 15,
+      "sp_defense": 20,
+      "speed": 80
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 15,
+        "move": "Slam"
+      }
+    ],
+    "evolution": {
+      "to": 130,
+      "level": 20
+    },
+    "sprite": "magikarp.png"
   },
   {
-    "id": 130, "name": "Gyarados", "types": ["water", "flying"], "base_exp": 189, "catch_rate": 45,
-    "abilities": ["intimidate"],
-    "gender_ratio": 50.0,
-    "egg_groups": ["water2", "dragon"],
-    "stats": {"hp": 95, "attack": 125, "defense": 79, "sp_attack": 60, "sp_defense": 100, "speed": 81},
-    "learnset": [
-      {"level": 1, "move": "Bite"}, {"level": 1, "move": "Slam"},
-      {"level": 20, "move": "Headbutt"}, {"level": 25, "move": "Hydro Pump"},
-      {"level": 32, "move": "Earthquake"}, {"level": 40, "move": "Hyper Fang"}
+    "id": 130,
+    "name": "Gyarados",
+    "types": [
+      "water",
+      "flying"
     ],
-    "evolution": null, "sprite": "gyarados.png"
+    "base_exp": 189,
+    "catch_rate": 45,
+    "abilities": [
+      "intimidate"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "water2",
+      "dragon"
+    ],
+    "stats": {
+      "hp": 95,
+      "attack": 125,
+      "defense": 79,
+      "sp_attack": 60,
+      "sp_defense": 100,
+      "speed": 81
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Bite"
+      },
+      {
+        "level": 1,
+        "move": "Slam"
+      },
+      {
+        "level": 20,
+        "move": "Headbutt"
+      },
+      {
+        "level": 25,
+        "move": "Hydro Pump"
+      },
+      {
+        "level": 32,
+        "move": "Earthquake"
+      },
+      {
+        "level": 40,
+        "move": "Hyper Fang"
+      }
+    ],
+    "evolution": null,
+    "sprite": "gyarados.png"
   }
 ]

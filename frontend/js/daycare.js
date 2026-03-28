@@ -91,22 +91,28 @@ const Daycare = (() => {
     function collectEgg() {
         API.daycareCollectEgg().then(data => {
             if (data && data.success && data.egg) {
-                // Add egg to party
+                const eggPokemon = {
+                    name: 'Egg',
+                    type: data.egg.types ? data.egg.types[0] : 'Normal',
+                    level: 1,
+                    hp: 10,
+                    maxHp: 10,
+                    is_egg: true,
+                    hatch_counter: data.egg.hatch_counter || HATCH_STEPS,
+                    species_id: data.egg.id,
+                    egg_data: data.egg,
+                };
+                // Add egg to party if room, else send to PC
                 if (Game.player.party && Game.player.party.length < 6) {
-                    Game.player.party.push({
-                        name: 'Egg',
-                        type: data.egg.types ? data.egg.types[0] : 'Normal',
-                        level: 1,
-                        hp: 10,
-                        maxHp: 10,
-                        is_egg: true,
-                        hatch_counter: data.egg.hatch_counter || HATCH_STEPS,
-                        species_id: data.egg.id,
-                        egg_data: data.egg,
-                    });
+                    Game.player.party.push(eggPokemon);
+                    showNotify('You received an egg!');
+                } else {
+                    // Party full — store in local PC box (syncs on save)
+                    if (!Game.player.pcBox) Game.player.pcBox = [];
+                    Game.player.pcBox.push(eggPokemon);
+                    showNotify('Party full! Egg sent to PC.');
                 }
                 if (daycareStatus) daycareStatus.egg_ready = false;
-                showNotify('You received an egg!');
             } else {
                 showNotify(data && data.detail ? data.detail : 'No egg available');
             }
