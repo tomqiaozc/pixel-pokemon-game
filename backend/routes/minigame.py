@@ -1,10 +1,14 @@
 """Mini-game, coin, and prize exchange API routes."""
 from __future__ import annotations
 
+from typing import Optional
+
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 
 from ..services.minigame_service import (
+    COIN_PRICE,
+    COINS_PER_PURCHASE,
     buy_coins,
     complete_memory_game,
     get_coin_balance,
@@ -23,7 +27,8 @@ router = APIRouter(prefix="/api/minigames", tags=["minigames"])
 
 class BuyCoinsRequest(BaseModel):
     game_id: str
-    amount: int = 1  # number of purchases (each = 50 coins for $1000)
+    money_amount: Optional[int] = None
+    amount: int = 1
 
 
 @router.get("/coins/{game_id}")
@@ -36,7 +41,11 @@ def coins_balance(game_id: str):
 
 @router.post("/coins/buy")
 def coins_buy(req: BuyCoinsRequest):
-    result = buy_coins(req.game_id, req.amount)
+    if req.money_amount is not None:
+        purchase_count = req.money_amount // COIN_PRICE
+    else:
+        purchase_count = req.amount
+    result = buy_coins(req.game_id, purchase_count)
     if result is None:
         raise HTTPException(status_code=400, detail="Cannot buy coins — insufficient money or invalid amount")
     return result.model_dump()
@@ -46,7 +55,7 @@ def coins_buy(req: BuyCoinsRequest):
 
 class SlotSpinRequest(BaseModel):
     game_id: str
-    bet: int = 3
+    bet: int = 1
 
 
 @router.post("/slots/spin")
@@ -103,7 +112,10 @@ def quiz_start(req: QuizStartRequest):
     session = start_quiz(req.game_id)
     if session is None:
         raise HTTPException(status_code=404, detail="Game not found")
-    return session.model_dump()
+    data = session.model_dump()
+    for q in data["questions"]:
+        q.pop("correct_index", None)
+    return data
 
 
 @router.post("/quiz/submit")

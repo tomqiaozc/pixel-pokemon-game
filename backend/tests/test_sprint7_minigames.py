@@ -291,19 +291,21 @@ class TestMemoryGame:
     def test_hard_difficulty_more_coins(self):
         game = _make_game()
         gid = game["id"]
-        # Easy
+        # Easy — complete all pairs quickly
         client.post("/api/minigames/memory/start", json={"game_id": gid, "difficulty": "easy"})
+        easy_pairs = MEMORY_DIFFICULTY["easy"]["pairs"]
         resp = client.post("/api/minigames/memory/complete", json={
             "game_id": gid, "difficulty": "easy",
-            "time_seconds": 50, "pairs_matched": 6,
+            "time_seconds": 20, "pairs_matched": easy_pairs,
         })
         easy_coins = resp.json()["coins_earned"]
 
-        # Hard
+        # Hard — complete all pairs quickly
         client.post("/api/minigames/memory/start", json={"game_id": gid, "difficulty": "hard"})
+        hard_pairs = MEMORY_DIFFICULTY["hard"]["pairs"]
         resp = client.post("/api/minigames/memory/complete", json={
             "game_id": gid, "difficulty": "hard",
-            "time_seconds": 100, "pairs_matched": 15,
+            "time_seconds": 30, "pairs_matched": hard_pairs,
         })
         hard_coins = resp.json()["coins_earned"]
 
@@ -325,7 +327,8 @@ class TestQuizSystem:
         for q in data["questions"]:
             assert "question" in q
             assert len(q["options"]) == 4
-            assert 0 <= q["correct_index"] <= 3
+            # correct_index should NOT be in API response (Bug #2 fix)
+            assert "correct_index" not in q
         _cleanup(gid)
 
     def test_start_quiz_game_not_found(self):
@@ -338,7 +341,9 @@ class TestQuizSystem:
         resp = client.post("/api/minigames/quiz/start", json={"game_id": gid})
         data = resp.json()
         sid = data["session_id"]
-        correct_answers = [q["correct_index"] for q in data["questions"]]
+        # Get correct answers from internal session (API hides them)
+        session = _quiz_sessions[sid]
+        correct_answers = [q.correct_index for q in session.questions]
 
         resp = client.post("/api/minigames/quiz/submit", json={
             "session_id": sid, "answers": correct_answers,
@@ -356,8 +361,9 @@ class TestQuizSystem:
         resp = client.post("/api/minigames/quiz/start", json={"game_id": gid})
         data = resp.json()
         sid = data["session_id"]
-        # Answer all incorrectly
-        wrong_answers = [(q["correct_index"] + 1) % 4 for q in data["questions"]]
+        # Get correct answers from internal session, then offset to get wrong answers
+        session = _quiz_sessions[sid]
+        wrong_answers = [(q.correct_index + 1) % 4 for q in session.questions]
 
         resp = client.post("/api/minigames/quiz/submit", json={
             "session_id": sid, "answers": wrong_answers,
@@ -413,9 +419,12 @@ class TestQuizSystem:
         gid = game["id"]
         resp = client.post("/api/minigames/quiz/start", json={"game_id": gid})
         data = resp.json()
-        correct_answers = [q["correct_index"] for q in data["questions"]]
+        sid = data["session_id"]
+        # Get correct answers from internal session (API hides them)
+        session = _quiz_sessions[sid]
+        correct_answers = [q.correct_index for q in session.questions]
         resp = client.post("/api/minigames/quiz/submit", json={
-            "session_id": data["session_id"], "answers": correct_answers,
+            "session_id": sid, "answers": correct_answers,
         })
         result = resp.json()
         assert result["coins_before"] == 0

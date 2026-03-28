@@ -42,9 +42,9 @@ SLOT_PAYOUTS = {
 }
 
 MEMORY_DIFFICULTY = {
-    "easy": {"pairs": 6, "base_coins": 10, "multiplier": 1.0, "max_time": 120},
-    "medium": {"pairs": 10, "base_coins": 20, "multiplier": 1.5, "max_time": 180},
-    "hard": {"pairs": 15, "base_coins": 40, "multiplier": 2.0, "max_time": 300},
+    "easy": {"pairs": 8, "base_coins": 10, "multiplier": 1.0, "max_time": 65},
+    "medium": {"pairs": 10, "base_coins": 20, "multiplier": 1.5, "max_time": 80},
+    "hard": {"pairs": 12, "base_coins": 40, "multiplier": 2.0, "max_time": 95},
 }
 
 QUIZ_COINS_PER_CORRECT = 5
@@ -168,7 +168,7 @@ def buy_coins(game_id: str, amount: int = 1) -> CoinTransaction | None:
 
 # ── Slot Machine ───────────────────────────────────────────
 
-def spin_slots(game_id: str, bet: int = 3) -> SlotResult | None:
+def spin_slots(game_id: str, bet: int = 1) -> SlotResult | None:
     """Spin the slot machine. Bet is in coins. Returns SlotResult or None on error."""
     player = _get_player(game_id)
     if player is None:
@@ -508,7 +508,7 @@ def redeem_prize(game_id: str, prize_id: int) -> RedeemResult | None:
 
 
 def _add_prize_pokemon(game_id: str, species_id: int, level: int) -> None:
-    """Add a prize Pokemon to the player's team."""
+    """Add a prize Pokemon to the player's team, or PC if team is full."""
     species = get_species(species_id)
     if species is None:
         return
@@ -545,6 +545,9 @@ def _add_prize_pokemon(game_id: str, species_id: int, level: int) -> None:
     team = player.get("team", [])
     if len(team) < 6:
         team.append(pokemon_data)
+    else:
+        from .pokedex_service import auto_deposit
+        auto_deposit(game_id, pokemon_data)
 
 
 def _add_prize_item(game_id: str, item_id: int) -> None:
