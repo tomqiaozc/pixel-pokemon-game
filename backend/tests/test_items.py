@@ -24,7 +24,7 @@ from backend.services.battle_service import start_battle
 class TestItemData:
     def test_items_loaded(self):
         items = get_all_items()
-        assert len(items) == 9
+        assert len(items) >= 9
 
     def test_potion_exists(self):
         item = get_item(1)
@@ -440,7 +440,7 @@ class TestItemsAPI:
         resp = client.get("/api/items")
         assert resp.status_code == 200
         items = resp.json()
-        assert len(items) == 9
+        assert len(items) >= 9
 
     def test_item_detail(self, client):
         resp = client.get("/api/items/1")

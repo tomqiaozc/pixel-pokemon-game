@@ -1,55 +1,528 @@
 {
-  "Tackle": {"name": "Tackle", "type": "normal", "category": "physical", "power": 40, "accuracy": 100, "pp": 35, "contact": true},
-  "Scratch": {"name": "Scratch", "type": "normal", "category": "physical", "power": 40, "accuracy": 100, "pp": 35, "contact": true},
-  "Growl": {"name": "Growl", "type": "normal", "category": "status", "power": 0, "accuracy": 100, "pp": 40, "contact": false},
-  "Tail Whip": {"name": "Tail Whip", "type": "normal", "category": "status", "power": 0, "accuracy": 100, "pp": 30, "contact": false},
-  "Sand Attack": {"name": "Sand Attack", "type": "ground", "category": "status", "power": 0, "accuracy": 100, "pp": 15, "contact": false},
-  "Vine Whip": {"name": "Vine Whip", "type": "grass", "category": "physical", "power": 45, "accuracy": 100, "pp": 25, "contact": true},
-  "Razor Leaf": {"name": "Razor Leaf", "type": "grass", "category": "physical", "power": 55, "accuracy": 95, "pp": 25, "contact": false},
-  "Solar Beam": {"name": "Solar Beam", "type": "grass", "category": "special", "power": 120, "accuracy": 100, "pp": 10, "contact": false},
-  "Sleep Powder": {"name": "Sleep Powder", "type": "grass", "category": "status", "power": 0, "accuracy": 75, "pp": 15, "contact": false},
-  "Synthesis": {"name": "Synthesis", "type": "grass", "category": "status", "power": 0, "accuracy": 100, "pp": 5, "contact": false},
-  "Ember": {"name": "Ember", "type": "fire", "category": "special", "power": 40, "accuracy": 100, "pp": 25, "contact": false},
-  "Fire Spin": {"name": "Fire Spin", "type": "fire", "category": "special", "power": 35, "accuracy": 85, "pp": 15, "contact": false},
-  "Flamethrower": {"name": "Flamethrower", "type": "fire", "category": "special", "power": 90, "accuracy": 100, "pp": 15, "contact": false},
-  "Fire Blast": {"name": "Fire Blast", "type": "fire", "category": "special", "power": 110, "accuracy": 85, "pp": 5, "contact": false},
-  "Slash": {"name": "Slash", "type": "normal", "category": "physical", "power": 70, "accuracy": 100, "pp": 20, "contact": true},
-  "Wing Attack": {"name": "Wing Attack", "type": "flying", "category": "physical", "power": 60, "accuracy": 100, "pp": 35, "contact": true},
-  "Water Gun": {"name": "Water Gun", "type": "water", "category": "special", "power": 40, "accuracy": 100, "pp": 25, "contact": false},
-  "Bubble Beam": {"name": "Bubble Beam", "type": "water", "category": "special", "power": 65, "accuracy": 100, "pp": 20, "contact": false},
-  "Hydro Pump": {"name": "Hydro Pump", "type": "water", "category": "special", "power": 110, "accuracy": 80, "pp": 5, "contact": false},
-  "Hydro Cannon": {"name": "Hydro Cannon", "type": "water", "category": "special", "power": 150, "accuracy": 90, "pp": 5, "contact": false},
-  "Bite": {"name": "Bite", "type": "normal", "category": "physical", "power": 60, "accuracy": 100, "pp": 25, "contact": true},
-  "Skull Bash": {"name": "Skull Bash", "type": "normal", "category": "physical", "power": 130, "accuracy": 100, "pp": 10, "contact": true},
-  "Gust": {"name": "Gust", "type": "flying", "category": "special", "power": 40, "accuracy": 100, "pp": 35, "contact": false},
-  "Quick Attack": {"name": "Quick Attack", "type": "normal", "category": "physical", "power": 40, "accuracy": 100, "pp": 30, "contact": true},
-  "Agility": {"name": "Agility", "type": "psychic", "category": "status", "power": 0, "accuracy": 100, "pp": 30, "contact": false},
-  "Mirror Move": {"name": "Mirror Move", "type": "flying", "category": "status", "power": 0, "accuracy": 100, "pp": 20, "contact": false},
-  "Hyper Fang": {"name": "Hyper Fang", "type": "normal", "category": "physical", "power": 80, "accuracy": 90, "pp": 15, "contact": true},
-  "Super Fang": {"name": "Super Fang", "type": "normal", "category": "physical", "power": 1, "accuracy": 90, "pp": 10, "contact": true},
-  "Thunder Shock": {"name": "Thunder Shock", "type": "electric", "category": "special", "power": 40, "accuracy": 100, "pp": 30, "contact": false},
-  "Thunder Wave": {"name": "Thunder Wave", "type": "electric", "category": "status", "power": 0, "accuracy": 90, "pp": 20, "contact": false},
-  "Thunderbolt": {"name": "Thunderbolt", "type": "electric", "category": "special", "power": 90, "accuracy": 100, "pp": 15, "contact": false},
-  "Thunder": {"name": "Thunder", "type": "electric", "category": "special", "power": 110, "accuracy": 70, "pp": 10, "contact": false},
-  "Slam": {"name": "Slam", "type": "normal", "category": "physical", "power": 80, "accuracy": 75, "pp": 20, "contact": true},
-  "Rock Throw": {"name": "Rock Throw", "type": "rock", "category": "physical", "power": 50, "accuracy": 90, "pp": 15, "contact": false},
-  "Defense Curl": {"name": "Defense Curl", "type": "normal", "category": "status", "power": 0, "accuracy": 100, "pp": 40, "contact": false},
-  "Bind": {"name": "Bind", "type": "normal", "category": "physical", "power": 15, "accuracy": 85, "pp": 20, "contact": true},
-  "Screech": {"name": "Screech", "type": "normal", "category": "status", "power": 0, "accuracy": 85, "pp": 40, "contact": false},
-  "Poison Sting": {"name": "Poison Sting", "type": "poison", "category": "physical", "power": 15, "accuracy": 100, "pp": 35, "contact": false},
-  "String Shot": {"name": "String Shot", "type": "bug", "category": "status", "power": 0, "accuracy": 95, "pp": 40, "contact": false},
-  "Harden": {"name": "Harden", "type": "normal", "category": "status", "power": 0, "accuracy": 100, "pp": 30, "contact": false},
-  "Swift": {"name": "Swift", "type": "normal", "category": "special", "power": 60, "accuracy": 100, "pp": 20, "contact": false},
-  "Rock Slide": {"name": "Rock Slide", "type": "rock", "category": "physical", "power": 75, "accuracy": 90, "pp": 10, "contact": false},
-  "Earthquake": {"name": "Earthquake", "type": "ground", "category": "physical", "power": 100, "accuracy": 100, "pp": 10, "contact": false},
-  "Self-Destruct": {"name": "Self-Destruct", "type": "normal", "category": "physical", "power": 200, "accuracy": 100, "pp": 5, "contact": false},
-  "Rain Dance": {"name": "Rain Dance", "type": "water", "category": "status", "power": 0, "accuracy": 100, "pp": 5, "contact": false, "weather_effect": "rain"},
-  "Sunny Day": {"name": "Sunny Day", "type": "fire", "category": "status", "power": 0, "accuracy": 100, "pp": 5, "contact": false, "weather_effect": "sun"},
-  "Sandstorm": {"name": "Sandstorm", "type": "rock", "category": "status", "power": 0, "accuracy": 100, "pp": 10, "contact": false, "weather_effect": "sandstorm"},
-  "Hail": {"name": "Hail", "type": "ice", "category": "status", "power": 0, "accuracy": 100, "pp": 10, "contact": false, "weather_effect": "hail"},
-  "Blizzard": {"name": "Blizzard", "type": "ice", "category": "special", "power": 110, "accuracy": 70, "pp": 5, "contact": false},
-  "Ice Beam": {"name": "Ice Beam", "type": "ice", "category": "special", "power": 90, "accuracy": 100, "pp": 10, "contact": false},
-  "Toxic": {"name": "Toxic", "type": "poison", "category": "status", "power": 0, "accuracy": 90, "pp": 10, "contact": false},
-  "Confuse Ray": {"name": "Confuse Ray", "type": "ghost", "category": "status", "power": 0, "accuracy": 100, "pp": 10, "contact": false},
-  "Headbutt": {"name": "Headbutt", "type": "normal", "category": "physical", "power": 70, "accuracy": 100, "pp": 15, "contact": true}
+  "Tackle": {
+    "name": "Tackle",
+    "type": "normal",
+    "category": "physical",
+    "power": 40,
+    "accuracy": 100,
+    "pp": 35,
+    "contact": true
+  },
+  "Scratch": {
+    "name": "Scratch",
+    "type": "normal",
+    "category": "physical",
+    "power": 40,
+    "accuracy": 100,
+    "pp": 35,
+    "contact": true
+  },
+  "Growl": {
+    "name": "Growl",
+    "type": "normal",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 40,
+    "contact": false
+  },
+  "Tail Whip": {
+    "name": "Tail Whip",
+    "type": "normal",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 30,
+    "contact": false
+  },
+  "Sand Attack": {
+    "name": "Sand Attack",
+    "type": "ground",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 15,
+    "contact": false
+  },
+  "Vine Whip": {
+    "name": "Vine Whip",
+    "type": "grass",
+    "category": "physical",
+    "power": 45,
+    "accuracy": 100,
+    "pp": 25,
+    "contact": true
+  },
+  "Razor Leaf": {
+    "name": "Razor Leaf",
+    "type": "grass",
+    "category": "physical",
+    "power": 55,
+    "accuracy": 95,
+    "pp": 25,
+    "contact": false
+  },
+  "Solar Beam": {
+    "name": "Solar Beam",
+    "type": "grass",
+    "category": "special",
+    "power": 120,
+    "accuracy": 100,
+    "pp": 10,
+    "contact": false
+  },
+  "Sleep Powder": {
+    "name": "Sleep Powder",
+    "type": "grass",
+    "category": "status",
+    "power": 0,
+    "accuracy": 75,
+    "pp": 15,
+    "contact": false
+  },
+  "Synthesis": {
+    "name": "Synthesis",
+    "type": "grass",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 5,
+    "contact": false
+  },
+  "Ember": {
+    "name": "Ember",
+    "type": "fire",
+    "category": "special",
+    "power": 40,
+    "accuracy": 100,
+    "pp": 25,
+    "contact": false
+  },
+  "Fire Spin": {
+    "name": "Fire Spin",
+    "type": "fire",
+    "category": "special",
+    "power": 35,
+    "accuracy": 85,
+    "pp": 15,
+    "contact": false
+  },
+  "Flamethrower": {
+    "name": "Flamethrower",
+    "type": "fire",
+    "category": "special",
+    "power": 90,
+    "accuracy": 100,
+    "pp": 15,
+    "contact": false
+  },
+  "Fire Blast": {
+    "name": "Fire Blast",
+    "type": "fire",
+    "category": "special",
+    "power": 110,
+    "accuracy": 85,
+    "pp": 5,
+    "contact": false
+  },
+  "Slash": {
+    "name": "Slash",
+    "type": "normal",
+    "category": "physical",
+    "power": 70,
+    "accuracy": 100,
+    "pp": 20,
+    "contact": true
+  },
+  "Wing Attack": {
+    "name": "Wing Attack",
+    "type": "flying",
+    "category": "physical",
+    "power": 60,
+    "accuracy": 100,
+    "pp": 35,
+    "contact": true
+  },
+  "Water Gun": {
+    "name": "Water Gun",
+    "type": "water",
+    "category": "special",
+    "power": 40,
+    "accuracy": 100,
+    "pp": 25,
+    "contact": false
+  },
+  "Bubble Beam": {
+    "name": "Bubble Beam",
+    "type": "water",
+    "category": "special",
+    "power": 65,
+    "accuracy": 100,
+    "pp": 20,
+    "contact": false
+  },
+  "Hydro Pump": {
+    "name": "Hydro Pump",
+    "type": "water",
+    "category": "special",
+    "power": 110,
+    "accuracy": 80,
+    "pp": 5,
+    "contact": false
+  },
+  "Hydro Cannon": {
+    "name": "Hydro Cannon",
+    "type": "water",
+    "category": "special",
+    "power": 150,
+    "accuracy": 90,
+    "pp": 5,
+    "contact": false
+  },
+  "Bite": {
+    "name": "Bite",
+    "type": "normal",
+    "category": "physical",
+    "power": 60,
+    "accuracy": 100,
+    "pp": 25,
+    "contact": true
+  },
+  "Skull Bash": {
+    "name": "Skull Bash",
+    "type": "normal",
+    "category": "physical",
+    "power": 130,
+    "accuracy": 100,
+    "pp": 10,
+    "contact": true
+  },
+  "Gust": {
+    "name": "Gust",
+    "type": "flying",
+    "category": "special",
+    "power": 40,
+    "accuracy": 100,
+    "pp": 35,
+    "contact": false
+  },
+  "Quick Attack": {
+    "name": "Quick Attack",
+    "type": "normal",
+    "category": "physical",
+    "power": 40,
+    "accuracy": 100,
+    "pp": 30,
+    "contact": true
+  },
+  "Agility": {
+    "name": "Agility",
+    "type": "psychic",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 30,
+    "contact": false
+  },
+  "Mirror Move": {
+    "name": "Mirror Move",
+    "type": "flying",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 20,
+    "contact": false
+  },
+  "Hyper Fang": {
+    "name": "Hyper Fang",
+    "type": "normal",
+    "category": "physical",
+    "power": 80,
+    "accuracy": 90,
+    "pp": 15,
+    "contact": true
+  },
+  "Super Fang": {
+    "name": "Super Fang",
+    "type": "normal",
+    "category": "physical",
+    "power": 1,
+    "accuracy": 90,
+    "pp": 10,
+    "contact": true
+  },
+  "Thunder Shock": {
+    "name": "Thunder Shock",
+    "type": "electric",
+    "category": "special",
+    "power": 40,
+    "accuracy": 100,
+    "pp": 30,
+    "contact": false
+  },
+  "Thunder Wave": {
+    "name": "Thunder Wave",
+    "type": "electric",
+    "category": "status",
+    "power": 0,
+    "accuracy": 90,
+    "pp": 20,
+    "contact": false
+  },
+  "Thunderbolt": {
+    "name": "Thunderbolt",
+    "type": "electric",
+    "category": "special",
+    "power": 90,
+    "accuracy": 100,
+    "pp": 15,
+    "contact": false
+  },
+  "Thunder": {
+    "name": "Thunder",
+    "type": "electric",
+    "category": "special",
+    "power": 110,
+    "accuracy": 70,
+    "pp": 10,
+    "contact": false
+  },
+  "Slam": {
+    "name": "Slam",
+    "type": "normal",
+    "category": "physical",
+    "power": 80,
+    "accuracy": 75,
+    "pp": 20,
+    "contact": true
+  },
+  "Rock Throw": {
+    "name": "Rock Throw",
+    "type": "rock",
+    "category": "physical",
+    "power": 50,
+    "accuracy": 90,
+    "pp": 15,
+    "contact": false
+  },
+  "Defense Curl": {
+    "name": "Defense Curl",
+    "type": "normal",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 40,
+    "contact": false
+  },
+  "Bind": {
+    "name": "Bind",
+    "type": "normal",
+    "category": "physical",
+    "power": 15,
+    "accuracy": 85,
+    "pp": 20,
+    "contact": true
+  },
+  "Screech": {
+    "name": "Screech",
+    "type": "normal",
+    "category": "status",
+    "power": 0,
+    "accuracy": 85,
+    "pp": 40,
+    "contact": false
+  },
+  "Poison Sting": {
+    "name": "Poison Sting",
+    "type": "poison",
+    "category": "physical",
+    "power": 15,
+    "accuracy": 100,
+    "pp": 35,
+    "contact": false
+  },
+  "String Shot": {
+    "name": "String Shot",
+    "type": "bug",
+    "category": "status",
+    "power": 0,
+    "accuracy": 95,
+    "pp": 40,
+    "contact": false
+  },
+  "Harden": {
+    "name": "Harden",
+    "type": "normal",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 30,
+    "contact": false
+  },
+  "Swift": {
+    "name": "Swift",
+    "type": "normal",
+    "category": "special",
+    "power": 60,
+    "accuracy": 100,
+    "pp": 20,
+    "contact": false
+  },
+  "Rock Slide": {
+    "name": "Rock Slide",
+    "type": "rock",
+    "category": "physical",
+    "power": 75,
+    "accuracy": 90,
+    "pp": 10,
+    "contact": false
+  },
+  "Earthquake": {
+    "name": "Earthquake",
+    "type": "ground",
+    "category": "physical",
+    "power": 100,
+    "accuracy": 100,
+    "pp": 10,
+    "contact": false
+  },
+  "Self-Destruct": {
+    "name": "Self-Destruct",
+    "type": "normal",
+    "category": "physical",
+    "power": 200,
+    "accuracy": 100,
+    "pp": 5,
+    "contact": false
+  },
+  "Rain Dance": {
+    "name": "Rain Dance",
+    "type": "water",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 5,
+    "contact": false,
+    "weather_effect": "rain"
+  },
+  "Sunny Day": {
+    "name": "Sunny Day",
+    "type": "fire",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 5,
+    "contact": false,
+    "weather_effect": "sun"
+  },
+  "Sandstorm": {
+    "name": "Sandstorm",
+    "type": "rock",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 10,
+    "contact": false,
+    "weather_effect": "sandstorm"
+  },
+  "Hail": {
+    "name": "Hail",
+    "type": "ice",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 10,
+    "contact": false,
+    "weather_effect": "hail"
+  },
+  "Blizzard": {
+    "name": "Blizzard",
+    "type": "ice",
+    "category": "special",
+    "power": 110,
+    "accuracy": 70,
+    "pp": 5,
+    "contact": false
+  },
+  "Ice Beam": {
+    "name": "Ice Beam",
+    "type": "ice",
+    "category": "special",
+    "power": 90,
+    "accuracy": 100,
+    "pp": 10,
+    "contact": false
+  },
+  "Toxic": {
+    "name": "Toxic",
+    "type": "poison",
+    "category": "status",
+    "power": 0,
+    "accuracy": 90,
+    "pp": 10,
+    "contact": false
+  },
+  "Confuse Ray": {
+    "name": "Confuse Ray",
+    "type": "ghost",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 10,
+    "contact": false
+  },
+  "Headbutt": {
+    "name": "Headbutt",
+    "type": "normal",
+    "category": "physical",
+    "power": 70,
+    "accuracy": 100,
+    "pp": 15,
+    "contact": true
+  },
+  "Psychic": {
+    "name": "Psychic",
+    "type": "psychic",
+    "category": "special",
+    "power": 90,
+    "accuracy": 100,
+    "pp": 10,
+    "contact": false
+  },
+  "Recover": {
+    "name": "Recover",
+    "type": "normal",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 10,
+    "contact": false
+  },
+  "Barrier": {
+    "name": "Barrier",
+    "type": "psychic",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 20,
+    "contact": false
+  },
+  "Mist": {
+    "name": "Mist",
+    "type": "ice",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 30,
+    "contact": false
+  },
+  "Drill Peck": {
+    "name": "Drill Peck",
+    "type": "flying",
+    "category": "physical",
+    "power": 80,
+    "accuracy": 100,
+    "pp": 20,
+    "contact": true
+  }
 }
