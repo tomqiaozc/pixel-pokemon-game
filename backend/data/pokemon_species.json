@@ -218,5 +218,36 @@
       {"level": 1, "move": "Swift"}, {"level": 1, "move": "Hydro Pump"}
     ],
     "evolution": null, "sprite": "starmie.png"
+  },
+  {
+    "id": 133, "name": "Eevee", "types": ["normal"], "base_exp": 65, "catch_rate": 45,
+    "abilities": ["run_away", "adaptability"],
+    "stats": {"hp": 55, "attack": 55, "defense": 50, "sp_attack": 45, "sp_defense": 65, "speed": 55},
+    "learnset": [
+      {"level": 1, "move": "Tackle"}, {"level": 1, "move": "Tail Whip"}, {"level": 5, "move": "Sand Attack"},
+      {"level": 9, "move": "Growl"}, {"level": 13, "move": "Quick Attack"}, {"level": 17, "move": "Bite"},
+      {"level": 21, "move": "Swift"}, {"level": 25, "move": "Headbutt"}
+    ],
+    "evolution": null, "sprite": "eevee.png"
+  },
+  {
+    "id": 137, "name": "Porygon", "types": ["normal"], "base_exp": 79, "catch_rate": 45,
+    "abilities": ["trace"],
+    "stats": {"hp": 65, "attack": 60, "defense": 70, "sp_attack": 85, "sp_defense": 75, "speed": 40},
+    "learnset": [
+      {"level": 1, "move": "Tackle"}, {"level": 1, "move": "Harden"}, {"level": 9, "move": "Swift"},
+      {"level": 15, "move": "Thunder Shock"}, {"level": 23, "move": "Ice Beam"}, {"level": 29, "move": "Thunderbolt"}
+    ],
+    "evolution": null, "sprite": "porygon.png"
+  },
+  {
+    "id": 147, "name": "Dratini", "types": ["dragon"], "base_exp": 60, "catch_rate": 45,
+    "abilities": ["shed_skin"],
+    "stats": {"hp": 41, "attack": 64, "defense": 45, "sp_attack": 50, "sp_defense": 50, "speed": 50},
+    "learnset": [
+      {"level": 1, "move": "Tackle"}, {"level": 5, "move": "Thunder Wave"}, {"level": 11, "move": "Slam"},
+      {"level": 15, "move": "Agility"}, {"level": 21, "move": "Headbutt"}
+    ],
+    "evolution": null, "sprite": "dratini.png"
   }
 ]

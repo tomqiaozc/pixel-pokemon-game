@@ -71,7 +71,8 @@ class TestItemData:
     def test_sell_price_half_of_buy(self):
         items = get_all_items()
         for item in items:
-            assert item.sell_price == item.price // 2
+            if item.price > 0:
+                assert item.sell_price == item.price // 2
 
     def test_invalid_item(self):
         assert get_item(9999) is None

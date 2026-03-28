@@ -118,5 +118,53 @@
       "type": "catch",
       "modifier": 255.0
     }
+  },
+  {
+    "id": 11,
+    "name": "TM Ice Beam",
+    "description": "Teaches the move Ice Beam to a Pokemon",
+    "category": "tm",
+    "price": 0,
+    "sell_price": 1000,
+    "effect": {
+      "type": "teach_move",
+      "move": "Ice Beam"
+    }
+  },
+  {
+    "id": 12,
+    "name": "TM Thunderbolt",
+    "description": "Teaches the move Thunderbolt to a Pokemon",
+    "category": "tm",
+    "price": 0,
+    "sell_price": 1000,
+    "effect": {
+      "type": "teach_move",
+      "move": "Thunderbolt"
+    }
+  },
+  {
+    "id": 13,
+    "name": "Rare Candy",
+    "description": "Instantly raises a Pokemon's level by 1",
+    "category": "medicine",
+    "price": 0,
+    "sell_price": 2400,
+    "effect": {
+      "type": "level_up",
+      "amount": 1
+    }
+  },
+  {
+    "id": 14,
+    "name": "PP Up",
+    "description": "Raises the max PP of a selected move",
+    "category": "medicine",
+    "price": 0,
+    "sell_price": 4900,
+    "effect": {
+      "type": "pp_up",
+      "amount": 1
+    }
   }
 ]

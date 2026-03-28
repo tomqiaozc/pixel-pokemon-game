@@ -10,6 +10,7 @@ from .routes.items import router as items_router
 from .routes.leaderboard import router as leaderboard_router
 from .routes.legendary import router as legendary_router
 from .routes.map import router as map_router
+from .routes.minigame import router as minigame_router
 from .routes.npc import router as npc_router
 from .routes.pokedex import router as pokedex_router
 from .routes.pokemon import router as pokemon_router
@@ -44,6 +45,7 @@ app.include_router(leaderboard_router)
 app.include_router(quest_router)
 app.include_router(rival_router)
 app.include_router(legendary_router)
+app.include_router(minigame_router)
 
 
 @app.get("/api/health")
