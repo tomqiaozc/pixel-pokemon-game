@@ -427,6 +427,11 @@ const API = (() => {
         });
     }
 
+    async function getAchievementNotifications() {
+        if (!gameId) return null;
+        return get(`${BASE_URL}/player/${gameId}/achievements/notifications`);
+    }
+
     // --- Quests & Story Flags ---
 
     async function getQuests() {
@@ -620,7 +625,7 @@ const API = (() => {
         // Leaderboard
         getLeaderboard,
         // Stats & Achievements
-        getPlayerStats, savePlayerStats, getAchievements, saveAchievements,
+        getPlayerStats, savePlayerStats, getAchievements, saveAchievements, getAchievementNotifications,
         // Quests & Flags
         getQuests, getQuest, checkQuestProgress, completeQuest,
         getQuestFlags, setStoryFlag, checkMapAccess,

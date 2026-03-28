@@ -168,6 +168,29 @@ const TrainerCard = (() => {
         ctx.fillStyle = '#ffffff';
         ctx.fillText(stats.playTime || '0:00', infoX + 60, infoY + lineH * 4);
 
+        // Medal count
+        const medals = typeof Achievements !== 'undefined' ? Achievements.getMedalCounts() : { bronze: 0, silver: 0, gold: 0, platinum: 0 };
+        const achTotal = typeof Achievements !== 'undefined' ? Achievements.getEarnedCount() : 0;
+        ctx.fillStyle = '#e0e0e0';
+        ctx.font = '12px monospace';
+        ctx.fillText('Medals:', infoX, infoY + lineH * 5);
+
+        // Draw mini medal icons with counts
+        let medalX = infoX + 65;
+        if (typeof Achievements !== 'undefined' && Achievements.drawMedal) {
+            for (const tier of ['bronze', 'silver', 'gold', 'platinum']) {
+                Achievements.drawMedal(ctx, medalX, infoY + lineH * 5 - 3, 16, tier);
+                ctx.fillStyle = '#ffffff';
+                ctx.font = '10px monospace';
+                ctx.textAlign = 'left';
+                ctx.fillText(`${medals[tier]}`, medalX + 10, infoY + lineH * 5);
+                medalX += 38;
+            }
+        } else {
+            ctx.fillStyle = '#ffffff';
+            ctx.fillText(`${achTotal}`, infoX + 65, infoY + lineH * 5);
+        }
+
         // Badge display — 8 badge slots in a row
         const badgeY = cy + cardH - 60;
         ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
