@@ -653,6 +653,35 @@ class TestMoveTutorEdgeCases:
         result = teach_move_via_tutor(game_id, 0, "pallet_tutor", "Hyper Beam")
         assert result is not None and result["success"] is False
 
+    def test_tm_with_null_item_id_requires_inventory(self, game):
+        """BUG #169: TM03-TM10 have null item_id which bypasses inventory check.
+
+        Using TM03 (Psychic) without having it in inventory should fail,
+        but the null item_id causes the inventory check to be skipped entirely.
+        """
+        from backend.services.move_tutor_service import use_tm
+        game_id = game["id"]
+        pokemon = game["player"]["team"][0]
+        # Bulbasaur (id=1) is in TM03 compatibility set
+        pokemon["moves"] = pokemon["moves"][:3]  # Make room
+        # Do NOT add TM03 to inventory — this should fail
+        result = use_tm(game_id, 0, "TM03")
+        assert result is not None
+        assert result["success"] is False, (
+            "TM03 with null item_id should not bypass inventory check"
+        )
+        assert "inventory" in result["message"].lower() or "don't have" in result["message"].lower()
+
+    def test_all_tms_have_valid_item_ids(self):
+        """All non-HM TM definitions must have a non-null item_id."""
+        from backend.services.move_tutor_service import TM_DEFINITIONS
+        for tm_def in TM_DEFINITIONS:
+            if not tm_def["is_hm"]:
+                assert tm_def["item_id"] is not None, (
+                    f"{tm_def['tm_number']} has null item_id — "
+                    f"this bypasses inventory check"
+                )
+
     def test_tutor_badge_requirement(self, game_with_money):
         """Tutor with badge requirement refuses if player lacks badges."""
         resp = client.get("/api/tutor/pewter_tutor")

@@ -144,6 +144,102 @@
     }
   },
   {
+    "id": 18,
+    "name": "TM Psychic",
+    "description": "Teaches the move Psychic to a Pokemon",
+    "category": "tm",
+    "price": 0,
+    "sell_price": 1000,
+    "effect": {
+      "type": "teach_move",
+      "move": "Psychic"
+    }
+  },
+  {
+    "id": 19,
+    "name": "TM Earthquake",
+    "description": "Teaches the move Earthquake to a Pokemon",
+    "category": "tm",
+    "price": 0,
+    "sell_price": 1000,
+    "effect": {
+      "type": "teach_move",
+      "move": "Earthquake"
+    }
+  },
+  {
+    "id": 20,
+    "name": "TM Toxic",
+    "description": "Teaches the move Toxic to a Pokemon",
+    "category": "tm",
+    "price": 0,
+    "sell_price": 1000,
+    "effect": {
+      "type": "teach_move",
+      "move": "Toxic"
+    }
+  },
+  {
+    "id": 21,
+    "name": "TM Fire Blast",
+    "description": "Teaches the move Fire Blast to a Pokemon",
+    "category": "tm",
+    "price": 0,
+    "sell_price": 1000,
+    "effect": {
+      "type": "teach_move",
+      "move": "Fire Blast"
+    }
+  },
+  {
+    "id": 22,
+    "name": "TM Blizzard",
+    "description": "Teaches the move Blizzard to a Pokemon",
+    "category": "tm",
+    "price": 0,
+    "sell_price": 1000,
+    "effect": {
+      "type": "teach_move",
+      "move": "Blizzard"
+    }
+  },
+  {
+    "id": 23,
+    "name": "TM Thunder",
+    "description": "Teaches the move Thunder to a Pokemon",
+    "category": "tm",
+    "price": 0,
+    "sell_price": 1000,
+    "effect": {
+      "type": "teach_move",
+      "move": "Thunder"
+    }
+  },
+  {
+    "id": 24,
+    "name": "TM Rock Slide",
+    "description": "Teaches the move Rock Slide to a Pokemon",
+    "category": "tm",
+    "price": 0,
+    "sell_price": 1000,
+    "effect": {
+      "type": "teach_move",
+      "move": "Rock Slide"
+    }
+  },
+  {
+    "id": 25,
+    "name": "TM Swift",
+    "description": "Teaches the move Swift to a Pokemon",
+    "category": "tm",
+    "price": 0,
+    "sell_price": 1000,
+    "effect": {
+      "type": "teach_move",
+      "move": "Swift"
+    }
+  },
+  {
     "id": 13,
     "name": "Rare Candy",
     "description": "Instantly raises a Pokemon's level by 1",
