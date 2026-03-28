@@ -222,6 +222,15 @@ const API = (() => {
         });
     }
 
+    async function checkEvolution(speciesId, level) {
+        return get(`${BASE_URL}/evolution/check/${speciesId}/${level}`);
+    }
+
+    async function evolve(pokemonIndex) {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/evolution/evolve/${gameId}/${pokemonIndex}`, {});
+    }
+
     // --- Gyms & Trainers ---
 
     async function getGyms() {
@@ -440,7 +449,7 @@ const API = (() => {
         // Encounter
         checkEncounter, getSpecies, getStarters,
         // Evolution
-        awardExp,
+        awardExp, checkEvolution, evolve,
         // Gyms & Trainers
         getGyms, getGym, challengeGym, awardBadge, getBadges,
         getTrainers, getTrainer, startTrainerBattle, defeatTrainer,

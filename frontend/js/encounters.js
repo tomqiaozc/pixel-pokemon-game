@@ -186,10 +186,9 @@ const Encounters = (() => {
         const dexEntry = Pokedex.entries.find(e => e.name === template.name);
         if (dexEntry) Pokedex.markSeen(dexEntry.id);
 
-        // Optionally enrich encounter data from backend (fire-and-forget)
+        // Try to enrich encounter data from backend before battle starts
         API.checkEncounter(currentMap).then(data => {
             if (data && data.pokemon) {
-                // Backend returned encounter data — use it if it has more detail
                 const p = data.pokemon;
                 if (p.name) pendingEnemy.name = p.name;
                 if (p.level) pendingEnemy.level = p.level;
@@ -200,7 +199,12 @@ const Encounters = (() => {
                 if (p.types && p.types[0]) pendingEnemy.type = p.types[0];
                 if (p.moves) pendingEnemy.moves = p.moves;
                 if (p.species_id) pendingEnemy.speciesId = p.species_id;
+                if (p.sprite) pendingEnemy.sprite = p.sprite;
+                if (p.stats) pendingEnemy.stats = p.stats;
+                if (p.ability_id) pendingEnemy.abilityId = p.ability_id;
             }
+        }).catch(() => {
+            // Use local encounter data — already populated above
         });
 
         // Show exclamation mark
