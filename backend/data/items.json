@@ -202,5 +202,76 @@
       "type": "fishing",
       "rod_tier": "super"
     }
+  },
+  {
+    "id": 50,
+    "name": "Heart Scale",
+    "description": "A pretty heart-shaped scale. Give it to the Move Reminder to relearn moves.",
+    "category": "key_item",
+    "price": 0,
+    "sell_price": 100,
+    "effect": {
+      "type": "trade_item"
+    }
+  },
+  {
+    "id": 101,
+    "name": "HM01 Cut",
+    "description": "Teaches the move Cut. Can cut down small trees.",
+    "category": "hm",
+    "price": 0,
+    "sell_price": 0,
+    "effect": {
+      "type": "teach_move",
+      "move": "Cut"
+    }
+  },
+  {
+    "id": 102,
+    "name": "HM02 Flash",
+    "description": "Teaches the move Flash. Lights up dark caves.",
+    "category": "hm",
+    "price": 0,
+    "sell_price": 0,
+    "effect": {
+      "type": "teach_move",
+      "move": "Flash"
+    }
+  },
+  {
+    "id": 103,
+    "name": "HM03 Surf",
+    "description": "Teaches the move Surf. Travel across water.",
+    "category": "hm",
+    "price": 0,
+    "sell_price": 0,
+    "effect": {
+      "type": "teach_move",
+      "move": "Surf"
+    }
+  },
+  {
+    "id": 104,
+    "name": "HM04 Strength",
+    "description": "Teaches the move Strength. Push heavy boulders.",
+    "category": "hm",
+    "price": 0,
+    "sell_price": 0,
+    "effect": {
+      "type": "teach_move",
+      "move": "Strength"
+    }
+  },
+  {
+    "id": 105,
+    "name": "HM05 Fly",
+    "description": "Teaches the move Fly. Fly to visited towns instantly.",
+    "category": "hm",
+    "price": 0,
+    "sell_price": 0,
+    "effect": {
+      "type": "teach_move",
+      "move": "Fly"
+    }
   }
 ]
