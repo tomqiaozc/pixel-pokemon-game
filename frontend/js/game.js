@@ -43,6 +43,7 @@ const Game = (() => {
         NPC.init();
         Quests.init();
         Berry.init();
+        Fishing.init();
         // Load legendary status from backend
         API.getLegendaries().then(data => {
             if (data && Array.isArray(data)) {
@@ -115,6 +116,8 @@ const Game = (() => {
             if (PauseMenu.isActive()) {
                 PauseMenu.render(ctx, canvas.width, canvas.height);
             }
+            // Render fishing result overlay
+            Fishing.renderFishResult(ctx, canvas.width, canvas.height);
             // Render achievement popup (on top of everything)
             Achievements.renderPopup(ctx, canvas.width, canvas.height);
         } else if (state === 'cutscene') {
@@ -247,6 +250,9 @@ const Game = (() => {
         // Update NPC animations
         NPC.update(dt);
 
+        // Update surfing animation
+        Fishing.updateSurf(dt);
+
         // Update trainer encounter sequence
         const trainerResult = TrainerEncounter.update(dt);
         if (trainerResult.encountering) return;
@@ -293,6 +299,17 @@ const Game = (() => {
             return;
         }
 
+        // Handle fishing in progress
+        if (Fishing.isFishing()) {
+            const fishResult = Fishing.updateFishing(dt);
+            if (fishResult && fishResult.startBattle) {
+                const enemy = Fishing.buildFishEnemy();
+                PlayerStats.increment('fishCaught');
+                startBattle(enemy);
+            }
+            return;
+        }
+
         // Handle berry interaction
         if (Berry.isInteracting()) {
             Berry.updateInteraction(dt);
@@ -313,6 +330,22 @@ const Game = (() => {
 
         // Check for NPC/sign interaction (action key)
         if (Input.isActionPressed()) {
+            // Try fishing if facing water and have a rod
+            if (Fishing.canFish()) {
+                if (Fishing.startFishing(player.x, player.y, player.dir)) {
+                    return;
+                }
+            }
+            // Try surfing if facing water and have water Pokemon
+            if (!Fishing.isSurfing()) {
+                const surfResult = Fishing.tryStartSurf(player.x, player.y, player.dir);
+                if (surfResult) {
+                    player.x = surfResult.tileX * TILE;
+                    player.y = surfResult.tileY * TILE;
+                    Renderer.centerCamera(player.x + TILE / 2, player.y + TILE / 2);
+                    return;
+                }
+            }
             // Check berry plot interaction
             const berryPlot = Berry.checkInteraction(player.x, player.y, player.dir);
             if (berryPlot) {
@@ -390,8 +423,8 @@ const Game = (() => {
             player.moving = true;
             player.dir = movement.dir;
 
-            // Try ledge jump before normal movement
-            if (Ledges.tryJump(player.x, player.y, movement.dir)) return;
+            // Try ledge jump before normal movement (not while surfing)
+            if (!Fishing.isSurfing() && Ledges.tryJump(player.x, player.y, movement.dir)) return;
 
             // Calculate new position
             let newX = player.x + movement.dx * MOVE_SPEED;
@@ -403,6 +436,7 @@ const Game = (() => {
             const right  = newX + TILE - margin - 1;
             const top    = newY + margin;
             const bottom = newY + TILE - 1;
+            const isSurf = Fishing.isSurfing();
 
             // Check horizontal movement
             if (movement.dx !== 0) {
@@ -411,7 +445,7 @@ const Game = (() => {
                 const tileBottom = Math.floor((player.y + TILE - 1) / TILE);
                 const tileX      = Math.floor(checkX / TILE);
 
-                if (GameMap.isSolid(tileX, tileTop) || GameMap.isSolid(tileX, tileBottom) ||
+                if (GameMap.isSolidForMovement(tileX, tileTop, isSurf) || GameMap.isSolidForMovement(tileX, tileBottom, isSurf) ||
                     NPC.isSolid(tileX, tileTop) || NPC.isSolid(tileX, tileBottom)) {
                     newX = player.x;
                 }
@@ -424,9 +458,18 @@ const Game = (() => {
                 const tileRight = Math.floor((newX + TILE - margin - 1) / TILE);
                 const tileY     = Math.floor(checkY / TILE);
 
-                if (GameMap.isSolid(tileLeft, tileY) || GameMap.isSolid(tileRight, tileY) ||
+                if (GameMap.isSolidForMovement(tileLeft, tileY, isSurf) || GameMap.isSolidForMovement(tileRight, tileY, isSurf) ||
                     NPC.isSolid(tileLeft, tileY) || NPC.isSolid(tileRight, tileY)) {
                     newY = player.y;
+                }
+            }
+
+            // While surfing, allow moving onto land tiles to dismount
+            if (isSurf) {
+                const centerTileX = Math.floor((newX + TILE / 2) / TILE);
+                const centerTileY = Math.floor((newY + TILE / 2) / TILE);
+                if (!GameMap.isWater(centerTileX, centerTileY) && !GameMap.isSolid(centerTileX, centerTileY)) {
+                    Fishing.checkDismount(newX, newY);
                 }
             }
 

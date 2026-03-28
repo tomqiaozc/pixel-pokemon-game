@@ -132,7 +132,13 @@ const Daycare = (() => {
                     startHatchAnimation();
                 }
             }
-        }).catch(() => {});
+            if (data && data.egg_ready && daycareStatus) {
+                daycareStatus.egg_ready = true;
+            }
+        }).catch(() => {
+            // Retry failed hatch-trigger steps on next send
+            stepBuffer += steps;
+        });
     }
 
     // --- Step counting (called from game.js on movement) ---
