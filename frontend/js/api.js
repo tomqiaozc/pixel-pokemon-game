@@ -483,9 +483,14 @@ const API = (() => {
         return get(`${BASE_URL}/rival?game_id=${gameId}`);
     }
 
-    async function startRivalBattle() {
+    async function startRivalBattle(stage) {
         if (!gameId) return null;
-        return post(`${BASE_URL}/rival/battle`, { game_id: gameId });
+        return post(`${BASE_URL}/rival/battle`, { game_id: gameId, stage: stage || 1 });
+    }
+
+    async function completeRivalBattle(stage) {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/rival/battle-complete`, { game_id: gameId, stage: stage || 1 });
     }
 
     // --- Maps ---
@@ -631,7 +636,7 @@ const API = (() => {
         getQuests, getQuest, checkQuestProgress, completeQuest,
         getQuestFlags, setStoryFlag, checkMapAccess,
         // Rival
-        getRival, startRivalBattle,
+        getRival, startRivalBattle, completeRivalBattle,
         // Maps
         getMaps,
         // Mini-Games & Game Corner

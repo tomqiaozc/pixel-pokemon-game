@@ -49,6 +49,9 @@ const Rival = (() => {
         },
     };
 
+    // Stage name to number mapping (matches backend)
+    const STAGE_NUMBERS = { oaks_lab: 1, route_2: 2, pre_elite: 3 };
+
     // Encounter points: map where rival appears and which cutscene stage
     const ENCOUNTER_POINTS = {
         pallet_town: { stage: 'oaks_lab', flag: 'rival_oaks_lab_met',    requires: 'chose_starter' },
@@ -157,7 +160,23 @@ const Rival = (() => {
         encountered[point.flag] = true;
         Quests.setFlag(point.flag);
 
-        // Update rival team to this stage
+        const stageNum = STAGE_NUMBERS[point.stage] || 1;
+
+        // Try to get rival team from backend
+        API.startRivalBattle(stageNum).then(data => {
+            if (data && data.rival_team && data.rival_team.length > 0) {
+                rivalTeam = data.rival_team.map(p => ({
+                    name: p.name,
+                    type: p.types ? p.types[0] : p.type || 'Normal',
+                    level: p.level || 5,
+                    hp: p.current_hp || p.stats?.hp || 20,
+                    maxHp: p.stats?.hp || 20,
+                    moves: p.moves || getStarterMoves(p.name),
+                }));
+            }
+        }).catch(() => {});
+
+        // Update rival team to this stage (local fallback, used immediately for cutscene)
         const stageBuilder = TEAM_STAGES[point.stage];
         if (stageBuilder && rivalStarter) {
             rivalTeam = stageBuilder(rivalStarter);
@@ -165,10 +184,16 @@ const Rival = (() => {
 
         return {
             stage: point.stage,
+            stageNum,
             flag: point.flag,
             team: rivalTeam,
             lead: rivalTeam[0] || null,
         };
+    }
+
+    // Called after player wins a rival battle — writes outcome to backend
+    function completeEncounter(stageNum) {
+        API.completeRivalBattle(stageNum).catch(() => {});
     }
 
     function getName() { return rivalName; }
@@ -214,7 +239,7 @@ const Rival = (() => {
     }
 
     return {
-        init, checkEncounter, triggerEncounter,
+        init, checkEncounter, triggerEncounter, completeEncounter,
         getName, getStarter, getTeam, hasEncountered,
         drawSprite,
     };
