@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, ValidationError
 
 from ..services.encounter_service import generate_wild_pokemon, get_species
-from ..services.game_service import create_game, create_game_with_starter, get_game, save_game, update_play_time
+from ..services.game_service import create_game, create_game_with_starter, get_full_game_state, get_game, save_game, update_play_time
 
 router = APIRouter(prefix="/api/game", tags=["game"])
 
@@ -65,7 +65,8 @@ def choose_starter(req: ChooseStarterRequest):
 
 @router.get("/{game_id}")
 def game_state(game_id: str):
-    state = get_game(game_id)
+    """Return full game state including badges, pokedex stats, and PC data."""
+    state = get_full_game_state(game_id)
     if state is None:
         raise HTTPException(status_code=404, detail="Game not found")
     return state
@@ -75,7 +76,7 @@ def game_state(game_id: str):
 def save(game_id: str, req: SaveGameRequest):
     try:
         state = save_game(game_id, req.player)
-    except ValidationError as e:
+    except (ValidationError, ValueError) as e:
         raise HTTPException(status_code=422, detail=str(e))
     if state is None:
         raise HTTPException(status_code=404, detail="Game not found")
