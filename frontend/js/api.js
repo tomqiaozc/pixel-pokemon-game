@@ -600,6 +600,40 @@ const API = (() => {
         return post(`${BASE_URL}/legendary/${gameId}/${speciesId}/fled`, {});
     }
 
+    // --- Berry Farming ---
+
+    async function getBerryTypes() {
+        return get(`${BASE_URL}/berry/types`);
+    }
+
+    async function getBerryPlots(mapId) {
+        if (!gameId) return null;
+        if (mapId) return get(`${BASE_URL}/berry/plots/${gameId}/${mapId}`);
+        return get(`${BASE_URL}/berry/plots/${gameId}`);
+    }
+
+    async function plantBerry(plotId, berryId) {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/berry/plant`, {
+            game_id: gameId, plot_id: plotId, berry_id: berryId,
+        });
+    }
+
+    async function waterBerry(plotId) {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/berry/water/${plotId}`, { game_id: gameId });
+    }
+
+    async function harvestBerry(plotId) {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/berry/harvest/${plotId}`, { game_id: gameId });
+    }
+
+    async function getBerryPouch() {
+        if (!gameId) return null;
+        return get(`${BASE_URL}/berry/inventory/${gameId}`);
+    }
+
     // --- Daycare & Breeding ---
 
     async function getDaycareStatus() {
@@ -676,6 +710,8 @@ const API = (() => {
         // Legendary
         getLegendaries, checkLegendary, encounterLegendary,
         legendaryCaught, legendaryFainted, legendaryFled,
+        // Berry Farming
+        getBerryTypes, getBerryPlots, plantBerry, waterBerry, harvestBerry, getBerryPouch,
         // Daycare & Breeding
         getDaycareStatus, daycareDeposit, daycareWithdraw, daycareCollectEgg, daycareStep,
     };

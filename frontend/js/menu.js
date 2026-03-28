@@ -3,7 +3,7 @@
 const PauseMenu = (() => {
     let active = false;
     let menuIndex = 0;
-    let subScreen = null; // null, 'party', 'bag', 'pokedex', 'trainercard', 'leaderboard', 'trade', 'pvp', 'badges', 'achievements', 'save'
+    let subScreen = null; // null, 'party', 'bag', 'berries', 'pokedex', 'trainercard', 'leaderboard', 'trade', 'pvp', 'badges', 'achievements', 'save'
     let actionCooldown = 0;
     let slideProgress = 0;
 
@@ -35,7 +35,7 @@ const PauseMenu = (() => {
     // Party screen state
     let partyIndex = 0;
 
-    const MENU_ITEMS = ['Pokemon', 'Bag', 'Pokedex', 'Trainer Card', 'Achievements', 'Leaderboard', 'Trade', 'PvP Battle', 'Quests', 'Badges', 'Save', 'Close'];
+    const MENU_ITEMS = ['Pokemon', 'Bag', 'Berries', 'Pokedex', 'Trainer Card', 'Achievements', 'Leaderboard', 'Trade', 'PvP Battle', 'Quests', 'Badges', 'Save', 'Close'];
     const BAG_TABS = ['Potions', 'Balls', 'Battle', 'Key Items'];
     const BAG_TAB_KEYS = ['potions', 'pokeballs', 'battle', 'key'];
 
@@ -149,15 +149,16 @@ const PauseMenu = (() => {
                 actionCooldown = 200;
                 if (menuIndex === 0) { subScreen = 'party'; partyIndex = 0; }
                 else if (menuIndex === 1) { subScreen = 'bag'; bagTab = 0; bagIndex = 0; bagAction = -1; }
-                else if (menuIndex === 2) { subScreen = 'pokedex'; Pokedex.open(); }
-                else if (menuIndex === 3) { subScreen = 'trainercard'; TrainerCard.open(); }
-                else if (menuIndex === 4) { subScreen = 'achievements'; Achievements.openList(); }
-                else if (menuIndex === 5) { subScreen = 'leaderboard'; Leaderboard.open(); }
-                else if (menuIndex === 6) { subScreen = 'trade'; Trading.open(); }
-                else if (menuIndex === 7) { subScreen = 'pvp'; PvP.open(); }
-                else if (menuIndex === 8) { Quests.openJournal(); close(); }
-                else if (menuIndex === 9) { subScreen = 'badges'; BadgeCase.open(); }
-                else if (menuIndex === 10) {
+                else if (menuIndex === 2) { subScreen = 'berries'; Berry.openPouch(); }
+                else if (menuIndex === 3) { subScreen = 'pokedex'; Pokedex.open(); }
+                else if (menuIndex === 4) { subScreen = 'trainercard'; TrainerCard.open(); }
+                else if (menuIndex === 5) { subScreen = 'achievements'; Achievements.openList(); }
+                else if (menuIndex === 6) { subScreen = 'leaderboard'; Leaderboard.open(); }
+                else if (menuIndex === 7) { subScreen = 'trade'; Trading.open(); }
+                else if (menuIndex === 8) { subScreen = 'pvp'; PvP.open(); }
+                else if (menuIndex === 9) { Quests.openJournal(); close(); }
+                else if (menuIndex === 10) { subScreen = 'badges'; BadgeCase.open(); }
+                else if (menuIndex === 11) {
                     // Save game to backend
                     const p = Game.player;
                     const currentMap = typeof MapLoader !== 'undefined' ? MapLoader.getCurrentMapId() : 'pallet_town';
@@ -196,13 +197,16 @@ const PauseMenu = (() => {
                     subScreen = 'save';
                     actionCooldown = 200;
                 }
-                else if (menuIndex === 11) { close(); }
+                else if (menuIndex === 12) { close(); }
             }
             if (back) { close(); actionCooldown = 200; }
         } else if (subScreen === 'party') {
             updateParty(dt, mov, action, back);
         } else if (subScreen === 'bag') {
             updateBag(dt, mov, action, back);
+        } else if (subScreen === 'berries') {
+            Berry.updatePouch(dt);
+            if (!Berry.isPouchActive()) { subScreen = null; }
         } else if (subScreen === 'pokedex') {
             Pokedex.update(dt);
             if (!Pokedex.isActive()) { subScreen = null; }
@@ -301,6 +305,8 @@ const PauseMenu = (() => {
             renderParty(ctx, canvasW, canvasH);
         } else if (subScreen === 'bag') {
             renderBag(ctx, canvasW, canvasH);
+        } else if (subScreen === 'berries') {
+            Berry.renderPouch(ctx, canvasW, canvasH);
         } else if (subScreen === 'pokedex') {
             Pokedex.render(ctx, canvasW, canvasH);
         } else if (subScreen === 'trainercard') {
