@@ -233,7 +233,7 @@ def plant_berry(game_id: str, plot_id: str, berry_id: str) -> BerryPlotResponse:
 
 
 def water_plot(game_id: str, plot_id: str) -> BerryPlotResponse:
-    """Water a planted berry. Max 3 waterings."""
+    """Water a planted berry. Max 3 waterings. Reduces remaining time, not total."""
     plots = _get_plots(game_id)
     if plot_id not in plots:
         raise ValueError("Plot not found")
@@ -250,7 +250,19 @@ def water_plot(game_id: str, plot_id: str) -> BerryPlotResponse:
     if plot.water_count >= MAX_WATERS:
         raise ValueError("Plot has been watered the maximum number of times")
 
-    plot.water_count += 1
+    # Fix: reduce remaining time by 25%, not retroactively change total duration
+    berry = BERRY_DEFS.get(plot.planted_berry)
+    if berry and plot.plant_time:
+        old_total = _growth_duration_seconds(berry, plot.water_count)
+        elapsed = time.time() - plot.plant_time
+        remaining = max(0, old_total - elapsed)
+        new_remaining = remaining * (1.0 - WATER_SPEED_FACTOR)
+        plot.water_count += 1
+        new_total = _growth_duration_seconds(berry, plot.water_count)
+        plot.plant_time = time.time() - (new_total - new_remaining)
+    else:
+        plot.water_count += 1
+
     return _plot_to_response(plot)
 
 

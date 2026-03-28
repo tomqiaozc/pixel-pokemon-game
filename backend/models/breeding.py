@@ -66,4 +66,5 @@ class DaycareStatusResponse(BaseModel):
 class HatchResult(BaseModel):
     hatched: bool = False
     pokemon: Optional[dict] = None
+    hatched_list: Optional[list[dict]] = None
     message: str = ""

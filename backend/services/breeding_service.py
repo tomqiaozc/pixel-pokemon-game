@@ -12,7 +12,7 @@ from ..models.breeding import (
     EggData,
     HatchResult,
 )
-from .encounter_service import get_species, _generate_gender
+from .encounter_service import get_species, get_all_species, _generate_gender
 from .game_service import get_game
 
 # In-memory state
@@ -52,6 +52,19 @@ def _is_ditto(pokemon: dict) -> bool:
     return pokemon.get("name", "").lower() == "ditto" or DITTO_GROUP in _get_egg_group(pokemon)
 
 
+def _get_base_species_id(species_id: int) -> int:
+    """Walk the evolution chain backwards to find the base (unevolved) species."""
+    all_species = get_all_species()
+    reverse = {}
+    for sp in all_species:
+        if sp.evolution is not None:
+            reverse[sp.evolution.to] = sp.id
+    current = species_id
+    while current in reverse:
+        current = reverse[current]
+    return current
+
+
 def check_compatibility(pokemon_a: dict, pokemon_b: dict) -> tuple[bool, str]:
     """Check if two Pokemon can breed. Returns (compatible, message)."""
     if pokemon_a is None or pokemon_b is None:
@@ -72,13 +85,12 @@ def check_compatibility(pokemon_a: dict, pokemon_b: dict) -> tuple[bool, str]:
     if _is_ditto(pokemon_a) or _is_ditto(pokemon_b):
         return True, "The two seem to get along"
 
-    # Check gender compatibility
+    # Check gender compatibility — genderless non-Ditto can only breed with Ditto (handled above)
     gender_a = pokemon_a.get("gender")
     gender_b = pokemon_b.get("gender")
+    if gender_a is None or gender_b is None:
+        return False, "The two prefer to play with others"
     if gender_a == gender_b:
-        if gender_a is not None:
-            return False, "The two prefer to play with others"
-    if gender_a is None and gender_b is None:
         return False, "The two prefer to play with others"
 
     # Check egg group overlap
@@ -90,20 +102,25 @@ def check_compatibility(pokemon_a: dict, pokemon_b: dict) -> tuple[bool, str]:
 
 
 def _determine_offspring_species(parent_a: dict, parent_b: dict) -> int:
-    """Determine offspring species. Mother's species (or non-Ditto parent)."""
+    """Determine offspring species. Uses base form of mother's species (or non-Ditto parent)."""
     if _is_ditto(parent_a) and not _is_ditto(parent_b):
-        return parent_b.get("id", parent_b.get("species_id", 1))
+        species_id = parent_b.get("id", parent_b.get("species_id", 1))
+        return _get_base_species_id(species_id)
     if _is_ditto(parent_b) and not _is_ditto(parent_a):
-        return parent_a.get("id", parent_a.get("species_id", 1))
+        species_id = parent_a.get("id", parent_a.get("species_id", 1))
+        return _get_base_species_id(species_id)
 
     # If neither is Ditto, use the female parent
     if parent_a.get("gender") == "female":
-        return parent_a.get("id", parent_a.get("species_id", 1))
+        species_id = parent_a.get("id", parent_a.get("species_id", 1))
+        return _get_base_species_id(species_id)
     if parent_b.get("gender") == "female":
-        return parent_b.get("id", parent_b.get("species_id", 1))
+        species_id = parent_b.get("id", parent_b.get("species_id", 1))
+        return _get_base_species_id(species_id)
 
     # Fallback: first parent
-    return parent_a.get("id", parent_a.get("species_id", 1))
+    species_id = parent_a.get("id", parent_a.get("species_id", 1))
+    return _get_base_species_id(species_id)
 
 
 def _inherit_ivs(parent_a: dict, parent_b: dict) -> dict:
@@ -220,10 +237,6 @@ def deposit_pokemon(game_id: str, pokemon_index: int) -> DaycareStatusResponse:
     else:
         daycare.slot_2 = slot
 
-    # Reset egg state when depositing
-    daycare.egg_ready = False
-    daycare.egg_steps_accumulated = 0
-
     return get_daycare_status(game_id)
 
 
@@ -250,9 +263,8 @@ def withdraw_pokemon(game_id: str, slot: int) -> DaycareStatusResponse:
 
     team.append(pokemon)
 
-    # Reset egg state
+    # Only reset egg_ready — preserve egg_steps_accumulated
     daycare.egg_ready = False
-    daycare.egg_steps_accumulated = 0
 
     return get_daycare_status(game_id)
 
@@ -324,27 +336,36 @@ def process_steps(game_id: str, steps: int) -> HatchResult:
                     daycare.egg_ready = True
                     break
 
-    # Check for egg hatching in party
+    # Check for egg hatching in party — hatch ALL ready eggs
     game = get_game(game_id)
     if game is None:
         return HatchResult(message="Steps processed")
 
     team = game["player"]["team"]
+    hatched_list = []
     for i, pokemon in enumerate(team):
         if pokemon.get("is_egg"):
             hatch_counter = pokemon.get("hatch_counter", DEFAULT_HATCH_STEPS)
             hatch_counter -= steps
             if hatch_counter <= 0:
-                # Hatch the egg!
                 hatched = _hatch_egg(pokemon)
                 team[i] = hatched
-                return HatchResult(
-                    hatched=True,
-                    pokemon=hatched,
-                    message=f"Oh? Your egg hatched into {hatched['name']}!",
-                )
+                hatched_list.append(hatched)
             else:
                 pokemon["hatch_counter"] = hatch_counter
+
+    if hatched_list:
+        names = ", ".join(h["name"] for h in hatched_list)
+        if len(hatched_list) == 1:
+            msg = f"Oh? Your egg hatched into {names}!"
+        else:
+            msg = f"Oh? Your eggs hatched into {names}!"
+        return HatchResult(
+            hatched=True,
+            pokemon=hatched_list[0],
+            hatched_list=hatched_list,
+            message=msg,
+        )
 
     return HatchResult(message="Steps processed")
 
