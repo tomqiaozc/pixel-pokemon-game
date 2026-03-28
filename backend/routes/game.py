@@ -57,6 +57,8 @@ def choose_starter(req: ChooseStarterRequest):
         "sprite": starter.sprite,
         "level": starter.level,
         "ability_id": starter.ability_id,
+        "ivs": starter.ivs,
+        "gender": starter.gender,
     }
 
     # Create game with IV-calculated starter
