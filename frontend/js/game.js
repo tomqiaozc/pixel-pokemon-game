@@ -42,6 +42,7 @@ const Game = (() => {
         Renderer.init();
         NPC.init();
         Quests.init();
+        Berry.init();
         // Load legendary status from backend
         API.getLegendaries().then(data => {
             if (data && Array.isArray(data)) {
@@ -85,6 +86,9 @@ const Game = (() => {
                 const camY = Renderer.getCamY();
                 LegendaryFx.renderOverworldAura(ctx, lSpawn.tileX * TILE + TILE / 2, lSpawn.tileY * TILE + TILE / 2, camX, camY, scale, lSpawn.name);
             }
+            // Render berry plots
+            Berry.renderPlots(ctx, Renderer.getCamX(), Renderer.getCamY(), Renderer.SCALE, MapLoader.getCurrentMapId());
+            Berry.update(dt);
             // Render dialogue overlay on top of overworld
             if (Dialogue.isActive()) {
                 Dialogue.render(ctx, canvas.width, canvas.height);
@@ -96,6 +100,9 @@ const Game = (() => {
             if (Quests.isJournalOpen()) {
                 Quests.renderJournal(ctx, canvas.width, canvas.height);
             }
+            // Render berry interaction overlay
+            Berry.renderInteraction(ctx, canvas.width, canvas.height);
+            Berry.renderNotify(ctx, canvas.width, canvas.height);
             // Render pause menu overlay
             if (PauseMenu.isActive()) {
                 PauseMenu.render(ctx, canvas.width, canvas.height);
@@ -271,6 +278,12 @@ const Game = (() => {
             return;
         }
 
+        // Handle berry interaction
+        if (Berry.isInteracting()) {
+            Berry.updateInteraction(dt);
+            return;
+        }
+
         // Update dialogue if active
         if (Dialogue.isActive()) {
             Dialogue.update(dt);
@@ -279,6 +292,12 @@ const Game = (() => {
 
         // Check for NPC/sign interaction (action key)
         if (Input.isActionPressed()) {
+            // Check berry plot interaction
+            const berryPlot = Berry.checkInteraction(player.x, player.y, player.dir);
+            if (berryPlot) {
+                Berry.openInteraction(berryPlot);
+                return;
+            }
             const npc = NPC.checkInteraction(player.x, player.y, player.dir);
             if (npc) {
                 // Quest-gated NPC interactions
@@ -485,6 +504,7 @@ const Game = (() => {
         NPC.loadForMap(mapId);
         Quests.onMapEnter(mapId);
         Weather.onMapChange(mapId);
+        Berry.loadPlotsForMap(mapId);
         if (map.trainers) {
             TrainerEncounter.loadTrainers(mapId, map.trainers);
         }
