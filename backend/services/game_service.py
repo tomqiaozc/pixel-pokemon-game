@@ -39,6 +39,12 @@ def create_game(player_name: str, starter_pokemon_id: int) -> dict:
     if starter is None:
         raise ValueError(f"Pokemon with id {starter_pokemon_id} not found")
 
+    # Assign gender from species data so it survives model_dump(exclude_none=True)
+    from .encounter_service import get_species, _generate_gender
+    species = get_species(starter_pokemon_id)
+    if species is not None:
+        starter.gender = _generate_gender(species)
+
     game_id = uuid.uuid4().hex[:8]
     player = Player(
         name=player_name,
