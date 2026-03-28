@@ -600,6 +600,35 @@ const API = (() => {
         return post(`${BASE_URL}/legendary/${gameId}/${speciesId}/fled`, {});
     }
 
+    // --- Daycare & Breeding ---
+
+    async function getDaycareStatus() {
+        if (!gameId) return null;
+        return get(`${BASE_URL}/daycare/status/${gameId}`);
+    }
+
+    async function daycareDeposit(pokemonIndex) {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/daycare/deposit`, {
+            game_id: gameId, pokemon_index: pokemonIndex,
+        });
+    }
+
+    async function daycareWithdraw(slot) {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/daycare/withdraw/${slot}`, { game_id: gameId });
+    }
+
+    async function daycareCollectEgg() {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/daycare/collect-egg`, { game_id: gameId });
+    }
+
+    async function daycareStep(steps) {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/daycare/step`, { game_id: gameId, steps });
+    }
+
     return {
         // Game
         createGame, getGameId, getGameState, saveGame, updatePlayTime,
@@ -647,5 +676,7 @@ const API = (() => {
         // Legendary
         getLegendaries, checkLegendary, encounterLegendary,
         legendaryCaught, legendaryFainted, legendaryFled,
+        // Daycare & Breeding
+        getDaycareStatus, daycareDeposit, daycareWithdraw, daycareCollectEgg, daycareStep,
     };
 })();

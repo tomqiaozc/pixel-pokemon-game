@@ -79,6 +79,18 @@ const Routes = (() => {
         m[2][9] = T.ROCK; // "Route 1" sign at top
         m[H - 3][9] = T.ROCK; // sign at bottom
 
+        // Daycare building (near NPC at 15,23)
+        // Roof
+        m[20][13] = T.HOUSE_ROOF; m[20][14] = T.HOUSE_ROOF; m[20][15] = T.HOUSE_ROOF;
+        m[20][16] = T.HOUSE_ROOF; m[20][17] = T.HOUSE_ROOF;
+        m[21][13] = T.HOUSE_ROOF; m[21][14] = T.HOUSE_ROOF; m[21][15] = T.HOUSE_ROOF;
+        m[21][16] = T.HOUSE_ROOF; m[21][17] = T.HOUSE_ROOF;
+        // Walls
+        m[22][13] = T.HOUSE_WALL; m[22][14] = T.HOUSE_WALL; m[22][15] = T.HOUSE_WALL;
+        m[22][16] = T.HOUSE_WALL; m[22][17] = T.HOUSE_WALL;
+        // Door
+        m[22][15] = T.DOOR;
+
         return { data: m, width: W, height: H };
     }
 
@@ -364,6 +376,9 @@ const Routes = (() => {
                 { edge: 'north', targetMap: 'viridian_city', spawnX: 14, spawnY: 23, spawnDir: 1 },
             ],
             trainers: route1Trainers,
+            doors: [
+                { x: 15, y: 22, targetMap: 'daycare_interior', spawnX: 4, spawnY: 7 },
+            ],
             ledges: [
                 { x1: 3, x2: 7, y: 12 },
                 { x1: 13, x2: 17, y: 22 },
