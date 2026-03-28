@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from .routes.berry import router as berry_router
 from .routes.battle import router as battle_router
+from .routes.breeding import router as breeding_router
 from .routes.encounter import router as encounter_router
 from .routes.evolution import router as evolution_router
 from .routes.game import router as game_router
@@ -48,6 +49,7 @@ app.include_router(rival_router)
 app.include_router(legendary_router)
 app.include_router(minigame_router)
 app.include_router(berry_router)
+app.include_router(breeding_router)
 
 
 @app.get("/api/health")
