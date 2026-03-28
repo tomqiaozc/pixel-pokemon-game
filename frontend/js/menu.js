@@ -19,6 +19,7 @@ const PauseMenu = (() => {
         battle: [
             { id: 'antidote', name: 'Antidote', qty: 2, desc: 'Cures poison.', category: 'battle', color: '#48a048' },
         ],
+        tms: [],
         key: [],
     };
 
@@ -36,8 +37,8 @@ const PauseMenu = (() => {
     let partyIndex = 0;
 
     const MENU_ITEMS = ['Pokemon', 'Bag', 'Berries', 'Pokedex', 'Trainer Card', 'Achievements', 'Leaderboard', 'Trade', 'PvP Battle', 'Quests', 'Badges', 'Save', 'Close'];
-    const BAG_TABS = ['Potions', 'Balls', 'Battle', 'Key Items'];
-    const BAG_TAB_KEYS = ['potions', 'pokeballs', 'battle', 'key'];
+    const BAG_TABS = ['Potions', 'Balls', 'Battle', 'TMs/HMs', 'Key Items'];
+    const BAG_TAB_KEYS = ['potions', 'pokeballs', 'battle', 'tms', 'key'];
 
     // Status condition display in party
     const STATUS_COLORS = {
@@ -104,6 +105,7 @@ const PauseMenu = (() => {
         potion: 'potions', potions: 'potions', healing: 'potions',
         pokeball: 'pokeballs', pokeballs: 'pokeballs', ball: 'pokeballs',
         battle: 'battle', status: 'battle',
+        tm: 'tms', hm: 'tms', tms: 'tms',
         key: 'key', key_item: 'key',
     };
 
@@ -112,6 +114,7 @@ const PauseMenu = (() => {
         inventory.potions = [];
         inventory.pokeballs = [];
         inventory.battle = [];
+        inventory.tms = [];
         inventory.key = [];
 
         for (const item of items) {
@@ -253,8 +256,13 @@ const PauseMenu = (() => {
             if (action) {
                 actionCooldown = 200;
                 if (bagAction === 0 && items[bagIndex]) {
-                    // Use item — call backend API
+                    // Use item — TM/HM items open MoveTutor, others use backend API
                     const item = items[bagIndex];
+                    if (BAG_TAB_KEYS[bagTab] === 'tms') {
+                        close();
+                        MoveTutor.openTM(item);
+                        return;
+                    }
                     API.useItem(item.id, partyIndex).then(data => {
                         if (data && data.success !== false) {
                             item.qty--;

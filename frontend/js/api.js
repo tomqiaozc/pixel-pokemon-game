@@ -641,6 +641,36 @@ const API = (() => {
         return get(`${BASE_URL}/berry/inventory/${gameId}`);
     }
 
+    // --- Move Tutor & TM/HM ---
+
+    async function getTutorMoves(mapId) {
+        return get(`${BASE_URL}/moves/tutor/${mapId}`);
+    }
+
+    async function checkMoveCompatibility(pokemonIndex, moveName) {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/moves/compatibility`, {
+            game_id: gameId,
+            pokemon_index: pokemonIndex,
+            move_name: moveName,
+        });
+    }
+
+    async function teachMove(pokemonIndex, moveName, replaceSlot) {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/moves/teach`, {
+            game_id: gameId,
+            pokemon_index: pokemonIndex,
+            move_name: moveName,
+            replace_slot: replaceSlot !== undefined ? replaceSlot : null,
+        });
+    }
+
+    async function getReminderMoves(pokemonIndex) {
+        if (!gameId) return null;
+        return get(`${BASE_URL}/moves/reminder/${gameId}/${pokemonIndex}`);
+    }
+
     // --- Daycare & Breeding ---
 
     async function getDaycareStatus() {
@@ -719,6 +749,8 @@ const API = (() => {
         legendaryCaught, legendaryFainted, legendaryFled,
         // Berry Farming
         getBerryTypes, getBerryPlots, plantBerry, waterBerry, harvestBerry, getBerryPouch,
+        // Move Tutor & TM/HM
+        getTutorMoves, checkMoveCompatibility, teachMove, getReminderMoves,
         // Daycare & Breeding
         getDaycareStatus, daycareDeposit, daycareWithdraw, daycareCollectEgg, daycareStep,
     };
