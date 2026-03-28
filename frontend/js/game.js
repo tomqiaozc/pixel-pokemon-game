@@ -458,8 +458,12 @@ const Game = (() => {
 
         state = 'battle';
 
-        // Notify backend of battle start (fire-and-forget)
-        API.startBattle(enemyData);
+        // Start backend battle session and pass battleId to Battle module
+        API.startBattle(enemyData).then(data => {
+            if (data && data.battle && data.battle.id) {
+                Battle.setBattleId(data.battle.id);
+            }
+        });
     }
 
     // Species ID mapping for EXP award calls
@@ -532,13 +536,57 @@ const Game = (() => {
                         }
                     }
                     if (expResult && expResult.can_evolve && player.party[0]) {
-                        // Trigger evolution check
-                        const prePokemon = { name: player.party[0].name, type: player.party[0].type };
-                        const evoMap = { Bulbasaur: 'Ivysaur', Charmander: 'Charmeleon', Squirtle: 'Wartortle' };
-                        const evoName = evoMap[player.party[0].name];
-                        if (evoName) {
-                            startEvolution(prePokemon, { name: evoName, type: player.party[0].type });
-                        }
+                        // Use backend evolution check instead of hardcoded evoMap
+                        const specId = player.party[0].speciesId || SPECIES_IDS[player.party[0].name] || 0;
+                        API.checkEvolution(specId, player.party[0].level).then(evoData => {
+                            if (evoData && evoData.evolves_to) {
+                                const prePokemon = { name: player.party[0].name, type: player.party[0].type };
+                                const postPokemon = {
+                                    name: evoData.evolves_to.name || evoData.evolves_to,
+                                    type: evoData.evolves_to.types ? evoData.evolves_to.types[0] : player.party[0].type,
+                                };
+                                // Tell backend to apply evolution
+                                API.evolve(0).then(evolveResult => {
+                                    if (evolveResult && evolveResult.new_name) {
+                                        player.party[0].name = evolveResult.new_name;
+                                        if (evolveResult.new_types && evolveResult.new_types[0]) {
+                                            player.party[0].type = evolveResult.new_types[0];
+                                        }
+                                        if (evolveResult.new_stats) {
+                                            const ns = evolveResult.new_stats;
+                                            player.party[0].maxHp = ns.hp || player.party[0].maxHp;
+                                            player.party[0].attack = ns.attack || player.party[0].attack;
+                                            player.party[0].defense = ns.defense || player.party[0].defense;
+                                            player.party[0].spAttack = ns.sp_attack || player.party[0].spAttack;
+                                            player.party[0].spDefense = ns.sp_defense || player.party[0].spDefense;
+                                            player.party[0].speed = ns.speed || player.party[0].speed;
+                                        }
+                                        if (evolveResult.new_species_id) {
+                                            player.party[0].speciesId = evolveResult.new_species_id;
+                                        }
+                                    }
+                                    startEvolution(prePokemon, postPokemon);
+                                }).catch(() => {
+                                    startEvolution(prePokemon, postPokemon);
+                                });
+                            } else {
+                                // Fallback: try local evoMap
+                                const localEvoMap = { Bulbasaur: 'Ivysaur', Charmander: 'Charmeleon', Squirtle: 'Wartortle' };
+                                const evoName = localEvoMap[player.party[0].name];
+                                if (evoName) {
+                                    const prePokemon = { name: player.party[0].name, type: player.party[0].type };
+                                    startEvolution(prePokemon, { name: evoName, type: player.party[0].type });
+                                }
+                            }
+                        }).catch(() => {
+                            // Fallback: try local evoMap
+                            const localEvoMap = { Bulbasaur: 'Ivysaur', Charmander: 'Charmeleon', Squirtle: 'Wartortle' };
+                            const evoName = localEvoMap[player.party[0].name];
+                            if (evoName) {
+                                const prePokemon = { name: player.party[0].name, type: player.party[0].type };
+                                startEvolution(prePokemon, { name: evoName, type: player.party[0].type });
+                            }
+                        });
                     }
                 });
             }

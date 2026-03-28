@@ -10,6 +10,10 @@ const Battle = (() => {
     let playerPokemon = null;
     let enemyPokemon = null;
 
+    // Backend battle state
+    let battleId = null;  // from API.startBattle response
+    let useBackend = false; // true when backend battle session is active
+
     // Animation state
     let introTimer = 0;
     let textQueue = [];
@@ -140,6 +144,10 @@ const Battle = (() => {
             colors: enemyData.colors || null,
             ability: enemyData.ability || null,
         };
+
+        // Store backend battle ID if provided
+        battleId = (options && options.battleId) || null;
+        useBackend = !!battleId;
 
         phase = 'intro';
         introTimer = 0;
@@ -459,6 +467,109 @@ const Battle = (() => {
         phase = 'animating';
         introTimer = 0;
         textQueue = [];
+
+        // If backend battle is active, delegate to backend
+        if (useBackend && battleId) {
+            const moveIndex = playerPokemon.moves.indexOf(playerMove);
+            API.battleAction(battleId, 'fight', moveIndex >= 0 ? moveIndex : 0).then(data => {
+                if (data && data.turn_result) {
+                    applyBackendTurnResult(data.turn_result, playerMove);
+                } else {
+                    // Backend failed — fall back to local calc
+                    executeLocalTurn(playerMove);
+                }
+            }).catch(() => {
+                executeLocalTurn(playerMove);
+            });
+            return;
+        }
+
+        executeLocalTurn(playerMove);
+    }
+
+    // Apply backend TurnResult to frontend state and text queue
+    function applyBackendTurnResult(result, playerMove) {
+        textQueue = [];
+
+        // Process turn events (attacks)
+        for (const evt of result.events || []) {
+            const attackerName = evt.attacker === 'player' ? playerPokemon.name : `Wild ${enemyPokemon.name}`;
+            textQueue.push(`${attackerName} used ${evt.move}!`);
+
+            if (evt.critical) textQueue.push('A critical hit!');
+            if (evt.effectiveness === 'super_effective') textQueue.push("It's super effective!");
+            else if (evt.effectiveness === 'not_very_effective') textQueue.push("It's not very effective...");
+            else if (evt.effectiveness === 'immune') textQueue.push("It had no effect...");
+
+            if (evt.damage > 0) {
+                if (evt.attacker === 'player') {
+                    enemyShake = 300;
+                    enemyFlash = 200;
+                    spawnAttackParticles(playerMove ? playerMove.type : playerPokemon.type, canvasW * 0.7, canvasH * 0.25);
+                    damageNumbers.push({ x: canvasW * 0.7, y: canvasH * 0.2, value: evt.damage, age: 0 });
+                } else {
+                    setTimeout(() => {
+                        playerShake = 300;
+                        playerFlash = 200;
+                        damageNumbers.push({ x: canvasW * 0.25, y: canvasH * 0.5, value: evt.damage, age: 0 });
+                    }, 400);
+                }
+            }
+
+            // Update HP from backend
+            if (evt.attacker === 'player') {
+                enemyPokemon.hp = evt.target_hp_remaining;
+            } else {
+                playerPokemon.hp = evt.target_hp_remaining;
+            }
+
+            if (evt.target_fainted) {
+                const faintedName = evt.attacker === 'player' ? `Wild ${enemyPokemon.name}` : playerPokemon.name;
+                textQueue.push(`${faintedName} fainted!`);
+            }
+        }
+
+        // Process status events
+        for (const se of result.status_events || []) {
+            if (se.message) textQueue.push(se.message);
+            if (se.event_type === 'status_applied') {
+                if (se.pokemon === 'player') playerStatus = se.status;
+                else enemyStatus = se.status;
+            } else if (se.event_type === 'status_cured') {
+                if (se.pokemon === 'player') playerStatus = null;
+                else enemyStatus = null;
+            } else if (se.event_type === 'status_damage' && se.damage) {
+                if (se.pokemon === 'player') {
+                    playerPokemon.hp = Math.max(0, playerPokemon.hp - se.damage);
+                } else {
+                    enemyPokemon.hp = Math.max(0, enemyPokemon.hp - se.damage);
+                }
+            }
+        }
+
+        // Process weather events
+        for (const we of result.weather_events || []) {
+            if (we.message) textQueue.push(we.message);
+        }
+
+        // Decrement PP locally
+        if (playerMove && playerMove.pp > 0) playerMove.pp--;
+
+        if (result.battle_over) {
+            battleOver = true;
+            battleResult = result.winner === 'player' ? 'win' : 'lose';
+        }
+
+        if (textQueue.length === 0) textQueue.push('...');
+
+        phase = 'text';
+        textIndex = 0;
+        charIndex = 0;
+        textTimer = 0;
+    }
+
+    // Local-only turn calculation (offline fallback)
+    function executeLocalTurn(playerMove) {
 
         // Check if player is prevented from acting by status
         if (playerStatus === 'paralysis' && Math.random() < 0.25) {
@@ -807,6 +918,50 @@ const Battle = (() => {
     }
 
     function executeRun() {
+        if (useBackend && battleId) {
+            phase = 'animating';
+            introTimer = 0;
+            API.battleAction(battleId, 'run').then(data => {
+                if (data && data.turn_result) {
+                    const r = data.turn_result;
+                    if (r.ran_away) {
+                        textQueue = ['Got away safely!'];
+                        battleOver = true;
+                        battleResult = 'run';
+                    } else {
+                        textQueue = ['Can\'t escape!'];
+                        // Process enemy attack events from failed run
+                        for (const evt of r.events || []) {
+                            textQueue.push(`Wild ${enemyPokemon.name} used ${evt.move}!`);
+                            if (evt.damage > 0) {
+                                playerPokemon.hp = evt.target_hp_remaining;
+                                setTimeout(() => {
+                                    playerShake = 300;
+                                    playerFlash = 200;
+                                    damageNumbers.push({ x: canvasW * 0.25, y: canvasH * 0.5, value: evt.damage, age: 0 });
+                                }, 400);
+                            }
+                            if (evt.target_fainted) {
+                                textQueue.push(`${playerPokemon.name} fainted!`);
+                                battleOver = true;
+                                battleResult = 'lose';
+                            }
+                        }
+                    }
+                    phase = 'text';
+                    textIndex = 0;
+                    charIndex = 0;
+                    textTimer = 0;
+                } else {
+                    executeLocalRun();
+                }
+            }).catch(() => executeLocalRun());
+            return;
+        }
+        executeLocalRun();
+    }
+
+    function executeLocalRun() {
         phase = 'text';
         textQueue = ['Got away safely!'];
         textIndex = 0;
@@ -840,34 +995,66 @@ const Battle = (() => {
         if (!item || item.qty <= 0) return;
 
         if (item.action === 'catch') {
-            // Throw pokeball
+            // Throw pokeball — try backend first
             item.qty--;
-            const catchRate = Math.random();
-            const hpRatio = enemyPokemon.hp / enemyPokemon.maxHp;
-            const catchChance = (1 - hpRatio * 0.5) * 0.4; // ~20-40% base chance
-
             phase = 'text';
             menuMode = 'main';
 
-            if (catchRate < catchChance) {
-                textQueue = [
-                    `You threw a ${item.name}!`,
-                    'Wiggle... Wiggle... Wiggle...',
-                    `Gotcha! ${enemyPokemon.name} was caught!`,
-                ];
-                battleOver = true;
-                battleResult = 'catch';
-            } else {
-                textQueue = [
-                    `You threw a ${item.name}!`,
-                    'Wiggle... Wiggle...',
-                    'Oh no! The Pokemon broke free!',
-                ];
+            if (useBackend && battleId) {
+                textQueue = [`You threw a ${item.name}!`, 'Wiggle... Wiggle...'];
+                textIndex = 0;
+                charIndex = 0;
+                textTimer = 0;
+                API.battleCatch(battleId, item.id).then(data => {
+                    if (data && data.caught !== undefined) {
+                        if (data.caught) {
+                            textQueue.push(`Gotcha! ${enemyPokemon.name} was caught!`);
+                            battleOver = true;
+                            battleResult = 'catch';
+                        } else {
+                            textQueue.push('Oh no! The Pokemon broke free!');
+                        }
+                    } else {
+                        // Fallback to local catch calc
+                        localCatchCalc(item);
+                    }
+                }).catch(() => localCatchCalc(item));
+                return;
             }
-            textIndex = 0;
-            charIndex = 0;
-            textTimer = 0;
+
+            localCatchCalc(item);
+            return;
         } else if (item.action === 'heal') {
+            // Heal item — try backend first
+            if (useBackend && battleId) {
+                const pokemonIndex = 0; // lead Pokemon
+                API.useItem(item.id, pokemonIndex).then(data => {
+                    if (data && data.success) {
+                        const healed = data.hp_restored || 0;
+                        playerPokemon.hp = Math.min(playerPokemon.maxHp, data.new_hp || (playerPokemon.hp + healed));
+                        textQueue = [`Used ${item.name}! Restored ${healed} HP.`];
+                    } else {
+                        // Fallback: apply locally
+                        const healAmount = item.id === 'super-potion' ? 50 : 20;
+                        const before = playerPokemon.hp;
+                        playerPokemon.hp = Math.min(playerPokemon.maxHp, playerPokemon.hp + healAmount);
+                        textQueue = [`Used ${item.name}! Restored ${playerPokemon.hp - before} HP.`];
+                    }
+                    appendEnemyAttackBackend();
+                }).catch(() => {
+                    const healAmount = item.id === 'super-potion' ? 50 : 20;
+                    const before = playerPokemon.hp;
+                    playerPokemon.hp = Math.min(playerPokemon.maxHp, playerPokemon.hp + healAmount);
+                    textQueue = [`Used ${item.name}! Restored ${playerPokemon.hp - before} HP.`];
+                    appendEnemyAttack();
+                    appendEndOfTurnEffects();
+                });
+                item.qty--;
+                phase = 'animating';
+                introTimer = 0;
+                menuMode = 'main';
+                return;
+            }
             // Use potion
             const healAmount = item.id === 'super-potion' ? 50 : 20;
             const before = playerPokemon.hp;
@@ -884,45 +1071,140 @@ const Battle = (() => {
             appendEnemyAttack();
             appendEndOfTurnEffects();
         } else if (item.action === 'use') {
-            // Status cure items
+            // Status cure items — try backend first
             item.qty--;
             phase = 'animating';
             introTimer = 0;
             menuMode = 'main';
 
-            if (item.id === 'antidote' && (playerStatus === 'poison' || playerStatus === 'toxic')) {
-                textQueue = [StatusFx.getStatusCureText(playerStatus, playerPokemon.name)];
-                playerStatus = null;
-                toxicTurnCount = 0;
-            } else if (item.id === 'parlyz-heal' && playerStatus === 'paralysis') {
-                textQueue = [StatusFx.getStatusCureText('paralysis', playerPokemon.name)];
-                playerStatus = null;
-            } else if (item.id === 'burn-heal' && playerStatus === 'burn') {
-                textQueue = [StatusFx.getStatusCureText('burn', playerPokemon.name)];
-                playerStatus = null;
-            } else if (item.id === 'awakening' && playerStatus === 'sleep') {
-                textQueue = [StatusFx.getStatusCureText('sleep', playerPokemon.name)];
-                playerStatus = null;
-                statusTurnCounter = 0;
-            } else if (item.id === 'ice-heal' && playerStatus === 'freeze') {
-                textQueue = [StatusFx.getStatusCureText('freeze', playerPokemon.name)];
-                playerStatus = null;
-            } else if (item.id === 'full-heal') {
-                if (playerStatus) {
-                    textQueue = [StatusFx.getStatusCureText(playerStatus, playerPokemon.name)];
-                    playerStatus = null;
-                    statusTurnCounter = 0;
-                    toxicTurnCount = 0;
-                } else {
-                    textQueue = [`Used ${item.name}! But it had no effect...`];
-                }
-            } else {
-                textQueue = [`Used ${item.name}!`];
+            if (useBackend && battleId) {
+                API.useItem(item.id, 0).then(data => {
+                    if (data && data.success) {
+                        textQueue = [data.message || `Used ${item.name}!`];
+                        if (data.status_cured) playerStatus = null;
+                    } else {
+                        applyLocalStatusCure(item);
+                    }
+                    appendEnemyAttackBackend();
+                }).catch(() => {
+                    applyLocalStatusCure(item);
+                    appendEnemyAttack();
+                    appendEndOfTurnEffects();
+                });
+                return;
             }
+
+            applyLocalStatusCure(item);
 
             // Enemy still attacks after using cure item (SFX-FE09)
             appendEnemyAttack();
             appendEndOfTurnEffects();
+        }
+    }
+
+    // Local catch calculation (offline fallback)
+    function localCatchCalc(item) {
+        const catchRate = Math.random();
+        const hpRatio = enemyPokemon.hp / enemyPokemon.maxHp;
+        const catchChance = (1 - hpRatio * 0.5) * 0.4; // ~20-40% base chance
+
+        if (catchRate < catchChance) {
+            textQueue = [
+                `You threw a ${item.name}!`,
+                'Wiggle... Wiggle... Wiggle...',
+                `Gotcha! ${enemyPokemon.name} was caught!`,
+            ];
+            battleOver = true;
+            battleResult = 'catch';
+        } else {
+            textQueue = [
+                `You threw a ${item.name}!`,
+                'Wiggle... Wiggle...',
+                'Oh no! The Pokemon broke free!',
+            ];
+        }
+        textIndex = 0;
+        charIndex = 0;
+        textTimer = 0;
+        phase = 'text';
+    }
+
+    // Local status cure application (offline fallback)
+    function applyLocalStatusCure(item) {
+        if (item.id === 'antidote' && (playerStatus === 'poison' || playerStatus === 'toxic')) {
+            textQueue = [StatusFx.getStatusCureText(playerStatus, playerPokemon.name)];
+            playerStatus = null;
+            toxicTurnCount = 0;
+        } else if (item.id === 'parlyz-heal' && playerStatus === 'paralysis') {
+            textQueue = [StatusFx.getStatusCureText('paralysis', playerPokemon.name)];
+            playerStatus = null;
+        } else if (item.id === 'burn-heal' && playerStatus === 'burn') {
+            textQueue = [StatusFx.getStatusCureText('burn', playerPokemon.name)];
+            playerStatus = null;
+        } else if (item.id === 'awakening' && playerStatus === 'sleep') {
+            textQueue = [StatusFx.getStatusCureText('sleep', playerPokemon.name)];
+            playerStatus = null;
+            statusTurnCounter = 0;
+        } else if (item.id === 'ice-heal' && playerStatus === 'freeze') {
+            textQueue = [StatusFx.getStatusCureText('freeze', playerPokemon.name)];
+            playerStatus = null;
+        } else if (item.id === 'full-heal') {
+            if (playerStatus) {
+                textQueue = [StatusFx.getStatusCureText(playerStatus, playerPokemon.name)];
+                playerStatus = null;
+                statusTurnCounter = 0;
+                toxicTurnCount = 0;
+            } else {
+                textQueue = [`Used ${item.name}! But it had no effect...`];
+            }
+        } else {
+            textQueue = [`Used ${item.name}!`];
+        }
+    }
+
+    // After using an item with backend active, ask backend for enemy's response turn
+    function appendEnemyAttackBackend() {
+        if (useBackend && battleId) {
+            API.battleAiAction(battleId).then(data => {
+                if (data && data.events) {
+                    for (const evt of data.events) {
+                        textQueue.push(`Wild ${enemyPokemon.name} used ${evt.move}!`);
+                        if (evt.damage > 0) {
+                            playerPokemon.hp = evt.target_hp_remaining;
+                            playerShake = 300;
+                            playerFlash = 200;
+                            damageNumbers.push({ x: canvasW * 0.25, y: canvasH * 0.5, value: evt.damage, age: 0 });
+                        }
+                        if (evt.target_fainted) {
+                            textQueue.push(`${playerPokemon.name} fainted!`);
+                            battleOver = true;
+                            battleResult = 'lose';
+                        }
+                    }
+                } else {
+                    // Fallback: local enemy attack
+                    appendEnemyAttack();
+                }
+                appendEndOfTurnEffects();
+                phase = 'text';
+                textIndex = 0;
+                charIndex = 0;
+                textTimer = 0;
+            }).catch(() => {
+                appendEnemyAttack();
+                appendEndOfTurnEffects();
+                phase = 'text';
+                textIndex = 0;
+                charIndex = 0;
+                textTimer = 0;
+            });
+        } else {
+            appendEnemyAttack();
+            appendEndOfTurnEffects();
+            phase = 'text';
+            textIndex = 0;
+            charIndex = 0;
+            textTimer = 0;
         }
     }
 
@@ -1520,5 +1802,11 @@ const Battle = (() => {
         ctx.textAlign = 'left';
     }
 
-    return { start, update, render };
+    // Allow game.js to set battleId after async API.startBattle resolves
+    function setBattleId(id) {
+        battleId = id;
+        useBackend = !!id;
+    }
+
+    return { start, update, render, setBattleId };
 })();
