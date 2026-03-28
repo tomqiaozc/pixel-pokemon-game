@@ -118,6 +118,10 @@ const Game = (() => {
             }
             // Render fishing result overlay
             Fishing.renderFishResult(ctx, canvas.width, canvas.height);
+            // Render move tutor overlay
+            if (MoveTutor.isActive()) {
+                MoveTutor.render(ctx, canvas.width, canvas.height);
+            }
             // Render achievement popup (on top of everything)
             Achievements.renderPopup(ctx, canvas.width, canvas.height);
         } else if (state === 'cutscene') {
@@ -322,6 +326,12 @@ const Game = (() => {
             return;
         }
 
+        // Handle move tutor overlay
+        if (MoveTutor.isActive()) {
+            MoveTutor.update(dt);
+            return;
+        }
+
         // Update dialogue if active
         if (Dialogue.isActive()) {
             Dialogue.update(dt);
@@ -356,7 +366,13 @@ const Game = (() => {
             if (Daycare.checkNpcInteraction(player.x, player.y, player.dir, MapLoader.getCurrentMapId())) {
                 return;
             }
-            const npc = NPC.checkInteraction(player.x, player.y, player.dir);
+            // Move Tutor NPC check
+            const tutorNpc = NPC.checkInteraction(player.x, player.y, player.dir);
+            if (tutorNpc && tutorNpc.type === 'tutor') {
+                MoveTutor.openTutor(tutorNpc.name, MapLoader.getCurrentMapId());
+                return;
+            }
+            const npc = tutorNpc; // reuse already-checked NPC
             if (npc) {
                 // Quest-gated NPC interactions
                 if (npc.name === 'Shopkeeper' && Quests.hasFlag('reached_viridian') && !Quests.hasFlag('got_parcel')) {

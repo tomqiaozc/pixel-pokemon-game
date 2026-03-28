@@ -31,6 +31,11 @@ const NPC = (() => {
             shirt: '#f8d030',
             pants: '#404040',
         },
+        tutor: {
+            hair: '#e0e0e0',
+            shirt: '#6040a0',
+            pants: '#6040a0',
+        },
     };
 
     // NPC sprite cache
