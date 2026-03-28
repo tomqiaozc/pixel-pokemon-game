@@ -87,6 +87,19 @@ def _generate_moves_for_level(species: PokemonSpecies, level: int) -> list[Move]
     return moves
 
 
+def _generate_gender(species: PokemonSpecies) -> str | None:
+    """Generate a gender based on species gender_ratio.
+
+    gender_ratio is the percentage chance of being female (0-100).
+    None means genderless.
+    0 means always male, 100 means always female.
+    """
+    if species.gender_ratio is None:
+        return None
+    roll = random.random() * 100
+    return "female" if roll < species.gender_ratio else "male"
+
+
 def generate_wild_pokemon(species_id: int, level: int) -> WildPokemon:
     """Generate a wild Pokemon instance with random IVs and level-appropriate moves."""
     species = get_species(species_id)
@@ -94,21 +107,23 @@ def generate_wild_pokemon(species_id: int, level: int) -> WildPokemon:
         raise ValueError(f"Species {species_id} not found")
 
     # Generate random IVs (0-31)
-    iv_hp = random.randint(0, 31)
-    iv_atk = random.randint(0, 31)
-    iv_def = random.randint(0, 31)
-    iv_spa = random.randint(0, 31)
-    iv_spd = random.randint(0, 31)
-    iv_spe = random.randint(0, 31)
+    ivs = {
+        "hp": random.randint(0, 31),
+        "attack": random.randint(0, 31),
+        "defense": random.randint(0, 31),
+        "sp_attack": random.randint(0, 31),
+        "sp_defense": random.randint(0, 31),
+        "speed": random.randint(0, 31),
+    }
 
-    hp = _calc_stat(species.stats.hp, level, iv_hp, is_hp=True)
+    hp = _calc_stat(species.stats.hp, level, ivs["hp"], is_hp=True)
     stats = Stats(
         hp=hp,
-        attack=_calc_stat(species.stats.attack, level, iv_atk),
-        defense=_calc_stat(species.stats.defense, level, iv_def),
-        sp_attack=_calc_stat(species.stats.sp_attack, level, iv_spa),
-        sp_defense=_calc_stat(species.stats.sp_defense, level, iv_spd),
-        speed=_calc_stat(species.stats.speed, level, iv_spe),
+        attack=_calc_stat(species.stats.attack, level, ivs["attack"]),
+        defense=_calc_stat(species.stats.defense, level, ivs["defense"]),
+        sp_attack=_calc_stat(species.stats.sp_attack, level, ivs["sp_attack"]),
+        sp_defense=_calc_stat(species.stats.sp_defense, level, ivs["sp_defense"]),
+        speed=_calc_stat(species.stats.speed, level, ivs["speed"]),
     )
 
     moves = _generate_moves_for_level(species, level)
@@ -116,6 +131,9 @@ def generate_wild_pokemon(species_id: int, level: int) -> WildPokemon:
     # Select random ability from species pool
     from .ability_service import select_ability
     ability_id = select_ability(species.abilities)
+
+    # Generate gender based on species ratio
+    gender = _generate_gender(species)
 
     return WildPokemon(
         species_id=species.id,
@@ -129,6 +147,8 @@ def generate_wild_pokemon(species_id: int, level: int) -> WildPokemon:
         base_exp=species.base_exp,
         sprite=species.sprite,
         ability_id=ability_id,
+        ivs=ivs,
+        gender=gender,
     )
 
 

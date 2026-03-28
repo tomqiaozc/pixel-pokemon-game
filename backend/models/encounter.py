@@ -28,6 +28,8 @@ class PokemonSpecies(BaseModel):
     evolution: Optional[EvolutionData]
     sprite: str
     abilities: list[str] = []
+    gender_ratio: Optional[float] = None
+    egg_groups: list[str] = []
 
 
 class EncounterEntry(BaseModel):
@@ -56,6 +58,8 @@ class WildPokemon(BaseModel):
     base_exp: int
     sprite: str
     ability_id: Optional[str] = None
+    ivs: Optional[dict] = None
+    gender: Optional[str] = None
 
 
 class EncounterCheckRequest(BaseModel):

@@ -37,6 +37,8 @@ class BattlePokemon(BaseModel):
     ability_id: Optional[str] = None
     flash_fire_activated: bool = False
     held_item: Optional[str] = None
+    ivs: Optional[dict] = None
+    gender: Optional[str] = None
 
     @field_validator("types", mode="before")
     @classmethod
