@@ -524,5 +524,23 @@
     "accuracy": 100,
     "pp": 20,
     "contact": true
+  },
+  "Surf": {
+    "name": "Surf",
+    "type": "water",
+    "category": "special",
+    "power": 90,
+    "accuracy": 100,
+    "pp": 15,
+    "contact": false
+  },
+  "Waterfall": {
+    "name": "Waterfall",
+    "type": "water",
+    "category": "physical",
+    "power": 80,
+    "accuracy": 100,
+    "pp": 15,
+    "contact": true
   }
 }

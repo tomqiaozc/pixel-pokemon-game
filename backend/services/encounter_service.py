@@ -180,3 +180,20 @@ def check_encounter(area_id: str) -> EncounterCheckResponse:
     wild = generate_wild_pokemon(entry.species_id, level)
 
     return EncounterCheckResponse(encountered=True, pokemon=wild)
+
+
+def fish_encounter(area_id: str, rod_tier: str) -> EncounterCheckResponse | None:
+    """Attempt a fishing encounter. Returns None if no fishing table for this area/rod."""
+    table_id = f"{area_id}_fishing_{rod_tier}"
+    table = get_encounter_table(table_id)
+    if table is None:
+        return None
+
+    # Fishing always succeeds (rate=1.0), but still use the table's rate
+    if random.random() > table.base_encounter_rate:
+        return EncounterCheckResponse(encountered=False)
+
+    entry = _select_encounter(table)
+    level = random.randint(entry.min_level, entry.max_level)
+    wild = generate_wild_pokemon(entry.species_id, level)
+    return EncounterCheckResponse(encountered=True, pokemon=wild)

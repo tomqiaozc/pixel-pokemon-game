@@ -166,5 +166,41 @@
       "type": "pp_up",
       "amount": 1
     }
+  },
+  {
+    "id": 15,
+    "name": "Old Rod",
+    "description": "An old fishing rod. Use it by water to catch weak Pokemon.",
+    "category": "key_item",
+    "price": 0,
+    "sell_price": 0,
+    "effect": {
+      "type": "fishing",
+      "rod_tier": "old"
+    }
+  },
+  {
+    "id": 16,
+    "name": "Good Rod",
+    "description": "A decent fishing rod. Can catch a wider variety of water Pokemon.",
+    "category": "key_item",
+    "price": 0,
+    "sell_price": 0,
+    "effect": {
+      "type": "fishing",
+      "rod_tier": "good"
+    }
+  },
+  {
+    "id": 17,
+    "name": "Super Rod",
+    "description": "The best fishing rod. Can hook rare and powerful water Pokemon.",
+    "category": "key_item",
+    "price": 0,
+    "sell_price": 0,
+    "effect": {
+      "type": "fishing",
+      "rod_tier": "super"
+    }
   }
 ]

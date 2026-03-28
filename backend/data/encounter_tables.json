@@ -42,5 +42,80 @@
       {"species_id": 15, "min_level": 3, "max_level": 5, "weight": 5},
       {"species_id": 13, "min_level": 3, "max_level": 5, "weight": 15}
     ]
+  },
+  "pallet_town_fishing_old": {
+    "name": "Pallet Town (Old Rod)",
+    "encounter_type": "fishing",
+    "base_encounter_rate": 1.0,
+    "encounters": [
+      {"species_id": 129, "min_level": 5, "max_level": 15, "weight": 100}
+    ]
+  },
+  "pallet_town_fishing_good": {
+    "name": "Pallet Town (Good Rod)",
+    "encounter_type": "fishing",
+    "base_encounter_rate": 1.0,
+    "encounters": [
+      {"species_id": 129, "min_level": 10, "max_level": 20, "weight": 30},
+      {"species_id": 60, "min_level": 10, "max_level": 20, "weight": 25},
+      {"species_id": 118, "min_level": 10, "max_level": 20, "weight": 25},
+      {"species_id": 116, "min_level": 10, "max_level": 20, "weight": 20}
+    ]
+  },
+  "pallet_town_fishing_super": {
+    "name": "Pallet Town (Super Rod)",
+    "encounter_type": "fishing",
+    "base_encounter_rate": 1.0,
+    "encounters": [
+      {"species_id": 130, "min_level": 20, "max_level": 30, "weight": 5},
+      {"species_id": 54, "min_level": 15, "max_level": 25, "weight": 15},
+      {"species_id": 116, "min_level": 15, "max_level": 30, "weight": 20},
+      {"species_id": 90, "min_level": 15, "max_level": 25, "weight": 15},
+      {"species_id": 21, "min_level": 15, "max_level": 25, "weight": 15},
+      {"species_id": 118, "min_level": 15, "max_level": 25, "weight": 15},
+      {"species_id": 147, "min_level": 15, "max_level": 25, "weight": 5},
+      {"species_id": 60, "min_level": 15, "max_level": 25, "weight": 10}
+    ]
+  },
+  "pallet_town_surfing": {
+    "name": "Pallet Town (Surfing)",
+    "encounter_type": "water",
+    "base_encounter_rate": 0.25,
+    "encounters": [
+      {"species_id": 72, "min_level": 10, "max_level": 20, "weight": 35},
+      {"species_id": 60, "min_level": 10, "max_level": 20, "weight": 30},
+      {"species_id": 54, "min_level": 10, "max_level": 20, "weight": 20},
+      {"species_id": 116, "min_level": 10, "max_level": 20, "weight": 15}
+    ]
+  },
+  "route_2_fishing_old": {
+    "name": "Route 2 (Old Rod)",
+    "encounter_type": "fishing",
+    "base_encounter_rate": 1.0,
+    "encounters": [
+      {"species_id": 129, "min_level": 5, "max_level": 15, "weight": 100}
+    ]
+  },
+  "route_2_fishing_good": {
+    "name": "Route 2 (Good Rod)",
+    "encounter_type": "fishing",
+    "base_encounter_rate": 1.0,
+    "encounters": [
+      {"species_id": 129, "min_level": 10, "max_level": 20, "weight": 40},
+      {"species_id": 60, "min_level": 10, "max_level": 20, "weight": 30},
+      {"species_id": 118, "min_level": 10, "max_level": 20, "weight": 30}
+    ]
+  },
+  "route_2_fishing_super": {
+    "name": "Route 2 (Super Rod)",
+    "encounter_type": "fishing",
+    "base_encounter_rate": 1.0,
+    "encounters": [
+      {"species_id": 130, "min_level": 20, "max_level": 30, "weight": 5},
+      {"species_id": 54, "min_level": 15, "max_level": 25, "weight": 20},
+      {"species_id": 116, "min_level": 15, "max_level": 25, "weight": 25},
+      {"species_id": 118, "min_level": 15, "max_level": 25, "weight": 25},
+      {"species_id": 60, "min_level": 15, "max_level": 25, "weight": 25}
+    ]
   }
 }
