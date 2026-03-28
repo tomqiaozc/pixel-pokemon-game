@@ -503,9 +503,10 @@ const API = (() => {
 
     async function buyCoins(moneyAmount) {
         if (!gameId) return null;
+        const purchaseCount = Math.floor(moneyAmount / 1000);
         return post(`${BASE_URL}/minigames/coins/buy`, {
             game_id: gameId,
-            money_amount: moneyAmount,
+            amount: purchaseCount,
         });
     }
 
