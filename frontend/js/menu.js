@@ -82,6 +82,8 @@ const PauseMenu = (() => {
                     type: poke.type,
                     typeColor: poke.typeColor,
                     status: poke.status || null,
+                    is_egg: poke.is_egg || false,
+                    hatch_counter: poke.hatch_counter || 0,
                 });
             }
         } else if (Game.player.starter) {
@@ -418,6 +420,43 @@ const PauseMenu = (() => {
             if (i < party.length) {
                 const poke = party[i];
 
+                if (Daycare.isEgg(poke)) {
+                    // Egg display — show egg sprite and hatch progress
+                    ctx.fillStyle = '#a0c880';
+                    ctx.fillRect(slotX + 8, slotY + 8, 32, 32);
+                    ctx.fillStyle = '#f8f8f0';
+                    ctx.beginPath();
+                    ctx.ellipse(slotX + 24, slotY + 26, 10, 13, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.fillStyle = '#60a040';
+                    ctx.fillRect(slotX + 16, slotY + 24, 16, 3);
+
+                    ctx.fillStyle = '#f8f8f8';
+                    ctx.font = 'bold 14px monospace';
+                    ctx.textAlign = 'left';
+                    ctx.fillText('Egg', slotX + 50, slotY + 18);
+
+                    const summary = Daycare.getEggSummary(poke);
+                    ctx.font = '12px monospace';
+                    ctx.fillStyle = '#c0c0c0';
+                    ctx.fillText(summary, slotX + 50, slotY + 36);
+
+                    // Hatch progress bar
+                    const progress = Daycare.getEggProgress(poke);
+                    const barX = slotX + slotW - 160;
+                    const barW = 120;
+                    const barY = slotY + 16;
+                    ctx.fillStyle = '#303030';
+                    ctx.fillRect(barX, barY, barW, 10);
+                    ctx.fillStyle = '#80c848';
+                    ctx.fillRect(barX + 1, barY + 1, (barW - 2) * progress, 8);
+
+                    ctx.fillStyle = '#c0c0c0';
+                    ctx.font = '10px monospace';
+                    ctx.textAlign = 'right';
+                    ctx.fillText(`${Math.floor(progress * 100)}%`, barX + barW, barY + 24);
+                } else {
+
                 // Pokemon name
                 ctx.fillStyle = '#f8f8f8';
                 ctx.font = 'bold 14px monospace';
@@ -486,6 +525,7 @@ const PauseMenu = (() => {
                 ctx.font = 'bold 16px monospace';
                 ctx.textAlign = 'center';
                 ctx.fillText(poke.name[0], slotX + 24, slotY + 30);
+                }
             }
         }
 

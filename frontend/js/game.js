@@ -5,7 +5,7 @@ const Game = (() => {
     const MOVE_SPEED = 1.5; // pixels per frame
     const ANIM_INTERVAL = 150; // ms between walk frames
 
-    // Game states: starter, overworld, battle, evolution, pokecenter, gym, badge_award, minigame, cutscene
+    // Game states: starter, overworld, battle, evolution, pokecenter, gym, badge_award, minigame, cutscene, hatch
     let state = 'starter';
     let canvas, ctx;
     let pendingBadge = null;
@@ -53,6 +53,7 @@ const Game = (() => {
                 }
             }
         }).catch(() => {});
+        Daycare.loadStatus();
         Routes.registerAll();
         PlayerStats.load();
         Achievements.loadEarned();
@@ -89,10 +90,18 @@ const Game = (() => {
             // Render berry plots
             Berry.renderPlots(ctx, Renderer.getCamX(), Renderer.getCamY(), Renderer.SCALE, MapLoader.getCurrentMapId());
             Berry.update(dt);
+            // Render daycare NPC on route_1
+            Daycare.renderNpc(ctx);
+            Daycare.updateNotify(dt);
             // Render dialogue overlay on top of overworld
             if (Dialogue.isActive()) {
                 Dialogue.render(ctx, canvas.width, canvas.height);
             }
+            // Render daycare overlays
+            if (Daycare.isInteriorActive()) {
+                Daycare.renderInterior(ctx, canvas.width, canvas.height);
+            }
+            Daycare.renderNotify(ctx, canvas.width, canvas.height);
             // Render quest HUD
             Quests.updateHUD(dt);
             Quests.renderHUD(ctx, canvas.width, canvas.height);
@@ -129,6 +138,13 @@ const Game = (() => {
             Evolution.update(dt);
             Evolution.render(ctx, canvas.width, canvas.height);
             if (!Evolution.isActive()) {
+                state = 'overworld';
+                Renderer.centerCamera(player.x + TILE / 2, player.y + TILE / 2);
+            }
+        } else if (state === 'hatch') {
+            Daycare.updateHatch(dt);
+            Daycare.renderHatch(ctx, canvas.width, canvas.height);
+            if (!Daycare.isHatching()) {
                 state = 'overworld';
                 Renderer.centerCamera(player.x + TILE / 2, player.y + TILE / 2);
             }
@@ -284,6 +300,12 @@ const Game = (() => {
             return;
         }
 
+        // Handle daycare interior
+        if (Daycare.isInteriorActive()) {
+            Daycare.updateInterior(dt);
+            return;
+        }
+
         // Update dialogue if active
         if (Dialogue.isActive()) {
             Dialogue.update(dt);
@@ -298,6 +320,8 @@ const Game = (() => {
                 Berry.openInteraction(berryPlot);
                 return;
             }
+            // Daycare NPC check
+            if (Daycare.checkNpcInteraction(player.x, player.y, player.dir)) {
             const npc = NPC.checkInteraction(player.x, player.y, player.dir);
             if (npc) {
                 // Quest-gated NPC interactions
@@ -414,6 +438,11 @@ const Game = (() => {
                 player.animFrame = (player.animFrame % 2) + 1;
                 player.animTimer = 0;
                 PlayerStats.increment('steps');
+                Daycare.onStep();
+                if (Daycare.isHatching()) {
+                    state = 'hatch';
+                    return;
+                }
             }
         } else {
             player.moving = false;
@@ -434,6 +463,10 @@ const Game = (() => {
         // Check doors
         const door = MapLoader.checkDoors(player.x, player.y);
         if (door) {
+            if (door.targetMap === 'daycare_interior') {
+                Daycare.openInterior();
+                return;
+            }
             if (door.targetMap === 'pokecenter') {
                 enterPokeCenter();
                 return;
