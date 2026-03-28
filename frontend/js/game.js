@@ -11,6 +11,7 @@ const Game = (() => {
     let pendingBadge = null;
     let previousState = null;
     let pendingDefeatedTrainer = null;
+    let pendingCutsceneBattle = false;
 
     // Player state
     const player = {
@@ -155,7 +156,17 @@ const Game = (() => {
             Renderer.centerCamera(player.x + TILE / 2, player.y + TILE / 2);
 
             // Create backend game session (fire-and-forget)
-            API.createGame('Red', result.starter.name);
+            API.createGame('Red', result.starter.name).then(apiResult => {
+                if (apiResult) {
+                    Rival.init(result.starter.name);
+                    // Trigger Oak post-starter and rival lab cutscenes
+                    const oakScene = Cutscene.SCENES.oak_post_starter();
+                    const rivalName = Rival.getName();
+                    const rivalStarter = Rival.getStarter();
+                    const rivalScene = Cutscene.SCENES.rival_oaks_lab(rivalName, rivalStarter);
+                    startCutscene([...oakScene, ...rivalScene]);
+                }
+            });
         }
     }
 
@@ -241,7 +252,20 @@ const Game = (() => {
         if (Input.isActionPressed()) {
             const npc = NPC.checkInteraction(player.x, player.y, player.dir);
             if (npc) {
-                Dialogue.start(npc.name, npc.dialogue);
+                // Quest-gated NPC interactions
+                if (npc.name === 'Shopkeeper' && Quests.hasFlag('reached_viridian') && !Quests.hasFlag('got_parcel')) {
+                    const scene = Cutscene.SCENES.shopkeeper_parcel();
+                    startCutscene(scene);
+                    return;
+                }
+                if ((npc.name === 'Prof. Oak' || npc.name === 'Professor Oak') && Quests.hasFlag('got_parcel') && !Quests.hasFlag('delivered_parcel')) {
+                    const scene = Cutscene.SCENES.oak_receives_parcel();
+                    startCutscene(scene);
+                    return;
+                }
+                // Use backend dialogue if available, else fallback
+                const backendDialogue = NPC.getDialogueForNpc ? NPC.getDialogueForNpc(npc) : null;
+                Dialogue.start(npc.name, backendDialogue || npc.dialogue);
                 return;
             }
             const sign = Signs.checkInteraction(player.x, player.y, player.dir);
@@ -365,6 +389,7 @@ const Game = (() => {
         }
         const result = Cutscene.update(dt);
         if (result && result.startBattle) {
+            pendingCutsceneBattle = true;
             startBattle(result.enemy, result.options);
         }
         if (Dialogue.isActive()) {
@@ -395,6 +420,18 @@ const Game = (() => {
         Weather.onMapChange(mapId);
         if (map.trainers) {
             TrainerEncounter.loadTrainers(mapId, map.trainers);
+        }
+
+        // Check for rival encounter on this map
+        const rivalCheck = Rival.checkEncounter(mapId);
+        if (rivalCheck) {
+            const encounter = Rival.triggerEncounter(mapId);
+            if (encounter) {
+                const rivalName = Rival.getName();
+                const rivalStarter = Rival.getStarter();
+                const scene = Cutscene.SCENES.rival_route2(rivalName, rivalStarter, encounter.team);
+                startCutscene(scene);
+            }
         }
     }
 
@@ -636,6 +673,10 @@ const Game = (() => {
                 previousState = null;
                 pendingBadge = null;
                 state = 'gym';
+            } else if (pendingCutsceneBattle) {
+                pendingCutsceneBattle = false;
+                Cutscene.onBattleEnd(result);
+                state = 'cutscene';
             } else {
                 state = 'overworld';
                 Renderer.centerCamera(player.x + TILE / 2, player.y + TILE / 2);

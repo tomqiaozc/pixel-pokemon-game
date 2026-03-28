@@ -34,6 +34,8 @@ const Cutscene = (() => {
     // { type: 'set_flag', flag }
     // { type: 'battle', enemyData, options }
     // { type: 'callback', fn }
+    // { type: 'npc_face', npcName, dir }
+    // { type: 'choice', speaker, prompt, choices }
 
     function start(cutsceneSteps) {
         active = true;
@@ -93,6 +95,12 @@ const Cutscene = (() => {
         } else if (step.type === 'callback') {
             if (typeof step.fn === 'function') step.fn();
             advanceStep();
+        } else if (step.type === 'npc_face') {
+            NPC.setDirection(step.npcName, step.dir);
+            advanceStep();
+        } else if (step.type === 'choice') {
+            Dialogue.startChoice(step.speaker, step.prompt, step.choices);
+            waitingForInput = true;
         }
     }
 
@@ -125,7 +133,7 @@ const Cutscene = (() => {
         }
 
         // Step-specific updates
-        if (step.type === 'dialogue') {
+        if (step.type === 'dialogue' || step.type === 'choice') {
             if (!Dialogue.isActive()) {
                 advanceStep();
             }
@@ -186,45 +194,107 @@ const Cutscene = (() => {
 
     // Pre-built cutscene sequences
     const SCENES = {
-        rival_route2: (rivalName, rivalStarter) => [
-            { type: 'fade', target: 0.5, speed: 0.004 },
-            { type: 'wait', duration: 300 },
-            { type: 'dialogue', speaker: '???', lines: ['Hey! Wait up!'] },
-            { type: 'fade', target: 0, speed: 0.004 },
-            { type: 'dialogue', speaker: rivalName, lines: [
-                `${rivalName}: I\'ve been looking for you!`,
-                'My Pokemon have gotten way stronger since we last met.',
-                'Let\'s see if yours have too!',
+        oak_post_starter: () => [
+            { type: 'dialogue', speaker: 'Prof. Oak', lines: [
+                'Excellent choice!',
+                'Your very own Pokemon legend is about to unfold!',
+                'A world of dreams and adventures with Pokemon awaits!',
             ]},
-            { type: 'shake', intensity: 3, duration: 300 },
-            { type: 'battle', enemyData: {
-                name: rivalStarter.name,
-                type: rivalStarter.type,
-                level: 12,
-                hp: 38,
-                maxHp: 38,
-            }, options: { canRun: false, battleType: 'trainer' }},
-            { type: 'set_flag', flag: 'rival_route2_defeated' },
-            { type: 'dialogue', speaker: rivalName, lines: [
-                'Not bad... You\'ve gotten stronger.',
-                'But next time, I won\'t lose!',
+            { type: 'set_flag', flag: 'received_pokedex' },
+            { type: 'dialogue', speaker: 'Prof. Oak', lines: [
+                'Here, take this Pokedex with you.',
+                'It will automatically record data on every Pokemon you encounter.',
+                'Now go! The wide world of Pokemon awaits!',
             ]},
         ],
 
+        rival_oaks_lab: (rivalName, rivalStarter) => [
+            { type: 'wait', duration: 400 },
+            { type: 'dialogue', speaker: '???', lines: ["Gramps! I'm here too!"] },
+            { type: 'dialogue', speaker: rivalName, lines: [
+                rivalName + ": Hey, so you picked your Pokemon already?",
+                "Then I'll take this one!",
+            ]},
+            { type: 'dialogue', speaker: rivalName, lines: [
+                "Heh, " + rivalStarter.name + "! A fine choice.",
+                "My Pokemon is way tougher than yours!",
+                "Smell ya later!",
+            ]},
+            { type: 'set_flag', flag: 'rival_oaks_lab_met' },
+        ],
+
+        rival_route2: (rivalName, rivalStarter, rivalTeam) => {
+            const lead = rivalTeam && rivalTeam.length > 0 ? rivalTeam[0] : {
+                name: rivalStarter.name, type: rivalStarter.type,
+                level: 15, hp: 42, maxHp: 42,
+            };
+            return [
+                { type: 'fade', target: 0.5, speed: 0.004 },
+                { type: 'wait', duration: 300 },
+                { type: 'dialogue', speaker: '???', lines: ['Hey! Wait up!'] },
+                { type: 'fade', target: 0, speed: 0.004 },
+                { type: 'set_flag', flag: 'rival_route2_met' },
+                { type: 'dialogue', speaker: rivalName, lines: [
+                    rivalName + ": I've been training since we last met at the lab.",
+                    "My Pokemon are way stronger now!",
+                    "Let me show you what real training looks like!",
+                ]},
+                { type: 'shake', intensity: 3, duration: 300 },
+                { type: 'battle', enemyData: lead,
+                  options: { canRun: false, battleType: 'trainer' }},
+                { type: 'set_flag', flag: 'rival_route2_defeated' },
+                { type: 'dialogue', speaker: rivalName, lines: [
+                    "Hmph... Not bad. You actually beat me.",
+                    "But don't get cocky! I'll be even stronger next time!",
+                    "See you around, loser!",
+                ]},
+            ];
+        },
+
         gym_leader_intro: (leaderName, leaderTitle) => [
             { type: 'dialogue', speaker: leaderName, lines: [
-                `${leaderName}: So, a new challenger approaches!`,
-                `I am ${leaderName}, ${leaderTitle}.`,
-                'Show me what you\'ve got!',
+                leaderName + ': So, a new challenger approaches!',
+                'I am ' + leaderName + ', ' + leaderTitle + '.',
+                "Show me what you've got!",
             ]},
             { type: 'shake', intensity: 2, duration: 200 },
         ],
 
         gym_leader_defeat: (leaderName, badgeName) => [
             { type: 'dialogue', speaker: leaderName, lines: [
-                `${leaderName}: Incredible... You\'ve earned this.`,
-                `Take the ${badgeName}. You deserve it.`,
+                leaderName + ": Incredible... You've earned this.",
+                'Take the ' + badgeName + '. You deserve it.',
             ]},
+        ],
+
+        shopkeeper_parcel: () => [
+            { type: 'dialogue', speaker: 'Shopkeeper', lines: [
+                'Oh! You must be the trainer Prof. Oak mentioned.',
+                'Here, take this parcel back to him.',
+                "He's been waiting for it!",
+            ]},
+            { type: 'set_flag', flag: 'got_parcel' },
+            { type: 'dialogue', speaker: 'Shopkeeper', lines: [
+                'Safe travels, young trainer!',
+            ]},
+        ],
+
+        oak_receives_parcel: () => [
+            { type: 'dialogue', speaker: 'Prof. Oak', lines: [
+                'Ah, you brought the parcel! Thank you!',
+                'Let me see... Ah yes, this is exactly what I needed.',
+                'As thanks, let me upgrade your Pokedex.',
+                'The National Pokedex will now record even more data!',
+            ]},
+            { type: 'set_flag', flag: 'delivered_parcel' },
+            { type: 'dialogue', speaker: 'Prof. Oak', lines: [
+                'I hear the Gym Leader in Pewter City is quite strong.',
+                "With your skills, I'm sure you'll do great!",
+            ]},
+        ],
+
+        area_blocked: (npcName, reason) => [
+            { type: 'dialogue', speaker: npcName, lines: [reason] },
         ],
     };
 

@@ -1,6 +1,7 @@
 // quests.js — Quest journal, tracker HUD, quest flags, and quest-giver markers
 
 const Quests = (() => {
+    const TILE = Sprites.TILE;
     // Quest states: active, completed, locked
     let quests = [];
     let flags = {};         // story flags: { 'delivered_parcel': true, ... }
@@ -21,6 +22,7 @@ const Quests = (() => {
             id: 'new_adventure',
             name: 'A New Adventure',
             type: 'main',
+            description: 'Begin your journey as a Pokemon trainer! Choose your first Pokemon and receive a Pokedex.',
             objectives: [
                 { desc: 'Choose your starter Pokemon', flag: 'chose_starter' },
                 { desc: 'Receive the Pokedex from Prof. Oak', flag: 'received_pokedex' },
@@ -30,6 +32,7 @@ const Quests = (() => {
             id: 'oaks_parcel',
             name: "Oak's Parcel",
             type: 'main',
+            description: 'Prof. Oak needs a special parcel from the Viridian City Poke Mart. Deliver it to earn his trust.',
             objectives: [
                 { desc: 'Travel to Viridian City', flag: 'reached_viridian' },
                 { desc: 'Pick up the parcel from the Mart', flag: 'got_parcel' },
@@ -41,6 +44,7 @@ const Quests = (() => {
             id: 'boulder_badge',
             name: 'The Boulder Badge',
             type: 'main',
+            description: 'Challenge Brock, the Rock-type Gym Leader of Pewter City, and earn your first badge.',
             objectives: [
                 { desc: 'Travel to Pewter City', flag: 'reached_pewter' },
                 { desc: 'Defeat Gym Leader Brock', flag: 'defeated_brock' },
@@ -51,6 +55,7 @@ const Quests = (() => {
             id: 'rival_showdown',
             name: 'Rival Showdown',
             type: 'main',
+            description: 'Your rival is waiting for you on Route 2. Prove that your bond with your Pokemon is stronger!',
             objectives: [
                 { desc: 'Encounter your Rival on Route 2', flag: 'rival_route2_met' },
                 { desc: 'Defeat your Rival', flag: 'rival_route2_defeated' },
@@ -61,12 +66,23 @@ const Quests = (() => {
             id: 'cascade_badge',
             name: 'The Cascade Badge',
             type: 'main',
+            description: 'Take on Misty, the Water-type Gym Leader of Cerulean City, and claim your second badge.',
             objectives: [
                 { desc: 'Travel to Cerulean City', flag: 'reached_cerulean' },
                 { desc: 'Defeat Gym Leader Misty', flag: 'defeated_misty' },
             ],
             requires: 'rival_route2_defeated',
         },
+    ];
+
+    const QUEST_MARKER_RULES = [
+        { npc: 'Prof. Oak',       marker: '!', condition: () => !hasFlag('chose_starter') },
+        { npc: 'Prof. Oak',       marker: '!', condition: () => hasFlag('chose_starter') && !hasFlag('received_pokedex') },
+        { npc: 'Prof. Oak',       marker: '?', condition: () => hasFlag('got_parcel') && !hasFlag('delivered_parcel') },
+        { npc: 'Professor Oak',   marker: '!', condition: () => !hasFlag('chose_starter') },
+        { npc: 'Professor Oak',   marker: '!', condition: () => hasFlag('chose_starter') && !hasFlag('received_pokedex') },
+        { npc: 'Professor Oak',   marker: '?', condition: () => hasFlag('got_parcel') && !hasFlag('delivered_parcel') },
+        { npc: 'Shopkeeper',      marker: '!', condition: () => hasFlag('reached_viridian') && !hasFlag('got_parcel') },
     ];
 
     function init() {
@@ -80,6 +96,7 @@ const Quests = (() => {
                 id: tmpl.id,
                 name: tmpl.name,
                 type: tmpl.type,
+                description: tmpl.description || '',
                 objectives: tmpl.objectives.map(o => ({ ...o, done: false })),
                 requires: tmpl.requires || null,
                 state: tmpl.requires ? 'locked' : 'active',
@@ -89,11 +106,52 @@ const Quests = (() => {
         // Auto-set first active quest
         activeQuestId = 'new_adventure';
         updateObjectiveText();
+
+        // Sync from backend
+        syncFromBackend();
+    }
+
+    function syncFromBackend() {
+        API.getQuestFlags().then(data => {
+            if (data && data.flags) {
+                for (const flagName of Object.keys(data.flags)) {
+                    if (data.flags[flagName]) {
+                        flags[flagName] = true;
+                    }
+                }
+                // Re-evaluate quest states based on synced flags
+                for (const quest of quests) {
+                    for (const obj of quest.objectives) {
+                        if (flags[obj.flag]) obj.done = true;
+                    }
+                    if (quest.objectives.every(o => o.done)) {
+                        quest.state = 'completed';
+                    } else if (quest.requires && flags[quest.requires] && quest.state === 'locked') {
+                        quest.state = 'active';
+                    }
+                }
+                updateObjectiveText();
+            }
+        }).catch(() => {});
+
+        API.getQuests().then(data => {
+            if (data && data.quests) {
+                for (const serverQuest of data.quests) {
+                    const local = getQuest(serverQuest.id);
+                    if (local && serverQuest.state) {
+                        local.state = serverQuest.state;
+                    }
+                }
+                updateObjectiveText();
+            }
+        }).catch(() => {});
     }
 
     function setFlag(flagName) {
         if (flags[flagName]) return; // already set
         flags[flagName] = true;
+        // Sync flag to backend
+        API.setStoryFlag(flagName).catch(() => {});
 
         // Update quest objectives
         for (const quest of quests) {
@@ -309,6 +367,20 @@ const Quests = (() => {
             }
         }
 
+        // Description panel for selected quest
+        if (filtered[journalIndex] && filtered[journalIndex].description) {
+            const descY = py + panelH - 60;
+            ctx.fillStyle = 'rgba(40, 40, 60, 0.9)';
+            ctx.fillRect(px + 6, descY, panelW - 12, 36);
+            ctx.strokeStyle = '#606080';
+            ctx.lineWidth = 1;
+            ctx.strokeRect(px + 6, descY, panelW - 12, 36);
+            ctx.fillStyle = '#c0c0d0';
+            ctx.font = '10px monospace';
+            ctx.textAlign = 'left';
+            ctx.fillText(filtered[journalIndex].description, px + 14, descY + 14);
+        }
+
         // Back hint
         ctx.fillStyle = '#606070';
         ctx.font = '10px monospace';
@@ -360,7 +432,6 @@ const Quests = (() => {
 
     // Quest-giver markers ("!" and "?")
     function renderQuestMarkers(ctx, camX, camY, scale, npcs) {
-        const TILE = 16;
         const time = Date.now();
 
         for (const npc of npcs) {
@@ -368,8 +439,8 @@ const Quests = (() => {
             const marker = getQuestMarker(npc.name);
             if (!marker) continue;
 
-            const sx = (npc.x * TILE + TILE / 2 - camX) * scale;
-            const sy = (npc.y * TILE - 6 - camY) * scale;
+            const sx = (npc.x + TILE / 2 - camX) * scale;
+            const sy = (npc.y - 6 - camY) * scale;
             const bounce = Math.sin(time * 0.004) * 3;
 
             // Marker background
@@ -388,14 +459,10 @@ const Quests = (() => {
     }
 
     function getQuestMarker(npcName) {
-        // Quest-giver "!" — NPC has a quest to give
-        if (npcName === 'Prof. Oak' || npcName === 'Professor Oak') {
-            if (!hasFlag('chose_starter')) return '!';
-            if (hasFlag('got_parcel') && !hasFlag('delivered_parcel')) return '?';
-            if (!hasFlag('received_pokedex') && hasFlag('chose_starter')) return '!';
-        }
-        if (npcName === 'Shopkeeper' && !hasFlag('got_parcel') && hasFlag('reached_viridian')) {
-            return '!';
+        for (const rule of QUEST_MARKER_RULES) {
+            if (rule.npc === npcName && rule.condition()) {
+                return rule.marker;
+            }
         }
         return null;
     }
@@ -419,6 +486,6 @@ const Quests = (() => {
         init, setFlag, hasFlag, getActiveQuest, getCurrentObjective,
         openJournal, closeJournal, isJournalOpen, updateJournal, renderJournal,
         updateHUD, renderHUD, toggleHUD, renderQuestMarkers, getQuestMarker,
-        onMapEnter, onStarterChosen, onBadgeEarned,
+        onMapEnter, onStarterChosen, onBadgeEarned, syncFromBackend,
     };
 })();

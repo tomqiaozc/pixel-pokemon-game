@@ -244,5 +244,10 @@ const NPC = (() => {
         return false;
     }
 
-    return { init, loadForMap, update, render, checkInteraction, isSolid, npcs };
+    function setDirection(npcName, dir) {
+        const npc = npcs.find(n => n.name === npcName);
+        if (npc) npc.dir = dir;
+    }
+
+    return { init, loadForMap, update, render, checkInteraction, isSolid, npcs, setDirection };
 })();
