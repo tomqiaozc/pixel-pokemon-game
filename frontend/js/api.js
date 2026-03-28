@@ -489,6 +489,74 @@ const API = (() => {
         return get(`${BASE_URL}/maps`);
     }
 
+    // --- Mini-Games & Game Corner ---
+
+    async function getCoins() {
+        if (!gameId) return null;
+        return get(`${BASE_URL}/minigames/coins/${gameId}`);
+    }
+
+    async function buyCoins(moneyAmount) {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/minigames/coins/buy`, {
+            game_id: gameId,
+            money_amount: moneyAmount,
+        });
+    }
+
+    async function spinSlots(bet) {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/minigames/slots/spin`, {
+            game_id: gameId,
+            bet: bet || 1,
+        });
+    }
+
+    async function startMemoryGame(difficulty) {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/minigames/memory/start`, {
+            game_id: gameId,
+            difficulty: difficulty || 'easy',
+        });
+    }
+
+    async function completeMemoryGame(difficulty, timeSeconds, pairsMatched) {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/minigames/memory/complete`, {
+            game_id: gameId,
+            difficulty: difficulty || 'easy',
+            time_seconds: timeSeconds,
+            pairs_matched: pairsMatched,
+        });
+    }
+
+    async function startQuiz() {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/minigames/quiz/start`, {
+            game_id: gameId,
+        });
+    }
+
+    async function submitQuiz(sessionId, answers) {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/minigames/quiz/submit`, {
+            session_id: sessionId,
+            answers,
+        });
+    }
+
+    async function getPrizes() {
+        return get(`${BASE_URL}/minigames/prizes`);
+    }
+
+    async function redeemPrize(prizeId) {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/minigames/prizes/redeem`, {
+            game_id: gameId,
+            prize_id: prizeId,
+        });
+    }
+
     // --- Legendary ---
 
     async function getLegendaries() {
@@ -560,6 +628,11 @@ const API = (() => {
         getRival, startRivalBattle,
         // Maps
         getMaps,
+        // Mini-Games & Game Corner
+        getCoins, buyCoins, spinSlots,
+        startMemoryGame, completeMemoryGame,
+        startQuiz, submitQuiz,
+        getPrizes, redeemPrize,
         // Legendary
         getLegendaries, checkLegendary, encounterLegendary,
         legendaryCaught, legendaryFainted, legendaryFled,

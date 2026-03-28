@@ -466,11 +466,13 @@ const Game = (() => {
         state = 'cutscene';
     }
 
-    function startMiniGame(gameType) {
-        if (gameType === 'slots') MiniGames.startSlots();
-        else if (gameType === 'memory') MiniGames.startMemory();
-        else if (gameType === 'quiz') MiniGames.startQuiz();
+    function startMiniGame(gameType, difficulty) {
         state = 'minigame';
+        if (gameType === 'slots') MiniGames.startSlots();
+        else if (gameType === 'memory') MiniGames.startMemory(difficulty);
+        else if (gameType === 'quiz') MiniGames.startQuiz();
+        else if (gameType === 'prizes') MiniGames.startPrizes();
+        else if (gameType === 'buy_coins') MiniGames.startBuyCoins();
     }
 
     // Load a map by id
