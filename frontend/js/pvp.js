@@ -345,7 +345,7 @@ const PvP = (() => {
                         opponentParty = [data.player2_pokemon].map(p => ({
                             name: p.name, level: p.level || 30,
                             type: (p.types && p.types[0]) || 'Normal',
-                            hp: p.current_hp || p.hp || 80, maxHp: p.max_hp || p.maxHp || 80,
+                            hp: p.current_hp || p.hp || 80, maxHp: (p.stats && p.stats.hp) || p.max_hp || p.maxHp || 80,
                             moves: p.moves || [],
                         }));
                     } else {

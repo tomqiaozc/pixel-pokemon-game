@@ -146,6 +146,8 @@ const Game = (() => {
                 maxHp: 20,
                 exp: 0,
                 maxExp: 100,
+                attack: 10, defense: 10, spAttack: 10, spDefense: 10, speed: 10,
+                speciesId: 0,
             }];
             state = 'overworld';
             loadMap('pallet_town');
@@ -520,7 +522,13 @@ const Game = (() => {
                     if (expResult && expResult.leveled_up && player.party[0]) {
                         player.party[0].level = expResult.new_level;
                         if (expResult.new_stats) {
-                            player.party[0].maxHp = expResult.new_stats.hp || player.party[0].maxHp;
+                            const ns = expResult.new_stats;
+                            player.party[0].maxHp = ns.hp || player.party[0].maxHp;
+                            player.party[0].attack = ns.attack || ns.atk || player.party[0].attack;
+                            player.party[0].defense = ns.defense || ns.def || player.party[0].defense;
+                            player.party[0].spAttack = ns.sp_attack || ns.spAttack || player.party[0].spAttack;
+                            player.party[0].spDefense = ns.sp_defense || ns.spDefense || player.party[0].spDefense;
+                            player.party[0].speed = ns.speed || ns.spd || player.party[0].speed;
                         }
                     }
                     if (expResult && expResult.can_evolve && player.party[0]) {
@@ -547,6 +555,10 @@ const Game = (() => {
                         maxHp: caught.maxHp,
                         exp: 0,
                         maxExp: 100,
+                        attack: caught.attack || 10, defense: caught.defense || 10,
+                        spAttack: caught.spAttack || 10, spDefense: caught.spDefense || 10,
+                        speed: caught.speed || 10,
+                        speciesId: caught.speciesId || 0,
                     });
                 }
                 // Register caught in pokedex (syncs to backend)

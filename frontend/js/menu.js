@@ -188,7 +188,7 @@ const PauseMenu = (() => {
                         badges: typeof BadgeCase !== 'undefined'
                             ? BadgeCase.badges.map((b, i) => b.earned ? i : -1).filter(i => i >= 0)
                             : [],
-                        play_time: typeof PlayerStats !== 'undefined' ? PlayerStats.getStats().playTime : '0:00',
+                        play_time_seconds: typeof PlayerStats !== 'undefined' ? Math.floor(PlayerStats.get('playTimeMs') / 1000) : 0,
                     });
                     subScreen = 'save';
                     actionCooldown = 200;

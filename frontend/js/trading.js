@@ -199,7 +199,7 @@ const Trading = (() => {
                         partnerParty = (data.player1_team || []).map(p => ({
                             name: p.name, level: p.level || 10,
                             type: (p.types && p.types[0]) || p.type || 'Normal',
-                            hp: p.current_hp || p.hp || 50, maxHp: p.max_hp || p.maxHp || 50,
+                            hp: p.current_hp || p.hp || 50, maxHp: (p.stats && p.stats.hp) || p.max_hp || p.maxHp || 50,
                         }));
                     }
                 } else {
