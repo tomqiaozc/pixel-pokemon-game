@@ -6,10 +6,12 @@ from pydantic import BaseModel, Field
 
 
 class ItemEffect(BaseModel):
-    type: str  # heal_hp, cure_status, revive, catch
+    type: str  # heal_hp, cure_status, revive, catch, teach_move, level_up, pp_up, fishing, trade_item
     amount: Optional[float] = None
     status: Optional[str] = None
     modifier: Optional[float] = None
+    move: Optional[str] = None
+    rod_tier: Optional[str] = None
 
 
 class Item(BaseModel):
