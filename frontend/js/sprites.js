@@ -129,6 +129,88 @@ const Sprites = (() => {
         return c;
     }
 
+    // ---- Player surfing sprite ----
+    // Player on water mount (blue base beneath player)
+    function drawPlayerSurfing(dir, frame) {
+        const key = `player_surf_${dir}_${frame}`;
+        if (cache[key]) return cache[key];
+
+        const c = createCanvas(TILE, TILE);
+        const ctx = c.getContext('2d');
+
+        const isLeft = dir === 2;
+        const isRight = dir === 3;
+        const isUp = dir === 1;
+
+        // Water mount base (bottom half)
+        ctx.fillStyle = PAL.water;
+        ctx.fillRect(2, 10, 12, 5);
+        ctx.fillRect(3, 9, 10, 1);
+        ctx.fillRect(1, 11, 14, 3);
+        // Wave highlight
+        ctx.fillStyle = PAL.waterLight;
+        const waveOff = (frame % 2) * 3;
+        ctx.fillRect(3 + waveOff, 14, 3, 1);
+        ctx.fillRect(8 + waveOff, 13, 2, 1);
+
+        // Smaller player torso on top of mount (rows 1-9)
+        // Head (rows 1-4)
+        for (let x = 5; x <= 10; x++) px(ctx, x, 1, PAL.hair);
+        for (let x = 5; x <= 10; x++) px(ctx, x, 2, PAL.hair);
+        for (let x = 5; x <= 10; x++) px(ctx, x, 3, PAL.skin);
+        for (let x = 5; x <= 10; x++) px(ctx, x, 4, PAL.skin);
+
+        // Eyes
+        if (!isUp) {
+            if (isLeft) { px(ctx, 6, 3, PAL.eye); }
+            else if (isRight) { px(ctx, 9, 3, PAL.eye); }
+            else { px(ctx, 6, 4, PAL.eye); px(ctx, 9, 4, PAL.eye); }
+        }
+
+        // Shirt (rows 5-8)
+        for (let y = 5; y <= 8; y++) {
+            for (let x = 5; x <= 10; x++) px(ctx, x, y, PAL.shirt);
+        }
+
+        // Seated legs hint (row 9)
+        for (let x = 5; x <= 10; x++) px(ctx, x, 9, PAL.pants);
+
+        cache[key] = c;
+        return c;
+    }
+
+    // ---- Player fishing sprite ----
+    // Player holding rod (arm extended in facing direction)
+    function drawPlayerFishing(dir) {
+        const key = `player_fish_${dir}`;
+        if (cache[key]) return cache[key];
+
+        // Start from standing player sprite
+        const base = drawPlayer(dir, 0);
+        const c = createCanvas(TILE, TILE);
+        const ctx = c.getContext('2d');
+        ctx.drawImage(base, 0, 0);
+
+        // Rod arm extension
+        ctx.fillStyle = '#805830'; // rod color (brown)
+        if (dir === 0) {        // down
+            ctx.fillRect(11, 8, 1, 3);
+            ctx.fillRect(11, 11, 1, 5);
+        } else if (dir === 1) { // up
+            ctx.fillRect(4, 5, 1, 3);
+            ctx.fillRect(4, 2, 1, 4);
+        } else if (dir === 2) { // left
+            ctx.fillRect(1, 8, 3, 1);
+            ctx.fillRect(0, 8, 1, 3);
+        } else {                // right
+            ctx.fillRect(12, 8, 3, 1);
+            ctx.fillRect(15, 8, 1, 3);
+        }
+
+        cache[key] = c;
+        return c;
+    }
+
     // ---- Tile sprites ----
 
     function drawGrass() {
@@ -318,6 +400,8 @@ const Sprites = (() => {
         TILE,
         PAL,
         drawPlayer,
+        drawPlayerSurfing,
+        drawPlayerFishing,
         drawGrass,
         drawTallGrass,
         drawDirt,

@@ -133,6 +133,13 @@ const Encounters = (() => {
                         triggerEncounter(player);
                     }
                 }
+
+                // Check for water encounter while surfing
+                if (Fishing.isSurfing() && GameMap.isWater(tileX, tileY)) {
+                    if (encounterCooldown <= 0 && Fishing.checkWaterEncounter()) {
+                        triggerSurfEncounter(player);
+                    }
+                }
             }
         }
 
@@ -216,6 +223,63 @@ const Encounters = (() => {
 
         // Start transition after brief pause
         encounterCooldown = 3000; // 3s cooldown after encounter
+        transitioning = true;
+        transitionTimer = 0;
+        transitionPhase = 0;
+    }
+
+    // Trigger water encounter while surfing — uses backend surfing encounter tables
+    function triggerSurfEncounter(player) {
+        const currentMap = MapLoader.getCurrentMapId();
+
+        // Local fallback pool for surfing
+        const SURF_POKEMON = [
+            { name: 'Tentacool', type: 'Water', level: [10, 20], hp: 20 },
+            { name: 'Poliwag',   type: 'Water', level: [10, 18], hp: 18 },
+            { name: 'Goldeen',   type: 'Water', level: [10, 18], hp: 18 },
+            { name: 'Psyduck',   type: 'Water', level: [10, 20], hp: 22 },
+        ];
+
+        const template = SURF_POKEMON[Math.floor(Math.random() * SURF_POKEMON.length)];
+        const level = template.level[0] + Math.floor(Math.random() * (template.level[1] - template.level[0] + 1));
+        const hp = template.hp + Math.floor(level * 1.2);
+
+        pendingEnemy = {
+            name: template.name,
+            type: template.type,
+            level: level,
+            hp: hp,
+            maxHp: hp,
+        };
+
+        // Try backend surfing encounter
+        API.checkEncounter(currentMap + '_surfing').then(data => {
+            if (data && data.pokemon) {
+                const p = data.pokemon;
+                if (p.name) pendingEnemy.name = p.name;
+                if (p.level) pendingEnemy.level = p.level;
+                if (p.current_hp || p.hp) {
+                    pendingEnemy.hp = p.current_hp || p.hp;
+                    pendingEnemy.maxHp = (p.stats && p.stats.hp) || p.max_hp || p.hp;
+                }
+                if (p.types && p.types[0]) pendingEnemy.type = p.types[0];
+                if (p.moves) pendingEnemy.moves = p.moves;
+                if (p.species_id) pendingEnemy.speciesId = p.species_id;
+                if (p.stats) pendingEnemy.stats = p.stats;
+            }
+        }).catch(() => {});
+
+        // Mark seen
+        const dexEntry = Pokedex.entries.find(e => e.name === pendingEnemy.name);
+        if (dexEntry) Pokedex.markSeen(dexEntry.id);
+
+        exclamation = {
+            wx: player.x + TILE / 2,
+            wy: player.y - 8,
+            age: 0,
+        };
+
+        encounterCooldown = 3000;
         transitioning = true;
         transitionTimer = 0;
         transitionPhase = 0;

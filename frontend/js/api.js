@@ -201,6 +201,13 @@ const API = (() => {
         return post(`${BASE_URL}/encounter/check`, { area_id: areaId });
     }
 
+    async function fishEncounter(areaId, rodTier) {
+        return post(`${BASE_URL}/encounter/fish`, {
+            area_id: areaId,
+            rod_tier: rodTier || 'old',
+        });
+    }
+
     async function getSpecies(speciesId) {
         if (speciesId) return get(`${BASE_URL}/encounter/species/${speciesId}`);
         return get(`${BASE_URL}/encounter/species`);
@@ -677,7 +684,7 @@ const API = (() => {
         // Battle
         startBattle, battleAction, getBattleState, battleAiAction, battleCatch,
         // Encounter
-        checkEncounter, getSpecies, getStarters,
+        checkEncounter, fishEncounter, getSpecies, getStarters,
         // Evolution
         awardExp, checkEvolution, evolve,
         // Gyms & Trainers

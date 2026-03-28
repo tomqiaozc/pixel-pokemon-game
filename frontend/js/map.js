@@ -144,6 +144,21 @@ const GameMap = (() => {
         return getTile(tileX, tileY) === T.TALL_GRASS;
     }
 
+    function isWater(tileX, tileY) {
+        return getTile(tileX, tileY) === T.WATER;
+    }
+
+    // Surfing-aware solid check: water is walkable when surfing
+    function isSolidForMovement(tileX, tileY, isSurfing) {
+        const tile = getTile(tileX, tileY);
+        if (isSurfing) {
+            // While surfing, only non-water solids block movement
+            // Water is walkable; land solids still block
+            return tile !== T.WATER && SOLID.has(tile);
+        }
+        return SOLID.has(tile);
+    }
+
     return {
         T,
         get MAP_W() { return MAP_W; },
@@ -151,7 +166,9 @@ const GameMap = (() => {
         TILE,
         getTile,
         isSolid,
+        isSolidForMovement,
         isTallGrass,
+        isWater,
         get mapData() { return mapData; },
         loadMapData,
     };

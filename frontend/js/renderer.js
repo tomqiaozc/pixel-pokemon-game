@@ -95,8 +95,18 @@ const Renderer = (() => {
         const arcHeight = Ledges.getArcHeight();
         const playerScreenX = (player.x - camX) * SCALE;
         const playerScreenY = (player.y - camY - arcHeight) * SCALE;
-        const playerSprite = Sprites.drawPlayer(player.dir, player.animFrame);
+        let playerSprite;
+        if (Fishing.isFishing()) {
+            playerSprite = Sprites.drawPlayerFishing(player.dir);
+        } else if (Fishing.isSurfing()) {
+            playerSprite = Sprites.drawPlayerSurfing(player.dir, Fishing.getSurfFrame());
+        } else {
+            playerSprite = Sprites.drawPlayer(player.dir, player.animFrame);
+        }
         ctx.drawImage(playerSprite, playerScreenX, playerScreenY, TILE * SCALE, TILE * SCALE);
+
+        // Draw fishing bobber/line overlay
+        Fishing.renderFishing(ctx, camX, camY, SCALE);
 
         // Draw ledge dust particles
         Ledges.renderDust(ctx, camX, camY, SCALE);
