@@ -251,3 +251,71 @@ class TestSlotBetDefault:
         assert resp.status_code == 200
         assert resp.json()["coins_before"] == 10
         _cleanup(gid)
+
+
+# ============================================================
+# MG-H02: Memory time not validated against server clock
+# Prevent instant completions by checking claimed time vs actual elapsed
+# ============================================================
+
+class TestMemoryServerTimeValidation:
+    def test_instant_completion_rejected(self):
+        """Claiming 30s completion when only 1s actually elapsed should be rejected."""
+        import time as _time
+        gid = _make_game()
+        # Start memory game
+        client.post("/api/minigames/memory/start", json={
+            "game_id": gid,
+            "difficulty": "easy",
+        })
+        # Immediately complete claiming 30 seconds elapsed (impossible)
+        resp = client.post("/api/minigames/memory/complete", json={
+            "game_id": gid,
+            "difficulty": "easy",
+            "time_seconds": 30,
+            "pairs_matched": 8,
+        })
+        assert resp.status_code == 200
+        data = resp.json()
+        assert data["valid"] is False
+        assert "time" in data["message"].lower()
+        _cleanup(gid)
+
+    def test_honest_completion_accepted(self):
+        """Claiming ~2s when 2s actually elapsed should be accepted."""
+        import time as _time
+        gid = _make_game()
+        client.post("/api/minigames/memory/start", json={
+            "game_id": gid,
+            "difficulty": "easy",
+        })
+        # Wait a real 2 seconds
+        _time.sleep(2)
+        resp = client.post("/api/minigames/memory/complete", json={
+            "game_id": gid,
+            "difficulty": "easy",
+            "time_seconds": 2,
+            "pairs_matched": 4,
+        })
+        assert resp.status_code == 200
+        data = resp.json()
+        assert data["valid"] is True
+        _cleanup(gid)
+
+    def test_slightly_inflated_time_rejected(self):
+        """Claiming 20s when only 1s elapsed — still fake."""
+        gid = _make_game()
+        client.post("/api/minigames/memory/start", json={
+            "game_id": gid,
+            "difficulty": "medium",
+        })
+        # Immediately complete claiming 20s (>2s tolerance over actual ~0s)
+        resp = client.post("/api/minigames/memory/complete", json={
+            "game_id": gid,
+            "difficulty": "medium",
+            "time_seconds": 20,
+            "pairs_matched": 10,
+        })
+        data = resp.json()
+        assert data["valid"] is False
+        _cleanup(gid)
