@@ -175,12 +175,28 @@ const Gym = (() => {
         const gym = gyms[gymId];
         if (!gym) return;
         activeGym = gym;
+        activeGym.gymId = gymId; // Store for API calls
         playerX = Math.floor(gym.width / 2);
         playerY = gym.height - 2;
         playerDir = 1;
         playerAnimFrame = 0;
         transitionAlpha = 1;
         transitionDir = -1;
+
+        // Enrich gym data from backend (leader team, trainers)
+        API.getGym(gymId).then(data => {
+            if (data && data.leader && data.leader.pokemon_team) {
+                activeGym.leader.team = data.leader.pokemon_team.map(p => ({
+                    name: p.name, level: p.level, type: activeGym.leader.type,
+                    hp: p.level * 3 + 10, maxHp: p.level * 3 + 10,
+                    speciesId: p.species_id,
+                    moves: p.moves || [],
+                }));
+                if (data.leader.dialogue_before) activeGym.leader.dialogueBefore = data.leader.dialogue_before;
+                if (data.leader.dialogue_after) activeGym.leader.dialogueAfter = data.leader.dialogue_after;
+            }
+            if (data && data.badge_id) activeGym.badge.backendId = data.badge_id;
+        }).catch(() => {});
     }
 
     function exit() {

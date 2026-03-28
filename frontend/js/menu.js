@@ -182,7 +182,7 @@ const PauseMenu = (() => {
                             facing: p.facing || 'down',
                         },
                         inventory: Object.values(inventory).flat().map(item => ({
-                            item_id: item.id, quantity: item.qty,
+                            name: item.name || item.id, item_id: typeof item.id === 'number' ? item.id : null, quantity: item.qty,
                         })),
                         money: (typeof PlayerStats !== 'undefined' ? PlayerStats.getStats().money : null) || p.money || 3000,
                         badges: typeof BadgeCase !== 'undefined'

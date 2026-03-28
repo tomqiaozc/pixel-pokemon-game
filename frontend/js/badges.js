@@ -18,6 +18,9 @@ const BadgeCase = (() => {
         { name: 'Earth Badge', gym: 'Viridian City Gym', leader: 'Giovanni', type: 'Ground', earned: false },
     ];
 
+    // Badge index to backend gym_id mapping
+    const BADGE_GYM_IDS = ['pewter', 'cerulean', 'vermilion', 'celadon', 'fuchsia', 'saffron', 'cinnabar', 'viridian'];
+
     function open() {
         active = true;
         selectedIndex = 0;
@@ -28,9 +31,13 @@ const BadgeCase = (() => {
         API.getBadges().then(data => {
             if (data && data.badges) {
                 for (const badge of data.badges) {
-                    const idx = typeof badge === 'number' ? badge : badge.index;
-                    if (idx >= 0 && idx < badges.length) {
-                        badges[idx].earned = true;
+                    // Backend returns Badge objects with badge_id/badge_name/earned
+                    if (typeof badge === 'object' && badge.badge_id) {
+                        const idx = BADGE_GYM_IDS.indexOf(badge.badge_id);
+                        if (idx >= 0 && badge.earned) badges[idx].earned = true;
+                    } else if (typeof badge === 'number') {
+                        // Legacy: bare integer index
+                        if (badge >= 0 && badge < badges.length) badges[badge].earned = true;
                     }
                 }
             }
@@ -46,8 +53,9 @@ const BadgeCase = (() => {
     function earnBadge(index) {
         if (index >= 0 && index < badges.length) {
             badges[index].earned = true;
-            // Sync badge award with backend
-            API.awardBadge(index);
+            // Send gym_id string to backend (not numeric index)
+            const gymId = BADGE_GYM_IDS[index];
+            if (gymId) API.awardBadge(gymId);
         }
     }
 

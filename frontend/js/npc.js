@@ -58,6 +58,33 @@ const NPC = (() => {
             }
         }
 
+        // Try loading NPC data from backend
+        API.getNpcs(mapId).then(data => {
+            if (data && Array.isArray(data) && data.length > 0) {
+                // Only replace if we got real data and don't have map-defined NPCs
+                if (npcs.length === 0 || (map && !map.npcs)) {
+                    npcs.length = 0;
+                    for (const npc of data) {
+                        const pos = npc.position || {};
+                        addNPC(
+                            npc.name,
+                            npc.npc_type || npc.sprite_id || 'townsfolk',
+                            pos.x || 5, pos.y || 5,
+                            pos.facing || npc.facing || 0,
+                            [] // Dialogue loaded separately via API.getDialogue
+                        );
+                        // Attach dialogue_tree_id for later retrieval
+                        if (npc.dialogue_tree_id) {
+                            npcs[npcs.length - 1].dialogueTreeId = npc.dialogue_tree_id;
+                        }
+                        if (npc.id) {
+                            npcs[npcs.length - 1].npcId = npc.id;
+                        }
+                    }
+                }
+            }
+        }).catch(() => {});
+
         // Fallback hardcoded NPCs per map (until maps carry NPC data)
         if (npcs.length === 0) {
             if (mapId === 'pallet_town') {
@@ -244,5 +271,20 @@ const NPC = (() => {
         return false;
     }
 
-    return { init, loadForMap, update, render, checkInteraction, isSolid, npcs };
+    // Fetch dialogue from backend for an NPC (returns promise resolving to string array)
+    function getDialogueForNpc(npc) {
+        if (npc.npcId) {
+            return API.getDialogue(npc.npcId).then(data => {
+                if (data && data.node && data.node.text) {
+                    return [data.node.text];
+                }
+                return npc.dialogue && npc.dialogue.length ? npc.dialogue : [`${npc.name}: ...`];
+            }).catch(() => {
+                return npc.dialogue && npc.dialogue.length ? npc.dialogue : [`${npc.name}: ...`];
+            });
+        }
+        return Promise.resolve(npc.dialogue && npc.dialogue.length ? npc.dialogue : [`${npc.name}: ...`]);
+    }
+
+    return { init, loadForMap, update, render, checkInteraction, isSolid, getDialogueForNpc, npcs };
 })();

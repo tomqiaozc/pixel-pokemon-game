@@ -38,7 +38,53 @@ const Game = (() => {
         ctx = canvas.getContext('2d');
         StarterSelect.reset();
         lastTime = performance.now();
+
+        // Try loading a saved game from backend
+        tryLoadGame();
+
         requestAnimationFrame(loop);
+    }
+
+    function tryLoadGame() {
+        // Check if there's a saved game session to restore
+        API.getGameState().then(data => {
+            if (data && data.player && data.player.team && data.player.team.length > 0) {
+                // Restore player state from save
+                const p = data.player;
+                player.party = p.team.map(poke => ({
+                    name: poke.name,
+                    type: poke.types ? poke.types[0] : 'Normal',
+                    level: poke.level || 5,
+                    hp: poke.current_hp || poke.stats.hp,
+                    maxHp: poke.stats ? poke.stats.hp : 20,
+                    exp: 0,
+                    maxExp: 100,
+                    attack: poke.stats ? poke.stats.attack : 10,
+                    defense: poke.stats ? poke.stats.defense : 10,
+                    spAttack: poke.stats ? poke.stats.sp_attack : 10,
+                    spDefense: poke.stats ? poke.stats.sp_defense : 10,
+                    speed: poke.stats ? poke.stats.speed : 10,
+                    speciesId: poke.id || 0,
+                    moves: (poke.moves || []).map(m => ({
+                        name: m.name, type: m.type, power: m.power || 0,
+                        pp: m.pp || 35, maxPp: m.pp || 35,
+                    })),
+                }));
+                player.starter = { name: player.party[0].name, type: player.party[0].type };
+                player.money = p.money || 3000;
+                if (p.position) {
+                    player.x = (p.position.x || 14) * TILE;
+                    player.y = (p.position.y || 10) * TILE;
+                    player.dir = p.position.facing === 'up' ? 1 : p.position.facing === 'left' ? 2 : p.position.facing === 'right' ? 3 : 0;
+                }
+                const mapId = (p.position && p.position.map_id) || 'pallet_town';
+                state = 'overworld';
+                loadMap(mapId);
+                Renderer.centerCamera(player.x + TILE / 2, player.y + TILE / 2);
+            }
+        }).catch(() => {
+            // No saved game — stay on starter select screen
+        });
     }
 
     function loop(timestamp) {
@@ -110,15 +156,22 @@ const Game = (() => {
                 Renderer.centerCamera(player.x + TILE / 2, player.y + TILE / 2);
             }
             if (result.battleLeader) {
-                const leaderPokemon = {
-                    name: result.leader.type === 'Rock' ? 'Onix' : 'Rhydon',
-                    level: result.leader.type === 'Rock' ? 14 : 50,
-                    hp: result.leader.type === 'Rock' ? 35 : 105,
-                    maxHp: result.leader.type === 'Rock' ? 35 : 105,
-                    type: result.leader.type,
-                };
+                // Use backend team data if available, fallback to hardcoded
+                const leaderTeam = result.leader.team;
+                const leaderPokemon = leaderTeam && leaderTeam.length > 0
+                    ? leaderTeam[0]
+                    : {
+                        name: result.leader.type === 'Rock' ? 'Onix' : 'Rhydon',
+                        level: result.leader.type === 'Rock' ? 14 : 50,
+                        hp: result.leader.type === 'Rock' ? 35 : 105,
+                        maxHp: result.leader.type === 'Rock' ? 35 : 105,
+                        type: result.leader.type,
+                    };
                 pendingBadge = result.badge;
                 previousState = 'gym';
+                // Notify backend of gym challenge
+                const gymId = Gym.getActiveGym() && Gym.getActiveGym().gymId;
+                if (gymId) API.challengeGym(gymId).catch(() => {});
                 startBattle(leaderPokemon, { canRun: false, battleType: 'trainer' });
             }
             if (result.battleTrainer) {
@@ -154,8 +207,29 @@ const Game = (() => {
             Quests.onStarterChosen();
             Renderer.centerCamera(player.x + TILE / 2, player.y + TILE / 2);
 
-            // Create backend game session (fire-and-forget)
-            API.createGame('Red', result.starter.name);
+            // Create backend game session and apply IV-calculated stats
+            API.createGame('Red', result.starter.name).then(data => {
+                if (data && data.player && data.player.team && data.player.team[0]) {
+                    const s = data.player.team[0];
+                    const lead = player.party[0];
+                    if (s.stats) {
+                        lead.maxHp = s.stats.hp || lead.maxHp;
+                        lead.hp = s.current_hp || s.stats.hp || lead.hp;
+                        lead.attack = s.stats.attack || lead.attack;
+                        lead.defense = s.stats.defense || lead.defense;
+                        lead.spAttack = s.stats.sp_attack || lead.spAttack;
+                        lead.spDefense = s.stats.sp_defense || lead.spDefense;
+                        lead.speed = s.stats.speed || lead.speed;
+                    }
+                    if (s.id) lead.speciesId = s.id;
+                    if (s.moves && s.moves.length) {
+                        lead.moves = s.moves.map(m => ({
+                            name: m.name, type: m.type, power: m.power || 0,
+                            pp: m.pp || 35, maxPp: m.pp || 35,
+                        }));
+                    }
+                }
+            });
         }
     }
 
@@ -241,6 +315,11 @@ const Game = (() => {
         if (Input.isActionPressed()) {
             const npc = NPC.checkInteraction(player.x, player.y, player.dir);
             if (npc) {
+                // Shopkeeper NPC opens shop interface
+                if (npc.type === 'shopkeeper') {
+                    openShopForNpc(npc);
+                    return;
+                }
                 Dialogue.start(npc.name, npc.dialogue);
                 return;
             }
@@ -464,6 +543,73 @@ const Game = (() => {
                 Battle.setBattleId(data.battle.id);
             }
         });
+    }
+
+    // Shop interaction for shopkeeper NPCs
+    let shopItems = [];
+    let shopIndex = 0;
+    let shopActive = false;
+    let shopId = 'viridian'; // default shop
+
+    function openShopForNpc(npc) {
+        shopId = npc.shopId || 'viridian';
+        Dialogue.startChoice(npc.name,
+            'Welcome! What would you like to do?',
+            [
+                { text: 'Buy', value: 'buy' },
+                { text: 'Sell', value: 'sell' },
+                { text: 'Cancel', value: 'cancel' },
+            ],
+            (choice) => {
+                if (choice === 'buy') {
+                    API.getShop(shopId).then(data => {
+                        if (data && data.items && data.items.length > 0) {
+                            shopItems = data.items;
+                            shopIndex = 0;
+                            showShopBuyMenu(npc);
+                        } else {
+                            Dialogue.start(npc.name, ['Sorry, we are out of stock!']);
+                        }
+                    }).catch(() => {
+                        Dialogue.start(npc.name, ['Sorry, the shop system is unavailable.']);
+                    });
+                } else if (choice === 'sell') {
+                    Dialogue.start(npc.name, ['Sorry, I can\'t buy items from you right now.']);
+                } else {
+                    Dialogue.start(npc.name, ['Come back anytime!']);
+                }
+            }
+        );
+    }
+
+    function showShopBuyMenu(npc) {
+        const itemNames = shopItems.map(si => ({
+            text: `${si.name || si.item_name} - $${si.price}`,
+            value: si.item_id || si.id,
+        }));
+        itemNames.push({ text: 'Cancel', value: 'cancel' });
+        Dialogue.startChoice(npc.name,
+            `You have $${player.money || 3000}. What would you like to buy?`,
+            itemNames,
+            (itemId) => {
+                if (itemId === 'cancel') {
+                    Dialogue.start(npc.name, ['Come back anytime!']);
+                    return;
+                }
+                API.buyItem(shopId, itemId, 1).then(result => {
+                    if (result && result.success) {
+                        player.money = result.money !== undefined ? result.money : (player.money || 3000) - 200;
+                        Dialogue.start(npc.name, [result.message || 'Thank you for your purchase!']);
+                        // Refresh inventory
+                        if (typeof PauseMenu !== 'undefined') PauseMenu.inventory;
+                    } else {
+                        Dialogue.start(npc.name, [result?.message || 'You can\'t afford that!']);
+                    }
+                }).catch(() => {
+                    Dialogue.start(npc.name, ['Transaction failed. Try again later.']);
+                });
+            }
+        );
     }
 
     // Species ID mapping for EXP award calls

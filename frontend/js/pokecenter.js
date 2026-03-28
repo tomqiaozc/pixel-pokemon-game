@@ -141,14 +141,30 @@ const PokeCenter = (() => {
             healFrame = Math.floor(healTimer / 200) % 4;
             if (healTimer > 2000) {
                 phase = 'done';
-                // Restore all party Pokemon to full HP
-                if (Game.player.party) {
-                    for (const poke of Game.player.party) {
-                        poke.hp = poke.maxHp;
+                // Ask backend to heal first, then update local HP
+                API.healParty().then(data => {
+                    if (data && data.team && Game.player.party) {
+                        for (let i = 0; i < Game.player.party.length; i++) {
+                            const serverPoke = data.team[i];
+                            if (serverPoke) {
+                                Game.player.party[i].hp = serverPoke.current_hp || serverPoke.stats.hp;
+                                Game.player.party[i].maxHp = serverPoke.stats ? serverPoke.stats.hp : Game.player.party[i].maxHp;
+                            } else {
+                                Game.player.party[i].hp = Game.player.party[i].maxHp;
+                            }
+                        }
+                    } else {
+                        // Fallback: restore locally
+                        if (Game.player.party) {
+                            for (const poke of Game.player.party) poke.hp = poke.maxHp;
+                        }
                     }
-                }
-                // Sync with backend (fire-and-forget)
-                API.healParty();
+                }).catch(() => {
+                    // Offline fallback
+                    if (Game.player.party) {
+                        for (const poke of Game.player.party) poke.hp = poke.maxHp;
+                    }
+                });
                 Dialogue.start('Nurse Joy', [
                     'Your Pokemon have been fully healed!',
                     'We hope to see you again!',

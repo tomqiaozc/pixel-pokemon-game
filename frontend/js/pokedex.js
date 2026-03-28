@@ -56,6 +56,39 @@ const Pokedex = (() => {
         status[13] = status[13] || 'seen'; // Weedle
         status[16] = status[16] || 'seen'; // Pidgey
         status[19] = status[19] || 'seen'; // Rattata
+
+        // Sync seen/caught status from backend
+        API.getSpecies().then(data => {
+            if (data && Array.isArray(data)) {
+                for (const sp of data) {
+                    const existing = entries.find(e => e.id === sp.id);
+                    if (!existing && sp.id && sp.name) {
+                        entries.push({
+                            id: sp.id, name: sp.name,
+                            type: sp.types ? sp.types[0] : 'Normal',
+                            type2: sp.types && sp.types[1] ? sp.types[1] : undefined,
+                            height: sp.height || '?', weight: sp.weight || '?',
+                            desc: sp.description || '', color: TYPE_COLORS[sp.types ? sp.types[0] : 'Normal'] || '#a8a878',
+                        });
+                    }
+                }
+                entries.sort((a, b) => a.id - b.id);
+            }
+        }).catch(() => {});
+
+        // Load pokedex seen/caught data from backend game state
+        API.getGameState().then(data => {
+            if (data && data.pokedex) {
+                if (data.pokedex.seen) {
+                    for (const id of data.pokedex.seen) {
+                        if (!status[id] || status[id] === 'unseen') status[id] = 'seen';
+                    }
+                }
+                if (data.pokedex.caught) {
+                    for (const id of data.pokedex.caught) status[id] = 'caught';
+                }
+            }
+        }).catch(() => {});
     }
 
     function open() {
