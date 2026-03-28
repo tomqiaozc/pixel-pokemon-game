@@ -375,10 +375,10 @@ def _hatch_egg(egg: dict) -> dict:
     from .encounter_service import _calc_stat
 
     ivs = egg.get("ivs", {})
-    base_stats = egg.get("base_stats", {
+    base_stats = egg.get("base_stats") or {
         "hp": 45, "attack": 49, "defense": 49,
         "sp_attack": 65, "sp_defense": 65, "speed": 45
-    })
+    }
     level = 1
 
     hp = _calc_stat(base_stats.get("hp", 45), level, ivs.get("hp", 0), is_hp=True)
