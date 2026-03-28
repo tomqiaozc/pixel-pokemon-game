@@ -246,7 +246,7 @@ def mark_legendary_fainted(game_id: str, species_id: int) -> None:
 
 
 def mark_legendary_fled(game_id: str, species_id: int) -> None:
-    """Player ran or whited out — legendary returns to available."""
+    """Player ran or whited out — legendary returns to available only if in_battle."""
     statuses = _get_statuses(game_id)
-    if species_id in statuses:
+    if species_id in statuses and statuses[species_id].status == "in_battle":
         statuses[species_id].status = "available"

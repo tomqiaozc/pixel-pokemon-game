@@ -269,6 +269,40 @@ class TestLegendaryStatusTransitions:
         assert resp.status_code == 400
         _cleanup(gid)
 
+    def test_fled_does_not_reset_caught(self):
+        """Bug #149: mark_legendary_fled must not reset caught legendaries."""
+        game = _make_game()
+        gid = game["id"]
+        client.post(f"/api/legendary/{gid}/150/caught")
+        # Calling fled on a caught legendary should be a no-op
+        client.post(f"/api/legendary/{gid}/150/fled")
+        resp = client.get(f"/api/legendary/{gid}/150/check")
+        assert resp.json()["already_caught"] is True
+        _cleanup(gid)
+
+    def test_fled_does_not_reset_fainted(self):
+        """Bug #149: mark_legendary_fled must not reset fainted legendaries."""
+        game = _make_game()
+        gid = game["id"]
+        client.post(f"/api/legendary/{gid}/150/fainted")
+        # Calling fled on a fainted legendary should be a no-op
+        client.post(f"/api/legendary/{gid}/150/fled")
+        resp = client.get(f"/api/legendary/{gid}/150/check")
+        assert resp.json()["already_fainted"] is True
+        _cleanup(gid)
+
+    def test_fled_only_works_from_in_battle(self):
+        """Bug #149: fled should only transition from in_battle state."""
+        game = _make_game()
+        gid = game["id"]
+        _set_flags(gid, ["badge_cascade"])
+        # Fled on an available legendary should be a no-op
+        client.post(f"/api/legendary/{gid}/144/fled")
+        resp = client.get(f"/api/legendary/{gid}/144/check")
+        data = resp.json()
+        assert data["available"] is True  # Still available, not changed
+        _cleanup(gid)
+
 
 # ---- Master Ball Item ----
 
