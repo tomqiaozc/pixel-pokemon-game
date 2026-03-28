@@ -48,7 +48,7 @@ def create_game(player_name: str, starter_pokemon_id: int) -> dict:
     )
     game_state = {
         "id": game_id,
-        "player": player.model_dump(),
+        "player": player.model_dump(exclude_none=True),
         "badges": 0,
         "play_time_seconds": 0,
     }
@@ -66,6 +66,7 @@ def create_game_with_starter(player_name: str, starter_data: dict) -> dict:
             "team": [starter_data],
             "position": {"x": 0, "y": 0, "map_id": "pallet_town", "facing": "down"},
             "inventory": [],
+            "money": 3000,
         },
         "badges": 0,
         "play_time_seconds": 0,
@@ -78,12 +79,33 @@ def get_game(game_id: str) -> dict | None:
     return _games.get(game_id)
 
 
+def get_full_game_state(game_id: str) -> dict | None:
+    """Return enriched game state with badges, pokedex, and PC data for session restore."""
+    game = _games.get(game_id)
+    if game is None:
+        return None
+
+    from .gym_service import get_badges
+    from .pokedex_service import get_pc_boxes, get_pokedex_stats
+
+    badges_list = get_badges(game_id)
+    pokedex_stats = get_pokedex_stats(game_id)
+    pc_boxes = get_pc_boxes(game_id)
+
+    return {
+        **game,
+        "badges_list": [b.model_dump() for b in badges_list],
+        "pokedex_stats": pokedex_stats.model_dump(),
+        "pc_boxes": [b.model_dump() for b in pc_boxes],
+    }
+
+
 def save_game(game_id: str, player_data: dict) -> dict | None:
     if game_id not in _games:
         return None
-    # Validate player data through model
+    # Validate player data through model, exclude_none to avoid injecting None defaults
     player = Player(**player_data)
-    _games[game_id]["player"] = player.model_dump()
+    _games[game_id]["player"] = player.model_dump(exclude_none=True)
     return _games[game_id]
 
 

@@ -55,7 +55,7 @@ def heal(game_id: str):
     return result
 
 
-# PC Box
+# PC Box — primary paths
 @router.get("/api/pc/boxes/{game_id}")
 def pc_boxes(game_id: str):
     return get_pc_boxes(game_id)
@@ -71,6 +71,28 @@ def deposit(req: DepositRequest):
 
 @router.post("/api/pc/withdraw")
 def withdraw(req: WithdrawRequest):
+    error = withdraw_pokemon(req.game_id, req.box_number, req.pokemon_index)
+    if error:
+        raise HTTPException(status_code=400, detail=error)
+    return {"success": True, "message": "Pokemon withdrawn from PC"}
+
+
+# PC Box — alias paths at /api/pokemon-center/pc/ for frontend compatibility
+@router.get("/api/pokemon-center/pc/{game_id}")
+def pc_boxes_alias(game_id: str):
+    return get_pc_boxes(game_id)
+
+
+@router.post("/api/pokemon-center/pc/deposit")
+def deposit_alias(req: DepositRequest):
+    error = deposit_pokemon(req.game_id, req.pokemon_index)
+    if error:
+        raise HTTPException(status_code=400, detail=error)
+    return {"success": True, "message": "Pokemon deposited to PC"}
+
+
+@router.post("/api/pokemon-center/pc/withdraw")
+def withdraw_alias(req: WithdrawRequest):
     error = withdraw_pokemon(req.game_id, req.box_number, req.pokemon_index)
     if error:
         raise HTTPException(status_code=400, detail=error)
