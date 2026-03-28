@@ -39,7 +39,10 @@ const Fishing = (() => {
     const BITE_WINDOW = 800;      // ms to react to bite
     const REEL_DECAY_RATE = 12;   // progress lost per second
     const REEL_GAIN = 18;         // progress gained per action press
+    const REEL_PRESS_COOLDOWN = 120; // ms between reel presses (S9-C05)
+    let reelPressCooldown = 0;    // tracks time since last reel press
     const FISH_RESULT_DISPLAY = 1500;
+    let rodInitDone = false;      // lazy-init flag for rod detection (S9-C04)
 
     // ---- Surfing config ----
     const SURF_ENCOUNTER_RATE = 0.15; // 15% per new water tile
@@ -52,6 +55,11 @@ const Fishing = (() => {
     }
 
     function canFish() {
+        // Lazy-init rod detection if not yet done (S9-C04: init() runs before gameId exists)
+        if (!rodInitDone && API.getGameId()) {
+            rodInitDone = true;
+            detectRod();
+        }
         return equippedRod !== null && fishState === 'idle' && !surfing;
     }
 
@@ -154,14 +162,16 @@ const Fishing = (() => {
                 return null;
             }
         } else if (fishState === 'reeling') {
-            // Mash action to fill reel bar
+            // Mash action to fill reel bar (with per-press cooldown S9-C05)
+            reelPressCooldown = Math.max(0, reelPressCooldown - dt);
             reelDecay += dt;
             if (reelDecay > 100) {
                 reelProgress = Math.max(0, reelProgress - REEL_DECAY_RATE * (dt / 1000));
                 reelDecay = 0;
             }
-            if (Input.isActionPressed()) {
+            if (Input.isActionPressed() && reelPressCooldown <= 0) {
                 reelProgress = Math.min(reelTarget, reelProgress + REEL_GAIN);
+                reelPressCooldown = REEL_PRESS_COOLDOWN;
             }
             // Cancel
             if (Input.isDown('Escape')) {
@@ -216,24 +226,24 @@ const Fishing = (() => {
         }
         // Local fallback based on rod tier
         const fallbacks = {
-            old:   [{ name: 'Magikarp', type: 'Water', level: [5, 10], hp: 15 }],
+            old:   [{ name: 'Magikarp', type: 'Water', level: [5, 10], hp: 15, speciesId: 129 }],
             good:  [
-                { name: 'Magikarp', type: 'Water', level: [10, 15], hp: 18 },
-                { name: 'Poliwag',  type: 'Water', level: [10, 15], hp: 20 },
-                { name: 'Goldeen',  type: 'Water', level: [10, 15], hp: 18 },
+                { name: 'Magikarp', type: 'Water', level: [10, 15], hp: 18, speciesId: 129 },
+                { name: 'Poliwag',  type: 'Water', level: [10, 15], hp: 20, speciesId: 60 },
+                { name: 'Goldeen',  type: 'Water', level: [10, 15], hp: 18, speciesId: 118 },
             ],
             super: [
-                { name: 'Poliwag',  type: 'Water', level: [15, 25], hp: 25 },
-                { name: 'Goldeen',  type: 'Water', level: [15, 25], hp: 22 },
-                { name: 'Staryu',   type: 'Water', level: [15, 25], hp: 24 },
-                { name: 'Gyarados', type: 'Water', level: [20, 30], hp: 50 },
+                { name: 'Poliwag',  type: 'Water', level: [15, 25], hp: 25, speciesId: 60 },
+                { name: 'Goldeen',  type: 'Water', level: [15, 25], hp: 22, speciesId: 118 },
+                { name: 'Staryu',   type: 'Water', level: [15, 25], hp: 24, speciesId: 120 },
+                { name: 'Gyarados', type: 'Water', level: [20, 30], hp: 50, speciesId: 130 },
             ],
         };
         const pool = fallbacks[equippedRod] || fallbacks.old;
         const template = pool[Math.floor(Math.random() * pool.length)];
         const level = template.level[0] + Math.floor(Math.random() * (template.level[1] - template.level[0] + 1));
         const hp = template.hp + Math.floor(level * 1.2);
-        return { name: template.name, type: template.type, level, hp, maxHp: hp };
+        return { name: template.name, type: template.type, level, hp, maxHp: hp, speciesId: template.speciesId };
     }
 
     // ---- Fishing render ----
@@ -399,6 +409,13 @@ const Fishing = (() => {
         return surfFrame;
     }
 
+    // Reset surfing state (S9-H08: called on map transition)
+    function resetSurf() {
+        surfing = false;
+        surfFrame = 0;
+        surfTimer = 0;
+    }
+
     // Check for water encounter while surfing (called per new tile)
     function checkWaterEncounter() {
         if (!surfing) return false;
@@ -406,18 +423,28 @@ const Fishing = (() => {
     }
 
     // ---- Init: check inventory for rods ----
-    function init() {
-        // Try to detect rods from backend inventory
+    function detectRod() {
         API.getInventory().then(data => {
             if (data && Array.isArray(data)) {
+                // Prefer best rod: super > good > old (S9-H04)
+                let bestRod = null;
                 for (const item of data) {
                     const name = (item.name || '').toLowerCase();
-                    if (name.includes('super rod')) { equippedRod = 'super'; return; }
-                    if (name.includes('good rod'))  { equippedRod = 'good'; return; }
-                    if (name.includes('old rod'))   { equippedRod = 'old'; return; }
+                    if (name.includes('super rod')) { bestRod = 'super'; break; }
+                    if (name.includes('good rod') && bestRod !== 'super') { bestRod = 'good'; }
+                    if (name.includes('old rod') && !bestRod) { bestRod = 'old'; }
                 }
+                if (bestRod) equippedRod = bestRod;
             }
         }).catch(() => {});
+    }
+
+    function init() {
+        // Only attempt rod detection if gameId exists; otherwise lazy-init in canFish()
+        if (API.getGameId()) {
+            rodInitDone = true;
+            detectRod();
+        }
     }
 
     return {
@@ -426,7 +453,7 @@ const Fishing = (() => {
         buildFishEnemy, renderFishing, renderFishResult,
         setRod, getRod,
         // Surfing
-        isSurfing, tryStartSurf, checkDismount, updateSurf, getSurfFrame,
+        isSurfing, tryStartSurf, checkDismount, updateSurf, getSurfFrame, resetSurf,
         checkWaterEncounter,
         // Init
         init,
