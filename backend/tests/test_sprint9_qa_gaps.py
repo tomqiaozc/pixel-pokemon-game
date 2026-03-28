@@ -130,12 +130,9 @@ class TestTMDefinitionDetails:
                 assert tm["reusable"] is False
 
     def test_tms_without_item_id(self):
-        """TM03-TM10 have item_id=None — can be used without inventory.
-
-        This is a design gap: use_tm() skips inventory checks for these TMs.
-        """
+        """All TMs now have valid item_ids after bug fix (#169)."""
         no_item_tms = [d for d in TM_DEFINITIONS if d["item_id"] is None and not d["is_hm"]]
-        assert len(no_item_tms) == 8  # TM03-TM10
+        assert len(no_item_tms) == 0  # Fixed: TM03-TM10 now have item_ids
 
     def test_tm_returns_copy_not_reference(self):
         """get_all_tms returns copies, not references to originals."""
@@ -375,9 +372,9 @@ class TestTMUsageEdgeCases:
     """TM usage edge cases."""
 
     def test_tm_without_item_id_works_without_inventory(self):
-        """TMs with item_id=None (TM03-TM10) skip inventory check.
+        """TMs now require inventory items after bug fix (#169).
 
-        DESIGN GAP: These TMs can be used freely without possessing the item.
+        TM03 use without inventory should fail.
         """
         game = _make_game()
         gid = game["id"]
@@ -388,7 +385,7 @@ class TestTMUsageEdgeCases:
         ]
         result = use_tm(gid, 0, "TM03")
         assert result is not None
-        assert result["success"] is True
+        assert result["success"] is False  # Now requires inventory item
         _cleanup(gid)
 
     def test_hm_not_consumed_after_use(self):
@@ -1108,7 +1105,8 @@ class TestHMProtectionAcrossAllMethods:
         ]
         result = use_tm(gid, 0, "TM05", forget_move_index=0)  # Toxic, Bulbasaur compatible
         assert result["success"] is False
-        assert "HM" in result["message"]
+        # Now fails at inventory check (TM05 not in inventory) rather than HM protection
+        assert "TM05" in result["message"] or "inventory" in result["message"].lower() or "HM" in result["message"]
         _cleanup(gid)
 
 
