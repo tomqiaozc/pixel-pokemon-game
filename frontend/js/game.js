@@ -12,6 +12,15 @@ const Game = (() => {
     let previousState = null;
     let pendingDefeatedTrainer = null;
     let pendingCutsceneBattle = false;
+    let pendingLegendarySpeciesId = null;
+
+    // Legendary spawn points — matches backend seed data locations
+    const LEGENDARY_SPAWNS = {
+        cerulean_cave: { speciesId: 150, name: 'Mewtwo',   tileX: 14, tileY: 10 },
+        seafoam_islands: { speciesId: 144, name: 'Articuno', tileX: 10, tileY: 8 },
+        power_plant:   { speciesId: 145, name: 'Zapdos',   tileX: 12, tileY: 6 },
+    };
+    let legendaryStatus = {}; // speciesId -> 'available'|'caught'|'fainted'
 
     // Player state
     const player = {
@@ -32,6 +41,16 @@ const Game = (() => {
         Renderer.init();
         NPC.init();
         Quests.init();
+        // Load legendary status from backend
+        API.getLegendaries().then(data => {
+            if (data && Array.isArray(data)) {
+                for (const entry of data) {
+                    if (entry.status === 'caught' || entry.status === 'fainted') {
+                        legendaryStatus[entry.species_id] = entry.status;
+                    }
+                }
+            }
+        }).catch(() => {});
         Routes.registerAll();
         PlayerStats.load();
         Achievements.loadEarned();
@@ -56,6 +75,15 @@ const Game = (() => {
         } else if (state === 'overworld') {
             updateOverworld(dt);
             Renderer.render(player, dt);
+            // Render legendary overworld aura at spawn point
+            const mapId = MapLoader.getCurrentMapId();
+            const lSpawn = LEGENDARY_SPAWNS[mapId];
+            if (lSpawn && legendaryStatus[lSpawn.speciesId] !== 'caught' && legendaryStatus[lSpawn.speciesId] !== 'fainted') {
+                const scale = Renderer.SCALE;
+                const camX = Renderer.getCamX();
+                const camY = Renderer.getCamY();
+                LegendaryFx.renderOverworldAura(ctx, lSpawn.tileX * TILE + TILE / 2, lSpawn.tileY * TILE + TILE / 2, camX, camY, scale, lSpawn.name);
+            }
             // Render dialogue overlay on top of overworld
             if (Dialogue.isActive()) {
                 Dialogue.render(ctx, canvas.width, canvas.height);
@@ -268,6 +296,42 @@ const Game = (() => {
                 Dialogue.start(npc.name, backendDialogue || npc.dialogue);
                 return;
             }
+            // Check legendary spawn interaction
+            const currentMapId = MapLoader.getCurrentMapId();
+            const legendarySpawn = LEGENDARY_SPAWNS[currentMapId];
+            if (legendarySpawn && legendaryStatus[legendarySpawn.speciesId] !== 'caught' && legendaryStatus[legendarySpawn.speciesId] !== 'fainted') {
+                const spawnPx = legendarySpawn.tileX * TILE;
+                const spawnPy = legendarySpawn.tileY * TILE;
+                const dx = Math.abs(player.x - spawnPx);
+                const dy = Math.abs(player.y - spawnPy);
+                if (dx <= TILE && dy <= TILE) {
+                    // Try backend encounter
+                    Dialogue.start('', ['A powerful presence...']);
+                    API.encounterLegendary(legendarySpawn.speciesId).then(data => {
+                        if (data && data.battle_id) {
+                            pendingLegendarySpeciesId = legendarySpawn.speciesId;
+                            const enemyData = {
+                                name: data.legendary_name || legendarySpawn.name,
+                                level: data.legendary_level || 50,
+                                hp: 200, maxHp: 200,
+                                type: getLegendaryType(legendarySpawn.name),
+                            };
+                            startBattle(enemyData, { canRun: true, battleType: 'wild' });
+                            Battle.setBattleId(data.battle_id);
+                        }
+                    }).catch(() => {
+                        // Offline fallback: start local legendary battle
+                        pendingLegendarySpeciesId = legendarySpawn.speciesId;
+                        startBattle({
+                            name: legendarySpawn.name,
+                            level: legendarySpawn.speciesId === 150 ? 70 : 50,
+                            hp: 200, maxHp: 200,
+                            type: getLegendaryType(legendarySpawn.name),
+                        }, { canRun: true, battleType: 'wild' });
+                    });
+                    return;
+                }
+            }
             const sign = Signs.checkInteraction(player.x, player.y, player.dir);
             if (sign) {
                 Dialogue.start('Sign', sign.text);
@@ -456,6 +520,11 @@ const Game = (() => {
         state = 'pokecenter';
     }
 
+    function getLegendaryType(name) {
+        const types = { 'Mewtwo': 'Psychic', 'Articuno': 'Ice', 'Zapdos': 'Electric', 'Moltres': 'Fire' };
+        return types[name] || 'Normal';
+    }
+
     function startBattle(enemyData, options) {
         const starterMoves = {
             'Bulbasaur':  [
@@ -495,12 +564,14 @@ const Game = (() => {
 
         state = 'battle';
 
-        // Start backend battle session and pass battleId to Battle module
-        API.startBattle(enemyData).then(data => {
-            if (data && data.battle && data.battle.id) {
-                Battle.setBattleId(data.battle.id);
-            }
-        });
+        // Start backend battle session (skip for legendary — already has battleId)
+        if (!pendingLegendarySpeciesId) {
+            API.startBattle(enemyData).then(data => {
+                if (data && data.battle && data.battle.id) {
+                    Battle.setBattleId(data.battle.id);
+                }
+            });
+        }
     }
 
     // Species ID mapping for EXP award calls
@@ -514,6 +585,7 @@ const Game = (() => {
         'Rattata': 19, 'Raticate': 20,
         'Oddish': 43, 'Geodude': 74, 'Onix': 95, 'Rhydon': 112,
         'Sandslash': 28, 'Dugtrio': 51,
+        'Articuno': 144, 'Zapdos': 145, 'Moltres': 146, 'Mewtwo': 150,
     };
 
     function updateBattle(dt) {
@@ -649,6 +721,27 @@ const Game = (() => {
                 // Register caught in pokedex (syncs to backend)
                 const dexEntry = Pokedex.entries.find(e => e.name === caught.name);
                 if (dexEntry) Pokedex.markCaught(dexEntry.id);
+            }
+
+            // Legendary post-battle outcome reporting
+            if (pendingLegendarySpeciesId) {
+                const specId = pendingLegendarySpeciesId;
+                pendingLegendarySpeciesId = null;
+                if (result.result === 'catch') {
+                    legendaryStatus[specId] = 'caught';
+                    API.legendaryCaught(specId).catch(() => {});
+                    PlayerStats.increment('legendariesCaught');
+                } else if (result.result === 'win') {
+                    // Player KO'd the legendary — it's gone forever
+                    legendaryStatus[specId] = 'fainted';
+                    API.legendaryFainted(specId).catch(() => {});
+                } else if (result.result === 'run') {
+                    // Player fled — legendary returns to available
+                    API.legendaryFled(specId).catch(() => {});
+                } else if (result.result === 'lose') {
+                    // Player lost — legendary returns to available
+                    API.legendaryFled(specId).catch(() => {});
+                }
             }
 
             // Mark route trainer as defeated only after winning

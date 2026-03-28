@@ -489,6 +489,38 @@ const API = (() => {
         return get(`${BASE_URL}/maps`);
     }
 
+    // --- Legendary ---
+
+    async function getLegendaries() {
+        if (!gameId) return null;
+        return get(`${BASE_URL}/legendary/${gameId}`);
+    }
+
+    async function checkLegendary(speciesId) {
+        if (!gameId) return null;
+        return get(`${BASE_URL}/legendary/${gameId}/${speciesId}/check`);
+    }
+
+    async function encounterLegendary(speciesId) {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/legendary/${gameId}/${speciesId}/encounter`, {});
+    }
+
+    async function legendaryCaught(speciesId) {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/legendary/${gameId}/${speciesId}/caught`, {});
+    }
+
+    async function legendaryFainted(speciesId) {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/legendary/${gameId}/${speciesId}/fainted`, {});
+    }
+
+    async function legendaryFled(speciesId) {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/legendary/${gameId}/${speciesId}/fled`, {});
+    }
+
     return {
         // Game
         createGame, getGameId, getGameState, saveGame, updatePlayTime,
@@ -528,5 +560,8 @@ const API = (() => {
         getRival, startRivalBattle,
         // Maps
         getMaps,
+        // Legendary
+        getLegendaries, checkLegendary, encounterLegendary,
+        legendaryCaught, legendaryFainted, legendaryFled,
     };
 })();

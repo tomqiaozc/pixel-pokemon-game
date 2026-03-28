@@ -51,6 +51,8 @@ const Battle = (() => {
     let battleOver = false;
     let battleResult = null; // 'win', 'lose', 'run'
     let canRun = true;
+    let isLegendaryBattle = false;
+    let catchAttempts = 0;
 
     // Battle status conditions
     let playerStatus = null;  // poison, burn, paralysis, sleep, freeze, toxic, confusion
@@ -149,14 +151,22 @@ const Battle = (() => {
         battleId = (options && options.battleId) || null;
         useBackend = !!battleId;
 
-        phase = 'intro';
+        phase = isLegendaryBattle ? 'legendary_intro' : 'intro';
         introTimer = 0;
         transitionAlpha = 1;
+
+        // Start legendary cinematic intro
+        if (isLegendaryBattle) {
+            LegendaryFx.startIntro(enemyPokemon);
+            textQueue = ['A powerful presence...'];
+        }
         transitionDir = -1;
         battleOver = false;
         battleResult = null;
         canRun = !(options && options.canRun === false);
         battleType = (options && options.battleType) || 'wild';
+        isLegendaryBattle = LegendaryFx.isLegendary(enemyPokemon.name);
+        catchAttempts = 0;
         menuChoice = 0;
         moveChoice = 0;
         menuMode = 'main';
@@ -287,7 +297,15 @@ const Battle = (() => {
         }
 
         // Phase logic
-        if (phase === 'intro') {
+        if (phase === 'legendary_intro') {
+            LegendaryFx.updateIntro(dt);
+            if (!LegendaryFx.isIntroActive()) {
+                phase = 'intro';
+                introTimer = 0;
+                textTimer = 0;
+                charIndex = 0;
+            }
+        } else if (phase === 'intro') {
             introTimer += dt;
             // Typewriter for intro text
             textTimer += dt;
@@ -1104,24 +1122,57 @@ const Battle = (() => {
 
     // Local catch calculation (offline fallback)
     function localCatchCalc(item) {
-        const catchRate = Math.random();
-        const hpRatio = enemyPokemon.hp / enemyPokemon.maxHp;
-        const catchChance = (1 - hpRatio * 0.5) * 0.4; // ~20-40% base chance
+        catchAttempts++;
+        const isMasterBall = item.name === 'Master Ball' || item.id === 'master-ball';
 
-        if (catchRate < catchChance) {
+        // Master Ball = guaranteed catch
+        if (isMasterBall) {
             textQueue = [
-                `You threw a ${item.name}!`,
-                'Wiggle... Wiggle... Wiggle...',
+                `You threw the Master Ball!`,
                 `Gotcha! ${enemyPokemon.name} was caught!`,
             ];
             battleOver = true;
             battleResult = 'catch';
+        } else if (isLegendaryBattle) {
+            // Legendary: use LegendaryFx catch rate (very low, decreasing per attempt)
+            const pattern = LegendaryFx.getPokeballShakePattern(catchAttempts);
+            const catchRate = Math.random();
+            if (catchRate < pattern.catchRate) {
+                textQueue = [
+                    `You threw a ${item.name}!`,
+                    'Wiggle... Wiggle... Wiggle... Wiggle...',
+                    `Gotcha! ${enemyPokemon.name} was caught!`,
+                ];
+                battleOver = true;
+                battleResult = 'catch';
+            } else {
+                textQueue = [
+                    `You threw a ${item.name}!`,
+                    'Wiggle... Wiggle... Wiggle...',
+                    'Oh no! The Pokemon broke free!',
+                    'This Pokemon is extremely difficult to catch!',
+                ];
+            }
         } else {
-            textQueue = [
-                `You threw a ${item.name}!`,
-                'Wiggle... Wiggle...',
-                'Oh no! The Pokemon broke free!',
-            ];
+            const catchRate = Math.random();
+            const hpRatio = enemyPokemon.hp / enemyPokemon.maxHp;
+            const catchChance = (1 - hpRatio * 0.5) * 0.4;
+
+            if (catchRate < catchChance) {
+                textQueue = [
+                    `You threw a ${item.name}!`,
+                    'Wiggle... Wiggle... Wiggle...',
+                    `Gotcha! ${enemyPokemon.name} was caught!`,
+                ];
+                battleOver = true;
+                battleResult = 'catch';
+            } else {
+                textQueue = [
+                    `You threw a ${item.name}!`,
+                    'Wiggle... Wiggle...',
+                    'Oh no! The Pokemon broke free!',
+                ];
+            }
         }
         textIndex = 0;
         charIndex = 0;
@@ -1354,6 +1405,15 @@ const Battle = (() => {
         // Bottom panel (menu or text)
         drawBottomPanel();
 
+        // Legendary intro overlay (on top of everything except transition)
+        if (phase === 'legendary_intro') {
+            LegendaryFx.renderIntro(ctx, canvasW, canvasH);
+            const shake = LegendaryFx.getShakeOffset();
+            if (shake.x !== 0 || shake.y !== 0) {
+                ctx.translate(shake.x, shake.y);
+            }
+        }
+
         // Transition overlay
         if (transitionAlpha > 0) {
             ctx.fillStyle = `rgba(0, 0, 0, ${transitionAlpha})`;
@@ -1528,12 +1588,17 @@ const Battle = (() => {
         ctx.fillStyle = '#303030';
         ctx.fillRect(barX, barY, barW, barH);
 
-        let hpColor = '#48c048';
-        if (hpRatio < 0.5) hpColor = '#f8c830';
-        if (hpRatio < 0.2) hpColor = '#e04038';
+        // Legendary enemies get gold HP bar
+        if (!isPlayer && isLegendaryBattle) {
+            LegendaryFx.renderGoldHpBar(ctx, barX, barY, barW, hpRatio);
+        } else {
+            let hpColor = '#48c048';
+            if (hpRatio < 0.5) hpColor = '#f8c830';
+            if (hpRatio < 0.2) hpColor = '#e04038';
 
-        ctx.fillStyle = hpColor;
-        ctx.fillRect(barX + 1, barY + 1, (barW - 2) * hpRatio, barH - 2);
+            ctx.fillStyle = hpColor;
+            ctx.fillRect(barX + 1, barY + 1, (barW - 2) * hpRatio, barH - 2);
+        }
 
         // HP label
         ctx.fillStyle = '#404040';
@@ -1808,5 +1873,5 @@ const Battle = (() => {
         useBackend = !!id;
     }
 
-    return { start, update, render, setBattleId };
+    return { start, update, render, setBattleId, isLegendary: () => isLegendaryBattle };
 })();
