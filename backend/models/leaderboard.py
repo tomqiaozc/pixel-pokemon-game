@@ -49,10 +49,25 @@ class Achievement(BaseModel):
     id: str
     name: str
     description: str
+    category: str = "general"
+    tier: str = "bronze"  # bronze, silver, gold, platinum
     completed: bool = False
     completed_date: Optional[str] = None
+    progress: int = 0
+    target: int = 1
+    reward_type: Optional[str] = None  # "coins", "item", "title"
+    reward_amount: Optional[int] = None
 
 
 class AchievementCheckResult(BaseModel):
     newly_earned: list[Achievement] = []
     all_achievements: list[Achievement] = []
+
+
+class AchievementNotification(BaseModel):
+    achievement_id: str
+    achievement_name: str
+    tier: str
+    category: str
+    description: str
+    timestamp: str

@@ -393,7 +393,7 @@ class TestLeaderboardAPI:
         gid = _make_game("Alice")
         resp = client.get(f"/api/player/{gid}/achievements")
         assert resp.status_code == 200
-        assert len(resp.json()) == 12
+        assert len(resp.json()) == 35
 
     def test_check_achievements_api(self):
         gid = _make_game("Alice")

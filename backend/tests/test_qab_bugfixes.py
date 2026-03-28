@@ -178,7 +178,7 @@ class TestAchievementsNonexistentPlayer:
     def test_get_achievements_works_for_existing(self):
         gid = _make_game("Alice")
         result = get_achievements(gid)
-        assert len(result) == 12
+        assert len(result) == 35
 
 
 # ============================================================

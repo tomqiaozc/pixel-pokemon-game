@@ -6,10 +6,12 @@ from typing import Optional
 from ..services.game_service import get_game
 from ..services.leaderboard_service import (
     check_achievements,
+    get_achievement_summary,
     get_achievements,
     get_player_stats,
     get_pokedex_leaderboard,
     get_pvp_leaderboard,
+    get_recent_notifications,
     get_trainer_leaderboard,
 )
 
@@ -107,3 +109,21 @@ def check_player_achievements(player_id: str):
         raise HTTPException(status_code=404, detail="Player not found")
     result = check_achievements(player_id)
     return result
+
+
+@router.get("/achievements/recent/{player_id}")
+def recent_achievements(player_id: str, limit: int = 10):
+    """Get recently unlocked achievements (drains notification queue)."""
+    game = get_game(player_id)
+    if game is None:
+        raise HTTPException(status_code=404, detail="Player not found")
+    return get_recent_notifications(player_id, limit)
+
+
+@router.get("/achievements/summary/{player_id}")
+def achievement_summary(player_id: str):
+    """Get achievement summary with category breakdown and tier counts."""
+    game = get_game(player_id)
+    if game is None:
+        raise HTTPException(status_code=404, detail="Player not found")
+    return get_achievement_summary(player_id)
