@@ -37,3 +37,4 @@ class Player(BaseModel):
     position: Position = Position()
     inventory: list[InventoryItem] = []
     money: int = 3000
+    coins: int = 0
