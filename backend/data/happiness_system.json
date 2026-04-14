@@ -1,0 +1,56 @@
+{
+  "description": "Happiness/friendship system mechanics for Pokemon bonding.",
+  "base_happiness": 70,
+  "min_happiness": 0,
+  "max_happiness": 255,
+  "evolution_threshold": 220,
+  "events": {
+    "level_up": {"change": 5, "range_0_99": 5, "range_100_199": 3, "range_200_255": 2},
+    "walk_256_steps": {"change": 1, "range_0_99": 1, "range_100_199": 1, "range_200_255": 1},
+    "vitamin_used": {"change": 5, "range_0_99": 5, "range_100_199": 3, "range_200_255": 2},
+    "ev_berry_used": {"change": 10, "range_0_99": 10, "range_100_199": 5, "range_200_255": 2},
+    "grooming": {"change": 3, "range_0_99": 3, "range_100_199": 3, "range_200_255": 3},
+    "faint": {"change": -1, "flat": true},
+    "heal_at_pokecenter": {"change": 1, "range_0_99": 1, "range_100_199": 1, "range_200_255": 0},
+    "bitter_medicine": {"change": -5, "flat": true},
+    "energy_root": {"change": -10, "flat": true},
+    "revival_herb": {"change": -15, "flat": true}
+  },
+  "friendship_evolutions": [
+    {"species": "Golbat", "evolves_to": "Crobat", "condition": "happiness >= 220, level up"},
+    {"species": "Chansey", "evolves_to": "Blissey", "condition": "happiness >= 220, level up"},
+    {"species": "Eevee", "evolves_to": "Espeon", "condition": "happiness >= 220, level up during day"},
+    {"species": "Eevee", "evolves_to": "Umbreon", "condition": "happiness >= 220, level up during night"},
+    {"species": "Pichu", "evolves_to": "Pikachu", "condition": "happiness >= 220, level up"},
+    {"species": "Cleffa", "evolves_to": "Clefairy", "condition": "happiness >= 220, level up"},
+    {"species": "Igglybuff", "evolves_to": "Jigglypuff", "condition": "happiness >= 220, level up"},
+    {"species": "Togepi", "evolves_to": "Togetic", "condition": "happiness >= 220, level up"}
+  ],
+  "move_power": {
+    "return": {
+      "formula": "happiness / 2.5",
+      "min_power": 1,
+      "max_power": 102,
+      "description": "More powerful when happiness is higher."
+    },
+    "frustration": {
+      "formula": "(255 - happiness) / 2.5",
+      "min_power": 1,
+      "max_power": 102,
+      "description": "More powerful when happiness is lower."
+    }
+  },
+  "luxury_ball_bonus": {
+    "happiness_multiplier": 2.0,
+    "description": "Doubles happiness gains from events."
+  },
+  "soothe_bell": {
+    "happiness_multiplier": 1.5,
+    "description": "Multiplies happiness gains by 1.5x."
+  },
+  "ot_bonus": {
+    "original_trainer_multiplier": 1.0,
+    "traded_pokemon_multiplier": 0.5,
+    "description": "Traded Pokemon gain happiness at half the rate."
+  }
+}

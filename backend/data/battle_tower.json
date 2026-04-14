@@ -1,0 +1,60 @@
+{
+  "description": "Post-game Battle Tower facility configuration.",
+  "location": "indigo_plateau",
+  "unlock_condition": "become_champion",
+  "rules": {
+    "level_cap": 50,
+    "party_size": 3,
+    "no_duplicate_species": true,
+    "no_duplicate_items": true,
+    "banned_species": ["Mewtwo", "Mew"],
+    "banned_items": ["Master Ball"],
+    "sleep_clause": true,
+    "species_clause": true
+  },
+  "streaks": {
+    "battles_per_streak": 7,
+    "trainer_count_per_set": 7,
+    "frontier_brain_battle": 21,
+    "max_streak_tracked": 100
+  },
+  "difficulty_scaling": {
+    "battles_1_to_7": {"min_level": 30, "max_level": 45, "ai_strategy": "smart"},
+    "battles_8_to_14": {"min_level": 40, "max_level": 50, "ai_strategy": "smart"},
+    "battles_15_to_21": {"min_level": 45, "max_level": 50, "ai_strategy": "gym_leader"},
+    "battles_22_plus": {"min_level": 50, "max_level": 50, "ai_strategy": "elite_four"}
+  },
+  "rewards": {
+    "per_battle": {"bp": 1, "description": "1 Battle Point per victory"},
+    "streak_7": {"bp": 10, "bonus_item": "PP Up"},
+    "streak_14": {"bp": 20, "bonus_item": "Rare Candy"},
+    "streak_21": {"bp": 50, "bonus_item": "Ability Capsule", "trophy": "silver"},
+    "streak_49": {"bp": 100, "bonus_item": "Gold Bottle Cap", "trophy": "gold"},
+    "streak_100": {"bp": 200, "trophy": "crystal"}
+  },
+  "bp_shop": [
+    {"item": "Protein", "cost_bp": 1},
+    {"item": "Iron", "cost_bp": 1},
+    {"item": "Calcium", "cost_bp": 1},
+    {"item": "Zinc", "cost_bp": 1},
+    {"item": "Carbos", "cost_bp": 1},
+    {"item": "HP Up", "cost_bp": 1},
+    {"item": "PP Up", "cost_bp": 3},
+    {"item": "Rare Candy", "cost_bp": 5},
+    {"item": "Choice Band", "cost_bp": 8},
+    {"item": "Choice Specs", "cost_bp": 8},
+    {"item": "Focus Sash", "cost_bp": 8},
+    {"item": "Life Orb", "cost_bp": 8},
+    {"item": "Leftovers", "cost_bp": 8}
+  ],
+  "trainer_pool": {
+    "classes": ["ace_trainer", "psychic_trainer", "blackbelt", "gentleman", "beauty"],
+    "team_generation": {
+      "method": "random_from_pool",
+      "min_team_size": 3,
+      "max_team_size": 3,
+      "iv_range": {"min": 20, "max": 31},
+      "ev_total": 510
+    }
+  }
+}

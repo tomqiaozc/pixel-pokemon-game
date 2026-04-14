@@ -1,0 +1,67 @@
+{
+  "description": "Catch rate calculation formula and modifiers for Pokemon capture.",
+  "formula": {
+    "description": "catch_value = ((3 * max_hp - 2 * current_hp) * catch_rate * ball_modifier) / (3 * max_hp) * status_modifier",
+    "shake_check": "shake_probability = 1048560 / sqrt(sqrt(16711680 / catch_value))",
+    "shakes_needed": 4,
+    "critical_capture_chance_percent": 0
+  },
+  "ball_modifiers": {
+    "poke_ball": {"modifier": 1.0, "description": "Standard Poke Ball"},
+    "great_ball": {"modifier": 1.5, "description": "Better catch rate than Poke Ball"},
+    "ultra_ball": {"modifier": 2.0, "description": "High catch rate ball"},
+    "master_ball": {"modifier": 255, "description": "Guaranteed catch"},
+    "safari_ball": {"modifier": 1.5, "description": "Used only in Safari Zone"}
+  },
+  "status_modifiers": {
+    "none": 1.0,
+    "sleep": 2.5,
+    "freeze": 2.5,
+    "paralysis": 1.5,
+    "poison": 1.5,
+    "burn": 1.5,
+    "badly_poisoned": 1.5
+  },
+  "catch_rates": {
+    "description": "Base catch rates for each species (0-255). Higher = easier to catch.",
+    "common_examples": {
+      "Caterpie": 255,
+      "Rattata": 255,
+      "Pidgey": 255,
+      "Zubat": 255,
+      "Magikarp": 255,
+      "Geodude": 255,
+      "Pikachu": 190,
+      "Abra": 200,
+      "Eevee": 45,
+      "Dratini": 45,
+      "Snorlax": 25,
+      "Articuno": 3,
+      "Zapdos": 3,
+      "Moltres": 3,
+      "Mewtwo": 3,
+      "Mew": 45
+    },
+    "ranges": {
+      "very_easy": {"min": 200, "max": 255, "description": "Common Pokemon"},
+      "easy": {"min": 120, "max": 199, "description": "Semi-common Pokemon"},
+      "medium": {"min": 60, "max": 119, "description": "Uncommon Pokemon"},
+      "hard": {"min": 25, "max": 59, "description": "Rare Pokemon, starters, pseudo-legendaries"},
+      "very_hard": {"min": 3, "max": 24, "description": "Legendary Pokemon"}
+    }
+  },
+  "safari_zone": {
+    "base_modifier": 1.5,
+    "bait_catch_modifier": 0.5,
+    "bait_flee_modifier": 0.5,
+    "rock_catch_modifier": 2.0,
+    "rock_flee_modifier": 2.0,
+    "flee_base_rate": 0.1
+  },
+  "hp_factor": {
+    "description": "Lower HP increases catch chance. Formula uses (3*max - 2*current) / (3*max).",
+    "full_hp_factor": 0.333,
+    "half_hp_factor": 0.666,
+    "one_hp_factor": 0.999
+  }
+}
