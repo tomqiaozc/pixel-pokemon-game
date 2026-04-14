@@ -1,0 +1,73 @@
+{
+  "description": "Save system configuration and structure for the game.",
+  "save_slots": 3,
+  "autosave": {
+    "enabled": true,
+    "interval_seconds": 300,
+    "triggers": ["enter_building", "heal_at_pokecenter", "after_battle"],
+    "slot": 0
+  },
+  "save_data_structure": {
+    "header": {
+      "version": "1.0",
+      "timestamp": "ISO 8601 datetime",
+      "play_time_seconds": "integer",
+      "save_count": "integer"
+    },
+    "player": {
+      "name": "string (max 10 chars)",
+      "gender": "string",
+      "money": "integer",
+      "badges": "array of badge IDs",
+      "trainer_id": "5-digit integer",
+      "secret_id": "5-digit integer"
+    },
+    "position": {
+      "map_id": "string",
+      "x": "integer",
+      "y": "integer",
+      "facing": "string (up/down/left/right)"
+    },
+    "party": {
+      "max_size": 6,
+      "pokemon_fields": [
+        "species_id", "nickname", "level", "experience",
+        "moves", "current_hp", "max_hp", "stats",
+        "ivs", "evs", "nature", "ability",
+        "held_item", "friendship", "status", "original_trainer"
+      ]
+    },
+    "pc_storage": {
+      "boxes": 12,
+      "per_box": 30,
+      "current_box": "integer"
+    },
+    "pokedex": {
+      "seen": "array of species IDs",
+      "caught": "array of species IDs"
+    },
+    "items": {
+      "bag_pockets": ["items", "key_items", "poke_balls", "tms_hms", "berries"],
+      "format": "array of {item_id, quantity}"
+    },
+    "progress": {
+      "story_flags": "object of flag:boolean pairs",
+      "defeated_trainers": "array of trainer IDs",
+      "collected_items": "array of field item IDs",
+      "completed_events": "array of event IDs"
+    },
+    "game_state": {
+      "play_time": "integer (seconds)",
+      "step_count": "integer",
+      "hall_of_fame_entries": "integer",
+      "current_quest": "string or null"
+    }
+  },
+  "validation": {
+    "checksum_algorithm": "crc32",
+    "max_save_size_kb": 512,
+    "backup_previous_save": true
+  },
+  "storage_format": "json",
+  "storage_key_prefix": "pixel_pokemon_save_"
+}

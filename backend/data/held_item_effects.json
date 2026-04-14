@@ -1,0 +1,143 @@
+{
+  "leftovers": {
+    "name": "Leftovers",
+    "trigger": "end_of_turn",
+    "effect": "heal_hp_percent",
+    "amount": 6.25,
+    "description": "Restores 1/16 of max HP each turn."
+  },
+  "choice_band": {
+    "name": "Choice Band",
+    "trigger": "on_attack",
+    "effect": "boost_stat",
+    "stat": "attack",
+    "multiplier": 1.5,
+    "restriction": "lock_move",
+    "description": "Boosts Attack by 50% but locks into one move."
+  },
+  "choice_specs": {
+    "name": "Choice Specs",
+    "trigger": "on_attack",
+    "effect": "boost_stat",
+    "stat": "sp_attack",
+    "multiplier": 1.5,
+    "restriction": "lock_move",
+    "description": "Boosts Sp.Atk by 50% but locks into one move."
+  },
+  "focus_sash": {
+    "name": "Focus Sash",
+    "trigger": "on_lethal_hit",
+    "effect": "survive_with_1hp",
+    "condition": "full_hp",
+    "consumed": true,
+    "description": "Survives a one-hit KO with 1 HP if at full health. Single use."
+  },
+  "life_orb": {
+    "name": "Life Orb",
+    "trigger": "on_attack",
+    "effect": "boost_damage",
+    "multiplier": 1.3,
+    "recoil_percent": 10,
+    "description": "Boosts damage by 30% but takes 10% recoil each attack."
+  },
+  "shell_bell": {
+    "name": "Shell Bell",
+    "trigger": "on_damage_dealt",
+    "effect": "heal_percent_of_damage",
+    "percent": 12.5,
+    "description": "Heals 1/8 of damage dealt to opponent."
+  },
+  "quick_claw": {
+    "name": "Quick Claw",
+    "trigger": "before_turn",
+    "effect": "priority_boost",
+    "chance": 20,
+    "description": "20% chance to move first regardless of Speed."
+  },
+  "kings_rock": {
+    "name": "Kings Rock",
+    "trigger": "on_hit",
+    "effect": "flinch_chance",
+    "chance": 10,
+    "description": "10% chance to cause flinching on any damaging move."
+  },
+  "sitrus_berry": {
+    "name": "Sitrus Berry",
+    "trigger": "hp_below_half",
+    "effect": "heal_hp_percent",
+    "amount": 25,
+    "consumed": true,
+    "description": "Restores 25% HP when HP drops below 50%. Single use."
+  },
+  "oran_berry": {
+    "name": "Oran Berry",
+    "trigger": "hp_below_half",
+    "effect": "heal_flat",
+    "amount": 10,
+    "consumed": true,
+    "description": "Restores 10 HP when HP drops below 50%. Single use."
+  },
+  "lum_berry": {
+    "name": "Lum Berry",
+    "trigger": "on_status_received",
+    "effect": "cure_any_status",
+    "consumed": true,
+    "description": "Cures any status condition. Single use."
+  },
+  "rawst_berry": {
+    "name": "Rawst Berry",
+    "trigger": "on_status_received",
+    "effect": "cure_status",
+    "status": "burn",
+    "consumed": true,
+    "description": "Cures burn. Single use."
+  },
+  "chesto_berry": {
+    "name": "Chesto Berry",
+    "trigger": "on_status_received",
+    "effect": "cure_status",
+    "status": "sleep",
+    "consumed": true,
+    "description": "Cures sleep. Single use."
+  },
+  "pecha_berry": {
+    "name": "Pecha Berry",
+    "trigger": "on_status_received",
+    "effect": "cure_status",
+    "status": "poison",
+    "consumed": true,
+    "description": "Cures poison. Single use."
+  },
+  "cheri_berry": {
+    "name": "Cheri Berry",
+    "trigger": "on_status_received",
+    "effect": "cure_status",
+    "status": "paralysis",
+    "consumed": true,
+    "description": "Cures paralysis. Single use."
+  },
+  "aspear_berry": {
+    "name": "Aspear Berry",
+    "trigger": "on_status_received",
+    "effect": "cure_status",
+    "status": "freeze",
+    "consumed": true,
+    "description": "Cures freeze. Single use."
+  },
+  "persim_berry": {
+    "name": "Persim Berry",
+    "trigger": "on_status_received",
+    "effect": "cure_status",
+    "status": "confusion",
+    "consumed": true,
+    "description": "Cures confusion. Single use."
+  },
+  "leppa_berry": {
+    "name": "Leppa Berry",
+    "trigger": "on_pp_depleted",
+    "effect": "restore_pp",
+    "amount": 10,
+    "consumed": true,
+    "description": "Restores 10 PP to a depleted move. Single use."
+  }
+}

@@ -1,0 +1,234 @@
+{
+  "pewter_gym": {
+    "gym_id": "pewter_gym",
+    "leader": "Brock",
+    "trainers": [
+      {
+        "id": "pewter_gym_1",
+        "name": "Camper Liam",
+        "class": "camper",
+        "team": [
+          {"species": "Geodude", "level": 10, "moves": ["Tackle", "Defense Curl"]},
+          {"species": "Sandshrew", "level": 11, "moves": ["Scratch", "Sand Attack"]}
+        ]
+      }
+    ]
+  },
+  "cerulean_gym": {
+    "gym_id": "cerulean_gym",
+    "leader": "Misty",
+    "trainers": [
+      {
+        "id": "cerulean_gym_1",
+        "name": "Swimmer Luis",
+        "class": "swimmer",
+        "team": [
+          {"species": "Horsea", "level": 16, "moves": ["Water Gun", "Leer", "Smokescreen"]},
+          {"species": "Shellder", "level": 16, "moves": ["Tackle", "Withdraw", "Water Gun"]}
+        ]
+      },
+      {
+        "id": "cerulean_gym_2",
+        "name": "Picnicker Diana",
+        "class": "picnicker",
+        "team": [
+          {"species": "Goldeen", "level": 19, "moves": ["Peck", "Water Gun", "Horn Attack"]}
+        ]
+      }
+    ]
+  },
+  "vermilion_gym": {
+    "gym_id": "vermilion_gym",
+    "leader": "Lt. Surge",
+    "trainers": [
+      {
+        "id": "vermilion_gym_1",
+        "name": "Gentleman Tucker",
+        "class": "gentleman",
+        "team": [
+          {"species": "Pikachu", "level": 21, "moves": ["Thunder Shock", "Quick Attack", "Double Team"]},
+          {"species": "Voltorb", "level": 21, "moves": ["Sonic Boom", "Screech", "Tackle"]}
+        ]
+      },
+      {
+        "id": "vermilion_gym_2",
+        "name": "Sailor Dwayne",
+        "class": "sailor",
+        "team": [
+          {"species": "Magnemite", "level": 22, "moves": ["Thunder Shock", "Sonic Boom", "Supersonic"]}
+        ]
+      }
+    ]
+  },
+  "celadon_gym": {
+    "gym_id": "celadon_gym",
+    "leader": "Erika",
+    "trainers": [
+      {
+        "id": "celadon_gym_1",
+        "name": "Lass Kay",
+        "class": "lass",
+        "team": [
+          {"species": "Bellsprout", "level": 23, "moves": ["Vine Whip", "Wrap", "Sleep Powder"]},
+          {"species": "Weepinbell", "level": 23, "moves": ["Razor Leaf", "Acid", "Sleep Powder"]}
+        ]
+      },
+      {
+        "id": "celadon_gym_2",
+        "name": "Beauty Bridget",
+        "class": "beauty",
+        "team": [
+          {"species": "Oddish", "level": 21, "moves": ["Absorb", "Poison Powder", "Stun Spore"]},
+          {"species": "Gloom", "level": 24, "moves": ["Absorb", "Acid", "Sleep Powder"]}
+        ]
+      },
+      {
+        "id": "celadon_gym_3",
+        "name": "Lass Lisa",
+        "class": "lass",
+        "team": [
+          {"species": "Exeggcute", "level": 24, "moves": ["Confusion", "Leech Seed", "Stun Spore"]}
+        ]
+      }
+    ]
+  },
+  "fuchsia_gym": {
+    "gym_id": "fuchsia_gym",
+    "leader": "Koga",
+    "trainers": [
+      {
+        "id": "fuchsia_gym_1",
+        "name": "Juggler Nate",
+        "class": "juggler",
+        "team": [
+          {"species": "Drowzee", "level": 34, "moves": ["Psychic", "Hypnosis", "Confusion"]},
+          {"species": "Kadabra", "level": 34, "moves": ["Psybeam", "Disable", "Confusion"]}
+        ]
+      },
+      {
+        "id": "fuchsia_gym_2",
+        "name": "Juggler Kirk",
+        "class": "juggler",
+        "team": [
+          {"species": "Drowzee", "level": 31, "moves": ["Hypnosis", "Confusion", "Headbutt"]},
+          {"species": "Drowzee", "level": 31, "moves": ["Hypnosis", "Confusion", "Poison Gas"]},
+          {"species": "Hypno", "level": 34, "moves": ["Psychic", "Hypnosis", "Dream Eater"]}
+        ]
+      },
+      {
+        "id": "fuchsia_gym_3",
+        "name": "Tamer Edgar",
+        "class": "tamer",
+        "team": [
+          {"species": "Arbok", "level": 33, "moves": ["Poison Sting", "Bite", "Glare"]},
+          {"species": "Weezing", "level": 33, "moves": ["Sludge", "Smokescreen", "Self Destruct"]}
+        ]
+      }
+    ]
+  },
+  "saffron_gym": {
+    "gym_id": "saffron_gym",
+    "leader": "Sabrina",
+    "trainers": [
+      {
+        "id": "saffron_gym_1",
+        "name": "Psychic Johan",
+        "class": "psychic_trainer",
+        "team": [
+          {"species": "Kadabra", "level": 37, "moves": ["Psybeam", "Confusion", "Disable"]},
+          {"species": "Slowpoke", "level": 37, "moves": ["Water Gun", "Confusion", "Headbutt"]}
+        ]
+      },
+      {
+        "id": "saffron_gym_2",
+        "name": "Channeler Stacy",
+        "class": "channeler",
+        "team": [
+          {"species": "Haunter", "level": 38, "moves": ["Night Shade", "Lick", "Hypnosis"]},
+          {"species": "Haunter", "level": 38, "moves": ["Night Shade", "Dream Eater", "Hypnosis"]}
+        ]
+      },
+      {
+        "id": "saffron_gym_3",
+        "name": "Psychic Preston",
+        "class": "psychic_trainer",
+        "team": [
+          {"species": "Mr. Mime", "level": 39, "moves": ["Psybeam", "Barrier", "Light Screen"]}
+        ]
+      }
+    ]
+  },
+  "cinnabar_gym": {
+    "gym_id": "cinnabar_gym",
+    "leader": "Blaine",
+    "trainers": [
+      {
+        "id": "cinnabar_gym_1",
+        "name": "Super Nerd Erik",
+        "class": "super_nerd",
+        "team": [
+          {"species": "Vulpix", "level": 36, "moves": ["Flamethrower", "Confuse Ray", "Quick Attack"]},
+          {"species": "Vulpix", "level": 36, "moves": ["Fire Spin", "Confuse Ray", "Quick Attack"]}
+        ]
+      },
+      {
+        "id": "cinnabar_gym_2",
+        "name": "Burglar Quinn",
+        "class": "burglar",
+        "team": [
+          {"species": "Growlithe", "level": 39, "moves": ["Flamethrower", "Take Down", "Agility"]},
+          {"species": "Ponyta", "level": 39, "moves": ["Ember", "Stomp", "Agility"]}
+        ]
+      },
+      {
+        "id": "cinnabar_gym_3",
+        "name": "Super Nerd Derek",
+        "class": "super_nerd",
+        "team": [
+          {"species": "Ninetales", "level": 41, "moves": ["Flamethrower", "Confuse Ray", "Quick Attack"]}
+        ]
+      }
+    ]
+  },
+  "viridian_gym": {
+    "gym_id": "viridian_gym",
+    "leader": "Giovanni",
+    "trainers": [
+      {
+        "id": "viridian_gym_1",
+        "name": "Tamer Jason",
+        "class": "tamer",
+        "team": [
+          {"species": "Rhyhorn", "level": 39, "moves": ["Horn Attack", "Stomp", "Fury Attack"]},
+          {"species": "Nidoking", "level": 39, "moves": ["Thrash", "Poison Sting", "Horn Attack"]}
+        ]
+      },
+      {
+        "id": "viridian_gym_2",
+        "name": "Cooltrainer Samuel",
+        "class": "ace_trainer",
+        "team": [
+          {"species": "Sandslash", "level": 40, "moves": ["Slash", "Earthquake", "Poison Sting"]},
+          {"species": "Dugtrio", "level": 40, "moves": ["Dig", "Earthquake", "Slash"]}
+        ]
+      },
+      {
+        "id": "viridian_gym_3",
+        "name": "Blackbelt Takashi",
+        "class": "blackbelt",
+        "team": [
+          {"species": "Machoke", "level": 40, "moves": ["Karate Chop", "Submission", "Leer"]},
+          {"species": "Machoke", "level": 40, "moves": ["Karate Chop", "Seismic Toss", "Leer"]}
+        ]
+      },
+      {
+        "id": "viridian_gym_4",
+        "name": "Cooltrainer Alexa",
+        "class": "ace_trainer",
+        "team": [
+          {"species": "Nidoqueen", "level": 42, "moves": ["Body Slam", "Earthquake", "Poison Sting"]}
+        ]
+      }
+    ]
+  }
+}
