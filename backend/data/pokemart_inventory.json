@@ -1,0 +1,144 @@
+{
+  "description": "Pokemart shop inventories by city, with badge-based stock unlocks.",
+  "shops": [
+    {
+      "id": "viridian_city",
+      "name": "Viridian City Pokemart",
+      "base_stock": [
+        {"item": "Poke Ball", "price": 200},
+        {"item": "Potion", "price": 300},
+        {"item": "Antidote", "price": 100},
+        {"item": "Paralyze Heal", "price": 200}
+      ]
+    },
+    {
+      "id": "pewter_city",
+      "name": "Pewter City Pokemart",
+      "base_stock": [
+        {"item": "Poke Ball", "price": 200},
+        {"item": "Potion", "price": 300},
+        {"item": "Antidote", "price": 100},
+        {"item": "Burn Heal", "price": 250},
+        {"item": "Escape Rope", "price": 550}
+      ]
+    },
+    {
+      "id": "cerulean_city",
+      "name": "Cerulean City Pokemart",
+      "base_stock": [
+        {"item": "Poke Ball", "price": 200},
+        {"item": "Great Ball", "price": 600},
+        {"item": "Potion", "price": 300},
+        {"item": "Super Potion", "price": 700},
+        {"item": "Repel", "price": 350},
+        {"item": "Antidote", "price": 100},
+        {"item": "Burn Heal", "price": 250},
+        {"item": "Awakening", "price": 250}
+      ]
+    },
+    {
+      "id": "vermilion_city",
+      "name": "Vermilion City Pokemart",
+      "base_stock": [
+        {"item": "Poke Ball", "price": 200},
+        {"item": "Great Ball", "price": 600},
+        {"item": "Super Potion", "price": 700},
+        {"item": "Repel", "price": 350},
+        {"item": "Full Heal", "price": 600},
+        {"item": "Revive", "price": 1500}
+      ]
+    },
+    {
+      "id": "lavender_town",
+      "name": "Lavender Town Pokemart",
+      "base_stock": [
+        {"item": "Great Ball", "price": 600},
+        {"item": "Super Potion", "price": 700},
+        {"item": "Revive", "price": 1500},
+        {"item": "Escape Rope", "price": 550},
+        {"item": "Super Repel", "price": 500},
+        {"item": "Full Heal", "price": 600}
+      ]
+    },
+    {
+      "id": "celadon_city",
+      "name": "Celadon Dept. Store",
+      "base_stock": [
+        {"item": "Poke Ball", "price": 200},
+        {"item": "Great Ball", "price": 600},
+        {"item": "Ultra Ball", "price": 1200},
+        {"item": "Potion", "price": 300},
+        {"item": "Super Potion", "price": 700},
+        {"item": "Hyper Potion", "price": 1200},
+        {"item": "Revive", "price": 1500},
+        {"item": "Full Heal", "price": 600},
+        {"item": "Repel", "price": 350},
+        {"item": "Super Repel", "price": 500},
+        {"item": "Max Repel", "price": 700}
+      ],
+      "is_department_store": true
+    },
+    {
+      "id": "fuchsia_city",
+      "name": "Fuchsia City Pokemart",
+      "base_stock": [
+        {"item": "Great Ball", "price": 600},
+        {"item": "Ultra Ball", "price": 1200},
+        {"item": "Hyper Potion", "price": 1200},
+        {"item": "Revive", "price": 1500},
+        {"item": "Full Heal", "price": 600},
+        {"item": "Super Repel", "price": 500},
+        {"item": "Max Repel", "price": 700}
+      ]
+    },
+    {
+      "id": "saffron_city",
+      "name": "Saffron City Pokemart",
+      "base_stock": [
+        {"item": "Great Ball", "price": 600},
+        {"item": "Ultra Ball", "price": 1200},
+        {"item": "Hyper Potion", "price": 1200},
+        {"item": "Max Potion", "price": 2500},
+        {"item": "Full Heal", "price": 600},
+        {"item": "Revive", "price": 1500},
+        {"item": "Max Repel", "price": 700}
+      ]
+    },
+    {
+      "id": "cinnabar_island",
+      "name": "Cinnabar Island Pokemart",
+      "base_stock": [
+        {"item": "Ultra Ball", "price": 1200},
+        {"item": "Hyper Potion", "price": 1200},
+        {"item": "Max Potion", "price": 2500},
+        {"item": "Full Restore", "price": 3000},
+        {"item": "Revive", "price": 1500},
+        {"item": "Max Repel", "price": 700}
+      ]
+    },
+    {
+      "id": "indigo_plateau",
+      "name": "Indigo Plateau Pokemart",
+      "base_stock": [
+        {"item": "Ultra Ball", "price": 1200},
+        {"item": "Max Potion", "price": 2500},
+        {"item": "Full Restore", "price": 3000},
+        {"item": "Revive", "price": 1500},
+        {"item": "Full Heal", "price": 600},
+        {"item": "Max Repel", "price": 700}
+      ]
+    }
+  ],
+  "badge_unlocks": [
+    {"badges": 1, "items": ["Poke Ball", "Potion", "Antidote"]},
+    {"badges": 2, "items": ["Great Ball", "Super Potion", "Repel"]},
+    {"badges": 3, "items": ["Escape Rope", "Revive"]},
+    {"badges": 4, "items": ["Ultra Ball", "Hyper Potion", "Super Repel"]},
+    {"badges": 5, "items": ["Full Heal"]},
+    {"badges": 6, "items": ["Max Repel", "Max Potion"]},
+    {"badges": 7, "items": ["Full Restore"]},
+    {"badges": 8, "items": ["Max Revive"]}
+  ],
+  "sell_multiplier": 0.5,
+  "greeting": "Welcome! How may I help you?"
+}

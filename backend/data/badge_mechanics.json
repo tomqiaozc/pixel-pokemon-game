@@ -1,0 +1,16 @@
+{
+  "description": "Obedience rules and HM field use requirements.",
+  "obedience_rules": {
+    "own_pokemon_always_obey": true,
+    "traded_pokemon_check": true,
+    "disobey_actions": ["loaf_around", "use_wrong_move", "fall_asleep", "hurt_itself"],
+    "no_badges_obey_level": 10
+  },
+  "hm_field_use": {
+    "Cut": {"badge_required": "cascade_badge", "animation": "cut_tree"},
+    "Fly": {"badge_required": "thunder_badge", "animation": "fly_away"},
+    "Surf": {"badge_required": "soul_badge", "animation": "surf_mount"},
+    "Strength": {"badge_required": "rainbow_badge", "animation": "push_boulder"},
+    "Flash": {"badge_required": "boulder_badge", "animation": "cave_light"}
+  }
+}

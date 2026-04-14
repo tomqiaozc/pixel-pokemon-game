@@ -1,0 +1,96 @@
+{
+  "description": "Puzzle mechanics and layout for each of the 8 Kanto gyms.",
+  "gyms": [
+    {
+      "id": "pewter_gym",
+      "leader": "Brock",
+      "puzzle_type": "none",
+      "description": "Straightforward path to the leader.",
+      "trainers_before_leader": 1
+    },
+    {
+      "id": "cerulean_gym",
+      "leader": "Misty",
+      "puzzle_type": "none",
+      "description": "Simple path with trainers.",
+      "trainers_before_leader": 2
+    },
+    {
+      "id": "vermilion_gym",
+      "leader": "Lt. Surge",
+      "puzzle_type": "trash_can_switches",
+      "description": "Find two switches in trash cans to unlock the door.",
+      "puzzle_config": {
+        "trash_cans": 15,
+        "switches": 2,
+        "adjacent_rule": true,
+        "reset_on_wrong": true
+      },
+      "trainers_before_leader": 3
+    },
+    {
+      "id": "celadon_gym",
+      "leader": "Erika",
+      "puzzle_type": "cut_trees",
+      "description": "Cut trees to reach the leader through the greenhouse.",
+      "puzzle_config": {
+        "trees_to_cut": 3,
+        "requires_hm": "Cut"
+      },
+      "trainers_before_leader": 4
+    },
+    {
+      "id": "fuchsia_gym",
+      "leader": "Koga",
+      "puzzle_type": "invisible_walls",
+      "description": "Navigate through invisible walls to reach Koga.",
+      "puzzle_config": {
+        "wall_count": 12,
+        "grid_size": {"width": 8, "height": 8},
+        "walls_visible_on_bump": true
+      },
+      "trainers_before_leader": 4
+    },
+    {
+      "id": "saffron_gym",
+      "leader": "Sabrina",
+      "puzzle_type": "teleport_pads",
+      "description": "Step on teleport pads to navigate to Sabrina.",
+      "puzzle_config": {
+        "pad_count": 16,
+        "rooms": 9,
+        "correct_path_length": 4
+      },
+      "trainers_before_leader": 5
+    },
+    {
+      "id": "cinnabar_gym",
+      "leader": "Blaine",
+      "puzzle_type": "quiz_doors",
+      "description": "Answer quiz questions to unlock doors. Wrong answers trigger battles.",
+      "puzzle_config": {
+        "questions": 6,
+        "doors": 6,
+        "correct_skips_battle": true,
+        "wrong_triggers_battle": true
+      },
+      "trainers_before_leader": 5
+    },
+    {
+      "id": "viridian_gym",
+      "leader": "Giovanni",
+      "puzzle_type": "spinning_tiles",
+      "description": "Navigate spinning arrow tiles to reach Giovanni.",
+      "puzzle_config": {
+        "tile_count": 20,
+        "directions": ["up", "down", "left", "right"],
+        "stop_tiles": 6
+      },
+      "trainers_before_leader": 6
+    }
+  ],
+  "puzzle_types": [
+    "none", "trash_can_switches", "cut_trees", "invisible_walls",
+    "teleport_pads", "quiz_doors", "spinning_tiles"
+  ]
+}
