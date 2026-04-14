@@ -1,0 +1,172 @@
+{
+  "tracks": {
+    "title_screen": {
+      "name": "Title Screen",
+      "file": "title.ogg",
+      "loop": true
+    },
+    "pallet_town": {
+      "name": "Pallet Town",
+      "file": "pallet_town.ogg",
+      "loop": true
+    },
+    "viridian_city": {
+      "name": "Viridian City",
+      "file": "viridian_city.ogg",
+      "loop": true
+    },
+    "pewter_city": {
+      "name": "Pewter City",
+      "file": "pewter_city.ogg",
+      "loop": true
+    },
+    "cerulean_city": {
+      "name": "Cerulean City",
+      "file": "cerulean_city.ogg",
+      "loop": true
+    },
+    "vermilion_city": {
+      "name": "Vermilion City",
+      "file": "vermilion_city.ogg",
+      "loop": true
+    },
+    "lavender_town": {
+      "name": "Lavender Town",
+      "file": "lavender_town.ogg",
+      "loop": true
+    },
+    "celadon_city": {
+      "name": "Celadon City",
+      "file": "celadon_city.ogg",
+      "loop": true
+    },
+    "saffron_city": {
+      "name": "Saffron City",
+      "file": "saffron_city.ogg",
+      "loop": true
+    },
+    "fuchsia_city": {
+      "name": "Fuchsia City",
+      "file": "fuchsia_city.ogg",
+      "loop": true
+    },
+    "cinnabar_island": {
+      "name": "Cinnabar Island",
+      "file": "cinnabar_island.ogg",
+      "loop": true
+    },
+    "indigo_plateau": {
+      "name": "Indigo Plateau",
+      "file": "indigo_plateau.ogg",
+      "loop": true
+    },
+    "route_1": {
+      "name": "Route 1",
+      "file": "route_1.ogg",
+      "loop": true
+    },
+    "route_theme": {
+      "name": "Route Theme",
+      "file": "route_theme.ogg",
+      "loop": true
+    },
+    "viridian_forest": {
+      "name": "Viridian Forest",
+      "file": "viridian_forest.ogg",
+      "loop": true
+    },
+    "mt_moon": {
+      "name": "Mt. Moon",
+      "file": "mt_moon.ogg",
+      "loop": true
+    },
+    "pokemon_center": {
+      "name": "Pokemon Center",
+      "file": "pokemon_center.ogg",
+      "loop": true
+    },
+    "pokemart": {
+      "name": "PokeMart",
+      "file": "pokemart.ogg",
+      "loop": true
+    },
+    "gym": {
+      "name": "Gym",
+      "file": "gym.ogg",
+      "loop": true
+    },
+    "battle_wild": {
+      "name": "Wild Battle",
+      "file": "battle_wild.ogg",
+      "loop": true
+    },
+    "battle_trainer": {
+      "name": "Trainer Battle",
+      "file": "battle_trainer.ogg",
+      "loop": true
+    },
+    "battle_gym_leader": {
+      "name": "Gym Leader Battle",
+      "file": "battle_gym_leader.ogg",
+      "loop": true
+    },
+    "battle_champion": {
+      "name": "Champion Battle",
+      "file": "battle_champion.ogg",
+      "loop": true
+    },
+    "battle_legendary": {
+      "name": "Legendary Battle",
+      "file": "battle_legendary.ogg",
+      "loop": true
+    },
+    "victory_wild": {
+      "name": "Wild Victory",
+      "file": "victory_wild.ogg",
+      "loop": false
+    },
+    "victory_trainer": {
+      "name": "Trainer Victory",
+      "file": "victory_trainer.ogg",
+      "loop": false
+    },
+    "victory_gym": {
+      "name": "Gym Victory",
+      "file": "victory_gym.ogg",
+      "loop": false
+    },
+    "evolution": {
+      "name": "Evolution",
+      "file": "evolution.ogg",
+      "loop": false
+    },
+    "hall_of_fame": {
+      "name": "Hall of Fame",
+      "file": "hall_of_fame.ogg",
+      "loop": false
+    },
+    "game_over": {
+      "name": "Game Over",
+      "file": "game_over.ogg",
+      "loop": false
+    }
+  },
+  "sfx": {
+    "menu_select": "sfx_select.ogg",
+    "menu_cancel": "sfx_cancel.ogg",
+    "menu_cursor": "sfx_cursor.ogg",
+    "damage_normal": "sfx_damage_normal.ogg",
+    "damage_super_effective": "sfx_damage_super.ogg",
+    "damage_not_effective": "sfx_damage_weak.ogg",
+    "critical_hit": "sfx_critical.ogg",
+    "level_up": "sfx_level_up.ogg",
+    "pokemon_caught": "sfx_caught.ogg",
+    "pokeball_throw": "sfx_pokeball.ogg",
+    "pokeball_shake": "sfx_shake.ogg",
+    "healing": "sfx_healing.ogg",
+    "item_obtained": "sfx_item.ogg",
+    "badge_obtained": "sfx_badge.ogg",
+    "save_game": "sfx_save.ogg",
+    "door_open": "sfx_door.ogg"
+  }
+}

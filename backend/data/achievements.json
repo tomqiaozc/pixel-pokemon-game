@@ -1,0 +1,233 @@
+[
+  {
+    "id": "first_pokemon",
+    "name": "My First Partner",
+    "description": "Receive your first Pokemon from Professor Oak.",
+    "category": "story",
+    "reward_type": "none"
+  },
+  {
+    "id": "first_catch",
+    "name": "Gotta Start Somewhere",
+    "description": "Catch your first wild Pokemon.",
+    "category": "catching",
+    "reward_type": "none"
+  },
+  {
+    "id": "catch_10",
+    "name": "Bug Catcher",
+    "description": "Catch 10 different species of Pokemon.",
+    "category": "catching",
+    "reward_type": "item",
+    "reward": "Great Ball"
+  },
+  {
+    "id": "catch_50",
+    "name": "Dedicated Collector",
+    "description": "Catch 50 different species of Pokemon.",
+    "category": "catching",
+    "reward_type": "item",
+    "reward": "Ultra Ball"
+  },
+  {
+    "id": "catch_100",
+    "name": "Pokemon Ranger",
+    "description": "Catch 100 different species of Pokemon.",
+    "category": "catching",
+    "reward_type": "item",
+    "reward": "Master Ball"
+  },
+  {
+    "id": "catch_151",
+    "name": "Gotta Catch Em All",
+    "description": "Complete the Pokedex by catching all 151 Pokemon.",
+    "category": "catching",
+    "reward_type": "certificate"
+  },
+  {
+    "id": "first_badge",
+    "name": "Rocky Start",
+    "description": "Earn your first Gym Badge.",
+    "category": "badges",
+    "reward_type": "none"
+  },
+  {
+    "id": "four_badges",
+    "name": "Halfway There",
+    "description": "Earn four Gym Badges.",
+    "category": "badges",
+    "reward_type": "none"
+  },
+  {
+    "id": "eight_badges",
+    "name": "Badge Collector",
+    "description": "Earn all eight Gym Badges.",
+    "category": "badges",
+    "reward_type": "none"
+  },
+  {
+    "id": "beat_elite_four",
+    "name": "Elite Challenger",
+    "description": "Defeat all four members of the Elite Four.",
+    "category": "story",
+    "reward_type": "none"
+  },
+  {
+    "id": "become_champion",
+    "name": "Pokemon Champion",
+    "description": "Defeat the Champion and enter the Hall of Fame.",
+    "category": "story",
+    "reward_type": "certificate"
+  },
+  {
+    "id": "first_evolution",
+    "name": "Growing Up",
+    "description": "Evolve a Pokemon for the first time.",
+    "category": "training",
+    "reward_type": "none"
+  },
+  {
+    "id": "level_50",
+    "name": "Powerhouse",
+    "description": "Raise a Pokemon to Level 50.",
+    "category": "training",
+    "reward_type": "item",
+    "reward": "Rare Candy"
+  },
+  {
+    "id": "level_100",
+    "name": "Maximum Power",
+    "description": "Raise a Pokemon to Level 100.",
+    "category": "training",
+    "reward_type": "item",
+    "reward": "Rare Candy"
+  },
+  {
+    "id": "stone_evolution",
+    "name": "Stone Collector",
+    "description": "Evolve a Pokemon using an evolution stone.",
+    "category": "training",
+    "reward_type": "none"
+  },
+  {
+    "id": "trade_evolution",
+    "name": "Helping Hand",
+    "description": "Evolve a Pokemon through trading.",
+    "category": "training",
+    "reward_type": "none"
+  },
+  {
+    "id": "all_starters",
+    "name": "Starter Squad",
+    "description": "Obtain all three Kanto starter Pokemon.",
+    "category": "catching",
+    "reward_type": "none"
+  },
+  {
+    "id": "legendary_bird",
+    "name": "Bird Watcher",
+    "description": "Catch one of the Legendary Birds.",
+    "category": "catching",
+    "reward_type": "none"
+  },
+  {
+    "id": "all_legendaries",
+    "name": "Legend Hunter",
+    "description": "Catch all Legendary Pokemon.",
+    "category": "catching",
+    "reward_type": "certificate"
+  },
+  {
+    "id": "catch_mewtwo",
+    "name": "Ultimate Capture",
+    "description": "Catch Mewtwo in Cerulean Cave.",
+    "category": "catching",
+    "reward_type": "none"
+  },
+  {
+    "id": "catch_mew",
+    "name": "Mythical Discovery",
+    "description": "Catch the mythical Mew.",
+    "category": "catching",
+    "reward_type": "certificate"
+  },
+  {
+    "id": "win_10_battles",
+    "name": "Rising Trainer",
+    "description": "Win 10 trainer battles.",
+    "category": "battling",
+    "reward_type": "none"
+  },
+  {
+    "id": "win_50_battles",
+    "name": "Battle Veteran",
+    "description": "Win 50 trainer battles.",
+    "category": "battling",
+    "reward_type": "item",
+    "reward": "Leftovers"
+  },
+  {
+    "id": "win_100_battles",
+    "name": "Battle Master",
+    "description": "Win 100 trainer battles.",
+    "category": "battling",
+    "reward_type": "item",
+    "reward": "Choice Band"
+  },
+  {
+    "id": "no_faint_gym",
+    "name": "Flawless Victory",
+    "description": "Defeat a Gym Leader without any of your Pokemon fainting.",
+    "category": "battling",
+    "reward_type": "none"
+  },
+  {
+    "id": "safari_catch",
+    "name": "Safari Expert",
+    "description": "Catch a Pokemon in the Safari Zone.",
+    "category": "catching",
+    "reward_type": "none"
+  },
+  {
+    "id": "fishing_catch",
+    "name": "Master Angler",
+    "description": "Catch a Pokemon using the Super Rod.",
+    "category": "catching",
+    "reward_type": "none"
+  },
+  {
+    "id": "all_hms",
+    "name": "Field Explorer",
+    "description": "Obtain all HM moves.",
+    "category": "exploration",
+    "reward_type": "none"
+  },
+  {
+    "id": "visit_all_cities",
+    "name": "Kanto Tourist",
+    "description": "Visit every city and town in Kanto.",
+    "category": "exploration",
+    "reward_type": "none"
+  },
+  {
+    "id": "find_secret_area",
+    "name": "Secret Finder",
+    "description": "Discover a secret area.",
+    "category": "exploration",
+    "reward_type": "none"
+  },
+  {
+    "id": "money_100000",
+    "name": "Rich Trainer",
+    "description": "Accumulate 100,000 PokeDollars.",
+    "category": "misc",
+    "reward_type": "none"
+  },
+  {
+    "id": "full_box",
+    "name": "Box Full",
+    "description": "Fill an entire PC box with Pokemon.",
+    "category": "catching",
+    "reward_type": "none"
+  }
+]

@@ -1,0 +1,71 @@
+{
+  "version": "1.0.0",
+  "title": "Pixel Pokemon Kanto",
+  "canvas": {
+    "width": 800,
+    "height": 600,
+    "tile_size": 16,
+    "scale": 2
+  },
+  "player": {
+    "default_name": "RED",
+    "max_party_size": 6,
+    "starting_money": 3000,
+    "max_money": 999999,
+    "walk_speed": 4,
+    "run_speed": 8,
+    "bike_speed": 12
+  },
+  "battle": {
+    "animation_speed": 1.0,
+    "text_speed": "normal",
+    "text_speed_options": {
+      "slow": 50,
+      "normal": 30,
+      "fast": 15,
+      "instant": 0
+    },
+    "battle_style": "shift",
+    "battle_style_options": [
+      "shift",
+      "set"
+    ]
+  },
+  "difficulty": {
+    "default": "normal",
+    "options": {
+      "easy": {
+        "wild_level_modifier": 0.9,
+        "trainer_level_modifier": 0.85,
+        "exp_multiplier": 1.5,
+        "money_multiplier": 1.5,
+        "catch_rate_modifier": 1.3
+      },
+      "normal": {
+        "wild_level_modifier": 1.0,
+        "trainer_level_modifier": 1.0,
+        "exp_multiplier": 1.0,
+        "money_multiplier": 1.0,
+        "catch_rate_modifier": 1.0
+      },
+      "hard": {
+        "wild_level_modifier": 1.1,
+        "trainer_level_modifier": 1.2,
+        "exp_multiplier": 0.8,
+        "money_multiplier": 0.8,
+        "catch_rate_modifier": 0.8
+      }
+    }
+  },
+  "save": {
+    "auto_save": true,
+    "auto_save_interval_seconds": 300,
+    "max_save_slots": 3
+  },
+  "audio": {
+    "master_volume": 100,
+    "music_volume": 80,
+    "sfx_volume": 100,
+    "mute": false
+  }
+}
