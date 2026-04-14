@@ -335,7 +335,7 @@ class TestAbilityDataComplete:
         from backend.services.ability_service import _abilities_db, _load_abilities
         if not _abilities_db:
             _load_abilities()
-        assert len(_abilities_db) == 29
+        assert len(_abilities_db) == 51
 
     def test_get_ability_name_returns_display_name(self):
         assert get_ability_name("overgrow") == "Overgrow"

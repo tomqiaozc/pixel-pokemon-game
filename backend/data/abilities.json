@@ -3,203 +3,461 @@
     "id": "overgrow",
     "name": "Overgrow",
     "description": "Boosts Grass-type moves by 50% when HP is below 1/3",
-    "trigger_types": ["before_damage"],
-    "trigger_data": {"move_type": "grass", "hp_threshold": 0.33, "boost": 1.5}
+    "trigger_types": [
+      "before_damage"
+    ],
+    "trigger_data": {
+      "move_type": "grass",
+      "hp_threshold": 0.33,
+      "boost": 1.5
+    }
   },
   "blaze": {
     "id": "blaze",
     "name": "Blaze",
     "description": "Boosts Fire-type moves by 50% when HP is below 1/3",
-    "trigger_types": ["before_damage"],
-    "trigger_data": {"move_type": "fire", "hp_threshold": 0.33, "boost": 1.5}
+    "trigger_types": [
+      "before_damage"
+    ],
+    "trigger_data": {
+      "move_type": "fire",
+      "hp_threshold": 0.33,
+      "boost": 1.5
+    }
   },
   "torrent": {
     "id": "torrent",
     "name": "Torrent",
     "description": "Boosts Water-type moves by 50% when HP is below 1/3",
-    "trigger_types": ["before_damage"],
-    "trigger_data": {"move_type": "water", "hp_threshold": 0.33, "boost": 1.5}
+    "trigger_types": [
+      "before_damage"
+    ],
+    "trigger_data": {
+      "move_type": "water",
+      "hp_threshold": 0.33,
+      "boost": 1.5
+    }
   },
   "static": {
     "id": "static",
     "name": "Static",
     "description": "30% chance to paralyze attacker on contact",
-    "trigger_types": ["on_hit"],
-    "trigger_data": {"chance": 0.3, "status": "par", "contact_only": true}
+    "trigger_types": [
+      "on_hit"
+    ],
+    "trigger_data": {
+      "chance": 0.3,
+      "status": "par",
+      "contact_only": true
+    }
   },
   "intimidate": {
     "id": "intimidate",
     "name": "Intimidate",
     "description": "Lowers opponent's Attack by 1 stage on switch-in",
-    "trigger_types": ["on_switch_in"],
-    "trigger_data": {"stat": "attack", "stages": -1}
+    "trigger_types": [
+      "on_switch_in"
+    ],
+    "trigger_data": {
+      "stat": "attack",
+      "stages": -1
+    }
   },
   "sturdy": {
     "id": "sturdy",
     "name": "Sturdy",
     "description": "Survives a one-hit KO with 1 HP when at full HP",
-    "trigger_types": ["on_take_damage"],
-    "trigger_data": {"survive_ohko": true}
+    "trigger_types": [
+      "on_take_damage"
+    ],
+    "trigger_data": {
+      "survive_ohko": true
+    }
   },
   "levitate": {
     "id": "levitate",
     "name": "Levitate",
     "description": "Immune to Ground-type moves",
-    "trigger_types": ["on_take_damage"],
-    "trigger_data": {"immune_type": "ground"}
+    "trigger_types": [
+      "on_take_damage"
+    ],
+    "trigger_data": {
+      "immune_type": "ground"
+    }
   },
   "speed_boost": {
     "id": "speed_boost",
     "name": "Speed Boost",
     "description": "Speed rises by 1 stage at the end of each turn",
-    "trigger_types": ["end_of_turn"],
-    "trigger_data": {"stat": "speed", "stages": 1}
+    "trigger_types": [
+      "end_of_turn"
+    ],
+    "trigger_data": {
+      "stat": "speed",
+      "stages": 1
+    }
   },
   "poison_point": {
     "id": "poison_point",
     "name": "Poison Point",
     "description": "30% chance to poison attacker on contact",
-    "trigger_types": ["on_hit"],
-    "trigger_data": {"chance": 0.3, "status": "psn", "contact_only": true}
+    "trigger_types": [
+      "on_hit"
+    ],
+    "trigger_data": {
+      "chance": 0.3,
+      "status": "psn",
+      "contact_only": true
+    }
   },
   "flame_body": {
     "id": "flame_body",
     "name": "Flame Body",
     "description": "30% chance to burn attacker on contact",
-    "trigger_types": ["on_hit"],
-    "trigger_data": {"chance": 0.3, "status": "brn", "contact_only": true}
+    "trigger_types": [
+      "on_hit"
+    ],
+    "trigger_data": {
+      "chance": 0.3,
+      "status": "brn",
+      "contact_only": true
+    }
   },
   "water_absorb": {
     "id": "water_absorb",
     "name": "Water Absorb",
     "description": "Heals 25% HP when hit by a Water-type move",
-    "trigger_types": ["on_take_damage"],
-    "trigger_data": {"absorb_type": "water", "heal_fraction": 0.25}
+    "trigger_types": [
+      "on_take_damage"
+    ],
+    "trigger_data": {
+      "absorb_type": "water",
+      "heal_fraction": 0.25
+    }
   },
   "flash_fire": {
     "id": "flash_fire",
     "name": "Flash Fire",
     "description": "Immune to Fire moves; boosts own Fire moves by 50% when hit",
-    "trigger_types": ["on_take_damage"],
-    "trigger_data": {"absorb_type": "fire", "boost_type": "fire", "boost": 1.5}
+    "trigger_types": [
+      "on_take_damage"
+    ],
+    "trigger_data": {
+      "absorb_type": "fire",
+      "boost_type": "fire",
+      "boost": 1.5
+    }
   },
   "limber": {
     "id": "limber",
     "name": "Limber",
     "description": "Immune to paralysis",
-    "trigger_types": ["on_status"],
-    "trigger_data": {"immune_status": "par"}
+    "trigger_types": [
+      "on_status"
+    ],
+    "trigger_data": {
+      "immune_status": "par"
+    }
   },
   "keen_eye": {
     "id": "keen_eye",
     "name": "Keen Eye",
     "description": "Prevents accuracy reduction",
-    "trigger_types": ["on_stat_change"],
-    "trigger_data": {"protect_stat": "accuracy", "protect_direction": "down"}
+    "trigger_types": [
+      "on_stat_change"
+    ],
+    "trigger_data": {
+      "protect_stat": "accuracy",
+      "protect_direction": "down"
+    }
   },
   "rock_head": {
     "id": "rock_head",
     "name": "Rock Head",
     "description": "No recoil damage from recoil moves",
-    "trigger_types": ["passive"],
-    "trigger_data": {"prevent_recoil": true}
+    "trigger_types": [
+      "passive"
+    ],
+    "trigger_data": {
+      "prevent_recoil": true
+    }
   },
   "run_away": {
     "id": "run_away",
     "name": "Run Away",
     "description": "Guarantees escape from wild battles",
-    "trigger_types": ["passive"],
-    "trigger_data": {"guaranteed_run": true}
+    "trigger_types": [
+      "passive"
+    ],
+    "trigger_data": {
+      "guaranteed_run": true
+    }
   },
   "drizzle": {
     "id": "drizzle",
     "name": "Drizzle",
     "description": "Summons rain when entering battle",
-    "trigger_types": ["on_switch_in"],
-    "trigger_data": {"weather": "rain", "indefinite": true}
+    "trigger_types": [
+      "on_switch_in"
+    ],
+    "trigger_data": {
+      "weather": "rain",
+      "indefinite": true
+    }
   },
   "drought": {
     "id": "drought",
     "name": "Drought",
     "description": "Intensifies the sun when entering battle",
-    "trigger_types": ["on_switch_in"],
-    "trigger_data": {"weather": "sun", "indefinite": true}
+    "trigger_types": [
+      "on_switch_in"
+    ],
+    "trigger_data": {
+      "weather": "sun",
+      "indefinite": true
+    }
   },
   "sand_stream": {
     "id": "sand_stream",
     "name": "Sand Stream",
     "description": "Summons sandstorm when entering battle",
-    "trigger_types": ["on_switch_in"],
-    "trigger_data": {"weather": "sandstorm", "indefinite": true}
+    "trigger_types": [
+      "on_switch_in"
+    ],
+    "trigger_data": {
+      "weather": "sandstorm",
+      "indefinite": true
+    }
   },
   "snow_warning": {
     "id": "snow_warning",
     "name": "Snow Warning",
     "description": "Summons hail when entering battle",
-    "trigger_types": ["on_switch_in"],
-    "trigger_data": {"weather": "hail", "indefinite": true}
+    "trigger_types": [
+      "on_switch_in"
+    ],
+    "trigger_data": {
+      "weather": "hail",
+      "indefinite": true
+    }
   },
   "swift_swim": {
     "id": "swift_swim",
     "name": "Swift Swim",
     "description": "Doubles Speed in rain",
-    "trigger_types": ["passive"],
-    "trigger_data": {"weather": "rain", "stat": "speed", "multiplier": 2.0}
+    "trigger_types": [
+      "passive"
+    ],
+    "trigger_data": {
+      "weather": "rain",
+      "stat": "speed",
+      "multiplier": 2.0
+    }
   },
   "chlorophyll": {
     "id": "chlorophyll",
     "name": "Chlorophyll",
     "description": "Doubles Speed in sun",
-    "trigger_types": ["passive"],
-    "trigger_data": {"weather": "sun", "stat": "speed", "multiplier": 2.0}
+    "trigger_types": [
+      "passive"
+    ],
+    "trigger_data": {
+      "weather": "sun",
+      "stat": "speed",
+      "multiplier": 2.0
+    }
   },
   "sand_rush": {
     "id": "sand_rush",
     "name": "Sand Rush",
     "description": "Doubles Speed in sandstorm",
-    "trigger_types": ["passive"],
-    "trigger_data": {"weather": "sandstorm", "stat": "speed", "multiplier": 2.0}
+    "trigger_types": [
+      "passive"
+    ],
+    "trigger_data": {
+      "weather": "sandstorm",
+      "stat": "speed",
+      "multiplier": 2.0
+    }
   },
   "rain_dish": {
     "id": "rain_dish",
     "name": "Rain Dish",
     "description": "Heals 1/16 HP at end of each turn in rain",
-    "trigger_types": ["end_of_turn"],
-    "trigger_data": {"weather": "rain", "heal_fraction": 0.0625}
+    "trigger_types": [
+      "end_of_turn"
+    ],
+    "trigger_data": {
+      "weather": "rain",
+      "heal_fraction": 0.0625
+    }
   },
   "water_veil": {
     "id": "water_veil",
     "name": "Water Veil",
     "description": "Immune to burns",
-    "trigger_types": ["on_status"],
-    "trigger_data": {"immune_status": "brn"}
+    "trigger_types": [
+      "on_status"
+    ],
+    "trigger_data": {
+      "immune_status": "brn"
+    }
   },
   "wonder_guard": {
     "id": "wonder_guard",
     "name": "Wonder Guard",
     "description": "Only super-effective moves deal damage",
-    "trigger_types": ["on_take_damage"],
-    "trigger_data": {"block_non_super_effective": true}
+    "trigger_types": [
+      "on_take_damage"
+    ],
+    "trigger_data": {
+      "block_non_super_effective": true
+    }
   },
   "moxie": {
     "id": "moxie",
     "name": "Moxie",
     "description": "Boosts Attack by 1 stage when knocking out a Pokemon",
-    "trigger_types": ["on_ko"],
-    "trigger_data": {"stat": "attack", "stages": 1}
+    "trigger_types": [
+      "on_ko"
+    ],
+    "trigger_data": {
+      "stat": "attack",
+      "stages": 1
+    }
   },
   "sand_veil": {
     "id": "sand_veil",
     "name": "Sand Veil",
     "description": "20% evasion boost in sandstorm",
-    "trigger_types": ["passive"],
-    "trigger_data": {"weather": "sandstorm", "evasion_chance": 0.20}
+    "trigger_types": [
+      "passive"
+    ],
+    "trigger_data": {
+      "weather": "sandstorm",
+      "evasion_chance": 0.2
+    }
   },
   "snow_cloak": {
     "id": "snow_cloak",
     "name": "Snow Cloak",
     "description": "20% evasion boost in hail",
-    "trigger_types": ["passive"],
-    "trigger_data": {"weather": "hail", "evasion_chance": 0.20}
+    "trigger_types": [
+      "passive"
+    ],
+    "trigger_data": {
+      "weather": "hail",
+      "evasion_chance": 0.2
+    }
+  },
+  "lightning_rod": {
+    "name": "Lightning Rod",
+    "description": "Draws in Electric moves",
+    "effect": "draw_electric"
+  },
+  "thick_fat": {
+    "name": "Thick Fat",
+    "description": "Reduces Fire/Ice damage",
+    "effect": "reduce_fire_ice"
+  },
+  "volt_absorb": {
+    "name": "Volt Absorb",
+    "description": "Restores HP when hit by Electric moves",
+    "effect": "absorb_electric"
+  },
+  "natural_cure": {
+    "name": "Natural Cure",
+    "description": "Heals status on switch out",
+    "effect": "cure_on_switch"
+  },
+  "serene_grace": {
+    "name": "Serene Grace",
+    "description": "Doubles secondary effect chance",
+    "effect": "double_effect_chance"
+  },
+  "inner_focus": {
+    "name": "Inner Focus",
+    "description": "Prevents flinching",
+    "effect": "no_flinch"
+  },
+  "early_bird": {
+    "name": "Early Bird",
+    "description": "Wakes up faster from sleep",
+    "effect": "fast_wake"
+  },
+  "guts": {
+    "name": "Guts",
+    "description": "Boosts Attack when statused",
+    "effect": "attack_boost_status"
+  },
+  "synchronize": {
+    "name": "Synchronize",
+    "description": "Passes status to attacker",
+    "effect": "mirror_status"
+  },
+  "clear_body": {
+    "name": "Clear Body",
+    "description": "Prevents stat reduction",
+    "effect": "no_stat_reduction"
+  },
+  "shell_armor": {
+    "name": "Shell Armor",
+    "description": "Blocks critical hits",
+    "effect": "no_crits"
+  },
+  "battle_armor": {
+    "name": "Battle Armor",
+    "description": "Blocks critical hits",
+    "effect": "no_crits"
+  },
+  "compound_eyes": {
+    "name": "Compound Eyes",
+    "description": "Boosts accuracy by 30%",
+    "effect": "accuracy_boost"
+  },
+  "insomnia": {
+    "name": "Insomnia",
+    "description": "Prevents sleep",
+    "effect": "no_sleep"
+  },
+  "color_change": {
+    "name": "Color Change",
+    "description": "Changes type to match last hit",
+    "effect": "type_change"
+  },
+  "immunity": {
+    "name": "Immunity",
+    "description": "Prevents poison",
+    "effect": "no_poison"
+  },
+  "own_tempo": {
+    "name": "Own Tempo",
+    "description": "Prevents confusion",
+    "effect": "no_confusion"
+  },
+  "oblivious": {
+    "name": "Oblivious",
+    "description": "Prevents infatuation",
+    "effect": "no_attract"
+  },
+  "pressure": {
+    "name": "Pressure",
+    "description": "Opponent uses 2 PP per move",
+    "effect": "double_pp_usage"
+  },
+  "damp": {
+    "name": "Damp",
+    "description": "Prevents Self-Destruct and Explosion",
+    "effect": "no_explosion"
+  },
+  "magnet_pull": {
+    "name": "Magnet Pull",
+    "description": "Prevents Steel types from fleeing",
+    "effect": "trap_steel"
+  },
+  "cute_charm": {
+    "name": "Cute Charm",
+    "description": "Contact may cause infatuation",
+    "effect": "contact_attract"
   }
 }
