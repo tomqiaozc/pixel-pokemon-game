@@ -1,0 +1,226 @@
+{
+  "description": "Rewards granted upon completing achievements.",
+  "rewards": {
+    "first_pokemon": {
+      "achievement_id": "first_pokemon",
+      "reward_type": "item",
+      "reward_item": "Potion",
+      "reward_quantity": 5,
+      "notification": "You received 5 Potions for getting your first Pokemon!"
+    },
+    "first_catch": {
+      "achievement_id": "first_catch",
+      "reward_type": "item",
+      "reward_item": "Poke Ball",
+      "reward_quantity": 10,
+      "notification": "You received 10 Poke Balls for your first catch!"
+    },
+    "catch_10": {
+      "achievement_id": "catch_10",
+      "reward_type": "item",
+      "reward_item": "Great Ball",
+      "reward_quantity": 5,
+      "notification": "You received 5 Great Balls for catching 10 Pokemon!"
+    },
+    "catch_50": {
+      "achievement_id": "catch_50",
+      "reward_type": "item",
+      "reward_item": "Ultra Ball",
+      "reward_quantity": 10,
+      "notification": "You received 10 Ultra Balls for catching 50 Pokemon!"
+    },
+    "catch_100": {
+      "achievement_id": "catch_100",
+      "reward_type": "money",
+      "reward_amount": 50000,
+      "notification": "You received 50000 for catching 100 Pokemon!"
+    },
+    "catch_151": {
+      "achievement_id": "catch_151",
+      "reward_type": "certificate",
+      "reward_item": "Diploma",
+      "reward_quantity": 1,
+      "notification": "Congratulations! You completed the Pokedex and received a Diploma!"
+    },
+    "first_badge": {
+      "achievement_id": "first_badge",
+      "reward_type": "item",
+      "reward_item": "Super Potion",
+      "reward_quantity": 3,
+      "notification": "You received 3 Super Potions for earning your first badge!"
+    },
+    "four_badges": {
+      "achievement_id": "four_badges",
+      "reward_type": "item",
+      "reward_item": "Hyper Potion",
+      "reward_quantity": 5,
+      "notification": "You received 5 Hyper Potions for earning 4 badges!"
+    },
+    "eight_badges": {
+      "achievement_id": "eight_badges",
+      "reward_type": "item",
+      "reward_item": "Max Potion",
+      "reward_quantity": 10,
+      "notification": "You received 10 Max Potions for earning all 8 badges!"
+    },
+    "beat_elite_four": {
+      "achievement_id": "beat_elite_four",
+      "reward_type": "money",
+      "reward_amount": 100000,
+      "notification": "You received 100000 for defeating the Elite Four!"
+    },
+    "become_champion": {
+      "achievement_id": "become_champion",
+      "reward_type": "title",
+      "reward_title": "Champion",
+      "notification": "You earned the title of Champion!"
+    },
+    "first_evolution": {
+      "achievement_id": "first_evolution",
+      "reward_type": "item",
+      "reward_item": "Rare Candy",
+      "reward_quantity": 1,
+      "notification": "You received a Rare Candy for your first evolution!"
+    },
+    "level_50": {
+      "achievement_id": "level_50",
+      "reward_type": "item",
+      "reward_item": "PP Up",
+      "reward_quantity": 3,
+      "notification": "You received 3 PP Ups for reaching level 50!"
+    },
+    "level_100": {
+      "achievement_id": "level_100",
+      "reward_type": "item",
+      "reward_item": "PP Max",
+      "reward_quantity": 1,
+      "notification": "You received a PP Max for reaching level 100!"
+    },
+    "stone_evolution": {
+      "achievement_id": "stone_evolution",
+      "reward_type": "item",
+      "reward_item": "Moon Stone",
+      "reward_quantity": 1,
+      "notification": "You received a Moon Stone for your first stone evolution!"
+    },
+    "trade_evolution": {
+      "achievement_id": "trade_evolution",
+      "reward_type": "money",
+      "reward_amount": 5000,
+      "notification": "You received 5000 for your first trade evolution!"
+    },
+    "all_starters": {
+      "achievement_id": "all_starters",
+      "reward_type": "item",
+      "reward_item": "Rare Candy",
+      "reward_quantity": 3,
+      "notification": "You received 3 Rare Candies for collecting all starters!"
+    },
+    "legendary_bird": {
+      "achievement_id": "legendary_bird",
+      "reward_type": "item",
+      "reward_item": "Master Ball",
+      "reward_quantity": 1,
+      "notification": "You received a Master Ball for catching a legendary bird!"
+    },
+    "all_legendaries": {
+      "achievement_id": "all_legendaries",
+      "reward_type": "title",
+      "reward_title": "Legend Collector",
+      "notification": "You earned the title Legend Collector!"
+    },
+    "catch_mewtwo": {
+      "achievement_id": "catch_mewtwo",
+      "reward_type": "money",
+      "reward_amount": 200000,
+      "notification": "You received 200000 for catching Mewtwo!"
+    },
+    "catch_mew": {
+      "achievement_id": "catch_mew",
+      "reward_type": "title",
+      "reward_title": "Mew Finder",
+      "notification": "You earned the title Mew Finder!"
+    },
+    "win_10_battles": {
+      "achievement_id": "win_10_battles",
+      "reward_type": "money",
+      "reward_amount": 3000,
+      "notification": "You received 3000 for winning 10 battles!"
+    },
+    "win_50_battles": {
+      "achievement_id": "win_50_battles",
+      "reward_type": "item",
+      "reward_item": "Elixir",
+      "reward_quantity": 3,
+      "notification": "You received 3 Elixirs for winning 50 battles!"
+    },
+    "win_100_battles": {
+      "achievement_id": "win_100_battles",
+      "reward_type": "item",
+      "reward_item": "Max Elixir",
+      "reward_quantity": 3,
+      "notification": "You received 3 Max Elixirs for winning 100 battles!"
+    },
+    "no_faint_gym": {
+      "achievement_id": "no_faint_gym",
+      "reward_type": "item",
+      "reward_item": "Full Restore",
+      "reward_quantity": 3,
+      "notification": "You received 3 Full Restores for a flawless gym victory!"
+    },
+    "safari_catch": {
+      "achievement_id": "safari_catch",
+      "reward_type": "item",
+      "reward_item": "Safari Ball",
+      "reward_quantity": 10,
+      "notification": "You received 10 Safari Balls for your first Safari Zone catch!"
+    },
+    "fishing_catch": {
+      "achievement_id": "fishing_catch",
+      "reward_type": "item",
+      "reward_item": "Poke Ball",
+      "reward_quantity": 5,
+      "notification": "You received 5 Poke Balls for your first fishing catch!"
+    },
+    "all_hms": {
+      "achievement_id": "all_hms",
+      "reward_type": "money",
+      "reward_amount": 10000,
+      "notification": "You received 10000 for collecting all HMs!"
+    },
+    "visit_all_cities": {
+      "achievement_id": "visit_all_cities",
+      "reward_type": "item",
+      "reward_item": "Exp. Share",
+      "reward_quantity": 1,
+      "notification": "You received an Exp. Share for visiting all cities!"
+    },
+    "find_secret_area": {
+      "achievement_id": "find_secret_area",
+      "reward_type": "item",
+      "reward_item": "Nugget",
+      "reward_quantity": 3,
+      "notification": "You received 3 Nuggets for discovering a secret area!"
+    },
+    "money_100000": {
+      "achievement_id": "money_100000",
+      "reward_type": "item",
+      "reward_item": "Amulet Coin",
+      "reward_quantity": 1,
+      "notification": "You received an Amulet Coin for saving 100000!"
+    },
+    "full_box": {
+      "achievement_id": "full_box",
+      "reward_type": "money",
+      "reward_amount": 10000,
+      "notification": "You received 10000 for filling a PC box!"
+    }
+  },
+  "reward_types": ["item", "money", "title", "certificate"],
+  "display_settings": {
+    "show_popup": true,
+    "popup_duration_ms": 3000,
+    "play_fanfare": true,
+    "fanfare_sound": "sfx_achievement.ogg"
+  }
+}

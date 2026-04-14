@@ -1,0 +1,99 @@
+{
+  "description": "Accessibility options for inclusive gameplay experience.",
+  "colorblind_modes": {
+    "none": {
+      "display_name": "Default",
+      "description": "Standard color palette.",
+      "filter": null
+    },
+    "protanopia": {
+      "display_name": "Protanopia",
+      "description": "Red-green color blindness (red cone deficiency).",
+      "filter": "protanopia",
+      "type_color_overrides": {
+        "fire": "#FF8800",
+        "grass": "#00AA44",
+        "water": "#0066FF",
+        "electric": "#FFCC00",
+        "poison": "#8844CC"
+      }
+    },
+    "deuteranopia": {
+      "display_name": "Deuteranopia",
+      "description": "Red-green color blindness (green cone deficiency).",
+      "filter": "deuteranopia",
+      "type_color_overrides": {
+        "fire": "#FF6600",
+        "grass": "#00BB55",
+        "water": "#0055EE",
+        "electric": "#FFDD00",
+        "poison": "#9944DD"
+      }
+    },
+    "tritanopia": {
+      "display_name": "Tritanopia",
+      "description": "Blue-yellow color blindness (blue cone deficiency).",
+      "filter": "tritanopia",
+      "type_color_overrides": {
+        "fire": "#FF4400",
+        "grass": "#44CC44",
+        "water": "#4488CC",
+        "electric": "#FFAA00",
+        "ice": "#88DDDD"
+      }
+    }
+  },
+  "screen_reader": {
+    "enabled": false,
+    "announce_battles": true,
+    "announce_menu_navigation": true,
+    "announce_map_transitions": true,
+    "announce_npc_proximity": true,
+    "announce_item_pickups": true,
+    "describe_pokemon_sprites": false,
+    "verbosity": "normal",
+    "verbosity_options": ["minimal", "normal", "verbose"]
+  },
+  "font_settings": {
+    "scale_options": [0.75, 1.0, 1.25, 1.5, 2.0],
+    "default_scale": 1.0,
+    "dyslexia_font": false,
+    "high_contrast_text": false,
+    "text_outline": false,
+    "text_outline_color": "#000000",
+    "text_shadow": true
+  },
+  "visual_settings": {
+    "screen_shake_enabled": true,
+    "flash_effects_enabled": true,
+    "flash_reduction": false,
+    "reduce_motion": false,
+    "high_contrast_ui": false,
+    "cursor_size": "normal",
+    "cursor_size_options": ["small", "normal", "large", "extra_large"],
+    "hp_bar_numbers": false,
+    "type_icons_in_battle": false
+  },
+  "audio_settings": {
+    "mono_audio": false,
+    "captions_enabled": false,
+    "caption_background_opacity": 0.7,
+    "sound_cue_for_text": true,
+    "battle_narration": false
+  },
+  "input_settings": {
+    "hold_instead_of_tap": false,
+    "auto_advance_text": false,
+    "auto_advance_delay_ms": 3000,
+    "simplified_controls": false,
+    "one_handed_mode": false
+  },
+  "battle_accessibility": {
+    "extended_timer": false,
+    "timer_multiplier": 2.0,
+    "move_type_labels": false,
+    "effectiveness_preview": false,
+    "auto_select_best_move": false,
+    "confirm_before_action": false
+  }
+}

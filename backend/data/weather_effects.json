@@ -1,0 +1,152 @@
+{
+  "description": "Detailed weather visual and environmental effects for the overworld and battles.",
+  "weather_types": {
+    "clear": {
+      "display_name": "Clear",
+      "overworld_effects": {
+        "overlay_color": null,
+        "overlay_opacity": 0,
+        "brightness_modifier": 1.0,
+        "particle_effect": null,
+        "ambient_sound": null
+      },
+      "battle_effects": {
+        "background_tint": null,
+        "particle_effect": null,
+        "start_message": null,
+        "continue_message": null
+      }
+    },
+    "rain": {
+      "display_name": "Rain",
+      "overworld_effects": {
+        "overlay_color": "#334466",
+        "overlay_opacity": 0.15,
+        "brightness_modifier": 0.7,
+        "particle_effect": "rain_drop",
+        "particle_density": 40,
+        "ambient_sound": "sfx_rain_ambient.ogg",
+        "puddle_animations": true,
+        "ripple_on_water": true
+      },
+      "battle_effects": {
+        "background_tint": "#334466",
+        "background_tint_opacity": 0.2,
+        "particle_effect": "rain_drop",
+        "particle_density": 25,
+        "start_message": "It started to rain!",
+        "continue_message": "Rain continues to fall.",
+        "end_message": "The rain stopped.",
+        "move_boost": {"type": "water", "multiplier": 1.5},
+        "move_weaken": {"type": "fire", "multiplier": 0.5}
+      }
+    },
+    "sun": {
+      "display_name": "Harsh Sunlight",
+      "overworld_effects": {
+        "overlay_color": "#FFEE88",
+        "overlay_opacity": 0.1,
+        "brightness_modifier": 1.3,
+        "particle_effect": "sun_ray",
+        "particle_density": 8,
+        "ambient_sound": null,
+        "heat_shimmer": true,
+        "shadow_intensity": 1.5
+      },
+      "battle_effects": {
+        "background_tint": "#FFEE88",
+        "background_tint_opacity": 0.15,
+        "particle_effect": "sun_ray",
+        "particle_density": 6,
+        "start_message": "The sunlight turned harsh!",
+        "continue_message": "The sunlight is strong.",
+        "end_message": "The sunlight faded.",
+        "move_boost": {"type": "fire", "multiplier": 1.5},
+        "move_weaken": {"type": "water", "multiplier": 0.5}
+      }
+    },
+    "sandstorm": {
+      "display_name": "Sandstorm",
+      "overworld_effects": {
+        "overlay_color": "#CCAA66",
+        "overlay_opacity": 0.2,
+        "brightness_modifier": 0.8,
+        "particle_effect": "sand_grain",
+        "particle_density": 35,
+        "ambient_sound": "sfx_wind_ambient.ogg",
+        "visibility_reduction": 0.6
+      },
+      "battle_effects": {
+        "background_tint": "#CCAA66",
+        "background_tint_opacity": 0.25,
+        "particle_effect": "sand_grain",
+        "particle_density": 20,
+        "start_message": "A sandstorm kicked up!",
+        "continue_message": "The sandstorm rages.",
+        "end_message": "The sandstorm subsided.",
+        "damage_per_turn": {"fraction": 0.0625, "immune_types": ["rock", "ground", "steel"]},
+        "sp_def_boost": {"type": "rock", "multiplier": 1.5}
+      }
+    },
+    "hail": {
+      "display_name": "Hail",
+      "overworld_effects": {
+        "overlay_color": "#DDEEFF",
+        "overlay_opacity": 0.15,
+        "brightness_modifier": 0.75,
+        "particle_effect": "snowflake",
+        "particle_density": 20,
+        "ambient_sound": "sfx_hail_ambient.ogg",
+        "frost_on_ground": true
+      },
+      "battle_effects": {
+        "background_tint": "#DDEEFF",
+        "background_tint_opacity": 0.2,
+        "particle_effect": "snowflake",
+        "particle_density": 15,
+        "start_message": "It started to hail!",
+        "continue_message": "Hail continues to fall.",
+        "end_message": "The hail stopped.",
+        "damage_per_turn": {"fraction": 0.0625, "immune_types": ["ice"]}
+      }
+    },
+    "fog": {
+      "display_name": "Fog",
+      "overworld_effects": {
+        "overlay_color": "#CCCCCC",
+        "overlay_opacity": 0.35,
+        "brightness_modifier": 0.6,
+        "particle_effect": null,
+        "ambient_sound": null,
+        "visibility_reduction": 0.4
+      },
+      "battle_effects": {
+        "background_tint": "#CCCCCC",
+        "background_tint_opacity": 0.3,
+        "particle_effect": null,
+        "start_message": "A thick fog rolled in!",
+        "continue_message": "The fog is deep.",
+        "end_message": "The fog lifted.",
+        "accuracy_modifier": 0.6
+      }
+    }
+  },
+  "weather_transitions": {
+    "fade_duration_ms": 1000,
+    "particle_fade_in_ms": 500,
+    "overlay_fade_in_ms": 800
+  },
+  "route_weather": {
+    "route_1": {"default": "clear", "chance_rain": 0.1},
+    "route_3": {"default": "clear", "chance_rain": 0.15},
+    "route_10": {"default": "clear", "chance_fog": 0.2},
+    "route_13": {"default": "clear", "chance_rain": 0.2},
+    "route_17": {"default": "clear", "chance_rain": 0.25},
+    "route_19": {"default": "clear", "chance_rain": 0.15},
+    "route_20": {"default": "clear", "chance_rain": 0.2, "chance_fog": 0.1},
+    "mt_moon": {"default": "clear"},
+    "rock_tunnel": {"default": "clear"},
+    "seafoam_islands": {"default": "hail", "chance_clear": 0.3},
+    "victory_road": {"default": "clear", "chance_fog": 0.15}
+  }
+}
