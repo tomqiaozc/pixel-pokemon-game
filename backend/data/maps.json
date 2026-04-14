@@ -4515,5 +4515,144 @@
       }
     ],
     "buildings": []
+  },
+  {
+    "id": "rock_tunnel_1f",
+    "name": "rock_tunnel_1f",
+    "display_name": "Rock Tunnel 1F",
+    "map_type": "dungeon",
+    "width": 20,
+    "height": 20,
+    "connections": [
+      {
+        "direction": "north",
+        "target_map_id": "route_10",
+        "entry_x": 10,
+        "entry_y": 28
+      }
+    ],
+    "npcs": [],
+    "trainers": [
+      {
+        "trainer_id": "rock_tunnel_hiker_1",
+        "x": 6,
+        "y": 6,
+        "facing": "right",
+        "sight_range": 3
+      },
+      {
+        "trainer_id": "rock_tunnel_pokemaniac_1",
+        "x": 14,
+        "y": 14,
+        "facing": "left",
+        "sight_range": 3
+      }
+    ],
+    "encounter_zones": [
+      {
+        "x": 2,
+        "y": 2,
+        "width": 16,
+        "height": 16,
+        "encounter_table_id": "rock_tunnel"
+      }
+    ],
+    "buildings": []
+  },
+  {
+    "id": "rock_tunnel_b1f",
+    "name": "rock_tunnel_b1f",
+    "display_name": "Rock Tunnel B1F",
+    "map_type": "dungeon",
+    "width": 20,
+    "height": 20,
+    "connections": [
+      {
+        "direction": "south",
+        "target_map_id": "lavender_town",
+        "entry_x": 18,
+        "entry_y": 0
+      }
+    ],
+    "npcs": [],
+    "trainers": [
+      {
+        "trainer_id": "rock_tunnel_jr_trainer_1",
+        "x": 10,
+        "y": 8,
+        "facing": "down",
+        "sight_range": 3
+      },
+      {
+        "trainer_id": "rock_tunnel_hiker_2",
+        "x": 5,
+        "y": 15,
+        "facing": "right",
+        "sight_range": 4
+      }
+    ],
+    "encounter_zones": [
+      {
+        "x": 2,
+        "y": 2,
+        "width": 16,
+        "height": 16,
+        "encounter_table_id": "rock_tunnel"
+      }
+    ],
+    "buildings": []
+  },
+  {
+    "id": "underground_path_ew",
+    "name": "underground_path_ew",
+    "display_name": "Underground Path",
+    "map_type": "interior",
+    "width": 30,
+    "height": 5,
+    "connections": [
+      {
+        "direction": "west",
+        "target_map_id": "celadon_city",
+        "entry_x": 18,
+        "entry_y": 12
+      },
+      {
+        "direction": "east",
+        "target_map_id": "lavender_town",
+        "entry_x": 0,
+        "entry_y": 10
+      }
+    ],
+    "npcs": [],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": []
+  },
+  {
+    "id": "daycare_interior",
+    "name": "daycare_interior",
+    "display_name": "Pokemon Day Care",
+    "map_type": "interior",
+    "width": 8,
+    "height": 8,
+    "connections": [
+      {
+        "direction": "south",
+        "target_map_id": "route_5",
+        "entry_x": 8,
+        "entry_y": 14
+      }
+    ],
+    "npcs": [
+      {
+        "npc_id": "daycare_man",
+        "x": 4,
+        "y": 3,
+        "facing": "down"
+      }
+    ],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": []
   }
 ]

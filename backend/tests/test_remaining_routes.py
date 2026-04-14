@@ -65,7 +65,7 @@ class TestRouteMaps:
 
     def test_total_maps_count(self):
         maps = _load_json("maps.json")
-        assert len(maps) == 128
+        assert len(maps) == 132
 
 
 # ──── Encounter Tables ──────────────────────────────────────
@@ -104,7 +104,7 @@ class TestRouteEncounterTables:
 
     def test_total_encounter_tables(self):
         tables = _load_json("encounter_tables.json")
-        assert len(tables) == 46
+        assert len(tables) == 50
 
 
 # ──── Trainers ──────────────────────────────────────────────
@@ -145,7 +145,7 @@ class TestRouteTrainers:
 
     def test_total_trainer_count(self):
         trainers = _load_json("trainers.json")
-        assert len(trainers) == 112
+        assert len(trainers) == 116
 
 
 # ──── Counts Unchanged ──────────────────────────────────────
@@ -157,7 +157,7 @@ class TestCountsUnchanged:
 
     def test_npc_count_unchanged(self):
         npcs = _load_json("npcs.json")
-        assert len(npcs) == 92
+        assert len(npcs) == 94
 
     def test_species_count_unchanged(self):
         species = _load_json("pokemon_species.json")
@@ -165,4 +165,4 @@ class TestCountsUnchanged:
 
     def test_dialogue_count_unchanged(self):
         dialogues = _load_json("dialogues.json")
-        assert len(dialogues) == 70
+        assert len(dialogues) == 72

@@ -1194,5 +1194,31 @@
     "facing": "up",
     "npc_type": "guard",
     "dialogue_tree_id": "cerulean_cave_guard_dialogue"
+  },
+  {
+    "id": "daycare_man",
+    "name": "Day-Care Man",
+    "sprite_id": "old_man",
+    "position": {
+      "x": 4,
+      "y": 3
+    },
+    "map_id": "daycare_interior",
+    "facing": "down",
+    "npc_type": "service",
+    "dialogue_tree_id": "daycare_man_dialogue"
+  },
+  {
+    "id": "move_deleter",
+    "name": "Move Deleter",
+    "sprite_id": "scientist",
+    "position": {
+      "x": 5,
+      "y": 5
+    },
+    "map_id": "fuchsia_city",
+    "facing": "down",
+    "npc_type": "service",
+    "dialogue_tree_id": "move_deleter_dialogue"
   }
 ]

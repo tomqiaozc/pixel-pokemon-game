@@ -685,16 +685,15 @@
     ]
   },
   "name_rater_dialogue": {
-    "id": "name_rater_dialogue",
     "nodes": [
       {
         "id": "start",
-        "text": "I'm the Name Rater! Want me to rate your Pokemon's nickname?",
+        "text": "I am the Name Rater! Want me to rate your Pokemon nickname?",
         "next": "rate"
       },
       {
         "id": "rate",
-        "text": "Hmm... that's a good name!",
+        "text": "Hmm... That is a decent name. But I think I can do better! Want me to rename it?",
         "next": null
       }
     ]
@@ -1169,6 +1168,34 @@
       {
         "id": "warning",
         "text": "The Pokemon inside are incredibly powerful. Be careful!",
+        "next": null
+      }
+    ]
+  },
+  "daycare_man_dialogue": {
+    "nodes": [
+      {
+        "id": "start",
+        "text": "Welcome to the Pokemon Day Care! I can raise your Pokemon for you.",
+        "next": "offer"
+      },
+      {
+        "id": "offer",
+        "text": "Would you like to leave a Pokemon with me? I will raise it while you are away.",
+        "next": null
+      }
+    ]
+  },
+  "move_deleter_dialogue": {
+    "nodes": [
+      {
+        "id": "start",
+        "text": "I am the Move Deleter. I can help your Pokemon forget a move.",
+        "next": "offer"
+      },
+      {
+        "id": "offer",
+        "text": "Which Pokemon would you like me to help? I can make it forget any move, even HMs!",
         "next": null
       }
     ]

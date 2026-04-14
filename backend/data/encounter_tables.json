@@ -1616,5 +1616,141 @@
         "weight": 40
       }
     ]
+  },
+  "rock_tunnel": {
+    "name": "Rock Tunnel",
+    "encounter_type": "cave",
+    "base_encounter_rate": 0.25,
+    "encounters": [
+      {
+        "species_id": 41,
+        "min_level": 15,
+        "max_level": 18,
+        "weight": 25
+      },
+      {
+        "species_id": 74,
+        "min_level": 15,
+        "max_level": 18,
+        "weight": 25
+      },
+      {
+        "species_id": 66,
+        "min_level": 15,
+        "max_level": 17,
+        "weight": 20
+      },
+      {
+        "species_id": 95,
+        "min_level": 13,
+        "max_level": 17,
+        "weight": 15
+      },
+      {
+        "species_id": 104,
+        "min_level": 15,
+        "max_level": 17,
+        "weight": 15
+      }
+    ]
+  },
+  "route_19_fishing": {
+    "name": "Route 19 Fishing",
+    "encounter_type": "fishing",
+    "base_encounter_rate": 1.0,
+    "encounters": [
+      {
+        "species_id": 129,
+        "min_level": 5,
+        "max_level": 15,
+        "weight": 40
+      },
+      {
+        "species_id": 116,
+        "min_level": 15,
+        "max_level": 25,
+        "weight": 30
+      },
+      {
+        "species_id": 98,
+        "min_level": 20,
+        "max_level": 30,
+        "weight": 20
+      },
+      {
+        "species_id": 120,
+        "min_level": 25,
+        "max_level": 35,
+        "weight": 10
+      }
+    ]
+  },
+  "route_20_fishing": {
+    "name": "Route 20 Fishing",
+    "encounter_type": "fishing",
+    "base_encounter_rate": 1.0,
+    "encounters": [
+      {
+        "species_id": 129,
+        "min_level": 5,
+        "max_level": 15,
+        "weight": 35
+      },
+      {
+        "species_id": 116,
+        "min_level": 15,
+        "max_level": 25,
+        "weight": 25
+      },
+      {
+        "species_id": 90,
+        "min_level": 20,
+        "max_level": 30,
+        "weight": 20
+      },
+      {
+        "species_id": 117,
+        "min_level": 25,
+        "max_level": 35,
+        "weight": 10
+      },
+      {
+        "species_id": 99,
+        "min_level": 25,
+        "max_level": 35,
+        "weight": 10
+      }
+    ]
+  },
+  "route_21_fishing": {
+    "name": "Route 21 Fishing",
+    "encounter_type": "fishing",
+    "base_encounter_rate": 1.0,
+    "encounters": [
+      {
+        "species_id": 129,
+        "min_level": 5,
+        "max_level": 15,
+        "weight": 40
+      },
+      {
+        "species_id": 72,
+        "min_level": 15,
+        "max_level": 25,
+        "weight": 30
+      },
+      {
+        "species_id": 118,
+        "min_level": 20,
+        "max_level": 30,
+        "weight": 20
+      },
+      {
+        "species_id": 119,
+        "min_level": 30,
+        "max_level": 40,
+        "weight": 10
+      }
+    ]
   }
 }

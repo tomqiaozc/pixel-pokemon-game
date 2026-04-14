@@ -1746,6 +1746,94 @@ const Routes = (() => {
         return { data: m, width: W, height: H };
     }
 
+    // Build Rock Tunnel 1F (20x20) — dark cave dungeon
+    function buildRockTunnel1F() {
+        const W = 20, H = 20;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.ROCK);
+            m.push(row);
+        }
+        // Carve passages
+        for (let y = 3; y <= 16; y++) for (let x = 3; x <= 16; x++) m[y][x] = T.DIRT;
+        // Rock pillars
+        m[6][6] = T.ROCK; m[6][13] = T.ROCK;
+        m[10][9] = T.ROCK; m[10][10] = T.ROCK;
+        m[13][5] = T.ROCK; m[13][14] = T.ROCK;
+        // Water pool
+        for (let y = 8; y <= 9; y++) for (let x = 14; x <= 16; x++) m[y][x] = T.WATER;
+        // Entrance from Route 10
+        m[0][9] = T.DIRT; m[0][10] = T.DIRT;
+        m[1][9] = T.DIRT; m[1][10] = T.DIRT;
+        m[2][9] = T.DIRT; m[2][10] = T.DIRT;
+        // Stairs down
+        m[H - 1][9] = T.DIRT; m[H - 1][10] = T.DIRT;
+        return { data: m, width: W, height: H };
+    }
+
+    // Build Rock Tunnel B1F (20x20) — lower floor, exit to Lavender
+    function buildRockTunnelB1F() {
+        const W = 20, H = 20;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.ROCK);
+            m.push(row);
+        }
+        // Carve passages — more maze-like
+        for (let y = 3; y <= 8; y++) for (let x = 2; x <= 10; x++) m[y][x] = T.DIRT;
+        for (let y = 6; y <= 16; y++) for (let x = 8; x <= 17; x++) m[y][x] = T.DIRT;
+        for (let y = 14; y <= 17; y++) for (let x = 2; x <= 10; x++) m[y][x] = T.DIRT;
+        // Rock obstacles
+        m[5][6] = T.ROCK; m[9][12] = T.ROCK; m[12][15] = T.ROCK;
+        m[15][5] = T.ROCK; m[7][10] = T.ROCK;
+        // Stairs up
+        m[0][5] = T.DIRT; m[0][6] = T.DIRT;
+        m[1][5] = T.DIRT; m[1][6] = T.DIRT;
+        m[2][5] = T.DIRT; m[2][6] = T.DIRT;
+        // Exit south to Lavender
+        m[H - 1][9] = T.DIRT; m[H - 1][10] = T.DIRT;
+        return { data: m, width: W, height: H };
+    }
+
+    // Build Underground Path E-W (30x5) — connects Celadon/Lavender
+    function buildUndergroundPathEW() {
+        const W = 30, H = 5;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.ROCK);
+            m.push(row);
+        }
+        // Walkable corridor
+        for (let x = 0; x < W; x++) { m[1][x] = T.DIRT; m[2][x] = T.DIRT; m[3][x] = T.DIRT; }
+        return { data: m, width: W, height: H };
+    }
+
+    // Build Daycare Interior (8x8)
+    function buildDaycareInterior() {
+        const W = 8, H = 8;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.DIRT);
+            m.push(row);
+        }
+        // Walls
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H - 1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W - 1] = T.HOUSE_WALL; }
+        // Roof
+        for (let x = 0; x < W; x++) m[0][x] = T.HOUSE_ROOF;
+        // Counter
+        m[3][2] = T.ROCK; m[3][3] = T.ROCK; m[3][4] = T.ROCK; m[3][5] = T.ROCK;
+        // Door
+        m[H - 1][3] = T.DOOR; m[H - 1][4] = T.DOOR;
+        // Flowers (potted plants)
+        m[1][1] = T.FLOWER; m[1][6] = T.FLOWER;
+        return { data: m, width: W, height: H };
+    }
+
     // Build Route 12 (15x35) — vertical route south of Lavender with Snorlax
     function buildRoute12() {
         const W = 15, H = 35;
@@ -1956,6 +2044,36 @@ const Routes = (() => {
           pokemon: [
             { name: 'Staryu', level: 29, hp: 52, maxHp: 52, type: 'Water' },
             { name: 'Starmie', level: 30, hp: 60, maxHp: 60, type: 'Water' },
+          ] },
+    ];
+
+    const rockTunnel1FTrainers = [
+        { x: 6, y: 6, name: 'Hiker Lenny', dir: 3, sightRange: 3,
+          dialogue: ['It is dark in here!'],
+          pokemon: [
+            { name: 'Geodude', level: 16, hp: 36, maxHp: 36, type: 'Rock' },
+            { name: 'Geodude', level: 16, hp: 36, maxHp: 36, type: 'Rock' },
+            { name: 'Graveler', level: 18, hp: 50, maxHp: 50, type: 'Rock' },
+          ] },
+        { x: 14, y: 14, name: 'PokéManiac Ashton', dir: 2, sightRange: 3,
+          dialogue: ['Rare Pokemon live here!'],
+          pokemon: [
+            { name: 'Cubone', level: 18, hp: 48, maxHp: 48, type: 'Ground' },
+            { name: 'Slowpoke', level: 18, hp: 56, maxHp: 56, type: 'Water' },
+          ] },
+    ];
+
+    const rockTunnelB1FTrainers = [
+        { x: 10, y: 8, name: 'Jr. Trainer Leah', dir: 0, sightRange: 3,
+          dialogue: ['I am training hard!'],
+          pokemon: [
+            { name: 'Nidorina', level: 18, hp: 50, maxHp: 50, type: 'Poison' },
+            { name: 'Oddish', level: 18, hp: 44, maxHp: 44, type: 'Grass' },
+          ] },
+        { x: 5, y: 15, name: 'Hiker Oliver', dir: 3, sightRange: 4,
+          dialogue: ['Watch your step!'],
+          pokemon: [
+            { name: 'Onix', level: 19, hp: 44, maxHp: 44, type: 'Rock' },
           ] },
     ];
 
@@ -4306,6 +4424,68 @@ const Routes = (() => {
             lamps: [{ x: 10, y: 10 }, { x: 10, y: 22 }],
         });
 
+        const rockTunnel1F = buildRockTunnel1F();
+        MapLoader.registerMap('rock_tunnel_1f', {
+            name: 'Rock Tunnel 1F',
+            width: rockTunnel1F.width,
+            height: rockTunnel1F.height,
+            data: rockTunnel1F.data,
+            exits: [
+                { edge: 'north', targetMap: 'route_10', spawnX: 10, spawnY: 27, spawnDir: 1 },
+            ],
+            doors: [
+                { x: 9, y: 19, targetMap: 'rock_tunnel_b1f', spawnX: 5, spawnY: 2 },
+            ],
+            trainers: rockTunnel1FTrainers,
+            lamps: [],
+        });
+
+        const rockTunnelB1F = buildRockTunnelB1F();
+        MapLoader.registerMap('rock_tunnel_b1f', {
+            name: 'Rock Tunnel B1F',
+            width: rockTunnelB1F.width,
+            height: rockTunnelB1F.height,
+            data: rockTunnelB1F.data,
+            exits: [
+                { edge: 'south', targetMap: 'lavender_town', spawnX: 18, spawnY: 1, spawnDir: 0 },
+            ],
+            doors: [
+                { x: 5, y: 0, targetMap: 'rock_tunnel_1f', spawnX: 9, spawnY: 18 },
+            ],
+            trainers: rockTunnelB1FTrainers,
+            lamps: [],
+        });
+
+        const undergroundEW = buildUndergroundPathEW();
+        MapLoader.registerMap('underground_path_ew', {
+            name: 'Underground Path',
+            width: undergroundEW.width,
+            height: undergroundEW.height,
+            data: undergroundEW.data,
+            exits: [
+                { edge: 'west', targetMap: 'celadon_city', spawnX: 17, spawnY: 12, spawnDir: 2 },
+                { edge: 'east', targetMap: 'lavender_town', spawnX: 1, spawnY: 10, spawnDir: 3 },
+            ],
+            lamps: [{ x: 5, y: 2 }, { x: 15, y: 2 }, { x: 25, y: 2 }],
+        });
+
+        const daycareInt = buildDaycareInterior();
+        MapLoader.registerMap('daycare_interior', {
+            name: 'Pokemon Day Care',
+            width: daycareInt.width,
+            height: daycareInt.height,
+            data: daycareInt.data,
+            exits: [],
+            doors: [
+                { x: 3, y: 7, targetMap: 'route_1', spawnX: 15, spawnY: 23 },
+            ],
+            npcs: [
+                { name: 'Day-Care Man', type: 'service', x: 4, y: 3, dir: 0,
+                  dialogue: ['Welcome to the Pokemon Day Care!', 'I can raise your Pokemon for you.', 'Would you like to leave a Pokemon with me?'] },
+            ],
+            lamps: [{ x: 4, y: 2 }],
+        });
+
         const route13 = buildRoute13();
         MapLoader.registerMap('route_13', {
             name: 'Route 13',
@@ -5345,5 +5525,11 @@ const Routes = (() => {
         buildRoute17,
         buildRoute18,
         buildRoute19,
+        buildRockTunnel1F,
+        buildRockTunnelB1F,
+        buildUndergroundPathEW,
+        buildDaycareInterior,
+        rockTunnel1FTrainers,
+        rockTunnelB1FTrainers,
     };
 })();

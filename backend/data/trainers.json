@@ -3475,5 +3475,126 @@
         ]
       }
     ]
+  },
+  {
+    "id": "rock_tunnel_hiker_1",
+    "name": "Hiker Lenny",
+    "trainer_class": "Hiker",
+    "sprite_id": "hiker",
+    "reward_money": 612,
+    "sight_range": 3,
+    "dialogue_before": "It is dark in here!",
+    "dialogue_after": "I cannot see anything now!",
+    "pokemon_team": [
+      {
+        "species_id": 74,
+        "name": "Geodude",
+        "level": 16,
+        "moves": [
+          "tackle",
+          "rock_throw"
+        ]
+      },
+      {
+        "species_id": 74,
+        "name": "Geodude",
+        "level": 16,
+        "moves": [
+          "tackle",
+          "rock_throw"
+        ]
+      },
+      {
+        "species_id": 75,
+        "name": "Graveler",
+        "level": 18,
+        "moves": [
+          "rock_throw",
+          "magnitude"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rock_tunnel_pokemaniac_1",
+    "name": "Pok\u00e9Maniac Ashton",
+    "trainer_class": "Pok\u00e9Maniac",
+    "sprite_id": "pokemaniac",
+    "reward_money": 720,
+    "sight_range": 3,
+    "dialogue_before": "Rare Pokemon live here!",
+    "dialogue_after": "Maybe I will find one later.",
+    "pokemon_team": [
+      {
+        "species_id": 104,
+        "name": "Cubone",
+        "level": 18,
+        "moves": [
+          "bone_club",
+          "headbutt"
+        ]
+      },
+      {
+        "species_id": 79,
+        "name": "Slowpoke",
+        "level": 18,
+        "moves": [
+          "water_gun",
+          "confusion"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rock_tunnel_jr_trainer_1",
+    "name": "Jr. Trainer Leah",
+    "trainer_class": "Jr. Trainer",
+    "sprite_id": "jr_trainer_f",
+    "reward_money": 360,
+    "sight_range": 3,
+    "dialogue_before": "I am training hard!",
+    "dialogue_after": "I need more practice.",
+    "pokemon_team": [
+      {
+        "species_id": 30,
+        "name": "Nidorina",
+        "level": 18,
+        "moves": [
+          "poison_sting",
+          "scratch"
+        ]
+      },
+      {
+        "species_id": 43,
+        "name": "Oddish",
+        "level": 18,
+        "moves": [
+          "absorb",
+          "sleep_powder"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rock_tunnel_hiker_2",
+    "name": "Hiker Oliver",
+    "trainer_class": "Hiker",
+    "sprite_id": "hiker",
+    "reward_money": 680,
+    "sight_range": 4,
+    "dialogue_before": "Watch your step!",
+    "dialogue_after": "I tripped over my own feet.",
+    "pokemon_team": [
+      {
+        "species_id": 95,
+        "name": "Onix",
+        "level": 19,
+        "moves": [
+          "rock_throw",
+          "bind",
+          "screech"
+        ]
+      }
+    ]
   }
 ]

@@ -40,7 +40,7 @@ class TestFuchsiaCityMaps:
 
     def test_total_maps_count(self):
         maps = _load_json("maps.json")
-        assert len(maps) == 128
+        assert len(maps) == 132
 
 
 # ──── Fuchsia Gym (Koga) ─────────────────────────────────
@@ -130,7 +130,7 @@ class TestFuchsiaCityItems:
 class TestFuchsiaCityTrainers:
     def test_three_new_trainers(self):
         trainers = _load_json("trainers.json")
-        assert len(trainers) == 112
+        assert len(trainers) == 116
 
     def test_all_trainers_have_teams(self):
         trainers = _load_json("trainers.json")
@@ -145,7 +145,7 @@ class TestFuchsiaCityTrainers:
 class TestFuchsiaCityNPCs:
     def test_total_npc_count(self):
         npcs = _load_json("npcs.json")
-        assert len(npcs) == 92
+        assert len(npcs) == 94
 
 
 # ──── Encounter Tables ────────────────────────────────────

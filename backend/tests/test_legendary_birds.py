@@ -36,7 +36,7 @@ class TestLegendaryBirdMaps:
 
     def test_total_maps_count(self):
         maps = _load_json("maps.json")
-        assert len(maps) == 128
+        assert len(maps) == 132
 
 
 # ──── Legendary Bird Species ──────────────────────────────
@@ -90,7 +90,7 @@ class TestLegendaryEncounters:
 
     def test_total_encounter_tables(self):
         tables = _load_json("encounter_tables.json")
-        assert len(tables) == 46
+        assert len(tables) == 50
 
 
 # ──── Quest Definitions ──────────────────────────────────────
@@ -125,8 +125,8 @@ class TestCountsUnchanged:
 
     def test_trainer_count_unchanged(self):
         trainers = _load_json("trainers.json")
-        assert len(trainers) == 112
+        assert len(trainers) == 116
 
     def test_npc_count_unchanged(self):
         npcs = _load_json("npcs.json")
-        assert len(npcs) == 92
+        assert len(npcs) == 94
