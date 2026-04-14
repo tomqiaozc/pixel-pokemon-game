@@ -1,0 +1,119 @@
+{
+  "description": "Recommended EV training locations by stat.",
+  "ev_cap": {
+    "total_max": 510,
+    "per_stat_max": 252,
+    "stats": ["hp", "attack", "defense", "sp_attack", "sp_defense", "speed"]
+  },
+  "training_spots": [
+    {
+      "stat": "hp",
+      "location": "route_1",
+      "pokemon": "Caterpie",
+      "ev_yield": 1,
+      "level_range": [3, 5],
+      "encounter_rate": "common"
+    },
+    {
+      "stat": "hp",
+      "location": "cerulean_cave",
+      "pokemon": "Chansey",
+      "ev_yield": 2,
+      "level_range": [56, 64],
+      "encounter_rate": "rare"
+    },
+    {
+      "stat": "attack",
+      "location": "route_16",
+      "pokemon": "Doduo",
+      "ev_yield": 1,
+      "level_range": [18, 22],
+      "encounter_rate": "common"
+    },
+    {
+      "stat": "attack",
+      "location": "victory_road",
+      "pokemon": "Machoke",
+      "ev_yield": 2,
+      "level_range": [40, 46],
+      "encounter_rate": "uncommon"
+    },
+    {
+      "stat": "defense",
+      "location": "rock_tunnel",
+      "pokemon": "Geodude",
+      "ev_yield": 1,
+      "level_range": [15, 19],
+      "encounter_rate": "common"
+    },
+    {
+      "stat": "defense",
+      "location": "seafoam_islands",
+      "pokemon": "Shellder",
+      "ev_yield": 1,
+      "level_range": [28, 32],
+      "encounter_rate": "common"
+    },
+    {
+      "stat": "sp_attack",
+      "location": "pokemon_tower",
+      "pokemon": "Gastly",
+      "ev_yield": 1,
+      "level_range": [20, 24],
+      "encounter_rate": "common"
+    },
+    {
+      "stat": "sp_attack",
+      "location": "cinnabar_mansion",
+      "pokemon": "Haunter",
+      "ev_yield": 2,
+      "level_range": [38, 42],
+      "encounter_rate": "uncommon"
+    },
+    {
+      "stat": "sp_defense",
+      "location": "route_21",
+      "pokemon": "Tentacool",
+      "ev_yield": 1,
+      "level_range": [5, 40],
+      "encounter_rate": "common"
+    },
+    {
+      "stat": "sp_defense",
+      "location": "seafoam_islands",
+      "pokemon": "Seel",
+      "ev_yield": 1,
+      "level_range": [28, 32],
+      "encounter_rate": "uncommon"
+    },
+    {
+      "stat": "speed",
+      "location": "route_17",
+      "pokemon": "Doduo",
+      "ev_yield": 1,
+      "level_range": [24, 28],
+      "encounter_rate": "common"
+    },
+    {
+      "stat": "speed",
+      "location": "route_13",
+      "pokemon": "Pidgeotto",
+      "ev_yield": 2,
+      "level_range": [25, 29],
+      "encounter_rate": "common"
+    }
+  ],
+  "ev_boosting_items": [
+    {"item": "Protein", "stat": "attack", "ev_gain": 10},
+    {"item": "Iron", "stat": "defense", "ev_gain": 10},
+    {"item": "Calcium", "stat": "sp_attack", "ev_gain": 10},
+    {"item": "Zinc", "stat": "sp_defense", "ev_gain": 10},
+    {"item": "Carbos", "stat": "speed", "ev_gain": 10},
+    {"item": "HP Up", "stat": "hp", "ev_gain": 10}
+  ],
+  "ev_item_rules": {
+    "max_from_items": 100,
+    "cannot_exceed_stat_cap": true,
+    "cannot_exceed_total_cap": true
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "description": "Move Reminder NPC who reteaches forgotten level-up moves.",
+  "move_reminder": {
+    "npc_name": "Move Reminder",
+    "location": "fuchsia_city",
+    "building": "move_reminder_house",
+    "cost_type": "heart_scale",
+    "cost_amount": 1,
+    "available_after": "soul_badge"
+  },
+  "move_deleter": {
+    "npc_name": "Move Deleter",
+    "location": "fuchsia_city",
+    "building": "move_deleter_house",
+    "cost_type": "free",
+    "can_delete_hm": true
+  },
+  "reminder_rules": {
+    "teaches_level_up_moves": true,
+    "teaches_egg_moves": false,
+    "teaches_any_level": true,
+    "teaches_future_moves": false,
+    "max_moves": 4,
+    "replaces_move_if_full": true
+  },
+  "heart_scale_sources": [
+    {"method": "wild_pokemon", "pokemon": "Luvdisc", "note": "Not in Gen 1"},
+    {"method": "underground", "note": "Dig minigame"},
+    {"method": "fishing", "note": "Rare fishing reward"},
+    {"method": "hidden_item", "locations": ["route_13", "route_19", "cinnabar_island"]},
+    {"method": "pickup_ability", "note": "Rare Pickup drop"}
+  ],
+  "dialogue": {
+    "reminder_offer": "I can help your Pokemon remember a forgotten move! It will cost one Heart Scale.",
+    "reminder_which_pokemon": "Which Pokemon should remember a move?",
+    "reminder_which_move": "Which move should it remember?",
+    "reminder_success": "{pokemon} remembered {move}!",
+    "no_heart_scale": "You don't have any Heart Scales.",
+    "no_moves_to_learn": "This Pokemon has no moves to relearn.",
+    "deleter_offer": "I can make a Pokemon forget a move. Which Pokemon?",
+    "deleter_which_move": "Which move should be forgotten?",
+    "deleter_success": "{pokemon} forgot {move}!",
+    "deleter_last_move": "A Pokemon must know at least one move!"
+  }
+}

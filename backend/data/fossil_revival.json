@@ -1,0 +1,51 @@
+{
+  "description": "Fossil revival system at the Cinnabar Lab.",
+  "lab": {
+    "location": "cinnabar_island",
+    "building": "cinnabar_lab",
+    "npc_name": "Lab Scientist",
+    "room": "fossil_room"
+  },
+  "fossils": [
+    {
+      "id": "helix_fossil",
+      "item_name": "Helix Fossil",
+      "pokemon": "Omanyte",
+      "level": 30,
+      "obtain_location": "mt_moon",
+      "choice_with": "dome_fossil"
+    },
+    {
+      "id": "dome_fossil",
+      "item_name": "Dome Fossil",
+      "pokemon": "Kabuto",
+      "level": 30,
+      "obtain_location": "mt_moon",
+      "choice_with": "helix_fossil"
+    },
+    {
+      "id": "old_amber",
+      "item_name": "Old Amber",
+      "pokemon": "Aerodactyl",
+      "level": 30,
+      "obtain_location": "pewter_museum",
+      "choice_with": null
+    }
+  ],
+  "revival_process": {
+    "wait_steps": 0,
+    "instant": true,
+    "animation_ms": 3000,
+    "cost": 0,
+    "requires_party_space": true
+  },
+  "dialogue": {
+    "offer": "I can revive a fossil for you! Do you have one?",
+    "accept": "Let me take a look at that fossil...",
+    "reviving": "The fossil is being revived...",
+    "success": "Your fossil has been revived into a {pokemon}!",
+    "no_fossil": "You don't seem to have any fossils.",
+    "party_full": "Your party is full! Come back with an open spot.",
+    "already_revived": "You've already revived this fossil."
+  }
+}
