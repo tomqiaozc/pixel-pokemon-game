@@ -1,0 +1,97 @@
+{
+  "description": "Game event flags for tracking story progression and world state.",
+  "categories": {
+    "story": {
+      "description": "Main storyline progression flags",
+      "flags": [
+        {"id": "game_started", "default": false, "description": "Player has started the game"},
+        {"id": "received_starter", "default": false, "description": "Player chose a starter Pokemon"},
+        {"id": "received_pokedex", "default": false, "description": "Player received the Pokedex from Oak"},
+        {"id": "rival_battle_1", "default": false, "description": "Completed first rival battle in Oak's lab"},
+        {"id": "delivered_parcel", "default": false, "description": "Delivered Oak's Parcel from Viridian Mart"},
+        {"id": "received_pokeballs", "default": false, "description": "Received Poke Balls from Oak"},
+        {"id": "ss_anne_departed", "default": false, "description": "S.S. Anne has left the port"},
+        {"id": "rescued_mr_fuji", "default": false, "description": "Rescued Mr. Fuji from Pokemon Tower"},
+        {"id": "got_silph_scope", "default": false, "description": "Obtained the Silph Scope"},
+        {"id": "cleared_silph_co", "default": false, "description": "Defeated Team Rocket at Silph Co."},
+        {"id": "beat_giovanni_gym", "default": false, "description": "Defeated Giovanni at Viridian Gym"},
+        {"id": "cleared_victory_road", "default": false, "description": "Navigated through Victory Road"},
+        {"id": "champion_defeated", "default": false, "description": "Defeated the Champion"}
+      ]
+    },
+    "gyms": {
+      "description": "Gym completion flags",
+      "flags": [
+        {"id": "badge_boulder", "default": false, "description": "Defeated Brock"},
+        {"id": "badge_cascade", "default": false, "description": "Defeated Misty"},
+        {"id": "badge_thunder", "default": false, "description": "Defeated Lt. Surge"},
+        {"id": "badge_rainbow", "default": false, "description": "Defeated Erika"},
+        {"id": "badge_soul", "default": false, "description": "Defeated Koga"},
+        {"id": "badge_marsh", "default": false, "description": "Defeated Sabrina"},
+        {"id": "badge_volcano", "default": false, "description": "Defeated Blaine"},
+        {"id": "badge_earth", "default": false, "description": "Defeated Giovanni"}
+      ]
+    },
+    "items": {
+      "description": "Key item acquisition flags",
+      "flags": [
+        {"id": "has_town_map", "default": false, "description": "Has the Town Map"},
+        {"id": "has_bicycle", "default": false, "description": "Has the Bicycle"},
+        {"id": "has_poke_flute", "default": false, "description": "Has the Poke Flute"},
+        {"id": "has_silph_scope", "default": false, "description": "Has the Silph Scope"},
+        {"id": "has_super_rod", "default": false, "description": "Has the Super Rod"},
+        {"id": "has_good_rod", "default": false, "description": "Has the Good Rod"},
+        {"id": "has_old_rod", "default": false, "description": "Has the Old Rod"},
+        {"id": "has_bike_voucher", "default": false, "description": "Has the Bike Voucher"},
+        {"id": "has_gold_teeth", "default": false, "description": "Has the Gold Teeth"},
+        {"id": "has_secret_key", "default": false, "description": "Has the Secret Key"},
+        {"id": "has_card_key", "default": false, "description": "Has the Card Key"},
+        {"id": "has_lift_key", "default": false, "description": "Has the Lift Key"},
+        {"id": "has_exp_share", "default": false, "description": "Has the Exp. Share"}
+      ]
+    },
+    "hms": {
+      "description": "HM acquisition flags",
+      "flags": [
+        {"id": "has_hm_cut", "default": false, "description": "Has HM01 Cut"},
+        {"id": "has_hm_fly", "default": false, "description": "Has HM02 Fly"},
+        {"id": "has_hm_surf", "default": false, "description": "Has HM03 Surf"},
+        {"id": "has_hm_strength", "default": false, "description": "Has HM04 Strength"},
+        {"id": "has_hm_flash", "default": false, "description": "Has HM05 Flash"}
+      ]
+    },
+    "team_rocket": {
+      "description": "Team Rocket event flags",
+      "flags": [
+        {"id": "cleared_mt_moon_rocket", "default": false, "description": "Defeated Rocket in Mt. Moon"},
+        {"id": "cleared_nugget_bridge_rocket", "default": false, "description": "Defeated Rocket at Nugget Bridge"},
+        {"id": "cleared_game_corner_rocket", "default": false, "description": "Cleared Rocket Game Corner"},
+        {"id": "cleared_pokemon_tower_rocket", "default": false, "description": "Cleared Rocket from Pokemon Tower"},
+        {"id": "cleared_silph_co_rocket", "default": false, "description": "Cleared Rocket from Silph Co."}
+      ]
+    },
+    "tutorials": {
+      "description": "Tutorial completion flags",
+      "flags": [
+        {"id": "tutorial_movement_done", "default": false, "description": "Completed movement tutorial"},
+        {"id": "tutorial_talking_done", "default": false, "description": "Completed talking tutorial"},
+        {"id": "tutorial_starter_done", "default": false, "description": "Completed starter tutorial"},
+        {"id": "tutorial_battle_done", "default": false, "description": "Completed battle tutorial"},
+        {"id": "tutorial_catching_done", "default": false, "description": "Completed catching tutorial"},
+        {"id": "tutorial_pokecenter_done", "default": false, "description": "Completed Pokecenter tutorial"},
+        {"id": "tutorial_pokemart_done", "default": false, "description": "Completed Pokemart tutorial"},
+        {"id": "tutorial_types_done", "default": false, "description": "Completed type tutorial"},
+        {"id": "tutorial_menu_done", "default": false, "description": "Completed menu tutorial"},
+        {"id": "tutorial_saving_done", "default": false, "description": "Completed saving tutorial"}
+      ]
+    }
+  },
+  "flag_count_by_category": {
+    "story": 13,
+    "gyms": 8,
+    "items": 13,
+    "hms": 5,
+    "team_rocket": 5,
+    "tutorials": 10
+  }
+}

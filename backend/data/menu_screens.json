@@ -1,0 +1,107 @@
+{
+  "description": "Main menu, pause menu, and sub-menu layout configurations.",
+  "title_screen": {
+    "options": [
+      {"id": "new_game", "label": "NEW GAME", "action": "start_new_game"},
+      {"id": "continue", "label": "CONTINUE", "action": "load_save", "requires_save": true},
+      {"id": "options", "label": "OPTIONS", "action": "open_options"}
+    ],
+    "logo_position": {"x": 40, "y": 16},
+    "menu_position": {"x": 80, "y": 100},
+    "background": "title_bg",
+    "music": "title_screen"
+  },
+  "pause_menu": {
+    "options": [
+      {"id": "pokedex", "label": "POKEDEX", "action": "open_pokedex", "unlock": "has_pokedex"},
+      {"id": "pokemon", "label": "POKEMON", "action": "open_party", "unlock": "has_pokemon"},
+      {"id": "bag", "label": "BAG", "action": "open_bag", "unlock": null},
+      {"id": "trainer_card", "label": "{PLAYER}", "action": "open_trainer_card", "unlock": null},
+      {"id": "save", "label": "SAVE", "action": "save_game", "unlock": null},
+      {"id": "options", "label": "OPTION", "action": "open_options", "unlock": null},
+      {"id": "exit", "label": "EXIT", "action": "close_menu", "unlock": null}
+    ],
+    "position": "right",
+    "width": 80,
+    "background_color": "#FFFFFF",
+    "border_color": "#000000",
+    "text_color": "#000000",
+    "cursor_color": "#333333",
+    "open_sound": "sfx_menu_open.ogg",
+    "close_sound": "sfx_menu_close.ogg",
+    "cursor_sound": "sfx_menu_cursor.ogg",
+    "select_sound": "sfx_menu_select.ogg"
+  },
+  "options_menu": {
+    "sections": [
+      {
+        "id": "text_speed",
+        "label": "TEXT SPEED",
+        "type": "cycle",
+        "values": ["SLOW", "MED", "FAST", "INSTANT"],
+        "default": "MED"
+      },
+      {
+        "id": "battle_style",
+        "label": "BATTLE STYLE",
+        "type": "cycle",
+        "values": ["SHIFT", "SET"],
+        "default": "SHIFT"
+      },
+      {
+        "id": "sound",
+        "label": "SOUND",
+        "type": "cycle",
+        "values": ["MONO", "STEREO"],
+        "default": "STEREO"
+      },
+      {
+        "id": "battle_scene",
+        "label": "BATTLE SCENE",
+        "type": "cycle",
+        "values": ["ON", "OFF"],
+        "default": "ON"
+      },
+      {
+        "id": "brightness",
+        "label": "BRIGHTNESS",
+        "type": "slider",
+        "min": 1,
+        "max": 5,
+        "default": 3
+      },
+      {
+        "id": "cancel",
+        "label": "CANCEL",
+        "type": "button",
+        "action": "close_options"
+      }
+    ]
+  },
+  "bag_menu": {
+    "pockets": [
+      {"id": "items", "label": "ITEMS", "icon": "bag_items"},
+      {"id": "key_items", "label": "KEY ITEMS", "icon": "bag_key"},
+      {"id": "pokeballs", "label": "POKE BALLS", "icon": "bag_balls"},
+      {"id": "tms_hms", "label": "TMs & HMs", "icon": "bag_tms"}
+    ],
+    "items_per_page": 6,
+    "show_quantity": true,
+    "sort_enabled": true
+  },
+  "party_menu": {
+    "max_party_size": 6,
+    "show_hp_bar": true,
+    "show_level": true,
+    "show_status": true,
+    "show_held_item": true,
+    "pokemon_options": ["SUMMARY", "SWITCH", "ITEM", "CANCEL"],
+    "battle_pokemon_options": ["SHIFT", "SUMMARY", "CANCEL"]
+  },
+  "confirmation_dialog": {
+    "width": 80,
+    "options": ["YES", "NO"],
+    "default_selection": 1,
+    "position": "center"
+  }
+}
