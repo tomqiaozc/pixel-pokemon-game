@@ -348,18 +348,6 @@
     "usable": false
   },
   {
-    "id": 101,
-    "name": "HM01 Cut",
-    "description": "Teaches the move Cut. Can cut down small trees.",
-    "category": "hm",
-    "price": 0,
-    "sell_price": 0,
-    "effect": {
-      "type": "teach_move",
-      "move": "Cut"
-    }
-  },
-  {
     "id": 102,
     "name": "HM02 Flash",
     "description": "Teaches the move Flash. Lights up dark caves.",
@@ -456,31 +444,6 @@
     "usable": false
   },
   {
-    "id": 56,
-    "name": "TM21 Mega Drain",
-    "description": "Teaches Mega Drain to a Pokemon",
-    "category": "tm",
-    "price": 0,
-    "sell_price": 0,
-    "effect": {
-      "type": "teach_move",
-      "move": "Mega Drain"
-    },
-    "usable": true
-  },
-  {
-    "id": 57,
-    "name": "Coin Case",
-    "description": "Holds coins for the Game Corner",
-    "category": "key_item",
-    "price": 0,
-    "sell_price": 0,
-    "effect": {
-      "type": "storage"
-    },
-    "usable": false
-  },
-  {
     "id": 58,
     "name": "Lift Key",
     "description": "A key to operate the elevator in the Rocket Hideout",
@@ -502,32 +465,6 @@
     "effect": {
       "type": "teach_move",
       "move": "Psychic"
-    },
-    "usable": true
-  },
-  {
-    "id": 61,
-    "name": "HM03 Surf",
-    "description": "Teaches Surf. Allows travel across water",
-    "category": "key_item",
-    "price": 0,
-    "sell_price": 0,
-    "effect": {
-      "type": "teach_move",
-      "move": "Surf"
-    },
-    "usable": true
-  },
-  {
-    "id": 62,
-    "name": "HM04 Strength",
-    "description": "Teaches Strength. Allows pushing boulders",
-    "category": "key_item",
-    "price": 0,
-    "sell_price": 0,
-    "effect": {
-      "type": "teach_move",
-      "move": "Strength"
     },
     "usable": true
   },
@@ -580,5 +517,427 @@
       "move": "Earthquake"
     },
     "usable": true
+  },
+  {
+    "id": 106,
+    "name": "Fire Stone",
+    "description": "Evolves certain Pokemon when used",
+    "category": "evolution",
+    "price": 2100,
+    "sell_price": 1050,
+    "usable": true,
+    "effect": {
+      "type": "evolve",
+      "stone": "fire"
+    }
+  },
+  {
+    "id": 107,
+    "name": "Water Stone",
+    "description": "Evolves certain Pokemon when used",
+    "category": "evolution",
+    "price": 2100,
+    "sell_price": 1050,
+    "usable": true,
+    "effect": {
+      "type": "evolve",
+      "stone": "water"
+    }
+  },
+  {
+    "id": 108,
+    "name": "Thunder Stone",
+    "description": "Evolves certain Pokemon when used",
+    "category": "evolution",
+    "price": 2100,
+    "sell_price": 1050,
+    "usable": true,
+    "effect": {
+      "type": "evolve",
+      "stone": "thunder"
+    }
+  },
+  {
+    "id": 109,
+    "name": "Leaf Stone",
+    "description": "Evolves certain Pokemon when used",
+    "category": "evolution",
+    "price": 2100,
+    "sell_price": 1050,
+    "usable": true,
+    "effect": {
+      "type": "evolve",
+      "stone": "leaf"
+    }
+  },
+  {
+    "id": 110,
+    "name": "Moon Stone",
+    "description": "Evolves certain Pokemon when used",
+    "category": "evolution",
+    "price": 0,
+    "sell_price": 0,
+    "usable": true,
+    "effect": {
+      "type": "evolve",
+      "stone": "moon"
+    }
+  },
+  {
+    "id": 111,
+    "name": "X Attack",
+    "description": "Raises Attack in battle",
+    "category": "battle",
+    "price": 500,
+    "sell_price": 250,
+    "usable": true,
+    "effect": {
+      "type": "stat_boost",
+      "stat": "attack",
+      "stages": 1
+    }
+  },
+  {
+    "id": 112,
+    "name": "X Defense",
+    "description": "Raises Defense in battle",
+    "category": "battle",
+    "price": 550,
+    "sell_price": 275,
+    "usable": true,
+    "effect": {
+      "type": "stat_boost",
+      "stat": "defense",
+      "stages": 1
+    }
+  },
+  {
+    "id": 113,
+    "name": "X Speed",
+    "description": "Raises Speed in battle",
+    "category": "battle",
+    "price": 350,
+    "sell_price": 175,
+    "usable": true,
+    "effect": {
+      "type": "stat_boost",
+      "stat": "speed",
+      "stages": 1
+    }
+  },
+  {
+    "id": 114,
+    "name": "X Special",
+    "description": "Raises Sp. Atk in battle",
+    "category": "battle",
+    "price": 350,
+    "sell_price": 175,
+    "usable": true,
+    "effect": {
+      "type": "stat_boost",
+      "stat": "sp_attack",
+      "stages": 1
+    }
+  },
+  {
+    "id": 115,
+    "name": "Guard Spec.",
+    "description": "Prevents stat reduction in battle",
+    "category": "battle",
+    "price": 700,
+    "sell_price": 350,
+    "usable": true,
+    "effect": {
+      "type": "guard_spec"
+    }
+  },
+  {
+    "id": 116,
+    "name": "Dire Hit",
+    "description": "Raises critical hit ratio",
+    "category": "battle",
+    "price": 650,
+    "sell_price": 325,
+    "usable": true,
+    "effect": {
+      "type": "critical_boost"
+    }
+  },
+  {
+    "id": 119,
+    "name": "HP Up",
+    "description": "Raises base HP",
+    "category": "vitamin",
+    "price": 9800,
+    "sell_price": 4900,
+    "usable": true,
+    "effect": {
+      "type": "ev_boost",
+      "stat": "hp",
+      "amount": 10
+    }
+  },
+  {
+    "id": 120,
+    "name": "Protein",
+    "description": "Raises base Attack",
+    "category": "vitamin",
+    "price": 9800,
+    "sell_price": 4900,
+    "usable": true,
+    "effect": {
+      "type": "ev_boost",
+      "stat": "attack",
+      "amount": 10
+    }
+  },
+  {
+    "id": 121,
+    "name": "Iron",
+    "description": "Raises base Defense",
+    "category": "vitamin",
+    "price": 9800,
+    "sell_price": 4900,
+    "usable": true,
+    "effect": {
+      "type": "ev_boost",
+      "stat": "defense",
+      "amount": 10
+    }
+  },
+  {
+    "id": 122,
+    "name": "Calcium",
+    "description": "Raises base Sp. Atk",
+    "category": "vitamin",
+    "price": 9800,
+    "sell_price": 4900,
+    "usable": true,
+    "effect": {
+      "type": "ev_boost",
+      "stat": "sp_attack",
+      "amount": 10
+    }
+  },
+  {
+    "id": 123,
+    "name": "Carbos",
+    "description": "Raises base Speed",
+    "category": "vitamin",
+    "price": 9800,
+    "sell_price": 4900,
+    "usable": true,
+    "effect": {
+      "type": "ev_boost",
+      "stat": "speed",
+      "amount": 10
+    }
+  },
+  {
+    "id": 124,
+    "name": "TM01 Mega Punch",
+    "description": "Teaches Mega Punch",
+    "category": "tm",
+    "price": 3000,
+    "sell_price": 1500,
+    "usable": true,
+    "effect": {
+      "type": "teach_move",
+      "move": "Mega Punch"
+    }
+  },
+  {
+    "id": 125,
+    "name": "TM02 Razor Wind",
+    "description": "Teaches Razor Wind",
+    "category": "tm",
+    "price": 3000,
+    "sell_price": 1500,
+    "usable": true,
+    "effect": {
+      "type": "teach_move",
+      "move": "Razor Wind"
+    }
+  },
+  {
+    "id": 126,
+    "name": "TM03 Swords Dance",
+    "description": "Teaches Swords Dance",
+    "category": "tm",
+    "price": 3000,
+    "sell_price": 1500,
+    "usable": true,
+    "effect": {
+      "type": "teach_move",
+      "move": "Swords Dance"
+    }
+  },
+  {
+    "id": 127,
+    "name": "TM05 Mega Kick",
+    "description": "Teaches Mega Kick",
+    "category": "tm",
+    "price": 3000,
+    "sell_price": 1500,
+    "usable": true,
+    "effect": {
+      "type": "teach_move",
+      "move": "Mega Kick"
+    }
+  },
+  {
+    "id": 128,
+    "name": "TM06 Toxic",
+    "description": "Teaches Toxic",
+    "category": "tm",
+    "price": 3000,
+    "sell_price": 1500,
+    "usable": true,
+    "effect": {
+      "type": "teach_move",
+      "move": "Toxic"
+    }
+  },
+  {
+    "id": 129,
+    "name": "TM08 Body Slam",
+    "description": "Teaches Body Slam",
+    "category": "tm",
+    "price": 3000,
+    "sell_price": 1500,
+    "usable": true,
+    "effect": {
+      "type": "teach_move",
+      "move": "Body Slam"
+    }
+  },
+  {
+    "id": 130,
+    "name": "TM09 Take Down",
+    "description": "Teaches Take Down",
+    "category": "tm",
+    "price": 3000,
+    "sell_price": 1500,
+    "usable": true,
+    "effect": {
+      "type": "teach_move",
+      "move": "Take Down"
+    }
+  },
+  {
+    "id": 131,
+    "name": "TM10 Double-Edge",
+    "description": "Teaches Double-Edge",
+    "category": "tm",
+    "price": 3000,
+    "sell_price": 1500,
+    "usable": true,
+    "effect": {
+      "type": "teach_move",
+      "move": "Double-Edge"
+    }
+  },
+  {
+    "id": 132,
+    "name": "TM11 Bubble Beam",
+    "description": "Teaches Bubble Beam",
+    "category": "tm",
+    "price": 3000,
+    "sell_price": 1500,
+    "usable": true,
+    "effect": {
+      "type": "teach_move",
+      "move": "Bubble Beam"
+    }
+  },
+  {
+    "id": 133,
+    "name": "TM12 Water Gun",
+    "description": "Teaches Water Gun",
+    "category": "tm",
+    "price": 3000,
+    "sell_price": 1500,
+    "usable": true,
+    "effect": {
+      "type": "teach_move",
+      "move": "Water Gun"
+    }
+  },
+  {
+    "id": 134,
+    "name": "Max Potion",
+    "description": "Fully restores HP",
+    "category": "potion",
+    "price": 2500,
+    "sell_price": 1250,
+    "usable": true,
+    "effect": {
+      "type": "heal_hp",
+      "amount": 999
+    }
+  },
+  {
+    "id": 135,
+    "name": "Full Restore",
+    "description": "Fully restores HP and heals all status",
+    "category": "potion",
+    "price": 3000,
+    "sell_price": 1500,
+    "usable": true,
+    "effect": {
+      "type": "full_restore"
+    }
+  },
+  {
+    "id": 137,
+    "name": "Max Revive",
+    "description": "Revives a fainted Pokemon with full HP",
+    "category": "medicine",
+    "price": 4000,
+    "sell_price": 2000,
+    "usable": true,
+    "effect": {
+      "type": "revive",
+      "hp_percent": 100
+    }
+  },
+  {
+    "id": 138,
+    "name": "Elixir",
+    "description": "Restores 10 PP to all moves",
+    "category": "medicine",
+    "price": 3000,
+    "sell_price": 1500,
+    "usable": true,
+    "effect": {
+      "type": "restore_pp",
+      "amount": 10
+    }
+  },
+  {
+    "id": 139,
+    "name": "Max Elixir",
+    "description": "Fully restores PP of all moves",
+    "category": "medicine",
+    "price": 4500,
+    "sell_price": 2250,
+    "usable": true,
+    "effect": {
+      "type": "restore_pp",
+      "amount": 999
+    }
+  },
+  {
+    "id": 140,
+    "name": "Ether",
+    "description": "Restores 10 PP of one move",
+    "category": "medicine",
+    "price": 1200,
+    "sell_price": 600,
+    "usable": true,
+    "effect": {
+      "type": "restore_pp_single",
+      "amount": 10
+    }
   }
 ]

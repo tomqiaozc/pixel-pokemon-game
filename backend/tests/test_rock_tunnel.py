@@ -101,7 +101,7 @@ class TestNewEncounterTables:
 
     def test_total_encounter_tables(self):
         tables = _load_json("encounter_tables.json")
-        assert len(tables) == 50
+        assert len(tables) == 52
 
 
 # ──── Trainers ──────────────────────────────────────────────
@@ -179,4 +179,4 @@ class TestCountsUnchanged:
 
     def test_items_count_unchanged(self):
         items = _load_json("items.json")
-        assert len(items) == 48
+        assert len(items) == 75

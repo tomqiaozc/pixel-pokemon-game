@@ -1752,5 +1752,85 @@
         "weight": 10
       }
     ]
+  },
+  "route_7": {
+    "name": "Route 7",
+    "encounter_type": "grass",
+    "base_encounter_rate": 0.2,
+    "encounters": [
+      {
+        "species_id": 37,
+        "min_level": 18,
+        "max_level": 22,
+        "weight": 25
+      },
+      {
+        "species_id": 43,
+        "min_level": 18,
+        "max_level": 22,
+        "weight": 25
+      },
+      {
+        "species_id": 69,
+        "min_level": 18,
+        "max_level": 22,
+        "weight": 25
+      },
+      {
+        "species_id": 52,
+        "min_level": 18,
+        "max_level": 20,
+        "weight": 15
+      },
+      {
+        "species_id": 58,
+        "min_level": 18,
+        "max_level": 22,
+        "weight": 10
+      }
+    ]
+  },
+  "route_23": {
+    "name": "Route 23",
+    "encounter_type": "grass",
+    "base_encounter_rate": 0.2,
+    "encounters": [
+      {
+        "species_id": 21,
+        "min_level": 26,
+        "max_level": 32,
+        "weight": 20
+      },
+      {
+        "species_id": 22,
+        "min_level": 30,
+        "max_level": 34,
+        "weight": 15
+      },
+      {
+        "species_id": 23,
+        "min_level": 26,
+        "max_level": 32,
+        "weight": 20
+      },
+      {
+        "species_id": 24,
+        "min_level": 32,
+        "max_level": 36,
+        "weight": 10
+      },
+      {
+        "species_id": 56,
+        "min_level": 28,
+        "max_level": 34,
+        "weight": 20
+      },
+      {
+        "species_id": 57,
+        "min_level": 32,
+        "max_level": 36,
+        "weight": 15
+      }
+    ]
   }
 }

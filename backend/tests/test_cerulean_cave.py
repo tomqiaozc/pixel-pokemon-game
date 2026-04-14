@@ -84,7 +84,7 @@ class TestCeruleanCaveEncounters:
 
     def test_total_encounter_tables(self):
         tables = _load_json("encounter_tables.json")
-        assert len(tables) == 50
+        assert len(tables) == 52
 
 
 # ──── Guard NPC ──────────────────────────────────────────

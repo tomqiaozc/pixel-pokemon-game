@@ -112,8 +112,8 @@ class TestFuchsiaCitySpecies:
 
 class TestFuchsiaCityItems:
     EXPECTED_ITEMS = [
-        (61, "HM03 Surf"),
-        (62, "HM04 Strength"),
+        (103, "HM03 Surf"),
+        (104, "HM04 Strength"),
         (63, "Gold Teeth"),
     ]
 
