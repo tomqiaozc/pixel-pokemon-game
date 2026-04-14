@@ -3925,5 +3925,372 @@
     ],
     "evolution": null,
     "sprite": "marowak.png"
+  },
+  {
+    "id": 45,
+    "name": "Vileplume",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "base_exp": 221,
+    "catch_rate": 45,
+    "abilities": [
+      "chlorophyll"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "grass"
+    ],
+    "stats": {
+      "hp": 75,
+      "attack": 80,
+      "defense": 85,
+      "sp_attack": 110,
+      "sp_defense": 90,
+      "speed": 50
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Absorb"
+      },
+      {
+        "level": 1,
+        "move": "Poison Sting"
+      },
+      {
+        "level": 1,
+        "move": "Stun Spore"
+      },
+      {
+        "level": 1,
+        "move": "Petal Dance"
+      },
+      {
+        "level": 1,
+        "move": "Mega Drain"
+      }
+    ],
+    "evolution": null,
+    "sprite": "vileplume.png"
+  },
+  {
+    "id": 69,
+    "name": "Bellsprout",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "base_exp": 84,
+    "catch_rate": 255,
+    "abilities": [
+      "Chlorophyll"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "grass"
+    ],
+    "stats": {
+      "hp": 50,
+      "attack": 75,
+      "defense": 35,
+      "sp_attack": 70,
+      "sp_defense": 30,
+      "speed": 40
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Vine Whip"
+      },
+      {
+        "level": 13,
+        "move": "Wrap"
+      },
+      {
+        "level": 15,
+        "move": "Poison Powder"
+      },
+      {
+        "level": 18,
+        "move": "Sleep Powder"
+      },
+      {
+        "level": 23,
+        "move": "Razor Leaf"
+      }
+    ],
+    "evolution": {
+      "to": 70,
+      "level": 21
+    },
+    "sprite": "bellsprout.png"
+  },
+  {
+    "id": 70,
+    "name": "Weepinbell",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "base_exp": 151,
+    "catch_rate": 120,
+    "abilities": [
+      "Chlorophyll"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "grass"
+    ],
+    "stats": {
+      "hp": 65,
+      "attack": 90,
+      "defense": 50,
+      "sp_attack": 85,
+      "sp_defense": 45,
+      "speed": 55
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Vine Whip"
+      },
+      {
+        "level": 1,
+        "move": "Wrap"
+      },
+      {
+        "level": 15,
+        "move": "Poison Powder"
+      },
+      {
+        "level": 18,
+        "move": "Sleep Powder"
+      },
+      {
+        "level": 24,
+        "move": "Razor Leaf"
+      },
+      {
+        "level": 29,
+        "move": "Slam"
+      }
+    ],
+    "evolution": null,
+    "sprite": "weepinbell.png"
+  },
+  {
+    "id": 84,
+    "name": "Doduo",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "base_exp": 62,
+    "catch_rate": 190,
+    "abilities": [
+      "run_away",
+      "early_bird"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "flying"
+    ],
+    "stats": {
+      "hp": 35,
+      "attack": 85,
+      "defense": 45,
+      "sp_attack": 35,
+      "sp_defense": 35,
+      "speed": 75
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 1,
+        "move": "Growl"
+      },
+      {
+        "level": 9,
+        "move": "Quick Attack"
+      },
+      {
+        "level": 13,
+        "move": "Gust"
+      },
+      {
+        "level": 21,
+        "move": "Wing Attack"
+      },
+      {
+        "level": 25,
+        "move": "Agility"
+      }
+    ],
+    "evolution": {
+      "to": 85,
+      "level": 31
+    },
+    "sprite": "doduo.png"
+  },
+  {
+    "id": 85,
+    "name": "Dodrio",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "base_exp": 165,
+    "catch_rate": 45,
+    "abilities": [
+      "run_away",
+      "early_bird"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "flying"
+    ],
+    "stats": {
+      "hp": 60,
+      "attack": 110,
+      "defense": 70,
+      "sp_attack": 60,
+      "sp_defense": 60,
+      "speed": 110
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 1,
+        "move": "Growl"
+      },
+      {
+        "level": 1,
+        "move": "Quick Attack"
+      },
+      {
+        "level": 1,
+        "move": "Wing Attack"
+      },
+      {
+        "level": 31,
+        "move": "Agility"
+      },
+      {
+        "level": 38,
+        "move": "Slash"
+      }
+    ],
+    "evolution": null,
+    "sprite": "dodrio.png"
+  },
+  {
+    "id": 102,
+    "name": "Exeggcute",
+    "types": [
+      "grass",
+      "psychic"
+    ],
+    "base_exp": 65,
+    "catch_rate": 90,
+    "abilities": [
+      "Chlorophyll"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "grass"
+    ],
+    "stats": {
+      "hp": 60,
+      "attack": 40,
+      "defense": 80,
+      "sp_attack": 60,
+      "sp_defense": 45,
+      "speed": 40
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Barrage"
+      },
+      {
+        "level": 1,
+        "move": "Hypnosis"
+      },
+      {
+        "level": 19,
+        "move": "Confusion"
+      },
+      {
+        "level": 25,
+        "move": "Stun Spore"
+      },
+      {
+        "level": 31,
+        "move": "Leech Seed"
+      }
+    ],
+    "evolution": null,
+    "sprite": "exeggcute.png"
+  },
+  {
+    "id": 114,
+    "name": "Tangela",
+    "types": [
+      "grass"
+    ],
+    "base_exp": 87,
+    "catch_rate": 45,
+    "abilities": [
+      "Chlorophyll",
+      "Leaf Guard"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "grass"
+    ],
+    "stats": {
+      "hp": 65,
+      "attack": 55,
+      "defense": 115,
+      "sp_attack": 100,
+      "sp_defense": 40,
+      "speed": 60
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Constrict"
+      },
+      {
+        "level": 1,
+        "move": "Bind"
+      },
+      {
+        "level": 10,
+        "move": "Absorb"
+      },
+      {
+        "level": 13,
+        "move": "Vine Whip"
+      },
+      {
+        "level": 25,
+        "move": "Mega Drain"
+      },
+      {
+        "level": 31,
+        "move": "Stun Spore"
+      }
+    ],
+    "evolution": null,
+    "sprite": "tangela.png"
   }
 ]

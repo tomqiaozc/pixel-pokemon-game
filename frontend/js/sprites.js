@@ -1292,6 +1292,128 @@ const Sprites = (() => {
         return c;
     }
 
+    // Erika — Celadon Gym Leader — black hair, kimono, flowers
+    function drawErika() {
+        if (cache.erika) return cache.erika;
+        const c = document.createElement('canvas');
+        c.width = TILE; c.height = TILE;
+        const ctx = c.getContext('2d');
+        // Hair (black, long)
+        ctx.fillStyle = '#222';
+        ctx.fillRect(4, 1, 8, 5);
+        ctx.fillRect(3, 3, 2, 4);
+        ctx.fillRect(11, 3, 2, 4);
+        // Face
+        ctx.fillStyle = '#fdd';
+        ctx.fillRect(5, 3, 6, 4);
+        // Eyes
+        ctx.fillStyle = '#2a2';
+        ctx.fillRect(6, 4, 2, 1);
+        ctx.fillRect(9, 4, 2, 1);
+        // Mouth
+        ctx.fillStyle = '#c66';
+        ctx.fillRect(7, 6, 2, 1);
+        // Kimono body (yellow-green)
+        ctx.fillStyle = '#8c8';
+        ctx.fillRect(4, 7, 8, 5);
+        // Kimono sash (red)
+        ctx.fillStyle = '#d44';
+        ctx.fillRect(6, 8, 4, 1);
+        // Flower ornament in hair
+        ctx.fillStyle = '#f88';
+        ctx.fillRect(10, 2, 2, 2);
+        // Arms
+        ctx.fillStyle = '#8c8';
+        ctx.fillRect(3, 8, 1, 3);
+        ctx.fillRect(12, 8, 1, 3);
+        // Legs
+        ctx.fillStyle = '#654';
+        ctx.fillRect(5, 12, 2, 3);
+        ctx.fillRect(9, 12, 2, 3);
+        // Sandals
+        ctx.fillStyle = '#a86';
+        ctx.fillRect(5, 14, 2, 1);
+        ctx.fillRect(9, 14, 2, 1);
+        cache.erika = c;
+        return c;
+    }
+
+    // Biker — leather jacket, bandana
+    function drawBiker() {
+        if (cache.biker) return cache.biker;
+        const c = document.createElement('canvas');
+        c.width = TILE; c.height = TILE;
+        const ctx = c.getContext('2d');
+        // Bandana (red)
+        ctx.fillStyle = '#c22';
+        ctx.fillRect(4, 1, 8, 3);
+        // Face
+        ctx.fillStyle = '#fdd';
+        ctx.fillRect(5, 3, 6, 4);
+        // Sunglasses
+        ctx.fillStyle = '#222';
+        ctx.fillRect(5, 4, 3, 1);
+        ctx.fillRect(9, 4, 3, 1);
+        // Mouth
+        ctx.fillStyle = '#a66';
+        ctx.fillRect(7, 6, 2, 1);
+        // Leather jacket (black)
+        ctx.fillStyle = '#333';
+        ctx.fillRect(3, 7, 10, 5);
+        // Jacket zipper
+        ctx.fillStyle = '#888';
+        ctx.fillRect(7, 7, 1, 5);
+        // Arms
+        ctx.fillStyle = '#333';
+        ctx.fillRect(2, 8, 1, 3);
+        ctx.fillRect(13, 8, 1, 3);
+        // Pants (blue jeans)
+        ctx.fillStyle = '#448';
+        ctx.fillRect(5, 12, 3, 3);
+        ctx.fillRect(9, 12, 3, 3);
+        // Boots
+        ctx.fillStyle = '#222';
+        ctx.fillRect(5, 14, 3, 1);
+        ctx.fillRect(9, 14, 3, 1);
+        cache.biker = c;
+        return c;
+    }
+
+    // Slot Machine — for Game Corner
+    function drawSlotMachine() {
+        if (cache.slotMachine) return cache.slotMachine;
+        const c = document.createElement('canvas');
+        c.width = TILE; c.height = TILE;
+        const ctx = c.getContext('2d');
+        // Machine body (dark grey)
+        ctx.fillStyle = '#555';
+        ctx.fillRect(2, 1, 12, 14);
+        // Screen area (bright)
+        ctx.fillStyle = '#4a4';
+        ctx.fillRect(3, 2, 10, 6);
+        // Three reels
+        ctx.fillStyle = '#fff';
+        ctx.fillRect(4, 3, 2, 4);
+        ctx.fillRect(7, 3, 2, 4);
+        ctx.fillRect(10, 3, 2, 4);
+        // Symbols on reels
+        ctx.fillStyle = '#c22';
+        ctx.fillRect(4, 4, 2, 2);
+        ctx.fillStyle = '#22c';
+        ctx.fillRect(7, 4, 2, 2);
+        ctx.fillStyle = '#cc2';
+        ctx.fillRect(10, 4, 2, 2);
+        // Coin slot
+        ctx.fillStyle = '#aa8';
+        ctx.fillRect(6, 10, 4, 2);
+        // Handle
+        ctx.fillStyle = '#c22';
+        ctx.fillRect(14, 4, 1, 4);
+        ctx.fillRect(14, 3, 2, 2);
+        cache.slotMachine = c;
+        return c;
+    }
+
     return {
         TILE,
         PAL,
@@ -1332,5 +1454,8 @@ const Sprites = (() => {
         drawMrFuji,
         drawGhost,
         drawTombstone,
+        drawErika,
+        drawBiker,
+        drawSlotMachine,
     };
 })();

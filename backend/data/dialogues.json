@@ -322,5 +322,58 @@
     "nodes": [
       {"id": "start", "text": "Pokemon Tower is a resting place for departed Pokemon. Please be respectful.", "next": null}
     ]
+  },
+  "celadon_clerk_1_dialogue": {
+    "id": "celadon_clerk_1_dialogue",
+    "nodes": [
+      {"id": "start", "text": "Welcome to the Celadon Department Store! We have everything a trainer could need.", "next": "info"},
+      {"id": "info", "text": "Check out the second floor for TMs and battle items!", "next": null}
+    ]
+  },
+  "celadon_clerk_2_dialogue": {
+    "id": "celadon_clerk_2_dialogue",
+    "nodes": [
+      {"id": "start", "text": "Welcome to the second floor! We sell TMs and special items here.", "next": null}
+    ]
+  },
+  "eevee_guy_dialogue": {
+    "id": "eevee_guy_dialogue",
+    "nodes": [
+      {"id": "start", "text": "I have too many Pokemon... Would you like to take this Eevee?", "next": "offer"},
+      {"id": "offer", "text": "Eevee can evolve into many different forms! Take good care of it!", "action": {"type": "give_pokemon", "value": "133"}, "next": null}
+    ]
+  },
+  "game_corner_player_1_dialogue": {
+    "id": "game_corner_player_1_dialogue",
+    "nodes": [
+      {"id": "start", "text": "I've been playing for hours... I just need one more coin to win big!", "next": null}
+    ]
+  },
+  "game_corner_player_2_dialogue": {
+    "id": "game_corner_player_2_dialogue",
+    "nodes": [
+      {"id": "start", "text": "Did you know you can exchange coins for prizes? Some of the prizes are rare Pokemon!", "next": null}
+    ]
+  },
+  "celadon_townsfolk_1_dialogue": {
+    "id": "celadon_townsfolk_1_dialogue",
+    "nodes": [
+      {"id": "start", "text": "Celadon City is the biggest city in Kanto! There's so much to do here.", "next": "tip"},
+      {"id": "tip", "text": "Don't miss the Department Store - it has the best selection anywhere!", "next": null}
+    ]
+  },
+  "celadon_townsfolk_2_dialogue": {
+    "id": "celadon_townsfolk_2_dialogue",
+    "nodes": [
+      {"id": "start", "text": "The Gym Leader Erika uses Grass-type Pokemon.", "next": "tip"},
+      {"id": "tip", "text": "Fire and Flying types should do well against her team!", "next": null}
+    ]
+  },
+  "celadon_townsfolk_3_dialogue": {
+    "id": "celadon_townsfolk_3_dialogue",
+    "nodes": [
+      {"id": "start", "text": "The Game Corner is run by some suspicious characters...", "next": "rumor"},
+      {"id": "rumor", "text": "I've heard rumors that Team Rocket has a secret hideout underneath!", "next": null}
+    ]
   }
 }

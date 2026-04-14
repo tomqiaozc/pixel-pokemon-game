@@ -430,5 +430,54 @@
       "type": "wake"
     },
     "usable": true
+  },
+  {
+    "id": 56,
+    "name": "TM21 Mega Drain",
+    "description": "Teaches Mega Drain",
+    "category": "tm",
+    "price": 3000,
+    "sell_price": 1500,
+    "effect": {
+      "type": "teach_move",
+      "move": "Mega Drain"
+    }
+  },
+  {
+    "id": 57,
+    "name": "Coin Case",
+    "description": "Holds coins for the Game Corner",
+    "category": "key_item",
+    "price": 0,
+    "sell_price": 0,
+    "effect": {
+      "type": "container"
+    },
+    "usable": false
+  },
+  {
+    "id": 56,
+    "name": "TM21 Mega Drain",
+    "description": "Teaches Mega Drain to a Pokemon",
+    "category": "tm",
+    "price": 0,
+    "sell_price": 0,
+    "effect": {
+      "type": "teach_move",
+      "move": "Mega Drain"
+    },
+    "usable": true
+  },
+  {
+    "id": 57,
+    "name": "Coin Case",
+    "description": "Holds coins for the Game Corner",
+    "category": "key_item",
+    "price": 0,
+    "sell_price": 0,
+    "effect": {
+      "type": "storage"
+    },
+    "usable": false
   }
 ]

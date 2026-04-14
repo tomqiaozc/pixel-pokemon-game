@@ -7,7 +7,9 @@
     "badge_name": "Boulder Badge",
     "badge_id": "boulder",
     "map_id": "pewter_gym",
-    "gym_trainers": ["pewter_gym_trainer_1"],
+    "gym_trainers": [
+      "pewter_gym_trainer_1"
+    ],
     "leader": {
       "id": "brock",
       "name": "Brock",
@@ -18,8 +20,26 @@
       "dialogue_before": "I'm Brock, the Pewter City Gym Leader! I believe in rock-hard defense! Show me your best!",
       "dialogue_after": "Your Pokemon's attacks overwhelmed my defense... Take this Boulder Badge as proof of your victory!",
       "pokemon_team": [
-        {"species_id": 17, "name": "Geodude", "level": 12, "moves": ["Tackle", "Defense Curl"]},
-        {"species_id": 18, "name": "Onix", "level": 14, "moves": ["Tackle", "Screech", "Rock Throw", "Bind"]}
+        {
+          "species_id": 17,
+          "name": "Geodude",
+          "level": 12,
+          "moves": [
+            "Tackle",
+            "Defense Curl"
+          ]
+        },
+        {
+          "species_id": 18,
+          "name": "Onix",
+          "level": 14,
+          "moves": [
+            "Tackle",
+            "Screech",
+            "Rock Throw",
+            "Bind"
+          ]
+        }
       ]
     }
   },
@@ -31,7 +51,10 @@
     "badge_name": "Cascade Badge",
     "badge_id": "cascade",
     "map_id": "cerulean_gym",
-    "gym_trainers": ["cerulean_gym_trainer_1", "cerulean_gym_trainer_2"],
+    "gym_trainers": [
+      "cerulean_gym_trainer_1",
+      "cerulean_gym_trainer_2"
+    ],
     "prerequisite_badge": "boulder",
     "leader": {
       "id": "misty",
@@ -43,8 +66,26 @@
       "dialogue_before": "I'm the Cerulean City Gym Leader, Misty! My water-type Pokemon are going to make a splash!",
       "dialogue_after": "You really are strong... Fine, take this Cascade Badge!",
       "pokemon_team": [
-        {"species_id": 21, "name": "Staryu", "level": 18, "moves": ["Water Gun", "Tackle", "Harden"]},
-        {"species_id": 22, "name": "Starmie", "level": 21, "moves": ["Water Gun", "Tackle", "Swift"]}
+        {
+          "species_id": 21,
+          "name": "Staryu",
+          "level": 18,
+          "moves": [
+            "Water Gun",
+            "Tackle",
+            "Harden"
+          ]
+        },
+        {
+          "species_id": 22,
+          "name": "Starmie",
+          "level": 21,
+          "moves": [
+            "Water Gun",
+            "Tackle",
+            "Swift"
+          ]
+        }
       ]
     }
   },
@@ -68,9 +109,97 @@
       "dialogue_before": "Hey kid! You managed to solve my puzzle? Impressive! But that won't help you against my Pokemon!",
       "dialogue_after": "Whoa! You beat me fair and square! Take this Thunder Badge!",
       "pokemon_team": [
-        {"species_id": 100, "name": "Voltorb", "level": 21, "moves": ["Tackle", "Screech", "Sonic Boom"]},
-        {"species_id": 15, "name": "Pikachu", "level": 18, "moves": ["Thunder Shock", "Quick Attack", "Thunder Wave"]},
-        {"species_id": 16, "name": "Raichu", "level": 24, "moves": ["Thunder Shock", "Thunderbolt", "Quick Attack", "Slam"]}
+        {
+          "species_id": 100,
+          "name": "Voltorb",
+          "level": 21,
+          "moves": [
+            "Tackle",
+            "Screech",
+            "Sonic Boom"
+          ]
+        },
+        {
+          "species_id": 15,
+          "name": "Pikachu",
+          "level": 18,
+          "moves": [
+            "Thunder Shock",
+            "Quick Attack",
+            "Thunder Wave"
+          ]
+        },
+        {
+          "species_id": 16,
+          "name": "Raichu",
+          "level": 24,
+          "moves": [
+            "Thunder Shock",
+            "Thunderbolt",
+            "Quick Attack",
+            "Slam"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "celadon_gym",
+    "name": "Celadon City Gym",
+    "city": "Celadon City",
+    "type_specialty": "grass",
+    "badge_name": "Rainbow Badge",
+    "badge_id": "rainbow",
+    "map_id": "celadon_gym",
+    "gym_trainers": [
+      "celadon_gym_trainer_1",
+      "celadon_gym_trainer_2",
+      "celadon_gym_trainer_3"
+    ],
+    "prerequisite_badge": "thunder",
+    "leader": {
+      "id": "erika",
+      "name": "Erika",
+      "sprite_id": "erika",
+      "badge_id": "rainbow",
+      "reward_money": 3400,
+      "ai_difficulty": "hard",
+      "dialogue_before": "Hello... I am Erika, the Gym Leader of Celadon. I love Grass-type Pokemon. Oh, you wish to challenge me? Very well, but I shall not go easy on you.",
+      "dialogue_after": "Oh! I concede defeat. You are remarkably strong. I must confer on you the Rainbow Badge.",
+      "pokemon_team": [
+        {
+          "species_id": 70,
+          "name": "Weepinbell",
+          "level": 29,
+          "moves": [
+            "Razor Leaf",
+            "Wrap",
+            "Poison Powder",
+            "Sleep Powder"
+          ]
+        },
+        {
+          "species_id": 114,
+          "name": "Tangela",
+          "level": 24,
+          "moves": [
+            "Vine Whip",
+            "Constrict",
+            "Bind",
+            "Absorb"
+          ]
+        },
+        {
+          "species_id": 45,
+          "name": "Vileplume",
+          "level": 29,
+          "moves": [
+            "Petal Dance",
+            "Mega Drain",
+            "Poison Powder",
+            "Sleep Powder"
+          ]
+        }
       ]
     }
   }

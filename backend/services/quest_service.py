@@ -158,6 +158,17 @@ _QUEST_DEFS: list[dict] = [
         "rewards": {"money": 1000, "exp": 500, "unlock_flags": ["snorlax_cleared"]},
         "prerequisite_quests": ["pokemon_tower"],
     },
+    {
+        "id": "rainbow_badge",
+        "name": "The Rainbow Badge",
+        "description": "Defeat Erika at Celadon Gym to earn the Rainbow Badge!",
+        "type": "main",
+        "objectives": [
+            {"id": "defeat_erika", "description": "Defeat Gym Leader Erika", "type": "defeat_gym", "target": "celadon_gym", "required_progress": 1},
+        ],
+        "rewards": {"money": 5000, "unlock_flags": ["badge_rainbow"]},
+        "prerequisite_quests": ["pokemon_tower"],
+    },
 ]
 
 
@@ -385,6 +396,7 @@ def check_area_accessible(game_id: str, map_id: str, required_flag: Optional[str
         "fuji_rescued": "You need to rescue Mr. Fuji first",
         "has_poke_flute": "You need the Poke Flute",
         "snorlax_cleared": "A sleeping Snorlax blocks the way",
+        "badge_rainbow": "You need the Rainbow Badge to pass",
     }
     reason = flag_reasons.get(required_flag, f"You need to complete a requirement: {required_flag}")
     return {"accessible": False, "reason": reason}

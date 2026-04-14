@@ -5,7 +5,15 @@
     "trainer_class": "Youngster",
     "sprite_id": "youngster",
     "pokemon_team": [
-      {"species_id": 13, "name": "Rattata", "level": 6, "moves": ["Tackle", "Tail Whip"]}
+      {
+        "species_id": 13,
+        "name": "Rattata",
+        "level": 6,
+        "moves": [
+          "Tackle",
+          "Tail Whip"
+        ]
+      }
     ],
     "reward_money": 120,
     "sight_range": 3,
@@ -18,8 +26,24 @@
     "trainer_class": "Bug Catcher",
     "sprite_id": "bug_catcher",
     "pokemon_team": [
-      {"species_id": 19, "name": "Caterpie", "level": 7, "moves": ["Tackle", "String Shot"]},
-      {"species_id": 20, "name": "Weedle", "level": 7, "moves": ["Poison Sting", "String Shot"]}
+      {
+        "species_id": 19,
+        "name": "Caterpie",
+        "level": 7,
+        "moves": [
+          "Tackle",
+          "String Shot"
+        ]
+      },
+      {
+        "species_id": 20,
+        "name": "Weedle",
+        "level": 7,
+        "moves": [
+          "Poison Sting",
+          "String Shot"
+        ]
+      }
     ],
     "reward_money": 140,
     "sight_range": 4,
@@ -32,7 +56,16 @@
     "trainer_class": "Lass",
     "sprite_id": "lass",
     "pokemon_team": [
-      {"species_id": 10, "name": "Pidgey", "level": 9, "moves": ["Tackle", "Sand Attack", "Gust"]}
+      {
+        "species_id": 10,
+        "name": "Pidgey",
+        "level": 9,
+        "moves": [
+          "Tackle",
+          "Sand Attack",
+          "Gust"
+        ]
+      }
     ],
     "reward_money": 180,
     "sight_range": 3,
@@ -45,7 +78,15 @@
     "trainer_class": "Camper",
     "sprite_id": "camper",
     "pokemon_team": [
-      {"species_id": 17, "name": "Geodude", "level": 10, "moves": ["Tackle", "Defense Curl"]}
+      {
+        "species_id": 17,
+        "name": "Geodude",
+        "level": 10,
+        "moves": [
+          "Tackle",
+          "Defense Curl"
+        ]
+      }
     ],
     "reward_money": 200,
     "sight_range": 3,
@@ -58,8 +99,25 @@
     "trainer_class": "Youngster",
     "sprite_id": "youngster",
     "pokemon_team": [
-      {"species_id": 13, "name": "Rattata", "level": 8, "moves": ["Tackle", "Tail Whip", "Quick Attack"]},
-      {"species_id": 10, "name": "Pidgey", "level": 7, "moves": ["Tackle", "Sand Attack"]}
+      {
+        "species_id": 13,
+        "name": "Rattata",
+        "level": 8,
+        "moves": [
+          "Tackle",
+          "Tail Whip",
+          "Quick Attack"
+        ]
+      },
+      {
+        "species_id": 10,
+        "name": "Pidgey",
+        "level": 7,
+        "moves": [
+          "Tackle",
+          "Sand Attack"
+        ]
+      }
     ],
     "reward_money": 160,
     "sight_range": 3,
@@ -72,8 +130,26 @@
     "trainer_class": "Lass",
     "sprite_id": "lass",
     "pokemon_team": [
-      {"species_id": 43, "name": "Oddish", "level": 12, "moves": ["Absorb", "Poison Sting", "Stun Spore"]},
-      {"species_id": 39, "name": "Jigglypuff", "level": 12, "moves": ["Sing", "Pound", "Disable"]}
+      {
+        "species_id": 43,
+        "name": "Oddish",
+        "level": 12,
+        "moves": [
+          "Absorb",
+          "Poison Sting",
+          "Stun Spore"
+        ]
+      },
+      {
+        "species_id": 39,
+        "name": "Jigglypuff",
+        "level": 12,
+        "moves": [
+          "Sing",
+          "Pound",
+          "Disable"
+        ]
+      }
     ],
     "reward_money": 240,
     "sight_range": 3,
@@ -86,8 +162,26 @@
     "trainer_class": "Youngster",
     "sprite_id": "youngster",
     "pokemon_team": [
-      {"species_id": 13, "name": "Rattata", "level": 11, "moves": ["Tackle", "Tail Whip", "Quick Attack"]},
-      {"species_id": 23, "name": "Ekans", "level": 13, "moves": ["Wrap", "Leer", "Poison Sting"]}
+      {
+        "species_id": 13,
+        "name": "Rattata",
+        "level": 11,
+        "moves": [
+          "Tackle",
+          "Tail Whip",
+          "Quick Attack"
+        ]
+      },
+      {
+        "species_id": 23,
+        "name": "Ekans",
+        "level": 13,
+        "moves": [
+          "Wrap",
+          "Leer",
+          "Poison Sting"
+        ]
+      }
     ],
     "reward_money": 260,
     "sight_range": 4,
@@ -100,9 +194,36 @@
     "trainer_class": "Hiker",
     "sprite_id": "hiker",
     "pokemon_team": [
-      {"species_id": 74, "name": "Geodude", "level": 13, "moves": ["Tackle", "Rock Throw", "Sand Attack"]},
-      {"species_id": 74, "name": "Geodude", "level": 13, "moves": ["Tackle", "Rock Throw", "Sand Attack"]},
-      {"species_id": 95, "name": "Onix", "level": 11, "moves": ["Tackle", "Sand Attack", "Rock Throw"]}
+      {
+        "species_id": 74,
+        "name": "Geodude",
+        "level": 13,
+        "moves": [
+          "Tackle",
+          "Rock Throw",
+          "Sand Attack"
+        ]
+      },
+      {
+        "species_id": 74,
+        "name": "Geodude",
+        "level": 13,
+        "moves": [
+          "Tackle",
+          "Rock Throw",
+          "Sand Attack"
+        ]
+      },
+      {
+        "species_id": 95,
+        "name": "Onix",
+        "level": 11,
+        "moves": [
+          "Tackle",
+          "Sand Attack",
+          "Rock Throw"
+        ]
+      }
     ],
     "reward_money": 440,
     "sight_range": 3,
@@ -115,8 +236,26 @@
     "trainer_class": "Bug Catcher",
     "sprite_id": "bug_catcher",
     "pokemon_team": [
-      {"species_id": 46, "name": "Paras", "level": 10, "moves": ["Scratch", "String Shot", "Poison Sting"]},
-      {"species_id": 46, "name": "Paras", "level": 12, "moves": ["Scratch", "String Shot", "Poison Sting"]}
+      {
+        "species_id": 46,
+        "name": "Paras",
+        "level": 10,
+        "moves": [
+          "Scratch",
+          "String Shot",
+          "Poison Sting"
+        ]
+      },
+      {
+        "species_id": 46,
+        "name": "Paras",
+        "level": 12,
+        "moves": [
+          "Scratch",
+          "String Shot",
+          "Poison Sting"
+        ]
+      }
     ],
     "reward_money": 240,
     "sight_range": 3,
@@ -129,8 +268,26 @@
     "trainer_class": "Super Nerd",
     "sprite_id": "super_nerd",
     "pokemon_team": [
-      {"species_id": 41, "name": "Zubat", "level": 12, "moves": ["Tackle", "Poison Sting", "Bite"]},
-      {"species_id": 35, "name": "Clefairy", "level": 14, "moves": ["Growl", "Tackle", "Quick Attack"]}
+      {
+        "species_id": 41,
+        "name": "Zubat",
+        "level": 12,
+        "moves": [
+          "Tackle",
+          "Poison Sting",
+          "Bite"
+        ]
+      },
+      {
+        "species_id": 35,
+        "name": "Clefairy",
+        "level": 14,
+        "moves": [
+          "Growl",
+          "Tackle",
+          "Quick Attack"
+        ]
+      }
     ],
     "reward_money": 340,
     "sight_range": 4,
@@ -143,8 +300,26 @@
     "trainer_class": "Swimmer",
     "sprite_id": "swimmer_f",
     "pokemon_team": [
-      {"species_id": 116, "name": "Horsea", "level": 16, "moves": ["Water Gun", "Bubble Beam", "Growl"]},
-      {"species_id": 90, "name": "Shellder", "level": 16, "moves": ["Tackle", "Water Gun", "Harden"]}
+      {
+        "species_id": 116,
+        "name": "Horsea",
+        "level": 16,
+        "moves": [
+          "Water Gun",
+          "Bubble Beam",
+          "Growl"
+        ]
+      },
+      {
+        "species_id": 90,
+        "name": "Shellder",
+        "level": 16,
+        "moves": [
+          "Tackle",
+          "Water Gun",
+          "Harden"
+        ]
+      }
     ],
     "reward_money": 320,
     "sight_range": 3,
@@ -157,8 +332,26 @@
     "trainer_class": "Swimmer",
     "sprite_id": "swimmer_m",
     "pokemon_team": [
-      {"species_id": 118, "name": "Goldeen", "level": 17, "moves": ["Water Gun", "Horn Attack", "Tail Whip"]},
-      {"species_id": 116, "name": "Horsea", "level": 17, "moves": ["Water Gun", "Bubble Beam", "Growl"]}
+      {
+        "species_id": 118,
+        "name": "Goldeen",
+        "level": 17,
+        "moves": [
+          "Water Gun",
+          "Horn Attack",
+          "Tail Whip"
+        ]
+      },
+      {
+        "species_id": 116,
+        "name": "Horsea",
+        "level": 17,
+        "moves": [
+          "Water Gun",
+          "Bubble Beam",
+          "Growl"
+        ]
+      }
     ],
     "reward_money": 340,
     "sight_range": 3,
@@ -171,8 +364,26 @@
     "trainer_class": "Hiker",
     "sprite_id": "hiker",
     "pokemon_team": [
-      {"species_id": 74, "name": "Geodude", "level": 10, "moves": ["Tackle", "Sand Attack", "Rock Throw"]},
-      {"species_id": 95, "name": "Onix", "level": 10, "moves": ["Tackle", "Sand Attack", "Rock Throw"]}
+      {
+        "species_id": 74,
+        "name": "Geodude",
+        "level": 10,
+        "moves": [
+          "Tackle",
+          "Sand Attack",
+          "Rock Throw"
+        ]
+      },
+      {
+        "species_id": 95,
+        "name": "Onix",
+        "level": 10,
+        "moves": [
+          "Tackle",
+          "Sand Attack",
+          "Rock Throw"
+        ]
+      }
     ],
     "reward_money": 360,
     "sight_range": 3,
@@ -185,8 +396,27 @@
     "trainer_class": "Team Rocket",
     "sprite_id": "rocket_grunt",
     "pokemon_team": [
-      {"species_id": 23, "name": "Ekans", "level": 15, "moves": ["Wrap", "Leer", "Poison Sting", "Bite"]},
-      {"species_id": 41, "name": "Zubat", "level": 15, "moves": ["Leech Life", "Supersonic", "Bite"]}
+      {
+        "species_id": 23,
+        "name": "Ekans",
+        "level": 15,
+        "moves": [
+          "Wrap",
+          "Leer",
+          "Poison Sting",
+          "Bite"
+        ]
+      },
+      {
+        "species_id": 41,
+        "name": "Zubat",
+        "level": 15,
+        "moves": [
+          "Leech Life",
+          "Supersonic",
+          "Bite"
+        ]
+      }
     ],
     "reward_money": 600,
     "sight_range": 3,
@@ -199,8 +429,26 @@
     "trainer_class": "Team Rocket",
     "sprite_id": "rocket_grunt",
     "pokemon_team": [
-      {"species_id": 19, "name": "Rattata", "level": 14, "moves": ["Tackle", "Quick Attack", "Hyper Fang"]},
-      {"species_id": 23, "name": "Ekans", "level": 14, "moves": ["Wrap", "Leer", "Poison Sting"]}
+      {
+        "species_id": 19,
+        "name": "Rattata",
+        "level": 14,
+        "moves": [
+          "Tackle",
+          "Quick Attack",
+          "Hyper Fang"
+        ]
+      },
+      {
+        "species_id": 23,
+        "name": "Ekans",
+        "level": 14,
+        "moves": [
+          "Wrap",
+          "Leer",
+          "Poison Sting"
+        ]
+      }
     ],
     "reward_money": 560,
     "sight_range": 3,
@@ -213,8 +461,24 @@
     "trainer_class": "Bug Catcher",
     "sprite_id": "bug_catcher",
     "pokemon_team": [
-      {"species_id": 10, "name": "Caterpie", "level": 14, "moves": ["Tackle", "String Shot"]},
-      {"species_id": 13, "name": "Weedle", "level": 14, "moves": ["Poison Sting", "String Shot"]}
+      {
+        "species_id": 10,
+        "name": "Caterpie",
+        "level": 14,
+        "moves": [
+          "Tackle",
+          "String Shot"
+        ]
+      },
+      {
+        "species_id": 13,
+        "name": "Weedle",
+        "level": 14,
+        "moves": [
+          "Poison Sting",
+          "String Shot"
+        ]
+      }
     ],
     "reward_money": 280,
     "sight_range": 2,
@@ -227,8 +491,26 @@
     "trainer_class": "Lass",
     "sprite_id": "lass",
     "pokemon_team": [
-      {"species_id": 43, "name": "Oddish", "level": 16, "moves": ["Absorb", "Poison Powder", "Stun Spore"]},
-      {"species_id": 16, "name": "Pidgey", "level": 16, "moves": ["Gust", "Quick Attack", "Sand Attack"]}
+      {
+        "species_id": 43,
+        "name": "Oddish",
+        "level": 16,
+        "moves": [
+          "Absorb",
+          "Poison Powder",
+          "Stun Spore"
+        ]
+      },
+      {
+        "species_id": 16,
+        "name": "Pidgey",
+        "level": 16,
+        "moves": [
+          "Gust",
+          "Quick Attack",
+          "Sand Attack"
+        ]
+      }
     ],
     "reward_money": 320,
     "sight_range": 2,
@@ -241,9 +523,36 @@
     "trainer_class": "Youngster",
     "sprite_id": "youngster",
     "pokemon_team": [
-      {"species_id": 19, "name": "Rattata", "level": 15, "moves": ["Quick Attack", "Hyper Fang", "Tail Whip"]},
-      {"species_id": 23, "name": "Ekans", "level": 15, "moves": ["Wrap", "Poison Sting", "Leer"]},
-      {"species_id": 32, "name": "Nidoran♂", "level": 15, "moves": ["Horn Attack", "Poison Sting", "Leer"]}
+      {
+        "species_id": 19,
+        "name": "Rattata",
+        "level": 15,
+        "moves": [
+          "Quick Attack",
+          "Hyper Fang",
+          "Tail Whip"
+        ]
+      },
+      {
+        "species_id": 23,
+        "name": "Ekans",
+        "level": 15,
+        "moves": [
+          "Wrap",
+          "Poison Sting",
+          "Leer"
+        ]
+      },
+      {
+        "species_id": 32,
+        "name": "Nidoran\u2642",
+        "level": 15,
+        "moves": [
+          "Horn Attack",
+          "Poison Sting",
+          "Leer"
+        ]
+      }
     ],
     "reward_money": 300,
     "sight_range": 2,
@@ -256,8 +565,26 @@
     "trainer_class": "Lass",
     "sprite_id": "lass",
     "pokemon_team": [
-      {"species_id": 29, "name": "Nidoran♀", "level": 16, "moves": ["Scratch", "Poison Sting", "Tail Whip"]},
-      {"species_id": 39, "name": "Jigglypuff", "level": 16, "moves": ["Sing", "Pound", "Disable"]}
+      {
+        "species_id": 29,
+        "name": "Nidoran\u2640",
+        "level": 16,
+        "moves": [
+          "Scratch",
+          "Poison Sting",
+          "Tail Whip"
+        ]
+      },
+      {
+        "species_id": 39,
+        "name": "Jigglypuff",
+        "level": 16,
+        "moves": [
+          "Sing",
+          "Pound",
+          "Disable"
+        ]
+      }
     ],
     "reward_money": 320,
     "sight_range": 2,
@@ -270,9 +597,36 @@
     "trainer_class": "Hiker",
     "sprite_id": "hiker",
     "pokemon_team": [
-      {"species_id": 74, "name": "Geodude", "level": 15, "moves": ["Rock Throw", "Tackle", "Defense Curl"]},
-      {"species_id": 74, "name": "Geodude", "level": 15, "moves": ["Rock Throw", "Tackle", "Defense Curl"]},
-      {"species_id": 95, "name": "Onix", "level": 13, "moves": ["Rock Throw", "Tackle", "Sand Attack"]}
+      {
+        "species_id": 74,
+        "name": "Geodude",
+        "level": 15,
+        "moves": [
+          "Rock Throw",
+          "Tackle",
+          "Defense Curl"
+        ]
+      },
+      {
+        "species_id": 74,
+        "name": "Geodude",
+        "level": 15,
+        "moves": [
+          "Rock Throw",
+          "Tackle",
+          "Defense Curl"
+        ]
+      },
+      {
+        "species_id": 95,
+        "name": "Onix",
+        "level": 13,
+        "moves": [
+          "Rock Throw",
+          "Tackle",
+          "Sand Attack"
+        ]
+      }
     ],
     "reward_money": 520,
     "sight_range": 2,
@@ -285,8 +639,26 @@
     "trainer_class": "Hiker",
     "sprite_id": "hiker",
     "pokemon_team": [
-      {"species_id": 74, "name": "Geodude", "level": 15, "moves": ["Rock Throw", "Tackle", "Defense Curl"]},
-      {"species_id": 95, "name": "Onix", "level": 15, "moves": ["Rock Throw", "Tackle", "Sand Attack"]}
+      {
+        "species_id": 74,
+        "name": "Geodude",
+        "level": 15,
+        "moves": [
+          "Rock Throw",
+          "Tackle",
+          "Defense Curl"
+        ]
+      },
+      {
+        "species_id": 95,
+        "name": "Onix",
+        "level": 15,
+        "moves": [
+          "Rock Throw",
+          "Tackle",
+          "Sand Attack"
+        ]
+      }
     ],
     "reward_money": 540,
     "sight_range": 3,
@@ -299,8 +671,26 @@
     "trainer_class": "Lass",
     "sprite_id": "lass",
     "pokemon_team": [
-      {"species_id": 43, "name": "Oddish", "level": 17, "moves": ["Absorb", "Poison Powder", "Stun Spore"]},
-      {"species_id": 16, "name": "Pidgey", "level": 17, "moves": ["Gust", "Quick Attack", "Sand Attack"]}
+      {
+        "species_id": 43,
+        "name": "Oddish",
+        "level": 17,
+        "moves": [
+          "Absorb",
+          "Poison Powder",
+          "Stun Spore"
+        ]
+      },
+      {
+        "species_id": 16,
+        "name": "Pidgey",
+        "level": 17,
+        "moves": [
+          "Gust",
+          "Quick Attack",
+          "Sand Attack"
+        ]
+      }
     ],
     "reward_money": 340,
     "sight_range": 3,
@@ -313,8 +703,24 @@
     "trainer_class": "Bug Catcher",
     "sprite_id": "bug_catcher",
     "pokemon_team": [
-      {"species_id": 10, "name": "Caterpie", "level": 16, "moves": ["Tackle", "String Shot"]},
-      {"species_id": 13, "name": "Weedle", "level": 16, "moves": ["Poison Sting", "String Shot"]}
+      {
+        "species_id": 10,
+        "name": "Caterpie",
+        "level": 16,
+        "moves": [
+          "Tackle",
+          "String Shot"
+        ]
+      },
+      {
+        "species_id": 13,
+        "name": "Weedle",
+        "level": 16,
+        "moves": [
+          "Poison Sting",
+          "String Shot"
+        ]
+      }
     ],
     "reward_money": 320,
     "sight_range": 3,
@@ -327,8 +733,26 @@
     "trainer_class": "Youngster",
     "sprite_id": "youngster",
     "pokemon_team": [
-      {"species_id": 32, "name": "Nidoran♂", "level": 16, "moves": ["Horn Attack", "Poison Sting", "Leer"]},
-      {"species_id": 19, "name": "Rattata", "level": 16, "moves": ["Quick Attack", "Hyper Fang", "Tail Whip"]}
+      {
+        "species_id": 32,
+        "name": "Nidoran\u2642",
+        "level": 16,
+        "moves": [
+          "Horn Attack",
+          "Poison Sting",
+          "Leer"
+        ]
+      },
+      {
+        "species_id": 19,
+        "name": "Rattata",
+        "level": 16,
+        "moves": [
+          "Quick Attack",
+          "Hyper Fang",
+          "Tail Whip"
+        ]
+      }
     ],
     "reward_money": 320,
     "sight_range": 3,
@@ -341,8 +765,27 @@
     "trainer_class": "Youngster",
     "sprite_id": "youngster",
     "pokemon_team": [
-      {"species_id": 23, "name": "Ekans", "level": 18, "moves": ["Wrap", "Poison Sting", "Bite", "Leer"]},
-      {"species_id": 25, "name": "Spearow", "level": 18, "moves": ["Gust", "Quick Attack", "Leer"]}
+      {
+        "species_id": 23,
+        "name": "Ekans",
+        "level": 18,
+        "moves": [
+          "Wrap",
+          "Poison Sting",
+          "Bite",
+          "Leer"
+        ]
+      },
+      {
+        "species_id": 25,
+        "name": "Spearow",
+        "level": 18,
+        "moves": [
+          "Gust",
+          "Quick Attack",
+          "Leer"
+        ]
+      }
     ],
     "reward_money": 360,
     "sight_range": 3,
@@ -355,8 +798,28 @@
     "trainer_class": "Gambler",
     "sprite_id": "gambler",
     "pokemon_team": [
-      {"species_id": 100, "name": "Voltorb", "level": 18, "moves": ["Tackle", "Thunder Shock", "Screech", "Self-Destruct"]},
-      {"species_id": 96, "name": "Drowzee", "level": 18, "moves": ["Tackle", "Confusion", "Disable", "Headbutt"]}
+      {
+        "species_id": 100,
+        "name": "Voltorb",
+        "level": 18,
+        "moves": [
+          "Tackle",
+          "Thunder Shock",
+          "Screech",
+          "Self-Destruct"
+        ]
+      },
+      {
+        "species_id": 96,
+        "name": "Drowzee",
+        "level": 18,
+        "moves": [
+          "Tackle",
+          "Confusion",
+          "Disable",
+          "Headbutt"
+        ]
+      }
     ],
     "reward_money": 720,
     "sight_range": 4,
@@ -369,9 +832,34 @@
     "trainer_class": "Bug Catcher",
     "sprite_id": "bug_catcher",
     "pokemon_team": [
-      {"species_id": 46, "name": "Paras", "level": 17, "moves": ["Scratch", "Poison Sting", "Slash"]},
-      {"species_id": 19, "name": "Caterpie", "level": 17, "moves": ["Tackle", "String Shot"]},
-      {"species_id": 20, "name": "Weedle", "level": 17, "moves": ["Poison Sting", "String Shot"]}
+      {
+        "species_id": 46,
+        "name": "Paras",
+        "level": 17,
+        "moves": [
+          "Scratch",
+          "Poison Sting",
+          "Slash"
+        ]
+      },
+      {
+        "species_id": 19,
+        "name": "Caterpie",
+        "level": 17,
+        "moves": [
+          "Tackle",
+          "String Shot"
+        ]
+      },
+      {
+        "species_id": 20,
+        "name": "Weedle",
+        "level": 17,
+        "moves": [
+          "Poison Sting",
+          "String Shot"
+        ]
+      }
     ],
     "reward_money": 340,
     "sight_range": 3,
@@ -384,7 +872,17 @@
     "trainer_class": "Gentleman",
     "sprite_id": "gentleman",
     "pokemon_team": [
-      {"species_id": 15, "name": "Pikachu", "level": 18, "moves": ["Thunder Shock", "Quick Attack", "Thunder Wave", "Slam"]}
+      {
+        "species_id": 15,
+        "name": "Pikachu",
+        "level": 18,
+        "moves": [
+          "Thunder Shock",
+          "Quick Attack",
+          "Thunder Wave",
+          "Slam"
+        ]
+      }
     ],
     "reward_money": 720,
     "sight_range": 3,
@@ -397,8 +895,28 @@
     "trainer_class": "Lass",
     "sprite_id": "lass",
     "pokemon_team": [
-      {"species_id": 39, "name": "Jigglypuff", "level": 18, "moves": ["Sing", "Pound", "Disable", "Defense Curl"]},
-      {"species_id": 43, "name": "Oddish", "level": 18, "moves": ["Absorb", "Poison Sting", "Stun Spore", "Acid"]}
+      {
+        "species_id": 39,
+        "name": "Jigglypuff",
+        "level": 18,
+        "moves": [
+          "Sing",
+          "Pound",
+          "Disable",
+          "Defense Curl"
+        ]
+      },
+      {
+        "species_id": 43,
+        "name": "Oddish",
+        "level": 18,
+        "moves": [
+          "Absorb",
+          "Poison Sting",
+          "Stun Spore",
+          "Acid"
+        ]
+      }
     ],
     "reward_money": 360,
     "sight_range": 3,
@@ -411,8 +929,28 @@
     "trainer_class": "Youngster",
     "sprite_id": "youngster",
     "pokemon_team": [
-      {"species_id": 13, "name": "Rattata", "level": 17, "moves": ["Tackle", "Quick Attack", "Hyper Fang", "Tail Whip"]},
-      {"species_id": 23, "name": "Ekans", "level": 17, "moves": ["Wrap", "Leer", "Poison Sting", "Bite"]}
+      {
+        "species_id": 13,
+        "name": "Rattata",
+        "level": 17,
+        "moves": [
+          "Tackle",
+          "Quick Attack",
+          "Hyper Fang",
+          "Tail Whip"
+        ]
+      },
+      {
+        "species_id": 23,
+        "name": "Ekans",
+        "level": 17,
+        "moves": [
+          "Wrap",
+          "Leer",
+          "Poison Sting",
+          "Bite"
+        ]
+      }
     ],
     "reward_money": 340,
     "sight_range": 3,
@@ -425,8 +963,28 @@
     "trainer_class": "Sailor",
     "sprite_id": "sailor",
     "pokemon_team": [
-      {"species_id": 66, "name": "Machop", "level": 18, "moves": ["Tackle", "Leer", "Headbutt", "Double Kick"]},
-      {"species_id": 66, "name": "Machop", "level": 18, "moves": ["Tackle", "Leer", "Headbutt", "Double Kick"]}
+      {
+        "species_id": 66,
+        "name": "Machop",
+        "level": 18,
+        "moves": [
+          "Tackle",
+          "Leer",
+          "Headbutt",
+          "Double Kick"
+        ]
+      },
+      {
+        "species_id": 66,
+        "name": "Machop",
+        "level": 18,
+        "moves": [
+          "Tackle",
+          "Leer",
+          "Headbutt",
+          "Double Kick"
+        ]
+      }
     ],
     "reward_money": 540,
     "sight_range": 3,
@@ -439,8 +997,26 @@
     "trainer_class": "Sailor",
     "sprite_id": "sailor",
     "pokemon_team": [
-      {"species_id": 66, "name": "Machop", "level": 17, "moves": ["Tackle", "Leer", "Headbutt"]},
-      {"species_id": 74, "name": "Geodude", "level": 17, "moves": ["Tackle", "Rock Throw", "Sand Attack"]}
+      {
+        "species_id": 66,
+        "name": "Machop",
+        "level": 17,
+        "moves": [
+          "Tackle",
+          "Leer",
+          "Headbutt"
+        ]
+      },
+      {
+        "species_id": 74,
+        "name": "Geodude",
+        "level": 17,
+        "moves": [
+          "Tackle",
+          "Rock Throw",
+          "Sand Attack"
+        ]
+      }
     ],
     "reward_money": 510,
     "sight_range": 3,
@@ -453,7 +1029,17 @@
     "trainer_class": "Channeler",
     "sprite_id": "channeler",
     "pokemon_team": [
-      {"species_id": 92, "name": "Gastly", "level": 22, "moves": ["Lick", "Confuse Ray", "Hypnosis", "Night Shade"]}
+      {
+        "species_id": 92,
+        "name": "Gastly",
+        "level": 22,
+        "moves": [
+          "Lick",
+          "Confuse Ray",
+          "Hypnosis",
+          "Night Shade"
+        ]
+      }
     ],
     "reward_money": 440,
     "sight_range": 3,
@@ -466,7 +1052,17 @@
     "trainer_class": "Channeler",
     "sprite_id": "channeler",
     "pokemon_team": [
-      {"species_id": 92, "name": "Gastly", "level": 22, "moves": ["Lick", "Confuse Ray", "Hypnosis", "Night Shade"]}
+      {
+        "species_id": 92,
+        "name": "Gastly",
+        "level": 22,
+        "moves": [
+          "Lick",
+          "Confuse Ray",
+          "Hypnosis",
+          "Night Shade"
+        ]
+      }
     ],
     "reward_money": 440,
     "sight_range": 3,
@@ -479,7 +1075,17 @@
     "trainer_class": "Channeler",
     "sprite_id": "channeler",
     "pokemon_team": [
-      {"species_id": 92, "name": "Gastly", "level": 23, "moves": ["Lick", "Confuse Ray", "Hypnosis", "Night Shade"]}
+      {
+        "species_id": 92,
+        "name": "Gastly",
+        "level": 23,
+        "moves": [
+          "Lick",
+          "Confuse Ray",
+          "Hypnosis",
+          "Night Shade"
+        ]
+      }
     ],
     "reward_money": 460,
     "sight_range": 3,
@@ -492,7 +1098,17 @@
     "trainer_class": "Channeler",
     "sprite_id": "channeler",
     "pokemon_team": [
-      {"species_id": 92, "name": "Gastly", "level": 23, "moves": ["Lick", "Confuse Ray", "Hypnosis", "Night Shade"]}
+      {
+        "species_id": 92,
+        "name": "Gastly",
+        "level": 23,
+        "moves": [
+          "Lick",
+          "Confuse Ray",
+          "Hypnosis",
+          "Night Shade"
+        ]
+      }
     ],
     "reward_money": 460,
     "sight_range": 3,
@@ -505,7 +1121,17 @@
     "trainer_class": "Channeler",
     "sprite_id": "channeler",
     "pokemon_team": [
-      {"species_id": 92, "name": "Gastly", "level": 24, "moves": ["Lick", "Confuse Ray", "Hypnosis", "Night Shade"]}
+      {
+        "species_id": 92,
+        "name": "Gastly",
+        "level": 24,
+        "moves": [
+          "Lick",
+          "Confuse Ray",
+          "Hypnosis",
+          "Night Shade"
+        ]
+      }
     ],
     "reward_money": 480,
     "sight_range": 3,
@@ -518,8 +1144,28 @@
     "trainer_class": "Team Rocket",
     "sprite_id": "rocket_grunt",
     "pokemon_team": [
-      {"species_id": 41, "name": "Zubat", "level": 25, "moves": ["Bite", "Wing Attack", "Confuse Ray", "Toxic"]},
-      {"species_id": 109, "name": "Koffing", "level": 25, "moves": ["Tackle", "Poison Sting", "Self-Destruct", "Toxic"]}
+      {
+        "species_id": 41,
+        "name": "Zubat",
+        "level": 25,
+        "moves": [
+          "Bite",
+          "Wing Attack",
+          "Confuse Ray",
+          "Toxic"
+        ]
+      },
+      {
+        "species_id": 109,
+        "name": "Koffing",
+        "level": 25,
+        "moves": [
+          "Tackle",
+          "Poison Sting",
+          "Self-Destruct",
+          "Toxic"
+        ]
+      }
     ],
     "reward_money": 1000,
     "sight_range": 3,
@@ -532,8 +1178,28 @@
     "trainer_class": "Team Rocket",
     "sprite_id": "rocket_grunt",
     "pokemon_team": [
-      {"species_id": 41, "name": "Zubat", "level": 25, "moves": ["Bite", "Wing Attack", "Confuse Ray", "Toxic"]},
-      {"species_id": 109, "name": "Koffing", "level": 25, "moves": ["Tackle", "Poison Sting", "Self-Destruct", "Toxic"]}
+      {
+        "species_id": 41,
+        "name": "Zubat",
+        "level": 25,
+        "moves": [
+          "Bite",
+          "Wing Attack",
+          "Confuse Ray",
+          "Toxic"
+        ]
+      },
+      {
+        "species_id": 109,
+        "name": "Koffing",
+        "level": 25,
+        "moves": [
+          "Tackle",
+          "Poison Sting",
+          "Self-Destruct",
+          "Toxic"
+        ]
+      }
     ],
     "reward_money": 1000,
     "sight_range": 3,
@@ -546,8 +1212,28 @@
     "trainer_class": "Lass",
     "sprite_id": "lass",
     "pokemon_team": [
-      {"species_id": 35, "name": "Clefairy", "level": 20, "moves": ["Growl", "Tackle", "Quick Attack", "Psychic"]},
-      {"species_id": 39, "name": "Jigglypuff", "level": 20, "moves": ["Sing", "Pound", "Disable", "Defense Curl"]}
+      {
+        "species_id": 35,
+        "name": "Clefairy",
+        "level": 20,
+        "moves": [
+          "Growl",
+          "Tackle",
+          "Quick Attack",
+          "Psychic"
+        ]
+      },
+      {
+        "species_id": 39,
+        "name": "Jigglypuff",
+        "level": 20,
+        "moves": [
+          "Sing",
+          "Pound",
+          "Disable",
+          "Defense Curl"
+        ]
+      }
     ],
     "reward_money": 400,
     "sight_range": 3,
@@ -560,8 +1246,28 @@
     "trainer_class": "Super Nerd",
     "sprite_id": "super_nerd",
     "pokemon_team": [
-      {"species_id": 81, "name": "Magnemite", "level": 22, "moves": ["Tackle", "Thunder Shock", "Thunder Wave", "Swift"]},
-      {"species_id": 100, "name": "Voltorb", "level": 22, "moves": ["Tackle", "Thunder Shock", "Screech", "Self-Destruct"]}
+      {
+        "species_id": 81,
+        "name": "Magnemite",
+        "level": 22,
+        "moves": [
+          "Tackle",
+          "Thunder Shock",
+          "Thunder Wave",
+          "Swift"
+        ]
+      },
+      {
+        "species_id": 100,
+        "name": "Voltorb",
+        "level": 22,
+        "moves": [
+          "Tackle",
+          "Thunder Shock",
+          "Screech",
+          "Self-Destruct"
+        ]
+      }
     ],
     "reward_money": 540,
     "sight_range": 4,
@@ -574,8 +1280,28 @@
     "trainer_class": "Gambler",
     "sprite_id": "gambler",
     "pokemon_team": [
-      {"species_id": 58, "name": "Growlithe", "level": 21, "moves": ["Ember", "Bite", "Leer", "Growl"]},
-      {"species_id": 37, "name": "Vulpix", "level": 21, "moves": ["Ember", "Quick Attack", "Confuse Ray", "Growl"]}
+      {
+        "species_id": 58,
+        "name": "Growlithe",
+        "level": 21,
+        "moves": [
+          "Ember",
+          "Bite",
+          "Leer",
+          "Growl"
+        ]
+      },
+      {
+        "species_id": 37,
+        "name": "Vulpix",
+        "level": 21,
+        "moves": [
+          "Ember",
+          "Quick Attack",
+          "Confuse Ray",
+          "Growl"
+        ]
+      }
     ],
     "reward_money": 840,
     "sight_range": 3,
@@ -588,9 +1314,35 @@
     "trainer_class": "Fisherman",
     "sprite_id": "fisherman",
     "pokemon_team": [
-      {"species_id": 129, "name": "Magikarp", "level": 22, "moves": ["Tackle", "Slam"]},
-      {"species_id": 60, "name": "Poliwag", "level": 22, "moves": ["Water Gun", "Bubble Beam", "Headbutt"]},
-      {"species_id": 118, "name": "Goldeen", "level": 22, "moves": ["Water Gun", "Headbutt", "Tail Whip"]}
+      {
+        "species_id": 129,
+        "name": "Magikarp",
+        "level": 22,
+        "moves": [
+          "Tackle",
+          "Slam"
+        ]
+      },
+      {
+        "species_id": 60,
+        "name": "Poliwag",
+        "level": 22,
+        "moves": [
+          "Water Gun",
+          "Bubble Beam",
+          "Headbutt"
+        ]
+      },
+      {
+        "species_id": 118,
+        "name": "Goldeen",
+        "level": 22,
+        "moves": [
+          "Water Gun",
+          "Headbutt",
+          "Tail Whip"
+        ]
+      }
     ],
     "reward_money": 440,
     "sight_range": 3,
@@ -603,12 +1355,579 @@
     "trainer_class": "Youngster",
     "sprite_id": "youngster",
     "pokemon_team": [
-      {"species_id": 13, "name": "Rattata", "level": 23, "moves": ["Tackle", "Quick Attack", "Hyper Fang", "Tail Whip"]},
-      {"species_id": 14, "name": "Raticate", "level": 23, "moves": ["Tackle", "Quick Attack", "Hyper Fang", "Super Fang"]}
+      {
+        "species_id": 13,
+        "name": "Rattata",
+        "level": 23,
+        "moves": [
+          "Tackle",
+          "Quick Attack",
+          "Hyper Fang",
+          "Tail Whip"
+        ]
+      },
+      {
+        "species_id": 14,
+        "name": "Raticate",
+        "level": 23,
+        "moves": [
+          "Tackle",
+          "Quick Attack",
+          "Hyper Fang",
+          "Super Fang"
+        ]
+      }
     ],
     "reward_money": 460,
     "sight_range": 3,
     "dialogue_before": "Route 12 is the best place to train!",
     "dialogue_after": "I need to train harder..."
+  },
+  {
+    "id": "celadon_gym_trainer_1",
+    "name": "Lisa",
+    "trainer_class": "Beauty",
+    "sprite_id": "beauty",
+    "pokemon_team": [
+      {
+        "species_id": 69,
+        "name": "Bellsprout",
+        "level": 23,
+        "moves": [
+          "Vine Whip",
+          "Wrap",
+          "Poison Powder",
+          "Sleep Powder"
+        ]
+      },
+      {
+        "species_id": 70,
+        "name": "Weepinbell",
+        "level": 23,
+        "moves": [
+          "Vine Whip",
+          "Wrap",
+          "Razor Leaf",
+          "Poison Powder"
+        ]
+      }
+    ],
+    "reward_money": 460,
+    "sight_range": 3,
+    "dialogue_before": "Our Gym Leader Erika is a master of Grass-type Pokemon!",
+    "dialogue_after": "You're strong, but Erika is even stronger!"
+  },
+  {
+    "id": "celadon_gym_trainer_2",
+    "name": "Bridget",
+    "trainer_class": "Beauty",
+    "sprite_id": "beauty",
+    "pokemon_team": [
+      {
+        "species_id": 43,
+        "name": "Oddish",
+        "level": 22,
+        "moves": [
+          "Absorb",
+          "Poison Sting",
+          "Stun Spore",
+          "Acid"
+        ]
+      },
+      {
+        "species_id": 44,
+        "name": "Gloom",
+        "level": 24,
+        "moves": [
+          "Absorb",
+          "Poison Sting",
+          "Sleep Powder",
+          "Razor Leaf"
+        ]
+      },
+      {
+        "species_id": 102,
+        "name": "Exeggcute",
+        "level": 22,
+        "moves": [
+          "Barrage",
+          "Hypnosis",
+          "Confusion"
+        ]
+      }
+    ],
+    "reward_money": 480,
+    "sight_range": 3,
+    "dialogue_before": "The fragrance of Grass-type Pokemon is so lovely!",
+    "dialogue_after": "My Pokemon... they wilted!"
+  },
+  {
+    "id": "celadon_gym_trainer_3",
+    "name": "Tamia",
+    "trainer_class": "Lass",
+    "sprite_id": "lass",
+    "pokemon_team": [
+      {
+        "species_id": 114,
+        "name": "Tangela",
+        "level": 24,
+        "moves": [
+          "Vine Whip",
+          "Bind",
+          "Absorb",
+          "Constrict"
+        ]
+      },
+      {
+        "species_id": 46,
+        "name": "Paras",
+        "level": 24,
+        "moves": [
+          "Scratch",
+          "Poison Sting",
+          "Slash",
+          "Razor Leaf"
+        ]
+      }
+    ],
+    "reward_money": 480,
+    "sight_range": 3,
+    "dialogue_before": "Grass Pokemon are full of vitality!",
+    "dialogue_after": "Even the sun couldn't save my Pokemon..."
+  },
+  {
+    "id": "route16_biker_1",
+    "name": "Lao",
+    "trainer_class": "Biker",
+    "sprite_id": "biker",
+    "pokemon_team": [
+      {
+        "species_id": 109,
+        "name": "Koffing",
+        "level": 24,
+        "moves": [
+          "Tackle",
+          "Poison Sting",
+          "Self-Destruct",
+          "Toxic"
+        ]
+      },
+      {
+        "species_id": 24,
+        "name": "Arbok",
+        "level": 24,
+        "moves": [
+          "Wrap",
+          "Poison Sting",
+          "Bite",
+          "Glare"
+        ]
+      }
+    ],
+    "reward_money": 480,
+    "sight_range": 4,
+    "dialogue_before": "This is our turf! No one passes without a battle!",
+    "dialogue_after": "You beat me... but the others won't be so easy!"
+  },
+  {
+    "id": "route16_bird_keeper_1",
+    "name": "Carter",
+    "trainer_class": "Bird Keeper",
+    "sprite_id": "bird_keeper",
+    "pokemon_team": [
+      {
+        "species_id": 25,
+        "name": "Spearow",
+        "level": 24,
+        "moves": [
+          "Gust",
+          "Quick Attack",
+          "Wing Attack",
+          "Agility"
+        ]
+      },
+      {
+        "species_id": 84,
+        "name": "Doduo",
+        "level": 24,
+        "moves": [
+          "Tackle",
+          "Quick Attack",
+          "Gust",
+          "Wing Attack"
+        ]
+      }
+    ],
+    "reward_money": 480,
+    "sight_range": 3,
+    "dialogue_before": "My birds are the fastest around!",
+    "dialogue_after": "Your Pokemon outflew mine!"
+  },
+  {
+    "id": "cycling_road_biker_1",
+    "name": "Virgil",
+    "trainer_class": "Biker",
+    "sprite_id": "biker",
+    "pokemon_team": [
+      {
+        "species_id": 109,
+        "name": "Koffing",
+        "level": 25,
+        "moves": [
+          "Tackle",
+          "Poison Sting",
+          "Self-Destruct",
+          "Toxic"
+        ]
+      },
+      {
+        "species_id": 109,
+        "name": "Koffing",
+        "level": 25,
+        "moves": [
+          "Tackle",
+          "Poison Sting",
+          "Self-Destruct",
+          "Toxic"
+        ]
+      }
+    ],
+    "reward_money": 500,
+    "sight_range": 4,
+    "dialogue_before": "Cycling Road belongs to us bikers!",
+    "dialogue_after": "I wiped out..."
+  },
+  {
+    "id": "cycling_road_biker_2",
+    "name": "Billy",
+    "trainer_class": "Biker",
+    "sprite_id": "biker",
+    "pokemon_team": [
+      {
+        "species_id": 24,
+        "name": "Arbok",
+        "level": 26,
+        "moves": [
+          "Wrap",
+          "Poison Sting",
+          "Bite",
+          "Acid"
+        ]
+      },
+      {
+        "species_id": 109,
+        "name": "Koffing",
+        "level": 26,
+        "moves": [
+          "Tackle",
+          "Poison Sting",
+          "Self-Destruct",
+          "Toxic"
+        ]
+      }
+    ],
+    "reward_money": 520,
+    "sight_range": 4,
+    "dialogue_before": "You think you can ride with the big boys?",
+    "dialogue_after": "You ride hard, kid..."
+  },
+  {
+    "id": "cycling_road_biker_3",
+    "name": "Nikolas",
+    "trainer_class": "Biker",
+    "sprite_id": "biker",
+    "pokemon_team": [
+      {
+        "species_id": 24,
+        "name": "Arbok",
+        "level": 27,
+        "moves": [
+          "Wrap",
+          "Poison Sting",
+          "Bite",
+          "Acid",
+          "Glare"
+        ]
+      },
+      {
+        "species_id": 109,
+        "name": "Koffing",
+        "level": 25,
+        "moves": [
+          "Tackle",
+          "Poison Sting",
+          "Self-Destruct",
+          "Toxic"
+        ]
+      },
+      {
+        "species_id": 109,
+        "name": "Koffing",
+        "level": 25,
+        "moves": [
+          "Tackle",
+          "Poison Sting",
+          "Self-Destruct",
+          "Toxic"
+        ]
+      }
+    ],
+    "reward_money": 540,
+    "sight_range": 4,
+    "dialogue_before": "I'm the toughest biker on this road!",
+    "dialogue_after": "No way... I lost to a kid!"
+  },
+  {
+    "id": "celadon_gym_trainer_1",
+    "name": "Lass Lisa",
+    "trainer_class": "Lass",
+    "sprite_id": "lass",
+    "pokemon_team": [
+      {
+        "species_id": 69,
+        "name": "Bellsprout",
+        "level": 23,
+        "moves": [
+          "Vine Whip",
+          "Wrap",
+          "Poison Powder"
+        ]
+      },
+      {
+        "species_id": 70,
+        "name": "Weepinbell",
+        "level": 23,
+        "moves": [
+          "Razor Leaf",
+          "Wrap",
+          "Poison Powder"
+        ]
+      }
+    ],
+    "reward_money": 460,
+    "sight_range": 3,
+    "dialogue_before": "Our Gym Leader Erika is so elegant!",
+    "dialogue_after": "You're strong... Erika will be tougher though!"
+  },
+  {
+    "id": "celadon_gym_trainer_2",
+    "name": "Beauty Bridget",
+    "trainer_class": "Beauty",
+    "sprite_id": "beauty",
+    "pokemon_team": [
+      {
+        "species_id": 43,
+        "name": "Oddish",
+        "level": 24,
+        "moves": [
+          "Absorb",
+          "Poison Powder",
+          "Stun Spore"
+        ]
+      },
+      {
+        "species_id": 102,
+        "name": "Exeggcute",
+        "level": 24,
+        "moves": [
+          "Barrage",
+          "Hypnosis",
+          "Leech Seed"
+        ]
+      }
+    ],
+    "reward_money": 480,
+    "sight_range": 3,
+    "dialogue_before": "Grass Pokemon are so beautiful!",
+    "dialogue_after": "Oh no, my beautiful Pokemon!"
+  },
+  {
+    "id": "celadon_gym_trainer_3",
+    "name": "Lass Kay",
+    "trainer_class": "Lass",
+    "sprite_id": "lass",
+    "pokemon_team": [
+      {
+        "species_id": 114,
+        "name": "Tangela",
+        "level": 26,
+        "moves": [
+          "Vine Whip",
+          "Constrict",
+          "Bind",
+          "Absorb"
+        ]
+      }
+    ],
+    "reward_money": 520,
+    "sight_range": 3,
+    "dialogue_before": "Do you know about Grass-type Pokemon?",
+    "dialogue_after": "I lost... but I learned something!"
+  },
+  {
+    "id": "route16_biker_1",
+    "name": "Biker Lao",
+    "trainer_class": "Biker",
+    "sprite_id": "biker",
+    "pokemon_team": [
+      {
+        "species_id": 40,
+        "name": "Grimer",
+        "level": 25,
+        "moves": [
+          "Sludge",
+          "Minimize",
+          "Pound"
+        ]
+      },
+      {
+        "species_id": 41,
+        "name": "Muk",
+        "level": 25,
+        "moves": [
+          "Sludge",
+          "Minimize",
+          "Poison Gas",
+          "Pound"
+        ]
+      }
+    ],
+    "reward_money": 500,
+    "sight_range": 4,
+    "dialogue_before": "You think you can take the Cycling Road? Ha!",
+    "dialogue_after": "Not bad, kid..."
+  },
+  {
+    "id": "route16_bird_keeper_1",
+    "name": "Bird Keeper Boris",
+    "trainer_class": "Bird Keeper",
+    "sprite_id": "bird_keeper",
+    "pokemon_team": [
+      {
+        "species_id": 5,
+        "name": "Pidgeotto",
+        "level": 26,
+        "moves": [
+          "Wing Attack",
+          "Gust",
+          "Quick Attack",
+          "Sand Attack"
+        ]
+      },
+      {
+        "species_id": 23,
+        "name": "Fearow",
+        "level": 26,
+        "moves": [
+          "Peck",
+          "Fury Attack",
+          "Mirror Move",
+          "Drill Peck"
+        ]
+      }
+    ],
+    "reward_money": 520,
+    "sight_range": 4,
+    "dialogue_before": "My birds rule the skies of Route 16!",
+    "dialogue_after": "My birds... they fell!"
+  },
+  {
+    "id": "cycling_road_biker_1",
+    "name": "Biker Ruben",
+    "trainer_class": "Biker",
+    "sprite_id": "biker",
+    "pokemon_team": [
+      {
+        "species_id": 40,
+        "name": "Grimer",
+        "level": 26,
+        "moves": [
+          "Sludge",
+          "Minimize",
+          "Pound"
+        ]
+      },
+      {
+        "species_id": 37,
+        "name": "Koffing",
+        "level": 26,
+        "moves": [
+          "Tackle",
+          "Smog",
+          "Sludge",
+          "Self-Destruct"
+        ]
+      }
+    ],
+    "reward_money": 520,
+    "sight_range": 3,
+    "dialogue_before": "Cycling Road belongs to us bikers!",
+    "dialogue_after": "Whoa, you wiped me out!"
+  },
+  {
+    "id": "cycling_road_biker_2",
+    "name": "Biker Billy",
+    "trainer_class": "Biker",
+    "sprite_id": "biker",
+    "pokemon_team": [
+      {
+        "species_id": 37,
+        "name": "Koffing",
+        "level": 25,
+        "moves": [
+          "Tackle",
+          "Smog",
+          "Sludge"
+        ]
+      },
+      {
+        "species_id": 37,
+        "name": "Koffing",
+        "level": 25,
+        "moves": [
+          "Tackle",
+          "Smog",
+          "Sludge"
+        ]
+      },
+      {
+        "species_id": 38,
+        "name": "Weezing",
+        "level": 27,
+        "moves": [
+          "Tackle",
+          "Smog",
+          "Sludge",
+          "Self-Destruct"
+        ]
+      }
+    ],
+    "reward_money": 540,
+    "sight_range": 3,
+    "dialogue_before": "Three on one? That's how we roll!",
+    "dialogue_after": "No way... all three of them!"
+  },
+  {
+    "id": "cycling_road_biker_3",
+    "name": "Biker Jaxon",
+    "trainer_class": "Biker",
+    "sprite_id": "biker",
+    "pokemon_team": [
+      {
+        "species_id": 41,
+        "name": "Muk",
+        "level": 28,
+        "moves": [
+          "Sludge",
+          "Minimize",
+          "Poison Gas",
+          "Pound"
+        ]
+      }
+    ],
+    "reward_money": 560,
+    "sight_range": 3,
+    "dialogue_before": "You made it this far? Not bad!",
+    "dialogue_after": "You beat my Muk? Impressive!"
   }
 ]

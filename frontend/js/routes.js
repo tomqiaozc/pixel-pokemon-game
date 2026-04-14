@@ -1645,6 +1645,362 @@ const Routes = (() => {
           pokemon: [{ name: 'Haunter', level: 24, hp: 42, maxHp: 42, type: 'Ghost' }] },
     ];
 
+    // ═══════════════════════════════════════════════
+    //  Sprint 15: Celadon City, Game Corner, Erika's Gym, Routes 16 & Cycling Road
+    // ═══════════════════════════════════════════════
+
+    // Celadon City (30x30)
+    function buildCeladonCity() {
+        const W = 30, H = 30;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.GRASS);
+            m.push(row);
+        }
+
+        // Tree border
+        for (let x = 0; x < W; x++) { m[0][x] = T.TREE; m[H - 1][x] = T.TREE; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.TREE; m[y][W - 1] = T.TREE; }
+
+        // Main roads: horizontal mid, vertical through
+        for (let x = 1; x < W - 1; x++) { m[14][x] = T.DIRT; m[15][x] = T.DIRT; }
+        for (let y = 1; y < H - 1; y++) { m[y][14] = T.DIRT; m[y][15] = T.DIRT; }
+
+        // Pokemon Center (left area)
+        buildHouse(m, 5, 8, 4, 3);
+
+        // Pokemart (center-left)
+        buildHouse(m, 12, 8, 4, 3);
+
+        // Department Store (large, upper-right)
+        for (let x = 18; x <= 23; x++) {
+            m[4][x] = T.HOUSE_ROOF; m[5][x] = T.HOUSE_ROOF;
+            m[6][x] = T.HOUSE_WALL; m[7][x] = T.HOUSE_WALL;
+        }
+        m[7][20] = T.DOOR;
+
+        // Game Corner (right side, middle)
+        for (let x = 18; x <= 23; x++) {
+            m[16][x] = T.HOUSE_ROOF; m[17][x] = T.HOUSE_ROOF;
+            m[18][x] = T.HOUSE_WALL; m[19][x] = T.HOUSE_WALL;
+        }
+        m[19][20] = T.DOOR;
+
+        // Celadon Gym (left side, lower — with flower garden)
+        for (let x = 3; x <= 8; x++) {
+            m[18][x] = T.HOUSE_ROOF; m[19][x] = T.HOUSE_ROOF;
+            m[20][x] = T.HOUSE_WALL; m[21][x] = T.HOUSE_WALL;
+        }
+        m[21][5] = T.DOOR;
+        // Flower garden around gym
+        for (let x = 2; x <= 9; x++) { m[17][x] = T.FLOWER; m[22][x] = T.FLOWER; }
+        for (let y = 18; y <= 21; y++) { m[y][2] = T.FLOWER; m[y][9] = T.FLOWER; }
+
+        // Celadon Mansion (bottom center-left)
+        buildHouse(m, 10, 22, 4, 3);
+
+        // Celadon Condominiums (bottom right)
+        buildHouse(m, 20, 22, 4, 3);
+
+        // Decorative pond
+        for (let y = 10; y <= 12; y++) {
+            for (let x = 22; x <= 26; x++) m[y][x] = T.WATER;
+        }
+
+        // Flowers throughout
+        m[3][5] = T.FLOWER; m[3][8] = T.FLOWER; m[3][12] = T.FLOWER;
+        m[26][5] = T.FLOWER; m[26][10] = T.FLOWER; m[26][20] = T.FLOWER;
+
+        // Rocks
+        m[25][3] = T.ROCK; m[25][27] = T.ROCK;
+
+        // Exit east (to Route 7)
+        m[14][W - 1] = T.DIRT; m[15][W - 1] = T.DIRT;
+
+        // Exit west (to Route 16)
+        m[14][0] = T.DIRT; m[15][0] = T.DIRT;
+
+        return { data: m, width: W, height: H };
+    }
+
+    // Celadon Pokemon Center (8x8)
+    function buildCeladonPokemonCenter() {
+        const W = 8, H = 8;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.DIRT);
+            m.push(row);
+        }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H - 1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W - 1] = T.HOUSE_WALL; }
+        m[2][3] = T.HOUSE_WALL; m[2][4] = T.HOUSE_WALL; m[2][5] = T.HOUSE_WALL;
+        m[H - 1][4] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Celadon Pokemart (8x8)
+    function buildCeladonPokemart() {
+        const W = 8, H = 8;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.DIRT);
+            m.push(row);
+        }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H - 1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W - 1] = T.HOUSE_WALL; }
+        m[2][2] = T.HOUSE_WALL; m[2][3] = T.HOUSE_WALL;
+        m[4][5] = T.HOUSE_WALL; m[4][6] = T.HOUSE_WALL;
+        m[H - 1][4] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Celadon Department Store 1F (12x10)
+    function buildCeladonDepartmentStore1F() {
+        const W = 12, H = 10;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.DIRT);
+            m.push(row);
+        }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H - 1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W - 1] = T.HOUSE_WALL; }
+        // Counter
+        for (let x = 3; x <= 8; x++) m[2][x] = T.HOUSE_WALL;
+        // Shelves
+        m[5][2] = T.HOUSE_WALL; m[5][3] = T.HOUSE_WALL;
+        m[5][8] = T.HOUSE_WALL; m[5][9] = T.HOUSE_WALL;
+        // Stairs up (right side)
+        m[1][10] = T.DOOR;
+        // Entrance
+        m[H - 1][5] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Celadon Department Store 2F (12x10)
+    function buildCeladonDepartmentStore2F() {
+        const W = 12, H = 10;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.DIRT);
+            m.push(row);
+        }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H - 1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W - 1] = T.HOUSE_WALL; }
+        // Counter
+        for (let x = 3; x <= 8; x++) m[2][x] = T.HOUSE_WALL;
+        // TM display shelves
+        m[5][2] = T.HOUSE_WALL; m[5][3] = T.HOUSE_WALL; m[5][4] = T.HOUSE_WALL;
+        m[5][7] = T.HOUSE_WALL; m[5][8] = T.HOUSE_WALL; m[5][9] = T.HOUSE_WALL;
+        // Stairs down (right side)
+        m[H - 1][10] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Celadon Gym interior (12x12) — garden aesthetic with flowers
+    function buildCeladonGym() {
+        const W = 12, H = 12;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.GRASS);
+            m.push(row);
+        }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H - 1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W - 1] = T.HOUSE_WALL; }
+        // Dirt path to leader
+        for (let y = 1; y < H - 1; y++) { m[y][5] = T.DIRT; m[y][6] = T.DIRT; }
+        // Cut tree barriers (aesthetic only — use T.TREE as cut-tree stand-in)
+        m[3][3] = T.TREE; m[3][8] = T.TREE;
+        m[6][3] = T.TREE; m[6][8] = T.TREE;
+        m[9][3] = T.TREE; m[9][8] = T.TREE;
+        // Flower decorations
+        m[2][2] = T.FLOWER; m[2][4] = T.FLOWER; m[2][7] = T.FLOWER; m[2][9] = T.FLOWER;
+        m[5][2] = T.FLOWER; m[5][4] = T.FLOWER; m[5][7] = T.FLOWER; m[5][9] = T.FLOWER;
+        m[8][2] = T.FLOWER; m[8][4] = T.FLOWER; m[8][7] = T.FLOWER; m[8][9] = T.FLOWER;
+        // Entrance
+        m[H - 1][5] = T.DOOR; m[H - 1][6] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Celadon Game Corner (14x12)
+    function buildCeladonGameCorner() {
+        const W = 14, H = 12;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.DIRT);
+            m.push(row);
+        }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H - 1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W - 1] = T.HOUSE_WALL; }
+        // Rows of slot machines (use ROCK as stand-in tiles)
+        for (let x = 2; x <= 5; x++) { m[3][x] = T.ROCK; m[5][x] = T.ROCK; m[7][x] = T.ROCK; }
+        for (let x = 8; x <= 11; x++) { m[3][x] = T.ROCK; m[5][x] = T.ROCK; m[7][x] = T.ROCK; }
+        // Suspicious poster (Team Rocket hideout entrance hint)
+        m[1][10] = T.HOUSE_ROOF;
+        // Entrance
+        m[H - 1][7] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Celadon Mansion (10x10)
+    function buildCeladonMansion() {
+        const W = 10, H = 10;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.DIRT);
+            m.push(row);
+        }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H - 1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W - 1] = T.HOUSE_WALL; }
+        // Furniture
+        m[2][2] = T.HOUSE_WALL; m[2][3] = T.HOUSE_WALL;
+        m[5][6] = T.HOUSE_WALL; m[5][7] = T.HOUSE_WALL;
+        // Flowers inside
+        m[3][5] = T.FLOWER; m[7][3] = T.FLOWER;
+        m[H - 1][5] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Celadon Condominiums (8x8)
+    function buildCeladonCondominiums() {
+        const W = 8, H = 8;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.DIRT);
+            m.push(row);
+        }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H - 1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W - 1] = T.HOUSE_WALL; }
+        m[3][3] = T.HOUSE_WALL; m[3][4] = T.HOUSE_WALL;
+        m[H - 1][4] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Route 16 (20x15)
+    function buildRoute16() {
+        const W = 20, H = 15;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.GRASS);
+            m.push(row);
+        }
+        // Tree borders
+        for (let x = 0; x < W; x++) { m[0][x] = T.TREE; m[H - 1][x] = T.TREE; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.TREE; m[y][W - 1] = T.TREE; }
+        // Main path
+        for (let x = 1; x < W - 1; x++) { m[7][x] = T.DIRT; m[8][x] = T.DIRT; }
+        // Tall grass patches
+        for (let y = 3; y <= 5; y++) {
+            for (let x = 3; x <= 8; x++) m[y][x] = T.TALL_GRASS;
+        }
+        for (let y = 9; y <= 12; y++) {
+            for (let x = 11; x <= 16; x++) m[y][x] = T.TALL_GRASS;
+        }
+        // Fence/gate (rocks at entrance to cycling road)
+        m[6][0] = T.ROCK; m[9][0] = T.ROCK;
+        // Exit east (to Celadon City)
+        m[7][W - 1] = T.DIRT; m[8][W - 1] = T.DIRT;
+        // Exit west (to Cycling Road)
+        m[7][0] = T.DIRT; m[8][0] = T.DIRT;
+        return { data: m, width: W, height: H };
+    }
+
+    // Cycling Road (10x40) — long downhill route
+    function buildCyclingRoad() {
+        const W = 10, H = 40;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.GRASS);
+            m.push(row);
+        }
+        // Fence borders (rocks for guard rails)
+        for (let y = 0; y < H; y++) { m[y][0] = T.ROCK; m[y][W - 1] = T.ROCK; }
+        // Cycling lane (center, 4 tiles wide)
+        for (let y = 0; y < H; y++) {
+            for (let x = 3; x <= 6; x++) m[y][x] = T.DIRT;
+        }
+        // Lane markings (grass tiles periodically on the road edges)
+        for (let y = 0; y < H; y += 5) {
+            m[y][3] = T.GRASS;
+            m[y][6] = T.GRASS;
+        }
+        // Tall grass along sides
+        for (let y = 5; y <= 14; y++) { m[y][1] = T.TALL_GRASS; m[y][2] = T.TALL_GRASS; }
+        for (let y = 25; y <= 34; y++) { m[y][7] = T.TALL_GRASS; m[y][8] = T.TALL_GRASS; }
+        // Exit north
+        m[0][4] = T.DIRT; m[0][5] = T.DIRT;
+        // Exit south (future — connects to Fuchsia City area)
+        m[H - 1][4] = T.DIRT; m[H - 1][5] = T.DIRT;
+        return { data: m, width: W, height: H };
+    }
+
+    // Celadon trainers
+    const celadonGymTrainers = [
+        { x: 3, y: 5, name: 'Lass Lisa', dir: 3, sightRange: 3,
+          dialogue: ['Our Gym Leader Erika is so elegant!'],
+          pokemon: [
+              { name: 'Bellsprout', level: 23, hp: 45, maxHp: 45, type: 'Grass' },
+              { name: 'Weepinbell', level: 23, hp: 50, maxHp: 50, type: 'Grass' },
+          ] },
+        { x: 8, y: 5, name: 'Beauty Bridget', dir: 2, sightRange: 3,
+          dialogue: ['Grass Pokemon are so beautiful!'],
+          pokemon: [
+              { name: 'Oddish', level: 24, hp: 46, maxHp: 46, type: 'Grass' },
+              { name: 'Exeggcute', level: 24, hp: 52, maxHp: 52, type: 'Grass' },
+          ] },
+        { x: 5, y: 8, name: 'Lass Kay', dir: 0, sightRange: 3,
+          dialogue: ['Do you know about Grass-type Pokemon?'],
+          pokemon: [
+              { name: 'Tangela', level: 26, hp: 54, maxHp: 54, type: 'Grass' },
+          ] },
+    ];
+
+    const route16Trainers = [
+        { x: 10, y: 7, name: 'Biker Lao', dir: 3, sightRange: 4,
+          dialogue: ['You think you can take the Cycling Road? Ha!'],
+          pokemon: [
+              { name: 'Grimer', level: 25, hp: 52, maxHp: 52, type: 'Poison' },
+              { name: 'Muk', level: 25, hp: 58, maxHp: 58, type: 'Poison' },
+          ] },
+        { x: 15, y: 5, name: 'Bird Keeper Boris', dir: 2, sightRange: 4,
+          dialogue: ['My birds rule the skies of Route 16!'],
+          pokemon: [
+              { name: 'Pidgeotto', level: 26, hp: 54, maxHp: 54, type: 'Flying' },
+              { name: 'Fearow', level: 26, hp: 56, maxHp: 56, type: 'Flying' },
+          ] },
+    ];
+
+    const cyclingRoadTrainers = [
+        { x: 5, y: 8, name: 'Biker Ruben', dir: 2, sightRange: 3,
+          dialogue: ['Cycling Road belongs to us bikers!'],
+          pokemon: [
+              { name: 'Grimer', level: 26, hp: 54, maxHp: 54, type: 'Poison' },
+              { name: 'Koffing', level: 26, hp: 50, maxHp: 50, type: 'Poison' },
+          ] },
+        { x: 5, y: 20, name: 'Biker Billy', dir: 3, sightRange: 3,
+          dialogue: ['Three on one? That\'s how we roll!'],
+          pokemon: [
+              { name: 'Koffing', level: 25, hp: 48, maxHp: 48, type: 'Poison' },
+              { name: 'Koffing', level: 25, hp: 48, maxHp: 48, type: 'Poison' },
+              { name: 'Weezing', level: 27, hp: 56, maxHp: 56, type: 'Poison' },
+          ] },
+        { x: 5, y: 32, name: 'Biker Jaxon', dir: 2, sightRange: 3,
+          dialogue: ['You made it this far? Not bad!'],
+          pokemon: [
+              { name: 'Muk', level: 28, hp: 62, maxHp: 62, type: 'Poison' },
+          ] },
+    ];
+
     // Register all maps with MapLoader
     function registerAll() {
         const palletTown = buildPalletTown();
@@ -2258,6 +2614,171 @@ const Routes = (() => {
                   dialogue: ['A huge Snorlax is sleeping on the road!', 'I wonder if there\'s a way to wake it up...', 'I heard a flute might do the trick.'] },
             ],
         });
+
+        // --- Sprint 15: Celadon City & surroundings ---
+
+        const celadonCity = buildCeladonCity();
+        MapLoader.registerMap('celadon_city', {
+            name: 'Celadon City',
+            width: celadonCity.width,
+            height: celadonCity.height,
+            data: celadonCity.data,
+            exits: [
+                { edge: 'east', targetMap: 'route_7', spawnX: 1, spawnY: 5, spawnDir: 3 },
+                { edge: 'west', targetMap: 'route_16', spawnX: 18, spawnY: 7, spawnDir: 2 },
+            ],
+            doors: [
+                { x: 7, y: 10, targetMap: 'celadon_pokemon_center', spawnX: 4, spawnY: 6 },
+                { x: 14, y: 10, targetMap: 'celadon_pokemart', spawnX: 4, spawnY: 6 },
+                { x: 20, y: 7, targetMap: 'celadon_department_store_1f', spawnX: 5, spawnY: 8 },
+                { x: 20, y: 19, targetMap: 'celadon_game_corner', spawnX: 7, spawnY: 10 },
+                { x: 5, y: 21, targetMap: 'celadon_gym', spawnX: 5, spawnY: 10 },
+                { x: 12, y: 24, targetMap: 'celadon_mansion', spawnX: 5, spawnY: 8 },
+                { x: 22, y: 24, targetMap: 'celadon_condominiums', spawnX: 4, spawnY: 6 },
+            ],
+            npcs: [
+                { name: 'Lass', type: 'townsfolk', x: 10, y: 12, dir: 0,
+                  dialogue: ['Erika is so elegant! She\'s the Gym Leader here.', 'Her Grass Pokemon are really strong!'] },
+                { name: 'Old Man', type: 'townsfolk', x: 22, y: 10, dir: 0,
+                  dialogue: ['Celadon City is famous for its Department Store!', 'You can buy all sorts of items there.'] },
+                { name: 'Suspicious Man', type: 'rocket', x: 20, y: 20, dir: 2,
+                  dialogue: ['Move along, nothing to see here!', 'The Game Corner is totally legit...'] },
+            ],
+            lamps: [{ x: 8, y: 6 }, { x: 16, y: 6 }, { x: 8, y: 20 }, { x: 24, y: 12 }],
+        });
+
+        const celadonPC = buildCeladonPokemonCenter();
+        MapLoader.registerMap('celadon_pokemon_center', {
+            name: 'Celadon Pokemon Center',
+            width: celadonPC.width,
+            height: celadonPC.height,
+            data: celadonPC.data,
+            npcs: [
+                { name: 'Nurse Joy', type: 'nurse', x: 4, y: 2, dir: 0,
+                  dialogue: ['Welcome to the Pokemon Center!', 'We\'ll heal your Pokemon to full health.'] },
+            ],
+        });
+
+        const celadonMart = buildCeladonPokemart();
+        MapLoader.registerMap('celadon_pokemart', {
+            name: 'Celadon Pokemart',
+            width: celadonMart.width,
+            height: celadonMart.height,
+            data: celadonMart.data,
+            npcs: [
+                { name: 'Clerk', type: 'townsfolk', x: 4, y: 2, dir: 0,
+                  dialogue: ['Welcome! We have a great selection.', 'For even more items, visit the Department Store!'] },
+            ],
+        });
+
+        const deptStore1F = buildCeladonDepartmentStore1F();
+        MapLoader.registerMap('celadon_department_store_1f', {
+            name: 'Celadon Dept. Store 1F',
+            width: deptStore1F.width,
+            height: deptStore1F.height,
+            data: deptStore1F.data,
+            doors: [
+                { x: 10, y: 1, targetMap: 'celadon_department_store_2f', spawnX: 10, spawnY: 8 },
+            ],
+            npcs: [
+                { name: 'Shop Clerk', type: 'townsfolk', x: 5, y: 2, dir: 0,
+                  dialogue: ['Welcome to the Celadon Department Store!', 'Take the stairs to browse each floor.'] },
+            ],
+        });
+
+        const deptStore2F = buildCeladonDepartmentStore2F();
+        MapLoader.registerMap('celadon_department_store_2f', {
+            name: 'Celadon Dept. Store 2F',
+            width: deptStore2F.width,
+            height: deptStore2F.height,
+            data: deptStore2F.data,
+            doors: [
+                { x: 10, y: 9, targetMap: 'celadon_department_store_1f', spawnX: 10, spawnY: 2 },
+            ],
+            npcs: [
+                { name: 'Shop Clerk', type: 'townsfolk', x: 5, y: 2, dir: 0,
+                  dialogue: ['This floor has TMs and special items!', 'We have a wide variety of TMs for sale.'] },
+            ],
+        });
+
+        const celadonGym = buildCeladonGym();
+        MapLoader.registerMap('celadon_gym', {
+            name: 'Celadon City Gym',
+            width: celadonGym.width,
+            height: celadonGym.height,
+            data: celadonGym.data,
+            trainers: celadonGymTrainers,
+            npcs: [
+                { name: 'Erika', type: 'erika', x: 5, y: 2, dir: 0,
+                  dialogue: ['Hello... I am Erika, the Gym Leader of Celadon.', 'I love Grass-type Pokemon.', 'Oh, you wish to challenge me? Very well.'] },
+            ],
+        });
+
+        const gameCorner = buildCeladonGameCorner();
+        MapLoader.registerMap('celadon_game_corner', {
+            name: 'Celadon Game Corner',
+            width: gameCorner.width,
+            height: gameCorner.height,
+            data: gameCorner.data,
+            npcs: [
+                { name: 'Gambler', type: 'townsfolk', x: 5, y: 5, dir: 3,
+                  dialogue: ['I keep winning! Today\'s my lucky day!', 'Try the slot machines, you might get lucky!'] },
+                { name: 'Suspicious Man', type: 'rocket', x: 10, y: 4, dir: 1,
+                  dialogue: ['Hey! Don\'t go poking around the poster!', 'There\'s nothing behind it, I swear!'] },
+            ],
+        });
+
+        const celadonMansion = buildCeladonMansion();
+        MapLoader.registerMap('celadon_mansion', {
+            name: 'Celadon Mansion',
+            width: celadonMansion.width,
+            height: celadonMansion.height,
+            data: celadonMansion.data,
+            npcs: [
+                { name: 'Game Designer', type: 'townsfolk', x: 5, y: 3, dir: 0,
+                  dialogue: ['I\'m the game designer!', 'I made this game. It\'s called Pokemon!'] },
+                { name: 'Pokemon Collector', type: 'townsfolk', x: 3, y: 6, dir: 3,
+                  dialogue: ['I collect rare Pokemon!', 'Would you like this Eevee? It can evolve into many different Pokemon!'] },
+            ],
+        });
+
+        const celadonCondo = buildCeladonCondominiums();
+        MapLoader.registerMap('celadon_condominiums', {
+            name: 'Celadon Condominiums',
+            width: celadonCondo.width,
+            height: celadonCondo.height,
+            data: celadonCondo.data,
+            npcs: [
+                { name: 'Tea Lady', type: 'townsfolk', x: 4, y: 3, dir: 0,
+                  dialogue: ['Would you like some tea? It\'s very refreshing.', 'Tea is the best drink, don\'t you think?'] },
+            ],
+        });
+
+        const route16 = buildRoute16();
+        MapLoader.registerMap('route_16', {
+            name: 'Route 16',
+            width: route16.width,
+            height: route16.height,
+            data: route16.data,
+            exits: [
+                { edge: 'east', targetMap: 'celadon_city', spawnX: 1, spawnY: 14, spawnDir: 3 },
+                { edge: 'west', targetMap: 'cycling_road', spawnX: 4, spawnY: 1, spawnDir: 0 },
+            ],
+            trainers: route16Trainers,
+            lamps: [{ x: 10, y: 4 }, { x: 15, y: 10 }],
+        });
+
+        const cyclingRoad = buildCyclingRoad();
+        MapLoader.registerMap('cycling_road', {
+            name: 'Cycling Road',
+            width: cyclingRoad.width,
+            height: cyclingRoad.height,
+            data: cyclingRoad.data,
+            exits: [
+                { edge: 'north', targetMap: 'route_16', spawnX: 10, spawnY: 13, spawnDir: 1 },
+            ],
+            trainers: cyclingRoadTrainers,
+        });
     }
 
     return {
@@ -2294,6 +2815,17 @@ const Routes = (() => {
         buildPokemonTower2F,
         buildPokemonTower3F,
         buildPokemonTowerTop,
+        buildCeladonCity,
+        buildCeladonPokemonCenter,
+        buildCeladonPokemart,
+        buildCeladonDepartmentStore1F,
+        buildCeladonDepartmentStore2F,
+        buildCeladonGym,
+        buildCeladonGameCorner,
+        buildCeladonMansion,
+        buildCeladonCondominiums,
+        buildRoute16,
+        buildCyclingRoad,
         buildPalletTown,
         buildViridianCity,
         buildPewterCity,
@@ -2308,6 +2840,9 @@ const Routes = (() => {
         route12Trainers,
         ssAnneTrainers,
         towerChannelers,
+        celadonGymTrainers,
+        route16Trainers,
+        cyclingRoadTrainers,
         nuggetBridgeTrainers,
         route25Trainers,
     };
