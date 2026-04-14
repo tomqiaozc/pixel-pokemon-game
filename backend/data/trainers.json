@@ -2398,5 +2398,92 @@
     "sight_range": 3,
     "dialogue_before": "I train every day!",
     "dialogue_after": "I must train harder..."
+  },
+  {
+    "id": "fuchsia_gym_trainer_1",
+    "name": "Juggler Dalton",
+    "trainer_class": "Juggler",
+    "sprite_id": "juggler",
+    "pokemon_team": [
+      {
+        "species_id": 48,
+        "name": "Venonat",
+        "level": 30,
+        "moves": [
+          "Confusion",
+          "Poison Powder",
+          "Leech Life"
+        ]
+      },
+      {
+        "species_id": 48,
+        "name": "Venonat",
+        "level": 30,
+        "moves": [
+          "Confusion",
+          "Stun Spore",
+          "Leech Life"
+        ]
+      }
+    ],
+    "reward_money": 600,
+    "sight_range": 3,
+    "dialogue_before": "Watch my juggling act!",
+    "dialogue_after": "You disrupted my concentration!"
+  },
+  {
+    "id": "fuchsia_gym_trainer_2",
+    "name": "Juggler Nelson",
+    "trainer_class": "Juggler",
+    "sprite_id": "juggler",
+    "pokemon_team": [
+      {
+        "species_id": 37,
+        "name": "Koffing",
+        "level": 31,
+        "moves": [
+          "Sludge",
+          "Smog",
+          "Self-Destruct"
+        ]
+      },
+      {
+        "species_id": 40,
+        "name": "Grimer",
+        "level": 31,
+        "moves": [
+          "Sludge",
+          "Minimize",
+          "Pound"
+        ]
+      }
+    ],
+    "reward_money": 620,
+    "sight_range": 3,
+    "dialogue_before": "Poison types are tricky!",
+    "dialogue_after": "My tricks weren't enough!"
+  },
+  {
+    "id": "fuchsia_gym_trainer_3",
+    "name": "Tamer Edgar",
+    "trainer_class": "Tamer",
+    "sprite_id": "tamer",
+    "pokemon_team": [
+      {
+        "species_id": 49,
+        "name": "Venomoth",
+        "level": 33,
+        "moves": [
+          "Poison Powder",
+          "Confusion",
+          "Psychic",
+          "Silver Wind"
+        ]
+      }
+    ],
+    "reward_money": 660,
+    "sight_range": 3,
+    "dialogue_before": "My Venomoth is a beauty!",
+    "dialogue_after": "Beauty fades before strength..."
   }
 ]

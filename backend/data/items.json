@@ -504,5 +504,43 @@
       "move": "Psychic"
     },
     "usable": true
+  },
+  {
+    "id": 61,
+    "name": "HM03 Surf",
+    "description": "Teaches Surf. Allows travel across water",
+    "category": "key_item",
+    "price": 0,
+    "sell_price": 0,
+    "effect": {
+      "type": "teach_move",
+      "move": "Surf"
+    },
+    "usable": true
+  },
+  {
+    "id": 62,
+    "name": "HM04 Strength",
+    "description": "Teaches Strength. Allows pushing boulders",
+    "category": "key_item",
+    "price": 0,
+    "sell_price": 0,
+    "effect": {
+      "type": "teach_move",
+      "move": "Strength"
+    },
+    "usable": true
+  },
+  {
+    "id": 63,
+    "name": "Gold Teeth",
+    "description": "A set of gold dentures. Return to the Warden",
+    "category": "key_item",
+    "price": 0,
+    "sell_price": 0,
+    "effect": {
+      "type": "quest"
+    },
+    "usable": false
   }
 ]

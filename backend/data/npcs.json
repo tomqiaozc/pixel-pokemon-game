@@ -869,5 +869,83 @@
     "facing": "down",
     "npc_type": "generic",
     "dialogue_tree_id": "copycat_dialogue"
+  },
+  {
+    "id": "fuchsia_townsfolk_1",
+    "name": "Man",
+    "sprite_id": "old_man",
+    "position": {
+      "x": 12,
+      "y": 10
+    },
+    "map_id": "fuchsia_city",
+    "facing": "down",
+    "npc_type": "generic",
+    "dialogue_tree_id": "fuchsia_townsfolk_1_dialogue"
+  },
+  {
+    "id": "fuchsia_townsfolk_2",
+    "name": "Girl",
+    "sprite_id": "girl",
+    "position": {
+      "x": 20,
+      "y": 15
+    },
+    "map_id": "fuchsia_city",
+    "facing": "left",
+    "npc_type": "generic",
+    "dialogue_tree_id": "fuchsia_townsfolk_2_dialogue"
+  },
+  {
+    "id": "fuchsia_nurse_joy",
+    "name": "Nurse Joy",
+    "sprite_id": "nurse_joy",
+    "position": {
+      "x": 4,
+      "y": 1
+    },
+    "map_id": "fuchsia_pokemon_center",
+    "facing": "down",
+    "npc_type": "healer",
+    "dialogue_tree_id": "nurse_joy_dialogue"
+  },
+  {
+    "id": "fuchsia_mart_clerk",
+    "name": "Clerk",
+    "sprite_id": "clerk",
+    "position": {
+      "x": 4,
+      "y": 1
+    },
+    "map_id": "fuchsia_pokemart",
+    "facing": "down",
+    "npc_type": "shopkeeper",
+    "dialogue_tree_id": "fuchsia_mart_clerk_dialogue"
+  },
+  {
+    "id": "safari_zone_guide",
+    "name": "Safari Zone Guide",
+    "sprite_id": "old_man",
+    "position": {
+      "x": 5,
+      "y": 2
+    },
+    "map_id": "safari_zone_entrance",
+    "facing": "down",
+    "npc_type": "generic",
+    "dialogue_tree_id": "safari_guide_dialogue"
+  },
+  {
+    "id": "warden_npc",
+    "name": "Warden",
+    "sprite_id": "old_man",
+    "position": {
+      "x": 4,
+      "y": 3
+    },
+    "map_id": "wardens_house",
+    "facing": "down",
+    "npc_type": "generic",
+    "dialogue_tree_id": "warden_dialogue"
   }
 ]

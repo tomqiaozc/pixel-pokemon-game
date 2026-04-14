@@ -2393,6 +2393,208 @@ const Routes = (() => {
           ] },
     ];
 
+    // --- Sprint 18: Fuchsia City map builders ---
+
+    // Fuchsia City (30x25)
+    function buildFuchsiaCity() {
+        const W = 30, H = 25;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.GRASS); m.push(row); }
+        // Tree border
+        for (let x = 0; x < W; x++) { m[0][x] = T.TREE; m[H-1][x] = T.TREE; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.TREE; m[y][W-1] = T.TREE; }
+        // Roads (horizontal)
+        for (let x = 1; x < W-1; x++) { m[8][x] = T.DIRT; m[9][x] = T.DIRT; m[14][x] = T.DIRT; m[15][x] = T.DIRT; }
+        // Roads (vertical)
+        for (let y = 1; y < H-1; y++) { m[y][10] = T.DIRT; m[y][11] = T.DIRT; m[y][20] = T.DIRT; m[y][21] = T.DIRT; }
+        // Pokemon Center (3x3 building at 6,7)
+        for (let dy = 0; dy < 3; dy++) for (let dx = 0; dx < 3; dx++) m[7+dy][6+dx] = T.HOUSE_WALL;
+        m[7][6] = T.HOUSE_ROOF; m[7][7] = T.HOUSE_ROOF; m[7][8] = T.HOUSE_ROOF;
+        m[9][7] = T.DOOR;
+        // Pokemart (3x3 at 13,7)
+        for (let dy = 0; dy < 3; dy++) for (let dx = 0; dx < 3; dx++) m[7+dy][13+dx] = T.HOUSE_WALL;
+        m[7][13] = T.HOUSE_ROOF; m[7][14] = T.HOUSE_ROOF; m[7][15] = T.HOUSE_ROOF;
+        m[9][14] = T.DOOR;
+        // Gym (5x4 at 5,16)
+        for (let dy = 0; dy < 4; dy++) for (let dx = 0; dx < 5; dx++) m[16+dy][5+dx] = T.HOUSE_WALL;
+        m[16][5] = T.HOUSE_ROOF; m[16][6] = T.HOUSE_ROOF; m[16][7] = T.HOUSE_ROOF; m[16][8] = T.HOUSE_ROOF; m[16][9] = T.HOUSE_ROOF;
+        m[19][7] = T.DOOR;
+        // Safari Zone entrance (4x3 at 19,5)
+        for (let dy = 0; dy < 3; dy++) for (let dx = 0; dx < 4; dx++) m[5+dy][19+dx] = T.HOUSE_WALL;
+        m[5][19] = T.HOUSE_ROOF; m[5][20] = T.HOUSE_ROOF; m[5][21] = T.HOUSE_ROOF; m[5][22] = T.HOUSE_ROOF;
+        m[7][21] = T.DOOR;
+        // Warden's house (3x3 at 21,16)
+        for (let dy = 0; dy < 3; dy++) for (let dx = 0; dx < 3; dx++) m[16+dy][21+dx] = T.HOUSE_WALL;
+        m[16][21] = T.HOUSE_ROOF; m[16][22] = T.HOUSE_ROOF; m[16][23] = T.HOUSE_ROOF;
+        m[18][22] = T.DOOR;
+        // Flower gardens
+        for (let x = 2; x <= 4; x++) { m[3][x] = T.FLOWER; m[4][x] = T.FLOWER; }
+        for (let x = 25; x <= 27; x++) { m[3][x] = T.FLOWER; m[4][x] = T.FLOWER; }
+        // Trees in park areas
+        m[12][3] = T.TREE; m[12][5] = T.TREE; m[12][7] = T.TREE;
+        m[22][3] = T.TREE; m[22][5] = T.TREE; m[22][25] = T.TREE; m[22][27] = T.TREE;
+        // North exit
+        m[0][10] = T.DIRT; m[0][11] = T.DIRT;
+        // East exit
+        m[14][W-1] = T.DIRT; m[15][W-1] = T.DIRT;
+        return { data: m, width: W, height: H };
+    }
+
+    // Fuchsia Pokemon Center (8x8)
+    function buildFuchsiaPokemonCenter() {
+        const W = 8, H = 8;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.DIRT); m.push(row); }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H-1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W-1] = T.HOUSE_WALL; }
+        // Counter
+        for (let x = 2; x <= 5; x++) m[2][x] = T.HOUSE_WALL;
+        // Benches
+        m[5][2] = T.HOUSE_WALL; m[5][5] = T.HOUSE_WALL;
+        m[H-1][4] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Fuchsia Pokemart (8x8)
+    function buildFuchsiaPokemart() {
+        const W = 8, H = 8;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.DIRT); m.push(row); }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H-1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W-1] = T.HOUSE_WALL; }
+        // Counter
+        for (let x = 2; x <= 5; x++) m[2][x] = T.HOUSE_WALL;
+        // Shelves
+        m[4][2] = T.HOUSE_WALL; m[4][5] = T.HOUSE_WALL;
+        m[5][2] = T.HOUSE_WALL; m[5][5] = T.HOUSE_WALL;
+        m[H-1][4] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Fuchsia Gym (12x12 — invisible wall aesthetic)
+    function buildFuchsiaGym() {
+        const W = 12, H = 12;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.DIRT); m.push(row); }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H-1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W-1] = T.HOUSE_WALL; }
+        // Invisible wall maze (using GRASS tiles as "invisible" barriers)
+        // Horizontal invisible walls
+        for (let x = 2; x <= 4; x++) m[3][x] = T.GRASS;
+        for (let x = 7; x <= 9; x++) m[3][x] = T.GRASS;
+        for (let x = 3; x <= 5; x++) m[6][x] = T.GRASS;
+        for (let x = 7; x <= 9; x++) m[6][x] = T.GRASS;
+        for (let x = 2; x <= 4; x++) m[9][x] = T.GRASS;
+        // Vertical invisible walls
+        for (let y = 3; y <= 5; y++) m[y][5] = T.GRASS;
+        for (let y = 7; y <= 9; y++) m[y][6] = T.GRASS;
+        // Path to leader
+        for (let y = 1; y < H-1; y++) { m[y][5] = m[y][5] === T.GRASS ? T.GRASS : T.DIRT; m[y][6] = m[y][6] === T.GRASS ? T.GRASS : T.DIRT; }
+        m[H-1][5] = T.DOOR; m[H-1][6] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Safari Zone Entrance (10x8)
+    function buildSafariZoneEntrance() {
+        const W = 10, H = 8;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.DIRT); m.push(row); }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H-1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W-1] = T.HOUSE_WALL; }
+        // Counter
+        for (let x = 3; x <= 6; x++) m[3][x] = T.HOUSE_WALL;
+        // North exit to Safari Zone
+        m[0][5] = T.DOOR;
+        // South exit back to city
+        m[H-1][5] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Safari Zone Area 1 (20x20)
+    function buildSafariZoneArea1() {
+        const W = 20, H = 20;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.GRASS); m.push(row); }
+        // Tree border
+        for (let x = 0; x < W; x++) { m[0][x] = T.TREE; m[H-1][x] = T.TREE; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.TREE; m[y][W-1] = T.TREE; }
+        // Dirt paths
+        for (let x = 1; x < W-1; x++) { m[10][x] = T.DIRT; }
+        for (let y = 1; y < H-1; y++) { m[y][10] = T.DIRT; }
+        // Water ponds
+        for (let dy = 0; dy < 3; dy++) for (let dx = 0; dx < 4; dx++) m[3+dy][2+dx] = T.WATER;
+        for (let dy = 0; dy < 3; dy++) for (let dx = 0; dx < 3; dx++) m[14+dy][14+dx] = T.WATER;
+        // Tall grass patches for encounters
+        for (let dy = 0; dy < 3; dy++) for (let dx = 0; dx < 4; dx++) { if (m[5+dy][12+dx] === T.GRASS) m[5+dy][12+dx] = T.TALL_GRASS; }
+        for (let dy = 0; dy < 3; dy++) for (let dx = 0; dx < 4; dx++) { if (m[14+dy][3+dx] === T.GRASS) m[14+dy][3+dx] = T.TALL_GRASS; }
+        // North exit
+        m[0][10] = T.DIRT;
+        // South entrance
+        m[H-1][10] = T.DIRT;
+        return { data: m, width: W, height: H };
+    }
+
+    // Safari Zone Area 2 (20x20)
+    function buildSafariZoneArea2() {
+        const W = 20, H = 20;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.GRASS); m.push(row); }
+        // Tree border
+        for (let x = 0; x < W; x++) { m[0][x] = T.TREE; m[H-1][x] = T.TREE; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.TREE; m[y][W-1] = T.TREE; }
+        // Dirt paths (winding)
+        for (let x = 1; x < W-1; x++) { m[5][x] = T.DIRT; m[14][x] = T.DIRT; }
+        for (let y = 5; y <= 14; y++) { m[y][5] = T.DIRT; m[y][15] = T.DIRT; }
+        // Tall grass — rarer Pokemon
+        for (let dy = 0; dy < 4; dy++) for (let dx = 0; dx < 4; dx++) { if (m[7+dy][7+dx] === T.GRASS) m[7+dy][7+dx] = T.TALL_GRASS; }
+        for (let dy = 0; dy < 3; dy++) for (let dx = 0; dx < 5; dx++) { if (m[10+dy][10+dx] === T.GRASS) m[10+dy][10+dx] = T.TALL_GRASS; }
+        // Water
+        for (let dy = 0; dy < 2; dy++) for (let dx = 0; dx < 3; dx++) m[2+dy][8+dx] = T.WATER;
+        for (let dy = 0; dy < 3; dy++) for (let dx = 0; dx < 2; dx++) m[16+dy][3+dx] = T.WATER;
+        // Rocks (decorative)
+        m[9][2] = T.ROCK; m[9][17] = T.ROCK; m[3][14] = T.ROCK; m[16][14] = T.ROCK;
+        // South exit
+        m[H-1][10] = T.DIRT;
+        return { data: m, width: W, height: H };
+    }
+
+    // Warden's House (8x8)
+    function buildWardensHouse() {
+        const W = 8, H = 8;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.DIRT); m.push(row); }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H-1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W-1] = T.HOUSE_WALL; }
+        // Bookshelves
+        m[1][1] = T.HOUSE_WALL; m[1][2] = T.HOUSE_WALL; m[1][5] = T.HOUSE_WALL; m[1][6] = T.HOUSE_WALL;
+        // Table
+        m[3][3] = T.HOUSE_WALL; m[3][4] = T.HOUSE_WALL;
+        m[H-1][4] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Fuchsia Gym trainers
+    const fuchsiaGymTrainers = [
+        { x: 3, y: 4, name: 'Juggler Dalton', dir: 3, sightRange: 3,
+          dialogue: ['Watch me juggle these Pokeballs!'],
+          pokemon: [
+              { name: 'Voltorb', level: 31, hp: 50, maxHp: 50, type: 'Electric' },
+              { name: 'Voltorb', level: 31, hp: 50, maxHp: 50, type: 'Electric' },
+          ] },
+        { x: 8, y: 7, name: 'Juggler Nelson', dir: 2, sightRange: 3,
+          dialogue: ['Can you see through the invisible walls?'],
+          pokemon: [
+              { name: 'Drowzee', level: 34, hp: 58, maxHp: 58, type: 'Psychic' },
+              { name: 'Hypno', level: 34, hp: 62, maxHp: 62, type: 'Psychic' },
+          ] },
+        { x: 3, y: 8, name: 'Tamer Edgar', dir: 3, sightRange: 3,
+          dialogue: ['I tame wild beasts!'],
+          pokemon: [
+              { name: 'Arbok', level: 33, hp: 58, maxHp: 58, type: 'Poison' },
+              { name: 'Sandslash', level: 33, hp: 62, maxHp: 62, type: 'Ground' },
+          ] },
+    ];
+
     // Register all maps with MapLoader
     function registerAll() {
         const palletTown = buildPalletTown();
@@ -3357,6 +3559,96 @@ const Routes = (() => {
             npcs: [{ name: 'Copycat', type: 'townsfolk', x: 4, y: 3, dir: 0,
               dialogue: ['I like to mimic people!', 'Do you have a Poke Doll? I\'d love one!'] }],
         });
+
+        // --- Sprint 18: Fuchsia City, Koga's Gym, Safari Zone ---
+
+        const fuchsiaCity = buildFuchsiaCity();
+        MapLoader.registerMap('fuchsia_city', {
+            name: 'Fuchsia City',
+            width: fuchsiaCity.width,
+            height: fuchsiaCity.height,
+            data: fuchsiaCity.data,
+            exits: [
+                { edge: 'east', targetMap: 'route_15', spawnX: 1, spawnY: 10, spawnDir: 3 },
+                { edge: 'north', targetMap: 'route_16', spawnX: 5, spawnY: 13, spawnDir: 1 },
+            ],
+            doors: [
+                { x: 7, y: 10, targetMap: 'fuchsia_pokemon_center', spawnX: 4, spawnY: 6 },
+                { x: 14, y: 10, targetMap: 'fuchsia_pokemart', spawnX: 4, spawnY: 6 },
+                { x: 7, y: 18, targetMap: 'fuchsia_gym', spawnX: 5, spawnY: 10 },
+                { x: 21, y: 8, targetMap: 'safari_zone_entrance', spawnX: 5, spawnY: 6 },
+                { x: 22, y: 18, targetMap: 'wardens_house', spawnX: 4, spawnY: 6 },
+            ],
+            npcs: [
+                { name: 'Man', type: 'townsfolk', x: 12, y: 12, dir: 0,
+                  dialogue: ['The Safari Zone is famous for rare Pokemon!', 'You should check it out!'] },
+                { name: 'Woman', type: 'townsfolk', x: 18, y: 16, dir: 2,
+                  dialogue: ['Koga is a master of poison Pokemon.', 'His gym has invisible walls!'] },
+            ],
+            lamps: [{ x: 8, y: 6 }, { x: 20, y: 6 }, { x: 8, y: 16 }, { x: 24, y: 16 }],
+        });
+
+        const fuchsiaPC = buildFuchsiaPokemonCenter();
+        MapLoader.registerMap('fuchsia_pokemon_center', {
+            name: 'Fuchsia Pokemon Center',
+            width: fuchsiaPC.width, height: fuchsiaPC.height, data: fuchsiaPC.data,
+            npcs: [{ name: 'Nurse Joy', type: 'nurse', x: 4, y: 2, dir: 0,
+              dialogue: ['Welcome to the Pokemon Center!', 'We\'ll heal your Pokemon.'] }],
+        });
+
+        const fuchsiaMart = buildFuchsiaPokemart();
+        MapLoader.registerMap('fuchsia_pokemart', {
+            name: 'Fuchsia Pokemart',
+            width: fuchsiaMart.width, height: fuchsiaMart.height, data: fuchsiaMart.data,
+            npcs: [{ name: 'Clerk', type: 'townsfolk', x: 4, y: 2, dir: 0,
+              dialogue: ['Welcome to Fuchsia Pokemart!'] }],
+        });
+
+        const fuchsiaGym = buildFuchsiaGym();
+        MapLoader.registerMap('fuchsia_gym', {
+            name: 'Fuchsia City Gym',
+            width: fuchsiaGym.width, height: fuchsiaGym.height, data: fuchsiaGym.data,
+            trainers: fuchsiaGymTrainers,
+            npcs: [{ name: 'Koga', type: 'koga', x: 5, y: 2, dir: 0,
+              dialogue: ['Fwahaha! You have found me!', 'The art of the ninja deals in poison!', 'Very well, show me your strength!'] }],
+        });
+
+        const safariEntrance = buildSafariZoneEntrance();
+        MapLoader.registerMap('safari_zone_entrance', {
+            name: 'Safari Zone Gate',
+            width: safariEntrance.width, height: safariEntrance.height, data: safariEntrance.data,
+            doors: [
+                { x: 5, y: 0, targetMap: 'safari_zone_area_1', spawnX: 10, spawnY: 18 },
+            ],
+            npcs: [{ name: 'Safari Guide', type: 'townsfolk', x: 5, y: 3, dir: 0,
+              dialogue: ['Welcome to the Safari Zone!', 'For 500 Pokedollars, you get 30 Safari Balls!', 'Good luck catching rare Pokemon!'] }],
+        });
+
+        const safariArea1 = buildSafariZoneArea1();
+        MapLoader.registerMap('safari_zone_area_1', {
+            name: 'Safari Zone Area 1',
+            width: safariArea1.width, height: safariArea1.height, data: safariArea1.data,
+            exits: [
+                { edge: 'north', targetMap: 'safari_zone_area_2', spawnX: 10, spawnY: 18, spawnDir: 1 },
+            ],
+        });
+
+        const safariArea2 = buildSafariZoneArea2();
+        MapLoader.registerMap('safari_zone_area_2', {
+            name: 'Safari Zone Area 2',
+            width: safariArea2.width, height: safariArea2.height, data: safariArea2.data,
+            exits: [
+                { edge: 'south', targetMap: 'safari_zone_area_1', spawnX: 10, spawnY: 1, spawnDir: 0 },
+            ],
+        });
+
+        const wardensHouse = buildWardensHouse();
+        MapLoader.registerMap('wardens_house', {
+            name: 'Warden\'s House',
+            width: wardensHouse.width, height: wardensHouse.height, data: wardensHouse.data,
+            npcs: [{ name: 'Warden', type: 'townsfolk', x: 4, y: 3, dir: 0,
+              dialogue: ['I losht my Gold Teeth in the Safari Zone...', 'If you find them, I\'ll give you shomething shpecial!'] }],
+        });
     }
 
     return {
@@ -3417,6 +3709,14 @@ const Routes = (() => {
         buildSilphCo2F,
         buildSilphCoTop,
         buildFightingDojo,
+        buildFuchsiaCity,
+        buildFuchsiaPokemonCenter,
+        buildFuchsiaPokemart,
+        buildFuchsiaGym,
+        buildSafariZoneEntrance,
+        buildSafariZoneArea1,
+        buildSafariZoneArea2,
+        buildWardensHouse,
         buildPalletTown,
         buildViridianCity,
         buildPewterCity,
@@ -3441,6 +3741,7 @@ const Routes = (() => {
         silphRocketTrainers,
         silphRocketB2Trainers,
         dojoTrainers,
+        fuchsiaGymTrainers,
         nuggetBridgeTrainers,
         route25Trainers,
     };

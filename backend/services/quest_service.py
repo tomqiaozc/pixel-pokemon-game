@@ -213,6 +213,40 @@ _QUEST_DEFS: list[dict] = [
         "rewards": {"money": 2000},
         "prerequisite_quests": [],
     },
+    {
+        "id": "soul_badge",
+        "name": "The Soul Badge",
+        "description": "Navigate Koga's invisible wall maze and defeat him to earn the Soul Badge!",
+        "type": "main",
+        "objectives": [
+            {"id": "defeat_koga", "description": "Defeat Gym Leader Koga", "type": "defeat_gym", "target": "fuchsia_gym", "required_progress": 1},
+        ],
+        "rewards": {"money": 6500, "unlock_flags": ["badge_soul"]},
+        "prerequisite_quests": ["marsh_badge"],
+    },
+    {
+        "id": "safari_zone",
+        "name": "Safari Zone Adventure",
+        "description": "Explore the Safari Zone to find rare Pokemon and HM03 Surf!",
+        "type": "side",
+        "objectives": [
+            {"id": "explore_safari", "description": "Explore the Safari Zone", "type": "visit_location", "target": "safari_zone_area_1", "required_progress": 1},
+        ],
+        "rewards": {"money": 3000, "items": [{"item_id": 61, "quantity": 1}], "unlock_flags": ["has_hm_surf"]},
+        "prerequisite_quests": [],
+    },
+    {
+        "id": "wardens_teeth",
+        "name": "The Warden's Gold Teeth",
+        "description": "Find the Warden's Gold Teeth in the Safari Zone and return them for HM04 Strength!",
+        "type": "side",
+        "objectives": [
+            {"id": "find_teeth", "description": "Find the Gold Teeth in Safari Zone", "type": "collect_item", "target": "gold_teeth", "required_progress": 1},
+            {"id": "return_teeth", "description": "Return Gold Teeth to the Warden", "type": "deliver_item", "target": "wardens_house", "required_progress": 1},
+        ],
+        "rewards": {"money": 2000, "items": [{"item_id": 62, "quantity": 1}], "unlock_flags": ["has_hm_strength"]},
+        "prerequisite_quests": ["safari_zone"],
+    },
 ]
 
 
@@ -441,6 +475,10 @@ def check_area_accessible(game_id: str, map_id: str, required_flag: Optional[str
         "has_poke_flute": "You need the Poke Flute",
         "snorlax_cleared": "A sleeping Snorlax blocks the way",
         "badge_rainbow": "You need the Rainbow Badge to pass",
+        "badge_soul": "You need the Soul Badge to pass",
+        "badge_marsh": "You need the Marsh Badge to pass",
+        "has_hm_surf": "You need HM03 Surf",
+        "has_hm_strength": "You need HM04 Strength",
     }
     reason = flag_reasons.get(required_flag, f"You need to complete a requirement: {required_flag}")
     return {"accessible": False, "reason": reason}

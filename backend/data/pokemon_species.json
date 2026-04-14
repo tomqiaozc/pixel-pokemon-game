@@ -4517,5 +4517,302 @@
     ],
     "evolution": null,
     "sprite": "mr_mime.png"
+  },
+  {
+    "id": 48,
+    "name": "Venonat",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "stats": {
+      "hp": 60,
+      "attack": 55,
+      "defense": 50,
+      "sp_attack": 40,
+      "sp_defense": 55,
+      "speed": 45
+    },
+    "base_exp": 61,
+    "catch_rate": 190,
+    "abilities": [
+      "Compound Eyes"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "bug"
+    ],
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 1,
+        "move": "Disable"
+      },
+      {
+        "level": 11,
+        "move": "Supersonic"
+      },
+      {
+        "level": 19,
+        "move": "Confusion"
+      },
+      {
+        "level": 24,
+        "move": "Poison Powder"
+      },
+      {
+        "level": 30,
+        "move": "Leech Life"
+      },
+      {
+        "level": 35,
+        "move": "Stun Spore"
+      },
+      {
+        "level": 38,
+        "move": "Psychic"
+      }
+    ],
+    "evolution": {
+      "to": 49,
+      "level": 31
+    },
+    "sprite": "venonat.png"
+  },
+  {
+    "id": 49,
+    "name": "Venomoth",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "stats": {
+      "hp": 70,
+      "attack": 65,
+      "defense": 60,
+      "sp_attack": 90,
+      "sp_defense": 75,
+      "speed": 90
+    },
+    "base_exp": 158,
+    "catch_rate": 75,
+    "abilities": [
+      "Shield Dust"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "bug"
+    ],
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Silver Wind"
+      },
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 1,
+        "move": "Confusion"
+      },
+      {
+        "level": 1,
+        "move": "Poison Powder"
+      }
+    ],
+    "evolution": null,
+    "sprite": "venomoth.png"
+  },
+  {
+    "id": 113,
+    "name": "Chansey",
+    "types": [
+      "normal"
+    ],
+    "stats": {
+      "hp": 250,
+      "attack": 5,
+      "defense": 5,
+      "sp_attack": 35,
+      "sp_defense": 105,
+      "speed": 50
+    },
+    "base_exp": 395,
+    "catch_rate": 30,
+    "abilities": [
+      "Natural Cure",
+      "Serene Grace"
+    ],
+    "gender_ratio": 0.0,
+    "egg_groups": [
+      "fairy"
+    ],
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Pound"
+      },
+      {
+        "level": 1,
+        "move": "Growl"
+      },
+      {
+        "level": 5,
+        "move": "Tail Whip"
+      },
+      {
+        "level": 9,
+        "move": "Refresh"
+      },
+      {
+        "level": 12,
+        "move": "Double Slap"
+      },
+      {
+        "level": 16,
+        "move": "Softboiled"
+      },
+      {
+        "level": 20,
+        "move": "Minimize"
+      },
+      {
+        "level": 23,
+        "move": "Sing"
+      }
+    ],
+    "evolution": null,
+    "sprite": "chansey.png"
+  },
+  {
+    "id": 123,
+    "name": "Scyther",
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "stats": {
+      "hp": 70,
+      "attack": 110,
+      "defense": 80,
+      "sp_attack": 55,
+      "sp_defense": 80,
+      "speed": 105
+    },
+    "base_exp": 187,
+    "catch_rate": 45,
+    "abilities": [
+      "Swarm",
+      "Technician"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "bug"
+    ],
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Quick Attack"
+      },
+      {
+        "level": 1,
+        "move": "Leer"
+      },
+      {
+        "level": 6,
+        "move": "Focus Energy"
+      },
+      {
+        "level": 12,
+        "move": "Pursuit"
+      },
+      {
+        "level": 18,
+        "move": "False Swipe"
+      },
+      {
+        "level": 24,
+        "move": "Agility"
+      },
+      {
+        "level": 30,
+        "move": "Wing Attack"
+      },
+      {
+        "level": 36,
+        "move": "Slash"
+      }
+    ],
+    "evolution": null,
+    "sprite": "scyther.png"
+  },
+  {
+    "id": 128,
+    "name": "Tauros",
+    "types": [
+      "normal"
+    ],
+    "stats": {
+      "hp": 75,
+      "attack": 100,
+      "defense": 95,
+      "sp_attack": 40,
+      "sp_defense": 70,
+      "speed": 110
+    },
+    "base_exp": 172,
+    "catch_rate": 45,
+    "abilities": [
+      "Intimidate",
+      "Anger Point"
+    ],
+    "gender_ratio": 100.0,
+    "egg_groups": [
+      "field"
+    ],
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 3,
+        "move": "Tail Whip"
+      },
+      {
+        "level": 5,
+        "move": "Rage"
+      },
+      {
+        "level": 8,
+        "move": "Horn Attack"
+      },
+      {
+        "level": 11,
+        "move": "Scary Face"
+      },
+      {
+        "level": 15,
+        "move": "Pursuit"
+      },
+      {
+        "level": 19,
+        "move": "Rest"
+      },
+      {
+        "level": 24,
+        "move": "Take Down"
+      },
+      {
+        "level": 29,
+        "move": "Zen Headbutt"
+      }
+    ],
+    "evolution": null,
+    "sprite": "tauros.png"
   }
 ]

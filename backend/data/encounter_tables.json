@@ -932,5 +932,91 @@
         "weight": 20
       }
     ]
+  },
+  "safari_zone_1": {
+    "name": "Safari Zone Area 1",
+    "encounter_type": "grass",
+    "base_encounter_rate": 0.25,
+    "encounters": [
+      {
+        "species_id": 48,
+        "min_level": 25,
+        "max_level": 30,
+        "weight": 25
+      },
+      {
+        "species_id": 128,
+        "min_level": 25,
+        "max_level": 30,
+        "weight": 15
+      },
+      {
+        "species_id": 113,
+        "min_level": 25,
+        "max_level": 28,
+        "weight": 5
+      },
+      {
+        "species_id": 123,
+        "min_level": 25,
+        "max_level": 28,
+        "weight": 10
+      },
+      {
+        "species_id": 43,
+        "min_level": 24,
+        "max_level": 28,
+        "weight": 25
+      },
+      {
+        "species_id": 102,
+        "min_level": 24,
+        "max_level": 28,
+        "weight": 20
+      }
+    ]
+  },
+  "safari_zone_2": {
+    "name": "Safari Zone Area 2",
+    "encounter_type": "grass",
+    "base_encounter_rate": 0.25,
+    "encounters": [
+      {
+        "species_id": 123,
+        "min_level": 26,
+        "max_level": 30,
+        "weight": 15
+      },
+      {
+        "species_id": 128,
+        "min_level": 26,
+        "max_level": 30,
+        "weight": 20
+      },
+      {
+        "species_id": 113,
+        "min_level": 26,
+        "max_level": 30,
+        "weight": 5
+      },
+      {
+        "species_id": 49,
+        "min_level": 28,
+        "max_level": 32,
+        "weight": 10
+      },
+      {
+        "species_id": 114,
+        "min_level": 26,
+        "max_level": 30,
+        "weight": 25
+      },
+      {
+        "species_id": 69,
+        "min_level": 24,
+        "max_level": 28,
+        "weight": 25
+      }
+    ]
   }
 }

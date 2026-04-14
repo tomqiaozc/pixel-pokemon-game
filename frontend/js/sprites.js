@@ -1566,6 +1566,92 @@ const Sprites = (() => {
         return c;
     }
 
+    // Koga — Fuchsia City Gym Leader (ninja, purple scarf)
+    function drawKoga() {
+        if (cache.koga) return cache.koga;
+        const c = document.createElement('canvas');
+        c.width = TILE; c.height = TILE;
+        const ctx = c.getContext('2d');
+        // Hair (dark, spiky)
+        ctx.fillStyle = '#222';
+        ctx.fillRect(4, 0, 8, 4);
+        ctx.fillRect(3, 1, 1, 2);
+        ctx.fillRect(12, 1, 1, 2);
+        // Face
+        ctx.fillStyle = '#fdd';
+        ctx.fillRect(5, 2, 6, 4);
+        // Eyes (narrow, sharp)
+        ctx.fillStyle = '#202';
+        ctx.fillRect(6, 3, 2, 1);
+        ctx.fillRect(9, 3, 2, 1);
+        // Mouth
+        ctx.fillStyle = '#a66';
+        ctx.fillRect(7, 5, 2, 1);
+        // Purple scarf
+        ctx.fillStyle = '#808';
+        ctx.fillRect(4, 6, 8, 2);
+        // Body (dark ninja outfit)
+        ctx.fillStyle = '#303';
+        ctx.fillRect(4, 8, 8, 4);
+        // Belt
+        ctx.fillStyle = '#a0a';
+        ctx.fillRect(4, 10, 8, 1);
+        // Legs
+        ctx.fillStyle = '#303';
+        ctx.fillRect(5, 12, 2, 2);
+        ctx.fillRect(9, 12, 2, 2);
+        // Shoes
+        ctx.fillStyle = '#222';
+        ctx.fillRect(5, 14, 2, 1);
+        ctx.fillRect(9, 14, 2, 1);
+        cache.koga = c;
+        return c;
+    }
+
+    // Juggler — Fuchsia Gym trainer (colorful outfit, balls)
+    function drawJuggler() {
+        if (cache.juggler) return cache.juggler;
+        const c = document.createElement('canvas');
+        c.width = TILE; c.height = TILE;
+        const ctx = c.getContext('2d');
+        // Hat (jester-like, purple)
+        ctx.fillStyle = '#808';
+        ctx.fillRect(4, 0, 8, 3);
+        ctx.fillRect(3, 2, 2, 1);
+        ctx.fillRect(11, 2, 2, 1);
+        // Face
+        ctx.fillStyle = '#fdd';
+        ctx.fillRect(5, 3, 6, 4);
+        // Eyes
+        ctx.fillStyle = '#222';
+        ctx.fillRect(6, 4, 1, 1);
+        ctx.fillRect(9, 4, 1, 1);
+        // Smile
+        ctx.fillStyle = '#c44';
+        ctx.fillRect(7, 6, 2, 1);
+        // Juggling balls (floating above)
+        ctx.fillStyle = '#e44';
+        ctx.fillRect(2, 0, 2, 2);
+        ctx.fillStyle = '#44e';
+        ctx.fillRect(12, 0, 2, 2);
+        // Body (colorful vest)
+        ctx.fillStyle = '#cc0';
+        ctx.fillRect(4, 7, 8, 5);
+        // Vest stripe
+        ctx.fillStyle = '#808';
+        ctx.fillRect(7, 7, 2, 5);
+        // Legs
+        ctx.fillStyle = '#44c';
+        ctx.fillRect(5, 12, 2, 3);
+        ctx.fillRect(9, 12, 2, 3);
+        // Shoes
+        ctx.fillStyle = '#222';
+        ctx.fillRect(5, 14, 2, 1);
+        ctx.fillRect(9, 14, 2, 1);
+        cache.juggler = c;
+        return c;
+    }
+
     return {
         TILE,
         PAL,
@@ -1613,5 +1699,7 @@ const Sprites = (() => {
         drawRocketAdmin,
         drawSabrina,
         drawBlackbelt,
+        drawKoga,
+        drawJuggler,
     };
 })();

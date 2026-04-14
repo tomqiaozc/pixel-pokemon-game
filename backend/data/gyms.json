@@ -262,5 +262,76 @@
         }
       ]
     }
+  },
+  {
+    "id": "fuchsia_gym",
+    "name": "Fuchsia City Gym",
+    "city": "Fuchsia City",
+    "type_specialty": "poison",
+    "badge_name": "Soul Badge",
+    "badge_id": "soul",
+    "map_id": "fuchsia_gym",
+    "gym_trainers": [
+      "fuchsia_gym_trainer_1",
+      "fuchsia_gym_trainer_2",
+      "fuchsia_gym_trainer_3"
+    ],
+    "prerequisite_badge": "marsh",
+    "leader": {
+      "id": "koga",
+      "name": "Koga",
+      "sprite_id": "koga",
+      "badge_id": "soul",
+      "reward_money": 4700,
+      "ai_difficulty": "hard",
+      "dialogue_before": "Fwahaha! A mere child dares challenge me? Very well, I shall show you the art of poison!",
+      "dialogue_after": "Humph! You have proven your worth. Take the Soul Badge!",
+      "pokemon_team": [
+        {
+          "species_id": 37,
+          "name": "Koffing",
+          "level": 37,
+          "moves": [
+            "Sludge",
+            "Smog",
+            "Self-Destruct",
+            "Toxic"
+          ]
+        },
+        {
+          "species_id": 41,
+          "name": "Muk",
+          "level": 39,
+          "moves": [
+            "Sludge",
+            "Minimize",
+            "Toxic",
+            "Acid Armor"
+          ]
+        },
+        {
+          "species_id": 38,
+          "name": "Weezing",
+          "level": 37,
+          "moves": [
+            "Sludge",
+            "Smog",
+            "Self-Destruct",
+            "Toxic"
+          ]
+        },
+        {
+          "species_id": 49,
+          "name": "Venomoth",
+          "level": 43,
+          "moves": [
+            "Psychic",
+            "Poison Powder",
+            "Sleep Powder",
+            "Toxic"
+          ]
+        }
+      ]
+    }
   }
 ]

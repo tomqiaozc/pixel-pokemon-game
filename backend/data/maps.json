@@ -2889,5 +2889,246 @@
     "trainers": [],
     "encounter_zones": [],
     "buildings": []
+  },
+  {
+    "id": "fuchsia_city",
+    "name": "fuchsia_city",
+    "display_name": "Fuchsia City",
+    "map_type": "city",
+    "width": 30,
+    "height": 25,
+    "connections": [
+      {
+        "direction": "north",
+        "target_map_id": "cycling_road",
+        "entry_x": 5,
+        "entry_y": 39
+      }
+    ],
+    "npcs": [
+      {
+        "npc_id": "fuchsia_townsfolk_1",
+        "x": 12,
+        "y": 10,
+        "facing": "down"
+      },
+      {
+        "npc_id": "fuchsia_townsfolk_2",
+        "x": 20,
+        "y": 15,
+        "facing": "left"
+      }
+    ],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": [
+      {
+        "name": "Pokemon Center",
+        "x": 5,
+        "y": 6,
+        "width": 4,
+        "height": 3,
+        "door_x": 7,
+        "door_y": 8,
+        "interior_map_id": "fuchsia_pokemon_center"
+      },
+      {
+        "name": "Pokemart",
+        "x": 12,
+        "y": 6,
+        "width": 4,
+        "height": 3,
+        "door_x": 14,
+        "door_y": 8,
+        "interior_map_id": "fuchsia_pokemart"
+      },
+      {
+        "name": "Fuchsia Gym",
+        "x": 5,
+        "y": 14,
+        "width": 5,
+        "height": 4,
+        "door_x": 7,
+        "door_y": 17,
+        "interior_map_id": "fuchsia_gym"
+      },
+      {
+        "name": "Safari Zone",
+        "x": 18,
+        "y": 4,
+        "width": 5,
+        "height": 4,
+        "door_x": 20,
+        "door_y": 7,
+        "interior_map_id": "safari_zone_entrance"
+      },
+      {
+        "name": "Warden's House",
+        "x": 22,
+        "y": 14,
+        "width": 4,
+        "height": 3,
+        "door_x": 24,
+        "door_y": 16,
+        "interior_map_id": "wardens_house"
+      }
+    ]
+  },
+  {
+    "id": "fuchsia_pokemon_center",
+    "name": "fuchsia_pokemon_center",
+    "display_name": "Fuchsia Pokemon Center",
+    "map_type": "interior",
+    "width": 8,
+    "height": 8,
+    "connections": [],
+    "npcs": [
+      {
+        "npc_id": "fuchsia_nurse_joy",
+        "x": 4,
+        "y": 1,
+        "facing": "down"
+      }
+    ],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": []
+  },
+  {
+    "id": "fuchsia_pokemart",
+    "name": "fuchsia_pokemart",
+    "display_name": "Fuchsia Pokemart",
+    "map_type": "interior",
+    "width": 8,
+    "height": 8,
+    "connections": [],
+    "npcs": [
+      {
+        "npc_id": "fuchsia_mart_clerk",
+        "x": 4,
+        "y": 1,
+        "facing": "down"
+      }
+    ],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": []
+  },
+  {
+    "id": "fuchsia_gym",
+    "name": "fuchsia_gym",
+    "display_name": "Fuchsia City Gym",
+    "map_type": "gym",
+    "width": 12,
+    "height": 12,
+    "connections": [],
+    "npcs": [],
+    "encounter_zones": [],
+    "buildings": [],
+    "trainers": [
+      {
+        "trainer_id": "fuchsia_gym_trainer_1",
+        "x": 3,
+        "y": 5,
+        "facing": "right",
+        "sight_range": 3
+      },
+      {
+        "trainer_id": "fuchsia_gym_trainer_2",
+        "x": 8,
+        "y": 5,
+        "facing": "left",
+        "sight_range": 3
+      },
+      {
+        "trainer_id": "fuchsia_gym_trainer_3",
+        "x": 5,
+        "y": 8,
+        "facing": "down",
+        "sight_range": 3
+      }
+    ]
+  },
+  {
+    "id": "safari_zone_entrance",
+    "name": "safari_zone_entrance",
+    "display_name": "Safari Zone Gate",
+    "map_type": "interior",
+    "width": 10,
+    "height": 8,
+    "connections": [],
+    "npcs": [
+      {
+        "npc_id": "safari_zone_guide",
+        "x": 5,
+        "y": 2,
+        "facing": "down"
+      }
+    ],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": []
+  },
+  {
+    "id": "safari_zone_area_1",
+    "name": "safari_zone_area_1",
+    "display_name": "Safari Zone Area 1",
+    "map_type": "route",
+    "width": 20,
+    "height": 20,
+    "connections": [],
+    "npcs": [],
+    "trainers": [],
+    "encounter_zones": [
+      {
+        "x": 3,
+        "y": 3,
+        "width": 14,
+        "height": 14,
+        "encounter_table_id": "safari_zone_1"
+      }
+    ],
+    "buildings": []
+  },
+  {
+    "id": "safari_zone_area_2",
+    "name": "safari_zone_area_2",
+    "display_name": "Safari Zone Area 2",
+    "map_type": "route",
+    "width": 20,
+    "height": 20,
+    "connections": [],
+    "npcs": [],
+    "trainers": [],
+    "encounter_zones": [
+      {
+        "x": 3,
+        "y": 3,
+        "width": 14,
+        "height": 14,
+        "encounter_table_id": "safari_zone_2"
+      }
+    ],
+    "buildings": []
+  },
+  {
+    "id": "wardens_house",
+    "name": "wardens_house",
+    "display_name": "Warden's House",
+    "map_type": "interior",
+    "width": 8,
+    "height": 8,
+    "connections": [],
+    "npcs": [
+      {
+        "npc_id": "warden_npc",
+        "x": 4,
+        "y": 3,
+        "facing": "down"
+      }
+    ],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": []
   }
 ]
