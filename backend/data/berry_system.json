@@ -1,0 +1,45 @@
+{
+  "description": "Berry growing and harvesting system.",
+  "berries": [
+    {"id": "cheri_berry", "name": "Cheri Berry", "effect": "cure_paralysis", "growth_hours": 12, "yield_min": 2, "yield_max": 5},
+    {"id": "chesto_berry", "name": "Chesto Berry", "effect": "cure_sleep", "growth_hours": 12, "yield_min": 2, "yield_max": 5},
+    {"id": "pecha_berry", "name": "Pecha Berry", "effect": "cure_poison", "growth_hours": 12, "yield_min": 2, "yield_max": 5},
+    {"id": "rawst_berry", "name": "Rawst Berry", "effect": "cure_burn", "growth_hours": 12, "yield_min": 2, "yield_max": 5},
+    {"id": "aspear_berry", "name": "Aspear Berry", "effect": "cure_freeze", "growth_hours": 12, "yield_min": 2, "yield_max": 5},
+    {"id": "leppa_berry", "name": "Leppa Berry", "effect": "restore_pp_10", "growth_hours": 16, "yield_min": 1, "yield_max": 4},
+    {"id": "oran_berry", "name": "Oran Berry", "effect": "restore_hp_10", "growth_hours": 12, "yield_min": 2, "yield_max": 5},
+    {"id": "persim_berry", "name": "Persim Berry", "effect": "cure_confusion", "growth_hours": 12, "yield_min": 2, "yield_max": 5},
+    {"id": "lum_berry", "name": "Lum Berry", "effect": "cure_any_status", "growth_hours": 48, "yield_min": 1, "yield_max": 2},
+    {"id": "sitrus_berry", "name": "Sitrus Berry", "effect": "restore_hp_25pct", "growth_hours": 32, "yield_min": 1, "yield_max": 3},
+    {"id": "liechi_berry", "name": "Liechi Berry", "effect": "boost_attack", "growth_hours": 96, "yield_min": 1, "yield_max": 2},
+    {"id": "ganlon_berry", "name": "Ganlon Berry", "effect": "boost_defense", "growth_hours": 96, "yield_min": 1, "yield_max": 2}
+  ],
+  "growth_stages": [
+    {"id": "planted", "name": "Planted", "sprite": "soil_planted"},
+    {"id": "sprouted", "name": "Sprouted", "sprite": "soil_sprout"},
+    {"id": "growing", "name": "Growing", "sprite": "soil_growing"},
+    {"id": "flowering", "name": "Flowering", "sprite": "soil_flower"},
+    {"id": "ready", "name": "Ready to Harvest", "sprite": "soil_berry"}
+  ],
+  "watering": {
+    "bonus_per_water": 1,
+    "max_waters_per_stage": 1,
+    "dry_penalty_hours": 4,
+    "wither_after_ready_hours": 24
+  },
+  "soil_patches": [
+    {"id": "route_1_patch", "location": "route_1", "slots": 2},
+    {"id": "route_2_patch", "location": "route_2", "slots": 2},
+    {"id": "route_5_patch", "location": "route_5", "slots": 3},
+    {"id": "route_7_patch", "location": "route_7", "slots": 3},
+    {"id": "route_11_patch", "location": "route_11", "slots": 2},
+    {"id": "route_14_patch", "location": "route_14", "slots": 3},
+    {"id": "route_25_patch", "location": "route_25", "slots": 4}
+  ],
+  "total_soil_slots": 19,
+  "berry_pouch": {
+    "enabled": true,
+    "max_per_berry": 99,
+    "bag_pocket": "berries"
+  }
+}

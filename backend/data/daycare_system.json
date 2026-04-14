@@ -1,0 +1,55 @@
+{
+  "description": "Pokemon Day Care center mechanics and egg breeding.",
+  "daycare": {
+    "location": "route_5",
+    "npc_name": "Day-Care Man",
+    "npc_partner": "Day-Care Lady",
+    "max_pokemon": 2,
+    "cost_per_level": 100,
+    "base_cost": 100
+  },
+  "leveling": {
+    "exp_per_step": 1,
+    "learn_moves": true,
+    "move_learning": "replace_oldest",
+    "evolution_enabled": false,
+    "max_level": 100
+  },
+  "breeding": {
+    "enabled": true,
+    "egg_cycle_steps": 256,
+    "egg_discover_chance": 0.5,
+    "check_interval_steps": 256,
+    "egg_groups": [
+      "monster", "water_1", "water_2", "water_3", "bug", "flying",
+      "field", "fairy", "grass", "human_like", "mineral", "amorphous",
+      "ditto", "dragon", "undiscovered"
+    ],
+    "ditto_compatible": true,
+    "ditto_breeds_with_all": true,
+    "undiscovered_cannot_breed": true,
+    "legendary_cannot_breed": true
+  },
+  "compatibility": {
+    "same_species_different_ot": {"chance": 0.7, "message": "The two seem to get along very well!"},
+    "same_species_same_ot": {"chance": 0.5, "message": "The two seem to get along."},
+    "different_species_different_ot": {"chance": 0.5, "message": "The two seem to get along."},
+    "different_species_same_ot": {"chance": 0.2, "message": "The two don't seem to like each other."},
+    "incompatible": {"chance": 0.0, "message": "The two prefer to play with other Pokemon."}
+  },
+  "egg_mechanics": {
+    "species_from_mother": true,
+    "inherit_moves": ["level_up", "egg_moves", "tm_moves"],
+    "iv_inheritance": 3,
+    "hatch_message": "Oh? Your EGG is hatching!",
+    "hatch_level": 5,
+    "friendship_at_hatch": 120
+  },
+  "dialogue": {
+    "deposit": "Would you like me to look after your {pokemon}?",
+    "withdraw": "Your {pokemon} has grown a lot! That will be ${cost}.",
+    "egg_found": "We found an EGG! Would you like to take it?",
+    "no_egg": "The two don't seem to like each other very much.",
+    "full_party_egg": "You have no room for the EGG. Come back with an open spot."
+  }
+}

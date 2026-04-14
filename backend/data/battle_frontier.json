@@ -1,0 +1,67 @@
+{
+  "description": "Battle Tower and challenge facility configuration.",
+  "battle_tower": {
+    "location": "battle_tower",
+    "unlock_requirement": "champion_defeated",
+    "max_streak": 100,
+    "levels_per_set": 7,
+    "sets_for_brain": 7
+  },
+  "rules": {
+    "team_size": 3,
+    "level_cap": 50,
+    "species_clause": true,
+    "item_clause": true,
+    "sleep_clause": true,
+    "ohko_clause": true,
+    "evasion_clause": true,
+    "banned_pokemon": ["Mewtwo", "Mew"],
+    "banned_items": ["Soul Dew"],
+    "healing_between_battles": false
+  },
+  "rewards": {
+    "currency": "battle_points",
+    "bp_per_win": 1,
+    "bp_bonus_streak_7": 3,
+    "bp_bonus_streak_21": 5,
+    "bp_bonus_streak_49": 10,
+    "shop_items": [
+      {"item": "Protein", "cost": 1},
+      {"item": "Iron", "cost": 1},
+      {"item": "Calcium", "cost": 1},
+      {"item": "Zinc", "cost": 1},
+      {"item": "Carbos", "cost": 1},
+      {"item": "HP Up", "cost": 1},
+      {"item": "Rare Candy", "cost": 3},
+      {"item": "PP Up", "cost": 3},
+      {"item": "PP Max", "cost": 5},
+      {"item": "Choice Band", "cost": 8},
+      {"item": "Focus Sash", "cost": 8},
+      {"item": "Leftovers", "cost": 8},
+      {"item": "Life Orb", "cost": 8}
+    ]
+  },
+  "trainer_pool": [
+    {"class": "Battle Girl", "team_size": 3, "ai_level": "standard"},
+    {"class": "Ace Trainer", "team_size": 3, "ai_level": "smart"},
+    {"class": "Veteran", "team_size": 3, "ai_level": "smart"},
+    {"class": "Black Belt", "team_size": 3, "ai_level": "standard"},
+    {"class": "Psychic", "team_size": 3, "ai_level": "standard"},
+    {"class": "Cooltrainer", "team_size": 3, "ai_level": "smart"},
+    {"class": "Gentleman", "team_size": 3, "ai_level": "standard"},
+    {"class": "Swimmer", "team_size": 3, "ai_level": "standard"}
+  ],
+  "tower_tycoon": {
+    "name": "Tower Tycoon Palmer",
+    "appears_at_streak": [21, 49],
+    "team_level": 50,
+    "ai_level": "expert",
+    "reward_title": "Tower Champion"
+  },
+  "display": {
+    "streak_counter": true,
+    "show_opponent_preview": false,
+    "battle_bg": "battle_tower_interior",
+    "victory_fanfare": "battle_tower_win"
+  }
+}
