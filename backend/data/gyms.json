@@ -31,7 +31,8 @@
     "badge_name": "Cascade Badge",
     "badge_id": "cascade",
     "map_id": "cerulean_gym",
-    "gym_trainers": [],
+    "gym_trainers": ["cerulean_gym_trainer_1", "cerulean_gym_trainer_2"],
+    "prerequisite_badge": "boulder",
     "leader": {
       "id": "misty",
       "name": "Misty",
