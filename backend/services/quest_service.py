@@ -317,6 +317,42 @@ _QUEST_DEFS: list[dict] = [
         "rewards": {"money": 50000, "unlock_flags": ["pokemon_league_champion", "hall_of_fame"]},
         "prerequisite_quests": ["elite_four"],
     },
+    {
+        "id": "legendary_articuno",
+        "name": "The Legendary Articuno",
+        "description": "Deep in the Seafoam Islands, the legendary ice bird Articuno awaits!",
+        "type": "side",
+        "objectives": [
+            {"id": "find_articuno", "description": "Find Articuno in Seafoam Islands B2F", "type": "visit_location", "target": "seafoam_islands_b2f", "required_progress": 1},
+            {"id": "catch_articuno", "description": "Catch or defeat Articuno", "type": "defeat_trainer", "target": "articuno", "required_progress": 1},
+        ],
+        "rewards": {"money": 10000, "unlock_flags": ["articuno_encountered"]},
+        "prerequisite_quests": [],
+    },
+    {
+        "id": "legendary_zapdos",
+        "name": "The Legendary Zapdos",
+        "description": "The abandoned Power Plant hums with electricity — Zapdos roosts within!",
+        "type": "side",
+        "objectives": [
+            {"id": "find_zapdos", "description": "Find Zapdos in the Power Plant", "type": "visit_location", "target": "power_plant", "required_progress": 1},
+            {"id": "catch_zapdos", "description": "Catch or defeat Zapdos", "type": "defeat_trainer", "target": "zapdos", "required_progress": 1},
+        ],
+        "rewards": {"money": 10000, "unlock_flags": ["zapdos_encountered"]},
+        "prerequisite_quests": [],
+    },
+    {
+        "id": "legendary_moltres",
+        "name": "The Legendary Moltres",
+        "description": "A hidden chamber in Victory Road holds the legendary fire bird Moltres!",
+        "type": "side",
+        "objectives": [
+            {"id": "find_moltres", "description": "Find Moltres in Victory Road", "type": "visit_location", "target": "moltres_chamber", "required_progress": 1},
+            {"id": "catch_moltres", "description": "Catch or defeat Moltres", "type": "defeat_trainer", "target": "moltres", "required_progress": 1},
+        ],
+        "rewards": {"money": 10000, "unlock_flags": ["moltres_encountered"]},
+        "prerequisite_quests": [],
+    },
 ]
 
 

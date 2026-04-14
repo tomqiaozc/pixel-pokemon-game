@@ -5803,5 +5803,235 @@
     ],
     "evolution": null,
     "sprite": "dragonite.png"
+  },
+  {
+    "id": 144,
+    "name": "Articuno",
+    "types": [
+      "ice",
+      "flying"
+    ],
+    "stats": {
+      "hp": 90,
+      "attack": 85,
+      "defense": 100,
+      "sp_attack": 95,
+      "sp_defense": 125,
+      "speed": 85
+    },
+    "base_exp": 261,
+    "catch_rate": 3,
+    "abilities": [
+      "Pressure",
+      "Snow Cloak"
+    ],
+    "gender_ratio": -1.0,
+    "egg_groups": [
+      "undiscovered"
+    ],
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Gust"
+      },
+      {
+        "level": 1,
+        "move": "Powder Snow"
+      },
+      {
+        "level": 15,
+        "move": "Mist"
+      },
+      {
+        "level": 22,
+        "move": "Ice Shard"
+      },
+      {
+        "level": 29,
+        "move": "Mind Reader"
+      },
+      {
+        "level": 36,
+        "move": "Ancient Power"
+      },
+      {
+        "level": 43,
+        "move": "Agility"
+      },
+      {
+        "level": 50,
+        "move": "Ice Beam"
+      },
+      {
+        "level": 57,
+        "move": "Reflect"
+      },
+      {
+        "level": 64,
+        "move": "Blizzard"
+      },
+      {
+        "level": 71,
+        "move": "Sheer Cold"
+      }
+    ],
+    "evolution": null,
+    "sprite": "articuno.png"
+  },
+  {
+    "id": 145,
+    "name": "Zapdos",
+    "types": [
+      "electric",
+      "flying"
+    ],
+    "stats": {
+      "hp": 90,
+      "attack": 90,
+      "defense": 85,
+      "sp_attack": 125,
+      "sp_defense": 90,
+      "speed": 100
+    },
+    "base_exp": 261,
+    "catch_rate": 3,
+    "abilities": [
+      "Pressure",
+      "Lightning Rod"
+    ],
+    "gender_ratio": -1.0,
+    "egg_groups": [
+      "undiscovered"
+    ],
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Peck"
+      },
+      {
+        "level": 1,
+        "move": "Thunder Shock"
+      },
+      {
+        "level": 15,
+        "move": "Thunder Wave"
+      },
+      {
+        "level": 22,
+        "move": "Detect"
+      },
+      {
+        "level": 29,
+        "move": "Pluck"
+      },
+      {
+        "level": 36,
+        "move": "Ancient Power"
+      },
+      {
+        "level": 43,
+        "move": "Charge"
+      },
+      {
+        "level": 50,
+        "move": "Agility"
+      },
+      {
+        "level": 57,
+        "move": "Discharge"
+      },
+      {
+        "level": 64,
+        "move": "Thunder"
+      },
+      {
+        "level": 71,
+        "move": "Rain Dance"
+      },
+      {
+        "level": 78,
+        "move": "Zap Cannon"
+      }
+    ],
+    "evolution": null,
+    "sprite": "zapdos.png"
+  },
+  {
+    "id": 146,
+    "name": "Moltres",
+    "types": [
+      "fire",
+      "flying"
+    ],
+    "stats": {
+      "hp": 90,
+      "attack": 100,
+      "defense": 90,
+      "sp_attack": 125,
+      "sp_defense": 85,
+      "speed": 90
+    },
+    "base_exp": 261,
+    "catch_rate": 3,
+    "abilities": [
+      "Pressure",
+      "Flame Body"
+    ],
+    "gender_ratio": -1.0,
+    "egg_groups": [
+      "undiscovered"
+    ],
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Wing Attack"
+      },
+      {
+        "level": 1,
+        "move": "Ember"
+      },
+      {
+        "level": 15,
+        "move": "Fire Spin"
+      },
+      {
+        "level": 22,
+        "move": "Agility"
+      },
+      {
+        "level": 29,
+        "move": "Endure"
+      },
+      {
+        "level": 36,
+        "move": "Ancient Power"
+      },
+      {
+        "level": 43,
+        "move": "Flamethrower"
+      },
+      {
+        "level": 50,
+        "move": "Safeguard"
+      },
+      {
+        "level": 57,
+        "move": "Air Slash"
+      },
+      {
+        "level": 64,
+        "move": "Heat Wave"
+      },
+      {
+        "level": 71,
+        "move": "Solar Beam"
+      },
+      {
+        "level": 78,
+        "move": "Sky Attack"
+      }
+    ],
+    "evolution": null,
+    "sprite": "moltres.png"
   }
 ]

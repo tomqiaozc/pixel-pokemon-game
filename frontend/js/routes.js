@@ -3199,6 +3199,97 @@ const Routes = (() => {
         return { data: m, width: W, height: H };
     }
 
+    // Seafoam Islands 1F (14x14 cave)
+    function buildSeafoamIslands1F() {
+        const W = 14, H = 14;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.ROCK); m.push(row); }
+        // Carve cave interior
+        for (let y = 2; y < H-2; y++) for (let x = 2; x < W-2; x++) m[y][x] = T.DIRT;
+        // Ice patches
+        m[4][5] = T.WATER; m[4][6] = T.WATER; m[4][7] = T.WATER;
+        m[8][4] = T.WATER; m[8][5] = T.WATER;
+        // Rock obstacles
+        m[5][3] = T.ROCK; m[5][9] = T.ROCK;
+        m[9][4] = T.ROCK; m[9][8] = T.ROCK;
+        // Entrance (south)
+        m[H-1][7] = T.DOOR;
+        // Stairs down
+        m[0][7] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Seafoam Islands B1F (14x14 cave)
+    function buildSeafoamIslandsB1F() {
+        const W = 14, H = 14;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.ROCK); m.push(row); }
+        for (let y = 2; y < H-2; y++) for (let x = 2; x < W-2; x++) m[y][x] = T.DIRT;
+        // Water pools
+        for (let x = 4; x <= 8; x++) m[6][x] = T.WATER;
+        for (let x = 5; x <= 7; x++) m[7][x] = T.WATER;
+        // Rock obstacles
+        m[4][4] = T.ROCK; m[4][9] = T.ROCK;
+        m[8][3] = T.ROCK; m[8][10] = T.ROCK;
+        // Stairs up
+        m[0][7] = T.DOOR;
+        // Stairs down
+        m[H-1][7] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Seafoam Islands B2F (14x14 cave — Articuno chamber)
+    function buildSeafoamIslandsB2F() {
+        const W = 14, H = 14;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.ROCK); m.push(row); }
+        for (let y = 2; y < H-2; y++) for (let x = 2; x < W-2; x++) m[y][x] = T.DIRT;
+        // Large ice lake (center)
+        for (let y = 4; y <= 8; y++) for (let x = 4; x <= 9; x++) m[y][x] = T.WATER;
+        // Island in lake where Articuno stands
+        m[6][6] = T.DIRT; m[6][7] = T.DIRT;
+        // Stairs up
+        m[0][7] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Power Plant (16x16 interior)
+    function buildPowerPlant() {
+        const W = 16, H = 16;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.DIRT); m.push(row); }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H-1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W-1] = T.HOUSE_WALL; }
+        // Internal machinery walls
+        for (let y = 4; y <= 6; y++) m[y][4] = T.HOUSE_WALL;
+        for (let y = 4; y <= 6; y++) m[y][11] = T.HOUSE_WALL;
+        for (let y = 9; y <= 11; y++) m[y][4] = T.HOUSE_WALL;
+        for (let y = 9; y <= 11; y++) m[y][11] = T.HOUSE_WALL;
+        // Electrode traps (rocks)
+        m[5][7] = T.ROCK; m[5][8] = T.ROCK;
+        m[10][6] = T.ROCK; m[10][9] = T.ROCK;
+        // Entrance
+        m[H-1][8] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Moltres Chamber (10x10 cave)
+    function buildMoltresChamber() {
+        const W = 10, H = 10;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.ROCK); m.push(row); }
+        for (let y = 2; y < H-2; y++) for (let x = 2; x < W-2; x++) m[y][x] = T.DIRT;
+        // Lava pools
+        m[3][3] = T.WATER; m[3][6] = T.WATER;
+        m[6][3] = T.WATER; m[6][6] = T.WATER;
+        // Central platform
+        m[4][4] = T.FLOWER; m[4][5] = T.FLOWER;
+        m[5][4] = T.FLOWER; m[5][5] = T.FLOWER;
+        // Entrance
+        m[H-1][5] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
     // Register all maps with MapLoader
     function registerAll() {
         const palletTown = buildPalletTown();
@@ -4524,6 +4615,52 @@ const Routes = (() => {
             npcs: [{ name: 'Professor Oak', type: 'professor', x: 5, y: 3, dir: 0,
               dialogue: ['Congratulations! You are the new Pokemon League Champion!', 'Your Pokemon have been recorded in the Hall of Fame!'] }],
         });
+
+        const seafoam1f = buildSeafoamIslands1F();
+        MapLoader.registerMap('seafoam_islands_1f', {
+            name: 'Seafoam Islands 1F',
+            width: seafoam1f.width, height: seafoam1f.height, data: seafoam1f.data,
+            exits: [
+                { edge: 'south', targetMap: 'route_20', spawnX: 15, spawnY: 1, spawnDir: 0 },
+            ],
+            doors: [
+                { x: 7, y: 0, targetMap: 'seafoam_islands_b1f', spawnX: 7, spawnY: 12 },
+            ],
+        });
+
+        const seafoamB1f = buildSeafoamIslandsB1F();
+        MapLoader.registerMap('seafoam_islands_b1f', {
+            name: 'Seafoam Islands B1F',
+            width: seafoamB1f.width, height: seafoamB1f.height, data: seafoamB1f.data,
+            doors: [
+                { x: 7, y: 0, targetMap: 'seafoam_islands_1f', spawnX: 7, spawnY: 12 },
+                { x: 7, y: 13, targetMap: 'seafoam_islands_b2f', spawnX: 7, spawnY: 1 },
+            ],
+        });
+
+        const seafoamB2f = buildSeafoamIslandsB2F();
+        MapLoader.registerMap('seafoam_islands_b2f', {
+            name: 'Seafoam Islands B2F',
+            width: seafoamB2f.width, height: seafoamB2f.height, data: seafoamB2f.data,
+            doors: [
+                { x: 7, y: 0, targetMap: 'seafoam_islands_b1f', spawnX: 7, spawnY: 1 },
+            ],
+        });
+
+        const powerPlant = buildPowerPlant();
+        MapLoader.registerMap('power_plant', {
+            name: 'Power Plant',
+            width: powerPlant.width, height: powerPlant.height, data: powerPlant.data,
+        });
+
+        const moltresChamber = buildMoltresChamber();
+        MapLoader.registerMap('moltres_chamber', {
+            name: 'Moltres Chamber',
+            width: moltresChamber.width, height: moltresChamber.height, data: moltresChamber.data,
+            doors: [
+                { x: 5, y: 9, targetMap: 'victory_road_2f', spawnX: 8, spawnY: 1 },
+            ],
+        });
     }
 
     return {
@@ -4616,6 +4753,11 @@ const Routes = (() => {
         buildLanceRoom,
         buildChampionRoom,
         buildHallOfFame,
+        buildSeafoamIslands1F,
+        buildSeafoamIslandsB1F,
+        buildSeafoamIslandsB2F,
+        buildPowerPlant,
+        buildMoltresChamber,
         buildPalletTown,
         buildViridianCity,
         buildPewterCity,

@@ -38,7 +38,7 @@ class TestEliteFourMaps:
 
     def test_total_maps_count(self):
         maps = _load_json("maps.json")
-        assert len(maps) == 112
+        assert len(maps) == 117
 
 
 # ──── New Pokemon Species ────────────────────────────────────
@@ -70,7 +70,7 @@ class TestEliteFourSpecies:
 
     def test_total_species_count(self):
         species_data = _load_json("pokemon_species.json")
-        assert len(species_data) == 105
+        assert len(species_data) == 108
 
 
 # ──── NPCs ───────────────────────────────────────────────────

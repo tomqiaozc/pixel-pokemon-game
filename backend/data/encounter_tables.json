@@ -1197,5 +1197,91 @@
         "weight": 15
       }
     ]
+  },
+  "seafoam_islands": {
+    "encounters": [
+      {
+        "species_id": 86,
+        "min_level": 28,
+        "max_level": 32,
+        "weight": 25
+      },
+      {
+        "species_id": 87,
+        "min_level": 32,
+        "max_level": 36,
+        "weight": 10
+      },
+      {
+        "species_id": 90,
+        "min_level": 28,
+        "max_level": 32,
+        "weight": 25
+      },
+      {
+        "species_id": 41,
+        "min_level": 26,
+        "max_level": 30,
+        "weight": 20
+      },
+      {
+        "species_id": 42,
+        "min_level": 30,
+        "max_level": 34,
+        "weight": 10
+      },
+      {
+        "species_id": 79,
+        "min_level": 28,
+        "max_level": 32,
+        "weight": 10
+      }
+    ],
+    "name": "Seafoam Islands",
+    "encounter_type": "cave",
+    "base_encounter_rate": 0.15
+  },
+  "power_plant": {
+    "encounters": [
+      {
+        "species_id": 100,
+        "min_level": 30,
+        "max_level": 34,
+        "weight": 30
+      },
+      {
+        "species_id": 81,
+        "min_level": 30,
+        "max_level": 34,
+        "weight": 25
+      },
+      {
+        "species_id": 82,
+        "min_level": 34,
+        "max_level": 38,
+        "weight": 10
+      },
+      {
+        "species_id": 25,
+        "min_level": 28,
+        "max_level": 32,
+        "weight": 15
+      },
+      {
+        "species_id": 101,
+        "min_level": 34,
+        "max_level": 38,
+        "weight": 10
+      },
+      {
+        "species_id": 125,
+        "min_level": 34,
+        "max_level": 38,
+        "weight": 10
+      }
+    ],
+    "name": "Power Plant",
+    "encounter_type": "grass",
+    "base_encounter_rate": 0.15
   }
 }

@@ -3886,5 +3886,102 @@
     "trainers": [],
     "encounter_zones": [],
     "buildings": []
+  },
+  {
+    "id": "seafoam_islands_1f",
+    "name": "seafoam_islands_1f",
+    "display_name": "Seafoam Islands 1F",
+    "map_type": "cave",
+    "width": 14,
+    "height": 14,
+    "connections": [],
+    "npcs": [],
+    "trainers": [],
+    "encounter_zones": [
+      {
+        "x": 2,
+        "y": 2,
+        "width": 10,
+        "height": 10,
+        "encounter_table_id": "seafoam_islands"
+      }
+    ],
+    "buildings": []
+  },
+  {
+    "id": "seafoam_islands_b1f",
+    "name": "seafoam_islands_b1f",
+    "display_name": "Seafoam Islands B1F",
+    "map_type": "cave",
+    "width": 14,
+    "height": 14,
+    "connections": [],
+    "npcs": [],
+    "trainers": [],
+    "encounter_zones": [
+      {
+        "x": 2,
+        "y": 2,
+        "width": 10,
+        "height": 10,
+        "encounter_table_id": "seafoam_islands"
+      }
+    ],
+    "buildings": []
+  },
+  {
+    "id": "seafoam_islands_b2f",
+    "name": "seafoam_islands_b2f",
+    "display_name": "Seafoam Islands B2F",
+    "map_type": "cave",
+    "width": 14,
+    "height": 14,
+    "connections": [],
+    "npcs": [],
+    "trainers": [],
+    "encounter_zones": [
+      {
+        "x": 2,
+        "y": 2,
+        "width": 10,
+        "height": 10,
+        "encounter_table_id": "seafoam_islands"
+      }
+    ],
+    "buildings": []
+  },
+  {
+    "id": "power_plant",
+    "name": "power_plant",
+    "display_name": "Power Plant",
+    "map_type": "interior",
+    "width": 16,
+    "height": 16,
+    "connections": [],
+    "npcs": [],
+    "trainers": [],
+    "encounter_zones": [
+      {
+        "x": 2,
+        "y": 2,
+        "width": 12,
+        "height": 12,
+        "encounter_table_id": "power_plant"
+      }
+    ],
+    "buildings": []
+  },
+  {
+    "id": "moltres_chamber",
+    "name": "moltres_chamber",
+    "display_name": "Moltres Chamber",
+    "map_type": "cave",
+    "width": 10,
+    "height": 10,
+    "connections": [],
+    "npcs": [],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": []
   }
 ]
