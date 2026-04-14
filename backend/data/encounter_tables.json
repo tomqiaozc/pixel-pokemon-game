@@ -254,5 +254,46 @@
       {"species_id": 25, "min_level": 13, "max_level": 17, "weight": 20},
       {"species_id": 43, "min_level": 13, "max_level": 17, "weight": 30}
     ]
+  },
+  "pokemon_tower_2f": {
+    "name": "Pokemon Tower 2F",
+    "encounter_type": "ghost",
+    "base_encounter_rate": 0.35,
+    "encounters": [
+      {"species_id": 92, "min_level": 13, "max_level": 18, "weight": 80},
+      {"species_id": 104, "min_level": 15, "max_level": 18, "weight": 20}
+    ]
+  },
+  "pokemon_tower_3f": {
+    "name": "Pokemon Tower 3F",
+    "encounter_type": "ghost",
+    "base_encounter_rate": 0.35,
+    "encounters": [
+      {"species_id": 92, "min_level": 15, "max_level": 20, "weight": 60},
+      {"species_id": 93, "min_level": 18, "max_level": 20, "weight": 20},
+      {"species_id": 104, "min_level": 17, "max_level": 20, "weight": 20}
+    ]
+  },
+  "route_8": {
+    "name": "Route 8",
+    "encounter_type": "grass",
+    "base_encounter_rate": 0.2,
+    "encounters": [
+      {"species_id": 25, "min_level": 18, "max_level": 22, "weight": 30},
+      {"species_id": 23, "min_level": 18, "max_level": 22, "weight": 25},
+      {"species_id": 43, "min_level": 18, "max_level": 22, "weight": 25},
+      {"species_id": 96, "min_level": 20, "max_level": 22, "weight": 20}
+    ]
+  },
+  "route_12": {
+    "name": "Route 12",
+    "encounter_type": "grass",
+    "base_encounter_rate": 0.2,
+    "encounters": [
+      {"species_id": 43, "min_level": 22, "max_level": 26, "weight": 35},
+      {"species_id": 44, "min_level": 24, "max_level": 26, "weight": 25},
+      {"species_id": 96, "min_level": 22, "max_level": 26, "weight": 20},
+      {"species_id": 25, "min_level": 22, "max_level": 26, "weight": 20}
+    ]
   }
 }

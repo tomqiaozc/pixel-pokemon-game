@@ -1174,6 +1174,124 @@ const Sprites = (() => {
         return c;
     }
 
+    // Channeler sprite — purple robe, mystical headdress
+    function drawChanneler() {
+        if (cache.channeler) return cache.channeler;
+        const c = document.createElement('canvas');
+        c.width = TILE; c.height = TILE;
+        const ctx = c.getContext('2d');
+        // Purple headdress
+        ctx.fillStyle = '#7B2D8E';
+        ctx.fillRect(4, 0, 8, 4);
+        // Skin
+        ctx.fillStyle = '#FDBCB4';
+        ctx.fillRect(5, 3, 6, 4);
+        // Eyes (closed/mystical)
+        ctx.fillStyle = '#333';
+        ctx.fillRect(6, 4, 2, 1);
+        ctx.fillRect(10, 4, 2, 1);
+        // Purple robe
+        ctx.fillStyle = '#9B30FF';
+        ctx.fillRect(3, 7, 10, 7);
+        // Gold sash
+        ctx.fillStyle = '#FFD700';
+        ctx.fillRect(5, 9, 6, 1);
+        // Dark purple hem
+        ctx.fillStyle = '#6A1B9A';
+        ctx.fillRect(3, 13, 10, 2);
+        cache.channeler = c;
+        return c;
+    }
+
+    // Mr. Fuji sprite — old man, white hair, kind
+    function drawMrFuji() {
+        if (cache.mrFuji) return cache.mrFuji;
+        const c = document.createElement('canvas');
+        c.width = TILE; c.height = TILE;
+        const ctx = c.getContext('2d');
+        // White hair
+        ctx.fillStyle = '#E8E8E8';
+        ctx.fillRect(5, 1, 6, 3);
+        // Skin
+        ctx.fillStyle = '#FDBCB4';
+        ctx.fillRect(5, 3, 6, 4);
+        // Glasses
+        ctx.fillStyle = '#333';
+        ctx.fillRect(6, 4, 2, 1);
+        ctx.fillRect(9, 4, 2, 1);
+        ctx.fillRect(8, 4, 1, 1);
+        // White beard
+        ctx.fillStyle = '#E8E8E8';
+        ctx.fillRect(6, 6, 4, 2);
+        // Brown robe
+        ctx.fillStyle = '#8B4513';
+        ctx.fillRect(4, 7, 8, 5);
+        // Sash
+        ctx.fillStyle = '#D2691E';
+        ctx.fillRect(6, 8, 4, 1);
+        // Legs
+        ctx.fillStyle = '#555';
+        ctx.fillRect(5, 12, 3, 3);
+        ctx.fillRect(9, 12, 3, 3);
+        // Sandals
+        ctx.fillStyle = '#8B4513';
+        ctx.fillRect(5, 15, 3, 1);
+        ctx.fillRect(9, 15, 3, 1);
+        cache.mrFuji = c;
+        return c;
+    }
+
+    // Ghost sprite — purple hazy form (unidentified tower ghost)
+    function drawGhost() {
+        if (cache.ghost) return cache.ghost;
+        const c = document.createElement('canvas');
+        c.width = TILE; c.height = TILE;
+        const ctx = c.getContext('2d');
+        // Ghostly body — semi-transparent purple
+        ctx.fillStyle = '#6A0DAD';
+        ctx.fillRect(4, 2, 8, 8);
+        ctx.fillRect(3, 4, 10, 6);
+        ctx.fillRect(2, 6, 12, 4);
+        // Wispy bottom
+        ctx.fillStyle = '#8B5CF6';
+        ctx.fillRect(2, 10, 3, 3);
+        ctx.fillRect(6, 10, 4, 4);
+        ctx.fillRect(11, 10, 3, 3);
+        // Eyes — glowing white
+        ctx.fillStyle = '#FFF';
+        ctx.fillRect(5, 4, 2, 2);
+        ctx.fillRect(9, 4, 2, 2);
+        // Pupils
+        ctx.fillStyle = '#333';
+        ctx.fillRect(6, 5, 1, 1);
+        ctx.fillRect(10, 5, 1, 1);
+        cache.ghost = c;
+        return c;
+    }
+
+    // Tombstone sprite — grey stone marker
+    function drawTombstone() {
+        if (cache.tombstone) return cache.tombstone;
+        const c = document.createElement('canvas');
+        c.width = TILE; c.height = TILE;
+        const ctx = c.getContext('2d');
+        // Stone body
+        ctx.fillStyle = '#808080';
+        ctx.fillRect(3, 3, 10, 12);
+        // Rounded top
+        ctx.fillRect(4, 2, 8, 1);
+        ctx.fillRect(5, 1, 6, 1);
+        // Cross engraving
+        ctx.fillStyle = '#666';
+        ctx.fillRect(7, 4, 2, 6);
+        ctx.fillRect(5, 6, 6, 2);
+        // Base
+        ctx.fillStyle = '#696969';
+        ctx.fillRect(2, 14, 12, 2);
+        cache.tombstone = c;
+        return c;
+    }
+
     return {
         TILE,
         PAL,
@@ -1210,5 +1328,9 @@ const Sprites = (() => {
         drawSailor,
         drawCaptain,
         drawTrashCan,
+        drawChanneler,
+        drawMrFuji,
+        drawGhost,
+        drawTombstone,
     };
 })();

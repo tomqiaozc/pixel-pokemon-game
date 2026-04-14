@@ -446,5 +446,169 @@
     "sight_range": 3,
     "dialogue_before": "You look like a landlubber! I'll teach you how to battle at sea!",
     "dialogue_after": "Blimey! You fight like a seasoned sailor!"
+  },
+  {
+    "id": "channeler_1",
+    "name": "Patricia",
+    "trainer_class": "Channeler",
+    "sprite_id": "channeler",
+    "pokemon_team": [
+      {"species_id": 92, "name": "Gastly", "level": 22, "moves": ["Lick", "Confuse Ray", "Hypnosis", "Night Shade"]}
+    ],
+    "reward_money": 440,
+    "sight_range": 3,
+    "dialogue_before": "The spirits... they speak to me...",
+    "dialogue_after": "The spirits have gone quiet..."
+  },
+  {
+    "id": "channeler_2",
+    "name": "Carly",
+    "trainer_class": "Channeler",
+    "sprite_id": "channeler",
+    "pokemon_team": [
+      {"species_id": 92, "name": "Gastly", "level": 22, "moves": ["Lick", "Confuse Ray", "Hypnosis", "Night Shade"]}
+    ],
+    "reward_money": 440,
+    "sight_range": 3,
+    "dialogue_before": "Ke ke ke ke! You dare enter this tower?",
+    "dialogue_after": "The spirits... they abandon me..."
+  },
+  {
+    "id": "channeler_3",
+    "name": "Hope",
+    "trainer_class": "Channeler",
+    "sprite_id": "channeler",
+    "pokemon_team": [
+      {"species_id": 92, "name": "Gastly", "level": 23, "moves": ["Lick", "Confuse Ray", "Hypnosis", "Night Shade"]}
+    ],
+    "reward_money": 460,
+    "sight_range": 3,
+    "dialogue_before": "Be gone! The spirits command it!",
+    "dialogue_after": "The spirits... have failed me..."
+  },
+  {
+    "id": "channeler_4",
+    "name": "Laurel",
+    "trainer_class": "Channeler",
+    "sprite_id": "channeler",
+    "pokemon_team": [
+      {"species_id": 92, "name": "Gastly", "level": 23, "moves": ["Lick", "Confuse Ray", "Hypnosis", "Night Shade"]}
+    ],
+    "reward_money": 460,
+    "sight_range": 3,
+    "dialogue_before": "This tower is sacred ground! Leave at once!",
+    "dialogue_after": "Perhaps the spirits have chosen you..."
+  },
+  {
+    "id": "channeler_5",
+    "name": "Jody",
+    "trainer_class": "Channeler",
+    "sprite_id": "channeler",
+    "pokemon_team": [
+      {"species_id": 92, "name": "Gastly", "level": 24, "moves": ["Lick", "Confuse Ray", "Hypnosis", "Night Shade"]}
+    ],
+    "reward_money": 480,
+    "sight_range": 3,
+    "dialogue_before": "I can feel the restless spirits all around us...",
+    "dialogue_after": "You've calmed the spirits..."
+  },
+  {
+    "id": "rocket_grunt_tower_1",
+    "name": "Rocket Grunt",
+    "trainer_class": "Team Rocket",
+    "sprite_id": "rocket_grunt",
+    "pokemon_team": [
+      {"species_id": 41, "name": "Zubat", "level": 25, "moves": ["Bite", "Wing Attack", "Confuse Ray", "Toxic"]},
+      {"species_id": 109, "name": "Koffing", "level": 25, "moves": ["Tackle", "Poison Sting", "Self-Destruct", "Toxic"]}
+    ],
+    "reward_money": 1000,
+    "sight_range": 3,
+    "dialogue_before": "Get out of our way! Team Rocket has business here!",
+    "dialogue_after": "You'll pay for interfering with Team Rocket!"
+  },
+  {
+    "id": "rocket_grunt_tower_2",
+    "name": "Rocket Grunt",
+    "trainer_class": "Team Rocket",
+    "sprite_id": "rocket_grunt",
+    "pokemon_team": [
+      {"species_id": 41, "name": "Zubat", "level": 25, "moves": ["Bite", "Wing Attack", "Confuse Ray", "Toxic"]},
+      {"species_id": 109, "name": "Koffing", "level": 25, "moves": ["Tackle", "Poison Sting", "Self-Destruct", "Toxic"]}
+    ],
+    "reward_money": 1000,
+    "sight_range": 3,
+    "dialogue_before": "We won't let you interfere!",
+    "dialogue_after": "Grr... You haven't seen the last of Team Rocket!"
+  },
+  {
+    "id": "route8_lass_1",
+    "name": "Megan",
+    "trainer_class": "Lass",
+    "sprite_id": "lass",
+    "pokemon_team": [
+      {"species_id": 35, "name": "Clefairy", "level": 20, "moves": ["Growl", "Tackle", "Quick Attack", "Psychic"]},
+      {"species_id": 39, "name": "Jigglypuff", "level": 20, "moves": ["Sing", "Pound", "Disable", "Defense Curl"]}
+    ],
+    "reward_money": 400,
+    "sight_range": 3,
+    "dialogue_before": "My Pokemon are so cute! But they're tough too!",
+    "dialogue_after": "My cute Pokemon lost..."
+  },
+  {
+    "id": "route8_super_nerd_1",
+    "name": "Glenn",
+    "trainer_class": "Super Nerd",
+    "sprite_id": "super_nerd",
+    "pokemon_team": [
+      {"species_id": 81, "name": "Magnemite", "level": 22, "moves": ["Tackle", "Thunder Shock", "Thunder Wave", "Swift"]},
+      {"species_id": 100, "name": "Voltorb", "level": 22, "moves": ["Tackle", "Thunder Shock", "Screech", "Self-Destruct"]}
+    ],
+    "reward_money": 540,
+    "sight_range": 4,
+    "dialogue_before": "I've been studying the electromagnetic fields on this route!",
+    "dialogue_after": "My research was no match for your battling..."
+  },
+  {
+    "id": "route8_gambler_1",
+    "name": "Stan",
+    "trainer_class": "Gambler",
+    "sprite_id": "gambler",
+    "pokemon_team": [
+      {"species_id": 58, "name": "Growlithe", "level": 21, "moves": ["Ember", "Bite", "Leer", "Growl"]},
+      {"species_id": 37, "name": "Vulpix", "level": 21, "moves": ["Ember", "Quick Attack", "Confuse Ray", "Growl"]}
+    ],
+    "reward_money": 840,
+    "sight_range": 3,
+    "dialogue_before": "I'm betting it all on this battle!",
+    "dialogue_after": "Looks like I gambled and lost..."
+  },
+  {
+    "id": "route12_fisherman_1",
+    "name": "Barny",
+    "trainer_class": "Fisherman",
+    "sprite_id": "fisherman",
+    "pokemon_team": [
+      {"species_id": 129, "name": "Magikarp", "level": 22, "moves": ["Tackle", "Slam"]},
+      {"species_id": 60, "name": "Poliwag", "level": 22, "moves": ["Water Gun", "Bubble Beam", "Headbutt"]},
+      {"species_id": 118, "name": "Goldeen", "level": 22, "moves": ["Water Gun", "Headbutt", "Tail Whip"]}
+    ],
+    "reward_money": 440,
+    "sight_range": 3,
+    "dialogue_before": "I've been fishing here all day! Let's battle!",
+    "dialogue_after": "I should stick to fishing..."
+  },
+  {
+    "id": "route12_youngster_1",
+    "name": "Dan",
+    "trainer_class": "Youngster",
+    "sprite_id": "youngster",
+    "pokemon_team": [
+      {"species_id": 13, "name": "Rattata", "level": 23, "moves": ["Tackle", "Quick Attack", "Hyper Fang", "Tail Whip"]},
+      {"species_id": 14, "name": "Raticate", "level": 23, "moves": ["Tackle", "Quick Attack", "Hyper Fang", "Super Fang"]}
+    ],
+    "reward_money": 460,
+    "sight_range": 3,
+    "dialogue_before": "Route 12 is the best place to train!",
+    "dialogue_after": "I need to train harder..."
   }
 ]

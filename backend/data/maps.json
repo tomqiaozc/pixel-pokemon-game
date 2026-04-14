@@ -1607,5 +1607,411 @@
     "encounter_zones": [],
     "buildings": [],
     "requires_item": "ss_ticket"
+  },
+  {
+    "id": "route_7",
+    "name": "route_7",
+    "display_name": "Route 7",
+    "map_type": "route",
+    "width": 20,
+    "height": 10,
+    "connections": [
+      {
+        "direction": "east",
+        "target_map_id": "route_8",
+        "entry_x": 0,
+        "entry_y": 5
+      }
+    ],
+    "npcs": [],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": []
+  },
+  {
+    "id": "route_8",
+    "name": "route_8",
+    "display_name": "Route 8",
+    "map_type": "route",
+    "width": 30,
+    "height": 20,
+    "connections": [
+      {
+        "direction": "west",
+        "target_map_id": "route_7",
+        "entry_x": 19,
+        "entry_y": 5
+      },
+      {
+        "direction": "east",
+        "target_map_id": "lavender_town",
+        "entry_x": 0,
+        "entry_y": 10
+      }
+    ],
+    "npcs": [],
+    "trainers": [
+      {
+        "trainer_id": "route8_lass_1",
+        "x": 8,
+        "y": 8,
+        "facing": "right",
+        "sight_range": 3
+      },
+      {
+        "trainer_id": "route8_super_nerd_1",
+        "x": 16,
+        "y": 12,
+        "facing": "left",
+        "sight_range": 4
+      },
+      {
+        "trainer_id": "route8_gambler_1",
+        "x": 24,
+        "y": 6,
+        "facing": "down",
+        "sight_range": 3
+      }
+    ],
+    "encounter_zones": [
+      {
+        "x": 4,
+        "y": 3,
+        "width": 10,
+        "height": 6,
+        "encounter_table_id": "route_8"
+      },
+      {
+        "x": 18,
+        "y": 10,
+        "width": 8,
+        "height": 6,
+        "encounter_table_id": "route_8"
+      }
+    ],
+    "buildings": []
+  },
+  {
+    "id": "lavender_town",
+    "name": "lavender_town",
+    "display_name": "Lavender Town",
+    "map_type": "city",
+    "width": 20,
+    "height": 20,
+    "connections": [
+      {
+        "direction": "west",
+        "target_map_id": "route_8",
+        "entry_x": 29,
+        "entry_y": 10
+      },
+      {
+        "direction": "south",
+        "target_map_id": "route_12",
+        "entry_x": 7,
+        "entry_y": 0
+      }
+    ],
+    "npcs": [
+      {
+        "npc_id": "name_rater",
+        "x": 8,
+        "y": 12,
+        "facing": "down"
+      },
+      {
+        "npc_id": "lavender_townsfolk_1",
+        "x": 5,
+        "y": 10,
+        "facing": "right"
+      },
+      {
+        "npc_id": "lavender_townsfolk_2",
+        "x": 15,
+        "y": 12,
+        "facing": "left"
+      },
+      {
+        "npc_id": "lavender_townsfolk_3",
+        "x": 10,
+        "y": 16,
+        "facing": "up"
+      }
+    ],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": [
+      {
+        "name": "Lavender Pokemon Center",
+        "x": 4,
+        "y": 6,
+        "width": 4,
+        "height": 3,
+        "door_x": 6,
+        "door_y": 8,
+        "interior_map_id": "lavender_pokemon_center"
+      },
+      {
+        "name": "Lavender Pokemart",
+        "x": 12,
+        "y": 6,
+        "width": 4,
+        "height": 3,
+        "door_x": 14,
+        "door_y": 8,
+        "interior_map_id": "lavender_pokemart"
+      },
+      {
+        "name": "Lavender Volunteer House",
+        "x": 4,
+        "y": 14,
+        "width": 4,
+        "height": 3,
+        "door_x": 6,
+        "door_y": 16,
+        "interior_map_id": "lavender_volunteer_house"
+      },
+      {
+        "name": "Pokemon Tower",
+        "x": 12,
+        "y": 2,
+        "width": 6,
+        "height": 6,
+        "door_x": 15,
+        "door_y": 7,
+        "interior_map_id": "pokemon_tower_1f"
+      }
+    ]
+  },
+  {
+    "id": "lavender_pokemon_center",
+    "name": "lavender_pokemon_center",
+    "display_name": "Lavender Town Pokemon Center",
+    "map_type": "interior",
+    "width": 8,
+    "height": 8,
+    "connections": [],
+    "npcs": [
+      {
+        "npc_id": "nurse_joy",
+        "x": 4,
+        "y": 2,
+        "facing": "down"
+      }
+    ],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": [],
+    "is_pokecenter": true
+  },
+  {
+    "id": "lavender_pokemart",
+    "name": "lavender_pokemart",
+    "display_name": "Lavender Town Poke Mart",
+    "map_type": "interior",
+    "width": 8,
+    "height": 8,
+    "connections": [],
+    "npcs": [
+      {
+        "npc_id": "shopkeeper",
+        "x": 4,
+        "y": 2,
+        "facing": "down"
+      }
+    ],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": []
+  },
+  {
+    "id": "lavender_volunteer_house",
+    "name": "lavender_volunteer_house",
+    "display_name": "Lavender Volunteer Pokemon House",
+    "map_type": "interior",
+    "width": 8,
+    "height": 8,
+    "connections": [],
+    "npcs": [
+      {
+        "npc_id": "mr_fuji",
+        "x": 4,
+        "y": 3,
+        "facing": "down"
+      }
+    ],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": []
+  },
+  {
+    "id": "pokemon_tower_1f",
+    "name": "pokemon_tower_1f",
+    "display_name": "Pokemon Tower 1F",
+    "map_type": "interior",
+    "width": 12,
+    "height": 12,
+    "connections": [],
+    "npcs": [],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": []
+  },
+  {
+    "id": "pokemon_tower_2f",
+    "name": "pokemon_tower_2f",
+    "display_name": "Pokemon Tower 2F",
+    "map_type": "interior",
+    "width": 12,
+    "height": 12,
+    "connections": [],
+    "npcs": [],
+    "trainers": [
+      {
+        "trainer_id": "channeler_1",
+        "x": 4,
+        "y": 4,
+        "facing": "down",
+        "sight_range": 3
+      },
+      {
+        "trainer_id": "channeler_2",
+        "x": 8,
+        "y": 8,
+        "facing": "left",
+        "sight_range": 3
+      }
+    ],
+    "encounter_zones": [
+      {
+        "x": 1,
+        "y": 1,
+        "width": 10,
+        "height": 10,
+        "encounter_table_id": "pokemon_tower_2f"
+      }
+    ],
+    "buildings": []
+  },
+  {
+    "id": "pokemon_tower_3f",
+    "name": "pokemon_tower_3f",
+    "display_name": "Pokemon Tower 3F",
+    "map_type": "interior",
+    "width": 12,
+    "height": 12,
+    "connections": [],
+    "npcs": [],
+    "trainers": [
+      {
+        "trainer_id": "channeler_3",
+        "x": 6,
+        "y": 4,
+        "facing": "right",
+        "sight_range": 3
+      },
+      {
+        "trainer_id": "channeler_4",
+        "x": 3,
+        "y": 8,
+        "facing": "down",
+        "sight_range": 3
+      },
+      {
+        "trainer_id": "channeler_5",
+        "x": 9,
+        "y": 6,
+        "facing": "left",
+        "sight_range": 3
+      }
+    ],
+    "encounter_zones": [
+      {
+        "x": 1,
+        "y": 1,
+        "width": 10,
+        "height": 10,
+        "encounter_table_id": "pokemon_tower_3f"
+      }
+    ],
+    "buildings": []
+  },
+  {
+    "id": "pokemon_tower_top",
+    "name": "pokemon_tower_top",
+    "display_name": "Pokemon Tower Top",
+    "map_type": "interior",
+    "width": 12,
+    "height": 12,
+    "connections": [],
+    "npcs": [],
+    "trainers": [
+      {
+        "trainer_id": "rocket_grunt_tower_1",
+        "x": 4,
+        "y": 4,
+        "facing": "down",
+        "sight_range": 3
+      },
+      {
+        "trainer_id": "rocket_grunt_tower_2",
+        "x": 8,
+        "y": 6,
+        "facing": "left",
+        "sight_range": 3
+      }
+    ],
+    "encounter_zones": [],
+    "buildings": []
+  },
+  {
+    "id": "route_12",
+    "name": "route_12",
+    "display_name": "Route 12",
+    "map_type": "route",
+    "width": 15,
+    "height": 35,
+    "connections": [
+      {
+        "direction": "north",
+        "target_map_id": "lavender_town",
+        "entry_x": 7,
+        "entry_y": 19
+      }
+    ],
+    "npcs": [],
+    "trainers": [
+      {
+        "trainer_id": "route12_fisherman_1",
+        "x": 7,
+        "y": 10,
+        "facing": "right",
+        "sight_range": 3
+      },
+      {
+        "trainer_id": "route12_youngster_1",
+        "x": 7,
+        "y": 20,
+        "facing": "left",
+        "sight_range": 3
+      }
+    ],
+    "encounter_zones": [
+      {
+        "x": 3,
+        "y": 5,
+        "width": 9,
+        "height": 8,
+        "encounter_table_id": "route_12"
+      },
+      {
+        "x": 3,
+        "y": 18,
+        "width": 9,
+        "height": 8,
+        "encounter_table_id": "route_12"
+      }
+    ],
+    "buildings": []
   }
 ]

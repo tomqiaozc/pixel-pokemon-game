@@ -406,5 +406,29 @@
       "type": "teach_move",
       "move": "Fly"
     }
+  },
+  {
+    "id": 54,
+    "name": "Silph Scope",
+    "description": "Makes invisible ghosts identifiable",
+    "category": "key_item",
+    "price": 0,
+    "sell_price": 0,
+    "effect": {
+      "type": "reveal"
+    },
+    "usable": false
+  },
+  {
+    "id": 55,
+    "name": "Poke Flute",
+    "description": "Wakes sleeping Pokemon. Can be used on Snorlax",
+    "category": "key_item",
+    "price": 0,
+    "sell_price": 0,
+    "effect": {
+      "type": "wake"
+    },
+    "usable": true
   }
 ]

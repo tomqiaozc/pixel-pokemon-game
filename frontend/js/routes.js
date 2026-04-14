@@ -1291,6 +1291,360 @@ const Routes = (() => {
           ] },
     ];
 
+    // --- Sprint 14: Lavender Town, Pokemon Tower, Routes 7/8/12 ---
+
+    // Build Lavender Town (20x20) — eerie town with Pokemon Tower
+    function buildLavenderTown() {
+        const W = 20, H = 20;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.GRASS);
+            m.push(row);
+        }
+
+        // Tree border
+        for (let x = 0; x < W; x++) { m[0][x] = T.TREE; m[H - 1][x] = T.TREE; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.TREE; m[y][W - 1] = T.TREE; }
+
+        // Main roads
+        for (let x = 1; x < W - 1; x++) { m[10][x] = T.DIRT; m[11][x] = T.DIRT; }
+        for (let y = 1; y < H - 1; y++) { m[y][10] = T.DIRT; }
+
+        // Pokemon Center
+        buildHouse(m, 4, 5, 5, 4);
+
+        // Pokemart
+        buildHouse(m, 12, 5, 5, 4);
+
+        // Pokemon Tower (large building, top-right)
+        for (let x = 12; x <= 17; x++) {
+            m[1][x] = T.HOUSE_ROOF; m[2][x] = T.HOUSE_ROOF;
+            m[3][x] = T.HOUSE_WALL; m[4][x] = T.HOUSE_WALL;
+        }
+        m[4][15] = T.DOOR;
+
+        // Volunteer House (Mr. Fuji's house)
+        buildHouse(m, 4, 13, 5, 4);
+
+        // Eerie purple flowers scattered
+        m[7][3] = T.FLOWER; m[7][4] = T.FLOWER;
+        m[7][16] = T.FLOWER; m[7][17] = T.FLOWER;
+        m[14][15] = T.FLOWER; m[14][16] = T.FLOWER;
+        m[18][3] = T.FLOWER; m[18][8] = T.FLOWER;
+
+        // Rocks (grave markers)
+        m[13][13] = T.ROCK; m[13][15] = T.ROCK; m[13][17] = T.ROCK;
+
+        // Exit west (to Route 8)
+        m[10][0] = T.DIRT; m[11][0] = T.DIRT;
+
+        // Exit south (to Route 12)
+        m[H - 1][10] = T.DIRT;
+
+        return { data: m, width: W, height: H };
+    }
+
+    // Lavender Pokemon Center (8x8)
+    function buildLavenderPokemonCenter() {
+        const W = 8, H = 8;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.DIRT);
+            m.push(row);
+        }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H - 1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W - 1] = T.HOUSE_WALL; }
+        m[2][3] = T.HOUSE_WALL; m[2][4] = T.HOUSE_WALL; m[2][5] = T.HOUSE_WALL;
+        m[H - 1][4] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Lavender Pokemart (8x8)
+    function buildLavenderPokemart() {
+        const W = 8, H = 8;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.DIRT);
+            m.push(row);
+        }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H - 1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W - 1] = T.HOUSE_WALL; }
+        m[2][1] = T.ROCK; m[2][2] = T.ROCK;
+        m[4][1] = T.ROCK; m[4][2] = T.ROCK;
+        m[2][5] = T.HOUSE_WALL; m[2][6] = T.HOUSE_WALL;
+        m[H - 1][4] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Volunteer House — Mr. Fuji's home (8x8)
+    function buildVolunteerHouse() {
+        const W = 8, H = 8;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.DIRT);
+            m.push(row);
+        }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H - 1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W - 1] = T.HOUSE_WALL; }
+        // Table
+        m[3][3] = T.ROCK; m[3][4] = T.ROCK;
+        // Bookshelves
+        m[1][1] = T.ROCK; m[1][2] = T.ROCK;
+        m[H - 1][4] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Pokemon Tower 1F — lobby (12x12)
+    function buildPokemonTower1F() {
+        const W = 12, H = 12;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.DIRT);
+            m.push(row);
+        }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H - 1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W - 1] = T.HOUSE_WALL; }
+        // Tombstones in lobby
+        m[3][3] = T.ROCK; m[3][5] = T.ROCK; m[3][7] = T.ROCK;
+        m[5][4] = T.ROCK; m[5][6] = T.ROCK; m[5][8] = T.ROCK;
+        // Stairs up
+        m[0][9] = T.DOOR;
+        // Exit
+        m[H - 1][6] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Pokemon Tower 2F (12x12)
+    function buildPokemonTower2F() {
+        const W = 12, H = 12;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.DIRT);
+            m.push(row);
+        }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H - 1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W - 1] = T.HOUSE_WALL; }
+        // Dense tombstones
+        for (let y = 2; y <= 8; y += 2) {
+            for (let x = 2; x <= 9; x += 2) {
+                m[y][x] = T.ROCK;
+            }
+        }
+        // Stairs
+        m[0][9] = T.DOOR;   // up
+        m[H - 1][9] = T.DOOR; // down
+        return { data: m, width: W, height: H };
+    }
+
+    // Pokemon Tower 3F (12x12)
+    function buildPokemonTower3F() {
+        const W = 12, H = 12;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.DIRT);
+            m.push(row);
+        }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H - 1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W - 1] = T.HOUSE_WALL; }
+        // More tombstones — scattered pattern
+        m[2][2] = T.ROCK; m[2][5] = T.ROCK; m[2][8] = T.ROCK;
+        m[4][3] = T.ROCK; m[4][7] = T.ROCK;
+        m[6][2] = T.ROCK; m[6][5] = T.ROCK; m[6][9] = T.ROCK;
+        m[8][4] = T.ROCK; m[8][7] = T.ROCK;
+        // Stairs
+        m[0][9] = T.DOOR;   // up
+        m[H - 1][9] = T.DOOR; // down
+        return { data: m, width: W, height: H };
+    }
+
+    // Pokemon Tower Top Floor (12x12) — Mr. Fuji and Rockets
+    function buildPokemonTowerTop() {
+        const W = 12, H = 12;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.DIRT);
+            m.push(row);
+        }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H - 1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W - 1] = T.HOUSE_WALL; }
+        // Open space for boss fight area
+        // Altar/shrine
+        m[1][5] = T.ROCK; m[1][6] = T.ROCK;
+        m[2][4] = T.ROCK; m[2][7] = T.ROCK;
+        // Stairs down
+        m[H - 1][9] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Build Route 7 (20x10) — short connector west of Lavender
+    function buildRoute7() {
+        const W = 20, H = 10;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.GRASS);
+            m.push(row);
+        }
+        for (let x = 0; x < W; x++) { m[0][x] = T.TREE; m[H - 1][x] = T.TREE; }
+        // Path through center
+        for (let x = 0; x < W; x++) { m[4][x] = T.DIRT; m[5][x] = T.DIRT; }
+        // Trees
+        m[2][5] = T.TREE; m[2][14] = T.TREE;
+        m[7][8] = T.TREE; m[7][12] = T.TREE;
+        // Flowers
+        m[3][3] = T.FLOWER; m[3][16] = T.FLOWER;
+        m[6][10] = T.FLOWER;
+        // Exit east (to route_8)
+        m[4][W - 1] = T.DIRT; m[5][W - 1] = T.DIRT;
+        return { data: m, width: W, height: H };
+    }
+
+    // Build Route 8 (30x20) — between Route 7 and Lavender
+    function buildRoute8() {
+        const W = 30, H = 20;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.GRASS);
+            m.push(row);
+        }
+        for (let x = 0; x < W; x++) { m[0][x] = T.TREE; m[H - 1][x] = T.TREE; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.TREE; }
+        // Main path
+        for (let x = 0; x < W; x++) { m[9][x] = T.DIRT; m[10][x] = T.DIRT; m[11][x] = T.DIRT; }
+        // Tall grass
+        for (let y = 3; y <= 7; y++) {
+            for (let x = 5; x <= 12; x++) {
+                if (m[y][x] === T.GRASS) m[y][x] = T.TALL_GRASS;
+            }
+        }
+        for (let y = 13; y <= 17; y++) {
+            for (let x = 16; x <= 24; x++) {
+                if (m[y][x] === T.GRASS) m[y][x] = T.TALL_GRASS;
+            }
+        }
+        // Rocks
+        m[5][18] = T.ROCK; m[14][7] = T.ROCK;
+        // Trees
+        m[6][22] = T.TREE; m[15][10] = T.TREE;
+        // Exit west
+        m[9][0] = T.DIRT; m[10][0] = T.DIRT; m[11][0] = T.DIRT;
+        // Exit east
+        m[9][W - 1] = T.DIRT; m[10][W - 1] = T.DIRT; m[11][W - 1] = T.DIRT;
+        return { data: m, width: W, height: H };
+    }
+
+    // Build Route 12 (15x35) — vertical route south of Lavender with Snorlax
+    function buildRoute12() {
+        const W = 15, H = 35;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.GRASS);
+            m.push(row);
+        }
+        for (let y = 0; y < H; y++) { m[y][0] = T.TREE; m[y][W - 1] = T.TREE; }
+        // Main path
+        for (let y = 0; y < H; y++) { m[y][7] = T.DIRT; }
+        // Snorlax blockade (rock standing in for sleeping Snorlax)
+        m[15][6] = T.ROCK; m[15][7] = T.ROCK; m[15][8] = T.ROCK;
+        // Tall grass patches
+        for (let y = 3; y <= 8; y++) {
+            for (let x = 2; x <= 5; x++) {
+                if (m[y][x] === T.GRASS) m[y][x] = T.TALL_GRASS;
+            }
+        }
+        for (let y = 20; y <= 27; y++) {
+            for (let x = 9; x <= 13; x++) {
+                if (m[y][x] === T.GRASS) m[y][x] = T.TALL_GRASS;
+            }
+        }
+        for (let y = 10; y <= 13; y++) {
+            for (let x = 9; x <= 12; x++) {
+                if (m[y][x] === T.GRASS) m[y][x] = T.TALL_GRASS;
+            }
+        }
+        // Water on east side (fishing spots)
+        for (let y = 18; y <= 25; y++) {
+            for (let x = 11; x <= 13; x++) {
+                m[y][x] = T.WATER;
+            }
+        }
+        // Rocks
+        m[8][10] = T.ROCK; m[28][4] = T.ROCK;
+        // Flowers
+        m[5][10] = T.FLOWER; m[30][3] = T.FLOWER;
+        // Exit north
+        m[0][7] = T.DIRT;
+        return { data: m, width: W, height: H };
+    }
+
+    // Route 8 trainers
+    const route8Trainers = [
+        { x: 8, y: 7, name: 'Lass Megan', dir: 0, sightRange: 3,
+          dialogue: ['I love walking through the grass here!'],
+          pokemon: [
+            { name: 'Clefairy', level: 20, hp: 52, maxHp: 52, type: 'Normal' },
+            { name: 'Jigglypuff', level: 20, hp: 50, maxHp: 50, type: 'Normal' },
+          ] },
+        { x: 18, y: 14, name: 'Super Nerd Glenn', dir: 2, sightRange: 4,
+          dialogue: ['I study electromagnetic Pokemon!'],
+          pokemon: [
+            { name: 'Magnemite', level: 22, hp: 40, maxHp: 40, type: 'Electric' },
+            { name: 'Voltorb', level: 22, hp: 42, maxHp: 42, type: 'Electric' },
+          ] },
+        { x: 24, y: 6, name: 'Gambler Rich', dir: 0, sightRange: 3,
+          dialogue: ['Feeling lucky?'],
+          pokemon: [
+            { name: 'Growlithe', level: 21, hp: 44, maxHp: 44, type: 'Fire' },
+            { name: 'Vulpix', level: 21, hp: 40, maxHp: 40, type: 'Fire' },
+          ] },
+    ];
+
+    // Route 12 trainers
+    const route12Trainers = [
+        { x: 5, y: 6, name: 'Fisherman Andrew', dir: 3, sightRange: 3,
+          dialogue: ['The fish are biting today!'],
+          pokemon: [
+            { name: 'Magikarp', level: 22, hp: 28, maxHp: 28, type: 'Water' },
+            { name: 'Poliwag', level: 22, hp: 42, maxHp: 42, type: 'Water' },
+            { name: 'Goldeen', level: 22, hp: 44, maxHp: 44, type: 'Water' },
+          ] },
+        { x: 4, y: 24, name: 'Youngster Ben', dir: 3, sightRange: 3,
+          dialogue: ['I train here every day!'],
+          pokemon: [
+            { name: 'Rattata', level: 23, hp: 40, maxHp: 40, type: 'Normal' },
+            { name: 'Raticate', level: 23, hp: 52, maxHp: 52, type: 'Normal' },
+          ] },
+    ];
+
+    // Pokemon Tower channeler trainers
+    const towerChannelers = [
+        { x: 4, y: 5, name: 'Channeler Hope', dir: 0, sightRange: 2,
+          dialogue: ['The spirits... they speak to me...'],
+          pokemon: [{ name: 'Gastly', level: 22, hp: 34, maxHp: 34, type: 'Ghost' }] },
+        { x: 8, y: 3, name: 'Channeler Patricia', dir: 2, sightRange: 2,
+          dialogue: ['Ke ke ke ke!'],
+          pokemon: [{ name: 'Gastly', level: 23, hp: 36, maxHp: 36, type: 'Ghost' }] },
+        { x: 3, y: 7, name: 'Channeler Carly', dir: 3, sightRange: 2,
+          dialogue: ['Be careful... the ghosts are restless...'],
+          pokemon: [{ name: 'Gastly', level: 22, hp: 34, maxHp: 34, type: 'Ghost' }] },
+        { x: 7, y: 6, name: 'Channeler Laurel', dir: 0, sightRange: 2,
+          dialogue: ['The spirits wander these halls...'],
+          pokemon: [{ name: 'Gastly', level: 24, hp: 38, maxHp: 38, type: 'Ghost' }] },
+        { x: 5, y: 4, name: 'Channeler Tammy', dir: 1, sightRange: 2,
+          dialogue: ['This place gives me chills...'],
+          pokemon: [{ name: 'Haunter', level: 24, hp: 42, maxHp: 42, type: 'Ghost' }] },
+    ];
+
     // Register all maps with MapLoader
     function registerAll() {
         const palletTown = buildPalletTown();
@@ -1729,6 +2083,181 @@ const Routes = (() => {
             trainers: route11Trainers,
             lamps: [{ x: 10, y: 10 }, { x: 20, y: 10 }],
         });
+
+        // --- Sprint 14: Lavender Town & Pokemon Tower ---
+
+        const lavenderTown = buildLavenderTown();
+        MapLoader.registerMap('lavender_town', {
+            name: 'Lavender Town',
+            width: lavenderTown.width,
+            height: lavenderTown.height,
+            data: lavenderTown.data,
+            exits: [
+                { edge: 'west', targetMap: 'route_8', spawnX: 28, spawnY: 10, spawnDir: 2 },
+                { edge: 'south', targetMap: 'route_12', spawnX: 7, spawnY: 1, spawnDir: 0 },
+            ],
+            doors: [
+                { x: 6, y: 8, targetMap: 'lavender_pokemon_center', spawnX: 4, spawnY: 6 },
+                { x: 14, y: 8, targetMap: 'lavender_pokemart', spawnX: 4, spawnY: 6 },
+                { x: 6, y: 16, targetMap: 'lavender_volunteer_house', spawnX: 4, spawnY: 6 },
+                { x: 15, y: 4, targetMap: 'pokemon_tower_1f', spawnX: 6, spawnY: 10 },
+            ],
+            lamps: [{ x: 6, y: 10 }, { x: 14, y: 10 }, { x: 10, y: 16 }],
+            npcs: [
+                { name: 'Old Woman', type: 'townsfolk', x: 8, y: 14, dir: 0,
+                  dialogue: ['This town is haunted...', 'Strange sounds come from Pokemon Tower at night.'] },
+                { name: 'Name Rater', type: 'townsfolk', x: 12, y: 12, dir: 2,
+                  dialogue: ['I\'m the Name Rater!', 'Want me to rate your Pokemon\'s nickname?', 'Hmm... that\'s a good name!'] },
+                { name: 'Mourner', type: 'townsfolk', x: 16, y: 14, dir: 1,
+                  dialogue: ['My poor Cubone...', 'Its mother was taken from it...'] },
+            ],
+        });
+
+        const lavPC = buildLavenderPokemonCenter();
+        MapLoader.registerMap('lavender_pokemon_center', {
+            name: 'Lavender Pokemon Center',
+            width: lavPC.width,
+            height: lavPC.height,
+            data: lavPC.data,
+            doors: [
+                { x: 4, y: 7, targetMap: 'lavender_town', spawnX: 6, spawnY: 9 },
+            ],
+            npcs: [
+                { name: 'Nurse Joy', type: 'nurse', x: 4, y: 2, dir: 0,
+                  dialogue: ['Welcome to Lavender Town Pokemon Center!', 'We\'ll heal your Pokemon.'] },
+            ],
+        });
+
+        const lavMart = buildLavenderPokemart();
+        MapLoader.registerMap('lavender_pokemart', {
+            name: 'Lavender Pokemart',
+            width: lavMart.width,
+            height: lavMart.height,
+            data: lavMart.data,
+            doors: [
+                { x: 4, y: 7, targetMap: 'lavender_town', spawnX: 14, spawnY: 9 },
+            ],
+            npcs: [
+                { name: 'Clerk', type: 'shopkeeper', x: 5, y: 2, dir: 0,
+                  dialogue: ['Welcome to Lavender Pokemart!', 'We stock Revives and Full Heals.'] },
+            ],
+        });
+
+        const volunteerHouse = buildVolunteerHouse();
+        MapLoader.registerMap('lavender_volunteer_house', {
+            name: 'Volunteer House',
+            width: volunteerHouse.width,
+            height: volunteerHouse.height,
+            data: volunteerHouse.data,
+            doors: [
+                { x: 4, y: 7, targetMap: 'lavender_town', spawnX: 6, spawnY: 17 },
+            ],
+            npcs: [
+                { name: 'Mr. Fuji', type: 'mr_fuji', x: 4, y: 3, dir: 0,
+                  dialogue: ['I care for abandoned and orphaned Pokemon here.', 'The Pokemon Tower is sacred...', 'The spirits are restless lately.'] },
+            ],
+        });
+
+        const tower1f = buildPokemonTower1F();
+        MapLoader.registerMap('pokemon_tower_1f', {
+            name: 'Pokemon Tower 1F',
+            width: tower1f.width,
+            height: tower1f.height,
+            data: tower1f.data,
+            doors: [
+                { x: 6, y: 11, targetMap: 'lavender_town', spawnX: 15, spawnY: 5 },
+                { x: 9, y: 0, targetMap: 'pokemon_tower_2f', spawnX: 9, spawnY: 10 },
+            ],
+        });
+
+        const tower2f = buildPokemonTower2F();
+        MapLoader.registerMap('pokemon_tower_2f', {
+            name: 'Pokemon Tower 2F',
+            width: tower2f.width,
+            height: tower2f.height,
+            data: tower2f.data,
+            doors: [
+                { x: 9, y: 11, targetMap: 'pokemon_tower_1f', spawnX: 9, spawnY: 1 },
+                { x: 9, y: 0, targetMap: 'pokemon_tower_3f', spawnX: 9, spawnY: 10 },
+            ],
+            trainers: towerChannelers.slice(0, 2),
+        });
+
+        const tower3f = buildPokemonTower3F();
+        MapLoader.registerMap('pokemon_tower_3f', {
+            name: 'Pokemon Tower 3F',
+            width: tower3f.width,
+            height: tower3f.height,
+            data: tower3f.data,
+            doors: [
+                { x: 9, y: 11, targetMap: 'pokemon_tower_2f', spawnX: 9, spawnY: 1 },
+                { x: 9, y: 0, targetMap: 'pokemon_tower_top', spawnX: 9, spawnY: 10 },
+            ],
+            trainers: towerChannelers.slice(2, 5),
+        });
+
+        const towerTop = buildPokemonTowerTop();
+        MapLoader.registerMap('pokemon_tower_top', {
+            name: 'Pokemon Tower Top',
+            width: towerTop.width,
+            height: towerTop.height,
+            data: towerTop.data,
+            doors: [
+                { x: 9, y: 11, targetMap: 'pokemon_tower_3f', spawnX: 9, spawnY: 1 },
+            ],
+            npcs: [
+                { name: 'Mr. Fuji', type: 'mr_fuji', x: 5, y: 3, dir: 0,
+                  dialogue: ['Thank you for saving me!', 'Those Team Rocket ruffians were holding me captive!', 'Please, come to my house. I have something for you.'] },
+                { name: 'Rocket Grunt', type: 'rocket', x: 3, y: 6, dir: 3,
+                  dialogue: ['Get out of our way!', 'Team Rocket has business here!'] },
+                { name: 'Rocket Grunt', type: 'rocket', x: 8, y: 6, dir: 2,
+                  dialogue: ['You dare challenge Team Rocket?', 'You\'ll regret this!'] },
+            ],
+        });
+
+        // --- Routes 7, 8, 12 ---
+
+        const route7 = buildRoute7();
+        MapLoader.registerMap('route_7', {
+            name: 'Route 7',
+            width: route7.width,
+            height: route7.height,
+            data: route7.data,
+            exits: [
+                { edge: 'east', targetMap: 'route_8', spawnX: 1, spawnY: 10, spawnDir: 3 },
+            ],
+        });
+
+        const route8 = buildRoute8();
+        MapLoader.registerMap('route_8', {
+            name: 'Route 8',
+            width: route8.width,
+            height: route8.height,
+            data: route8.data,
+            exits: [
+                { edge: 'west', targetMap: 'route_7', spawnX: 18, spawnY: 5, spawnDir: 2 },
+                { edge: 'east', targetMap: 'lavender_town', spawnX: 1, spawnY: 10, spawnDir: 3 },
+            ],
+            trainers: route8Trainers,
+            lamps: [{ x: 10, y: 10 }, { x: 20, y: 10 }],
+        });
+
+        const route12 = buildRoute12();
+        MapLoader.registerMap('route_12', {
+            name: 'Route 12',
+            width: route12.width,
+            height: route12.height,
+            data: route12.data,
+            exits: [
+                { edge: 'north', targetMap: 'lavender_town', spawnX: 10, spawnY: 18, spawnDir: 1 },
+            ],
+            trainers: route12Trainers,
+            lamps: [{ x: 7, y: 8 }, { x: 7, y: 22 }],
+            npcs: [
+                { name: 'Snorlax Watcher', type: 'townsfolk', x: 4, y: 14, dir: 3,
+                  dialogue: ['A huge Snorlax is sleeping on the road!', 'I wonder if there\'s a way to wake it up...', 'I heard a flute might do the trick.'] },
+            ],
+        });
     }
 
     return {
@@ -1737,7 +2266,10 @@ const Routes = (() => {
         buildRoute4,
         buildRoute5,
         buildRoute6,
+        buildRoute7,
+        buildRoute8,
         buildRoute11,
+        buildRoute12,
         buildRoute24,
         buildRoute25,
         buildBillsHouse,
@@ -1754,6 +2286,14 @@ const Routes = (() => {
         buildSSAnneCabins,
         buildSSAnneKitchen,
         buildSSAnneCaptainsRoom,
+        buildLavenderTown,
+        buildLavenderPokemonCenter,
+        buildLavenderPokemart,
+        buildVolunteerHouse,
+        buildPokemonTower1F,
+        buildPokemonTower2F,
+        buildPokemonTower3F,
+        buildPokemonTowerTop,
         buildPalletTown,
         buildViridianCity,
         buildPewterCity,
@@ -1763,8 +2303,11 @@ const Routes = (() => {
         route2Trainers,
         route4Trainers,
         route6Trainers,
+        route8Trainers,
         route11Trainers,
+        route12Trainers,
         ssAnneTrainers,
+        towerChannelers,
         nuggetBridgeTrainers,
         route25Trainers,
     };

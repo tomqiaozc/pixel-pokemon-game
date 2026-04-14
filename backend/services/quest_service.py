@@ -135,6 +135,29 @@ _QUEST_DEFS: list[dict] = [
         "rewards": {"money": 4000, "unlock_flags": ["badge_thunder"]},
         "prerequisite_quests": ["ss_anne_adventure"],
     },
+    {
+        "id": "pokemon_tower",
+        "name": "The Haunted Tower",
+        "description": "Explore Pokemon Tower in Lavender Town and rescue Mr. Fuji from Team Rocket!",
+        "type": "main",
+        "objectives": [
+            {"id": "enter_tower", "description": "Enter Pokemon Tower", "type": "visit_location", "target": "pokemon_tower_1f", "required_progress": 1},
+            {"id": "rescue_fuji", "description": "Rescue Mr. Fuji", "type": "collect_item", "target": "fuji_rescued", "required_progress": 1},
+        ],
+        "rewards": {"money": 5000, "items": [{"item_id": 55, "quantity": 1}], "unlock_flags": ["fuji_rescued", "has_poke_flute"]},
+        "prerequisite_quests": ["thunder_badge"],
+    },
+    {
+        "id": "snorlax_road",
+        "name": "Sleeping Snorlax",
+        "description": "A sleeping Snorlax blocks Route 12. Find a way to wake it!",
+        "type": "side",
+        "objectives": [
+            {"id": "wake_snorlax", "description": "Wake the sleeping Snorlax", "type": "collect_item", "target": "snorlax_awakened", "required_progress": 1},
+        ],
+        "rewards": {"money": 1000, "exp": 500, "unlock_flags": ["snorlax_cleared"]},
+        "prerequisite_quests": ["pokemon_tower"],
+    },
 ]
 
 
@@ -359,6 +382,9 @@ def check_area_accessible(game_id: str, map_id: str, required_flag: Optional[str
         "has_hm_cut": "You need HM01 Cut to pass",
         "badge_thunder": "You need the Thunder Badge to pass",
         "rocket_cerulean_resolved": "You need to defeat the Rocket Grunt first",
+        "fuji_rescued": "You need to rescue Mr. Fuji first",
+        "has_poke_flute": "You need the Poke Flute",
+        "snorlax_cleared": "A sleeping Snorlax blocks the way",
     }
     reason = flag_reasons.get(required_flag, f"You need to complete a requirement: {required_flag}")
     return {"accessible": False, "reason": reason}

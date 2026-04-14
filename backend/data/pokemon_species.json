@@ -3592,7 +3592,10 @@
         "move": "Recover"
       }
     ],
-    "evolution": null,
+    "evolution": {
+      "to": 97,
+      "level": 26
+    },
     "sprite": "drowzee.png"
   },
   {
@@ -3651,5 +3654,276 @@
     ],
     "evolution": null,
     "sprite": "voltorb.png"
+  },
+  {
+    "id": 92,
+    "name": "Gastly",
+    "types": [
+      "ghost",
+      "poison"
+    ],
+    "base_exp": 62,
+    "catch_rate": 190,
+    "abilities": [
+      "levitate"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "amorphous"
+    ],
+    "stats": {
+      "hp": 30,
+      "attack": 35,
+      "defense": 30,
+      "sp_attack": 100,
+      "sp_defense": 35,
+      "speed": 80
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Lick"
+      },
+      {
+        "level": 1,
+        "move": "Confuse Ray"
+      },
+      {
+        "level": 8,
+        "move": "Hypnosis"
+      },
+      {
+        "level": 13,
+        "move": "Leer"
+      },
+      {
+        "level": 21,
+        "move": "Night Shade"
+      },
+      {
+        "level": 29,
+        "move": "Dream Eater"
+      }
+    ],
+    "evolution": {
+      "to": 93,
+      "level": 25
+    },
+    "sprite": "gastly.png"
+  },
+  {
+    "id": 93,
+    "name": "Haunter",
+    "types": [
+      "ghost",
+      "poison"
+    ],
+    "base_exp": 142,
+    "catch_rate": 90,
+    "abilities": [
+      "levitate"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "amorphous"
+    ],
+    "stats": {
+      "hp": 45,
+      "attack": 50,
+      "defense": 45,
+      "sp_attack": 115,
+      "sp_defense": 55,
+      "speed": 95
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Lick"
+      },
+      {
+        "level": 1,
+        "move": "Confuse Ray"
+      },
+      {
+        "level": 1,
+        "move": "Hypnosis"
+      },
+      {
+        "level": 25,
+        "move": "Night Shade"
+      },
+      {
+        "level": 33,
+        "move": "Dream Eater"
+      }
+    ],
+    "evolution": null,
+    "sprite": "haunter.png"
+  },
+  {
+    "id": 97,
+    "name": "Hypno",
+    "types": [
+      "psychic"
+    ],
+    "base_exp": 169,
+    "catch_rate": 75,
+    "abilities": [
+      "Insomnia",
+      "Forewarn"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "human-like"
+    ],
+    "stats": {
+      "hp": 85,
+      "attack": 73,
+      "defense": 70,
+      "sp_attack": 73,
+      "sp_defense": 115,
+      "speed": 67
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Pound"
+      },
+      {
+        "level": 1,
+        "move": "Hypnosis"
+      },
+      {
+        "level": 12,
+        "move": "Disable"
+      },
+      {
+        "level": 17,
+        "move": "Confusion"
+      },
+      {
+        "level": 24,
+        "move": "Headbutt"
+      },
+      {
+        "level": 29,
+        "move": "Psychic"
+      }
+    ],
+    "evolution": null,
+    "sprite": "hypno.png"
+  },
+  {
+    "id": 104,
+    "name": "Cubone",
+    "types": [
+      "ground"
+    ],
+    "base_exp": 64,
+    "catch_rate": 190,
+    "abilities": [
+      "Rock Head",
+      "Lightning Rod"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "monster"
+    ],
+    "stats": {
+      "hp": 50,
+      "attack": 50,
+      "defense": 95,
+      "sp_attack": 40,
+      "sp_defense": 50,
+      "speed": 35
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Growl"
+      },
+      {
+        "level": 1,
+        "move": "Bone Club"
+      },
+      {
+        "level": 13,
+        "move": "Leer"
+      },
+      {
+        "level": 18,
+        "move": "Headbutt"
+      },
+      {
+        "level": 25,
+        "move": "Focus Energy"
+      },
+      {
+        "level": 31,
+        "move": "Bonemerang"
+      }
+    ],
+    "evolution": {
+      "to": 105,
+      "level": 28
+    },
+    "sprite": "cubone.png"
+  },
+  {
+    "id": 105,
+    "name": "Marowak",
+    "types": [
+      "ground"
+    ],
+    "base_exp": 124,
+    "catch_rate": 75,
+    "abilities": [
+      "Rock Head",
+      "Lightning Rod"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "monster"
+    ],
+    "stats": {
+      "hp": 60,
+      "attack": 80,
+      "defense": 110,
+      "sp_attack": 50,
+      "sp_defense": 80,
+      "speed": 45
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Growl"
+      },
+      {
+        "level": 1,
+        "move": "Bone Club"
+      },
+      {
+        "level": 13,
+        "move": "Leer"
+      },
+      {
+        "level": 18,
+        "move": "Headbutt"
+      },
+      {
+        "level": 25,
+        "move": "Focus Energy"
+      },
+      {
+        "level": 33,
+        "move": "Bonemerang"
+      },
+      {
+        "level": 41,
+        "move": "Thrash"
+      }
+    ],
+    "evolution": null,
+    "sprite": "marowak.png"
   }
 ]

@@ -879,6 +879,38 @@ const API = (() => {
         return post(`${BASE_URL}/trash-puzzle/reset`, { game_id: gameId });
     }
 
+    // --- Pokemon Tower ---
+
+    async function getPokemonTowerState() {
+        if (!gameId) return null;
+        return get(`${BASE_URL}/pokemon-tower/state/${gameId}`);
+    }
+
+    async function enterPokemonTower() {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/pokemon-tower/enter`, { game_id: gameId });
+    }
+
+    async function encounterTowerGhost(floor) {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/pokemon-tower/ghost`, { game_id: gameId, floor });
+    }
+
+    async function useSilphScope() {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/pokemon-tower/scope`, { game_id: gameId });
+    }
+
+    async function defeatTowerRockets() {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/pokemon-tower/rockets`, { game_id: gameId });
+    }
+
+    async function rescueFuji() {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/pokemon-tower/rescue`, { game_id: gameId });
+    }
+
     async function useHM(hmMove, mapId, targetX, targetY, pokemonIndex) {
         if (!gameId) return null;
         return post(`${BASE_URL}/hm/use`, {
@@ -988,5 +1020,8 @@ const API = (() => {
         getSSAnneState, boardSSAnne, defeatSSAnneRival, helpCaptain, receiveHM,
         // Trash Can Puzzle
         getTrashPuzzleState, checkTrashCan, resetTrashPuzzle,
+        // Pokemon Tower
+        getPokemonTowerState, enterPokemonTower, encounterTowerGhost,
+        useSilphScope, defeatTowerRockets, rescueFuji,
     };
 })();

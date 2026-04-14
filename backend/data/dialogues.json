@@ -276,5 +276,51 @@
       {"id": "rubbing", "text": "Ah, that's much better! Thank you, young trainer!", "next": "reward"},
       {"id": "reward", "text": "Here, take this HM01 Cut as thanks! You can use it to cut down small trees in your path!", "action": {"type": "give_item", "item_id": 53, "quantity": 1}, "next": null}
     ]
+  },
+  "mr_fuji_dialogue": {
+    "id": "mr_fuji_dialogue",
+    "nodes": [
+      {"id": "start", "text": "I care for abandoned and orphaned Pokemon here.", "next": "info"},
+      {"id": "info", "text": "The Pokemon Tower is sacred... the spirits are restless lately.", "next": null}
+    ]
+  },
+  "name_rater_dialogue": {
+    "id": "name_rater_dialogue",
+    "nodes": [
+      {"id": "start", "text": "I'm the Name Rater! Want me to rate your Pokemon's nickname?", "next": "rate"},
+      {"id": "rate", "text": "Hmm... that's a good name!", "next": null}
+    ]
+  },
+  "channeler_dialogue": {
+    "id": "channeler_dialogue",
+    "nodes": [
+      {"id": "start", "text": "The spirits... they speak to me...", "next": "creepy"},
+      {"id": "creepy", "text": "Ke ke ke ke!", "next": null}
+    ]
+  },
+  "tower_rocket_dialogue": {
+    "id": "tower_rocket_dialogue",
+    "nodes": [
+      {"id": "start", "text": "Get out of our way! Team Rocket has business here!", "next": "threat"},
+      {"id": "threat", "text": "We won't let you interfere!", "next": null}
+    ]
+  },
+  "lavender_townsfolk_1_dialogue": {
+    "id": "lavender_townsfolk_1_dialogue",
+    "nodes": [
+      {"id": "start", "text": "This town has always been quiet... but lately, strange sounds come from Pokemon Tower at night.", "next": null}
+    ]
+  },
+  "lavender_townsfolk_2_dialogue": {
+    "id": "lavender_townsfolk_2_dialogue",
+    "nodes": [
+      {"id": "start", "text": "Mr. Fuji takes care of orphaned Pokemon at the Volunteer House. He's such a kind man.", "next": null}
+    ]
+  },
+  "lavender_townsfolk_3_dialogue": {
+    "id": "lavender_townsfolk_3_dialogue",
+    "nodes": [
+      {"id": "start", "text": "Pokemon Tower is a resting place for departed Pokemon. Please be respectful.", "next": null}
+    ]
   }
 }
