@@ -1,0 +1,124 @@
+{
+  "description": "Berry planting and growth mechanics for the berry garden system.",
+  "garden_locations": [
+    {"id": "route_7_garden", "name": "Route 7 Berry Garden", "plots": 6},
+    {"id": "route_11_garden", "name": "Route 11 Berry Garden", "plots": 4},
+    {"id": "cerulean_garden", "name": "Cerulean Berry Patch", "plots": 4},
+    {"id": "fuchsia_garden", "name": "Fuchsia Berry Farm", "plots": 8}
+  ],
+  "total_plots": 22,
+  "growth_stages": [
+    {"stage": 1, "name": "Planted", "description": "Seed has been planted"},
+    {"stage": 2, "name": "Sprouted", "description": "A small sprout has appeared"},
+    {"stage": 3, "name": "Growing", "description": "The plant is growing steadily"},
+    {"stage": 4, "name": "Flowering", "description": "Flowers have appeared on the plant"},
+    {"stage": 5, "name": "Ready", "description": "Berries are ripe and ready to harvest"}
+  ],
+  "watering": {
+    "max_water_level": 3,
+    "water_decay_per_stage": 1,
+    "dry_yield_penalty": 0.5,
+    "overwater_impossible": true
+  },
+  "berries": {
+    "oran_berry": {
+      "name": "Oran Berry",
+      "growth_time_hours": 4,
+      "stage_duration_hours": 0.8,
+      "base_yield": 3,
+      "max_yield": 5,
+      "water_bonus_yield": 1,
+      "replant_chance": 0.1
+    },
+    "sitrus_berry": {
+      "name": "Sitrus Berry",
+      "growth_time_hours": 8,
+      "stage_duration_hours": 1.6,
+      "base_yield": 2,
+      "max_yield": 4,
+      "water_bonus_yield": 1,
+      "replant_chance": 0.1
+    },
+    "lum_berry": {
+      "name": "Lum Berry",
+      "growth_time_hours": 12,
+      "stage_duration_hours": 2.4,
+      "base_yield": 2,
+      "max_yield": 3,
+      "water_bonus_yield": 1,
+      "replant_chance": 0.05
+    },
+    "rawst_berry": {
+      "name": "Rawst Berry",
+      "growth_time_hours": 3,
+      "stage_duration_hours": 0.6,
+      "base_yield": 3,
+      "max_yield": 6,
+      "water_bonus_yield": 2,
+      "replant_chance": 0.15
+    },
+    "chesto_berry": {
+      "name": "Chesto Berry",
+      "growth_time_hours": 3,
+      "stage_duration_hours": 0.6,
+      "base_yield": 3,
+      "max_yield": 6,
+      "water_bonus_yield": 2,
+      "replant_chance": 0.15
+    },
+    "pecha_berry": {
+      "name": "Pecha Berry",
+      "growth_time_hours": 3,
+      "stage_duration_hours": 0.6,
+      "base_yield": 3,
+      "max_yield": 6,
+      "water_bonus_yield": 2,
+      "replant_chance": 0.15
+    },
+    "aspear_berry": {
+      "name": "Aspear Berry",
+      "growth_time_hours": 3,
+      "stage_duration_hours": 0.6,
+      "base_yield": 3,
+      "max_yield": 6,
+      "water_bonus_yield": 2,
+      "replant_chance": 0.15
+    },
+    "cheri_berry": {
+      "name": "Cheri Berry",
+      "growth_time_hours": 3,
+      "stage_duration_hours": 0.6,
+      "base_yield": 3,
+      "max_yield": 6,
+      "water_bonus_yield": 2,
+      "replant_chance": 0.15
+    },
+    "leppa_berry": {
+      "name": "Leppa Berry",
+      "growth_time_hours": 4,
+      "stage_duration_hours": 0.8,
+      "base_yield": 2,
+      "max_yield": 4,
+      "water_bonus_yield": 1,
+      "replant_chance": 0.1
+    },
+    "persim_berry": {
+      "name": "Persim Berry",
+      "growth_time_hours": 4,
+      "stage_duration_hours": 0.8,
+      "base_yield": 3,
+      "max_yield": 5,
+      "water_bonus_yield": 1,
+      "replant_chance": 0.1
+    }
+  },
+  "mechanics": {
+    "wilt_after_ready_hours": 24,
+    "mulch_types": {
+      "growth_mulch": {"growth_speed_multiplier": 0.75, "description": "Reduces growth time by 25%"},
+      "damp_mulch": {"water_decay_multiplier": 0.5, "description": "Water decays 50% slower"},
+      "stable_mulch": {"wilt_time_multiplier": 2.0, "description": "Doubles time before wilting"},
+      "rich_mulch": {"yield_bonus": 2, "description": "Adds 2 to maximum yield"}
+    }
+  }
+}

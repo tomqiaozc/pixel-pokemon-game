@@ -1,0 +1,43 @@
+[
+  {
+    "stone": "Fire Stone",
+    "sources": [
+      {"type": "shop", "location": "celadon_city", "shop_id": "celadon_mart_4f", "price": 2100},
+      {"type": "field_item", "location": "pokemon_mansion", "floor": "B1F", "hidden": false},
+      {"type": "field_item", "location": "route_25", "hidden": true}
+    ]
+  },
+  {
+    "stone": "Water Stone",
+    "sources": [
+      {"type": "shop", "location": "celadon_city", "shop_id": "celadon_mart_4f", "price": 2100},
+      {"type": "field_item", "location": "seafoam_islands", "floor": "B3F", "hidden": false},
+      {"type": "field_item", "location": "route_12", "hidden": true}
+    ]
+  },
+  {
+    "stone": "Thunder Stone",
+    "sources": [
+      {"type": "shop", "location": "celadon_city", "shop_id": "celadon_mart_4f", "price": 2100},
+      {"type": "field_item", "location": "power_plant", "hidden": false},
+      {"type": "field_item", "location": "route_10", "hidden": true}
+    ]
+  },
+  {
+    "stone": "Leaf Stone",
+    "sources": [
+      {"type": "shop", "location": "celadon_city", "shop_id": "celadon_mart_4f", "price": 2100},
+      {"type": "field_item", "location": "safari_zone_north", "hidden": false},
+      {"type": "field_item", "location": "route_15", "hidden": true}
+    ]
+  },
+  {
+    "stone": "Moon Stone",
+    "sources": [
+      {"type": "field_item", "location": "mt_moon", "floor": "1F", "hidden": false},
+      {"type": "field_item", "location": "mt_moon", "floor": "B2F", "hidden": false},
+      {"type": "field_item", "location": "pokemon_mansion", "floor": "2F", "hidden": true},
+      {"type": "field_item", "location": "rocket_hideout", "floor": "B3F", "hidden": true}
+    ]
+  }
+]
