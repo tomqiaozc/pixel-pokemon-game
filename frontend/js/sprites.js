@@ -1042,6 +1042,138 @@ const Sprites = (() => {
         return c;
     }
 
+    // Lt. Surge sprite — tall military man, green camo, blonde hair
+    function drawLtSurge() {
+        if (cache.ltSurge) return cache.ltSurge;
+        const c = document.createElement('canvas');
+        c.width = TILE; c.height = TILE;
+        const ctx = c.getContext('2d');
+        // Blonde hair
+        ctx.fillStyle = '#FFD700';
+        ctx.fillRect(5, 1, 6, 3);
+        // Skin
+        ctx.fillStyle = '#FDBCB4';
+        ctx.fillRect(5, 3, 6, 4);
+        // Eyes
+        ctx.fillStyle = '#333';
+        ctx.fillRect(6, 4, 2, 1);
+        ctx.fillRect(10, 4, 2, 1);
+        // Camo green body
+        ctx.fillStyle = '#556B2F';
+        ctx.fillRect(4, 7, 8, 5);
+        // Dark green belt
+        ctx.fillStyle = '#2E4A1B';
+        ctx.fillRect(4, 11, 8, 1);
+        // Pants
+        ctx.fillStyle = '#8B7D3C';
+        ctx.fillRect(5, 12, 3, 3);
+        ctx.fillRect(9, 12, 3, 3);
+        // Boots
+        ctx.fillStyle = '#333';
+        ctx.fillRect(5, 15, 3, 1);
+        ctx.fillRect(9, 15, 3, 1);
+        cache.ltSurge = c;
+        return c;
+    }
+
+    // Sailor sprite — white uniform, sailor hat
+    function drawSailor() {
+        if (cache.sailor) return cache.sailor;
+        const c = document.createElement('canvas');
+        c.width = TILE; c.height = TILE;
+        const ctx = c.getContext('2d');
+        // Sailor hat
+        ctx.fillStyle = '#FFF';
+        ctx.fillRect(5, 1, 6, 2);
+        ctx.fillStyle = '#1E90FF';
+        ctx.fillRect(5, 2, 6, 1);
+        // Skin
+        ctx.fillStyle = '#FDBCB4';
+        ctx.fillRect(5, 3, 6, 4);
+        // Eyes
+        ctx.fillStyle = '#333';
+        ctx.fillRect(6, 4, 2, 1);
+        ctx.fillRect(10, 4, 2, 1);
+        // White shirt
+        ctx.fillStyle = '#FFF';
+        ctx.fillRect(4, 7, 8, 4);
+        // Blue collar
+        ctx.fillStyle = '#1E90FF';
+        ctx.fillRect(5, 7, 6, 1);
+        // Blue pants
+        ctx.fillStyle = '#1E90FF';
+        ctx.fillRect(5, 11, 3, 4);
+        ctx.fillRect(9, 11, 3, 4);
+        // Shoes
+        ctx.fillStyle = '#333';
+        ctx.fillRect(5, 14, 3, 2);
+        ctx.fillRect(9, 14, 3, 2);
+        cache.sailor = c;
+        return c;
+    }
+
+    // Ship captain sprite — white cap, white jacket, beard
+    function drawCaptain() {
+        if (cache.captain) return cache.captain;
+        const c = document.createElement('canvas');
+        c.width = TILE; c.height = TILE;
+        const ctx = c.getContext('2d');
+        // White captain hat
+        ctx.fillStyle = '#FFF';
+        ctx.fillRect(4, 0, 8, 3);
+        ctx.fillStyle = '#333';
+        ctx.fillRect(4, 2, 8, 1);
+        // Skin
+        ctx.fillStyle = '#FDBCB4';
+        ctx.fillRect(5, 3, 6, 4);
+        // Grey beard
+        ctx.fillStyle = '#999';
+        ctx.fillRect(5, 6, 6, 2);
+        // Eyes
+        ctx.fillStyle = '#333';
+        ctx.fillRect(6, 4, 2, 1);
+        ctx.fillRect(10, 4, 2, 1);
+        // White jacket
+        ctx.fillStyle = '#FFF';
+        ctx.fillRect(3, 7, 10, 5);
+        // Gold buttons
+        ctx.fillStyle = '#FFD700';
+        ctx.fillRect(7, 8, 1, 1);
+        ctx.fillRect(7, 10, 1, 1);
+        // Blue pants
+        ctx.fillStyle = '#1E3D6F';
+        ctx.fillRect(5, 12, 3, 3);
+        ctx.fillRect(9, 12, 3, 3);
+        // Black shoes
+        ctx.fillStyle = '#333';
+        ctx.fillRect(5, 15, 3, 1);
+        ctx.fillRect(9, 15, 3, 1);
+        cache.captain = c;
+        return c;
+    }
+
+    // Trash can sprite — grey can with lid
+    function drawTrashCan() {
+        if (cache.trashCan) return cache.trashCan;
+        const c = document.createElement('canvas');
+        c.width = TILE; c.height = TILE;
+        const ctx = c.getContext('2d');
+        // Can body
+        ctx.fillStyle = '#888';
+        ctx.fillRect(3, 4, 10, 10);
+        // Lid
+        ctx.fillStyle = '#666';
+        ctx.fillRect(2, 2, 12, 3);
+        // Handle
+        ctx.fillStyle = '#555';
+        ctx.fillRect(6, 1, 4, 1);
+        // Rim
+        ctx.fillStyle = '#555';
+        ctx.fillRect(3, 14, 10, 1);
+        cache.trashCan = c;
+        return c;
+    }
+
     return {
         TILE,
         PAL,
@@ -1074,5 +1206,9 @@ const Sprites = (() => {
         drawSpecies64,
         drawRocketGrunt,
         drawGateGuard,
+        drawLtSurge,
+        drawSailor,
+        drawCaptain,
+        drawTrashCan,
     };
 })();

@@ -894,6 +894,403 @@ const Routes = (() => {
         return { data: m, width: W, height: H };
     }
 
+    // --- Sprint 13: Vermilion City & S.S. Anne maps ---
+
+    // Build Vermilion City (30x25)
+    function buildVermilionCity() {
+        const W = 30, H = 25;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.GRASS);
+            m.push(row);
+        }
+
+        // Tree border
+        for (let x = 0; x < W; x++) { m[0][x] = T.TREE; m[H - 1][x] = T.TREE; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.TREE; m[y][W - 1] = T.TREE; }
+
+        // Main roads: horizontal through center, vertical from north
+        for (let x = 1; x < W - 1; x++) { m[12][x] = T.DIRT; m[13][x] = T.DIRT; }
+        for (let y = 1; y < H - 1; y++) { m[y][14] = T.DIRT; m[y][15] = T.DIRT; }
+
+        // Pokemon Center (top-left area)
+        buildHouse(m, 6, 7, 5, 4);
+
+        // Pokemart (top-center)
+        buildHouse(m, 14, 7, 5, 4);
+
+        // Pokemon Fan Club (top-right)
+        buildHouse(m, 22, 7, 5, 4);
+
+        // Vermilion Gym (bottom-left, larger — Lightning bolt aesthetic)
+        for (let x = 5; x <= 10; x++) {
+            m[16][x] = T.HOUSE_ROOF; m[17][x] = T.HOUSE_ROOF;
+            m[18][x] = T.HOUSE_WALL;
+        }
+        m[18][8] = T.DOOR;
+
+        // Dock building (bottom-right)
+        for (let x = 20; x <= 26; x++) {
+            m[18][x] = T.HOUSE_ROOF; m[19][x] = T.HOUSE_ROOF;
+            m[20][x] = T.HOUSE_WALL;
+        }
+        m[20][23] = T.DOOR;
+
+        // Diglett's Cave entrance (top-left corner)
+        m[2][2] = T.HOUSE_WALL; m[2][3] = T.HOUSE_WALL; m[2][4] = T.HOUSE_WALL;
+        m[3][2] = T.HOUSE_WALL; m[3][4] = T.HOUSE_WALL;
+        m[3][3] = T.DOOR;
+
+        // Residential house (bottom-center)
+        buildHouse(m, 13, 16, 4, 3);
+
+        // Water feature — port area at bottom
+        for (let y = 22; y <= 23; y++) {
+            for (let x = 18; x <= 28; x++) {
+                m[y][x] = T.WATER;
+            }
+        }
+
+        // Flowers around gym
+        m[15][4] = T.FLOWER; m[15][11] = T.FLOWER;
+        m[14][7] = T.FLOWER; m[14][9] = T.FLOWER;
+
+        // Rocks
+        m[20][3] = T.ROCK; m[20][12] = T.ROCK;
+
+        // Exit north (to Route 6)
+        m[0][14] = T.DIRT; m[0][15] = T.DIRT;
+
+        // Exit east (to Route 11)
+        m[12][W - 1] = T.DIRT; m[13][W - 1] = T.DIRT;
+
+        return { data: m, width: W, height: H };
+    }
+
+    // Vermilion Pokemon Center interior (8x8)
+    function buildVermilionPokemonCenter() {
+        const W = 8, H = 8;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.DIRT);
+            m.push(row);
+        }
+        // Walls
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H - 1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W - 1] = T.HOUSE_WALL; }
+        // Counter
+        m[2][3] = T.HOUSE_WALL; m[2][4] = T.HOUSE_WALL; m[2][5] = T.HOUSE_WALL;
+        // Door
+        m[H - 1][4] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Vermilion Pokemart interior (8x8)
+    function buildVermilionPokemart() {
+        const W = 8, H = 8;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.DIRT);
+            m.push(row);
+        }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H - 1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W - 1] = T.HOUSE_WALL; }
+        // Shelves
+        m[2][1] = T.ROCK; m[2][2] = T.ROCK;
+        m[4][1] = T.ROCK; m[4][2] = T.ROCK;
+        // Counter
+        m[2][5] = T.HOUSE_WALL; m[2][6] = T.HOUSE_WALL;
+        m[H - 1][4] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Pokemon Fan Club interior (8x8)
+    function buildVermilionFanClub() {
+        const W = 8, H = 8;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.DIRT);
+            m.push(row);
+        }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H - 1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W - 1] = T.HOUSE_WALL; }
+        // Table and chairs
+        m[3][3] = T.ROCK; m[3][4] = T.ROCK;
+        m[5][2] = T.ROCK; m[5][5] = T.ROCK;
+        m[H - 1][4] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Vermilion Gym interior (10x12) with trash can puzzle area
+    function buildVermilionGymInterior() {
+        const W = 10, H = 12;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.DIRT);
+            m.push(row);
+        }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H - 1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W - 1] = T.HOUSE_WALL; }
+        // Electric-themed floor pattern (alternating)
+        for (let y = 3; y <= 9; y++) {
+            for (let x = 1; x <= 8; x++) {
+                if ((x + y) % 3 === 0) m[y][x] = T.FLOWER;
+            }
+        }
+        // Lt. Surge platform
+        m[1][4] = T.ROCK; m[1][5] = T.ROCK; m[1][6] = T.ROCK;
+        // Door
+        m[H - 1][5] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Vermilion Dock interior (12x8)
+    function buildVermilionDock() {
+        const W = 12, H = 8;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.DIRT);
+            m.push(row);
+        }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H - 1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W - 1] = T.HOUSE_WALL; }
+        // Dock walkway to ship
+        for (let x = 7; x <= 10; x++) { m[3][x] = T.DIRT; }
+        // Water on sides
+        for (let y = 1; y <= 2; y++) {
+            for (let x = 1; x <= 4; x++) m[y][x] = T.WATER;
+            for (let x = 8; x <= 10; x++) m[y][x] = T.WATER;
+        }
+        // Gate
+        m[3][5] = T.HOUSE_WALL; m[3][6] = T.HOUSE_WALL;
+        // Ship entry
+        m[3][10] = T.DOOR;
+        // Exit
+        m[H - 1][6] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Diglett's Cave entrance (6x6)
+    function buildDiglettsCaveEntrance() {
+        const W = 6, H = 6;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.ROCK);
+            m.push(row);
+        }
+        // Cave interior path
+        for (let y = 1; y <= 4; y++) {
+            for (let x = 1; x <= 4; x++) m[y][x] = T.DIRT;
+        }
+        // Ladder (door) to deeper cave
+        m[1][3] = T.DOOR;
+        // Exit
+        m[5][3] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // S.S. Anne Deck (20x10) — top deck with railings
+    function buildSSAnneDeck() {
+        const W = 20, H = 10;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.DIRT);
+            m.push(row);
+        }
+        // Railing (water visible beyond)
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W - 1] = T.HOUSE_WALL; }
+        // Water below the ship
+        for (let x = 0; x < W; x++) { m[H - 1][x] = T.WATER; }
+        // Stairs down to cabins
+        m[0][10] = T.DOOR;
+        // Captain's quarters door
+        m[0][18] = T.DOOR;
+        // Exit — gangway
+        m[H - 1][2] = T.DOOR;
+        // Decorative life rings
+        m[4][4] = T.ROCK; m[4][15] = T.ROCK;
+        return { data: m, width: W, height: H };
+    }
+
+    // S.S. Anne Cabins (20x12) — rooms with beds
+    function buildSSAnneCabins() {
+        const W = 20, H = 12;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.DIRT);
+            m.push(row);
+        }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H - 1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W - 1] = T.HOUSE_WALL; }
+        // Cabin walls dividing rooms
+        for (let y = 1; y <= 5; y++) { m[y][7] = T.HOUSE_WALL; m[y][13] = T.HOUSE_WALL; }
+        // Beds (rocks as furniture)
+        m[2][2] = T.ROCK; m[2][3] = T.ROCK;
+        m[2][9] = T.ROCK; m[2][10] = T.ROCK;
+        m[2][15] = T.ROCK; m[2][16] = T.ROCK;
+        // Hallway
+        for (let x = 1; x < W - 1; x++) { m[7][x] = T.DIRT; m[8][x] = T.DIRT; }
+        // Doors from hallway to cabins
+        m[6][3] = T.DOOR; m[6][10] = T.DOOR; m[6][16] = T.DOOR;
+        // Stairs up to deck
+        m[H - 1][10] = T.DOOR;
+        // Door to kitchen
+        m[0][1] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // S.S. Anne Kitchen (10x8)
+    function buildSSAnneKitchen() {
+        const W = 10, H = 8;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.DIRT);
+            m.push(row);
+        }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H - 1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W - 1] = T.HOUSE_WALL; }
+        // Counters/stoves
+        m[1][1] = T.ROCK; m[1][2] = T.ROCK; m[1][3] = T.ROCK;
+        m[1][6] = T.ROCK; m[1][7] = T.ROCK; m[1][8] = T.ROCK;
+        // Table
+        m[4][4] = T.ROCK; m[4][5] = T.ROCK;
+        // Door
+        m[H - 1][5] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // S.S. Anne Captain's Room (8x6) — small quarters
+    function buildSSAnneCaptainsRoom() {
+        const W = 8, H = 6;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.DIRT);
+            m.push(row);
+        }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H - 1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W - 1] = T.HOUSE_WALL; }
+        // Captain's desk
+        m[1][5] = T.ROCK; m[1][6] = T.ROCK;
+        // Bed
+        m[3][1] = T.ROCK; m[3][2] = T.ROCK;
+        // Door
+        m[H - 1][4] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Build Route 11 (30x20) — east of Vermilion
+    function buildRoute11() {
+        const W = 30, H = 20;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.GRASS);
+            m.push(row);
+        }
+
+        // Tree borders
+        for (let x = 0; x < W; x++) { m[0][x] = T.TREE; m[H - 1][x] = T.TREE; }
+        for (let y = 0; y < H; y++) { m[y][W - 1] = T.TREE; }
+
+        // Main path
+        for (let x = 0; x < W; x++) { m[9][x] = T.DIRT; m[10][x] = T.DIRT; m[11][x] = T.DIRT; }
+
+        // Tall grass patches
+        for (let y = 3; y <= 7; y++) {
+            for (let x = 4; x <= 10; x++) {
+                if (m[y][x] === T.GRASS) m[y][x] = T.TALL_GRASS;
+            }
+        }
+        for (let y = 13; y <= 17; y++) {
+            for (let x = 15; x <= 24; x++) {
+                if (m[y][x] === T.GRASS) m[y][x] = T.TALL_GRASS;
+            }
+        }
+        for (let y = 4; y <= 7; y++) {
+            for (let x = 18; x <= 24; x++) {
+                if (m[y][x] === T.GRASS) m[y][x] = T.TALL_GRASS;
+            }
+        }
+
+        // Rocks
+        m[5][14] = T.ROCK; m[14][8] = T.ROCK; m[8][22] = T.ROCK;
+
+        // Trees
+        m[6][13] = T.TREE; m[15][12] = T.TREE; m[3][25] = T.TREE;
+
+        // Flowers
+        m[13][5] = T.FLOWER; m[7][20] = T.FLOWER;
+
+        // Exit west
+        m[9][0] = T.DIRT; m[10][0] = T.DIRT; m[11][0] = T.DIRT;
+
+        return { data: m, width: W, height: H };
+    }
+
+    // Route 11 trainers
+    const route11Trainers = [
+        { x: 8, y: 8, name: 'Youngster Dave', dir: 0, sightRange: 3,
+          dialogue: ['I train out here every day!'],
+          pokemon: [
+            { name: 'Ekans', level: 21, hp: 44, maxHp: 44, type: 'Poison' },
+            { name: 'Sandshrew', level: 21, hp: 46, maxHp: 46, type: 'Ground' },
+          ] },
+        { x: 16, y: 12, name: 'Gambler Stan', dir: 2, sightRange: 4,
+          dialogue: ['Feeling lucky, kid?'],
+          pokemon: [
+            { name: 'Voltorb', level: 22, hp: 42, maxHp: 42, type: 'Electric' },
+            { name: 'Magnemite', level: 22, hp: 40, maxHp: 40, type: 'Electric' },
+          ] },
+        { x: 24, y: 6, name: 'Bug Catcher Rod', dir: 0, sightRange: 3,
+          dialogue: ['Check out my bug collection!'],
+          pokemon: [
+            { name: 'Venonat', level: 20, hp: 50, maxHp: 50, type: 'Bug' },
+          ] },
+    ];
+
+    // S.S. Anne trainers
+    const ssAnneTrainers = [
+        { x: 6, y: 4, name: 'Gentleman Arthur', dir: 0, sightRange: 2,
+          dialogue: ['A fine day for a cruise, wouldn\'t you say?'],
+          pokemon: [
+            { name: 'Growlithe', level: 19, hp: 44, maxHp: 44, type: 'Fire' },
+          ] },
+        { x: 14, y: 6, name: 'Lass Ann', dir: 2, sightRange: 3,
+          dialogue: ['This ship is so romantic!'],
+          pokemon: [
+            { name: 'Oddish', level: 18, hp: 38, maxHp: 38, type: 'Grass' },
+            { name: 'Pidgey', level: 18, hp: 34, maxHp: 34, type: 'Flying' },
+          ] },
+        { x: 5, y: 4, name: 'Youngster Tyler', dir: 3, sightRange: 2,
+          dialogue: ['I snuck on board without a ticket!'],
+          pokemon: [
+            { name: 'Rattata', level: 20, hp: 36, maxHp: 36, type: 'Normal' },
+          ] },
+        { x: 15, y: 8, name: 'Sailor Huey', dir: 2, sightRange: 3,
+          dialogue: ['I\'ve sailed the seven seas!'],
+          pokemon: [
+            { name: 'Machop', level: 20, hp: 48, maxHp: 48, type: 'Fighting' },
+            { name: 'Machop', level: 20, hp: 48, maxHp: 48, type: 'Fighting' },
+          ] },
+        { x: 5, y: 4, name: 'Sailor Eddie', dir: 0, sightRange: 2,
+          dialogue: ['The kitchen is off-limits to passengers!'],
+          pokemon: [
+            { name: 'Machop', level: 21, hp: 50, maxHp: 50, type: 'Fighting' },
+          ] },
+    ];
+
     // Register all maps with MapLoader
     function registerAll() {
         const palletTown = buildPalletTown();
@@ -1109,9 +1506,11 @@ const Routes = (() => {
             width: route6.width,
             height: route6.height,
             data: route6.data,
+            exits: [
+                { edge: 'south', targetMap: 'vermilion_city', spawnX: 14, spawnY: 1, spawnDir: 0 },
+            ],
             doors: [
                 { x: 10, y: 3, targetMap: 'underground_path', spawnX: 1, spawnY: 28 },
-                { x: 10, y: 24, targetMap: 'vermilion_gate', spawnX: 4, spawnY: 7 },
             ],
             trainers: route6Trainers,
             lamps: [{ x: 10, y: 10 }, { x: 10, y: 20 }],
@@ -1131,6 +1530,205 @@ const Routes = (() => {
                   dialogue: ['Someone broke in and stole my TM!', 'I think it was a Team Rocket member...', 'They ran off toward Route 5!'] },
             ],
         });
+
+        // --- Sprint 13: Vermilion City ---
+
+        const vermilionCity = buildVermilionCity();
+        MapLoader.registerMap('vermilion_city', {
+            name: 'Vermilion City',
+            width: vermilionCity.width,
+            height: vermilionCity.height,
+            data: vermilionCity.data,
+            exits: [
+                { edge: 'north', targetMap: 'route_6', spawnX: 10, spawnY: 23, spawnDir: 1 },
+                { edge: 'east', targetMap: 'route_11', spawnX: 1, spawnY: 10, spawnDir: 3 },
+            ],
+            doors: [
+                { x: 8, y: 10, targetMap: 'vermilion_pokemon_center', spawnX: 4, spawnY: 6 },
+                { x: 16, y: 10, targetMap: 'vermilion_pokemart', spawnX: 4, spawnY: 6 },
+                { x: 24, y: 10, targetMap: 'vermilion_fan_club', spawnX: 4, spawnY: 6 },
+                { x: 8, y: 19, targetMap: 'vermilion_gym_interior', spawnX: 5, spawnY: 10 },
+                { x: 23, y: 21, targetMap: 'vermilion_dock', spawnX: 6, spawnY: 6 },
+                { x: 3, y: 4, targetMap: 'digletts_cave_entrance', spawnX: 3, spawnY: 4 },
+            ],
+            lamps: [{ x: 6, y: 12 }, { x: 16, y: 12 }, { x: 24, y: 12 }, { x: 8, y: 22 }],
+            npcs: [
+                { name: 'Sailor', type: 'sailor', x: 22, y: 16, dir: 0,
+                  dialogue: ['The S.S. Anne is docked at the port!', 'You need a ticket to board.'] },
+                { name: 'Vermilion Fan', type: 'townsfolk', x: 12, y: 14, dir: 2,
+                  dialogue: ['Lt. Surge is the Gym Leader here!', 'He uses Electric-type Pokemon.', 'Watch out for his trash can puzzle!'] },
+                { name: 'Fisherman', type: 'townsfolk', x: 26, y: 4, dir: 0,
+                  dialogue: ['Vermilion City is known as the Port of Exquisite Sunsets!'] },
+            ],
+        });
+
+        const vermilionPC = buildVermilionPokemonCenter();
+        MapLoader.registerMap('vermilion_pokemon_center', {
+            name: 'Vermilion Pokemon Center',
+            width: vermilionPC.width,
+            height: vermilionPC.height,
+            data: vermilionPC.data,
+            doors: [
+                { x: 4, y: 7, targetMap: 'vermilion_city', spawnX: 8, spawnY: 11 },
+            ],
+            npcs: [
+                { name: 'Nurse Joy', type: 'nurse', x: 4, y: 2, dir: 0,
+                  dialogue: ['Welcome to the Vermilion Pokemon Center!', 'We\'ll restore your Pokemon to full health.'] },
+            ],
+        });
+
+        const vermilionMart = buildVermilionPokemart();
+        MapLoader.registerMap('vermilion_pokemart', {
+            name: 'Vermilion Pokemart',
+            width: vermilionMart.width,
+            height: vermilionMart.height,
+            data: vermilionMart.data,
+            doors: [
+                { x: 4, y: 7, targetMap: 'vermilion_city', spawnX: 16, spawnY: 11 },
+            ],
+            npcs: [
+                { name: 'Clerk', type: 'shopkeeper', x: 4, y: 2, dir: 0,
+                  dialogue: ['Welcome to Vermilion Pokemart!', 'We stock Super Potions and Great Balls.'] },
+            ],
+        });
+
+        const fanClub = buildVermilionFanClub();
+        MapLoader.registerMap('vermilion_fan_club', {
+            name: 'Pokemon Fan Club',
+            width: fanClub.width,
+            height: fanClub.height,
+            data: fanClub.data,
+            doors: [
+                { x: 4, y: 7, targetMap: 'vermilion_city', spawnX: 24, spawnY: 11 },
+            ],
+            npcs: [
+                { name: 'Fan Club Chairman', type: 'townsfolk', x: 4, y: 2, dir: 0,
+                  dialogue: ['Welcome to the Pokemon Fan Club!', 'Let me tell you about my favorite Pokemon...', 'It\'s so cute! So adorable!', 'Here, take this Bike Voucher as thanks for listening!'] },
+            ],
+        });
+
+        const gymInterior = buildVermilionGymInterior();
+        MapLoader.registerMap('vermilion_gym_interior', {
+            name: 'Vermilion Gym',
+            width: gymInterior.width,
+            height: gymInterior.height,
+            data: gymInterior.data,
+            doors: [
+                { x: 5, y: 11, targetMap: 'vermilion_city', spawnX: 8, spawnY: 20 },
+            ],
+            npcs: [
+                { name: 'Lt. Surge', type: 'lt_surge', x: 5, y: 1, dir: 0,
+                  dialogue: ['Hey kid! You managed to solve my puzzle?', 'Not bad! But you won\'t beat my Electric Pokemon!'] },
+            ],
+        });
+
+        const dock = buildVermilionDock();
+        MapLoader.registerMap('vermilion_dock', {
+            name: 'Vermilion Dock',
+            width: dock.width,
+            height: dock.height,
+            data: dock.data,
+            doors: [
+                { x: 6, y: 7, targetMap: 'vermilion_city', spawnX: 23, spawnY: 22 },
+                { x: 10, y: 3, targetMap: 'ss_anne_deck', spawnX: 2, spawnY: 8 },
+            ],
+            npcs: [
+                { name: 'Dock Guard', type: 'gate_guard', x: 6, y: 3, dir: 0,
+                  dialogue: ['You need an S.S. Ticket to board the ship!', 'Show your ticket and you may pass.'] },
+            ],
+        });
+
+        const caveEntrance = buildDiglettsCaveEntrance();
+        MapLoader.registerMap('digletts_cave_entrance', {
+            name: 'Diglett\'s Cave',
+            width: caveEntrance.width,
+            height: caveEntrance.height,
+            data: caveEntrance.data,
+            doors: [
+                { x: 3, y: 5, targetMap: 'vermilion_city', spawnX: 3, spawnY: 5 },
+            ],
+        });
+
+        // --- S.S. Anne rooms ---
+
+        const ssAnneDeck = buildSSAnneDeck();
+        MapLoader.registerMap('ss_anne_deck', {
+            name: 'S.S. Anne - Deck',
+            width: ssAnneDeck.width,
+            height: ssAnneDeck.height,
+            data: ssAnneDeck.data,
+            doors: [
+                { x: 2, y: 9, targetMap: 'vermilion_dock', spawnX: 10, spawnY: 4 },
+                { x: 10, y: 0, targetMap: 'ss_anne_cabins', spawnX: 10, spawnY: 11 },
+                { x: 18, y: 0, targetMap: 'ss_anne_captains_room', spawnX: 4, spawnY: 4 },
+            ],
+            trainers: ssAnneTrainers.slice(0, 2),
+        });
+
+        const ssAnneCabins = buildSSAnneCabins();
+        MapLoader.registerMap('ss_anne_cabins', {
+            name: 'S.S. Anne - Cabins',
+            width: ssAnneCabins.width,
+            height: ssAnneCabins.height,
+            data: ssAnneCabins.data,
+            doors: [
+                { x: 10, y: 11, targetMap: 'ss_anne_deck', spawnX: 10, spawnY: 1 },
+                { x: 1, y: 0, targetMap: 'ss_anne_kitchen', spawnX: 5, spawnY: 7 },
+            ],
+            trainers: ssAnneTrainers.slice(2, 4),
+            npcs: [
+                { name: 'Passenger', type: 'townsfolk', x: 4, y: 3, dir: 0,
+                  dialogue: ['This ship is wonderful!', 'I hear the Captain isn\'t feeling well though...'] },
+                { name: 'Passenger', type: 'townsfolk', x: 16, y: 8, dir: 2,
+                  dialogue: ['Have you explored the kitchen?', 'The food here is amazing!'] },
+            ],
+        });
+
+        const ssAnneKitchen = buildSSAnneKitchen();
+        MapLoader.registerMap('ss_anne_kitchen', {
+            name: 'S.S. Anne - Kitchen',
+            width: ssAnneKitchen.width,
+            height: ssAnneKitchen.height,
+            data: ssAnneKitchen.data,
+            doors: [
+                { x: 5, y: 7, targetMap: 'ss_anne_cabins', spawnX: 1, spawnY: 1 },
+            ],
+            trainers: ssAnneTrainers.slice(4, 5),
+            npcs: [
+                { name: 'Chef', type: 'townsfolk', x: 3, y: 2, dir: 0,
+                  dialogue: ['I\'m preparing a feast for the passengers!', 'Don\'t touch anything!'] },
+            ],
+        });
+
+        const captainsRoom = buildSSAnneCaptainsRoom();
+        MapLoader.registerMap('ss_anne_captains_room', {
+            name: 'Captain\'s Room',
+            width: captainsRoom.width,
+            height: captainsRoom.height,
+            data: captainsRoom.data,
+            doors: [
+                { x: 4, y: 5, targetMap: 'ss_anne_deck', spawnX: 18, spawnY: 1 },
+            ],
+            npcs: [
+                { name: 'Captain', type: 'captain', x: 4, y: 2, dir: 0,
+                  dialogue: ['Urp... I feel seasick...', 'Could you rub my back?', 'Thank you! I feel much better now.', 'Here, take this HM01 Cut as thanks!'] },
+            ],
+        });
+
+        // --- Route 11 ---
+
+        const route11 = buildRoute11();
+        MapLoader.registerMap('route_11', {
+            name: 'Route 11',
+            width: route11.width,
+            height: route11.height,
+            data: route11.data,
+            exits: [
+                { edge: 'west', targetMap: 'vermilion_city', spawnX: 28, spawnY: 12, spawnDir: 2 },
+            ],
+            trainers: route11Trainers,
+            lamps: [{ x: 10, y: 10 }, { x: 20, y: 10 }],
+        });
     }
 
     return {
@@ -1139,11 +1737,23 @@ const Routes = (() => {
         buildRoute4,
         buildRoute5,
         buildRoute6,
+        buildRoute11,
         buildRoute24,
         buildRoute25,
         buildBillsHouse,
         buildUndergroundPath,
         buildCeruleanBurgledHouse,
+        buildVermilionCity,
+        buildVermilionPokemonCenter,
+        buildVermilionPokemart,
+        buildVermilionFanClub,
+        buildVermilionGymInterior,
+        buildVermilionDock,
+        buildDiglettsCaveEntrance,
+        buildSSAnneDeck,
+        buildSSAnneCabins,
+        buildSSAnneKitchen,
+        buildSSAnneCaptainsRoom,
         buildPalletTown,
         buildViridianCity,
         buildPewterCity,
@@ -1153,6 +1763,8 @@ const Routes = (() => {
         route2Trainers,
         route4Trainers,
         route6Trainers,
+        route11Trainers,
+        ssAnneTrainers,
         nuggetBridgeTrainers,
         route25Trainers,
     };

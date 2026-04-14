@@ -829,6 +829,56 @@ const API = (() => {
         });
     }
 
+    // --- S.S. Anne ---
+
+    async function getSSAnneState() {
+        if (!gameId) return null;
+        return get(`${BASE_URL}/ss-anne/state/${gameId}`);
+    }
+
+    async function boardSSAnne(hasTicket) {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/ss-anne/board`, {
+            game_id: gameId,
+            has_ticket: hasTicket,
+        });
+    }
+
+    async function defeatSSAnneRival() {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/ss-anne/rival`, { game_id: gameId });
+    }
+
+    async function helpCaptain() {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/ss-anne/captain`, { game_id: gameId });
+    }
+
+    async function receiveHM() {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/ss-anne/hm`, { game_id: gameId });
+    }
+
+    // --- Trash Can Puzzle ---
+
+    async function getTrashPuzzleState() {
+        if (!gameId) return null;
+        return get(`${BASE_URL}/trash-puzzle/state/${gameId}`);
+    }
+
+    async function checkTrashCan(canIndex) {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/trash-puzzle/check`, {
+            game_id: gameId,
+            can_index: canIndex,
+        });
+    }
+
+    async function resetTrashPuzzle() {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/trash-puzzle/reset`, { game_id: gameId });
+    }
+
     async function useHM(hmMove, mapId, targetX, targetY, pokemonIndex) {
         if (!gameId) return null;
         return post(`${BASE_URL}/hm/use`, {
@@ -934,5 +984,9 @@ const API = (() => {
         getBillState, billTransform, billComplete, billTicket,
         // Item Give
         giveItem,
+        // S.S. Anne
+        getSSAnneState, boardSSAnne, defeatSSAnneRival, helpCaptain, receiveHM,
+        // Trash Can Puzzle
+        getTrashPuzzleState, checkTrashCan, resetTrashPuzzle,
     };
 })();
