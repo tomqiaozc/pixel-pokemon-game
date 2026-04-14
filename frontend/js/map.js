@@ -150,6 +150,10 @@ const GameMap = (() => {
 
     // Surfing-aware solid check: water is walkable when surfing
     function isSolidForMovement(tileX, tileY, isSurfing) {
+        // Secret entrances are always passable
+        if (SecretAreas.isSecretEntrance(MapLoader.getCurrentMapId(), tileX, tileY)) {
+            return false;
+        }
         const tile = getTile(tileX, tileY);
         if (isSurfing) {
             // While surfing, only non-water solids block movement

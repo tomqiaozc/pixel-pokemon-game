@@ -712,6 +712,36 @@ const API = (() => {
         return post(`${BASE_URL}/daycare/step`, { game_id: gameId, steps });
     }
 
+    // --- Secret Areas ---
+
+    async function checkSecretArea(mapId, x, y) {
+        return post(`${BASE_URL}/secret/check`, {
+            game_id: gameId,
+            map_id: mapId,
+            x,
+            y,
+        });
+    }
+
+    async function discoverSecretArea(mapId, x, y) {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/secret/discover`, {
+            game_id: gameId,
+            map_id: mapId,
+            x,
+            y,
+        });
+    }
+
+    async function getSecretProgress() {
+        if (!gameId) return null;
+        return get(`${BASE_URL}/secret/progress/${gameId}`);
+    }
+
+    async function listSecretAreas() {
+        return get(`${BASE_URL}/secret/areas`);
+    }
+
     return {
         // Game
         createGame, getGameId, getGameState, saveGame, updatePlayTime,
@@ -765,5 +795,7 @@ const API = (() => {
         getTutorMoves, checkMoveCompatibility, teachMove, getReminderMoves,
         // Daycare & Breeding
         getDaycareStatus, daycareDeposit, daycareWithdraw, daycareCollectEgg, daycareStep,
+        // Secret Areas
+        checkSecretArea, discoverSecretArea, getSecretProgress, listSecretAreas,
     };
 })();

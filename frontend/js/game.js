@@ -5,7 +5,7 @@ const Game = (() => {
     const MOVE_SPEED = 1.5; // pixels per frame
     const ANIM_INTERVAL = 150; // ms between walk frames
 
-    // Game states: starter, overworld, battle, evolution, pokecenter, gym, badge_award, minigame, cutscene, hatch
+    // Game states: starter, overworld, battle, evolution, pokecenter, gym, badge_award, minigame, cutscene, hatch, secret_discovery
     let state = 'starter';
     let canvas, ctx;
     let pendingBadge = null;
@@ -59,6 +59,7 @@ const Game = (() => {
         Routes.registerAll();
         PlayerStats.load();
         Achievements.loadEarned();
+        SecretAreas.loadDiscoveredAreas();
         canvas = document.getElementById('game-canvas');
         ctx = canvas.getContext('2d');
         StarterSelect.reset();
@@ -78,7 +79,11 @@ const Game = (() => {
             updateStarter(dt);
         } else if (state === 'overworld') {
             updateOverworld(dt);
+            SecretAreas.update(dt);
             Renderer.render(player, dt);
+            // Render secret area hidden entrances and discovery animation
+            SecretAreas.renderHiddenEntrance(ctx, Renderer.getCamX(), Renderer.getCamY(), Renderer.SCALE, MapLoader.getCurrentMapId());
+            SecretAreas.renderDiscoveryAnimation(ctx, Renderer.getCamX(), Renderer.getCamY(), Renderer.SCALE, canvas.width, canvas.height);
             // Render legendary overworld aura at spawn point
             const mapId = MapLoader.getCurrentMapId();
             const lSpawn = LEGENDARY_SPAWNS[mapId];
@@ -145,6 +150,14 @@ const Game = (() => {
             Evolution.update(dt);
             Evolution.render(ctx, canvas.width, canvas.height);
             if (!Evolution.isActive()) {
+                state = 'overworld';
+                Renderer.centerCamera(player.x + TILE / 2, player.y + TILE / 2);
+            }
+        } else if (state === 'secret_discovery') {
+            SecretAreas.update(dt);
+            Renderer.render(player, dt);
+            SecretAreas.renderDiscoveryAnimation(ctx, Renderer.getCamX(), Renderer.getCamY(), Renderer.SCALE, canvas.width, canvas.height);
+            if (!SecretAreas.isAnimating()) {
                 state = 'overworld';
                 Renderer.centerCamera(player.x + TILE / 2, player.y + TILE / 2);
             }
@@ -508,6 +521,10 @@ const Game = (() => {
                     state = 'hatch';
                     return;
                 }
+                // Check for secret area at current tile
+                const stepTileX = Math.floor((player.x + TILE / 2) / TILE);
+                const stepTileY = Math.floor((player.y + TILE / 2) / TILE);
+                SecretAreas.checkForSecretArea(MapLoader.getCurrentMapId(), stepTileX, stepTileY);
             }
         } else {
             player.moving = false;
@@ -604,6 +621,7 @@ const Game = (() => {
         Weather.onMapChange(mapId);
         Berry.loadPlotsForMap(mapId);
         Fishing.resetSurf(); // S9-H08: clear surfing state on map transition
+        SecretAreas.loadDiscoveredAreas();
         if (map.trainers) {
             TrainerEncounter.loadTrainers(mapId, map.trainers);
         }
