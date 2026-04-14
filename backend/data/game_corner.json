@@ -2,6 +2,8 @@
   "location": "celadon_city",
   "description": "The Celadon Game Corner, featuring slot machines and prize exchanges.",
   "entry_fee": 0,
+  "coin_case_required": true,
+  "max_coins": 9999,
   "coin_purchase": {
     "50_coins": 1000,
     "500_coins": 10000
@@ -45,6 +47,13 @@
     "entrance": "poster_switch",
     "accessible_before_story": false,
     "floors": 4,
-    "boss": "giovanni"
-  }
+    "boss": "giovanni",
+    "requires_event": "investigate_game_corner"
+  },
+  "npc_hints": [
+    "The machines in the back seem to pay out more often!",
+    "I heard there's a secret switch behind a poster...",
+    "Coins are way cheaper to buy than to earn!",
+    "The Porygon prize is the rarest Pokemon here!"
+  ]
 }

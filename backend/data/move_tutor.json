@@ -1,0 +1,114 @@
+{
+  "description": "Move tutor NPCs who teach special moves to Pokemon.",
+  "tutors": [
+    {
+      "id": "mega_punch_tutor",
+      "npc_name": "Move Tutor",
+      "location": "mt_moon",
+      "move": "Mega Punch",
+      "cost_type": "free",
+      "cost": 0,
+      "one_time": true,
+      "requires_badge": null
+    },
+    {
+      "id": "mega_kick_tutor",
+      "npc_name": "Move Tutor",
+      "location": "mt_moon",
+      "move": "Mega Kick",
+      "cost_type": "free",
+      "cost": 0,
+      "one_time": true,
+      "requires_badge": null
+    },
+    {
+      "id": "body_slam_tutor",
+      "npc_name": "Move Tutor",
+      "location": "celadon_city",
+      "move": "Body Slam",
+      "cost_type": "coins",
+      "cost": 4000,
+      "one_time": false,
+      "requires_badge": "rainbow_badge"
+    },
+    {
+      "id": "counter_tutor",
+      "npc_name": "Move Tutor",
+      "location": "celadon_city",
+      "move": "Counter",
+      "cost_type": "coins",
+      "cost": 3000,
+      "one_time": false,
+      "requires_badge": "rainbow_badge"
+    },
+    {
+      "id": "seismic_toss_tutor",
+      "npc_name": "Move Tutor",
+      "location": "saffron_city",
+      "move": "Seismic Toss",
+      "cost_type": "coins",
+      "cost": 3000,
+      "one_time": false,
+      "requires_badge": "marsh_badge"
+    },
+    {
+      "id": "dream_eater_tutor",
+      "npc_name": "Move Tutor",
+      "location": "viridian_city",
+      "move": "Dream Eater",
+      "cost_type": "free",
+      "cost": 0,
+      "one_time": true,
+      "requires_badge": null
+    },
+    {
+      "id": "softboiled_tutor",
+      "npc_name": "Move Tutor",
+      "location": "celadon_city",
+      "move": "Soft-Boiled",
+      "cost_type": "coins",
+      "cost": 5000,
+      "one_time": false,
+      "requires_badge": "rainbow_badge"
+    },
+    {
+      "id": "substitute_tutor",
+      "npc_name": "Move Tutor",
+      "location": "fuchsia_city",
+      "move": "Substitute",
+      "cost_type": "coins",
+      "cost": 4000,
+      "one_time": false,
+      "requires_badge": "soul_badge"
+    },
+    {
+      "id": "thunder_wave_tutor",
+      "npc_name": "Move Tutor",
+      "location": "saffron_city",
+      "move": "Thunder Wave",
+      "cost_type": "coins",
+      "cost": 3000,
+      "one_time": false,
+      "requires_badge": "marsh_badge"
+    },
+    {
+      "id": "metronome_tutor",
+      "npc_name": "Move Tutor",
+      "location": "cinnabar_island",
+      "move": "Metronome",
+      "cost_type": "free",
+      "cost": 0,
+      "one_time": true,
+      "requires_badge": null
+    }
+  ],
+  "cost_types": ["free", "coins", "bp", "heart_scale"],
+  "dialogue": {
+    "offer": "I can teach your Pokemon {move}. Interested?",
+    "accept": "Which Pokemon should learn {move}?",
+    "cannot_learn": "This Pokemon can't learn {move}.",
+    "success": "Your {pokemon} learned {move}!",
+    "already_knows": "Your {pokemon} already knows {move}.",
+    "no_funds": "You don't have enough {currency}."
+  }
+}

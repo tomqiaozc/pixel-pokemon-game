@@ -1,0 +1,95 @@
+{
+  "description": "Safari Zone configuration for wild Pokemon catching minigame.",
+  "safari_zone": {
+    "location": "fuchsia_city",
+    "entrance_fee": 500,
+    "step_limit": 500,
+    "safari_balls": 30,
+    "ball_type": "Safari Ball"
+  },
+  "areas": [
+    {
+      "id": "center",
+      "name": "Center Area",
+      "encounters": [
+        {"pokemon": "Nidoran-F", "level_range": [22, 25], "rate": 20},
+        {"pokemon": "Nidorina", "level_range": [25, 28], "rate": 10},
+        {"pokemon": "Nidoran-M", "level_range": [22, 25], "rate": 20},
+        {"pokemon": "Nidorino", "level_range": [25, 28], "rate": 10},
+        {"pokemon": "Parasect", "level_range": [25, 30], "rate": 5},
+        {"pokemon": "Exeggcute", "level_range": [24, 27], "rate": 15},
+        {"pokemon": "Rhyhorn", "level_range": [25, 28], "rate": 10},
+        {"pokemon": "Chansey", "level_range": [23, 26], "rate": 4},
+        {"pokemon": "Scyther", "level_range": [25, 28], "rate": 4},
+        {"pokemon": "Pinsir", "level_range": [25, 28], "rate": 2}
+      ]
+    },
+    {
+      "id": "area_1",
+      "name": "Area 1",
+      "encounters": [
+        {"pokemon": "Nidoran-F", "level_range": [24, 27], "rate": 20},
+        {"pokemon": "Nidorina", "level_range": [27, 30], "rate": 10},
+        {"pokemon": "Exeggcute", "level_range": [25, 28], "rate": 15},
+        {"pokemon": "Kangaskhan", "level_range": [25, 28], "rate": 4},
+        {"pokemon": "Tauros", "level_range": [25, 28], "rate": 3},
+        {"pokemon": "Paras", "level_range": [22, 25], "rate": 15},
+        {"pokemon": "Venonat", "level_range": [22, 25], "rate": 15},
+        {"pokemon": "Doduo", "level_range": [24, 27], "rate": 18}
+      ]
+    },
+    {
+      "id": "area_2",
+      "name": "Area 2",
+      "encounters": [
+        {"pokemon": "Nidoran-M", "level_range": [24, 27], "rate": 20},
+        {"pokemon": "Nidorino", "level_range": [27, 30], "rate": 10},
+        {"pokemon": "Rhyhorn", "level_range": [26, 29], "rate": 10},
+        {"pokemon": "Venomoth", "level_range": [28, 32], "rate": 5},
+        {"pokemon": "Chansey", "level_range": [26, 30], "rate": 4},
+        {"pokemon": "Cubone", "level_range": [22, 25], "rate": 15},
+        {"pokemon": "Marowak", "level_range": [26, 29], "rate": 5},
+        {"pokemon": "Tangela", "level_range": [25, 28], "rate": 6},
+        {"pokemon": "Goldeen", "level_range": [20, 25], "rate": 15, "method": "fishing"},
+        {"pokemon": "Dratini", "level_range": [15, 20], "rate": 10, "method": "fishing"}
+      ]
+    },
+    {
+      "id": "area_3",
+      "name": "Area 3",
+      "encounters": [
+        {"pokemon": "Exeggcute", "level_range": [25, 28], "rate": 20},
+        {"pokemon": "Kangaskhan", "level_range": [26, 30], "rate": 5},
+        {"pokemon": "Tauros", "level_range": [26, 28], "rate": 4},
+        {"pokemon": "Scyther", "level_range": [26, 29], "rate": 5},
+        {"pokemon": "Pinsir", "level_range": [26, 29], "rate": 5},
+        {"pokemon": "Chansey", "level_range": [26, 30], "rate": 3},
+        {"pokemon": "Dodrio", "level_range": [28, 32], "rate": 5},
+        {"pokemon": "Parasect", "level_range": [27, 30], "rate": 8}
+      ]
+    }
+  ],
+  "mechanics": {
+    "bait": {
+      "name": "Bait",
+      "effect": "lowers_flee_rate",
+      "catch_modifier": -1,
+      "flee_modifier": -2,
+      "duration_turns": 3
+    },
+    "rock": {
+      "name": "Rock",
+      "effect": "raises_catch_rate",
+      "catch_modifier": 2,
+      "flee_modifier": 2,
+      "duration_turns": 3
+    },
+    "base_catch_rate": 150,
+    "base_flee_rate": 5
+  },
+  "postgame_expansion": {
+    "enabled": true,
+    "new_areas": ["area_4", "area_5"],
+    "unlock_trigger": "champion_defeated"
+  }
+}
