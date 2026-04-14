@@ -1,0 +1,32 @@
+{
+  "description": "Player's PC item storage system accessed from Pokemon Centers.",
+  "storage": {
+    "max_unique_items": 50,
+    "max_quantity_per_item": 999,
+    "access_location": "pokemon_center_pc",
+    "menu_label": "PLAYER's PC"
+  },
+  "operations": [
+    {"id": "deposit", "name": "Deposit Item", "description": "Store an item from your bag"},
+    {"id": "withdraw", "name": "Withdraw Item", "description": "Take an item from storage"},
+    {"id": "toss", "name": "Toss Item", "description": "Discard items from storage"}
+  ],
+  "restrictions": {
+    "cannot_store_key_items": true,
+    "cannot_store_hm": true,
+    "toss_confirm_required": true,
+    "toss_double_confirm_rare": true
+  },
+  "initial_items": [
+    {"item": "Potion", "quantity": 1}
+  ],
+  "dialogue": {
+    "access": "What would you like to do?",
+    "deposit": "Which item would you like to deposit?",
+    "withdraw": "Which item would you like to withdraw?",
+    "toss": "Which item would you like to toss?",
+    "toss_confirm": "Is it OK to toss {quantity} {item}(s)?",
+    "bag_full": "Your bag is full!",
+    "storage_full": "Storage is full!"
+  }
+}

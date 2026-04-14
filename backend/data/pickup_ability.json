@@ -1,0 +1,37 @@
+{
+  "description": "Pickup ability item drops based on Pokemon level.",
+  "pickup_config": {
+    "ability_name": "Pickup",
+    "trigger": "after_battle",
+    "chance": 0.1,
+    "requires_no_held_item": true,
+    "check_all_party": true
+  },
+  "item_table": [
+    {"item": "Potion", "level_min": 1, "level_max": 10, "weight": 30},
+    {"item": "Antidote", "level_min": 1, "level_max": 10, "weight": 20},
+    {"item": "Super Potion", "level_min": 11, "level_max": 20, "weight": 25},
+    {"item": "Great Ball", "level_min": 11, "level_max": 20, "weight": 20},
+    {"item": "Repel", "level_min": 11, "level_max": 20, "weight": 15},
+    {"item": "Escape Rope", "level_min": 1, "level_max": 30, "weight": 10},
+    {"item": "Full Heal", "level_min": 21, "level_max": 30, "weight": 20},
+    {"item": "Ultra Ball", "level_min": 21, "level_max": 40, "weight": 15},
+    {"item": "Hyper Potion", "level_min": 21, "level_max": 40, "weight": 20},
+    {"item": "Rare Candy", "level_min": 31, "level_max": 50, "weight": 5},
+    {"item": "Revive", "level_min": 21, "level_max": 40, "weight": 10},
+    {"item": "Max Repel", "level_min": 31, "level_max": 50, "weight": 10},
+    {"item": "PP Up", "level_min": 41, "level_max": 60, "weight": 5},
+    {"item": "Max Potion", "level_min": 41, "level_max": 60, "weight": 10},
+    {"item": "Full Restore", "level_min": 51, "level_max": 100, "weight": 5},
+    {"item": "Max Revive", "level_min": 61, "level_max": 100, "weight": 3},
+    {"item": "PP Max", "level_min": 71, "level_max": 100, "weight": 2},
+    {"item": "Nugget", "level_min": 1, "level_max": 100, "weight": 5},
+    {"item": "Star Piece", "level_min": 31, "level_max": 100, "weight": 3}
+  ],
+  "pokemon_with_pickup": [
+    {"species": "Meowth", "note": "Gen 1 Pickup user"}
+  ],
+  "message": {
+    "found_item": "{pokemon} picked up a {item}!"
+  }
+}

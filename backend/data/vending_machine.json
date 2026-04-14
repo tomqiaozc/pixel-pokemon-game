@@ -1,0 +1,36 @@
+{
+  "description": "Vending machine on the Celadon Department Store rooftop.",
+  "location": "celadon_dept_store_rooftop",
+  "machines": [
+    {
+      "id": "drink_machine",
+      "name": "Vending Machine",
+      "items": [
+        {"item": "Fresh Water", "price": 200, "heal_amount": 50},
+        {"item": "Soda Pop", "price": 300, "heal_amount": 60},
+        {"item": "Lemonade", "price": 350, "heal_amount": 80}
+      ]
+    }
+  ],
+  "mechanics": {
+    "unlimited_stock": true,
+    "uses_money": true,
+    "animation_ms": 1000,
+    "dispense_sound": "vending_dispense",
+    "no_money_message": "You don't have enough money!"
+  },
+  "guard_trade": {
+    "enabled": true,
+    "npc_location": "celadon_dept_store_rooftop",
+    "trades": [
+      {"give": "Fresh Water", "receive": "TM13", "move": "Ice Beam", "one_time": true},
+      {"give": "Soda Pop", "receive": "TM48", "move": "Rock Slide", "one_time": true},
+      {"give": "Lemonade", "receive": "TM49", "move": "Tri Attack", "one_time": true}
+    ],
+    "dialogue": {
+      "thirsty": "I'm so thirsty! Could you buy me something to drink?",
+      "receive": "Oh! Thank you! Here, take this TM!",
+      "done": "Thanks again for the drink!"
+    }
+  }
+}
