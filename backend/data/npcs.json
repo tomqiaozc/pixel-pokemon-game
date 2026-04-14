@@ -1220,5 +1220,122 @@
     "facing": "down",
     "npc_type": "service",
     "dialogue_tree_id": "move_deleter_dialogue"
+  },
+  {
+    "id": "pallet_townsfolk_1",
+    "name": "Pallet Resident",
+    "sprite_id": "townsfolk_m",
+    "position": {
+      "x": 5,
+      "y": 8
+    },
+    "map_id": "pallet_town",
+    "facing": "down",
+    "npc_type": "townsfolk",
+    "dialogue_tree_id": "pallet_townsfolk_1"
+  },
+  {
+    "id": "pallet_townsfolk_2",
+    "name": "Pallet Girl",
+    "sprite_id": "townsfolk_f",
+    "position": {
+      "x": 8,
+      "y": 6
+    },
+    "map_id": "pallet_town",
+    "facing": "left",
+    "npc_type": "townsfolk",
+    "dialogue_tree_id": "pallet_townsfolk_2"
+  },
+  {
+    "id": "viridian_townsfolk_1",
+    "name": "Viridian Old Man",
+    "sprite_id": "old_man",
+    "position": {
+      "x": 12,
+      "y": 5
+    },
+    "map_id": "viridian_city",
+    "facing": "down",
+    "npc_type": "townsfolk",
+    "dialogue_tree_id": "viridian_townsfolk_1"
+  },
+  {
+    "id": "viridian_townsfolk_2",
+    "name": "Viridian Boy",
+    "sprite_id": "townsfolk_m",
+    "position": {
+      "x": 7,
+      "y": 10
+    },
+    "map_id": "viridian_city",
+    "facing": "right",
+    "npc_type": "townsfolk",
+    "dialogue_tree_id": "viridian_townsfolk_2"
+  },
+  {
+    "id": "pewter_townsfolk_1",
+    "name": "Pewter Hiker",
+    "sprite_id": "hiker",
+    "position": {
+      "x": 10,
+      "y": 8
+    },
+    "map_id": "pewter_city",
+    "facing": "down",
+    "npc_type": "townsfolk",
+    "dialogue_tree_id": "pewter_townsfolk_1"
+  },
+  {
+    "id": "pewter_townsfolk_2",
+    "name": "Museum Fan",
+    "sprite_id": "townsfolk_f",
+    "position": {
+      "x": 14,
+      "y": 4
+    },
+    "map_id": "pewter_city",
+    "facing": "left",
+    "npc_type": "townsfolk",
+    "dialogue_tree_id": "pewter_townsfolk_2"
+  },
+  {
+    "id": "cinnabar_townsfolk_1",
+    "name": "Lab Assistant",
+    "sprite_id": "scientist",
+    "position": {
+      "x": 10,
+      "y": 4
+    },
+    "map_id": "cinnabar_island",
+    "facing": "down",
+    "npc_type": "townsfolk",
+    "dialogue_tree_id": "cinnabar_townsfolk_1"
+  },
+  {
+    "id": "cinnabar_townsfolk_2",
+    "name": "Cinnabar Swimmer",
+    "sprite_id": "swimmer_m",
+    "position": {
+      "x": 4,
+      "y": 12
+    },
+    "map_id": "cinnabar_island",
+    "facing": "up",
+    "npc_type": "townsfolk",
+    "dialogue_tree_id": "cinnabar_townsfolk_2"
+  },
+  {
+    "id": "indigo_plateau_guard",
+    "name": "League Guard",
+    "sprite_id": "guard",
+    "position": {
+      "x": 8,
+      "y": 2
+    },
+    "map_id": "indigo_plateau",
+    "facing": "down",
+    "npc_type": "guard",
+    "dialogue_tree_id": "indigo_plateau_guard"
   }
 ]

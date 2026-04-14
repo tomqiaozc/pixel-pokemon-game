@@ -157,7 +157,7 @@ class TestCountsUnchanged:
 
     def test_npc_count_unchanged(self):
         npcs = _load_json("npcs.json")
-        assert len(npcs) == 94
+        assert len(npcs) == 103
 
     def test_species_count_unchanged(self):
         species = _load_json("pokemon_species.json")
@@ -165,4 +165,4 @@ class TestCountsUnchanged:
 
     def test_dialogue_count_unchanged(self):
         dialogues = _load_json("dialogues.json")
-        assert len(dialogues) == 72
+        assert len(dialogues) == 90

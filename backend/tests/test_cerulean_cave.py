@@ -102,11 +102,11 @@ class TestCeruleanCaveGuard:
 
     def test_total_npc_count(self):
         npcs = _load_json("npcs.json")
-        assert len(npcs) == 94
+        assert len(npcs) == 103
 
     def test_total_dialogue_count(self):
         dialogues = _load_json("dialogues.json")
-        assert len(dialogues) == 72
+        assert len(dialogues) == 90
 
 
 # ──── Quest Definitions ──────────────────────────────────

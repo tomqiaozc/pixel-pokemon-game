@@ -146,7 +146,7 @@ class TestCinnabarIslandTrainers:
 class TestCinnabarIslandNPCs:
     def test_total_npc_count(self):
         npcs = _load_json("npcs.json")
-        assert len(npcs) == 94
+        assert len(npcs) == 103
 
 
 # ──── Encounter Tables ───────────────────────────────────────

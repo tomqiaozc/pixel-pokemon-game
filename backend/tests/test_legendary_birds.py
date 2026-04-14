@@ -129,4 +129,4 @@ class TestCountsUnchanged:
 
     def test_npc_count_unchanged(self):
         npcs = _load_json("npcs.json")
-        assert len(npcs) == 94
+        assert len(npcs) == 103

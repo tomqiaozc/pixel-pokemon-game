@@ -1073,5 +1073,500 @@
     "accuracy": 100,
     "pp": 1,
     "contact": true
+  },
+  "Hyper Beam": {
+    "name": "Hyper Beam",
+    "type": "normal",
+    "category": "special",
+    "power": 150,
+    "accuracy": 90,
+    "pp": 5,
+    "contact": false
+  },
+  "Petal Dance": {
+    "name": "Petal Dance",
+    "type": "grass",
+    "category": "special",
+    "power": 120,
+    "accuracy": 100,
+    "pp": 10,
+    "contact": true
+  },
+  "Leech Seed": {
+    "name": "Leech Seed",
+    "type": "grass",
+    "category": "status",
+    "power": 0,
+    "accuracy": 90,
+    "pp": 10,
+    "contact": false
+  },
+  "Crabhammer": {
+    "name": "Crabhammer",
+    "type": "water",
+    "category": "physical",
+    "power": 100,
+    "accuracy": 90,
+    "pp": 10,
+    "contact": true
+  },
+  "Withdraw": {
+    "name": "Withdraw",
+    "type": "water",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 40,
+    "contact": false
+  },
+  "Fire Punch": {
+    "name": "Fire Punch",
+    "type": "fire",
+    "category": "physical",
+    "power": 75,
+    "accuracy": 100,
+    "pp": 15,
+    "contact": true
+  },
+  "Ice Punch": {
+    "name": "Ice Punch",
+    "type": "ice",
+    "category": "physical",
+    "power": 75,
+    "accuracy": 100,
+    "pp": 15,
+    "contact": true
+  },
+  "Thunder Punch": {
+    "name": "Thunder Punch",
+    "type": "electric",
+    "category": "physical",
+    "power": 75,
+    "accuracy": 100,
+    "pp": 15,
+    "contact": true
+  },
+  "Karate Chop": {
+    "name": "Karate Chop",
+    "type": "fighting",
+    "category": "physical",
+    "power": 50,
+    "accuracy": 100,
+    "pp": 25,
+    "contact": true
+  },
+  "Low Kick": {
+    "name": "Low Kick",
+    "type": "fighting",
+    "category": "physical",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 20,
+    "contact": true
+  },
+  "High Jump Kick": {
+    "name": "High Jump Kick",
+    "type": "fighting",
+    "category": "physical",
+    "power": 130,
+    "accuracy": 90,
+    "pp": 10,
+    "contact": true
+  },
+  "Rolling Kick": {
+    "name": "Rolling Kick",
+    "type": "fighting",
+    "category": "physical",
+    "power": 60,
+    "accuracy": 85,
+    "pp": 15,
+    "contact": true
+  },
+  "Counter": {
+    "name": "Counter",
+    "type": "fighting",
+    "category": "physical",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 20,
+    "contact": true
+  },
+  "Night Shade": {
+    "name": "Night Shade",
+    "type": "ghost",
+    "category": "special",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 15,
+    "contact": false
+  },
+  "Hypnosis": {
+    "name": "Hypnosis",
+    "type": "psychic",
+    "category": "status",
+    "power": 0,
+    "accuracy": 60,
+    "pp": 20,
+    "contact": false
+  },
+  "Amnesia": {
+    "name": "Amnesia",
+    "type": "psychic",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 20,
+    "contact": false
+  },
+  "Dig": {
+    "name": "Dig",
+    "type": "ground",
+    "category": "physical",
+    "power": 80,
+    "accuracy": 100,
+    "pp": 10,
+    "contact": true
+  },
+  "Fissure": {
+    "name": "Fissure",
+    "type": "ground",
+    "category": "physical",
+    "power": 0,
+    "accuracy": 30,
+    "pp": 5,
+    "contact": false
+  },
+  "Horn Drill": {
+    "name": "Horn Drill",
+    "type": "normal",
+    "category": "physical",
+    "power": 0,
+    "accuracy": 30,
+    "pp": 5,
+    "contact": true
+  },
+  "Stomp": {
+    "name": "Stomp",
+    "type": "normal",
+    "category": "physical",
+    "power": 65,
+    "accuracy": 100,
+    "pp": 20,
+    "contact": true
+  },
+  "Pay Day": {
+    "name": "Pay Day",
+    "type": "normal",
+    "category": "physical",
+    "power": 40,
+    "accuracy": 100,
+    "pp": 20,
+    "contact": true
+  },
+  "Metronome": {
+    "name": "Metronome",
+    "type": "normal",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 10,
+    "contact": false
+  },
+  "Explosion": {
+    "name": "Explosion",
+    "type": "normal",
+    "category": "physical",
+    "power": 250,
+    "accuracy": 100,
+    "pp": 5,
+    "contact": false
+  },
+  "Soft-Boiled": {
+    "name": "Soft-Boiled",
+    "type": "normal",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 10,
+    "contact": false
+  },
+  "Leech Life": {
+    "name": "Leech Life",
+    "type": "bug",
+    "category": "physical",
+    "power": 20,
+    "accuracy": 100,
+    "pp": 15,
+    "contact": true
+  },
+  "Mega Drain": {
+    "name": "Mega Drain",
+    "type": "grass",
+    "category": "special",
+    "power": 40,
+    "accuracy": 100,
+    "pp": 15,
+    "contact": false
+  },
+  "Acid Armor": {
+    "name": "Acid Armor",
+    "type": "poison",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 20,
+    "contact": false
+  },
+  "Bubble": {
+    "name": "Bubble",
+    "type": "water",
+    "category": "special",
+    "power": 40,
+    "accuracy": 100,
+    "pp": 30,
+    "contact": false
+  },
+  "Double Edge": {
+    "name": "Double Edge",
+    "type": "normal",
+    "category": "physical",
+    "power": 120,
+    "accuracy": 100,
+    "pp": 15,
+    "contact": true
+  },
+  "Double Slap": {
+    "name": "Double Slap",
+    "type": "normal",
+    "category": "physical",
+    "power": 15,
+    "accuracy": 85,
+    "pp": 10,
+    "contact": true
+  },
+  "Dragon Rage": {
+    "name": "Dragon Rage",
+    "type": "dragon",
+    "category": "special",
+    "power": 40,
+    "accuracy": 100,
+    "pp": 10,
+    "contact": false
+  },
+  "Focus Energy": {
+    "name": "Focus Energy",
+    "type": "normal",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 30,
+    "contact": false
+  },
+  "Fury Attack": {
+    "name": "Fury Attack",
+    "type": "normal",
+    "category": "physical",
+    "power": 15,
+    "accuracy": 85,
+    "pp": 20,
+    "contact": true
+  },
+  "Growth": {
+    "name": "Growth",
+    "type": "normal",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 20,
+    "contact": false
+  },
+  "Guillotine": {
+    "name": "Guillotine",
+    "type": "normal",
+    "category": "physical",
+    "power": 0,
+    "accuracy": 30,
+    "pp": 5,
+    "contact": true
+  },
+  "Haze": {
+    "name": "Haze",
+    "type": "ice",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 30,
+    "contact": false
+  },
+  "Jump Kick": {
+    "name": "Jump Kick",
+    "type": "fighting",
+    "category": "physical",
+    "power": 100,
+    "accuracy": 95,
+    "pp": 10,
+    "contact": true
+  },
+  "Light Screen": {
+    "name": "Light Screen",
+    "type": "psychic",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 30,
+    "contact": false
+  },
+  "Minimize": {
+    "name": "Minimize",
+    "type": "normal",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 10,
+    "contact": false
+  },
+  "Peck": {
+    "name": "Peck",
+    "type": "flying",
+    "category": "physical",
+    "power": 35,
+    "accuracy": 100,
+    "pp": 35,
+    "contact": true
+  },
+  "Poison Gas": {
+    "name": "Poison Gas",
+    "type": "poison",
+    "category": "status",
+    "power": 0,
+    "accuracy": 90,
+    "pp": 40,
+    "contact": false
+  },
+  "Poison Powder": {
+    "name": "Poison Powder",
+    "type": "poison",
+    "category": "status",
+    "power": 0,
+    "accuracy": 75,
+    "pp": 35,
+    "contact": false
+  },
+  "Psybeam": {
+    "name": "Psybeam",
+    "type": "psychic",
+    "category": "special",
+    "power": 65,
+    "accuracy": 100,
+    "pp": 20,
+    "contact": false
+  },
+  "Roar": {
+    "name": "Roar",
+    "type": "normal",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 20,
+    "contact": false
+  },
+  "Self Destruct": {
+    "name": "Self Destruct",
+    "type": "normal",
+    "category": "physical",
+    "power": 200,
+    "accuracy": 100,
+    "pp": 5,
+    "contact": false
+  },
+  "Sludge": {
+    "name": "Sludge",
+    "type": "poison",
+    "category": "special",
+    "power": 65,
+    "accuracy": 100,
+    "pp": 20,
+    "contact": false
+  },
+  "Smokescreen": {
+    "name": "Smokescreen",
+    "type": "normal",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 20,
+    "contact": false
+  },
+  "Soft Boiled": {
+    "name": "Soft Boiled",
+    "type": "normal",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 10,
+    "contact": false
+  },
+  "Sonic Boom": {
+    "name": "Sonic Boom",
+    "type": "normal",
+    "category": "special",
+    "power": 20,
+    "accuracy": 90,
+    "pp": 20,
+    "contact": false
+  },
+  "Spore": {
+    "name": "Spore",
+    "type": "grass",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 15,
+    "contact": false
+  },
+  "Supersonic": {
+    "name": "Supersonic",
+    "type": "normal",
+    "category": "status",
+    "power": 0,
+    "accuracy": 55,
+    "pp": 20,
+    "contact": false
+  },
+  "Thrash": {
+    "name": "Thrash",
+    "type": "normal",
+    "category": "physical",
+    "power": 120,
+    "accuracy": 100,
+    "pp": 10,
+    "contact": true
+  },
+  "Twineedle": {
+    "name": "Twineedle",
+    "type": "bug",
+    "category": "physical",
+    "power": 25,
+    "accuracy": 100,
+    "pp": 20,
+    "contact": true
+  },
+  "Vice Grip": {
+    "name": "Vice Grip",
+    "type": "normal",
+    "category": "physical",
+    "power": 55,
+    "accuracy": 100,
+    "pp": 30,
+    "contact": true
+  },
+  "Whirlwind": {
+    "name": "Whirlwind",
+    "type": "normal",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 20,
+    "contact": false
   }
 }

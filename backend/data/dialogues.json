@@ -1199,5 +1199,217 @@
         "next": null
       }
     ]
+  },
+  "pallet_townsfolk_1": {
+    "nodes": [
+      {
+        "id": "start",
+        "text": "Professor Oak is known throughout Kanto for his Pokemon research!",
+        "next": null
+      }
+    ]
+  },
+  "pallet_townsfolk_2": {
+    "nodes": [
+      {
+        "id": "start",
+        "text": "This is a quiet little town. I love the fresh air here.",
+        "next": null
+      }
+    ]
+  },
+  "viridian_townsfolk_1": {
+    "nodes": [
+      {
+        "id": "start",
+        "text": "The Viridian Forest to the north is full of Bug-type Pokemon.",
+        "next": "hint"
+      },
+      {
+        "id": "hint",
+        "text": "Bring plenty of Pokeballs if you want to catch them all!",
+        "next": null
+      }
+    ]
+  },
+  "viridian_townsfolk_2": {
+    "nodes": [
+      {
+        "id": "start",
+        "text": "The Gym here has been closed for a long time. I wonder who the Leader is...",
+        "next": null
+      }
+    ]
+  },
+  "pewter_townsfolk_1": {
+    "nodes": [
+      {
+        "id": "start",
+        "text": "Brock is a tough Gym Leader. His Rock-type Pokemon are very strong!",
+        "next": "tip"
+      },
+      {
+        "id": "tip",
+        "text": "Water and Grass-type moves work well against Rock types.",
+        "next": null
+      }
+    ]
+  },
+  "pewter_townsfolk_2": {
+    "nodes": [
+      {
+        "id": "start",
+        "text": "The museum here has amazing fossils. You should check it out!",
+        "next": null
+      }
+    ]
+  },
+  "cerulean_townsfolk_1": {
+    "nodes": [
+      {
+        "id": "start",
+        "text": "Misty trains at the Gym every day. She never takes a break!",
+        "next": null
+      }
+    ]
+  },
+  "cerulean_townsfolk_2": {
+    "nodes": [
+      {
+        "id": "start",
+        "text": "A suspicious man was spotted near the house by the river...",
+        "next": "rumor"
+      },
+      {
+        "id": "rumor",
+        "text": "I heard he stole a TM from someone! Can you believe it?",
+        "next": null
+      }
+    ]
+  },
+  "vermilion_townsfolk_1": {
+    "nodes": [
+      {
+        "id": "start",
+        "text": "The S.S. Anne comes to port here. It is a beautiful luxury liner!",
+        "next": null
+      }
+    ]
+  },
+  "vermilion_townsfolk_2": {
+    "nodes": [
+      {
+        "id": "start",
+        "text": "Lt. Surge was a soldier before becoming a Gym Leader.",
+        "next": "warning"
+      },
+      {
+        "id": "warning",
+        "text": "His Electric-type Pokemon are shocking! Be careful!",
+        "next": null
+      }
+    ]
+  },
+  "celadon_townsfolk_1": {
+    "nodes": [
+      {
+        "id": "start",
+        "text": "The Celadon Department Store has everything a trainer could need!",
+        "next": "shop"
+      },
+      {
+        "id": "shop",
+        "text": "Evolution stones, TMs, vitamins... You name it!",
+        "next": null
+      }
+    ]
+  },
+  "celadon_townsfolk_2": {
+    "nodes": [
+      {
+        "id": "start",
+        "text": "There are rumors of a secret hideout beneath the Game Corner...",
+        "next": null
+      }
+    ]
+  },
+  "lavender_townsfolk_1": {
+    "nodes": [
+      {
+        "id": "start",
+        "text": "Pokemon Tower is a memorial for departed Pokemon.",
+        "next": "ghost"
+      },
+      {
+        "id": "ghost",
+        "text": "Some say you can hear strange sounds there at night...",
+        "next": null
+      }
+    ]
+  },
+  "saffron_townsfolk_1": {
+    "nodes": [
+      {
+        "id": "start",
+        "text": "Silph Co. makes the most advanced technology in Kanto.",
+        "next": "trouble"
+      },
+      {
+        "id": "trouble",
+        "text": "But lately Team Rocket has been causing trouble there...",
+        "next": null
+      }
+    ]
+  },
+  "fuchsia_townsfolk_1": {
+    "nodes": [
+      {
+        "id": "start",
+        "text": "Koga is a master of Poison-type Pokemon and ninja techniques!",
+        "next": "safari"
+      },
+      {
+        "id": "safari",
+        "text": "The Safari Zone is nearby too. You can catch rare Pokemon there!",
+        "next": null
+      }
+    ]
+  },
+  "cinnabar_townsfolk_1": {
+    "nodes": [
+      {
+        "id": "start",
+        "text": "The Pokemon Lab here can resurrect fossils into living Pokemon!",
+        "next": "lab"
+      },
+      {
+        "id": "lab",
+        "text": "If you bring an Old Amber or a fossil, they can bring it back to life!",
+        "next": null
+      }
+    ]
+  },
+  "cinnabar_townsfolk_2": {
+    "nodes": [
+      {
+        "id": "start",
+        "text": "Blaine loves Fire-type Pokemon. His gym is like a volcano inside!",
+        "next": null
+      }
+    ]
+  },
+  "indigo_plateau_guard": {
+    "nodes": [
+      {
+        "id": "start",
+        "text": "Only trainers with all 8 badges may enter the Pokemon League!",
+        "next": "encourage"
+      },
+      {
+        "id": "encourage",
+        "text": "The Elite Four are the strongest trainers in all of Kanto. Good luck!",
+        "next": null
+      }
+    ]
   }
 }
