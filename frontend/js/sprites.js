@@ -396,6 +396,66 @@ const Sprites = (() => {
         return c;
     }
 
+    // ---- HM obstacle sprites ----
+
+    function drawCuttableTree() {
+        if (cache.cuttableTree) return cache.cuttableTree;
+        const c = createCanvas(TILE, TILE);
+        const ctx = c.getContext('2d');
+        // Grass base
+        ctx.fillStyle = PAL.grass;
+        ctx.fillRect(0, 0, TILE, TILE);
+        // Smaller tree (thinner than normal tree — cuttable)
+        ctx.fillStyle = PAL.treeTrunk;
+        ctx.fillRect(7, 11, 3, 5);
+        // Canopy (smaller, rounder)
+        ctx.fillStyle = '#3a7a3a';
+        ctx.fillRect(4, 3, 8, 4);
+        ctx.fillRect(3, 4, 10, 4);
+        ctx.fillRect(4, 8, 8, 3);
+        // Highlight
+        ctx.fillStyle = '#5cb85c';
+        ctx.fillRect(5, 4, 3, 2);
+        // Dashed outline indicating cuttability
+        ctx.strokeStyle = '#ffe040';
+        ctx.lineWidth = 1;
+        ctx.setLineDash([2, 2]);
+        ctx.strokeRect(2.5, 2.5, 11, 10);
+        ctx.setLineDash([]);
+        cache.cuttableTree = c;
+        return c;
+    }
+
+    function drawPushableBoulder() {
+        if (cache.pushableBoulder) return cache.pushableBoulder;
+        const c = createCanvas(TILE, TILE);
+        const ctx = c.getContext('2d');
+        // Grass base
+        ctx.fillStyle = PAL.grass;
+        ctx.fillRect(0, 0, TILE, TILE);
+        // Round boulder body
+        ctx.fillStyle = '#8a8a8a';
+        ctx.fillRect(3, 5, 10, 8);
+        ctx.fillRect(4, 4, 8, 1);
+        ctx.fillRect(4, 13, 8, 1);
+        ctx.fillRect(2, 7, 1, 4);
+        ctx.fillRect(13, 7, 1, 4);
+        // Dark shading
+        ctx.fillStyle = '#6a6a6a';
+        ctx.fillRect(7, 10, 5, 3);
+        ctx.fillRect(10, 7, 3, 5);
+        // Highlight
+        ctx.fillStyle = '#aaaaaa';
+        ctx.fillRect(4, 5, 3, 3);
+        // Directional arrow hints (small triangles)
+        ctx.fillStyle = 'rgba(255, 224, 64, 0.5)';
+        // Up arrow
+        px(ctx, 7, 2, '#ffe040'); px(ctx, 8, 2, '#ffe040');
+        px(ctx, 7, 3, '#ffe040'); px(ctx, 8, 3, '#ffe040');
+        cache.pushableBoulder = c;
+        return c;
+    }
+
     return {
         TILE,
         PAL,
@@ -412,5 +472,7 @@ const Sprites = (() => {
         drawHouseWall,
         drawHouseRoof,
         drawDoor,
+        drawCuttableTree,
+        drawPushableBoulder,
     };
 })();

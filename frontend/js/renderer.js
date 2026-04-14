@@ -82,6 +82,9 @@ const Renderer = (() => {
         // Draw discovered secret area entrances
         SecretAreas.renderHiddenEntrance(ctx, camX, camY, SCALE, MapLoader.getCurrentMapId());
 
+        // Draw HM obstacles (cuttable trees, pushable boulders)
+        HMPuzzles.renderObstacles(ctx, camX, camY, SCALE, MapLoader.getCurrentMapId());
+
         // Draw sign posts
         const mapId = MapLoader.getCurrentMapId();
         const signs = Signs.getSignsForMap(mapId);

@@ -154,6 +154,10 @@ const GameMap = (() => {
         if (SecretAreas.isSecretEntrance(MapLoader.getCurrentMapId(), tileX, tileY)) {
             return false;
         }
+        // HM obstacles (cuttable trees, pushable boulders) block movement
+        if (HMPuzzles.isObstacleAt(MapLoader.getCurrentMapId(), tileX, tileY)) {
+            return true;
+        }
         const tile = getTile(tileX, tileY);
         if (isSurfing) {
             // While surfing, only non-water solids block movement

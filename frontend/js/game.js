@@ -5,7 +5,7 @@ const Game = (() => {
     const MOVE_SPEED = 1.5; // pixels per frame
     const ANIM_INTERVAL = 150; // ms between walk frames
 
-    // Game states: starter, overworld, battle, evolution, pokecenter, gym, badge_award, minigame, cutscene, hatch, secret_discovery
+    // Game states: starter, overworld, battle, evolution, pokecenter, gym, badge_award, minigame, cutscene, hatch, secret_discovery, hm_animation
     let state = 'starter';
     let canvas, ctx;
     let pendingBadge = null;
@@ -81,6 +81,7 @@ const Game = (() => {
             updateOverworld(dt);
             SecretAreas.update(dt);
             Cave.update(dt);
+            HMPuzzles.update(dt);
             Renderer.render(player, dt);
             // Render secret area hidden entrances and discovery animation
             SecretAreas.renderHiddenEntrance(ctx, Renderer.getCamX(), Renderer.getCamY(), Renderer.SCALE, MapLoader.getCurrentMapId());
@@ -131,6 +132,8 @@ const Game = (() => {
             }
             // Render achievement popup (on top of everything)
             Achievements.renderPopup(ctx, canvas.width, canvas.height);
+            // Render HM animation overlay
+            HMPuzzles.renderHMAnimation(ctx, canvas.width, canvas.height);
         } else if (state === 'cutscene') {
             updateCutscene(dt);
             Renderer.render(player, dt);
@@ -159,6 +162,15 @@ const Game = (() => {
             Renderer.render(player, dt);
             SecretAreas.renderDiscoveryAnimation(ctx, Renderer.getCamX(), Renderer.getCamY(), Renderer.SCALE, canvas.width, canvas.height);
             if (!SecretAreas.isAnimating()) {
+                state = 'overworld';
+                Renderer.centerCamera(player.x + TILE / 2, player.y + TILE / 2);
+            }
+        } else if (state === 'hm_animation') {
+            HMPuzzles.update(dt);
+            Renderer.render(player, dt);
+            HMPuzzles.renderObstacles(ctx, Renderer.getCamX(), Renderer.getCamY(), Renderer.SCALE, MapLoader.getCurrentMapId());
+            HMPuzzles.renderHMAnimation(ctx, canvas.width, canvas.height);
+            if (!HMPuzzles.isAnimating()) {
                 state = 'overworld';
                 Renderer.centerCamera(player.x + TILE / 2, player.y + TILE / 2);
             }
@@ -450,6 +462,10 @@ const Game = (() => {
                 Dialogue.start('Sign', sign.text);
                 return;
             }
+            // Check for HM obstacle interaction (cuttable trees, pushable boulders)
+            if (HMPuzzles.tryUseHM(MapLoader.getCurrentMapId(), player.x, player.y, player.dir)) {
+                return;
+            }
         }
 
         const movement = Input.getMovement();
@@ -629,6 +645,8 @@ const Game = (() => {
         } else {
             Cave.exitCave(mapId);
         }
+        // Load HM obstacles for new map
+        HMPuzzles.onMapChange(mapId);
         if (map.trainers) {
             TrainerEncounter.loadTrainers(mapId, map.trainers);
         }

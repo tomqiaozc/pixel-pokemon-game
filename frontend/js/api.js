@@ -772,6 +772,48 @@ const API = (() => {
         return get(`${BASE_URL}/cave/maps`);
     }
 
+    // --- HM Overworld ---
+
+    async function useHM(hmMove, mapId, targetX, targetY, pokemonIndex) {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/hm/use`, {
+            game_id: gameId,
+            hm_move: hmMove,
+            map_id: mapId,
+            target_x: targetX,
+            target_y: targetY,
+            pokemon_index: pokemonIndex,
+        });
+    }
+
+    async function pushBoulder(obstacleId, direction) {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/hm/boulder/push`, {
+            game_id: gameId,
+            obstacle_id: obstacleId,
+            direction,
+        });
+    }
+
+    async function getHMObstacles(mapId) {
+        return get(`${BASE_URL}/hm/obstacles/${mapId}`);
+    }
+
+    async function getHMObstacleState(mapId) {
+        if (!gameId) return null;
+        return get(`${BASE_URL}/hm/obstacles/${mapId}/state/${gameId}`);
+    }
+
+    async function getSurfState() {
+        if (!gameId) return null;
+        return get(`${BASE_URL}/hm/surf/state/${gameId}`);
+    }
+
+    async function exitSurf() {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/hm/surf/exit`, { game_id: gameId });
+    }
+
     return {
         // Game
         createGame, getGameId, getGameState, saveGame, updatePlayTime,
@@ -829,5 +871,7 @@ const API = (() => {
         checkSecretArea, discoverSecretArea, getSecretProgress, listSecretAreas,
         // Cave System
         getCaveState, useFlash, caveTransition, getCaveMaps,
+        // HM Overworld
+        useHM, pushBoulder, getHMObstacles, getHMObstacleState, getSurfState, exitSurf,
     };
 })();
