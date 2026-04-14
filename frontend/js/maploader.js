@@ -38,6 +38,8 @@ const MapLoader = (() => {
             tileTypes: config.tileTypes || null, // custom tile types for this map
             isIndoor: config.isIndoor || false,   // skip day/night tint for indoor maps
             lamps: config.lamps || [],            // lamp positions (tile coords) for night glow
+            isDark: config.isDark || false,        // cave darkness mechanics
+            mapType: config.mapType || 'overworld', // 'overworld', 'cave', 'indoor'
         };
     }
 

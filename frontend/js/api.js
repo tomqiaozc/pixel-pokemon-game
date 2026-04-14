@@ -742,6 +742,36 @@ const API = (() => {
         return get(`${BASE_URL}/secret/areas`);
     }
 
+    // --- Cave System ---
+
+    async function getCaveState(mapId) {
+        if (!gameId) return null;
+        return get(`${BASE_URL}/cave/state/${gameId}/${mapId}`);
+    }
+
+    async function useFlash(mapId, pokemonIndex) {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/cave/flash`, {
+            game_id: gameId,
+            map_id: mapId,
+            pokemon_index: pokemonIndex,
+        });
+    }
+
+    async function caveTransition(fromMapId, ladderX, ladderY) {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/cave/transition`, {
+            game_id: gameId,
+            from_map_id: fromMapId,
+            ladder_x: ladderX,
+            ladder_y: ladderY,
+        });
+    }
+
+    async function getCaveMaps() {
+        return get(`${BASE_URL}/cave/maps`);
+    }
+
     return {
         // Game
         createGame, getGameId, getGameState, saveGame, updatePlayTime,
@@ -797,5 +827,7 @@ const API = (() => {
         getDaycareStatus, daycareDeposit, daycareWithdraw, daycareCollectEgg, daycareStep,
         // Secret Areas
         checkSecretArea, discoverSecretArea, getSecretProgress, listSecretAreas,
+        // Cave System
+        getCaveState, useFlash, caveTransition, getCaveMaps,
     };
 })();

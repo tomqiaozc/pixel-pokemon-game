@@ -132,6 +132,26 @@ const Renderer = (() => {
             DayCycle.renderLamps(ctx, camX, camY, SCALE, currentMapId);
         }
 
+        // Draw cave darkness overlay (after all world rendering, before UI overlays)
+        if (mapConfig && mapConfig.isDark && Cave.isDarkCave(currentMapId)) {
+            const playerCenterX = (player.x + TILE / 2 - camX) * SCALE;
+            const playerCenterY = (player.y + TILE / 2 - camY) * SCALE;
+            const radius = Cave.getVisibilityRadius(currentMapId);
+            Cave.renderDarkness(ctx, playerCenterX, playerCenterY, radius, canvasW, canvasH, SCALE);
+        }
+
+        // Draw cave ambient particles
+        if (mapConfig && mapConfig.mapType === 'cave') {
+            Cave.renderCaveTiles(ctx, camX, camY, SCALE, currentMapId);
+        }
+
+        // Draw Flash animation effect
+        if (Cave.isFlashAnimating()) {
+            const playerCenterX = (player.x + TILE / 2 - camX) * SCALE;
+            const playerCenterY = (player.y + TILE / 2 - camY) * SCALE;
+            Cave.renderFlashAnimation(ctx, playerCenterX, playerCenterY, canvasW, canvasH, SCALE);
+        }
+
         // Draw map transition overlay (fade + map name popup)
         MapLoader.renderTransition(ctx, canvasW, canvasH);
     }

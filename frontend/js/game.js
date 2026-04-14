@@ -80,6 +80,7 @@ const Game = (() => {
         } else if (state === 'overworld') {
             updateOverworld(dt);
             SecretAreas.update(dt);
+            Cave.update(dt);
             Renderer.render(player, dt);
             // Render secret area hidden entrances and discovery animation
             SecretAreas.renderHiddenEntrance(ctx, Renderer.getCamX(), Renderer.getCamY(), Renderer.SCALE, MapLoader.getCurrentMapId());
@@ -622,6 +623,12 @@ const Game = (() => {
         Berry.loadPlotsForMap(mapId);
         Fishing.resetSurf(); // S9-H08: clear surfing state on map transition
         SecretAreas.loadDiscoveredAreas();
+        // Handle cave darkness state on map transitions
+        if (map.isDark || map.mapType === 'cave') {
+            Cave.enterCave(mapId);
+        } else {
+            Cave.exitCave(mapId);
+        }
         if (map.trainers) {
             TrainerEncounter.loadTrainers(mapId, map.trainers);
         }
