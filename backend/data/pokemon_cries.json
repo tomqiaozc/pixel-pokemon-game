@@ -1,0 +1,1024 @@
+{
+  "Bulbasaur": {
+    "base_pitch": 732,
+    "pitch_sweep": -18,
+    "duration_ms": 332,
+    "waveform": "triangle",
+    "volume": 0.82
+  },
+  "Ivysaur": {
+    "base_pitch": 682,
+    "pitch_sweep": 32,
+    "duration_ms": 782,
+    "waveform": "triangle",
+    "volume": 0.82
+  },
+  "Venusaur": {
+    "base_pitch": 331,
+    "pitch_sweep": -19,
+    "duration_ms": 831,
+    "waveform": "sawtooth",
+    "volume": 0.81
+  },
+  "Charmander": {
+    "base_pitch": 397,
+    "pitch_sweep": 47,
+    "duration_ms": 897,
+    "waveform": "triangle",
+    "volume": 0.97
+  },
+  "Charmeleon": {
+    "base_pitch": 470,
+    "pitch_sweep": 20,
+    "duration_ms": 970,
+    "waveform": "square",
+    "volume": 0.7
+  },
+  "Charizard": {
+    "base_pitch": 770,
+    "pitch_sweep": 20,
+    "duration_ms": 370,
+    "waveform": "square",
+    "volume": 0.7
+  },
+  "Squirtle": {
+    "base_pitch": 214,
+    "pitch_sweep": -36,
+    "duration_ms": 814,
+    "waveform": "noise",
+    "volume": 0.64
+  },
+  "Wartortle": {
+    "base_pitch": 643,
+    "pitch_sweep": -7,
+    "duration_ms": 843,
+    "waveform": "sine",
+    "volume": 0.93
+  },
+  "Blastoise": {
+    "base_pitch": 579,
+    "pitch_sweep": 29,
+    "duration_ms": 879,
+    "waveform": "noise",
+    "volume": 0.79
+  },
+  "Pidgey": {
+    "base_pitch": 712,
+    "pitch_sweep": -38,
+    "duration_ms": 912,
+    "waveform": "triangle",
+    "volume": 0.62
+  },
+  "Pidgeotto": {
+    "base_pitch": 398,
+    "pitch_sweep": 48,
+    "duration_ms": 598,
+    "waveform": "sine",
+    "volume": 0.98
+  },
+  "Pidgeot": {
+    "base_pitch": 797,
+    "pitch_sweep": 47,
+    "duration_ms": 797,
+    "waveform": "triangle",
+    "volume": 0.97
+  },
+  "Rattata": {
+    "base_pitch": 803,
+    "pitch_sweep": -47,
+    "duration_ms": 903,
+    "waveform": "sine",
+    "volume": 0.53
+  },
+  "Raticate": {
+    "base_pitch": 971,
+    "pitch_sweep": 21,
+    "duration_ms": 971,
+    "waveform": "sawtooth",
+    "volume": 0.71
+  },
+  "Pikachu": {
+    "base_pitch": 475,
+    "pitch_sweep": 25,
+    "duration_ms": 975,
+    "waveform": "square",
+    "volume": 0.75
+  },
+  "Raichu": {
+    "base_pitch": 473,
+    "pitch_sweep": 23,
+    "duration_ms": 573,
+    "waveform": "sine",
+    "volume": 0.73
+  },
+  "Geodude": {
+    "base_pitch": 724,
+    "pitch_sweep": -26,
+    "duration_ms": 824,
+    "waveform": "noise",
+    "volume": 0.74
+  },
+  "Onix": {
+    "base_pitch": 557,
+    "pitch_sweep": 7,
+    "duration_ms": 857,
+    "waveform": "triangle",
+    "volume": 0.57
+  },
+  "Caterpie": {
+    "base_pitch": 892,
+    "pitch_sweep": 42,
+    "duration_ms": 992,
+    "waveform": "triangle",
+    "volume": 0.92
+  },
+  "Weedle": {
+    "base_pitch": 541,
+    "pitch_sweep": -9,
+    "duration_ms": 841,
+    "waveform": "sawtooth",
+    "volume": 0.91
+  },
+  "Staryu": {
+    "base_pitch": 530,
+    "pitch_sweep": -20,
+    "duration_ms": 530,
+    "waveform": "square",
+    "volume": 0.8
+  },
+  "Starmie": {
+    "base_pitch": 388,
+    "pitch_sweep": 38,
+    "duration_ms": 988,
+    "waveform": "sine",
+    "volume": 0.88
+  },
+  "Ekans": {
+    "base_pitch": 650,
+    "pitch_sweep": 0,
+    "duration_ms": 350,
+    "waveform": "square",
+    "volume": 0.5
+  },
+  "Arbok": {
+    "base_pitch": 440,
+    "pitch_sweep": -10,
+    "duration_ms": 540,
+    "waveform": "square",
+    "volume": 0.9
+  },
+  "Spearow": {
+    "base_pitch": 533,
+    "pitch_sweep": -17,
+    "duration_ms": 833,
+    "waveform": "sine",
+    "volume": 0.83
+  },
+  "Sandshrew": {
+    "base_pitch": 977,
+    "pitch_sweep": 27,
+    "duration_ms": 477,
+    "waveform": "triangle",
+    "volume": 0.77
+  },
+  "Sandslash": {
+    "base_pitch": 802,
+    "pitch_sweep": -48,
+    "duration_ms": 602,
+    "waveform": "triangle",
+    "volume": 0.52
+  },
+  "Nidoran-F": {
+    "base_pitch": 485,
+    "pitch_sweep": 35,
+    "duration_ms": 685,
+    "waveform": "square",
+    "volume": 0.85
+  },
+  "Nidorina": {
+    "base_pitch": 577,
+    "pitch_sweep": 27,
+    "duration_ms": 777,
+    "waveform": "triangle",
+    "volume": 0.77
+  },
+  "Nidoqueen": {
+    "base_pitch": 553,
+    "pitch_sweep": 3,
+    "duration_ms": 553,
+    "waveform": "sine",
+    "volume": 0.53
+  },
+  "Nidoran-M": {
+    "base_pitch": 382,
+    "pitch_sweep": 32,
+    "duration_ms": 982,
+    "waveform": "triangle",
+    "volume": 0.82
+  },
+  "Nidorino": {
+    "base_pitch": 761,
+    "pitch_sweep": 11,
+    "duration_ms": 861,
+    "waveform": "sawtooth",
+    "volume": 0.61
+  },
+  "Nidoking": {
+    "base_pitch": 807,
+    "pitch_sweep": -43,
+    "duration_ms": 407,
+    "waveform": "triangle",
+    "volume": 0.57
+  },
+  "Clefairy": {
+    "base_pitch": 838,
+    "pitch_sweep": -12,
+    "duration_ms": 638,
+    "waveform": "sine",
+    "volume": 0.88
+  },
+  "Clefable": {
+    "base_pitch": 769,
+    "pitch_sweep": 19,
+    "duration_ms": 469,
+    "waveform": "noise",
+    "volume": 0.69
+  },
+  "Vulpix": {
+    "base_pitch": 276,
+    "pitch_sweep": 26,
+    "duration_ms": 376,
+    "waveform": "sawtooth",
+    "volume": 0.76
+  },
+  "Ninetales": {
+    "base_pitch": 908,
+    "pitch_sweep": -42,
+    "duration_ms": 608,
+    "waveform": "sine",
+    "volume": 0.58
+  },
+  "Jigglypuff": {
+    "base_pitch": 452,
+    "pitch_sweep": 2,
+    "duration_ms": 352,
+    "waveform": "triangle",
+    "volume": 0.52
+  },
+  "Wigglytuff": {
+    "base_pitch": 377,
+    "pitch_sweep": 27,
+    "duration_ms": 477,
+    "waveform": "triangle",
+    "volume": 0.77
+  },
+  "Zubat": {
+    "base_pitch": 902,
+    "pitch_sweep": -48,
+    "duration_ms": 302,
+    "waveform": "triangle",
+    "volume": 0.52
+  },
+  "Golbat": {
+    "base_pitch": 568,
+    "pitch_sweep": 18,
+    "duration_ms": 968,
+    "waveform": "sine",
+    "volume": 0.68
+  },
+  "Oddish": {
+    "base_pitch": 643,
+    "pitch_sweep": -7,
+    "duration_ms": 743,
+    "waveform": "sine",
+    "volume": 0.93
+  },
+  "Gloom": {
+    "base_pitch": 202,
+    "pitch_sweep": -48,
+    "duration_ms": 902,
+    "waveform": "triangle",
+    "volume": 0.52
+  },
+  "Vileplume": {
+    "base_pitch": 412,
+    "pitch_sweep": -38,
+    "duration_ms": 312,
+    "waveform": "triangle",
+    "volume": 0.62
+  },
+  "Paras": {
+    "base_pitch": 537,
+    "pitch_sweep": -13,
+    "duration_ms": 737,
+    "waveform": "triangle",
+    "volume": 0.87
+  },
+  "Parasect": {
+    "base_pitch": 499,
+    "pitch_sweep": 49,
+    "duration_ms": 799,
+    "waveform": "noise",
+    "volume": 0.99
+  },
+  "Venonat": {
+    "base_pitch": 300,
+    "pitch_sweep": -50,
+    "duration_ms": 800,
+    "waveform": "square",
+    "volume": 0.5
+  },
+  "Venomoth": {
+    "base_pitch": 766,
+    "pitch_sweep": 16,
+    "duration_ms": 866,
+    "waveform": "sawtooth",
+    "volume": 0.66
+  },
+  "Diglett": {
+    "base_pitch": 332,
+    "pitch_sweep": -18,
+    "duration_ms": 632,
+    "waveform": "triangle",
+    "volume": 0.82
+  },
+  "Dugtrio": {
+    "base_pitch": 413,
+    "pitch_sweep": -37,
+    "duration_ms": 813,
+    "waveform": "sine",
+    "volume": 0.63
+  },
+  "Meowth": {
+    "base_pitch": 271,
+    "pitch_sweep": 21,
+    "duration_ms": 971,
+    "waveform": "sawtooth",
+    "volume": 0.71
+  },
+  "Persian": {
+    "base_pitch": 974,
+    "pitch_sweep": 24,
+    "duration_ms": 774,
+    "waveform": "noise",
+    "volume": 0.74
+  },
+  "Psyduck": {
+    "base_pitch": 949,
+    "pitch_sweep": -1,
+    "duration_ms": 549,
+    "waveform": "noise",
+    "volume": 0.99
+  },
+  "Golduck": {
+    "base_pitch": 371,
+    "pitch_sweep": 21,
+    "duration_ms": 471,
+    "waveform": "sawtooth",
+    "volume": 0.71
+  },
+  "Mankey": {
+    "base_pitch": 337,
+    "pitch_sweep": -13,
+    "duration_ms": 437,
+    "waveform": "triangle",
+    "volume": 0.87
+  },
+  "Primeape": {
+    "base_pitch": 939,
+    "pitch_sweep": -11,
+    "duration_ms": 739,
+    "waveform": "noise",
+    "volume": 0.89
+  },
+  "Growlithe": {
+    "base_pitch": 234,
+    "pitch_sweep": -16,
+    "duration_ms": 334,
+    "waveform": "noise",
+    "volume": 0.84
+  },
+  "Arcanine": {
+    "base_pitch": 208,
+    "pitch_sweep": -42,
+    "duration_ms": 308,
+    "waveform": "sine",
+    "volume": 0.58
+  },
+  "Poliwag": {
+    "base_pitch": 266,
+    "pitch_sweep": 16,
+    "duration_ms": 466,
+    "waveform": "sawtooth",
+    "volume": 0.66
+  },
+  "Poliwhirl": {
+    "base_pitch": 557,
+    "pitch_sweep": 7,
+    "duration_ms": 657,
+    "waveform": "triangle",
+    "volume": 0.57
+  },
+  "Poliwrath": {
+    "base_pitch": 826,
+    "pitch_sweep": -24,
+    "duration_ms": 426,
+    "waveform": "sawtooth",
+    "volume": 0.76
+  },
+  "Abra": {
+    "base_pitch": 992,
+    "pitch_sweep": 42,
+    "duration_ms": 792,
+    "waveform": "triangle",
+    "volume": 0.92
+  },
+  "Kadabra": {
+    "base_pitch": 450,
+    "pitch_sweep": 0,
+    "duration_ms": 550,
+    "waveform": "square",
+    "volume": 0.5
+  },
+  "Alakazam": {
+    "base_pitch": 903,
+    "pitch_sweep": -47,
+    "duration_ms": 303,
+    "waveform": "sine",
+    "volume": 0.53
+  },
+  "Machop": {
+    "base_pitch": 529,
+    "pitch_sweep": -21,
+    "duration_ms": 929,
+    "waveform": "noise",
+    "volume": 0.79
+  },
+  "Machoke": {
+    "base_pitch": 206,
+    "pitch_sweep": -44,
+    "duration_ms": 806,
+    "waveform": "sawtooth",
+    "volume": 0.56
+  },
+  "Machamp": {
+    "base_pitch": 938,
+    "pitch_sweep": -12,
+    "duration_ms": 738,
+    "waveform": "sine",
+    "volume": 0.88
+  },
+  "Bellsprout": {
+    "base_pitch": 980,
+    "pitch_sweep": 30,
+    "duration_ms": 480,
+    "waveform": "square",
+    "volume": 0.8
+  },
+  "Weepinbell": {
+    "base_pitch": 423,
+    "pitch_sweep": -27,
+    "duration_ms": 923,
+    "waveform": "sine",
+    "volume": 0.73
+  },
+  "Victreebel": {
+    "base_pitch": 672,
+    "pitch_sweep": 22,
+    "duration_ms": 472,
+    "waveform": "triangle",
+    "volume": 0.72
+  },
+  "Tentacool": {
+    "base_pitch": 336,
+    "pitch_sweep": -14,
+    "duration_ms": 836,
+    "waveform": "sawtooth",
+    "volume": 0.86
+  },
+  "Tentacruel": {
+    "base_pitch": 702,
+    "pitch_sweep": -48,
+    "duration_ms": 702,
+    "waveform": "triangle",
+    "volume": 0.52
+  },
+  "Graveler": {
+    "base_pitch": 384,
+    "pitch_sweep": 34,
+    "duration_ms": 984,
+    "waveform": "noise",
+    "volume": 0.84
+  },
+  "Golem": {
+    "base_pitch": 965,
+    "pitch_sweep": 15,
+    "duration_ms": 365,
+    "waveform": "square",
+    "volume": 0.65
+  },
+  "Ponyta": {
+    "base_pitch": 208,
+    "pitch_sweep": -42,
+    "duration_ms": 408,
+    "waveform": "sine",
+    "volume": 0.58
+  },
+  "Rapidash": {
+    "base_pitch": 220,
+    "pitch_sweep": -30,
+    "duration_ms": 420,
+    "waveform": "square",
+    "volume": 0.7
+  },
+  "Slowpoke": {
+    "base_pitch": 573,
+    "pitch_sweep": 23,
+    "duration_ms": 373,
+    "waveform": "sine",
+    "volume": 0.73
+  },
+  "Slowbro": {
+    "base_pitch": 202,
+    "pitch_sweep": -48,
+    "duration_ms": 802,
+    "waveform": "triangle",
+    "volume": 0.52
+  },
+  "Magnemite": {
+    "base_pitch": 380,
+    "pitch_sweep": 30,
+    "duration_ms": 880,
+    "waveform": "square",
+    "volume": 0.8
+  },
+  "Magneton": {
+    "base_pitch": 347,
+    "pitch_sweep": -3,
+    "duration_ms": 347,
+    "waveform": "triangle",
+    "volume": 0.97
+  },
+  "Farfetchd": {
+    "base_pitch": 637,
+    "pitch_sweep": -13,
+    "duration_ms": 437,
+    "waveform": "triangle",
+    "volume": 0.87
+  },
+  "Doduo": {
+    "base_pitch": 342,
+    "pitch_sweep": -8,
+    "duration_ms": 442,
+    "waveform": "triangle",
+    "volume": 0.92
+  },
+  "Dodrio": {
+    "base_pitch": 865,
+    "pitch_sweep": 15,
+    "duration_ms": 765,
+    "waveform": "square",
+    "volume": 0.65
+  },
+  "Seel": {
+    "base_pitch": 380,
+    "pitch_sweep": 30,
+    "duration_ms": 680,
+    "waveform": "square",
+    "volume": 0.8
+  },
+  "Dewgong": {
+    "base_pitch": 636,
+    "pitch_sweep": -14,
+    "duration_ms": 736,
+    "waveform": "sawtooth",
+    "volume": 0.86
+  },
+  "Grimer": {
+    "base_pitch": 304,
+    "pitch_sweep": -46,
+    "duration_ms": 804,
+    "waveform": "noise",
+    "volume": 0.54
+  },
+  "Muk": {
+    "base_pitch": 328,
+    "pitch_sweep": -22,
+    "duration_ms": 928,
+    "waveform": "sine",
+    "volume": 0.78
+  },
+  "Shellder": {
+    "base_pitch": 765,
+    "pitch_sweep": 15,
+    "duration_ms": 565,
+    "waveform": "square",
+    "volume": 0.65
+  },
+  "Cloyster": {
+    "base_pitch": 228,
+    "pitch_sweep": -22,
+    "duration_ms": 528,
+    "waveform": "sine",
+    "volume": 0.78
+  },
+  "Gastly": {
+    "base_pitch": 688,
+    "pitch_sweep": 38,
+    "duration_ms": 988,
+    "waveform": "sine",
+    "volume": 0.88
+  },
+  "Haunter": {
+    "base_pitch": 406,
+    "pitch_sweep": -44,
+    "duration_ms": 806,
+    "waveform": "sawtooth",
+    "volume": 0.56
+  },
+  "Gengar": {
+    "base_pitch": 836,
+    "pitch_sweep": -14,
+    "duration_ms": 436,
+    "waveform": "sawtooth",
+    "volume": 0.86
+  },
+  "Drowzee": {
+    "base_pitch": 578,
+    "pitch_sweep": 28,
+    "duration_ms": 478,
+    "waveform": "sine",
+    "volume": 0.78
+  },
+  "Hypno": {
+    "base_pitch": 423,
+    "pitch_sweep": -27,
+    "duration_ms": 523,
+    "waveform": "sine",
+    "volume": 0.73
+  },
+  "Krabby": {
+    "base_pitch": 238,
+    "pitch_sweep": -12,
+    "duration_ms": 438,
+    "waveform": "sine",
+    "volume": 0.88
+  },
+  "Kingler": {
+    "base_pitch": 231,
+    "pitch_sweep": -19,
+    "duration_ms": 431,
+    "waveform": "sawtooth",
+    "volume": 0.81
+  },
+  "Voltorb": {
+    "base_pitch": 626,
+    "pitch_sweep": -24,
+    "duration_ms": 726,
+    "waveform": "sawtooth",
+    "volume": 0.76
+  },
+  "Electrode": {
+    "base_pitch": 978,
+    "pitch_sweep": 28,
+    "duration_ms": 678,
+    "waveform": "sine",
+    "volume": 0.78
+  },
+  "Exeggcute": {
+    "base_pitch": 558,
+    "pitch_sweep": 8,
+    "duration_ms": 458,
+    "waveform": "sine",
+    "volume": 0.58
+  },
+  "Exeggutor": {
+    "base_pitch": 655,
+    "pitch_sweep": 5,
+    "duration_ms": 555,
+    "waveform": "square",
+    "volume": 0.55
+  },
+  "Cubone": {
+    "base_pitch": 248,
+    "pitch_sweep": -2,
+    "duration_ms": 748,
+    "waveform": "sine",
+    "volume": 0.98
+  },
+  "Marowak": {
+    "base_pitch": 953,
+    "pitch_sweep": 3,
+    "duration_ms": 853,
+    "waveform": "sine",
+    "volume": 0.53
+  },
+  "Hitmonlee": {
+    "base_pitch": 443,
+    "pitch_sweep": -7,
+    "duration_ms": 343,
+    "waveform": "sine",
+    "volume": 0.93
+  },
+  "Hitmonchan": {
+    "base_pitch": 318,
+    "pitch_sweep": -32,
+    "duration_ms": 818,
+    "waveform": "sine",
+    "volume": 0.68
+  },
+  "Lickitung": {
+    "base_pitch": 783,
+    "pitch_sweep": 33,
+    "duration_ms": 983,
+    "waveform": "sine",
+    "volume": 0.83
+  },
+  "Koffing": {
+    "base_pitch": 270,
+    "pitch_sweep": 20,
+    "duration_ms": 870,
+    "waveform": "square",
+    "volume": 0.7
+  },
+  "Weezing": {
+    "base_pitch": 729,
+    "pitch_sweep": -21,
+    "duration_ms": 529,
+    "waveform": "noise",
+    "volume": 0.79
+  },
+  "Rhyhorn": {
+    "base_pitch": 508,
+    "pitch_sweep": -42,
+    "duration_ms": 508,
+    "waveform": "sine",
+    "volume": 0.58
+  },
+  "Rhydon": {
+    "base_pitch": 707,
+    "pitch_sweep": -43,
+    "duration_ms": 307,
+    "waveform": "triangle",
+    "volume": 0.57
+  },
+  "Chansey": {
+    "base_pitch": 250,
+    "pitch_sweep": 0,
+    "duration_ms": 650,
+    "waveform": "square",
+    "volume": 0.5
+  },
+  "Tangela": {
+    "base_pitch": 475,
+    "pitch_sweep": 25,
+    "duration_ms": 475,
+    "waveform": "square",
+    "volume": 0.75
+  },
+  "Kangaskhan": {
+    "base_pitch": 299,
+    "pitch_sweep": 49,
+    "duration_ms": 999,
+    "waveform": "noise",
+    "volume": 0.99
+  },
+  "Horsea": {
+    "base_pitch": 614,
+    "pitch_sweep": -36,
+    "duration_ms": 314,
+    "waveform": "noise",
+    "volume": 0.64
+  },
+  "Seadra": {
+    "base_pitch": 536,
+    "pitch_sweep": -14,
+    "duration_ms": 636,
+    "waveform": "sawtooth",
+    "volume": 0.86
+  },
+  "Goldeen": {
+    "base_pitch": 583,
+    "pitch_sweep": 33,
+    "duration_ms": 583,
+    "waveform": "sine",
+    "volume": 0.83
+  },
+  "Seaking": {
+    "base_pitch": 999,
+    "pitch_sweep": 49,
+    "duration_ms": 499,
+    "waveform": "noise",
+    "volume": 0.99
+  },
+  "Mr. Mime": {
+    "base_pitch": 713,
+    "pitch_sweep": -37,
+    "duration_ms": 713,
+    "waveform": "sine",
+    "volume": 0.63
+  },
+  "Scyther": {
+    "base_pitch": 981,
+    "pitch_sweep": 31,
+    "duration_ms": 481,
+    "waveform": "sawtooth",
+    "volume": 0.81
+  },
+  "Jynx": {
+    "base_pitch": 637,
+    "pitch_sweep": -13,
+    "duration_ms": 937,
+    "waveform": "triangle",
+    "volume": 0.87
+  },
+  "Electabuzz": {
+    "base_pitch": 305,
+    "pitch_sweep": -45,
+    "duration_ms": 905,
+    "waveform": "square",
+    "volume": 0.55
+  },
+  "Magmar": {
+    "base_pitch": 516,
+    "pitch_sweep": -34,
+    "duration_ms": 816,
+    "waveform": "sawtooth",
+    "volume": 0.66
+  },
+  "Pinsir": {
+    "base_pitch": 288,
+    "pitch_sweep": 38,
+    "duration_ms": 588,
+    "waveform": "sine",
+    "volume": 0.88
+  },
+  "Tauros": {
+    "base_pitch": 405,
+    "pitch_sweep": -45,
+    "duration_ms": 905,
+    "waveform": "square",
+    "volume": 0.55
+  },
+  "Magikarp": {
+    "base_pitch": 331,
+    "pitch_sweep": -19,
+    "duration_ms": 531,
+    "waveform": "sawtooth",
+    "volume": 0.81
+  },
+  "Gyarados": {
+    "base_pitch": 429,
+    "pitch_sweep": -21,
+    "duration_ms": 529,
+    "waveform": "noise",
+    "volume": 0.79
+  },
+  "Lapras": {
+    "base_pitch": 667,
+    "pitch_sweep": 17,
+    "duration_ms": 867,
+    "waveform": "triangle",
+    "volume": 0.67
+  },
+  "Ditto": {
+    "base_pitch": 922,
+    "pitch_sweep": -28,
+    "duration_ms": 722,
+    "waveform": "triangle",
+    "volume": 0.72
+  },
+  "Eevee": {
+    "base_pitch": 565,
+    "pitch_sweep": 15,
+    "duration_ms": 365,
+    "waveform": "square",
+    "volume": 0.65
+  },
+  "Vaporeon": {
+    "base_pitch": 547,
+    "pitch_sweep": -3,
+    "duration_ms": 647,
+    "waveform": "triangle",
+    "volume": 0.97
+  },
+  "Jolteon": {
+    "base_pitch": 622,
+    "pitch_sweep": -28,
+    "duration_ms": 422,
+    "waveform": "triangle",
+    "volume": 0.72
+  },
+  "Flareon": {
+    "base_pitch": 312,
+    "pitch_sweep": -38,
+    "duration_ms": 612,
+    "waveform": "triangle",
+    "volume": 0.62
+  },
+  "Porygon": {
+    "base_pitch": 521,
+    "pitch_sweep": -29,
+    "duration_ms": 321,
+    "waveform": "sawtooth",
+    "volume": 0.71
+  },
+  "Omanyte": {
+    "base_pitch": 225,
+    "pitch_sweep": -25,
+    "duration_ms": 525,
+    "waveform": "square",
+    "volume": 0.75
+  },
+  "Omastar": {
+    "base_pitch": 618,
+    "pitch_sweep": -32,
+    "duration_ms": 418,
+    "waveform": "sine",
+    "volume": 0.68
+  },
+  "Kabuto": {
+    "base_pitch": 246,
+    "pitch_sweep": -4,
+    "duration_ms": 446,
+    "waveform": "sawtooth",
+    "volume": 0.96
+  },
+  "Kabutops": {
+    "base_pitch": 253,
+    "pitch_sweep": 3,
+    "duration_ms": 753,
+    "waveform": "sine",
+    "volume": 0.53
+  },
+  "Aerodactyl": {
+    "base_pitch": 573,
+    "pitch_sweep": 23,
+    "duration_ms": 473,
+    "waveform": "sine",
+    "volume": 0.73
+  },
+  "Snorlax": {
+    "base_pitch": 760,
+    "pitch_sweep": 10,
+    "duration_ms": 860,
+    "waveform": "square",
+    "volume": 0.6
+  },
+  "Articuno": {
+    "base_pitch": 395,
+    "pitch_sweep": 45,
+    "duration_ms": 795,
+    "waveform": "square",
+    "volume": 0.95
+  },
+  "Zapdos": {
+    "base_pitch": 695,
+    "pitch_sweep": 45,
+    "duration_ms": 595,
+    "waveform": "square",
+    "volume": 0.95
+  },
+  "Moltres": {
+    "base_pitch": 814,
+    "pitch_sweep": -36,
+    "duration_ms": 614,
+    "waveform": "noise",
+    "volume": 0.64
+  },
+  "Dratini": {
+    "base_pitch": 895,
+    "pitch_sweep": 45,
+    "duration_ms": 395,
+    "waveform": "square",
+    "volume": 0.95
+  },
+  "Dragonair": {
+    "base_pitch": 973,
+    "pitch_sweep": 23,
+    "duration_ms": 773,
+    "waveform": "sine",
+    "volume": 0.73
+  },
+  "Dragonite": {
+    "base_pitch": 226,
+    "pitch_sweep": -24,
+    "duration_ms": 626,
+    "waveform": "sawtooth",
+    "volume": 0.76
+  },
+  "Mewtwo": {
+    "base_pitch": 574,
+    "pitch_sweep": 24,
+    "duration_ms": 374,
+    "waveform": "noise",
+    "volume": 0.74
+  },
+  "Mew": {
+    "base_pitch": 490,
+    "pitch_sweep": 40,
+    "duration_ms": 390,
+    "waveform": "square",
+    "volume": 0.9
+  }
+}

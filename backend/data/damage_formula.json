@@ -1,0 +1,125 @@
+{
+  "description": "Complete damage calculation formula configuration for Gen 1 battles.",
+  "base_formula": {
+    "description": "damage = ((2 * level / 5 + 2) * power * A/D) / 50 + 2) * modifier",
+    "components": {
+      "level": "Attacker's level",
+      "power": "Move's base power",
+      "A": "Attacker's Attack (physical) or Sp.Atk (special)",
+      "D": "Defender's Defense (physical) or Sp.Def (special)"
+    }
+  },
+  "modifiers": {
+    "stab": {
+      "name": "Same Type Attack Bonus",
+      "multiplier": 1.5,
+      "description": "Applied when move type matches attacker's type."
+    },
+    "type_effectiveness": {
+      "super_effective": 2.0,
+      "not_very_effective": 0.5,
+      "immune": 0.0,
+      "double_super_effective": 4.0,
+      "double_not_very_effective": 0.25,
+      "description": "Based on type chart matchup. Can stack for dual types."
+    },
+    "critical_hit": {
+      "multiplier": 1.5,
+      "base_rate_percent": 6.25,
+      "stages": {
+        "0": 6.25,
+        "1": 12.5,
+        "2": 25.0,
+        "3": 33.3,
+        "4": 50.0
+      },
+      "high_crit_moves": ["Slash", "Karate Chop", "Razor Leaf"],
+      "description": "Critical hits ignore negative stat stages on attacker and positive stages on defender."
+    },
+    "random_factor": {
+      "min": 0.85,
+      "max": 1.0,
+      "description": "Random multiplier between 85% and 100%."
+    },
+    "burn": {
+      "physical_multiplier": 0.5,
+      "applies_to": "physical",
+      "description": "Burn halves physical attack damage."
+    },
+    "weather": {
+      "sun_fire_boost": 1.5,
+      "sun_water_nerf": 0.5,
+      "rain_water_boost": 1.5,
+      "rain_fire_nerf": 0.5,
+      "description": "Weather modifies fire and water move damage."
+    },
+    "held_items": {
+      "life_orb": 1.3,
+      "choice_band_attack": 1.5,
+      "choice_specs_sp_attack": 1.5,
+      "description": "Held item damage multipliers."
+    },
+    "abilities": {
+      "overgrow_grass": 1.5,
+      "blaze_fire": 1.5,
+      "torrent_water": 1.5,
+      "thick_fat_fire_ice": 0.5,
+      "flash_fire_boost": 1.5,
+      "description": "Ability-based damage multipliers when conditions are met."
+    }
+  },
+  "minimum_damage": 1,
+  "maximum_damage": 999,
+  "stat_stages": {
+    "min": -6,
+    "max": 6,
+    "multipliers": {
+      "-6": 0.25,
+      "-5": 0.285,
+      "-4": 0.333,
+      "-3": 0.4,
+      "-2": 0.5,
+      "-1": 0.666,
+      "0": 1.0,
+      "1": 1.5,
+      "2": 2.0,
+      "3": 2.5,
+      "4": 3.0,
+      "5": 3.5,
+      "6": 4.0
+    }
+  },
+  "category_stat_mapping": {
+    "physical": {"attack_stat": "attack", "defense_stat": "defense"},
+    "special": {"attack_stat": "sp_attack", "defense_stat": "sp_defense"}
+  },
+  "fixed_damage_moves": {
+    "Sonic Boom": {"damage": 20},
+    "Dragon Rage": {"damage": 40},
+    "Night Shade": {"damage": "user_level"},
+    "Seismic Toss": {"damage": "user_level"},
+    "Psywave": {"damage": "random_0.5x_to_1.5x_level"}
+  },
+  "multi_hit_moves": {
+    "Double Slap": {"min_hits": 2, "max_hits": 5},
+    "Fury Attack": {"min_hits": 2, "max_hits": 5},
+    "Fury Swipes": {"min_hits": 2, "max_hits": 5},
+    "Pin Missile": {"min_hits": 2, "max_hits": 5},
+    "Comet Punch": {"min_hits": 2, "max_hits": 5},
+    "Spike Cannon": {"min_hits": 2, "max_hits": 5},
+    "Barrage": {"min_hits": 2, "max_hits": 5},
+    "Double Kick": {"hits": 2},
+    "Bonemerang": {"hits": 2}
+  },
+  "application_order": [
+    "base_damage",
+    "critical_hit",
+    "random_factor",
+    "stab",
+    "type_effectiveness",
+    "burn",
+    "weather",
+    "ability_modifiers",
+    "held_item_modifiers"
+  ]
+}

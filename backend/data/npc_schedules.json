@@ -1,0 +1,122 @@
+[
+  {
+    "npc_id": "pallet_prof_oak",
+    "name": "Professor Oak",
+    "schedules": [
+      {"period": "morning", "location": "oaks_lab", "x": 5, "y": 3, "activity": "researching"},
+      {"period": "day", "location": "oaks_lab", "x": 5, "y": 3, "activity": "researching"},
+      {"period": "evening", "location": "pallet_town", "x": 8, "y": 5, "activity": "walking"},
+      {"period": "night", "location": "oaks_lab", "x": 5, "y": 3, "activity": "sleeping"}
+    ]
+  },
+  {
+    "npc_id": "viridian_nurse",
+    "name": "Nurse Joy (Viridian)",
+    "schedules": [
+      {"period": "morning", "location": "viridian_pokecenter", "x": 3, "y": 2, "activity": "healing"},
+      {"period": "day", "location": "viridian_pokecenter", "x": 3, "y": 2, "activity": "healing"},
+      {"period": "evening", "location": "viridian_pokecenter", "x": 3, "y": 2, "activity": "healing"},
+      {"period": "night", "location": "viridian_pokecenter", "x": 3, "y": 2, "activity": "healing"}
+    ]
+  },
+  {
+    "npc_id": "pewter_museum_guide",
+    "name": "Museum Guide",
+    "schedules": [
+      {"period": "morning", "location": "pewter_museum", "x": 4, "y": 6, "activity": "guiding"},
+      {"period": "day", "location": "pewter_museum", "x": 4, "y": 6, "activity": "guiding"},
+      {"period": "evening", "location": "pewter_city", "x": 10, "y": 8, "activity": "walking"},
+      {"period": "night", "location": "pewter_city", "x": 12, "y": 4, "activity": "home"}
+    ]
+  },
+  {
+    "npc_id": "cerulean_bill",
+    "name": "Bill",
+    "schedules": [
+      {"period": "morning", "location": "bills_house", "x": 3, "y": 4, "activity": "programming"},
+      {"period": "day", "location": "bills_house", "x": 3, "y": 4, "activity": "programming"},
+      {"period": "evening", "location": "route_25", "x": 30, "y": 5, "activity": "walking"},
+      {"period": "night", "location": "bills_house", "x": 3, "y": 4, "activity": "sleeping"}
+    ]
+  },
+  {
+    "npc_id": "vermilion_fan_club_pres",
+    "name": "Fan Club President",
+    "schedules": [
+      {"period": "morning", "location": "vermilion_fan_club", "x": 5, "y": 3, "activity": "bragging"},
+      {"period": "day", "location": "vermilion_fan_club", "x": 5, "y": 3, "activity": "bragging"},
+      {"period": "evening", "location": "vermilion_city", "x": 14, "y": 10, "activity": "walking"},
+      {"period": "night", "location": "vermilion_fan_club", "x": 5, "y": 3, "activity": "home"}
+    ]
+  },
+  {
+    "npc_id": "celadon_game_corner_man",
+    "name": "Game Corner Attendant",
+    "schedules": [
+      {"period": "morning", "location": "celadon_game_corner", "x": 8, "y": 2, "activity": "setting_up"},
+      {"period": "day", "location": "celadon_game_corner", "x": 8, "y": 2, "activity": "working"},
+      {"period": "evening", "location": "celadon_game_corner", "x": 8, "y": 2, "activity": "working"},
+      {"period": "night", "location": "celadon_city", "x": 6, "y": 12, "activity": "home"}
+    ]
+  },
+  {
+    "npc_id": "lavender_mr_fuji",
+    "name": "Mr. Fuji",
+    "schedules": [
+      {"period": "morning", "location": "lavender_volunteer_house", "x": 3, "y": 5, "activity": "caring"},
+      {"period": "day", "location": "pokemon_tower", "x": 6, "y": 8, "activity": "praying"},
+      {"period": "evening", "location": "lavender_volunteer_house", "x": 3, "y": 5, "activity": "caring"},
+      {"period": "night", "location": "lavender_volunteer_house", "x": 3, "y": 5, "activity": "sleeping"}
+    ]
+  },
+  {
+    "npc_id": "saffron_silph_guard",
+    "name": "Silph Co. Guard",
+    "schedules": [
+      {"period": "morning", "location": "silph_co", "x": 4, "y": 1, "activity": "guarding"},
+      {"period": "day", "location": "silph_co", "x": 4, "y": 1, "activity": "guarding"},
+      {"period": "evening", "location": "silph_co", "x": 4, "y": 1, "activity": "guarding"},
+      {"period": "night", "location": "saffron_city", "x": 8, "y": 6, "activity": "patrolling"}
+    ]
+  },
+  {
+    "npc_id": "fuchsia_safari_warden",
+    "name": "Safari Zone Warden",
+    "schedules": [
+      {"period": "morning", "location": "safari_zone_gate", "x": 3, "y": 3, "activity": "managing"},
+      {"period": "day", "location": "safari_zone_gate", "x": 3, "y": 3, "activity": "managing"},
+      {"period": "evening", "location": "fuchsia_city", "x": 10, "y": 12, "activity": "walking"},
+      {"period": "night", "location": "fuchsia_warden_house", "x": 4, "y": 3, "activity": "home"}
+    ]
+  },
+  {
+    "npc_id": "cinnabar_scientist",
+    "name": "Fossil Scientist",
+    "schedules": [
+      {"period": "morning", "location": "cinnabar_lab", "x": 6, "y": 4, "activity": "researching"},
+      {"period": "day", "location": "cinnabar_lab", "x": 6, "y": 4, "activity": "researching"},
+      {"period": "evening", "location": "cinnabar_lab", "x": 6, "y": 4, "activity": "researching"},
+      {"period": "night", "location": "cinnabar_island", "x": 8, "y": 3, "activity": "home"}
+    ]
+  },
+  {
+    "npc_id": "viridian_old_man",
+    "name": "Old Man (Viridian)",
+    "schedules": [
+      {"period": "morning", "location": "viridian_city", "x": 7, "y": 3, "activity": "sleeping_road"},
+      {"period": "day", "location": "viridian_city", "x": 7, "y": 4, "activity": "teaching"},
+      {"period": "evening", "location": "viridian_city", "x": 7, "y": 3, "activity": "resting"},
+      {"period": "night", "location": "viridian_city", "x": 7, "y": 3, "activity": "sleeping_road"}
+    ]
+  },
+  {
+    "npc_id": "celadon_tea_lady",
+    "name": "Tea Lady",
+    "schedules": [
+      {"period": "morning", "location": "celadon_mansion_1f", "x": 2, "y": 5, "activity": "brewing"},
+      {"period": "day", "location": "celadon_mansion_1f", "x": 2, "y": 5, "activity": "serving"},
+      {"period": "evening", "location": "celadon_mansion_1f", "x": 2, "y": 5, "activity": "cleaning"},
+      {"period": "night", "location": "celadon_city", "x": 4, "y": 8, "activity": "home"}
+    ]
+  }
+]
