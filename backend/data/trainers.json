@@ -65,5 +65,118 @@
     "sight_range": 3,
     "dialogue_before": "Hey! I saw you looking over here!",
     "dialogue_after": "Wow, you're tougher than you look!"
+  },
+  {
+    "id": "lass_crissy",
+    "name": "Crissy",
+    "trainer_class": "Lass",
+    "sprite_id": "lass",
+    "pokemon_team": [
+      {"species_id": 43, "name": "Oddish", "level": 12, "moves": ["Absorb", "Poison Sting", "Stun Spore"]},
+      {"species_id": 39, "name": "Jigglypuff", "level": 12, "moves": ["Sing", "Pound", "Disable"]}
+    ],
+    "reward_money": 240,
+    "sight_range": 3,
+    "dialogue_before": "Tee hee! Let's battle with our cute Pokemon!",
+    "dialogue_after": "Aww, my Pokemon fainted..."
+  },
+  {
+    "id": "youngster_timmy",
+    "name": "Timmy",
+    "trainer_class": "Youngster",
+    "sprite_id": "youngster",
+    "pokemon_team": [
+      {"species_id": 13, "name": "Rattata", "level": 11, "moves": ["Tackle", "Tail Whip", "Quick Attack"]},
+      {"species_id": 23, "name": "Ekans", "level": 13, "moves": ["Wrap", "Leer", "Poison Sting"]}
+    ],
+    "reward_money": 260,
+    "sight_range": 4,
+    "dialogue_before": "I just caught an Ekans! Wanna see how strong it is?",
+    "dialogue_after": "My Ekans needs more training..."
+  },
+  {
+    "id": "hiker_marcos",
+    "name": "Marcos",
+    "trainer_class": "Hiker",
+    "sprite_id": "hiker",
+    "pokemon_team": [
+      {"species_id": 74, "name": "Geodude", "level": 13, "moves": ["Tackle", "Rock Throw", "Sand Attack"]},
+      {"species_id": 74, "name": "Geodude", "level": 13, "moves": ["Tackle", "Rock Throw", "Sand Attack"]},
+      {"species_id": 95, "name": "Onix", "level": 11, "moves": ["Tackle", "Sand Attack", "Rock Throw"]}
+    ],
+    "reward_money": 440,
+    "sight_range": 3,
+    "dialogue_before": "These mountains are my home! You won't pass easily!",
+    "dialogue_after": "You've got some strong Pokemon there..."
+  },
+  {
+    "id": "bug_catcher_kent",
+    "name": "Kent",
+    "trainer_class": "Bug Catcher",
+    "sprite_id": "bug_catcher",
+    "pokemon_team": [
+      {"species_id": 46, "name": "Paras", "level": 10, "moves": ["Scratch", "String Shot", "Poison Sting"]},
+      {"species_id": 46, "name": "Paras", "level": 12, "moves": ["Scratch", "String Shot", "Poison Sting"]}
+    ],
+    "reward_money": 240,
+    "sight_range": 3,
+    "dialogue_before": "I found these Paras deep in the cave!",
+    "dialogue_after": "Even cave bugs couldn't win..."
+  },
+  {
+    "id": "super_nerd_jovan",
+    "name": "Jovan",
+    "trainer_class": "Super Nerd",
+    "sprite_id": "super_nerd",
+    "pokemon_team": [
+      {"species_id": 41, "name": "Zubat", "level": 12, "moves": ["Tackle", "Poison Sting", "Bite"]},
+      {"species_id": 35, "name": "Clefairy", "level": 14, "moves": ["Growl", "Tackle", "Quick Attack"]}
+    ],
+    "reward_money": 340,
+    "sight_range": 4,
+    "dialogue_before": "I've been studying the fossils here. Care for a battle?",
+    "dialogue_after": "Back to my research, I suppose..."
+  },
+  {
+    "id": "cerulean_gym_trainer_1",
+    "name": "Diana",
+    "trainer_class": "Swimmer",
+    "sprite_id": "swimmer_f",
+    "pokemon_team": [
+      {"species_id": 116, "name": "Horsea", "level": 16, "moves": ["Water Gun", "Bubble Beam", "Growl"]},
+      {"species_id": 90, "name": "Shellder", "level": 16, "moves": ["Tackle", "Water Gun", "Harden"]}
+    ],
+    "reward_money": 320,
+    "sight_range": 3,
+    "dialogue_before": "You'll need to beat me before you can challenge Misty!",
+    "dialogue_after": "Go ahead... Misty is way tougher than me though!"
+  },
+  {
+    "id": "cerulean_gym_trainer_2",
+    "name": "Luis",
+    "trainer_class": "Swimmer",
+    "sprite_id": "swimmer_m",
+    "pokemon_team": [
+      {"species_id": 118, "name": "Goldeen", "level": 17, "moves": ["Water Gun", "Horn Attack", "Tail Whip"]},
+      {"species_id": 116, "name": "Horsea", "level": 17, "moves": ["Water Gun", "Bubble Beam", "Growl"]}
+    ],
+    "reward_money": 340,
+    "sight_range": 3,
+    "dialogue_before": "The Cerulean Gym is a water paradise!",
+    "dialogue_after": "Your Pokemon are impressive!"
+  },
+  {
+    "id": "hiker_lenny",
+    "name": "Lenny",
+    "trainer_class": "Hiker",
+    "sprite_id": "hiker",
+    "pokemon_team": [
+      {"species_id": 74, "name": "Geodude", "level": 10, "moves": ["Tackle", "Sand Attack", "Rock Throw"]},
+      {"species_id": 95, "name": "Onix", "level": 10, "moves": ["Tackle", "Sand Attack", "Rock Throw"]}
+    ],
+    "reward_money": 360,
+    "sight_range": 3,
+    "dialogue_before": "I've been hiking this route for years!",
+    "dialogue_after": "You're stronger than the mountain Pokemon!"
   }
 ]

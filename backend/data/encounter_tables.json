@@ -24,11 +24,14 @@
     "encounter_type": "grass",
     "base_encounter_rate": 0.20,
     "encounters": [
-      {"species_id": 10, "min_level": 6, "max_level": 9, "weight": 30},
+      {"species_id": 10, "min_level": 6, "max_level": 9, "weight": 20},
       {"species_id": 11, "min_level": 9, "max_level": 12, "weight": 5},
-      {"species_id": 13, "min_level": 6, "max_level": 8, "weight": 25},
-      {"species_id": 17, "min_level": 7, "max_level": 10, "weight": 25},
-      {"species_id": 19, "min_level": 5, "max_level": 8, "weight": 15}
+      {"species_id": 13, "min_level": 6, "max_level": 8, "weight": 15},
+      {"species_id": 17, "min_level": 7, "max_level": 10, "weight": 15},
+      {"species_id": 19, "min_level": 5, "max_level": 8, "weight": 10},
+      {"species_id": 39, "min_level": 6, "max_level": 9, "weight": 10},
+      {"species_id": 29, "min_level": 6, "max_level": 9, "weight": 15},
+      {"species_id": 32, "min_level": 6, "max_level": 9, "weight": 10}
     ]
   },
   "viridian_forest": {
@@ -149,6 +152,40 @@
     "encounters": [
       {"species_id": 50, "min_level": 15, "max_level": 22, "weight": 60},
       {"species_id": 51, "min_level": 25, "max_level": 31, "weight": 40}
+    ]
+  },
+  "route_4": {
+    "name": "Route 4",
+    "encounter_type": "grass",
+    "base_encounter_rate": 0.15,
+    "encounters": [
+      {"species_id": 23, "min_level": 8, "max_level": 12, "weight": 25},
+      {"species_id": 27, "min_level": 8, "max_level": 12, "weight": 20},
+      {"species_id": 43, "min_level": 8, "max_level": 14, "weight": 20},
+      {"species_id": 29, "min_level": 8, "max_level": 12, "weight": 15},
+      {"species_id": 32, "min_level": 8, "max_level": 12, "weight": 10},
+      {"species_id": 63, "min_level": 8, "max_level": 12, "weight": 5},
+      {"species_id": 39, "min_level": 8, "max_level": 12, "weight": 5}
+    ]
+  },
+  "route_4_surfing": {
+    "name": "Route 4 (Surfing)",
+    "encounter_type": "water",
+    "base_encounter_rate": 0.15,
+    "encounters": [
+      {"species_id": 54, "min_level": 15, "max_level": 20, "weight": 50},
+      {"species_id": 60, "min_level": 15, "max_level": 20, "weight": 30},
+      {"species_id": 116, "min_level": 15, "max_level": 20, "weight": 20}
+    ]
+  },
+  "cerulean_city_surfing": {
+    "name": "Cerulean City (Surfing)",
+    "encounter_type": "water",
+    "base_encounter_rate": 0.10,
+    "encounters": [
+      {"species_id": 54, "min_level": 15, "max_level": 25, "weight": 40},
+      {"species_id": 60, "min_level": 15, "max_level": 20, "weight": 30},
+      {"species_id": 118, "min_level": 15, "max_level": 25, "weight": 30}
     ]
   }
 }

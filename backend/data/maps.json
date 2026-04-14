@@ -249,7 +249,9 @@
       {"direction": "east", "target_map_id": "mt_moon_entrance", "entry_x": 0, "entry_y": 15}
     ],
     "npcs": [],
-    "trainers": [],
+    "trainers": [
+      {"trainer_id": "hiker_lenny", "x": 12, "y": 18, "facing": "left", "sight_range": 3}
+    ],
     "encounter_zones": [],
     "buildings": []
   },
@@ -263,10 +265,14 @@
     "is_dark": false,
     "cave_level": 0,
     "connections": [
-      {"direction": "south", "target_map_id": "route_3", "entry_x": 18, "entry_y": 0}
+      {"direction": "south", "target_map_id": "route_3", "entry_x": 18, "entry_y": 0},
+      {"direction": "east", "target_map_id": "route_4", "entry_x": 0, "entry_y": 10}
     ],
     "npcs": [],
-    "trainers": [],
+    "trainers": [
+      {"trainer_id": "bug_catcher_kent", "x": 10, "y": 12, "facing": "down", "sight_range": 3},
+      {"trainer_id": "super_nerd_jovan", "x": 18, "y": 20, "facing": "left", "sight_range": 4}
+    ],
     "encounter_zones": [
       {"x": 3, "y": 3, "width": 20, "height": 25, "encounter_table_id": "mt_moon_1f"}
     ],
@@ -304,6 +310,118 @@
     "encounter_zones": [
       {"x": 2, "y": 2, "width": 11, "height": 36, "encounter_table_id": "digletts_cave"}
     ],
+    "buildings": []
+  },
+  {
+    "id": "route_4",
+    "name": "route_4",
+    "display_name": "Route 4",
+    "map_type": "route",
+    "width": 30,
+    "height": 20,
+    "connections": [
+      {"direction": "west", "target_map_id": "mt_moon_entrance", "entry_x": 24, "entry_y": 15},
+      {"direction": "east", "target_map_id": "cerulean_city", "entry_x": 0, "entry_y": 12}
+    ],
+    "npcs": [],
+    "trainers": [
+      {"trainer_id": "lass_crissy", "x": 8, "y": 10, "facing": "right", "sight_range": 3},
+      {"trainer_id": "youngster_timmy", "x": 18, "y": 8, "facing": "down", "sight_range": 4},
+      {"trainer_id": "hiker_marcos", "x": 24, "y": 14, "facing": "left", "sight_range": 3}
+    ],
+    "encounter_zones": [
+      {"x": 5, "y": 5, "width": 8, "height": 6, "encounter_table_id": "route_4"},
+      {"x": 18, "y": 10, "width": 6, "height": 5, "encounter_table_id": "route_4"}
+    ],
+    "buildings": []
+  },
+  {
+    "id": "cerulean_city",
+    "name": "cerulean_city",
+    "display_name": "Cerulean City",
+    "map_type": "town",
+    "width": 25,
+    "height": 25,
+    "connections": [
+      {"direction": "west", "target_map_id": "route_4", "entry_x": 29, "entry_y": 10}
+    ],
+    "npcs": [
+      {"npc_id": "cerulean_townsfolk_1", "x": 8, "y": 12, "facing": "down"},
+      {"npc_id": "cerulean_townsfolk_2", "x": 15, "y": 8, "facing": "left"},
+      {"npc_id": "cerulean_townsfolk_3", "x": 20, "y": 15, "facing": "up"},
+      {"npc_id": "bike_shop_owner", "x": 5, "y": 5, "facing": "down"},
+      {"npc_id": "cerulean_officer", "x": 12, "y": 20, "facing": "right"}
+    ],
+    "trainers": [],
+    "encounter_zones": [
+      {"x": 18, "y": 18, "width": 5, "height": 5, "encounter_table_id": "cerulean_city_surfing"}
+    ],
+    "buildings": [
+      {"name": "Pokemon Center", "x": 3, "y": 8, "width": 5, "height": 4, "door_x": 5, "door_y": 12, "interior_map_id": "cerulean_pokemon_center"},
+      {"name": "Poke Mart", "x": 10, "y": 3, "width": 4, "height": 4, "door_x": 12, "door_y": 7, "interior_map_id": "cerulean_pokemart"},
+      {"name": "Cerulean Gym", "x": 15, "y": 3, "width": 6, "height": 5, "door_x": 17, "door_y": 8, "interior_map_id": "cerulean_gym"},
+      {"name": "Bike Shop", "x": 3, "y": 3, "width": 4, "height": 4, "door_x": 5, "door_y": 7, "interior_map_id": "bike_shop"}
+    ]
+  },
+  {
+    "id": "cerulean_pokemon_center",
+    "name": "cerulean_pokemon_center",
+    "display_name": "Cerulean City Pokemon Center",
+    "map_type": "interior",
+    "width": 10,
+    "height": 8,
+    "connections": [],
+    "npcs": [
+      {"npc_id": "nurse_joy_cerulean", "x": 5, "y": 2, "facing": "down"}
+    ],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": []
+  },
+  {
+    "id": "cerulean_pokemart",
+    "name": "cerulean_pokemart",
+    "display_name": "Cerulean City Poke Mart",
+    "map_type": "interior",
+    "width": 8,
+    "height": 8,
+    "connections": [],
+    "npcs": [
+      {"npc_id": "cerulean_shopkeeper", "x": 4, "y": 2, "facing": "down"}
+    ],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": []
+  },
+  {
+    "id": "cerulean_gym",
+    "name": "cerulean_gym",
+    "display_name": "Cerulean City Gym",
+    "map_type": "gym",
+    "width": 12,
+    "height": 12,
+    "connections": [],
+    "npcs": [],
+    "trainers": [
+      {"trainer_id": "cerulean_gym_trainer_1", "x": 4, "y": 6, "facing": "right", "sight_range": 3},
+      {"trainer_id": "cerulean_gym_trainer_2", "x": 8, "y": 6, "facing": "left", "sight_range": 3}
+    ],
+    "encounter_zones": [],
+    "buildings": []
+  },
+  {
+    "id": "bike_shop",
+    "name": "bike_shop",
+    "display_name": "Cerulean Bike Shop",
+    "map_type": "interior",
+    "width": 8,
+    "height": 6,
+    "connections": [],
+    "npcs": [
+      {"npc_id": "bike_shop_npc", "x": 4, "y": 2, "facing": "down"}
+    ],
+    "trainers": [],
+    "encounter_zones": [],
     "buildings": []
   }
 ]

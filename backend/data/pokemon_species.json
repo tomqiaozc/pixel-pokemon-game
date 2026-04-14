@@ -2637,5 +2637,624 @@
     ],
     "evolution": null,
     "sprite": "onix.png"
+  },
+  {
+    "id": 23,
+    "name": "Ekans",
+    "types": [
+      "poison"
+    ],
+    "base_exp": 58,
+    "catch_rate": 255,
+    "abilities": [
+      "intimidate"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "field",
+      "dragon"
+    ],
+    "stats": {
+      "hp": 35,
+      "attack": 60,
+      "defense": 44,
+      "sp_attack": 40,
+      "sp_defense": 54,
+      "speed": 55
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Wrap"
+      },
+      {
+        "level": 4,
+        "move": "Leer"
+      },
+      {
+        "level": 10,
+        "move": "Poison Sting"
+      },
+      {
+        "level": 17,
+        "move": "Bite"
+      },
+      {
+        "level": 24,
+        "move": "Glare"
+      },
+      {
+        "level": 31,
+        "move": "Acid"
+      }
+    ],
+    "evolution": {
+      "to": 24,
+      "level": 22
+    },
+    "sprite": "ekans.png"
+  },
+  {
+    "id": 24,
+    "name": "Arbok",
+    "types": [
+      "poison"
+    ],
+    "base_exp": 157,
+    "catch_rate": 90,
+    "abilities": [
+      "intimidate"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "field",
+      "dragon"
+    ],
+    "stats": {
+      "hp": 60,
+      "attack": 85,
+      "defense": 69,
+      "sp_attack": 65,
+      "sp_defense": 79,
+      "speed": 80
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Wrap"
+      },
+      {
+        "level": 4,
+        "move": "Leer"
+      },
+      {
+        "level": 10,
+        "move": "Poison Sting"
+      },
+      {
+        "level": 17,
+        "move": "Bite"
+      },
+      {
+        "level": 24,
+        "move": "Glare"
+      },
+      {
+        "level": 33,
+        "move": "Acid"
+      }
+    ],
+    "evolution": null,
+    "sprite": "arbok.png"
+  },
+  {
+    "id": 29,
+    "name": "Nidoran-F",
+    "types": [
+      "poison"
+    ],
+    "base_exp": 55,
+    "catch_rate": 235,
+    "abilities": [
+      "poison-point"
+    ],
+    "gender_ratio": 100.0,
+    "egg_groups": [
+      "monster",
+      "field"
+    ],
+    "stats": {
+      "hp": 55,
+      "attack": 47,
+      "defense": 52,
+      "sp_attack": 40,
+      "sp_defense": 40,
+      "speed": 41
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Growl"
+      },
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 8,
+        "move": "Scratch"
+      },
+      {
+        "level": 14,
+        "move": "Poison Sting"
+      },
+      {
+        "level": 21,
+        "move": "Bite"
+      },
+      {
+        "level": 29,
+        "move": "Double Kick"
+      }
+    ],
+    "evolution": {
+      "to": 30,
+      "level": 16
+    },
+    "sprite": "nidoran_f.png"
+  },
+  {
+    "id": 30,
+    "name": "Nidorina",
+    "types": [
+      "poison"
+    ],
+    "base_exp": 128,
+    "catch_rate": 120,
+    "abilities": [
+      "poison-point"
+    ],
+    "gender_ratio": 100.0,
+    "egg_groups": [
+      "undiscovered"
+    ],
+    "stats": {
+      "hp": 70,
+      "attack": 62,
+      "defense": 67,
+      "sp_attack": 55,
+      "sp_defense": 55,
+      "speed": 56
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Growl"
+      },
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 8,
+        "move": "Scratch"
+      },
+      {
+        "level": 14,
+        "move": "Poison Sting"
+      },
+      {
+        "level": 23,
+        "move": "Bite"
+      },
+      {
+        "level": 32,
+        "move": "Double Kick"
+      }
+    ],
+    "evolution": null,
+    "sprite": "nidorina.png"
+  },
+  {
+    "id": 32,
+    "name": "Nidoran-M",
+    "types": [
+      "poison"
+    ],
+    "base_exp": 55,
+    "catch_rate": 235,
+    "abilities": [
+      "poison-point"
+    ],
+    "gender_ratio": 0.0,
+    "egg_groups": [
+      "monster",
+      "field"
+    ],
+    "stats": {
+      "hp": 46,
+      "attack": 57,
+      "defense": 40,
+      "sp_attack": 40,
+      "sp_defense": 40,
+      "speed": 50
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Leer"
+      },
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 8,
+        "move": "Horn Attack"
+      },
+      {
+        "level": 14,
+        "move": "Poison Sting"
+      },
+      {
+        "level": 21,
+        "move": "Double Kick"
+      },
+      {
+        "level": 29,
+        "move": "Slash"
+      }
+    ],
+    "evolution": {
+      "to": 33,
+      "level": 16
+    },
+    "sprite": "nidoran_m.png"
+  },
+  {
+    "id": 33,
+    "name": "Nidorino",
+    "types": [
+      "poison"
+    ],
+    "base_exp": 128,
+    "catch_rate": 120,
+    "abilities": [
+      "poison-point"
+    ],
+    "gender_ratio": 0.0,
+    "egg_groups": [
+      "monster",
+      "field"
+    ],
+    "stats": {
+      "hp": 61,
+      "attack": 72,
+      "defense": 57,
+      "sp_attack": 55,
+      "sp_defense": 55,
+      "speed": 65
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Leer"
+      },
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 8,
+        "move": "Horn Attack"
+      },
+      {
+        "level": 14,
+        "move": "Poison Sting"
+      },
+      {
+        "level": 23,
+        "move": "Double Kick"
+      },
+      {
+        "level": 32,
+        "move": "Slash"
+      }
+    ],
+    "evolution": null,
+    "sprite": "nidorino.png"
+  },
+  {
+    "id": 39,
+    "name": "Jigglypuff",
+    "types": [
+      "normal",
+      "fairy"
+    ],
+    "base_exp": 95,
+    "catch_rate": 170,
+    "abilities": [
+      "cute-charm"
+    ],
+    "gender_ratio": 75.0,
+    "egg_groups": [
+      "fairy"
+    ],
+    "stats": {
+      "hp": 115,
+      "attack": 45,
+      "defense": 20,
+      "sp_attack": 45,
+      "sp_defense": 25,
+      "speed": 20
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Sing"
+      },
+      {
+        "level": 5,
+        "move": "Pound"
+      },
+      {
+        "level": 9,
+        "move": "Disable"
+      },
+      {
+        "level": 14,
+        "move": "Defense Curl"
+      },
+      {
+        "level": 19,
+        "move": "Double Kick"
+      }
+    ],
+    "evolution": {
+      "to": 40,
+      "level": 0
+    },
+    "sprite": "jigglypuff.png"
+  },
+  {
+    "id": 40,
+    "name": "Wigglytuff",
+    "types": [
+      "normal",
+      "fairy"
+    ],
+    "base_exp": 196,
+    "catch_rate": 50,
+    "abilities": [
+      "cute-charm"
+    ],
+    "gender_ratio": 75.0,
+    "egg_groups": [
+      "fairy"
+    ],
+    "stats": {
+      "hp": 140,
+      "attack": 70,
+      "defense": 45,
+      "sp_attack": 85,
+      "sp_defense": 50,
+      "speed": 45
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Sing"
+      },
+      {
+        "level": 1,
+        "move": "Pound"
+      },
+      {
+        "level": 1,
+        "move": "Disable"
+      },
+      {
+        "level": 1,
+        "move": "Defense Curl"
+      },
+      {
+        "level": 5,
+        "move": "Double Kick"
+      }
+    ],
+    "evolution": null,
+    "sprite": "wigglytuff.png"
+  },
+  {
+    "id": 43,
+    "name": "Oddish",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "base_exp": 64,
+    "catch_rate": 255,
+    "abilities": [
+      "chlorophyll"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "grass"
+    ],
+    "stats": {
+      "hp": 45,
+      "attack": 50,
+      "defense": 55,
+      "sp_attack": 75,
+      "sp_defense": 65,
+      "speed": 30
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Absorb"
+      },
+      {
+        "level": 7,
+        "move": "Poison Sting"
+      },
+      {
+        "level": 14,
+        "move": "Stun Spore"
+      },
+      {
+        "level": 18,
+        "move": "Acid"
+      },
+      {
+        "level": 23,
+        "move": "Sleep Powder"
+      },
+      {
+        "level": 30,
+        "move": "Razor Leaf"
+      }
+    ],
+    "evolution": {
+      "to": 44,
+      "level": 21
+    },
+    "sprite": "oddish.png"
+  },
+  {
+    "id": 44,
+    "name": "Gloom",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "base_exp": 138,
+    "catch_rate": 120,
+    "abilities": [
+      "chlorophyll"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "grass"
+    ],
+    "stats": {
+      "hp": 60,
+      "attack": 65,
+      "defense": 70,
+      "sp_attack": 85,
+      "sp_defense": 75,
+      "speed": 40
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Absorb"
+      },
+      {
+        "level": 7,
+        "move": "Poison Sting"
+      },
+      {
+        "level": 14,
+        "move": "Stun Spore"
+      },
+      {
+        "level": 18,
+        "move": "Acid"
+      },
+      {
+        "level": 24,
+        "move": "Sleep Powder"
+      },
+      {
+        "level": 33,
+        "move": "Razor Leaf"
+      }
+    ],
+    "evolution": null,
+    "sprite": "gloom.png"
+  },
+  {
+    "id": 63,
+    "name": "Abra",
+    "types": [
+      "psychic"
+    ],
+    "base_exp": 62,
+    "catch_rate": 200,
+    "abilities": [
+      "synchronize"
+    ],
+    "gender_ratio": 25.0,
+    "egg_groups": [
+      "human-like"
+    ],
+    "stats": {
+      "hp": 25,
+      "attack": 20,
+      "defense": 15,
+      "sp_attack": 105,
+      "sp_defense": 55,
+      "speed": 90
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Teleport"
+      }
+    ],
+    "evolution": {
+      "to": 64,
+      "level": 16
+    },
+    "sprite": "abra.png"
+  },
+  {
+    "id": 64,
+    "name": "Kadabra",
+    "types": [
+      "psychic"
+    ],
+    "base_exp": 140,
+    "catch_rate": 100,
+    "abilities": [
+      "synchronize"
+    ],
+    "gender_ratio": 25.0,
+    "egg_groups": [
+      "human-like"
+    ],
+    "stats": {
+      "hp": 40,
+      "attack": 35,
+      "defense": 30,
+      "sp_attack": 120,
+      "sp_defense": 70,
+      "speed": 105
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Teleport"
+      },
+      {
+        "level": 16,
+        "move": "Confusion"
+      },
+      {
+        "level": 21,
+        "move": "Disable"
+      },
+      {
+        "level": 26,
+        "move": "Psychic"
+      },
+      {
+        "level": 31,
+        "move": "Recover"
+      }
+    ],
+    "evolution": null,
+    "sprite": "kadabra.png"
   }
 ]
