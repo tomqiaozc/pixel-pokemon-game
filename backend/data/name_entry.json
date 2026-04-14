@@ -1,0 +1,65 @@
+{
+  "description": "Character and Pokemon naming screen configuration.",
+  "player_name": {
+    "max_length": 7,
+    "min_length": 1,
+    "default_names": ["RED", "ASH", "JACK", "GARY"],
+    "prompt_text": "What is your name?",
+    "confirm_text": "So your name is {name}?"
+  },
+  "rival_name": {
+    "max_length": 7,
+    "min_length": 1,
+    "default_names": ["BLUE", "GARY", "JOHN", "MARK"],
+    "prompt_text": "What is his name?",
+    "confirm_text": "So his name is {name}?"
+  },
+  "pokemon_nickname": {
+    "max_length": 10,
+    "min_length": 1,
+    "prompt_text": "Give a nickname to {species}?",
+    "confirm_text": "{species} was nicknamed {name}!",
+    "skip_option": true,
+    "skip_text": "No"
+  },
+  "keyboard": {
+    "layout": "qwerty",
+    "pages": [
+      {
+        "id": "upper",
+        "label": "UPPER",
+        "characters": "ABCDEFGHIJKLMNOPQRSTUVWXYZ .,-!?",
+        "columns": 9
+      },
+      {
+        "id": "lower",
+        "label": "lower",
+        "characters": "abcdefghijklmnopqrstuvwxyz .,-!?",
+        "columns": 9
+      }
+    ],
+    "buttons": [
+      {"id": "page_switch", "label": "TYPE", "action": "switch_page"},
+      {"id": "backspace", "label": "DEL", "action": "delete_last"},
+      {"id": "confirm", "label": "OK", "action": "confirm_name"}
+    ]
+  },
+  "display": {
+    "screen_size": {"width": 240, "height": 160},
+    "name_preview_y": 24,
+    "keyboard_y": 56,
+    "cursor_blink_ms": 500,
+    "key_size": 16,
+    "key_spacing": 2,
+    "selected_key_color": "#FF0000",
+    "text_color": "#000000",
+    "background_color": "#F8F8F8"
+  },
+  "validation": {
+    "allow_spaces": true,
+    "allow_numbers": false,
+    "allow_symbols": true,
+    "blocked_names": [],
+    "trim_whitespace": true
+  }
+}

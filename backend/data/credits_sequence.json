@@ -1,0 +1,82 @@
+{
+  "description": "Credits sequence configuration for post-game completion.",
+  "credits": {
+    "total_duration_ms": 60000,
+    "scroll_speed": 1.5,
+    "background": "credits_bg",
+    "background_color": "#000000",
+    "text_color": "#FFFFFF",
+    "highlight_color": "#FFD700",
+    "font_size": 8,
+    "line_spacing": 12
+  },
+  "sections": [
+    {
+      "id": "director",
+      "title": "Director",
+      "entries": ["Satoshi Tajiri"],
+      "display_ms": 4000
+    },
+    {
+      "id": "producer",
+      "title": "Producer",
+      "entries": ["Shigeru Miyamoto", "Tsunekazu Ishihara"],
+      "display_ms": 4000
+    },
+    {
+      "id": "game_design",
+      "title": "Game Design",
+      "entries": ["Satoshi Tajiri", "Junichi Masuda", "Ken Sugimori"],
+      "display_ms": 4000
+    },
+    {
+      "id": "programming",
+      "title": "Programming",
+      "entries": ["Tetsuya Watanabe", "Takenori Ohta", "Shigeki Morimoto"],
+      "display_ms": 4000
+    },
+    {
+      "id": "art_design",
+      "title": "Art Design",
+      "entries": ["Ken Sugimori", "Atsuko Nishida", "Motofumi Fujiwara"],
+      "display_ms": 4000
+    },
+    {
+      "id": "music",
+      "title": "Music",
+      "entries": ["Junichi Masuda", "Go Ichinose"],
+      "display_ms": 4000
+    },
+    {
+      "id": "pokemon_design",
+      "title": "Pokemon Design",
+      "entries": ["Ken Sugimori", "Atsuko Nishida", "Shigeki Morimoto"],
+      "display_ms": 4000
+    },
+    {
+      "id": "special_thanks",
+      "title": "Special Thanks",
+      "entries": ["Nintendo", "Creatures Inc.", "GAME FREAK"],
+      "display_ms": 5000
+    }
+  ],
+  "pokemon_parade": {
+    "enabled": true,
+    "position": "bottom",
+    "sprite_size": 32,
+    "walk_speed": 1.0,
+    "pokemon_count": 20,
+    "random_from_party": true,
+    "fill_with_starters": true
+  },
+  "scenes": [
+    {"id": "opening", "type": "fade_in", "duration_ms": 2000},
+    {"id": "player_journey", "type": "montage", "duration_ms": 8000, "show_badges": true},
+    {"id": "team_showcase", "type": "party_display", "duration_ms": 6000},
+    {"id": "the_end", "type": "title_card", "duration_ms": 4000, "text": "THE END"}
+  ],
+  "music_track": "ending_theme",
+  "skip_enabled": false,
+  "skip_after_first_view": true,
+  "end_action": "return_to_title"
+}

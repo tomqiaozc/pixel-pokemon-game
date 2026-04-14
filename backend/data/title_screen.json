@@ -1,0 +1,90 @@
+{
+  "description": "Title screen and intro sequence configuration.",
+  "title_screen": {
+    "background_color": "#000000",
+    "logo": {
+      "text": "Pixel Pokemon",
+      "color": "#FFD700",
+      "shadow_color": "#8B6914",
+      "position_y": 40,
+      "font_size": 24,
+      "animation": "fade_in",
+      "animation_ms": 1500
+    },
+    "version_text": "Version 1.0",
+    "version_color": "#AAAAAA",
+    "copyright_text": "2026 Pixel Pokemon Project",
+    "copyright_color": "#888888"
+  },
+  "menu_options": [
+    {"id": "new_game", "label": "NEW GAME", "always_visible": true},
+    {"id": "continue", "label": "CONTINUE", "visible_if": "save_exists"},
+    {"id": "options", "label": "OPTIONS", "always_visible": true}
+  ],
+  "menu_config": {
+    "position_y": 100,
+    "item_spacing": 16,
+    "text_color": "#FFFFFF",
+    "selected_color": "#FFD700",
+    "cursor_type": "arrow",
+    "cursor_blink_ms": 400,
+    "select_sound": "menu_select",
+    "confirm_sound": "menu_confirm"
+  },
+  "intro_sequence": {
+    "enabled": true,
+    "skip_with_button": true,
+    "scenes": [
+      {
+        "id": "professor_intro",
+        "type": "dialogue",
+        "character": "Professor Oak",
+        "lines": [
+          "Hello there! Welcome to the world of POKEMON!",
+          "My name is OAK! People call me the POKEMON PROF!",
+          "This world is inhabited by creatures called POKEMON!",
+          "For some people, POKEMON are pets. Others use them for fights.",
+          "Myself... I study POKEMON as a profession."
+        ],
+        "sprite": "oak_sprite"
+      },
+      {
+        "id": "player_intro",
+        "type": "name_entry",
+        "character": "Player",
+        "intro_line": "First, what is your name?",
+        "sprite": "player_sprite"
+      },
+      {
+        "id": "rival_intro",
+        "type": "name_entry",
+        "character": "Rival",
+        "intro_line": "This is my grandson. He's been your rival since you were a baby.",
+        "sprite": "rival_sprite"
+      },
+      {
+        "id": "adventure_start",
+        "type": "dialogue",
+        "character": "Professor Oak",
+        "lines": [
+          "Your very own POKEMON legend is about to unfold!",
+          "A world of dreams and adventures with POKEMON awaits! Let's go!"
+        ],
+        "sprite": "oak_sprite"
+      }
+    ]
+  },
+  "attract_mode": {
+    "enabled": true,
+    "idle_timeout_ms": 30000,
+    "demo_duration_ms": 15000,
+    "show_gameplay": true
+  },
+  "pokemon_animation": {
+    "enabled": true,
+    "pokemon": "Nidorino",
+    "position_y": 60,
+    "animation_type": "idle_bounce",
+    "appear_delay_ms": 2000
+  }
+}
