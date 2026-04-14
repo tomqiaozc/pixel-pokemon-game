@@ -1,0 +1,58 @@
+{
+  "description": "Localization and text system configuration.",
+  "default_language": "en",
+  "supported_languages": [
+    {"code": "en", "name": "English", "native_name": "English", "direction": "ltr"},
+    {"code": "ja", "name": "Japanese", "native_name": "日本語", "direction": "ltr"},
+    {"code": "fr", "name": "French", "native_name": "Français", "direction": "ltr"},
+    {"code": "de", "name": "German", "native_name": "Deutsch", "direction": "ltr"},
+    {"code": "es", "name": "Spanish", "native_name": "Español", "direction": "ltr"},
+    {"code": "it", "name": "Italian", "native_name": "Italiano", "direction": "ltr"},
+    {"code": "ko", "name": "Korean", "native_name": "한국어", "direction": "ltr"},
+    {"code": "zh", "name": "Chinese", "native_name": "中文", "direction": "ltr"}
+  ],
+  "text_categories": [
+    "ui",
+    "dialogue",
+    "battle",
+    "items",
+    "moves",
+    "pokemon_names",
+    "ability_names",
+    "type_names",
+    "location_names",
+    "trainer_names",
+    "menu",
+    "system"
+  ],
+  "text_speed_options": {
+    "slow": {"chars_per_second": 15, "description": "Slow text display"},
+    "medium": {"chars_per_second": 30, "description": "Normal text display"},
+    "fast": {"chars_per_second": 60, "description": "Fast text display"},
+    "instant": {"chars_per_second": 9999, "description": "Instant text display"}
+  },
+  "font_config": {
+    "default_font": "pixel_pokemon",
+    "font_size": 16,
+    "line_height": 20,
+    "max_line_width_chars": 36,
+    "dialogue_box_lines": 2,
+    "name_max_length": 10,
+    "special_characters": ["♂", "♀", "é", "…"]
+  },
+  "string_formatting": {
+    "player_name_placeholder": "{PLAYER}",
+    "rival_name_placeholder": "{RIVAL}",
+    "pokemon_name_placeholder": "{POKEMON}",
+    "number_placeholder": "{NUM}",
+    "item_placeholder": "{ITEM}"
+  },
+  "pluralization": {
+    "en": {"rule": "count == 1 ? singular : plural"},
+    "ja": {"rule": "no_plural"},
+    "zh": {"rule": "no_plural"}
+  },
+  "fallback_strategy": "use_default_language",
+  "text_file_format": "json",
+  "text_file_pattern": "lang_{code}.json"
+}

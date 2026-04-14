@@ -1,0 +1,74 @@
+{
+  "description": "Credits sequence and ending data for after beating the Champion.",
+  "trigger": "champion_defeated",
+  "sequence": [
+    {
+      "type": "hall_of_fame",
+      "description": "Player's team is recorded in the Hall of Fame.",
+      "display_time_seconds": 10,
+      "shows_team": true,
+      "shows_date": true
+    },
+    {
+      "type": "cinematic",
+      "description": "Oak congratulates the player and reviews the journey.",
+      "dialogue": [
+        "Congratulations! You've become the Pokemon League Champion!",
+        "Your journey across Kanto has been remarkable.",
+        "The bond between you and your Pokemon made this possible.",
+        "But your adventure is far from over..."
+      ],
+      "display_time_seconds": 20
+    },
+    {
+      "type": "credits_roll",
+      "description": "Staff credits with pixel art scenes scrolling in background.",
+      "speed": "slow",
+      "background_scenes": [
+        "pallet_town_start",
+        "first_battle",
+        "gym_victories",
+        "team_rocket_encounters",
+        "legendary_encounters",
+        "elite_four_battle",
+        "champion_victory"
+      ],
+      "music_track": "ending_theme"
+    },
+    {
+      "type": "the_end",
+      "description": "THE END screen with play time and Pokedex completion.",
+      "shows_play_time": true,
+      "shows_pokedex_count": true,
+      "shows_save_prompt": true
+    }
+  ],
+  "staff": [
+    {"role": "Game Director", "name": "Pixel Pokemon Team"},
+    {"role": "Lead Programmer", "name": "Development Team"},
+    {"role": "Art Director", "name": "Sprite Design Team"},
+    {"role": "Music Composer", "name": "Audio Team"},
+    {"role": "Game Design", "name": "Design Team"},
+    {"role": "Data Architecture", "name": "Backend Team"},
+    {"role": "QA Testing", "name": "QA Team"},
+    {"role": "Story Writing", "name": "Narrative Team"},
+    {"role": "Level Design", "name": "Map Design Team"},
+    {"role": "Battle System", "name": "Combat Team"},
+    {"role": "AI Programming", "name": "AI Team"},
+    {"role": "Sound Effects", "name": "SFX Team"},
+    {"role": "UI/UX Design", "name": "Interface Team"},
+    {"role": "Special Thanks", "name": "The Pokemon Community"}
+  ],
+  "post_credits": {
+    "unlocks_message": "New areas and features have been unlocked!",
+    "unlocks": [
+      "Cerulean Cave is now accessible",
+      "Elite Four rematches available",
+      "National Pokedex upgraded",
+      "Battle Tower opened",
+      "Trainer rematches enabled"
+    ],
+    "return_to": "pallet_town"
+  },
+  "total_duration_seconds": 180
+}

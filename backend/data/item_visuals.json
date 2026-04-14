@@ -1,0 +1,653 @@
+{
+  "Potion": {
+    "sprite_id": "item_potion",
+    "category_color": "#A8A878",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Super Potion": {
+    "sprite_id": "item_super_potion",
+    "category_color": "#A8A878",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Antidote": {
+    "sprite_id": "item_antidote",
+    "category_color": "#A8A878",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Paralyze Heal": {
+    "sprite_id": "item_paralyze_heal",
+    "category_color": "#A8A878",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Full Heal": {
+    "sprite_id": "item_full_heal",
+    "category_color": "#A8A878",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Revive": {
+    "sprite_id": "item_revive",
+    "category_color": "#A8A878",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Pokeball": {
+    "sprite_id": "item_pokeball",
+    "category_color": "#E8463C",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Great Ball": {
+    "sprite_id": "item_great_ball",
+    "category_color": "#E8463C",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Ultra Ball": {
+    "sprite_id": "item_ultra_ball",
+    "category_color": "#E8463C",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Master Ball": {
+    "sprite_id": "item_master_ball",
+    "category_color": "#E8463C",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "TM Ice Beam": {
+    "sprite_id": "item_tm_ice_beam",
+    "category_color": "#5090D0",
+    "rarity": "uncommon",
+    "stackable": false,
+    "show_quantity": false
+  },
+  "TM Thunderbolt": {
+    "sprite_id": "item_tm_thunderbolt",
+    "category_color": "#5090D0",
+    "rarity": "uncommon",
+    "stackable": false,
+    "show_quantity": false
+  },
+  "TM Psychic": {
+    "sprite_id": "item_tm_psychic",
+    "category_color": "#5090D0",
+    "rarity": "uncommon",
+    "stackable": false,
+    "show_quantity": false
+  },
+  "TM Earthquake": {
+    "sprite_id": "item_tm_earthquake",
+    "category_color": "#5090D0",
+    "rarity": "uncommon",
+    "stackable": false,
+    "show_quantity": false
+  },
+  "TM Toxic": {
+    "sprite_id": "item_tm_toxic",
+    "category_color": "#5090D0",
+    "rarity": "uncommon",
+    "stackable": false,
+    "show_quantity": false
+  },
+  "TM Fire Blast": {
+    "sprite_id": "item_tm_fire_blast",
+    "category_color": "#5090D0",
+    "rarity": "uncommon",
+    "stackable": false,
+    "show_quantity": false
+  },
+  "TM Blizzard": {
+    "sprite_id": "item_tm_blizzard",
+    "category_color": "#5090D0",
+    "rarity": "uncommon",
+    "stackable": false,
+    "show_quantity": false
+  },
+  "TM Thunder": {
+    "sprite_id": "item_tm_thunder",
+    "category_color": "#5090D0",
+    "rarity": "uncommon",
+    "stackable": false,
+    "show_quantity": false
+  },
+  "TM Rock Slide": {
+    "sprite_id": "item_tm_rock_slide",
+    "category_color": "#5090D0",
+    "rarity": "uncommon",
+    "stackable": false,
+    "show_quantity": false
+  },
+  "TM Swift": {
+    "sprite_id": "item_tm_swift",
+    "category_color": "#5090D0",
+    "rarity": "uncommon",
+    "stackable": false,
+    "show_quantity": false
+  },
+  "Rare Candy": {
+    "sprite_id": "item_rare_candy",
+    "category_color": "#E85D75",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "PP Up": {
+    "sprite_id": "item_pp_up",
+    "category_color": "#E85D75",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Old Rod": {
+    "sprite_id": "item_old_rod",
+    "category_color": "#A8A878",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Good Rod": {
+    "sprite_id": "item_good_rod",
+    "category_color": "#A8A878",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Super Rod": {
+    "sprite_id": "item_super_rod",
+    "category_color": "#A8A878",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Heart Scale": {
+    "sprite_id": "item_heart_scale",
+    "category_color": "#A8A878",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Nugget": {
+    "sprite_id": "item_nugget",
+    "category_color": "#A8A878",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "S.S. Ticket": {
+    "sprite_id": "item_ss_ticket",
+    "category_color": "#A8A878",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "HM01 Cut": {
+    "sprite_id": "item_hm01_cut",
+    "category_color": "#A8A878",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "HM02 Flash": {
+    "sprite_id": "item_hm02_flash",
+    "category_color": "#50D070",
+    "rarity": "rare",
+    "stackable": false,
+    "show_quantity": false
+  },
+  "HM03 Surf": {
+    "sprite_id": "item_hm03_surf",
+    "category_color": "#50D070",
+    "rarity": "rare",
+    "stackable": false,
+    "show_quantity": false
+  },
+  "HM04 Strength": {
+    "sprite_id": "item_hm04_strength",
+    "category_color": "#50D070",
+    "rarity": "rare",
+    "stackable": false,
+    "show_quantity": false
+  },
+  "HM05 Fly": {
+    "sprite_id": "item_hm05_fly",
+    "category_color": "#50D070",
+    "rarity": "rare",
+    "stackable": false,
+    "show_quantity": false
+  },
+  "Silph Scope": {
+    "sprite_id": "item_silph_scope",
+    "category_color": "#A8A878",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Poke Flute": {
+    "sprite_id": "item_poke_flute",
+    "category_color": "#A8A878",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "TM21 Mega Drain": {
+    "sprite_id": "item_tm21_mega_drain",
+    "category_color": "#5090D0",
+    "rarity": "uncommon",
+    "stackable": false,
+    "show_quantity": false
+  },
+  "Coin Case": {
+    "sprite_id": "item_coin_case",
+    "category_color": "#A8A878",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Lift Key": {
+    "sprite_id": "item_lift_key",
+    "category_color": "#A8A878",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "TM29 Psychic": {
+    "sprite_id": "item_tm29_psychic",
+    "category_color": "#5090D0",
+    "rarity": "uncommon",
+    "stackable": false,
+    "show_quantity": false
+  },
+  "Gold Teeth": {
+    "sprite_id": "item_gold_teeth",
+    "category_color": "#A8A878",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Secret Key": {
+    "sprite_id": "item_secret_key",
+    "category_color": "#A8A878",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "TM38 Fire Blast": {
+    "sprite_id": "item_tm38_fire_blast",
+    "category_color": "#5090D0",
+    "rarity": "uncommon",
+    "stackable": false,
+    "show_quantity": false
+  },
+  "TM26 Earthquake": {
+    "sprite_id": "item_tm26_earthquake",
+    "category_color": "#5090D0",
+    "rarity": "uncommon",
+    "stackable": false,
+    "show_quantity": false
+  },
+  "Fire Stone": {
+    "sprite_id": "item_fire_stone",
+    "category_color": "#9C6EE8",
+    "rarity": "rare",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Water Stone": {
+    "sprite_id": "item_water_stone",
+    "category_color": "#9C6EE8",
+    "rarity": "rare",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Thunder Stone": {
+    "sprite_id": "item_thunder_stone",
+    "category_color": "#9C6EE8",
+    "rarity": "rare",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Leaf Stone": {
+    "sprite_id": "item_leaf_stone",
+    "category_color": "#9C6EE8",
+    "rarity": "rare",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Moon Stone": {
+    "sprite_id": "item_moon_stone",
+    "category_color": "#9C6EE8",
+    "rarity": "rare",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "X Attack": {
+    "sprite_id": "item_x_attack",
+    "category_color": "#F0A030",
+    "rarity": "uncommon",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "X Defense": {
+    "sprite_id": "item_x_defense",
+    "category_color": "#F0A030",
+    "rarity": "uncommon",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "X Speed": {
+    "sprite_id": "item_x_speed",
+    "category_color": "#F0A030",
+    "rarity": "uncommon",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "X Special": {
+    "sprite_id": "item_x_special",
+    "category_color": "#F0A030",
+    "rarity": "uncommon",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Guard Spec.": {
+    "sprite_id": "item_guard_spec",
+    "category_color": "#F0A030",
+    "rarity": "uncommon",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Dire Hit": {
+    "sprite_id": "item_dire_hit",
+    "category_color": "#F0A030",
+    "rarity": "uncommon",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "HP Up": {
+    "sprite_id": "item_hp_up",
+    "category_color": "#A8A878",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Protein": {
+    "sprite_id": "item_protein",
+    "category_color": "#A8A878",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Iron": {
+    "sprite_id": "item_iron",
+    "category_color": "#A8A878",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Calcium": {
+    "sprite_id": "item_calcium",
+    "category_color": "#A8A878",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Carbos": {
+    "sprite_id": "item_carbos",
+    "category_color": "#A8A878",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "TM01 Mega Punch": {
+    "sprite_id": "item_tm01_mega_punch",
+    "category_color": "#5090D0",
+    "rarity": "uncommon",
+    "stackable": false,
+    "show_quantity": false
+  },
+  "TM02 Razor Wind": {
+    "sprite_id": "item_tm02_razor_wind",
+    "category_color": "#5090D0",
+    "rarity": "uncommon",
+    "stackable": false,
+    "show_quantity": false
+  },
+  "TM03 Swords Dance": {
+    "sprite_id": "item_tm03_swords_dance",
+    "category_color": "#5090D0",
+    "rarity": "uncommon",
+    "stackable": false,
+    "show_quantity": false
+  },
+  "TM05 Mega Kick": {
+    "sprite_id": "item_tm05_mega_kick",
+    "category_color": "#5090D0",
+    "rarity": "uncommon",
+    "stackable": false,
+    "show_quantity": false
+  },
+  "TM06 Toxic": {
+    "sprite_id": "item_tm06_toxic",
+    "category_color": "#5090D0",
+    "rarity": "uncommon",
+    "stackable": false,
+    "show_quantity": false
+  },
+  "TM08 Body Slam": {
+    "sprite_id": "item_tm08_body_slam",
+    "category_color": "#5090D0",
+    "rarity": "uncommon",
+    "stackable": false,
+    "show_quantity": false
+  },
+  "TM09 Take Down": {
+    "sprite_id": "item_tm09_take_down",
+    "category_color": "#5090D0",
+    "rarity": "uncommon",
+    "stackable": false,
+    "show_quantity": false
+  },
+  "TM10 Double-Edge": {
+    "sprite_id": "item_tm10_double-edge",
+    "category_color": "#5090D0",
+    "rarity": "uncommon",
+    "stackable": false,
+    "show_quantity": false
+  },
+  "TM11 Bubble Beam": {
+    "sprite_id": "item_tm11_bubble_beam",
+    "category_color": "#5090D0",
+    "rarity": "uncommon",
+    "stackable": false,
+    "show_quantity": false
+  },
+  "TM12 Water Gun": {
+    "sprite_id": "item_tm12_water_gun",
+    "category_color": "#5090D0",
+    "rarity": "uncommon",
+    "stackable": false,
+    "show_quantity": false
+  },
+  "Max Potion": {
+    "sprite_id": "item_max_potion",
+    "category_color": "#A8A878",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Full Restore": {
+    "sprite_id": "item_full_restore",
+    "category_color": "#A8A878",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Max Revive": {
+    "sprite_id": "item_max_revive",
+    "category_color": "#E85D75",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Elixir": {
+    "sprite_id": "item_elixir",
+    "category_color": "#E85D75",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Max Elixir": {
+    "sprite_id": "item_max_elixir",
+    "category_color": "#E85D75",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Ether": {
+    "sprite_id": "item_ether",
+    "category_color": "#E85D75",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Oran Berry": {
+    "sprite_id": "item_oran_berry",
+    "category_color": "#78C850",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Sitrus Berry": {
+    "sprite_id": "item_sitrus_berry",
+    "category_color": "#78C850",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Lum Berry": {
+    "sprite_id": "item_lum_berry",
+    "category_color": "#78C850",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Rawst Berry": {
+    "sprite_id": "item_rawst_berry",
+    "category_color": "#78C850",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Chesto Berry": {
+    "sprite_id": "item_chesto_berry",
+    "category_color": "#78C850",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Pecha Berry": {
+    "sprite_id": "item_pecha_berry",
+    "category_color": "#78C850",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Aspear Berry": {
+    "sprite_id": "item_aspear_berry",
+    "category_color": "#78C850",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Cheri Berry": {
+    "sprite_id": "item_cheri_berry",
+    "category_color": "#78C850",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Leppa Berry": {
+    "sprite_id": "item_leppa_berry",
+    "category_color": "#78C850",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Persim Berry": {
+    "sprite_id": "item_persim_berry",
+    "category_color": "#78C850",
+    "rarity": "common",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Leftovers": {
+    "sprite_id": "item_leftovers",
+    "category_color": "#A040A0",
+    "rarity": "rare",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Choice Band": {
+    "sprite_id": "item_choice_band",
+    "category_color": "#A040A0",
+    "rarity": "rare",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Choice Specs": {
+    "sprite_id": "item_choice_specs",
+    "category_color": "#A040A0",
+    "rarity": "rare",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Focus Sash": {
+    "sprite_id": "item_focus_sash",
+    "category_color": "#A040A0",
+    "rarity": "rare",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Life Orb": {
+    "sprite_id": "item_life_orb",
+    "category_color": "#A040A0",
+    "rarity": "rare",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Shell Bell": {
+    "sprite_id": "item_shell_bell",
+    "category_color": "#A040A0",
+    "rarity": "rare",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Quick Claw": {
+    "sprite_id": "item_quick_claw",
+    "category_color": "#A040A0",
+    "rarity": "rare",
+    "stackable": true,
+    "show_quantity": true
+  },
+  "Kings Rock": {
+    "sprite_id": "item_kings_rock",
+    "category_color": "#A040A0",
+    "rarity": "rare",
+    "stackable": true,
+    "show_quantity": true
+  }
+}
