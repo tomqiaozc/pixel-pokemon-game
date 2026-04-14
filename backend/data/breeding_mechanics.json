@@ -1,0 +1,100 @@
+{
+  "daycare": {
+    "location": "route_5",
+    "map_id": "daycare_interior",
+    "cost_per_level": 100,
+    "base_cost": 100,
+    "max_pokemon": 2,
+    "exp_per_step": 1
+  },
+  "egg_cycles": {
+    "description": "Each egg cycle is 256 steps. Different species require different numbers of cycles to hatch.",
+    "steps_per_cycle": 256,
+    "cycle_ranges": {
+      "5": {
+        "steps": 1280,
+        "species_examples": [
+          "Magikarp"
+        ]
+      },
+      "10": {
+        "steps": 2560,
+        "species_examples": [
+          "Pikachu",
+          "Clefairy",
+          "Jigglypuff",
+          "Geodude"
+        ]
+      },
+      "15": {
+        "steps": 3840,
+        "species_examples": [
+          "Bulbasaur",
+          "Charmander",
+          "Squirtle",
+          "Pidgey"
+        ]
+      },
+      "20": {
+        "steps": 5120,
+        "species_examples": [
+          "Vulpix",
+          "Growlithe",
+          "Abra",
+          "Machop",
+          "Gastly"
+        ]
+      },
+      "25": {
+        "steps": 6400,
+        "species_examples": [
+          "Eevee",
+          "Porygon",
+          "Dratini"
+        ]
+      },
+      "30": {
+        "steps": 7680,
+        "species_examples": [
+          "Onix",
+          "Rhyhorn",
+          "Kangaskhan"
+        ]
+      },
+      "40": {
+        "steps": 10240,
+        "species_examples": [
+          "Chansey",
+          "Snorlax",
+          "Lapras"
+        ]
+      }
+    }
+  },
+  "compatibility": {
+    "description": "Breeding compatibility is determined by egg groups and species.",
+    "same_species_different_gender": {
+      "compatibility": "high",
+      "chance_per_cycle": 70
+    },
+    "same_egg_group_different_species": {
+      "compatibility": "medium",
+      "chance_per_cycle": 50
+    },
+    "ditto_with_any": {
+      "compatibility": "medium",
+      "chance_per_cycle": 50
+    },
+    "incompatible": {
+      "compatibility": "none",
+      "chance_per_cycle": 0
+    }
+  },
+  "inheritance": {
+    "ivs": "3 random IVs inherited from parents, rest random",
+    "nature": "Random unless parent holds Everstone (then 50% chance to pass nature)",
+    "ability": "80% chance to inherit mother's ability",
+    "egg_moves": "Father's moves that are in the species' egg move list are inherited",
+    "tms": "Father's TM moves are NOT inherited in Gen 1 compatibility mode"
+  }
+}

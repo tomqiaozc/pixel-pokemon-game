@@ -1,0 +1,104 @@
+{
+  "Bulbasaur": [
+    "Petal Dance",
+    "Razor Leaf",
+    "Skull Bash",
+    "Light Screen"
+  ],
+  "Charmander": [
+    "Bite",
+    "Slash",
+    "Fire Spin",
+    "Thrash"
+  ],
+  "Squirtle": [
+    "Bubble Beam",
+    "Haze",
+    "Mist",
+    "Confusion"
+  ],
+  "Pikachu": [
+    "Double Slap",
+    "Agility",
+    "Slam"
+  ],
+  "Nidoran-F": [
+    "Counter",
+    "Double Kick",
+    "Bite",
+    "Supersonic"
+  ],
+  "Nidoran-M": [
+    "Counter",
+    "Double Kick",
+    "Confusion",
+    "Supersonic"
+  ],
+  "Vulpix": [
+    "Hypnosis",
+    "Fire Spin",
+    "Flamethrower"
+  ],
+  "Oddish": [
+    "Razor Leaf",
+    "Swords Dance"
+  ],
+  "Growlithe": [
+    "Body Slam",
+    "Thrash",
+    "Fire Spin"
+  ],
+  "Machop": [
+    "Light Screen",
+    "Meditate",
+    "Rolling Kick"
+  ],
+  "Geodude": [
+    "Mega Punch",
+    "Rock Slide"
+  ],
+  "Gastly": [
+    "Psywave",
+    "Haze"
+  ],
+  "Eevee": [
+    "Growth",
+    "Bite",
+    "Take Down"
+  ],
+  "Dratini": [
+    "Light Screen",
+    "Supersonic",
+    "Haze",
+    "Mist"
+  ],
+  "Sandshrew": [
+    "Counter",
+    "Rock Slide",
+    "Swords Dance"
+  ],
+  "Psyduck": [
+    "Hypnosis",
+    "Psychic",
+    "Confusion"
+  ],
+  "Ponyta": [
+    "Double Kick",
+    "Thrash",
+    "Double Edge"
+  ],
+  "Abra": [
+    "Barrier",
+    "Light Screen"
+  ],
+  "Cubone": [
+    "Rock Slide",
+    "Skull Bash",
+    "Swords Dance"
+  ],
+  "Kangaskhan": [
+    "Stomp",
+    "Counter",
+    "Focus Energy"
+  ]
+}
