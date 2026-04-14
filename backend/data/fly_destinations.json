@@ -1,0 +1,29 @@
+{
+  "description": "All valid Fly destinations in Kanto, unlocked by visiting each city.",
+  "hm_move": "Fly",
+  "badge_required": "Thunder Badge",
+  "badge_number": 3,
+  "destinations": [
+    {"id": "fly_pallet", "name": "Pallet Town", "map_id": "pallet_town", "landing_x": 5, "landing_y": 6, "unlock": "visited"},
+    {"id": "fly_viridian", "name": "Viridian City", "map_id": "viridian_city", "landing_x": 15, "landing_y": 10, "unlock": "visited"},
+    {"id": "fly_pewter", "name": "Pewter City", "map_id": "pewter_city", "landing_x": 12, "landing_y": 8, "unlock": "visited"},
+    {"id": "fly_cerulean", "name": "Cerulean City", "map_id": "cerulean_city", "landing_x": 14, "landing_y": 10, "unlock": "visited"},
+    {"id": "fly_vermilion", "name": "Vermilion City", "map_id": "vermilion_city", "landing_x": 10, "landing_y": 8, "unlock": "visited"},
+    {"id": "fly_lavender", "name": "Lavender Town", "map_id": "lavender_town", "landing_x": 6, "landing_y": 6, "unlock": "visited"},
+    {"id": "fly_celadon", "name": "Celadon City", "map_id": "celadon_city", "landing_x": 20, "landing_y": 10, "unlock": "visited"},
+    {"id": "fly_fuchsia", "name": "Fuchsia City", "map_id": "fuchsia_city", "landing_x": 12, "landing_y": 12, "unlock": "visited"},
+    {"id": "fly_saffron", "name": "Saffron City", "map_id": "saffron_city", "landing_x": 16, "landing_y": 10, "unlock": "visited"},
+    {"id": "fly_cinnabar", "name": "Cinnabar Island", "map_id": "cinnabar_island", "landing_x": 8, "landing_y": 6, "unlock": "visited"},
+    {"id": "fly_indigo", "name": "Indigo Plateau", "map_id": "indigo_plateau", "landing_x": 8, "landing_y": 4, "unlock": "visited"}
+  ],
+  "fly_rules": {
+    "usable_outdoors_only": true,
+    "usable_in_caves": false,
+    "usable_in_buildings": false,
+    "animation_duration_ms": 1500,
+    "landing_spot": "pokecenter_or_town_entrance",
+    "cancel_allowed": true,
+    "requires_pokemon_with_fly": true
+  },
+  "total_destinations": 11
+}

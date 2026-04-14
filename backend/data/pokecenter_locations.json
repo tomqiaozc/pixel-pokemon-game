@@ -1,0 +1,117 @@
+{
+  "description": "All Pokemon Center locations across Kanto with services and special features.",
+  "pokecenters": [
+    {
+      "id": "pc_viridian",
+      "city": "Viridian City",
+      "map_id": "viridian_city",
+      "services": ["heal", "pc_storage"],
+      "nurse_name": "Nurse Joy",
+      "special_npcs": []
+    },
+    {
+      "id": "pc_pewter",
+      "city": "Pewter City",
+      "map_id": "pewter_city",
+      "services": ["heal", "pc_storage"],
+      "nurse_name": "Nurse Joy",
+      "special_npcs": []
+    },
+    {
+      "id": "pc_cerulean",
+      "city": "Cerulean City",
+      "map_id": "cerulean_city",
+      "services": ["heal", "pc_storage", "trade_center", "colosseum"],
+      "nurse_name": "Nurse Joy",
+      "special_npcs": ["link_cable_attendant"]
+    },
+    {
+      "id": "pc_vermilion",
+      "city": "Vermilion City",
+      "map_id": "vermilion_city",
+      "services": ["heal", "pc_storage", "trade_center", "colosseum"],
+      "nurse_name": "Nurse Joy",
+      "special_npcs": ["link_cable_attendant"]
+    },
+    {
+      "id": "pc_lavender",
+      "city": "Lavender Town",
+      "map_id": "lavender_town",
+      "services": ["heal", "pc_storage"],
+      "nurse_name": "Nurse Joy",
+      "special_npcs": []
+    },
+    {
+      "id": "pc_celadon",
+      "city": "Celadon City",
+      "map_id": "celadon_city",
+      "services": ["heal", "pc_storage", "trade_center", "colosseum"],
+      "nurse_name": "Nurse Joy",
+      "special_npcs": ["link_cable_attendant"]
+    },
+    {
+      "id": "pc_fuchsia",
+      "city": "Fuchsia City",
+      "map_id": "fuchsia_city",
+      "services": ["heal", "pc_storage"],
+      "nurse_name": "Nurse Joy",
+      "special_npcs": []
+    },
+    {
+      "id": "pc_saffron",
+      "city": "Saffron City",
+      "map_id": "saffron_city",
+      "services": ["heal", "pc_storage", "trade_center", "colosseum"],
+      "nurse_name": "Nurse Joy",
+      "special_npcs": ["link_cable_attendant"]
+    },
+    {
+      "id": "pc_cinnabar",
+      "city": "Cinnabar Island",
+      "map_id": "cinnabar_island",
+      "services": ["heal", "pc_storage"],
+      "nurse_name": "Nurse Joy",
+      "special_npcs": []
+    },
+    {
+      "id": "pc_indigo",
+      "city": "Indigo Plateau",
+      "map_id": "indigo_plateau",
+      "services": ["heal", "pc_storage"],
+      "nurse_name": "Nurse Joy",
+      "special_npcs": []
+    },
+    {
+      "id": "pc_route4",
+      "city": "Route 4",
+      "map_id": "route_4",
+      "services": ["heal", "pc_storage"],
+      "nurse_name": "Nurse Joy",
+      "special_npcs": []
+    }
+  ],
+  "heal_config": {
+    "heal_all_party": true,
+    "heal_cost": 0,
+    "heal_animation_ms": 2000,
+    "jingle": "pokecenter_heal",
+    "cures_status": true,
+    "restores_pp": true,
+    "revives_fainted": true,
+    "sets_respawn_point": true
+  },
+  "pc_access": {
+    "storage_system": "Bills PC",
+    "requires_pokedex": false,
+    "available_from_start": true,
+    "operations": ["deposit", "withdraw", "move", "release"]
+  },
+  "dialogue": {
+    "greeting": "Welcome to our Pokemon Center! We restore your Pokemon to full health.",
+    "heal_prompt": "Shall I take your Pokemon?",
+    "healing": "OK, I'll take your Pokemon for a few seconds.",
+    "done": "We hope to see you again!",
+    "already_healed": "Your Pokemon are already at full health!"
+  },
+  "total_centers": 11
+}
