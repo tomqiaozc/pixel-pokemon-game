@@ -626,7 +626,9 @@ const Routes = (() => {
             ],
             doors: [
                 { x: 5, y: 7, targetMap: 'pokecenter', spawnX: 7, spawnY: 9 },
+                { x: 14, y: 7, targetMap: 'pokemart', spawnX: 5, spawnY: 9 },
                 { x: 20, y: 7, targetMap: 'cerulean_gym', spawnX: 7, spawnY: 15 },
+                { x: 5, y: 19, targetMap: 'bike_shop', spawnX: 5, spawnY: 7 },
             ],
             npcs: [
                 { name: 'Nurse Joy', type: 'nurse', x: 4, y: 6, dir: 0,

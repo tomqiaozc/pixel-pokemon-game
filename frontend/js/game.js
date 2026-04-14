@@ -196,11 +196,17 @@ const Game = (() => {
                 Renderer.centerCamera(player.x + TILE / 2, player.y + TILE / 2);
             }
             if (result.battleLeader) {
+                const typeMap = {
+                    Rock: { name: 'Onix', level: 14, hp: 35 },
+                    Water: { name: 'Starmie', level: 21, hp: 55 },
+                };
+                const defaults = { name: 'Pokemon', level: 20, hp: 50 };
+                const info = typeMap[result.leader.type] || defaults;
                 const leaderPokemon = {
-                    name: result.leader.type === 'Rock' ? 'Onix' : 'Rhydon',
-                    level: result.leader.type === 'Rock' ? 14 : 50,
-                    hp: result.leader.type === 'Rock' ? 35 : 105,
-                    maxHp: result.leader.type === 'Rock' ? 35 : 105,
+                    name: info.name,
+                    level: info.level,
+                    hp: info.hp,
+                    maxHp: info.hp,
                     type: result.leader.type,
                 };
                 pendingBadge = result.badge;
