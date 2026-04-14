@@ -496,7 +496,8 @@ const Battle = (() => {
                     // Backend failed — fall back to local calc
                     executeLocalTurn(playerMove);
                 }
-            }).catch(() => {
+            }).catch(err => {
+                console.error('Battle action failed:', err);
                 executeLocalTurn(playerMove);
             });
             return;
@@ -973,7 +974,7 @@ const Battle = (() => {
                 } else {
                     executeLocalRun();
                 }
-            }).catch(() => executeLocalRun());
+            }).catch(err => { console.error('Battle run action failed:', err); executeLocalRun(); });
             return;
         }
         executeLocalRun();
@@ -1036,7 +1037,7 @@ const Battle = (() => {
                         // Fallback to local catch calc
                         localCatchCalc(item);
                     }
-                }).catch(() => localCatchCalc(item));
+                }).catch(err => { console.error('Battle catch failed:', err); localCatchCalc(item); });
                 return;
             }
 
@@ -1059,7 +1060,8 @@ const Battle = (() => {
                         textQueue = [`Used ${item.name}! Restored ${playerPokemon.hp - before} HP.`];
                     }
                     appendEnemyAttackBackend();
-                }).catch(() => {
+                }).catch(err => {
+                    console.error('Battle heal item failed:', err);
                     const healAmount = item.id === 'super-potion' ? 50 : 20;
                     const before = playerPokemon.hp;
                     playerPokemon.hp = Math.min(playerPokemon.maxHp, playerPokemon.hp + healAmount);
@@ -1104,7 +1106,8 @@ const Battle = (() => {
                         applyLocalStatusCure(item);
                     }
                     appendEnemyAttackBackend();
-                }).catch(() => {
+                }).catch(err => {
+                    console.error('Battle status cure failed:', err);
                     applyLocalStatusCure(item);
                     appendEnemyAttack();
                     appendEndOfTurnEffects();
@@ -1241,7 +1244,8 @@ const Battle = (() => {
                 textIndex = 0;
                 charIndex = 0;
                 textTimer = 0;
-            }).catch(() => {
+            }).catch(err => {
+                console.error('Battle AI action failed:', err);
                 appendEnemyAttack();
                 appendEndOfTurnEffects();
                 phase = 'text';

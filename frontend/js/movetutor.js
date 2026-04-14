@@ -84,7 +84,8 @@ const MoveTutor = (() => {
             if (availableMoves.length === 0) {
                 availableMoves = getLocalTutorMoves();
             }
-        }).catch(() => {
+        }).catch(err => {
+            console.error('Failed to load tutor moves:', err);
             availableMoves = getLocalTutorMoves();
         });
     }
@@ -258,7 +259,8 @@ const MoveTutor = (() => {
                         resultTimer = 0;
                         phase = 'done';
                     }
-                }).catch(() => {
+                }).catch(err => {
+                    console.error('Failed to load reminder moves:', err);
                     resultMessage = `${pokemon.name} has no moves to remember!`;
                     resultTimer = 0;
                     phase = 'done';
@@ -275,7 +277,8 @@ const MoveTutor = (() => {
                 } else {
                     proceedToLearn(pokemonIdx);
                 }
-            }).catch(() => {
+            }).catch(err => {
+                console.error('Failed to check move compatibility:', err);
                 // Backend unavailable — proceed anyway (local)
                 proceedToLearn(pokemonIdx);
             });
@@ -388,11 +391,11 @@ const MoveTutor = (() => {
         }
 
         // Notify backend (fire-and-forget)
-        API.teachMove(pokemonIdx, newMove.name, replaceSlot).catch(() => {});
+        API.teachMove(pokemonIdx, newMove.name, replaceSlot).catch(err => console.error('Failed to sync move teach:', err));
 
         // Consume TM if source is 'tm' (HMs are reusable)
         if (source === 'tm') {
-            API.useItem(newMove.itemId, pokemonIdx).catch(() => {});
+            API.useItem(newMove.itemId, pokemonIdx).catch(err => console.error('Failed to consume TM item:', err));
         }
 
         PlayerStats.increment('movesLearned');

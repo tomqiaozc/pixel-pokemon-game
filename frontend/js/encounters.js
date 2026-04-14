@@ -210,7 +210,8 @@ const Encounters = (() => {
                 if (p.stats) pendingEnemy.stats = p.stats;
                 if (p.ability_id) pendingEnemy.abilityId = p.ability_id;
             }
-        }).catch(() => {
+        }).catch(err => {
+            console.error('Backend encounter enrichment failed:', err);
             // Use local encounter data — already populated above
         });
 
@@ -267,7 +268,7 @@ const Encounters = (() => {
                 if (p.species_id) pendingEnemy.speciesId = p.species_id;
                 if (p.stats) pendingEnemy.stats = p.stats;
             }
-        }).catch(() => {});
+        }).catch(err => console.error('Backend encounter check failed:', err));
 
         // Mark seen
         const dexEntry = Pokedex.entries.find(e => e.name === pendingEnemy.name);

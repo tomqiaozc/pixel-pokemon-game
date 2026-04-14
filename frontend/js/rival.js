@@ -135,7 +135,7 @@ const Rival = (() => {
                     encountered = data.encountered;
                 }
             }
-        }).catch(() => {});
+        }).catch(err => console.error('Failed to load rival data:', err));
     }
 
     // Check if the rival should appear on this map
@@ -174,7 +174,7 @@ const Rival = (() => {
                     moves: p.moves || getStarterMoves(p.name),
                 }));
             }
-        }).catch(() => {});
+        }).catch(err => console.error('Failed to start rival battle:', err));
 
         // Update rival team to this stage (local fallback, used immediately for cutscene)
         const stageBuilder = TEAM_STAGES[point.stage];
@@ -193,7 +193,7 @@ const Rival = (() => {
 
     // Called after player wins a rival battle — writes outcome to backend
     function completeEncounter(stageNum) {
-        API.completeRivalBattle(stageNum).catch(() => {});
+        API.completeRivalBattle(stageNum).catch(err => console.error('Failed to complete rival battle:', err));
     }
 
     function getName() { return rivalName; }

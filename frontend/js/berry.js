@@ -72,7 +72,7 @@ const Berry = (() => {
                 berryTypes = data;
                 berryTypesLoaded = true;
             }
-        }).catch(() => {});
+        }).catch(err => console.error('Failed to load berry types:', err));
     }
 
     function loadPlotsForMap(mapId) {
@@ -82,8 +82,9 @@ const Berry = (() => {
                     plots[p.plot_id] = p;
                 }
             }
-        }).catch(() => {
+        }).catch(err => {
             // Offline fallback: populate empty local plots
+            console.error('Failed to load berry plots for map:', mapId, err);
             const defs = PLOT_DEFS[mapId];
             if (defs) {
                 for (const d of defs) {
@@ -99,6 +100,11 @@ const Berry = (() => {
         });
     }
 
+    function getBerryName(berryId) {
+        const c = BERRY_COLORS[berryId];
+        return c ? c.name + ' Berry' : 'Berry';
+    }
+
     function loadPouch() {
         API.getBerryPouch().then(data => {
             if (data && data.berries) {
@@ -107,12 +113,7 @@ const Berry = (() => {
                     pouch[id] = { berry_id: Number(id), name: info.name || getBerryName(Number(id)), quantity: info.quantity || 0 };
                 }
             }
-        }).catch(() => {});
-    }
-
-    function getBerryName(berryId) {
-        const c = BERRY_COLORS[berryId];
-        return c ? c.name + ' Berry' : 'Berry';
+        }).catch(err => console.error('Failed to load berry pouch:', err));
     }
 
     // --- Overworld Rendering ---
@@ -369,7 +370,8 @@ const Berry = (() => {
                     berry.quantity--;
                     showNotify(`Planted ${berry.name}!`);
                 }
-            }).catch(() => {
+            }).catch(err => {
+                console.error('Failed to plant berry:', err);
                 plots[plantingPlotId] = {
                     ...plots[plantingPlotId],
                     growth_stage: 'planted',
@@ -403,7 +405,8 @@ const Berry = (() => {
                     showNotify(`Watered! (${plot.water_count}/3)`);
                 }
             }
-        }).catch(() => {
+        }).catch(err => {
+            console.error('Failed to water berry:', err);
             const plot = plots[interactionPlotId];
             if (plot) {
                 plot.water_count = Math.min(3, (plot.water_count || 0) + 1);
@@ -436,7 +439,8 @@ const Berry = (() => {
             } else {
                 showNotify(data && data.message ? data.message : 'Cannot harvest yet');
             }
-        }).catch(() => {
+        }).catch(err => {
+            console.error('Failed to harvest berry:', err);
             showNotify('Harvest failed (offline)');
         });
         closeInteraction();

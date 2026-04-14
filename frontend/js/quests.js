@@ -132,7 +132,7 @@ const Quests = (() => {
                 }
                 updateObjectiveText();
             }
-        }).catch(() => {});
+        }).catch(err => console.error('Failed to load quest flags:', err));
 
         API.getQuests().then(data => {
             if (data && data.quests) {
@@ -144,14 +144,14 @@ const Quests = (() => {
                 }
                 updateObjectiveText();
             }
-        }).catch(() => {});
+        }).catch(err => console.error('Failed to load quests:', err));
     }
 
     function setFlag(flagName) {
         if (flags[flagName]) return; // already set
         flags[flagName] = true;
         // Sync flag to backend
-        API.setStoryFlag(flagName).catch(() => {});
+        API.setStoryFlag(flagName).catch(err => console.error('Failed to sync story flag:', flagName, err));
 
         // Update quest objectives
         for (const quest of quests) {

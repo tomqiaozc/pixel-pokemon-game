@@ -43,7 +43,7 @@ const Daycare = (() => {
     function loadStatus() {
         API.getDaycareStatus().then(data => {
             if (data) daycareStatus = data;
-        }).catch(() => {});
+        }).catch(err => console.error('Failed to load daycare status:', err));
     }
 
     function deposit(pokemonIndex) {
@@ -58,7 +58,8 @@ const Daycare = (() => {
             } else {
                 showNotify(data && data.detail ? data.detail : 'Cannot deposit');
             }
-        }).catch(() => {
+        }).catch(err => {
+            console.error('Failed to deposit Pokemon:', err);
             showNotify('Deposit failed (offline)');
         });
     }
@@ -83,7 +84,8 @@ const Daycare = (() => {
             } else {
                 showNotify(data && data.detail ? data.detail : 'Cannot withdraw');
             }
-        }).catch(() => {
+        }).catch(err => {
+            console.error('Failed to withdraw Pokemon:', err);
             showNotify('Withdraw failed (offline)');
         });
     }
@@ -116,7 +118,8 @@ const Daycare = (() => {
             } else {
                 showNotify(data && data.detail ? data.detail : 'No egg available');
             }
-        }).catch(() => {
+        }).catch(err => {
+            console.error('Failed to collect egg:', err);
             showNotify('Egg collection failed (offline)');
         });
     }
@@ -135,7 +138,8 @@ const Daycare = (() => {
             if (data && data.egg_ready && daycareStatus) {
                 daycareStatus.egg_ready = true;
             }
-        }).catch(() => {
+        }).catch(err => {
+            console.error('Failed to send daycare steps:', err);
             // Retry failed hatch-trigger steps on next send
             stepBuffer += steps;
         });

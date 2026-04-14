@@ -73,7 +73,7 @@ const Achievements = (() => {
                 }
                 persistLocal();
             }
-        }).catch(() => {});
+        }).catch(err => console.error('Failed to load achievements:', err));
     }
 
     function persistLocal() {
@@ -112,7 +112,7 @@ const Achievements = (() => {
                 }
                 persistLocal();
             }
-        }).catch(() => {});
+        }).catch(err => console.error('Failed to save achievements:', err));
     }
 
     function checkAchievements() {
@@ -145,7 +145,7 @@ const Achievements = (() => {
                 }
                 persistLocal();
             }
-        }).catch(() => {});
+        }).catch(err => console.error('Failed to check achievements:', err));
     }
 
     function pollNotifications() {
@@ -165,7 +165,7 @@ const Achievements = (() => {
                     }
                 }
             }
-        }).catch(() => {});
+        }).catch(err => console.error('Failed to poll achievement notifications:', err));
     }
 
     function update(dt) {
@@ -331,7 +331,7 @@ const Achievements = (() => {
                 }
                 persistLocal();
             }
-        }).catch(() => {});
+        }).catch(err => console.error('Failed to refresh achievements list:', err));
     }
 
     function closeList() {

@@ -162,7 +162,7 @@ const MiniGames = (() => {
         // Register game start with backend
         loading = true;
         await syncCoins();
-        API.startMemoryGame(memoryDifficulty).catch(() => {});
+        API.startMemoryGame(memoryDifficulty).catch(err => console.error('Failed to register memory game start:', err));
         loading = false;
     }
 
@@ -335,7 +335,8 @@ const MiniGames = (() => {
                     coins = Math.max(0, coins - slotBet);
                     pendingSpinResult = { reels: ['Cherry', 'Bar', 'Pokeball'], win: false, payout: 0 };
                 }
-            }).catch(() => {
+            }).catch(err => {
+                console.error('Failed to spin slots:', err);
                 coins = Math.max(0, coins - slotBet);
                 pendingSpinResult = { reels: ['Cherry', 'Bar', 'Pokeball'], win: false, payout: 0 };
             });
@@ -554,9 +555,9 @@ const MiniGames = (() => {
                     prizeMessage = (result && result.message) || 'Redemption failed!';
                 }
                 prizeMessageTimer = 2500;
-            }).catch(() => {
+            }).catch(err => {
+                console.error('Failed to redeem prize:', err);
                 loading = false;
-                prizeMessage = 'Network error!';
                 prizeMessageTimer = 2000;
             });
         }
@@ -592,9 +593,9 @@ const MiniGames = (() => {
                     buyCoinsMessage = (result && result.message) || 'Not enough money!';
                 }
                 buyCoinsMessageTimer = 2000;
-            }).catch(() => {
+            }).catch(err => {
+                console.error('Failed to buy coins:', err);
                 loading = false;
-                buyCoinsMessage = 'Network error!';
                 buyCoinsMessageTimer = 2000;
             });
         }

@@ -54,7 +54,7 @@ const Game = (() => {
                     }
                 }
             }
-        }).catch(() => {});
+        }).catch(err => console.error('Failed to load legendary status:', err));
         Daycare.loadStatus();
         Routes.registerAll();
         PlayerStats.load();
@@ -225,7 +225,7 @@ const Game = (() => {
                     const rivalScene = Cutscene.SCENES.rival_oaks_lab(rivalName, rivalStarter);
                     startCutscene([...oakScene, ...rivalScene]);
                 }
-            });
+            }).catch(err => console.error('Failed to create game session:', err));
         }
     }
 
@@ -417,8 +417,9 @@ const Game = (() => {
                             startBattle(enemyData, { canRun: true, battleType: 'wild' });
                             Battle.setBattleId(data.battle_id);
                         }
-                    }).catch(() => {
+                    }).catch(err => {
                         // Offline fallback: start local legendary battle
+                        console.error('Failed to encounter legendary:', err);
                         pendingLegendarySpeciesId = legendarySpawn.speciesId;
                         startBattle({
                             name: legendarySpawn.name,
@@ -693,7 +694,7 @@ const Game = (() => {
                 if (data && data.battle && data.battle.id) {
                     Battle.setBattleId(data.battle.id);
                 }
-            });
+            }).catch(err => console.error('Failed to start backend battle session:', err));
         }
     }
 
@@ -800,7 +801,8 @@ const Game = (() => {
                                         }
                                     }
                                     startEvolution(prePokemon, postPokemon);
-                                }).catch(() => {
+                                }).catch(err => {
+                                    console.error('Failed to apply evolution:', err);
                                     startEvolution(prePokemon, postPokemon);
                                 });
                             } else {
@@ -812,8 +814,9 @@ const Game = (() => {
                                     startEvolution(prePokemon, { name: evoName, type: player.party[0].type });
                                 }
                             }
-                        }).catch(() => {
+                        }).catch(err => {
                             // Fallback: try local evoMap
+                            console.error('Failed to check evolution:', err);
                             const localEvoMap = { Bulbasaur: 'Ivysaur', Charmander: 'Charmeleon', Squirtle: 'Wartortle' };
                             const evoName = localEvoMap[player.party[0].name];
                             if (evoName) {
@@ -854,18 +857,18 @@ const Game = (() => {
                 pendingLegendarySpeciesId = null;
                 if (result.result === 'catch') {
                     legendaryStatus[specId] = 'caught';
-                    API.legendaryCaught(specId).catch(() => {});
+                    API.legendaryCaught(specId).catch(err => console.error('Failed to report legendary caught:', err));
                     PlayerStats.increment('legendariesCaught');
                 } else if (result.result === 'win') {
                     // Player KO'd the legendary — it's gone forever
                     legendaryStatus[specId] = 'fainted';
-                    API.legendaryFainted(specId).catch(() => {});
+                    API.legendaryFainted(specId).catch(err => console.error('Failed to report legendary fainted:', err));
                 } else if (result.result === 'run') {
                     // Player fled — legendary returns to available
-                    API.legendaryFled(specId).catch(() => {});
+                    API.legendaryFled(specId).catch(err => console.error('Failed to report legendary fled:', err));
                 } else if (result.result === 'lose') {
                     // Player lost — legendary returns to available
-                    API.legendaryFled(specId).catch(() => {});
+                    API.legendaryFled(specId).catch(err => console.error('Failed to report legendary fled:', err));
                 }
             }
 

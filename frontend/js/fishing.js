@@ -104,7 +104,7 @@ const Fishing = (() => {
             if (data && data.pokemon) {
                 pendingFishData = data;
             }
-        }).catch(() => {});
+        }).catch(err => console.error('Fish encounter request failed:', err));
 
         return true;
     }
@@ -436,7 +436,7 @@ const Fishing = (() => {
                 }
                 if (bestRod) equippedRod = bestRod;
             }
-        }).catch(() => {});
+        }).catch(err => console.error('Failed to detect fishing rod from inventory:', err));
     }
 
     function init() {

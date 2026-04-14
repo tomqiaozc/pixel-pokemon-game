@@ -1,7 +1,7 @@
 // api.js — Backend API client for game session management
 
 const API = (() => {
-    const BASE_URL = 'http://localhost:8000/api';
+    const BASE_URL = 'http://localhost:8001/api';
 
     let gameId = null;
 
@@ -21,9 +21,13 @@ const API = (() => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(body),
             });
-            if (!res.ok) return null;
+            if (!res.ok) {
+                console.error(`API POST ${url} failed: ${res.status} ${res.statusText}`);
+                return null;
+            }
             return await res.json();
-        } catch {
+        } catch (err) {
+            console.error(`API POST ${url} error:`, err);
             return null;
         }
     }
@@ -31,9 +35,13 @@ const API = (() => {
     async function get(url) {
         try {
             const res = await fetch(url);
-            if (!res.ok) return null;
+            if (!res.ok) {
+                console.error(`API GET ${url} failed: ${res.status} ${res.statusText}`);
+                return null;
+            }
             return await res.json();
-        } catch {
+        } catch (err) {
+            console.error(`API GET ${url} error:`, err);
             return null;
         }
     }
@@ -41,9 +49,13 @@ const API = (() => {
     async function del(url) {
         try {
             const res = await fetch(url, { method: 'DELETE' });
-            if (!res.ok) return null;
+            if (!res.ok) {
+                console.error(`API DELETE ${url} failed: ${res.status} ${res.statusText}`);
+                return null;
+            }
             return await res.json();
-        } catch {
+        } catch (err) {
+            console.error(`API DELETE ${url} error:`, err);
             return null;
         }
     }
