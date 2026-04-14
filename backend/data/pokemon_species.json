@@ -2229,5 +2229,413 @@
     ],
     "evolution": null,
     "sprite": "dratini.png"
+  },
+  {
+    "id": 27,
+    "name": "Sandshrew",
+    "types": [
+      "ground"
+    ],
+    "base_exp": 60,
+    "catch_rate": 255,
+    "abilities": [
+      "sand-veil"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "field"
+    ],
+    "stats": {
+      "hp": 50,
+      "attack": 75,
+      "defense": 85,
+      "sp_attack": 20,
+      "sp_defense": 30,
+      "speed": 40
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Scratch"
+      },
+      {
+        "level": 6,
+        "move": "Sand Attack"
+      },
+      {
+        "level": 11,
+        "move": "Poison Sting"
+      },
+      {
+        "level": 17,
+        "move": "Slash"
+      },
+      {
+        "level": 23,
+        "move": "Earthquake"
+      }
+    ],
+    "evolution": {
+      "to": 28,
+      "level": 22
+    },
+    "sprite": "sandshrew.png"
+  },
+  {
+    "id": 35,
+    "name": "Clefairy",
+    "types": [
+      "fairy",
+      "normal"
+    ],
+    "base_exp": 113,
+    "catch_rate": 150,
+    "abilities": [
+      "cute-charm"
+    ],
+    "gender_ratio": 75.0,
+    "egg_groups": [
+      "fairy"
+    ],
+    "stats": {
+      "hp": 70,
+      "attack": 45,
+      "defense": 48,
+      "sp_attack": 60,
+      "sp_defense": 65,
+      "speed": 35
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Growl"
+      },
+      {
+        "level": 4,
+        "move": "Tackle"
+      },
+      {
+        "level": 10,
+        "move": "Quick Attack"
+      },
+      {
+        "level": 18,
+        "move": "Psychic"
+      }
+    ],
+    "evolution": {
+      "to": 36,
+      "level": 0
+    },
+    "sprite": "clefairy.png"
+  },
+  {
+    "id": 41,
+    "name": "Zubat",
+    "types": [
+      "poison",
+      "flying"
+    ],
+    "base_exp": 49,
+    "catch_rate": 255,
+    "abilities": [
+      "inner-focus"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "flying"
+    ],
+    "stats": {
+      "hp": 40,
+      "attack": 45,
+      "defense": 35,
+      "sp_attack": 30,
+      "sp_defense": 40,
+      "speed": 55
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 5,
+        "move": "Poison Sting"
+      },
+      {
+        "level": 11,
+        "move": "Bite"
+      },
+      {
+        "level": 17,
+        "move": "Wing Attack"
+      },
+      {
+        "level": 23,
+        "move": "Toxic"
+      }
+    ],
+    "evolution": {
+      "to": 42,
+      "level": 22
+    },
+    "sprite": "zubat.png"
+  },
+  {
+    "id": 46,
+    "name": "Paras",
+    "types": [
+      "bug",
+      "grass"
+    ],
+    "base_exp": 57,
+    "catch_rate": 190,
+    "abilities": [
+      "effect-spore"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "bug",
+      "grass"
+    ],
+    "stats": {
+      "hp": 35,
+      "attack": 70,
+      "defense": 55,
+      "sp_attack": 45,
+      "sp_defense": 55,
+      "speed": 25
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Scratch"
+      },
+      {
+        "level": 7,
+        "move": "String Shot"
+      },
+      {
+        "level": 13,
+        "move": "Poison Sting"
+      },
+      {
+        "level": 19,
+        "move": "Slash"
+      },
+      {
+        "level": 25,
+        "move": "Razor Leaf"
+      }
+    ],
+    "evolution": {
+      "to": 47,
+      "level": 24
+    },
+    "sprite": "paras.png"
+  },
+  {
+    "id": 50,
+    "name": "Diglett",
+    "types": [
+      "ground"
+    ],
+    "base_exp": 53,
+    "catch_rate": 255,
+    "abilities": [
+      "sand-veil"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "field"
+    ],
+    "stats": {
+      "hp": 10,
+      "attack": 55,
+      "defense": 25,
+      "sp_attack": 35,
+      "sp_defense": 45,
+      "speed": 95
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Scratch"
+      },
+      {
+        "level": 5,
+        "move": "Sand Attack"
+      },
+      {
+        "level": 9,
+        "move": "Growl"
+      },
+      {
+        "level": 15,
+        "move": "Slash"
+      },
+      {
+        "level": 21,
+        "move": "Earthquake"
+      }
+    ],
+    "evolution": {
+      "to": 51,
+      "level": 26
+    },
+    "sprite": "diglett.png"
+  },
+  {
+    "id": 51,
+    "name": "Dugtrio",
+    "types": [
+      "ground"
+    ],
+    "base_exp": 149,
+    "catch_rate": 50,
+    "abilities": [
+      "sand-veil"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "field"
+    ],
+    "stats": {
+      "hp": 35,
+      "attack": 100,
+      "defense": 50,
+      "sp_attack": 50,
+      "sp_defense": 70,
+      "speed": 120
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Scratch"
+      },
+      {
+        "level": 5,
+        "move": "Sand Attack"
+      },
+      {
+        "level": 9,
+        "move": "Growl"
+      },
+      {
+        "level": 15,
+        "move": "Slash"
+      },
+      {
+        "level": 21,
+        "move": "Earthquake"
+      },
+      {
+        "level": 29,
+        "move": "Rock Slide"
+      }
+    ],
+    "evolution": null,
+    "sprite": "dugtrio.png"
+  },
+  {
+    "id": 74,
+    "name": "Geodude",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "base_exp": 60,
+    "catch_rate": 255,
+    "abilities": [
+      "rock-head"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "mineral"
+    ],
+    "stats": {
+      "hp": 40,
+      "attack": 80,
+      "defense": 100,
+      "sp_attack": 30,
+      "sp_defense": 30,
+      "speed": 20
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 6,
+        "move": "Sand Attack"
+      },
+      {
+        "level": 11,
+        "move": "Rock Throw"
+      },
+      {
+        "level": 16,
+        "move": "Rock Slide"
+      },
+      {
+        "level": 21,
+        "move": "Earthquake"
+      }
+    ],
+    "evolution": {
+      "to": 75,
+      "level": 25
+    },
+    "sprite": "geodude.png"
+  },
+  {
+    "id": 95,
+    "name": "Onix",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "base_exp": 77,
+    "catch_rate": 45,
+    "abilities": [
+      "rock-head"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "mineral"
+    ],
+    "stats": {
+      "hp": 35,
+      "attack": 45,
+      "defense": 160,
+      "sp_attack": 30,
+      "sp_defense": 45,
+      "speed": 70
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 6,
+        "move": "Sand Attack"
+      },
+      {
+        "level": 11,
+        "move": "Rock Throw"
+      },
+      {
+        "level": 19,
+        "move": "Rock Slide"
+      },
+      {
+        "level": 25,
+        "move": "Earthquake"
+      }
+    ],
+    "evolution": null,
+    "sprite": "onix.png"
   }
 ]
