@@ -1,0 +1,129 @@
+{
+  "description": "In-game notification and popup system configuration.",
+  "notification_types": {
+    "achievement": {
+      "priority": 3,
+      "duration_ms": 4000,
+      "position": "top_center",
+      "sound": "sfx_achievement.ogg",
+      "icon": "icon_trophy",
+      "background_color": "#FFD700",
+      "text_color": "#000000",
+      "animation": "slide_down"
+    },
+    "item_received": {
+      "priority": 2,
+      "duration_ms": 2500,
+      "position": "bottom_center",
+      "sound": "sfx_item_get.ogg",
+      "icon": "icon_bag",
+      "background_color": "#4488CC",
+      "text_color": "#FFFFFF",
+      "animation": "pop_up"
+    },
+    "pokemon_caught": {
+      "priority": 3,
+      "duration_ms": 3000,
+      "position": "top_center",
+      "sound": "sfx_pokeball_catch.ogg",
+      "icon": "icon_pokeball",
+      "background_color": "#FF4444",
+      "text_color": "#FFFFFF",
+      "animation": "slide_down"
+    },
+    "level_up": {
+      "priority": 2,
+      "duration_ms": 3000,
+      "position": "top_center",
+      "sound": "sfx_level_up.ogg",
+      "icon": "icon_star",
+      "background_color": "#44CC44",
+      "text_color": "#FFFFFF",
+      "animation": "slide_down"
+    },
+    "evolution": {
+      "priority": 4,
+      "duration_ms": 4000,
+      "position": "center",
+      "sound": "sfx_evo_complete.ogg",
+      "icon": "icon_sparkle",
+      "background_color": "#FFFFFF",
+      "text_color": "#000000",
+      "animation": "flash_in"
+    },
+    "save_complete": {
+      "priority": 1,
+      "duration_ms": 2000,
+      "position": "bottom_right",
+      "sound": null,
+      "icon": "icon_save",
+      "background_color": "#333333",
+      "text_color": "#FFFFFF",
+      "animation": "fade_in"
+    },
+    "quest_update": {
+      "priority": 2,
+      "duration_ms": 3000,
+      "position": "top_right",
+      "sound": "sfx_quest_update.ogg",
+      "icon": "icon_quest",
+      "background_color": "#CC8844",
+      "text_color": "#FFFFFF",
+      "animation": "slide_left"
+    },
+    "phone_ring": {
+      "priority": 2,
+      "duration_ms": 5000,
+      "position": "top_center",
+      "sound": "sfx_phone_ring.ogg",
+      "icon": "icon_phone",
+      "background_color": "#44AA44",
+      "text_color": "#FFFFFF",
+      "animation": "shake_in"
+    },
+    "low_hp_warning": {
+      "priority": 1,
+      "duration_ms": 2000,
+      "position": "bottom_center",
+      "sound": "sfx_warning.ogg",
+      "icon": "icon_warning",
+      "background_color": "#CC4444",
+      "text_color": "#FFFFFF",
+      "animation": "pulse"
+    },
+    "system_message": {
+      "priority": 1,
+      "duration_ms": 3000,
+      "position": "top_center",
+      "sound": null,
+      "icon": null,
+      "background_color": "#555555",
+      "text_color": "#FFFFFF",
+      "animation": "fade_in"
+    }
+  },
+  "queue_settings": {
+    "max_queued": 5,
+    "display_simultaneously": 2,
+    "gap_between_ms": 500,
+    "priority_preempt": true,
+    "dismiss_on_input": true
+  },
+  "animations": {
+    "slide_down": {"duration_ms": 300, "easing": "ease_out"},
+    "slide_left": {"duration_ms": 300, "easing": "ease_out"},
+    "pop_up": {"duration_ms": 200, "easing": "bounce"},
+    "fade_in": {"duration_ms": 400, "easing": "linear"},
+    "flash_in": {"duration_ms": 200, "easing": "ease_in"},
+    "shake_in": {"duration_ms": 400, "easing": "ease_out"},
+    "pulse": {"duration_ms": 500, "easing": "ease_in_out"}
+  },
+  "global_settings": {
+    "notifications_enabled": true,
+    "mute_notifications": false,
+    "font_size": 12,
+    "border_radius": 4,
+    "padding": 8,
+    "max_text_width": 200
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "description": "Debug mode configuration and developer tools for testing.",
+  "debug_mode": {
+    "enabled": false,
+    "activation_code": "up up down down left right left right b a",
+    "show_fps": false,
+    "show_collision_boxes": false,
+    "show_tile_grid": false,
+    "show_encounter_zones": false,
+    "show_warp_points": false,
+    "show_npc_paths": false
+  },
+  "debug_commands": [
+    {"command": "heal", "description": "Fully heal all party Pokemon", "category": "party"},
+    {"command": "maxmoney", "description": "Set money to 999999", "category": "player"},
+    {"command": "allbadges", "description": "Grant all 8 gym badges", "category": "player"},
+    {"command": "allitems", "description": "Add 99 of every item", "category": "inventory"},
+    {"command": "encounter", "description": "Force wild encounter", "category": "battle"},
+    {"command": "catch", "description": "Guarantee next catch", "category": "battle"},
+    {"command": "levelup", "description": "Level up lead Pokemon", "category": "party"},
+    {"command": "evolve", "description": "Force evolve lead Pokemon", "category": "party"},
+    {"command": "teleport", "description": "Teleport to any map", "category": "world"},
+    {"command": "noclip", "description": "Walk through walls", "category": "world"},
+    {"command": "weather", "description": "Set weather condition", "category": "world"},
+    {"command": "time", "description": "Set time of day", "category": "world"},
+    {"command": "spawn", "description": "Spawn any Pokemon at any level", "category": "party"},
+    {"command": "teach", "description": "Teach any move to lead Pokemon", "category": "party"},
+    {"command": "flags", "description": "View/set event flags", "category": "system"},
+    {"command": "fps", "description": "Toggle FPS display", "category": "display"},
+    {"command": "collision", "description": "Toggle collision box display", "category": "display"},
+    {"command": "speed", "description": "Set game speed multiplier", "category": "system"},
+    {"command": "save_state", "description": "Quick save state", "category": "system"},
+    {"command": "load_state", "description": "Quick load state", "category": "system"}
+  ],
+  "debug_categories": ["party", "player", "inventory", "battle", "world", "display", "system"],
+  "console": {
+    "enabled": false,
+    "toggle_key": "F10",
+    "max_history": 50,
+    "font_size": 12,
+    "background_opacity": 0.85,
+    "text_color": "#00FF00",
+    "background_color": "#000000"
+  },
+  "performance_overlay": {
+    "show_fps": false,
+    "show_frame_time": false,
+    "show_draw_calls": false,
+    "show_entity_count": false,
+    "show_memory_usage": false,
+    "position": "top_left",
+    "font_size": 10,
+    "update_interval_ms": 500
+  }
+}

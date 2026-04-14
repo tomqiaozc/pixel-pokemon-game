@@ -1,0 +1,137 @@
+{
+  "description": "In-game phone/contact system for trainer rematches and tips.",
+  "enabled": true,
+  "max_contacts": 20,
+  "contacts": [
+    {
+      "id": "professor_oak",
+      "name": "Prof. Oak",
+      "type": "story",
+      "location": "pallet_town",
+      "calls_player": true,
+      "call_frequency_steps": 500,
+      "topics": ["pokedex_progress", "pokemon_tips"],
+      "rematch": false
+    },
+    {
+      "id": "mom",
+      "name": "Mom",
+      "type": "family",
+      "location": "pallet_town",
+      "calls_player": true,
+      "call_frequency_steps": 1000,
+      "topics": ["savings", "encouragement"],
+      "rematch": false
+    },
+    {
+      "id": "rival",
+      "name": "{RIVAL}",
+      "type": "rival",
+      "location": "various",
+      "calls_player": true,
+      "call_frequency_steps": 800,
+      "topics": ["challenge", "boasting"],
+      "rematch": true,
+      "rematch_location": "indigo_plateau"
+    },
+    {
+      "id": "bug_catcher_wade",
+      "name": "Bug Catcher Wade",
+      "type": "trainer",
+      "location": "route_3",
+      "calls_player": true,
+      "call_frequency_steps": 600,
+      "topics": ["bug_pokemon", "rematch_request"],
+      "rematch": true,
+      "rematch_location": "route_3"
+    },
+    {
+      "id": "lass_dana",
+      "name": "Lass Dana",
+      "type": "trainer",
+      "location": "route_5",
+      "calls_player": true,
+      "call_frequency_steps": 700,
+      "topics": ["cute_pokemon", "rematch_request"],
+      "rematch": true,
+      "rematch_location": "route_5"
+    },
+    {
+      "id": "hiker_anthony",
+      "name": "Hiker Anthony",
+      "type": "trainer",
+      "location": "route_9",
+      "calls_player": true,
+      "call_frequency_steps": 750,
+      "topics": ["rock_pokemon", "rare_items"],
+      "rematch": true,
+      "rematch_location": "route_9"
+    },
+    {
+      "id": "fisherman_ralph",
+      "name": "Fisherman Ralph",
+      "type": "trainer",
+      "location": "route_12",
+      "calls_player": true,
+      "call_frequency_steps": 650,
+      "topics": ["fishing_tips", "rematch_request"],
+      "rematch": true,
+      "rematch_location": "route_12"
+    },
+    {
+      "id": "picnicker_liz",
+      "name": "Picnicker Liz",
+      "type": "trainer",
+      "location": "route_14",
+      "calls_player": true,
+      "call_frequency_steps": 800,
+      "topics": ["nature", "rematch_request"],
+      "rematch": true,
+      "rematch_location": "route_14"
+    },
+    {
+      "id": "youngster_joey",
+      "name": "Youngster Joey",
+      "type": "trainer",
+      "location": "route_1",
+      "calls_player": true,
+      "call_frequency_steps": 400,
+      "topics": ["rattata_praise", "rematch_request"],
+      "rematch": true,
+      "rematch_location": "route_1"
+    },
+    {
+      "id": "bill",
+      "name": "Bill",
+      "type": "story",
+      "location": "route_25",
+      "calls_player": false,
+      "call_frequency_steps": 0,
+      "topics": ["pc_storage", "pokemon_trivia"],
+      "rematch": false
+    }
+  ],
+  "call_dialogues": {
+    "greeting": [
+      "Hey, {PLAYER}! It's {CONTACT}!",
+      "{PLAYER}! {CONTACT} here!",
+      "Hi {PLAYER}, this is {CONTACT}."
+    ],
+    "rematch_request": [
+      "I've been training hard! Want to battle again?",
+      "My Pokemon are stronger now! Let's have a rematch!",
+      "I've got a new strategy! Come fight me!"
+    ],
+    "farewell": [
+      "See you around!",
+      "Talk to you later!",
+      "Gotta go, bye!"
+    ]
+  },
+  "phone_ui": {
+    "ring_sound": "sfx_phone_ring.ogg",
+    "call_sound": "sfx_phone_call.ogg",
+    "contact_list_entries_visible": 5,
+    "scroll_enabled": true
+  }
+}
