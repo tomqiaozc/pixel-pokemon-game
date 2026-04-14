@@ -1,0 +1,89 @@
+{
+  "description": "Pokemon given to the player by NPCs throughout the game.",
+  "gifts": [
+    {
+      "id": "starter_bulbasaur",
+      "pokemon": "Bulbasaur",
+      "level": 5,
+      "location": "oaks_lab",
+      "npc": "Professor Oak",
+      "condition": "game_start",
+      "one_time": true,
+      "choice_group": "starter"
+    },
+    {
+      "id": "starter_charmander",
+      "pokemon": "Charmander",
+      "level": 5,
+      "location": "oaks_lab",
+      "npc": "Professor Oak",
+      "condition": "game_start",
+      "one_time": true,
+      "choice_group": "starter"
+    },
+    {
+      "id": "starter_squirtle",
+      "pokemon": "Squirtle",
+      "level": 5,
+      "location": "oaks_lab",
+      "npc": "Professor Oak",
+      "condition": "game_start",
+      "one_time": true,
+      "choice_group": "starter"
+    },
+    {
+      "id": "eevee_gift",
+      "pokemon": "Eevee",
+      "level": 25,
+      "location": "celadon_mansion",
+      "npc": "Old Man",
+      "condition": "none",
+      "one_time": true,
+      "choice_group": null
+    },
+    {
+      "id": "lapras_gift",
+      "pokemon": "Lapras",
+      "level": 15,
+      "location": "silph_co",
+      "npc": "Silph Employee",
+      "condition": "defeat_giovanni_silph",
+      "one_time": true,
+      "choice_group": null
+    },
+    {
+      "id": "hitmonlee_gift",
+      "pokemon": "Hitmonlee",
+      "level": 30,
+      "location": "fighting_dojo",
+      "npc": "Karate Master",
+      "condition": "defeat_dojo",
+      "one_time": true,
+      "choice_group": "fighting"
+    },
+    {
+      "id": "hitmonchan_gift",
+      "pokemon": "Hitmonchan",
+      "level": 30,
+      "location": "fighting_dojo",
+      "npc": "Karate Master",
+      "condition": "defeat_dojo",
+      "one_time": true,
+      "choice_group": "fighting"
+    },
+    {
+      "id": "magikarp_gift",
+      "pokemon": "Magikarp",
+      "level": 5,
+      "location": "route_4",
+      "npc": "Magikarp Salesman",
+      "condition": "pay_500",
+      "one_time": true,
+      "choice_group": null
+    }
+  ],
+  "choice_groups": {
+    "starter": {"pick_one": true, "count": 3},
+    "fighting": {"pick_one": true, "count": 2}
+  }
+}

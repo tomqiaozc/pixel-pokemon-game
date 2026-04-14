@@ -1,0 +1,35 @@
+{
+  "description": "Hidden items found on the overworld map, often requiring Itemfinder.",
+  "hidden_items": [
+    {"id": "h001", "item": "Potion", "location": "route_1", "x": 8, "y": 12, "respawns": false},
+    {"id": "h002", "item": "Antidote", "location": "viridian_forest", "x": 15, "y": 22, "respawns": false},
+    {"id": "h003", "item": "Poke Ball", "location": "route_2", "x": 6, "y": 18, "respawns": false},
+    {"id": "h004", "item": "Moon Stone", "location": "mt_moon", "x": 24, "y": 8, "respawns": false},
+    {"id": "h005", "item": "Rare Candy", "location": "route_9", "x": 30, "y": 5, "respawns": false},
+    {"id": "h006", "item": "Ether", "location": "route_10", "x": 12, "y": 20, "respawns": false},
+    {"id": "h007", "item": "Nugget", "location": "route_24", "x": 5, "y": 3, "respawns": false},
+    {"id": "h008", "item": "PP Up", "location": "route_12", "x": 18, "y": 45, "respawns": false},
+    {"id": "h009", "item": "Elixir", "location": "pokemon_tower", "x": 10, "y": 8, "respawns": false},
+    {"id": "h010", "item": "Max Ether", "location": "route_13", "x": 25, "y": 10, "respawns": false},
+    {"id": "h011", "item": "Calcium", "location": "route_14", "x": 8, "y": 35, "respawns": false},
+    {"id": "h012", "item": "Rare Candy", "location": "route_17", "x": 5, "y": 60, "respawns": false},
+    {"id": "h013", "item": "Max Revive", "location": "silph_co", "x": 15, "y": 5, "respawns": false},
+    {"id": "h014", "item": "Full Restore", "location": "route_23", "x": 10, "y": 12, "respawns": false},
+    {"id": "h015", "item": "Max Elixir", "location": "cerulean_cave", "x": 20, "y": 15, "respawns": false},
+    {"id": "h016", "item": "Rare Candy", "location": "power_plant", "x": 8, "y": 18, "respawns": false},
+    {"id": "h017", "item": "Star Piece", "location": "seafoam_islands", "x": 22, "y": 10, "respawns": false},
+    {"id": "h018", "item": "Nugget", "location": "cinnabar_mansion", "x": 12, "y": 6, "respawns": false},
+    {"id": "h019", "item": "PP Up", "location": "victory_road", "x": 30, "y": 20, "respawns": false},
+    {"id": "h020", "item": "Rare Candy", "location": "victory_road", "x": 15, "y": 28, "respawns": false}
+  ],
+  "itemfinder": {
+    "item_name": "Itemfinder",
+    "obtain_location": "route_11",
+    "obtain_npc": "Professor Oaks Aide",
+    "obtain_condition": "30_pokemon_registered",
+    "range_tiles": 4,
+    "beep_when_near": true,
+    "required_for_hidden": false,
+    "helpful_for_hidden": true
+  }
+}
