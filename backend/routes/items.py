@@ -3,6 +3,7 @@ from fastapi import APIRouter, HTTPException
 from ..models.item import (
     BuyRequest,
     CatchRequest,
+    GiveItemRequest,
     SellRequest,
     TossItemRequest,
     UseItemRequest,
@@ -15,6 +16,7 @@ from ..services.item_service import (
     get_inventory,
     get_item,
     get_shop,
+    give_item,
     sell_item,
     toss_item,
     use_item,
@@ -60,9 +62,20 @@ def use(req: UseItemRequest):
 
 @router.post("/inventory/toss")
 def toss(req: TossItemRequest):
-    result = toss_item(req.game_id, req.item_id, req.quantity)
+    try:
+        result = toss_item(req.game_id, req.item_id, req.quantity)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
     if result is None:
         raise HTTPException(status_code=404, detail="Game not found")
+    return result
+
+
+@router.post("/inventory/give")
+def give(req: GiveItemRequest):
+    result = give_item(req.game_id, req.item_id, req.quantity)
+    if result is None:
+        raise HTTPException(status_code=404, detail="Game or item not found")
     return result
 
 

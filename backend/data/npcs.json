@@ -138,5 +138,55 @@
     "facing": "left",
     "npc_type": "generic",
     "dialogue_tree_id": "bike_shop_npc_dialogue"
+  },
+  {
+    "id": "burgled_house_owner",
+    "name": "Cerulean Resident",
+    "sprite_id": "townsfolk_m",
+    "position": {"x": 4, "y": 3},
+    "map_id": "cerulean_burgled_house",
+    "facing": "down",
+    "npc_type": "generic",
+    "dialogue_tree_id": "burgled_house_owner_dialogue"
+  },
+  {
+    "id": "cerulean_officer_updated",
+    "name": "Officer Jenny",
+    "sprite_id": "officer",
+    "position": {"x": 12, "y": 20},
+    "map_id": "cerulean_city",
+    "facing": "right",
+    "npc_type": "generic",
+    "dialogue_tree_id": "cerulean_officer_updated_dialogue"
+  },
+  {
+    "id": "bill",
+    "name": "Bill",
+    "sprite_id": "bill",
+    "position": {"x": 4, "y": 3},
+    "map_id": "bills_house",
+    "facing": "down",
+    "npc_type": "generic",
+    "dialogue_tree_id": "bill_dialogue"
+  },
+  {
+    "id": "nugget_bridge_greeter",
+    "name": "Nugget Bridge Greeter",
+    "sprite_id": "townsfolk_m",
+    "position": {"x": 5, "y": 38},
+    "map_id": "route_24",
+    "facing": "down",
+    "npc_type": "generic",
+    "dialogue_tree_id": "nugget_bridge_greeter_dialogue"
+  },
+  {
+    "id": "vermilion_gate_guard",
+    "name": "Gate Guard",
+    "sprite_id": "officer",
+    "position": {"x": 10, "y": 24},
+    "map_id": "route_6",
+    "facing": "up",
+    "npc_type": "generic",
+    "dialogue_tree_id": "vermilion_gate_guard_dialogue"
   }
 ]

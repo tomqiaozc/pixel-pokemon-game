@@ -24,7 +24,9 @@ from .routes.rival import router as rival_router
 from .routes.trade import router as trade_router
 from .routes.secret_area import router as secret_area_router
 from .routes.hm_overworld import router as hm_overworld_router
+from .routes.bill_event import router as bill_event_router
 from .routes.cave import router as cave_router
+from .routes.nugget_bridge import router as nugget_bridge_router
 
 app = FastAPI(title="Pixel Pokemon Game API", version="0.1.0")
 
@@ -60,6 +62,8 @@ app.include_router(move_tutor_router)
 app.include_router(secret_area_router)
 app.include_router(hm_overworld_router)
 app.include_router(cave_router)
+app.include_router(nugget_bridge_router)
+app.include_router(bill_event_router)
 
 
 @app.get("/api/health")

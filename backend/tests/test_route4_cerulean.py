@@ -78,7 +78,7 @@ class TestCeruleanCityMap:
 
     def test_cerulean_buildings_count(self):
         game_map = get_map("cerulean_city")
-        assert len(game_map.buildings) == 4
+        assert len(game_map.buildings) == 5
 
     def test_cerulean_building_names(self):
         game_map = get_map("cerulean_city")

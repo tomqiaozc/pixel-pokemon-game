@@ -106,5 +106,61 @@
     "nodes": [
       {"id": "start", "text": "I love bikes! But they're so expensive here...", "next": null}
     ]
+  },
+  "burgled_house_owner_dialogue": {
+    "id": "burgled_house_owner_dialogue",
+    "nodes": [
+      {"id": "start", "text": "A Team Rocket thug broke into my house and stole my TM!", "next": "plea"},
+      {"id": "plea", "text": "Please help! I saw him run off toward the north side of town!", "next": null}
+    ]
+  },
+  "cerulean_officer_updated_dialogue": {
+    "id": "cerulean_officer_updated_dialogue",
+    "nodes": [
+      {"id": "start", "text": "We've received reports of a robbery in the city!", "next": "info"},
+      {"id": "info", "text": "A Team Rocket member was seen heading north toward Nugget Bridge. If you spot him, be careful!", "next": null}
+    ]
+  },
+  "bill_dialogue": {
+    "id": "bill_dialogue",
+    "nodes": [
+      {"id": "start", "text": "Help! I'm stuck as a Pokemon! I was experimenting with my Cell Separation System and merged with a Pokemon!", "next": "plea"},
+      {"id": "plea", "text": "Please! Run the Cell Separation System on my PC over there!", "next": null},
+      {"id": "post_transform", "text": "I'm back to normal! Thank you so much!", "next": "reward"},
+      {"id": "reward", "text": "Here, take this S.S. Ticket as thanks. It's for the luxury liner in Vermilion City!", "next": null},
+      {"id": "post_ticket", "text": "That S.S. Ticket will get you aboard the S.S. Anne in Vermilion City. Enjoy!", "next": null}
+    ]
+  },
+  "nugget_bridge_greeter_dialogue": {
+    "id": "nugget_bridge_greeter_dialogue",
+    "nodes": [
+      {"id": "start", "text": "Welcome to the Nugget Bridge Challenge!", "next": "rules"},
+      {"id": "rules", "text": "Defeat all five trainers in a row and you'll win a fabulous prize!", "next": null}
+    ]
+  },
+  "vermilion_gate_guard_dialogue": {
+    "id": "vermilion_gate_guard_dialogue",
+    "nodes": [
+      {"id": "start", "text": "This way leads to Vermilion City.", "next": "warning"},
+      {"id": "warning", "text": "Construction ahead, please be careful!", "next": null}
+    ]
+  },
+  "rocket_grunt_nugget_pre_dialogue": {
+    "id": "rocket_grunt_nugget_pre_dialogue",
+    "nodes": [
+      {"id": "start", "text": "Congratulations! You beat all the trainers on Nugget Bridge!", "next": "prize"},
+      {"id": "prize", "text": "Here, take this Nugget as your prize!", "action": {"type": "give_item", "item_id": 51, "quantity": 1}, "next": "recruit"},
+      {"id": "recruit", "text": "By the way... how would you like to join Team Rocket? We're always looking for talented trainers!", "choices": [
+        {"label": "No way!", "next": "refuse"},
+        {"label": "Never!", "next": "refuse"}
+      ]},
+      {"id": "refuse", "text": "What?! You don't want to join?! Then I'll show you what happens to those who refuse Team Rocket!", "next": null}
+    ]
+  },
+  "rocket_grunt_nugget_post_dialogue": {
+    "id": "rocket_grunt_nugget_post_dialogue",
+    "nodes": [
+      {"id": "start", "text": "Grr... You'll regret crossing Team Rocket! We have big plans, and no one can stop us!", "next": null}
+    ]
   }
 }

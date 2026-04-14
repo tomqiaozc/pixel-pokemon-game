@@ -43,6 +43,12 @@ class UseItemResult(BaseModel):
     status_removed: Optional[str] = None
 
 
+class GiveItemRequest(BaseModel):
+    game_id: str
+    item_id: int
+    quantity: int = 1
+
+
 class TossItemRequest(BaseModel):
     game_id: str
     item_id: int

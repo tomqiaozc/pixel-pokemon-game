@@ -187,5 +187,61 @@
       {"species_id": 60, "min_level": 15, "max_level": 20, "weight": 30},
       {"species_id": 118, "min_level": 15, "max_level": 25, "weight": 30}
     ]
+  },
+  "route_24": {
+    "name": "Route 24",
+    "encounter_type": "grass",
+    "base_encounter_rate": 0.20,
+    "encounters": [
+      {"species_id": 43, "min_level": 12, "max_level": 14, "weight": 20},
+      {"species_id": 63, "min_level": 8, "max_level": 12, "weight": 10},
+      {"species_id": 29, "min_level": 12, "max_level": 14, "weight": 15},
+      {"species_id": 32, "min_level": 12, "max_level": 14, "weight": 15},
+      {"species_id": 23, "min_level": 12, "max_level": 14, "weight": 15},
+      {"species_id": 16, "min_level": 12, "max_level": 14, "weight": 15},
+      {"species_id": 39, "min_level": 10, "max_level": 14, "weight": 10}
+    ]
+  },
+  "route_25": {
+    "name": "Route 25",
+    "encounter_type": "grass",
+    "base_encounter_rate": 0.20,
+    "encounters": [
+      {"species_id": 43, "min_level": 12, "max_level": 14, "weight": 20},
+      {"species_id": 63, "min_level": 10, "max_level": 14, "weight": 10},
+      {"species_id": 29, "min_level": 12, "max_level": 16, "weight": 15},
+      {"species_id": 32, "min_level": 12, "max_level": 16, "weight": 15},
+      {"species_id": 17, "min_level": 13, "max_level": 16, "weight": 10},
+      {"species_id": 16, "min_level": 12, "max_level": 14, "weight": 15},
+      {"species_id": 52, "min_level": 12, "max_level": 14, "weight": 15}
+    ]
+  },
+  "route_5": {
+    "name": "Route 5",
+    "encounter_type": "grass",
+    "base_encounter_rate": 0.20,
+    "encounters": [
+      {"species_id": 43, "min_level": 13, "max_level": 16, "weight": 20},
+      {"species_id": 63, "min_level": 10, "max_level": 16, "weight": 10},
+      {"species_id": 16, "min_level": 13, "max_level": 16, "weight": 20},
+      {"species_id": 52, "min_level": 12, "max_level": 16, "weight": 15},
+      {"species_id": 39, "min_level": 12, "max_level": 16, "weight": 15},
+      {"species_id": 32, "min_level": 13, "max_level": 16, "weight": 10},
+      {"species_id": 29, "min_level": 13, "max_level": 16, "weight": 10}
+    ]
+  },
+  "route_6": {
+    "name": "Route 6",
+    "encounter_type": "grass",
+    "base_encounter_rate": 0.20,
+    "encounters": [
+      {"species_id": 43, "min_level": 13, "max_level": 16, "weight": 20},
+      {"species_id": 63, "min_level": 10, "max_level": 16, "weight": 10},
+      {"species_id": 16, "min_level": 13, "max_level": 16, "weight": 20},
+      {"species_id": 52, "min_level": 12, "max_level": 16, "weight": 15},
+      {"species_id": 39, "min_level": 12, "max_level": 16, "weight": 15},
+      {"species_id": 32, "min_level": 13, "max_level": 16, "weight": 10},
+      {"species_id": 29, "min_level": 13, "max_level": 16, "weight": 10}
+    ]
   }
 }

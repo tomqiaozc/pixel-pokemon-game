@@ -178,5 +178,161 @@
     "sight_range": 3,
     "dialogue_before": "I've been hiking this route for years!",
     "dialogue_after": "You're stronger than the mountain Pokemon!"
+  },
+  {
+    "id": "rocket_grunt_nugget",
+    "name": "Rocket Grunt",
+    "trainer_class": "Team Rocket",
+    "sprite_id": "rocket_grunt",
+    "pokemon_team": [
+      {"species_id": 23, "name": "Ekans", "level": 15, "moves": ["Wrap", "Leer", "Poison Sting", "Bite"]},
+      {"species_id": 41, "name": "Zubat", "level": 15, "moves": ["Leech Life", "Supersonic", "Bite"]}
+    ],
+    "reward_money": 600,
+    "sight_range": 3,
+    "dialogue_before": "Hey kid, you've got some skill! How about joining Team Rocket? ...No?! Then I'll make you regret it!",
+    "dialogue_after": "Grr... You'll regret crossing Team Rocket! We'll remember this!"
+  },
+  {
+    "id": "rocket_grunt_cerulean",
+    "name": "Rocket Grunt",
+    "trainer_class": "Team Rocket",
+    "sprite_id": "rocket_grunt",
+    "pokemon_team": [
+      {"species_id": 19, "name": "Rattata", "level": 14, "moves": ["Tackle", "Quick Attack", "Hyper Fang"]},
+      {"species_id": 23, "name": "Ekans", "level": 14, "moves": ["Wrap", "Leer", "Poison Sting"]}
+    ],
+    "reward_money": 560,
+    "sight_range": 3,
+    "dialogue_before": "You saw nothing, kid! Get out of here or you'll regret it!",
+    "dialogue_after": "Tch! You'll pay for this! Team Rocket never forgets!"
+  },
+  {
+    "id": "nugget_trainer_1",
+    "name": "Ethan",
+    "trainer_class": "Bug Catcher",
+    "sprite_id": "bug_catcher",
+    "pokemon_team": [
+      {"species_id": 10, "name": "Caterpie", "level": 14, "moves": ["Tackle", "String Shot"]},
+      {"species_id": 13, "name": "Weedle", "level": 14, "moves": ["Poison Sting", "String Shot"]}
+    ],
+    "reward_money": 280,
+    "sight_range": 2,
+    "dialogue_before": "Welcome to Nugget Bridge! Defeat all five trainers to win a prize!",
+    "dialogue_after": "Good luck with the next trainer!"
+  },
+  {
+    "id": "nugget_trainer_2",
+    "name": "Ali",
+    "trainer_class": "Lass",
+    "sprite_id": "lass",
+    "pokemon_team": [
+      {"species_id": 43, "name": "Oddish", "level": 16, "moves": ["Absorb", "Poison Powder", "Stun Spore"]},
+      {"species_id": 16, "name": "Pidgey", "level": 16, "moves": ["Gust", "Quick Attack", "Sand Attack"]}
+    ],
+    "reward_money": 320,
+    "sight_range": 2,
+    "dialogue_before": "You beat the first one? Let's see how you handle me!",
+    "dialogue_after": "Wow, you're really strong!"
+  },
+  {
+    "id": "nugget_trainer_3",
+    "name": "Calvin",
+    "trainer_class": "Youngster",
+    "sprite_id": "youngster",
+    "pokemon_team": [
+      {"species_id": 19, "name": "Rattata", "level": 15, "moves": ["Quick Attack", "Hyper Fang", "Tail Whip"]},
+      {"species_id": 23, "name": "Ekans", "level": 15, "moves": ["Wrap", "Poison Sting", "Leer"]},
+      {"species_id": 32, "name": "Nidoran♂", "level": 15, "moves": ["Horn Attack", "Poison Sting", "Leer"]}
+    ],
+    "reward_money": 300,
+    "sight_range": 2,
+    "dialogue_before": "Three down, two to go! But I won't make it easy!",
+    "dialogue_after": "You're on a roll!"
+  },
+  {
+    "id": "nugget_trainer_4",
+    "name": "Shannon",
+    "trainer_class": "Lass",
+    "sprite_id": "lass",
+    "pokemon_team": [
+      {"species_id": 29, "name": "Nidoran♀", "level": 16, "moves": ["Scratch", "Poison Sting", "Tail Whip"]},
+      {"species_id": 39, "name": "Jigglypuff", "level": 16, "moves": ["Sing", "Pound", "Disable"]}
+    ],
+    "reward_money": 320,
+    "sight_range": 2,
+    "dialogue_before": "You're almost there! But can you beat me?",
+    "dialogue_after": "One more trainer to go! Keep it up!"
+  },
+  {
+    "id": "nugget_trainer_5",
+    "name": "Josh",
+    "trainer_class": "Hiker",
+    "sprite_id": "hiker",
+    "pokemon_team": [
+      {"species_id": 74, "name": "Geodude", "level": 15, "moves": ["Rock Throw", "Tackle", "Defense Curl"]},
+      {"species_id": 74, "name": "Geodude", "level": 15, "moves": ["Rock Throw", "Tackle", "Defense Curl"]},
+      {"species_id": 95, "name": "Onix", "level": 13, "moves": ["Rock Throw", "Tackle", "Sand Attack"]}
+    ],
+    "reward_money": 520,
+    "sight_range": 2,
+    "dialogue_before": "I'm the last trainer on the bridge! Give it your all!",
+    "dialogue_after": "Incredible! You've cleared the Nugget Bridge Challenge!"
+  },
+  {
+    "id": "route25_hiker_1",
+    "name": "Wayne",
+    "trainer_class": "Hiker",
+    "sprite_id": "hiker",
+    "pokemon_team": [
+      {"species_id": 74, "name": "Geodude", "level": 15, "moves": ["Rock Throw", "Tackle", "Defense Curl"]},
+      {"species_id": 95, "name": "Onix", "level": 15, "moves": ["Rock Throw", "Tackle", "Sand Attack"]}
+    ],
+    "reward_money": 540,
+    "sight_range": 3,
+    "dialogue_before": "The path to Bill's house is treacherous!",
+    "dialogue_after": "You're tough! Bill's house is just ahead."
+  },
+  {
+    "id": "route25_lass_1",
+    "name": "Haley",
+    "trainer_class": "Lass",
+    "sprite_id": "lass",
+    "pokemon_team": [
+      {"species_id": 43, "name": "Oddish", "level": 17, "moves": ["Absorb", "Poison Powder", "Stun Spore"]},
+      {"species_id": 16, "name": "Pidgey", "level": 17, "moves": ["Gust", "Quick Attack", "Sand Attack"]}
+    ],
+    "reward_money": 340,
+    "sight_range": 3,
+    "dialogue_before": "Are you going to visit Bill? Me too!",
+    "dialogue_after": "Tell Bill I said hi!"
+  },
+  {
+    "id": "route6_bug_catcher_1",
+    "name": "Keigo",
+    "trainer_class": "Bug Catcher",
+    "sprite_id": "bug_catcher",
+    "pokemon_team": [
+      {"species_id": 10, "name": "Caterpie", "level": 16, "moves": ["Tackle", "String Shot"]},
+      {"species_id": 13, "name": "Weedle", "level": 16, "moves": ["Poison Sting", "String Shot"]}
+    ],
+    "reward_money": 320,
+    "sight_range": 3,
+    "dialogue_before": "I'm training my bugs for the Vermilion Gym!",
+    "dialogue_after": "I need to catch stronger bugs..."
+  },
+  {
+    "id": "route6_youngster_1",
+    "name": "Dave",
+    "trainer_class": "Youngster",
+    "sprite_id": "youngster",
+    "pokemon_team": [
+      {"species_id": 32, "name": "Nidoran♂", "level": 16, "moves": ["Horn Attack", "Poison Sting", "Leer"]},
+      {"species_id": 19, "name": "Rattata", "level": 16, "moves": ["Quick Attack", "Hyper Fang", "Tail Whip"]}
+    ],
+    "reward_money": 320,
+    "sight_range": 3,
+    "dialogue_before": "Vermilion City is just past here! But first, battle me!",
+    "dialogue_after": "You're heading to Vermilion too? Good luck!"
   }
 ]

@@ -311,6 +311,30 @@
     }
   },
   {
+    "id": 51,
+    "name": "Nugget",
+    "description": "A nugget of pure gold. Can be sold at a high price.",
+    "category": "treasure",
+    "price": 0,
+    "sell_price": 5000,
+    "effect": {
+      "type": "none"
+    },
+    "usable": false
+  },
+  {
+    "id": 52,
+    "name": "S.S. Ticket",
+    "description": "A ticket for the S.S. Anne luxury liner.",
+    "category": "key_item",
+    "price": 0,
+    "sell_price": 0,
+    "effect": {
+      "type": "none"
+    },
+    "usable": false
+  },
+  {
     "id": 101,
     "name": "HM01 Cut",
     "description": "Teaches the move Cut. Can cut down small trees.",

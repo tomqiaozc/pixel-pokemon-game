@@ -145,10 +145,33 @@ def use_item(
     return UseItemResult(success=False, message="Item cannot be used this way")
 
 
+def give_item(game_id: str, item_id: int, quantity: int = 1) -> Optional[list[InventoryEntry]]:
+    """Add item to player inventory without purchase (for story rewards)."""
+    game = get_game(game_id)
+    if game is None:
+        return None
+    item = get_item(item_id)
+    if item is None:
+        return None
+    inventory = _get_inventory(game)
+    found = False
+    for e in inventory:
+        if e.get("item_id") == item_id:
+            e["quantity"] += quantity
+            found = True
+            break
+    if not found:
+        inventory.append({"item_id": item_id, "quantity": quantity})
+    return get_inventory(game_id)
+
+
 def toss_item(game_id: str, item_id: int, quantity: int) -> Optional[list[InventoryEntry]]:
     game = get_game(game_id)
     if game is None:
         return None
+    item = get_item(item_id)
+    if item and item.category == "key_item":
+        raise ValueError("Key items cannot be discarded")
     inventory = _get_inventory(game)
     for e in inventory:
         if e.get("item_id") == item_id:
@@ -237,6 +260,12 @@ def sell_item(
     if item is None:
         return TransactionResult(
             success=False, message="Item not found",
+            money=_get_money(game), inventory=get_inventory(game_id) or [],
+        )
+
+    if item.category == "key_item":
+        return TransactionResult(
+            success=False, message="Key items cannot be sold",
             money=_get_money(game), inventory=get_inventory(game_id) or [],
         )
 
