@@ -1,0 +1,67 @@
+[
+  {
+    "id": "celadon_tutor",
+    "name": "Celadon Move Tutor",
+    "location": "celadon_city",
+    "map_id": "celadon_city",
+    "moves": [
+      "Counter",
+      "Mimic",
+      "Metronome"
+    ],
+    "cost_type": "coins",
+    "cost": 3000
+  },
+  {
+    "id": "fuchsia_tutor",
+    "name": "Fuchsia Move Tutor",
+    "location": "fuchsia_city",
+    "map_id": "fuchsia_city",
+    "moves": [
+      "Substitute",
+      "Double Team",
+      "Swords Dance"
+    ],
+    "cost_type": "coins",
+    "cost": 4000
+  },
+  {
+    "id": "saffron_tutor",
+    "name": "Saffron Move Tutor",
+    "location": "saffron_city",
+    "map_id": "saffron_city",
+    "moves": [
+      "Thunder Wave",
+      "Seismic Toss",
+      "Dream Eater"
+    ],
+    "cost_type": "coins",
+    "cost": 3500
+  },
+  {
+    "id": "cinnabar_tutor",
+    "name": "Cinnabar Move Tutor",
+    "location": "cinnabar_island",
+    "map_id": "cinnabar_island",
+    "moves": [
+      "Flamethrower",
+      "Ice Beam",
+      "Thunderbolt"
+    ],
+    "cost_type": "free",
+    "cost": 0
+  },
+  {
+    "id": "indigo_tutor",
+    "name": "Indigo Plateau Tutor",
+    "location": "indigo_plateau",
+    "map_id": "indigo_plateau",
+    "moves": [
+      "Hyper Beam",
+      "Explosion",
+      "Sky Attack"
+    ],
+    "cost_type": "coins",
+    "cost": 5000
+  }
+]
