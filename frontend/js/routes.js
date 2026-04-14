@@ -2595,6 +2595,267 @@ const Routes = (() => {
           ] },
     ];
 
+    // --- Sprint 19: Cinnabar Island map builders ---
+
+    // Cinnabar Island (20x20)
+    function buildCinnabarIsland() {
+        const W = 20, H = 20;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.WATER); m.push(row); }
+        // Island land mass (inner area)
+        for (let y = 2; y < H-2; y++) for (let x = 2; x < W-2; x++) m[y][x] = T.GRASS;
+        // Roads
+        for (let x = 2; x < W-2; x++) { m[9][x] = T.DIRT; m[10][x] = T.DIRT; }
+        for (let y = 2; y < H-2; y++) { m[y][9] = T.DIRT; m[y][10] = T.DIRT; }
+        // Pokemon Center (3x3 at 4,7)
+        for (let dy = 0; dy < 3; dy++) for (let dx = 0; dx < 3; dx++) m[7+dy][4+dx] = T.HOUSE_WALL;
+        m[7][4] = T.HOUSE_ROOF; m[7][5] = T.HOUSE_ROOF; m[7][6] = T.HOUSE_ROOF;
+        m[9][5] = T.DOOR;
+        // Pokemart (3x3 at 10,7)
+        for (let dy = 0; dy < 3; dy++) for (let dx = 0; dx < 3; dx++) m[7+dy][10+dx] = T.HOUSE_WALL;
+        m[7][10] = T.HOUSE_ROOF; m[7][11] = T.HOUSE_ROOF; m[7][12] = T.HOUSE_ROOF;
+        m[9][11] = T.DOOR;
+        // Gym (5x4 at 4,13)
+        for (let dy = 0; dy < 4; dy++) for (let dx = 0; dx < 5; dx++) m[13+dy][4+dx] = T.HOUSE_WALL;
+        m[13][4] = T.HOUSE_ROOF; m[13][5] = T.HOUSE_ROOF; m[13][6] = T.HOUSE_ROOF; m[13][7] = T.HOUSE_ROOF; m[13][8] = T.HOUSE_ROOF;
+        m[16][6] = T.DOOR;
+        // Pokemon Mansion (5x4 at 12,3)
+        for (let dy = 0; dy < 4; dy++) for (let dx = 0; dx < 5; dx++) m[3+dy][12+dx] = T.HOUSE_WALL;
+        m[3][12] = T.HOUSE_ROOF; m[3][13] = T.HOUSE_ROOF; m[3][14] = T.HOUSE_ROOF; m[3][15] = T.HOUSE_ROOF; m[3][16] = T.HOUSE_ROOF;
+        m[6][14] = T.DOOR;
+        // Pokemon Lab (4x3 at 13,13)
+        for (let dy = 0; dy < 3; dy++) for (let dx = 0; dx < 4; dx++) m[13+dy][13+dx] = T.HOUSE_WALL;
+        m[13][13] = T.HOUSE_ROOF; m[13][14] = T.HOUSE_ROOF; m[13][15] = T.HOUSE_ROOF; m[13][16] = T.HOUSE_ROOF;
+        m[15][14] = T.DOOR;
+        // Volcanic rocks
+        m[4][3] = T.ROCK; m[4][5] = T.ROCK; m[15][3] = T.ROCK;
+        // Water access (north and east)
+        m[0][9] = T.WATER; m[0][10] = T.WATER;
+        m[9][W-1] = T.WATER; m[10][W-1] = T.WATER;
+        return { data: m, width: W, height: H };
+    }
+
+    // Cinnabar Pokemon Center (8x8)
+    function buildCinnabarPokemonCenter() {
+        const W = 8, H = 8;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.DIRT); m.push(row); }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H-1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W-1] = T.HOUSE_WALL; }
+        for (let x = 2; x <= 5; x++) m[2][x] = T.HOUSE_WALL;
+        m[5][2] = T.HOUSE_WALL; m[5][5] = T.HOUSE_WALL;
+        m[H-1][4] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Cinnabar Pokemart (8x8)
+    function buildCinnabarPokemart() {
+        const W = 8, H = 8;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.DIRT); m.push(row); }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H-1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W-1] = T.HOUSE_WALL; }
+        for (let x = 2; x <= 5; x++) m[2][x] = T.HOUSE_WALL;
+        m[4][2] = T.HOUSE_WALL; m[4][5] = T.HOUSE_WALL;
+        m[5][2] = T.HOUSE_WALL; m[5][5] = T.HOUSE_WALL;
+        m[H-1][4] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Cinnabar Gym (12x12 — quiz/lock aesthetic)
+    function buildCinnabarGym() {
+        const W = 12, H = 12;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.DIRT); m.push(row); }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H-1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W-1] = T.HOUSE_WALL; }
+        // Quiz machine barriers (ROCK as quiz stations)
+        m[3][3] = T.ROCK; m[3][8] = T.ROCK;
+        m[6][3] = T.ROCK; m[6][8] = T.ROCK;
+        m[9][3] = T.ROCK; m[9][8] = T.ROCK;
+        // Divider walls between quiz rooms
+        for (let x = 1; x <= 4; x++) m[4][x] = T.HOUSE_WALL;
+        m[4][3] = T.DOOR; // passage
+        for (let x = 7; x <= 10; x++) m[4][x] = T.HOUSE_WALL;
+        m[4][8] = T.DOOR;
+        for (let x = 1; x <= 4; x++) m[7][x] = T.HOUSE_WALL;
+        m[7][3] = T.DOOR;
+        for (let x = 7; x <= 10; x++) m[7][x] = T.HOUSE_WALL;
+        m[7][8] = T.DOOR;
+        // Path
+        for (let y = 1; y < H-1; y++) { m[y][5] = T.DIRT; m[y][6] = T.DIRT; }
+        m[H-1][5] = T.DOOR; m[H-1][6] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Pokemon Mansion 1F (14x14)
+    function buildPokemonMansion1F() {
+        const W = 14, H = 14;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.DIRT); m.push(row); }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H-1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W-1] = T.HOUSE_WALL; }
+        // Ruined interior walls
+        for (let y = 3; y <= 5; y++) m[y][5] = T.HOUSE_WALL;
+        for (let y = 3; y <= 5; y++) m[y][9] = T.HOUSE_WALL;
+        for (let x = 3; x <= 5; x++) m[8][x] = T.HOUSE_WALL;
+        for (let x = 9; x <= 11; x++) m[8][x] = T.HOUSE_WALL;
+        // Rubble
+        m[4][3] = T.ROCK; m[6][10] = T.ROCK; m[10][4] = T.ROCK; m[10][9] = T.ROCK;
+        // Stairs up
+        m[0][12] = T.DOOR;
+        // Main door
+        m[H-1][7] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Pokemon Mansion 2F (14x14)
+    function buildPokemonMansion2F() {
+        const W = 14, H = 14;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.DIRT); m.push(row); }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H-1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W-1] = T.HOUSE_WALL; }
+        // More broken walls and columns
+        for (let y = 4; y <= 9; y++) m[y][7] = T.HOUSE_WALL;
+        m[6][7] = T.DOOR;
+        m[3][3] = T.ROCK; m[3][11] = T.ROCK; m[10][3] = T.ROCK; m[10][11] = T.ROCK;
+        // Lab equipment (bookshelves)
+        for (let x = 2; x <= 4; x++) m[1][x] = T.HOUSE_WALL;
+        for (let x = 10; x <= 12; x++) m[1][x] = T.HOUSE_WALL;
+        // Stairs
+        m[H-1][12] = T.DOOR;
+        m[0][12] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Pokemon Mansion Top Floor (14x14)
+    function buildPokemonMansionTop() {
+        const W = 14, H = 14;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.DIRT); m.push(row); }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H-1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W-1] = T.HOUSE_WALL; }
+        // Research room with tables
+        for (let x = 3; x <= 5; x++) m[3][x] = T.HOUSE_WALL;
+        for (let x = 9; x <= 11; x++) m[3][x] = T.HOUSE_WALL;
+        // Diary on table
+        m[3][4] = T.ROCK; // diary
+        // Secret Key location
+        m[10][7] = T.FLOWER; // marks the Secret Key location
+        // Rubble everywhere
+        m[6][2] = T.ROCK; m[6][12] = T.ROCK; m[8][5] = T.ROCK; m[8][9] = T.ROCK;
+        // Stairs
+        m[H-1][12] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Pokemon Lab (10x8)
+    function buildPokemonLab() {
+        const W = 10, H = 8;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.DIRT); m.push(row); }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H-1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W-1] = T.HOUSE_WALL; }
+        // Lab equipment
+        for (let x = 2; x <= 4; x++) m[1][x] = T.HOUSE_WALL;
+        for (let x = 6; x <= 8; x++) m[1][x] = T.HOUSE_WALL;
+        // Fossil revival machines (ROCK)
+        m[3][2] = T.ROCK; m[3][7] = T.ROCK;
+        m[4][2] = T.ROCK; m[4][7] = T.ROCK;
+        m[H-1][5] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Route 20 (30x10 water route)
+    function buildRoute20() {
+        const W = 30, H = 10;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.WATER); m.push(row); }
+        // Small islands
+        for (let dy = 0; dy < 2; dy++) for (let dx = 0; dx < 3; dx++) m[2+dy][8+dx] = T.GRASS;
+        for (let dy = 0; dy < 2; dy++) for (let dx = 0; dx < 2; dx++) m[6+dy][18+dx] = T.GRASS;
+        m[3][9] = T.TREE;
+        m[7][19] = T.TREE;
+        return { data: m, width: W, height: H };
+    }
+
+    // Route 21 (10x30 water route)
+    function buildRoute21() {
+        const W = 10, H = 30;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.WATER); m.push(row); }
+        // Small islands
+        for (let dy = 0; dy < 3; dy++) for (let dx = 0; dx < 2; dx++) m[8+dy][3+dx] = T.GRASS;
+        for (let dy = 0; dy < 2; dy++) for (let dx = 0; dx < 3; dx++) m[18+dy][5+dx] = T.GRASS;
+        m[9][4] = T.TREE;
+        m[19][6] = T.TREE;
+        return { data: m, width: W, height: H };
+    }
+
+    // Cinnabar Gym trainers
+    const cinnabarGymTrainers = [
+        { x: 3, y: 3, name: 'Burglar Quinn', dir: 3, sightRange: 3,
+          dialogue: ['I stole these fire Pokemon fair and square!'],
+          pokemon: [
+              { name: 'Ponyta', level: 36, hp: 56, maxHp: 56, type: 'Fire' },
+              { name: 'Rapidash', level: 36, hp: 62, maxHp: 62, type: 'Fire' },
+          ] },
+        { x: 8, y: 6, name: 'Burglar Arnie', dir: 2, sightRange: 3,
+          dialogue: ['Fire is the tool of the trade!'],
+          pokemon: [
+              { name: 'Growlithe', level: 38, hp: 58, maxHp: 58, type: 'Fire' },
+          ] },
+        { x: 3, y: 8, name: 'Burglar Simon', dir: 3, sightRange: 3,
+          dialogue: ['The quiz is just the warmup!'],
+          pokemon: [
+              { name: 'Magmar', level: 36, hp: 60, maxHp: 60, type: 'Fire' },
+              { name: 'Ponyta', level: 36, hp: 56, maxHp: 56, type: 'Fire' },
+          ] },
+    ];
+
+    // Mansion scientist trainers
+    const mansionTrainers = [
+        { x: 7, y: 5, name: 'Scientist Ted', dir: 0, sightRange: 4,
+          dialogue: ['This mansion holds many secrets!'],
+          pokemon: [
+              { name: 'Koffing', level: 33, hp: 48, maxHp: 48, type: 'Poison' },
+              { name: 'Weezing', level: 33, hp: 56, maxHp: 56, type: 'Poison' },
+          ] },
+    ];
+
+    const mansion2FTrainers = [
+        { x: 10, y: 8, name: 'Scientist Connor', dir: 2, sightRange: 4,
+          dialogue: ['The experiments here were groundbreaking!'],
+          pokemon: [
+              { name: 'Magmar', level: 35, hp: 60, maxHp: 60, type: 'Fire' },
+          ] },
+    ];
+
+    // Route 20 & 21 swimmers
+    const route20Trainers = [
+        { x: 10, y: 5, name: 'Swimmer Barry', dir: 3, sightRange: 5,
+          dialogue: ['The waters around Cinnabar are warm!'],
+          pokemon: [
+              { name: 'Squirtle', level: 33, hp: 50, maxHp: 50, type: 'Water' },
+              { name: 'Wartortle', level: 33, hp: 56, maxHp: 56, type: 'Water' },
+          ] },
+        { x: 20, y: 4, name: 'Swimmer Diana', dir: 2, sightRange: 5,
+          dialogue: ['I love swimming in the ocean!'],
+          pokemon: [
+              { name: 'Horsea', level: 35, hp: 50, maxHp: 50, type: 'Water' },
+          ] },
+    ];
+
+    const route21Trainers = [
+        { x: 5, y: 15, name: 'Swimmer Jack', dir: 0, sightRange: 5,
+          dialogue: ['Route 21 is the fastest way to Cinnabar!'],
+          pokemon: [
+              { name: 'Squirtle', level: 34, hp: 52, maxHp: 52, type: 'Water' },
+              { name: 'Horsea', level: 34, hp: 50, maxHp: 50, type: 'Water' },
+          ] },
+    ];
+
     // Register all maps with MapLoader
     function registerAll() {
         const palletTown = buildPalletTown();
@@ -3649,6 +3910,123 @@ const Routes = (() => {
             npcs: [{ name: 'Warden', type: 'townsfolk', x: 4, y: 3, dir: 0,
               dialogue: ['I losht my Gold Teeth in the Safari Zone...', 'If you find them, I\'ll give you shomething shpecial!'] }],
         });
+
+        // --- Sprint 19: Cinnabar Island, Blaine's Gym, Pokemon Mansion ---
+
+        const cinnabarIsland = buildCinnabarIsland();
+        MapLoader.registerMap('cinnabar_island', {
+            name: 'Cinnabar Island',
+            width: cinnabarIsland.width,
+            height: cinnabarIsland.height,
+            data: cinnabarIsland.data,
+            exits: [
+                { edge: 'north', targetMap: 'route_21', spawnX: 5, spawnY: 28, spawnDir: 1 },
+                { edge: 'east', targetMap: 'route_20', spawnX: 1, spawnY: 5, spawnDir: 3 },
+            ],
+            doors: [
+                { x: 5, y: 9, targetMap: 'cinnabar_pokemon_center', spawnX: 4, spawnY: 6 },
+                { x: 11, y: 9, targetMap: 'cinnabar_pokemart', spawnX: 4, spawnY: 6 },
+                { x: 6, y: 16, targetMap: 'cinnabar_gym', spawnX: 5, spawnY: 10 },
+                { x: 14, y: 6, targetMap: 'pokemon_mansion_1f', spawnX: 7, spawnY: 12 },
+                { x: 14, y: 15, targetMap: 'pokemon_lab', spawnX: 5, spawnY: 6 },
+            ],
+            npcs: [
+                { name: 'Man', type: 'townsfolk', x: 8, y: 12, dir: 0,
+                  dialogue: ['Cinnabar Island has a long volcanic history.', 'The Pokemon Mansion has been abandoned for years.'] },
+                { name: 'Woman', type: 'townsfolk', x: 15, y: 10, dir: 2,
+                  dialogue: ['Blaine is a fiery gym leader!', 'You\'ll need the Secret Key to challenge him.'] },
+            ],
+            lamps: [{ x: 6, y: 5 }, { x: 14, y: 5 }, { x: 6, y: 12 }, { x: 14, y: 12 }],
+        });
+
+        const cinnabarPC = buildCinnabarPokemonCenter();
+        MapLoader.registerMap('cinnabar_pokemon_center', {
+            name: 'Cinnabar Pokemon Center',
+            width: cinnabarPC.width, height: cinnabarPC.height, data: cinnabarPC.data,
+            npcs: [{ name: 'Nurse Joy', type: 'nurse', x: 4, y: 2, dir: 0,
+              dialogue: ['Welcome to the Pokemon Center!', 'We\'ll heal your Pokemon.'] }],
+        });
+
+        const cinnabarMart = buildCinnabarPokemart();
+        MapLoader.registerMap('cinnabar_pokemart', {
+            name: 'Cinnabar Pokemart',
+            width: cinnabarMart.width, height: cinnabarMart.height, data: cinnabarMart.data,
+            npcs: [{ name: 'Clerk', type: 'townsfolk', x: 4, y: 2, dir: 0,
+              dialogue: ['Welcome to Cinnabar Pokemart!'] }],
+        });
+
+        const cinnabarGym = buildCinnabarGym();
+        MapLoader.registerMap('cinnabar_gym', {
+            name: 'Cinnabar Island Gym',
+            width: cinnabarGym.width, height: cinnabarGym.height, data: cinnabarGym.data,
+            trainers: cinnabarGymTrainers,
+            npcs: [{ name: 'Blaine', type: 'blaine', x: 5, y: 2, dir: 0,
+              dialogue: ['Hah! I am Blaine, the red-hot leader of Cinnabar Gym!', 'My fire Pokemon will incinerate all challengers!', 'Answer my quiz questions to reach me!'] }],
+        });
+
+        const mansion1F = buildPokemonMansion1F();
+        MapLoader.registerMap('pokemon_mansion_1f', {
+            name: 'Pokemon Mansion 1F',
+            width: mansion1F.width, height: mansion1F.height, data: mansion1F.data,
+            doors: [
+                { x: 12, y: 0, targetMap: 'pokemon_mansion_2f', spawnX: 12, spawnY: 12 },
+            ],
+            trainers: mansionTrainers,
+            npcs: [{ name: 'Scientist', type: 'townsfolk', x: 7, y: 5, dir: 0,
+              dialogue: ['This mansion was once a Pokemon research facility.', 'They were conducting experiments on a powerful Pokemon...'] }],
+        });
+
+        const mansion2F = buildPokemonMansion2F();
+        MapLoader.registerMap('pokemon_mansion_2f', {
+            name: 'Pokemon Mansion 2F',
+            width: mansion2F.width, height: mansion2F.height, data: mansion2F.data,
+            doors: [
+                { x: 12, y: 13, targetMap: 'pokemon_mansion_1f', spawnX: 12, spawnY: 1 },
+                { x: 12, y: 0, targetMap: 'pokemon_mansion_top', spawnX: 12, spawnY: 12 },
+            ],
+            trainers: mansion2FTrainers,
+            npcs: [{ name: 'Scientist', type: 'townsfolk', x: 10, y: 8, dir: 2,
+              dialogue: ['The diaries mention Mew... and a clone.', 'The experiments were abandoned when the clone escaped.'] }],
+        });
+
+        const mansionTop = buildPokemonMansionTop();
+        MapLoader.registerMap('pokemon_mansion_top', {
+            name: 'Pokemon Mansion Top Floor',
+            width: mansionTop.width, height: mansionTop.height, data: mansionTop.data,
+            doors: [
+                { x: 12, y: 13, targetMap: 'pokemon_mansion_2f', spawnX: 12, spawnY: 1 },
+            ],
+        });
+
+        const pokemonLab = buildPokemonLab();
+        MapLoader.registerMap('pokemon_lab', {
+            name: 'Cinnabar Pokemon Lab',
+            width: pokemonLab.width, height: pokemonLab.height, data: pokemonLab.data,
+            npcs: [{ name: 'Lab Scientist', type: 'townsfolk', x: 5, y: 3, dir: 0,
+              dialogue: ['Welcome to the Cinnabar Lab!', 'We can revive fossils into living Pokemon!'] }],
+        });
+
+        const r20 = buildRoute20();
+        MapLoader.registerMap('route_20', {
+            name: 'Route 20',
+            width: r20.width, height: r20.height, data: r20.data,
+            exits: [
+                { edge: 'west', targetMap: 'cinnabar_island', spawnX: 18, spawnY: 10, spawnDir: 2 },
+                { edge: 'east', targetMap: 'fuchsia_city', spawnX: 1, spawnY: 15, spawnDir: 3 },
+            ],
+            trainers: route20Trainers,
+        });
+
+        const r21 = buildRoute21();
+        MapLoader.registerMap('route_21', {
+            name: 'Route 21',
+            width: r21.width, height: r21.height, data: r21.data,
+            exits: [
+                { edge: 'south', targetMap: 'cinnabar_island', spawnX: 10, spawnY: 1, spawnDir: 0 },
+                { edge: 'north', targetMap: 'pallet_town', spawnX: 10, spawnY: 13, spawnDir: 1 },
+            ],
+            trainers: route21Trainers,
+        });
     }
 
     return {
@@ -3717,6 +4095,16 @@ const Routes = (() => {
         buildSafariZoneArea1,
         buildSafariZoneArea2,
         buildWardensHouse,
+        buildCinnabarIsland,
+        buildCinnabarPokemonCenter,
+        buildCinnabarPokemart,
+        buildCinnabarGym,
+        buildPokemonMansion1F,
+        buildPokemonMansion2F,
+        buildPokemonMansionTop,
+        buildPokemonLab,
+        buildRoute20,
+        buildRoute21,
         buildPalletTown,
         buildViridianCity,
         buildPewterCity,
@@ -3742,6 +4130,11 @@ const Routes = (() => {
         silphRocketB2Trainers,
         dojoTrainers,
         fuchsiaGymTrainers,
+        cinnabarGymTrainers,
+        mansionTrainers,
+        mansion2FTrainers,
+        route20Trainers,
+        route21Trainers,
         nuggetBridgeTrainers,
         route25Trainers,
     };

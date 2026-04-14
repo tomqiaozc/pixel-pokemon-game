@@ -1652,6 +1652,118 @@ const Sprites = (() => {
         return c;
     }
 
+    // Blaine — Cinnabar Island Gym Leader (bald, sunglasses, mustache)
+    function drawBlaine() {
+        if (cache.blaine) return cache.blaine;
+        const c = document.createElement('canvas');
+        c.width = TILE; c.height = TILE;
+        const ctx = c.getContext('2d');
+        // Bald head
+        ctx.fillStyle = '#fdd';
+        ctx.fillRect(4, 0, 8, 7);
+        // Sunglasses
+        ctx.fillStyle = '#222';
+        ctx.fillRect(5, 2, 3, 2);
+        ctx.fillRect(9, 2, 3, 2);
+        ctx.fillRect(8, 2, 1, 1);
+        // Mustache (white)
+        ctx.fillStyle = '#ddd';
+        ctx.fillRect(6, 5, 4, 1);
+        // Body (red/orange lab coat)
+        ctx.fillStyle = '#e63';
+        ctx.fillRect(3, 7, 10, 5);
+        // Collar
+        ctx.fillStyle = '#fff';
+        ctx.fillRect(6, 7, 4, 1);
+        // Legs
+        ctx.fillStyle = '#633';
+        ctx.fillRect(5, 12, 2, 3);
+        ctx.fillRect(9, 12, 2, 3);
+        // Shoes
+        ctx.fillStyle = '#422';
+        ctx.fillRect(5, 14, 2, 1);
+        ctx.fillRect(9, 14, 2, 1);
+        cache.blaine = c;
+        return c;
+    }
+
+    // Burglar — Cinnabar Gym trainer (mask, striped shirt)
+    function drawBurglar() {
+        if (cache.burglar) return cache.burglar;
+        const c = document.createElement('canvas');
+        c.width = TILE; c.height = TILE;
+        const ctx = c.getContext('2d');
+        // Beanie (dark)
+        ctx.fillStyle = '#333';
+        ctx.fillRect(4, 0, 8, 3);
+        // Face with mask
+        ctx.fillStyle = '#fdd';
+        ctx.fillRect(5, 3, 6, 4);
+        // Mask (covering lower face)
+        ctx.fillStyle = '#333';
+        ctx.fillRect(5, 5, 6, 2);
+        // Eyes
+        ctx.fillStyle = '#222';
+        ctx.fillRect(6, 3, 1, 1);
+        ctx.fillRect(9, 3, 1, 1);
+        // Striped body
+        ctx.fillStyle = '#222';
+        ctx.fillRect(4, 7, 8, 5);
+        ctx.fillStyle = '#ddd';
+        ctx.fillRect(4, 8, 8, 1);
+        ctx.fillRect(4, 10, 8, 1);
+        // Legs
+        ctx.fillStyle = '#333';
+        ctx.fillRect(5, 12, 2, 3);
+        ctx.fillRect(9, 12, 2, 3);
+        // Shoes
+        ctx.fillStyle = '#222';
+        ctx.fillRect(5, 14, 2, 1);
+        ctx.fillRect(9, 14, 2, 1);
+        cache.burglar = c;
+        return c;
+    }
+
+    // Swimmer — water route trainer (goggles, swimsuit)
+    function drawSwimmer() {
+        if (cache.swimmer) return cache.swimmer;
+        const c = document.createElement('canvas');
+        c.width = TILE; c.height = TILE;
+        const ctx = c.getContext('2d');
+        // Hair
+        ctx.fillStyle = '#c80';
+        ctx.fillRect(4, 0, 8, 3);
+        // Face
+        ctx.fillStyle = '#fdd';
+        ctx.fillRect(5, 2, 6, 5);
+        // Goggles
+        ctx.fillStyle = '#4af';
+        ctx.fillRect(5, 3, 3, 2);
+        ctx.fillRect(9, 3, 3, 2);
+        // Goggle strap
+        ctx.fillStyle = '#222';
+        ctx.fillRect(8, 3, 1, 1);
+        // Mouth
+        ctx.fillStyle = '#a66';
+        ctx.fillRect(7, 5, 2, 1);
+        // Swimsuit body
+        ctx.fillStyle = '#28c';
+        ctx.fillRect(4, 7, 8, 4);
+        // Arms (skin)
+        ctx.fillStyle = '#fdd';
+        ctx.fillRect(3, 7, 1, 3);
+        ctx.fillRect(12, 7, 1, 3);
+        // Legs
+        ctx.fillStyle = '#fdd';
+        ctx.fillRect(5, 11, 2, 4);
+        ctx.fillRect(9, 11, 2, 4);
+        // Water splash
+        ctx.fillStyle = '#4af';
+        ctx.fillRect(3, 13, 10, 2);
+        cache.swimmer = c;
+        return c;
+    }
+
     return {
         TILE,
         PAL,
@@ -1701,5 +1813,8 @@ const Sprites = (() => {
         drawBlackbelt,
         drawKoga,
         drawJuggler,
+        drawBlaine,
+        drawBurglar,
+        drawSwimmer,
     };
 })();

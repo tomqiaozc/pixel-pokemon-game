@@ -4814,5 +4814,325 @@
     ],
     "evolution": null,
     "sprite": "tauros.png"
+  },
+  {
+    "id": 58,
+    "name": "Growlithe",
+    "types": [
+      "fire"
+    ],
+    "stats": {
+      "hp": 55,
+      "attack": 70,
+      "defense": 45,
+      "sp_attack": 70,
+      "sp_defense": 50,
+      "speed": 60
+    },
+    "base_exp": 70,
+    "catch_rate": 190,
+    "abilities": [
+      "Intimidate",
+      "Flash Fire"
+    ],
+    "gender_ratio": 75.0,
+    "egg_groups": [
+      "field"
+    ],
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Bite"
+      },
+      {
+        "level": 1,
+        "move": "Roar"
+      },
+      {
+        "level": 6,
+        "move": "Ember"
+      },
+      {
+        "level": 9,
+        "move": "Leer"
+      },
+      {
+        "level": 14,
+        "move": "Odor Sleuth"
+      },
+      {
+        "level": 19,
+        "move": "Take Down"
+      },
+      {
+        "level": 25,
+        "move": "Flame Wheel"
+      },
+      {
+        "level": 31,
+        "move": "Agility"
+      },
+      {
+        "level": 34,
+        "move": "Flamethrower"
+      }
+    ],
+    "evolution": {
+      "to": 59,
+      "method": "stone",
+      "item": "Fire Stone"
+    },
+    "sprite": "growlithe.png"
+  },
+  {
+    "id": 59,
+    "name": "Arcanine",
+    "types": [
+      "fire"
+    ],
+    "stats": {
+      "hp": 90,
+      "attack": 110,
+      "defense": 80,
+      "sp_attack": 100,
+      "sp_defense": 80,
+      "speed": 95
+    },
+    "base_exp": 194,
+    "catch_rate": 75,
+    "abilities": [
+      "Intimidate",
+      "Flash Fire"
+    ],
+    "gender_ratio": 75.0,
+    "egg_groups": [
+      "field"
+    ],
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Bite"
+      },
+      {
+        "level": 1,
+        "move": "Roar"
+      },
+      {
+        "level": 1,
+        "move": "Fire Fang"
+      },
+      {
+        "level": 1,
+        "move": "Extreme Speed"
+      },
+      {
+        "level": 34,
+        "move": "Flamethrower"
+      }
+    ],
+    "evolution": null,
+    "sprite": "arcanine.png"
+  },
+  {
+    "id": 77,
+    "name": "Ponyta",
+    "types": [
+      "fire"
+    ],
+    "stats": {
+      "hp": 50,
+      "attack": 85,
+      "defense": 55,
+      "sp_attack": 65,
+      "sp_defense": 65,
+      "speed": 90
+    },
+    "base_exp": 82,
+    "catch_rate": 190,
+    "abilities": [
+      "Run Away",
+      "Flash Fire"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "field"
+    ],
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 4,
+        "move": "Growl"
+      },
+      {
+        "level": 9,
+        "move": "Tail Whip"
+      },
+      {
+        "level": 13,
+        "move": "Ember"
+      },
+      {
+        "level": 17,
+        "move": "Flame Wheel"
+      },
+      {
+        "level": 21,
+        "move": "Stomp"
+      },
+      {
+        "level": 25,
+        "move": "Fire Spin"
+      },
+      {
+        "level": 29,
+        "move": "Take Down"
+      },
+      {
+        "level": 33,
+        "move": "Agility"
+      },
+      {
+        "level": 37,
+        "move": "Fire Blast"
+      }
+    ],
+    "evolution": {
+      "to": 78,
+      "level": 40
+    },
+    "sprite": "ponyta.png"
+  },
+  {
+    "id": 78,
+    "name": "Rapidash",
+    "types": [
+      "fire"
+    ],
+    "stats": {
+      "hp": 65,
+      "attack": 100,
+      "defense": 70,
+      "sp_attack": 80,
+      "sp_defense": 80,
+      "speed": 105
+    },
+    "base_exp": 175,
+    "catch_rate": 60,
+    "abilities": [
+      "Run Away",
+      "Flash Fire"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "field"
+    ],
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Poison Jab"
+      },
+      {
+        "level": 1,
+        "move": "Megahorn"
+      },
+      {
+        "level": 1,
+        "move": "Growl"
+      },
+      {
+        "level": 1,
+        "move": "Tail Whip"
+      },
+      {
+        "level": 1,
+        "move": "Ember"
+      },
+      {
+        "level": 40,
+        "move": "Fury Attack"
+      },
+      {
+        "level": 45,
+        "move": "Fire Blast"
+      },
+      {
+        "level": 50,
+        "move": "Bounce"
+      }
+    ],
+    "evolution": null,
+    "sprite": "rapidash.png"
+  },
+  {
+    "id": 126,
+    "name": "Magmar",
+    "types": [
+      "fire"
+    ],
+    "stats": {
+      "hp": 65,
+      "attack": 95,
+      "defense": 57,
+      "sp_attack": 100,
+      "sp_defense": 85,
+      "speed": 93
+    },
+    "base_exp": 173,
+    "catch_rate": 45,
+    "abilities": [
+      "Flame Body",
+      "Vital Spirit"
+    ],
+    "gender_ratio": 75.0,
+    "egg_groups": [
+      "human-like"
+    ],
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Smog"
+      },
+      {
+        "level": 1,
+        "move": "Leer"
+      },
+      {
+        "level": 7,
+        "move": "Ember"
+      },
+      {
+        "level": 13,
+        "move": "Smokescreen"
+      },
+      {
+        "level": 19,
+        "move": "Feint Attack"
+      },
+      {
+        "level": 25,
+        "move": "Fire Spin"
+      },
+      {
+        "level": 33,
+        "move": "Confuse Ray"
+      },
+      {
+        "level": 41,
+        "move": "Fire Punch"
+      },
+      {
+        "level": 49,
+        "move": "Flamethrower"
+      },
+      {
+        "level": 55,
+        "move": "Fire Blast"
+      }
+    ],
+    "evolution": null,
+    "sprite": "magmar.png"
   }
 ]

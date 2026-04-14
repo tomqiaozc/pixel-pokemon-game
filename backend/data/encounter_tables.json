@@ -1018,5 +1018,104 @@
         "weight": 25
       }
     ]
+  },
+  "route_20": {
+    "name": "Route 20",
+    "encounter_type": "water",
+    "base_encounter_rate": 0.25,
+    "encounters": [
+      {
+        "species_id": 7,
+        "min_level": 25,
+        "max_level": 35,
+        "weight": 40
+      },
+      {
+        "species_id": 16,
+        "min_level": 25,
+        "max_level": 35,
+        "weight": 30
+      },
+      {
+        "species_id": 8,
+        "min_level": 30,
+        "max_level": 35,
+        "weight": 20
+      },
+      {
+        "species_id": 22,
+        "min_level": 30,
+        "max_level": 35,
+        "weight": 10
+      }
+    ]
+  },
+  "route_21": {
+    "name": "Route 21",
+    "encounter_type": "water",
+    "base_encounter_rate": 0.25,
+    "encounters": [
+      {
+        "species_id": 7,
+        "min_level": 25,
+        "max_level": 35,
+        "weight": 40
+      },
+      {
+        "species_id": 16,
+        "min_level": 25,
+        "max_level": 35,
+        "weight": 30
+      },
+      {
+        "species_id": 8,
+        "min_level": 30,
+        "max_level": 38,
+        "weight": 20
+      },
+      {
+        "species_id": 22,
+        "min_level": 30,
+        "max_level": 38,
+        "weight": 10
+      }
+    ]
+  },
+  "pokemon_mansion": {
+    "name": "Pokemon Mansion",
+    "encounter_type": "grass",
+    "base_encounter_rate": 0.15,
+    "encounters": [
+      {
+        "species_id": 58,
+        "min_level": 30,
+        "max_level": 36,
+        "weight": 25
+      },
+      {
+        "species_id": 77,
+        "min_level": 30,
+        "max_level": 36,
+        "weight": 25
+      },
+      {
+        "species_id": 37,
+        "min_level": 30,
+        "max_level": 36,
+        "weight": 20
+      },
+      {
+        "species_id": 126,
+        "min_level": 34,
+        "max_level": 38,
+        "weight": 15
+      },
+      {
+        "species_id": 49,
+        "min_level": 32,
+        "max_level": 36,
+        "weight": 15
+      }
+    ]
   }
 }

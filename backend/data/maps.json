@@ -3130,5 +3130,381 @@
     "trainers": [],
     "encounter_zones": [],
     "buildings": []
+  },
+  {
+    "id": "cinnabar_island",
+    "name": "cinnabar_island",
+    "display_name": "Cinnabar Island",
+    "map_type": "city",
+    "width": 20,
+    "height": 20,
+    "connections": [
+      {
+        "direction": "north",
+        "target_map_id": "route_21",
+        "entry_x": 5,
+        "entry_y": 29
+      },
+      {
+        "direction": "east",
+        "target_map_id": "route_20",
+        "entry_x": 1,
+        "entry_y": 5
+      }
+    ],
+    "npcs": [
+      {
+        "npc_id": "cinnabar_man",
+        "x": 8,
+        "y": 12,
+        "facing": "down"
+      },
+      {
+        "npc_id": "cinnabar_woman",
+        "x": 15,
+        "y": 10,
+        "facing": "left"
+      }
+    ],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": [
+      {
+        "name": "Pokemon Center",
+        "x": 4,
+        "y": 7,
+        "width": 3,
+        "height": 3,
+        "door_x": 5,
+        "door_y": 9,
+        "interior_map_id": "cinnabar_pokemon_center"
+      },
+      {
+        "name": "Pokemart",
+        "x": 10,
+        "y": 7,
+        "width": 3,
+        "height": 3,
+        "door_x": 11,
+        "door_y": 9,
+        "interior_map_id": "cinnabar_pokemart"
+      },
+      {
+        "name": "Cinnabar Gym",
+        "x": 4,
+        "y": 13,
+        "width": 5,
+        "height": 4,
+        "door_x": 6,
+        "door_y": 16,
+        "interior_map_id": "cinnabar_gym"
+      },
+      {
+        "name": "Pokemon Mansion",
+        "x": 12,
+        "y": 3,
+        "width": 5,
+        "height": 4,
+        "door_x": 14,
+        "door_y": 6,
+        "interior_map_id": "pokemon_mansion_1f"
+      },
+      {
+        "name": "Pokemon Lab",
+        "x": 13,
+        "y": 13,
+        "width": 4,
+        "height": 3,
+        "door_x": 14,
+        "door_y": 15,
+        "interior_map_id": "pokemon_lab"
+      }
+    ]
+  },
+  {
+    "id": "cinnabar_pokemon_center",
+    "name": "cinnabar_pokemon_center",
+    "display_name": "Cinnabar Pokemon Center",
+    "map_type": "interior",
+    "width": 8,
+    "height": 8,
+    "connections": [],
+    "npcs": [
+      {
+        "npc_id": "cinnabar_nurse",
+        "x": 4,
+        "y": 1,
+        "facing": "down"
+      }
+    ],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": []
+  },
+  {
+    "id": "cinnabar_pokemart",
+    "name": "cinnabar_pokemart",
+    "display_name": "Cinnabar Pokemart",
+    "map_type": "interior",
+    "width": 8,
+    "height": 8,
+    "connections": [],
+    "npcs": [
+      {
+        "npc_id": "cinnabar_clerk",
+        "x": 4,
+        "y": 1,
+        "facing": "down"
+      }
+    ],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": []
+  },
+  {
+    "id": "cinnabar_gym",
+    "name": "cinnabar_gym",
+    "display_name": "Cinnabar Gym",
+    "map_type": "gym",
+    "width": 12,
+    "height": 12,
+    "connections": [],
+    "npcs": [
+      {
+        "npc_id": "blaine_npc",
+        "x": 5,
+        "y": 2,
+        "facing": "down"
+      }
+    ],
+    "trainers": [
+      {
+        "trainer_id": "cinnabar_gym_trainer_1",
+        "x": 3,
+        "y": 4,
+        "facing": "right",
+        "sight_range": 3
+      },
+      {
+        "trainer_id": "cinnabar_gym_trainer_2",
+        "x": 8,
+        "y": 6,
+        "facing": "left",
+        "sight_range": 3
+      },
+      {
+        "trainer_id": "cinnabar_gym_trainer_3",
+        "x": 3,
+        "y": 8,
+        "facing": "right",
+        "sight_range": 3
+      }
+    ],
+    "encounter_zones": [],
+    "buildings": []
+  },
+  {
+    "id": "pokemon_mansion_1f",
+    "name": "pokemon_mansion_1f",
+    "display_name": "Pokemon Mansion 1F",
+    "map_type": "interior",
+    "width": 14,
+    "height": 14,
+    "connections": [],
+    "npcs": [
+      {
+        "npc_id": "mansion_scientist_1",
+        "x": 7,
+        "y": 5,
+        "facing": "down"
+      }
+    ],
+    "trainers": [
+      {
+        "trainer_id": "mansion_scientist_trainer_1",
+        "x": 7,
+        "y": 5,
+        "facing": "down",
+        "sight_range": 4
+      }
+    ],
+    "encounter_zones": [
+      {
+        "x": 2,
+        "y": 2,
+        "width": 10,
+        "height": 10,
+        "encounter_table_id": "pokemon_mansion"
+      }
+    ],
+    "buildings": []
+  },
+  {
+    "id": "pokemon_mansion_2f",
+    "name": "pokemon_mansion_2f",
+    "display_name": "Pokemon Mansion 2F",
+    "map_type": "interior",
+    "width": 14,
+    "height": 14,
+    "connections": [],
+    "npcs": [
+      {
+        "npc_id": "mansion_scientist_2",
+        "x": 10,
+        "y": 8,
+        "facing": "left"
+      }
+    ],
+    "trainers": [
+      {
+        "trainer_id": "mansion_scientist_trainer_2",
+        "x": 10,
+        "y": 8,
+        "facing": "left",
+        "sight_range": 4
+      }
+    ],
+    "encounter_zones": [
+      {
+        "x": 2,
+        "y": 2,
+        "width": 10,
+        "height": 10,
+        "encounter_table_id": "pokemon_mansion"
+      }
+    ],
+    "buildings": []
+  },
+  {
+    "id": "pokemon_mansion_top",
+    "name": "pokemon_mansion_top",
+    "display_name": "Pokemon Mansion Top Floor",
+    "map_type": "interior",
+    "width": 14,
+    "height": 14,
+    "connections": [],
+    "npcs": [],
+    "trainers": [],
+    "encounter_zones": [
+      {
+        "x": 2,
+        "y": 2,
+        "width": 10,
+        "height": 10,
+        "encounter_table_id": "pokemon_mansion"
+      }
+    ],
+    "buildings": []
+  },
+  {
+    "id": "pokemon_lab",
+    "name": "pokemon_lab",
+    "display_name": "Cinnabar Pokemon Lab",
+    "map_type": "interior",
+    "width": 10,
+    "height": 8,
+    "connections": [],
+    "npcs": [
+      {
+        "npc_id": "lab_scientist",
+        "x": 5,
+        "y": 3,
+        "facing": "down"
+      }
+    ],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": []
+  },
+  {
+    "id": "route_20",
+    "name": "route_20",
+    "display_name": "Route 20",
+    "map_type": "route",
+    "width": 30,
+    "height": 10,
+    "connections": [
+      {
+        "direction": "west",
+        "target_map_id": "cinnabar_island",
+        "entry_x": 19,
+        "entry_y": 10
+      },
+      {
+        "direction": "east",
+        "target_map_id": "fuchsia_city",
+        "entry_x": 1,
+        "entry_y": 15
+      }
+    ],
+    "npcs": [],
+    "trainers": [
+      {
+        "trainer_id": "route_20_swimmer_1",
+        "x": 10,
+        "y": 5,
+        "facing": "right",
+        "sight_range": 5
+      },
+      {
+        "trainer_id": "route_20_swimmer_2",
+        "x": 20,
+        "y": 4,
+        "facing": "left",
+        "sight_range": 5
+      }
+    ],
+    "encounter_zones": [
+      {
+        "x": 1,
+        "y": 1,
+        "width": 28,
+        "height": 8,
+        "encounter_table_id": "route_20"
+      }
+    ],
+    "buildings": []
+  },
+  {
+    "id": "route_21",
+    "name": "route_21",
+    "display_name": "Route 21",
+    "map_type": "route",
+    "width": 10,
+    "height": 30,
+    "connections": [
+      {
+        "direction": "south",
+        "target_map_id": "cinnabar_island",
+        "entry_x": 5,
+        "entry_y": 1
+      },
+      {
+        "direction": "north",
+        "target_map_id": "pallet_town",
+        "entry_x": 10,
+        "entry_y": 14
+      }
+    ],
+    "npcs": [],
+    "trainers": [
+      {
+        "trainer_id": "route_21_swimmer_1",
+        "x": 5,
+        "y": 15,
+        "facing": "down",
+        "sight_range": 5
+      }
+    ],
+    "encounter_zones": [
+      {
+        "x": 1,
+        "y": 1,
+        "width": 8,
+        "height": 28,
+        "encounter_table_id": "route_21"
+      }
+    ],
+    "buildings": []
   }
 ]

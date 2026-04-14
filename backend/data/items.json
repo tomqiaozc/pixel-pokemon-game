@@ -542,5 +542,30 @@
       "type": "quest"
     },
     "usable": false
+  },
+  {
+    "id": 64,
+    "name": "Secret Key",
+    "description": "A key that unlocks Blaine's Gym on Cinnabar Island.",
+    "category": "key_item",
+    "price": 0,
+    "sell_price": 0,
+    "effect": {
+      "type": "quest"
+    },
+    "usable": false
+  },
+  {
+    "id": 65,
+    "name": "TM38 Fire Blast",
+    "description": "A powerful Fire-type move with a chance to burn.",
+    "category": "tm",
+    "price": 5500,
+    "sell_price": 2750,
+    "effect": {
+      "type": "teach_move",
+      "move": "Fire Blast"
+    },
+    "usable": true
   }
 ]

@@ -947,5 +947,109 @@
     "facing": "down",
     "npc_type": "generic",
     "dialogue_tree_id": "warden_dialogue"
+  },
+  {
+    "id": "cinnabar_man",
+    "name": "Cinnabar Man",
+    "sprite_id": "man",
+    "position": {
+      "x": 8,
+      "y": 12
+    },
+    "map_id": "cinnabar_island",
+    "facing": "down",
+    "npc_type": "generic",
+    "dialogue_tree_id": "cinnabar_man_dialogue"
+  },
+  {
+    "id": "cinnabar_woman",
+    "name": "Cinnabar Woman",
+    "sprite_id": "woman",
+    "position": {
+      "x": 15,
+      "y": 10
+    },
+    "map_id": "cinnabar_island",
+    "facing": "left",
+    "npc_type": "generic",
+    "dialogue_tree_id": "cinnabar_woman_dialogue"
+  },
+  {
+    "id": "cinnabar_nurse",
+    "name": "Nurse Joy",
+    "sprite_id": "nurse",
+    "position": {
+      "x": 4,
+      "y": 2
+    },
+    "map_id": "cinnabar_pokemon_center",
+    "facing": "down",
+    "npc_type": "nurse",
+    "dialogue_tree_id": "cinnabar_nurse_dialogue"
+  },
+  {
+    "id": "cinnabar_clerk",
+    "name": "Clerk",
+    "sprite_id": "clerk",
+    "position": {
+      "x": 4,
+      "y": 2
+    },
+    "map_id": "cinnabar_pokemart",
+    "facing": "down",
+    "npc_type": "shopkeeper",
+    "dialogue_tree_id": "cinnabar_clerk_dialogue"
+  },
+  {
+    "id": "blaine_npc",
+    "name": "Blaine",
+    "sprite_id": "blaine",
+    "position": {
+      "x": 5,
+      "y": 2
+    },
+    "map_id": "cinnabar_gym",
+    "facing": "down",
+    "npc_type": "gym_leader",
+    "dialogue_tree_id": "blaine_dialogue"
+  },
+  {
+    "id": "mansion_scientist_1",
+    "name": "Scientist",
+    "sprite_id": "scientist",
+    "position": {
+      "x": 7,
+      "y": 5
+    },
+    "map_id": "pokemon_mansion_1f",
+    "facing": "down",
+    "npc_type": "generic",
+    "dialogue_tree_id": "mansion_scientist_1_dialogue"
+  },
+  {
+    "id": "mansion_scientist_2",
+    "name": "Scientist",
+    "sprite_id": "scientist",
+    "position": {
+      "x": 10,
+      "y": 8
+    },
+    "map_id": "pokemon_mansion_2f",
+    "facing": "left",
+    "npc_type": "generic",
+    "dialogue_tree_id": "mansion_scientist_2_dialogue"
+  },
+  {
+    "id": "lab_scientist",
+    "name": "Lab Scientist",
+    "sprite_id": "scientist",
+    "position": {
+      "x": 5,
+      "y": 3
+    },
+    "map_id": "pokemon_lab",
+    "facing": "down",
+    "npc_type": "generic",
+    "dialogue_tree_id": "lab_scientist_dialogue"
   }
 ]

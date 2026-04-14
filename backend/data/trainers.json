@@ -2485,5 +2485,244 @@
     "sight_range": 3,
     "dialogue_before": "My Venomoth is a beauty!",
     "dialogue_after": "Beauty fades before strength..."
+  },
+  {
+    "id": "cinnabar_gym_trainer_1",
+    "name": "Burglar Quinn",
+    "trainer_class": "Burglar",
+    "sprite_id": "burglar",
+    "pokemon_team": [
+      {
+        "species_id": 77,
+        "name": "Ponyta",
+        "level": 36,
+        "moves": [
+          "Ember",
+          "Stomp",
+          "Fire Spin",
+          "Take Down"
+        ]
+      },
+      {
+        "species_id": 78,
+        "name": "Rapidash",
+        "level": 36,
+        "moves": [
+          "Ember",
+          "Stomp",
+          "Fire Spin",
+          "Fury Attack"
+        ]
+      }
+    ],
+    "reward_money": 720,
+    "sight_range": 3,
+    "dialogue_before": "I stole these fire Pokemon fair and square!",
+    "dialogue_after": "You doused my flames!"
+  },
+  {
+    "id": "cinnabar_gym_trainer_2",
+    "name": "Burglar Arnie",
+    "trainer_class": "Burglar",
+    "sprite_id": "burglar",
+    "pokemon_team": [
+      {
+        "species_id": 58,
+        "name": "Growlithe",
+        "level": 38,
+        "moves": [
+          "Bite",
+          "Ember",
+          "Flame Wheel",
+          "Take Down"
+        ]
+      }
+    ],
+    "reward_money": 760,
+    "sight_range": 3,
+    "dialogue_before": "Fire is the tool of the trade!",
+    "dialogue_after": "My fire went out..."
+  },
+  {
+    "id": "cinnabar_gym_trainer_3",
+    "name": "Burglar Simon",
+    "trainer_class": "Burglar",
+    "sprite_id": "burglar",
+    "pokemon_team": [
+      {
+        "species_id": 126,
+        "name": "Magmar",
+        "level": 36,
+        "moves": [
+          "Ember",
+          "Smokescreen",
+          "Fire Punch",
+          "Confuse Ray"
+        ]
+      },
+      {
+        "species_id": 77,
+        "name": "Ponyta",
+        "level": 36,
+        "moves": [
+          "Ember",
+          "Fire Spin",
+          "Stomp",
+          "Agility"
+        ]
+      }
+    ],
+    "reward_money": 720,
+    "sight_range": 3,
+    "dialogue_before": "The quiz is just the warmup!",
+    "dialogue_after": "I'm burned out..."
+  },
+  {
+    "id": "mansion_scientist_trainer_1",
+    "name": "Scientist Ted",
+    "trainer_class": "Scientist",
+    "sprite_id": "scientist",
+    "pokemon_team": [
+      {
+        "species_id": 37,
+        "name": "Koffing",
+        "level": 33,
+        "moves": [
+          "Smog",
+          "Sludge",
+          "Smokescreen",
+          "Self-Destruct"
+        ]
+      },
+      {
+        "species_id": 38,
+        "name": "Weezing",
+        "level": 33,
+        "moves": [
+          "Smog",
+          "Sludge",
+          "Smokescreen",
+          "Explosion"
+        ]
+      }
+    ],
+    "reward_money": 660,
+    "sight_range": 4,
+    "dialogue_before": "This mansion holds many secrets!",
+    "dialogue_after": "My research... incomplete."
+  },
+  {
+    "id": "mansion_scientist_trainer_2",
+    "name": "Scientist Connor",
+    "trainer_class": "Scientist",
+    "sprite_id": "scientist",
+    "pokemon_team": [
+      {
+        "species_id": 126,
+        "name": "Magmar",
+        "level": 35,
+        "moves": [
+          "Ember",
+          "Fire Punch",
+          "Smokescreen",
+          "Confuse Ray"
+        ]
+      }
+    ],
+    "reward_money": 700,
+    "sight_range": 4,
+    "dialogue_before": "The experiments here were groundbreaking!",
+    "dialogue_after": "Perhaps too groundbreaking..."
+  },
+  {
+    "id": "route_20_swimmer_1",
+    "name": "Swimmer Barry",
+    "trainer_class": "Swimmer",
+    "sprite_id": "swimmer",
+    "pokemon_team": [
+      {
+        "species_id": 7,
+        "name": "Squirtle",
+        "level": 33,
+        "moves": [
+          "Water Gun",
+          "Bite",
+          "Bubble Beam",
+          "Skull Bash"
+        ]
+      },
+      {
+        "species_id": 8,
+        "name": "Wartortle",
+        "level": 33,
+        "moves": [
+          "Water Gun",
+          "Bite",
+          "Bubble Beam",
+          "Hydro Pump"
+        ]
+      }
+    ],
+    "reward_money": 330,
+    "sight_range": 5,
+    "dialogue_before": "The waters around Cinnabar are warm!",
+    "dialogue_after": "You swim well!"
+  },
+  {
+    "id": "route_20_swimmer_2",
+    "name": "Swimmer Diana",
+    "trainer_class": "Swimmer",
+    "sprite_id": "swimmer",
+    "pokemon_team": [
+      {
+        "species_id": 16,
+        "name": "Horsea",
+        "level": 35,
+        "moves": [
+          "Water Gun",
+          "Twister",
+          "Bubble Beam",
+          "Hydro Pump"
+        ]
+      }
+    ],
+    "reward_money": 350,
+    "sight_range": 5,
+    "dialogue_before": "I love swimming in the ocean!",
+    "dialogue_after": "Splish splash, I lost..."
+  },
+  {
+    "id": "route_21_swimmer_1",
+    "name": "Swimmer Jack",
+    "trainer_class": "Swimmer",
+    "sprite_id": "swimmer",
+    "pokemon_team": [
+      {
+        "species_id": 7,
+        "name": "Squirtle",
+        "level": 34,
+        "moves": [
+          "Water Gun",
+          "Bite",
+          "Bubble Beam",
+          "Skull Bash"
+        ]
+      },
+      {
+        "species_id": 16,
+        "name": "Horsea",
+        "level": 34,
+        "moves": [
+          "Water Gun",
+          "Twister",
+          "Bubble Beam",
+          "Hydro Pump"
+        ]
+      }
+    ],
+    "reward_money": 340,
+    "sight_range": 5,
+    "dialogue_before": "Route 21 is the fastest way to Cinnabar!",
+    "dialogue_after": "You're faster than me on land and sea!"
   }
 ]

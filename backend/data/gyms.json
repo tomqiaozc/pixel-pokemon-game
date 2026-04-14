@@ -333,5 +333,76 @@
         }
       ]
     }
+  },
+  {
+    "id": "cinnabar_gym",
+    "name": "Cinnabar Island Gym",
+    "city": "Cinnabar Island",
+    "type_specialty": "fire",
+    "badge_name": "Volcano Badge",
+    "badge_id": "volcano",
+    "map_id": "cinnabar_gym",
+    "gym_trainers": [
+      "cinnabar_gym_trainer_1",
+      "cinnabar_gym_trainer_2",
+      "cinnabar_gym_trainer_3"
+    ],
+    "prerequisite_badge": "soul",
+    "leader": {
+      "id": "blaine",
+      "name": "Blaine",
+      "sprite_id": "blaine",
+      "badge_id": "volcano",
+      "reward_money": 6600,
+      "ai_difficulty": "hard",
+      "dialogue_before": "Hah! I am Blaine, the red-hot leader of Cinnabar Gym! My fiery Pokemon will incinerate all challengers!",
+      "dialogue_after": "I have been burned! You have earned the Volcano Badge!",
+      "pokemon_team": [
+        {
+          "species_id": 58,
+          "name": "Growlithe",
+          "level": 42,
+          "moves": [
+            "Flamethrower",
+            "Take Down",
+            "Flame Wheel",
+            "Leer"
+          ]
+        },
+        {
+          "species_id": 77,
+          "name": "Ponyta",
+          "level": 40,
+          "moves": [
+            "Fire Spin",
+            "Stomp",
+            "Fire Blast",
+            "Take Down"
+          ]
+        },
+        {
+          "species_id": 78,
+          "name": "Rapidash",
+          "level": 42,
+          "moves": [
+            "Fire Blast",
+            "Stomp",
+            "Fury Attack",
+            "Bounce"
+          ]
+        },
+        {
+          "species_id": 59,
+          "name": "Arcanine",
+          "level": 47,
+          "moves": [
+            "Flamethrower",
+            "Extreme Speed",
+            "Fire Blast",
+            "Bite"
+          ]
+        }
+      ]
+    }
   }
 ]

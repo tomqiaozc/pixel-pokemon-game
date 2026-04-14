@@ -247,6 +247,29 @@ _QUEST_DEFS: list[dict] = [
         "rewards": {"money": 2000, "items": [{"item_id": 62, "quantity": 1}], "unlock_flags": ["has_hm_strength"]},
         "prerequisite_quests": ["safari_zone"],
     },
+    {
+        "id": "pokemon_mansion",
+        "name": "Pokemon Mansion Mystery",
+        "description": "Explore the abandoned Pokemon Mansion on Cinnabar Island and find the Secret Key!",
+        "type": "side",
+        "objectives": [
+            {"id": "explore_mansion", "description": "Explore the Pokemon Mansion", "type": "visit_location", "target": "pokemon_mansion_1f", "required_progress": 1},
+            {"id": "find_secret_key", "description": "Find the Secret Key", "type": "collect_item", "target": "secret_key", "required_progress": 1},
+        ],
+        "rewards": {"money": 4000, "items": [{"item_id": 64, "quantity": 1}], "unlock_flags": ["has_secret_key"]},
+        "prerequisite_quests": [],
+    },
+    {
+        "id": "volcano_badge",
+        "name": "The Volcano Badge",
+        "description": "Answer Blaine's quiz and defeat him to earn the Volcano Badge!",
+        "type": "main",
+        "objectives": [
+            {"id": "defeat_blaine", "description": "Defeat Gym Leader Blaine", "type": "defeat_gym", "target": "cinnabar_gym", "required_progress": 1},
+        ],
+        "rewards": {"money": 7000, "unlock_flags": ["badge_volcano"]},
+        "prerequisite_quests": ["soul_badge"],
+    },
 ]
 
 
@@ -479,6 +502,8 @@ def check_area_accessible(game_id: str, map_id: str, required_flag: Optional[str
         "badge_marsh": "You need the Marsh Badge to pass",
         "has_hm_surf": "You need HM03 Surf",
         "has_hm_strength": "You need HM04 Strength",
+        "has_secret_key": "You need the Secret Key to enter Blaine's Gym",
+        "badge_volcano": "You need the Volcano Badge to pass",
     }
     reason = flag_reasons.get(required_flag, f"You need to complete a requirement: {required_flag}")
     return {"accessible": False, "reason": reason}
