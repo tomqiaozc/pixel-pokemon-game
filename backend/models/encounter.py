@@ -14,7 +14,8 @@ class LearnsetEntry(BaseModel):
 
 class EvolutionData(BaseModel):
     to: int
-    level: int
+    level: Optional[int] = None
+    item: Optional[str] = None
 
 
 class PokemonSpecies(BaseModel):

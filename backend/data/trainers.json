@@ -334,5 +334,117 @@
     "sight_range": 3,
     "dialogue_before": "Vermilion City is just past here! But first, battle me!",
     "dialogue_after": "You're heading to Vermilion too? Good luck!"
+  },
+  {
+    "id": "route11_youngster_1",
+    "name": "Eddie",
+    "trainer_class": "Youngster",
+    "sprite_id": "youngster",
+    "pokemon_team": [
+      {"species_id": 23, "name": "Ekans", "level": 18, "moves": ["Wrap", "Poison Sting", "Bite", "Leer"]},
+      {"species_id": 25, "name": "Spearow", "level": 18, "moves": ["Gust", "Quick Attack", "Leer"]}
+    ],
+    "reward_money": 360,
+    "sight_range": 3,
+    "dialogue_before": "Route 11 is my turf! Let's battle!",
+    "dialogue_after": "You're tougher than I expected!"
+  },
+  {
+    "id": "route11_gambler_1",
+    "name": "Rich",
+    "trainer_class": "Gambler",
+    "sprite_id": "gambler",
+    "pokemon_team": [
+      {"species_id": 100, "name": "Voltorb", "level": 18, "moves": ["Tackle", "Thunder Shock", "Screech", "Self-Destruct"]},
+      {"species_id": 96, "name": "Drowzee", "level": 18, "moves": ["Tackle", "Confusion", "Disable", "Headbutt"]}
+    ],
+    "reward_money": 720,
+    "sight_range": 4,
+    "dialogue_before": "I'll bet it all on this battle! Let's go!",
+    "dialogue_after": "Looks like I lost my bet..."
+  },
+  {
+    "id": "route11_bug_catcher_1",
+    "name": "Perry",
+    "trainer_class": "Bug Catcher",
+    "sprite_id": "bug_catcher",
+    "pokemon_team": [
+      {"species_id": 46, "name": "Paras", "level": 17, "moves": ["Scratch", "Poison Sting", "Slash"]},
+      {"species_id": 19, "name": "Caterpie", "level": 17, "moves": ["Tackle", "String Shot"]},
+      {"species_id": 20, "name": "Weedle", "level": 17, "moves": ["Poison Sting", "String Shot"]}
+    ],
+    "reward_money": 340,
+    "sight_range": 3,
+    "dialogue_before": "I've been catching bugs along this route!",
+    "dialogue_after": "My bugs need more training..."
+  },
+  {
+    "id": "ss_anne_gentleman_1",
+    "name": "Arthur",
+    "trainer_class": "Gentleman",
+    "sprite_id": "gentleman",
+    "pokemon_team": [
+      {"species_id": 15, "name": "Pikachu", "level": 18, "moves": ["Thunder Shock", "Quick Attack", "Thunder Wave", "Slam"]}
+    ],
+    "reward_money": 720,
+    "sight_range": 3,
+    "dialogue_before": "A battle aboard the S.S. Anne? How delightful!",
+    "dialogue_after": "Splendid battle, old chap!"
+  },
+  {
+    "id": "ss_anne_lass_1",
+    "name": "Ann",
+    "trainer_class": "Lass",
+    "sprite_id": "lass",
+    "pokemon_team": [
+      {"species_id": 39, "name": "Jigglypuff", "level": 18, "moves": ["Sing", "Pound", "Disable", "Defense Curl"]},
+      {"species_id": 43, "name": "Oddish", "level": 18, "moves": ["Absorb", "Poison Sting", "Stun Spore", "Acid"]}
+    ],
+    "reward_money": 360,
+    "sight_range": 3,
+    "dialogue_before": "Isn't this cruise wonderful? Let's battle to celebrate!",
+    "dialogue_after": "Oh my! You're quite the trainer!"
+  },
+  {
+    "id": "ss_anne_youngster_1",
+    "name": "Tyler",
+    "trainer_class": "Youngster",
+    "sprite_id": "youngster",
+    "pokemon_team": [
+      {"species_id": 13, "name": "Rattata", "level": 17, "moves": ["Tackle", "Quick Attack", "Hyper Fang", "Tail Whip"]},
+      {"species_id": 23, "name": "Ekans", "level": 17, "moves": ["Wrap", "Leer", "Poison Sting", "Bite"]}
+    ],
+    "reward_money": 340,
+    "sight_range": 3,
+    "dialogue_before": "My dad brought me on this cruise! Wanna battle?",
+    "dialogue_after": "Wow, you're really strong!"
+  },
+  {
+    "id": "ss_anne_sailor_trainer_1",
+    "name": "Huey",
+    "trainer_class": "Sailor",
+    "sprite_id": "sailor",
+    "pokemon_team": [
+      {"species_id": 66, "name": "Machop", "level": 18, "moves": ["Tackle", "Leer", "Headbutt", "Double Kick"]},
+      {"species_id": 66, "name": "Machop", "level": 18, "moves": ["Tackle", "Leer", "Headbutt", "Double Kick"]}
+    ],
+    "reward_money": 540,
+    "sight_range": 3,
+    "dialogue_before": "I've been working out on this ship! Let me show you my muscles!",
+    "dialogue_after": "Your Pokemon pack more of a punch than mine!"
+  },
+  {
+    "id": "ss_anne_sailor_trainer_2",
+    "name": "Duncan",
+    "trainer_class": "Sailor",
+    "sprite_id": "sailor",
+    "pokemon_team": [
+      {"species_id": 66, "name": "Machop", "level": 17, "moves": ["Tackle", "Leer", "Headbutt"]},
+      {"species_id": 74, "name": "Geodude", "level": 17, "moves": ["Tackle", "Rock Throw", "Sand Attack"]}
+    ],
+    "reward_money": 510,
+    "sight_range": 3,
+    "dialogue_before": "You look like a landlubber! I'll teach you how to battle at sea!",
+    "dialogue_after": "Blimey! You fight like a seasoned sailor!"
   }
 ]

@@ -243,5 +243,16 @@
       {"species_id": 32, "min_level": 13, "max_level": 16, "weight": 10},
       {"species_id": 29, "min_level": 13, "max_level": 16, "weight": 10}
     ]
+  },
+  "route_11": {
+    "name": "Route 11",
+    "encounter_type": "grass",
+    "base_encounter_rate": 0.20,
+    "encounters": [
+      {"species_id": 96, "min_level": 13, "max_level": 17, "weight": 30},
+      {"species_id": 23, "min_level": 13, "max_level": 17, "weight": 20},
+      {"species_id": 25, "min_level": 13, "max_level": 17, "weight": 20},
+      {"species_id": 43, "min_level": 13, "max_level": 17, "weight": 30}
+    ]
   }
 }

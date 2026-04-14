@@ -844,7 +844,10 @@
         "move": "Thunderbolt"
       }
     ],
-    "evolution": null,
+    "evolution": {
+      "to": 16,
+      "item": "Thunder_Stone"
+    },
     "sprite": "pikachu.png"
   },
   {
@@ -3256,5 +3259,397 @@
     ],
     "evolution": null,
     "sprite": "kadabra.png"
+  },
+  {
+    "id": 25,
+    "name": "Spearow",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "base_exp": 58,
+    "catch_rate": 255,
+    "abilities": [
+      "keen_eye"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "flying"
+    ],
+    "stats": {
+      "hp": 40,
+      "attack": 60,
+      "defense": 30,
+      "sp_attack": 31,
+      "sp_defense": 31,
+      "speed": 70
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 1,
+        "move": "Growl"
+      },
+      {
+        "level": 5,
+        "move": "Leer"
+      },
+      {
+        "level": 9,
+        "move": "Gust"
+      },
+      {
+        "level": 13,
+        "move": "Quick Attack"
+      },
+      {
+        "level": 19,
+        "move": "Wing Attack"
+      },
+      {
+        "level": 25,
+        "move": "Agility"
+      }
+    ],
+    "evolution": null,
+    "sprite": "spearow.png"
+  },
+  {
+    "id": 66,
+    "name": "Machop",
+    "types": [
+      "fighting"
+    ],
+    "base_exp": 61,
+    "catch_rate": 180,
+    "abilities": [
+      "guts"
+    ],
+    "gender_ratio": 25.0,
+    "egg_groups": [
+      "human-like"
+    ],
+    "stats": {
+      "hp": 70,
+      "attack": 80,
+      "defense": 50,
+      "sp_attack": 35,
+      "sp_defense": 35,
+      "speed": 35
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 1,
+        "move": "Leer"
+      },
+      {
+        "level": 7,
+        "move": "Headbutt"
+      },
+      {
+        "level": 13,
+        "move": "Double Kick"
+      },
+      {
+        "level": 19,
+        "move": "Slash"
+      },
+      {
+        "level": 25,
+        "move": "Submission"
+      }
+    ],
+    "evolution": {
+      "to": 67,
+      "level": 28
+    },
+    "sprite": "machop.png"
+  },
+  {
+    "id": 67,
+    "name": "Machoke",
+    "types": [
+      "fighting"
+    ],
+    "base_exp": 142,
+    "catch_rate": 90,
+    "abilities": [
+      "guts"
+    ],
+    "gender_ratio": 25.0,
+    "egg_groups": [
+      "human-like"
+    ],
+    "stats": {
+      "hp": 80,
+      "attack": 100,
+      "defense": 70,
+      "sp_attack": 50,
+      "sp_defense": 60,
+      "speed": 45
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 1,
+        "move": "Leer"
+      },
+      {
+        "level": 7,
+        "move": "Headbutt"
+      },
+      {
+        "level": 13,
+        "move": "Double Kick"
+      },
+      {
+        "level": 19,
+        "move": "Slash"
+      },
+      {
+        "level": 25,
+        "move": "Submission"
+      },
+      {
+        "level": 33,
+        "move": "Cross Chop"
+      }
+    ],
+    "evolution": null,
+    "sprite": "machoke.png"
+  },
+  {
+    "id": 81,
+    "name": "Magnemite",
+    "types": [
+      "electric",
+      "steel"
+    ],
+    "base_exp": 65,
+    "catch_rate": 190,
+    "abilities": [
+      "magnet_pull",
+      "sturdy"
+    ],
+    "gender_ratio": null,
+    "egg_groups": [
+      "mineral"
+    ],
+    "stats": {
+      "hp": 25,
+      "attack": 35,
+      "defense": 70,
+      "sp_attack": 95,
+      "sp_defense": 55,
+      "speed": 45
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 1,
+        "move": "Thunder Shock"
+      },
+      {
+        "level": 6,
+        "move": "Harden"
+      },
+      {
+        "level": 11,
+        "move": "Thunder Wave"
+      },
+      {
+        "level": 16,
+        "move": "Swift"
+      },
+      {
+        "level": 21,
+        "move": "Thunderbolt"
+      },
+      {
+        "level": 26,
+        "move": "Thunder"
+      }
+    ],
+    "evolution": {
+      "to": 82,
+      "level": 30
+    },
+    "sprite": "magnemite.png"
+  },
+  {
+    "id": 82,
+    "name": "Magneton",
+    "types": [
+      "electric",
+      "steel"
+    ],
+    "base_exp": 163,
+    "catch_rate": 60,
+    "abilities": [
+      "magnet_pull",
+      "sturdy"
+    ],
+    "gender_ratio": null,
+    "egg_groups": [
+      "mineral"
+    ],
+    "stats": {
+      "hp": 50,
+      "attack": 60,
+      "defense": 95,
+      "sp_attack": 120,
+      "sp_defense": 70,
+      "speed": 70
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 1,
+        "move": "Thunder Shock"
+      },
+      {
+        "level": 1,
+        "move": "Thunder Wave"
+      },
+      {
+        "level": 1,
+        "move": "Thunderbolt"
+      },
+      {
+        "level": 30,
+        "move": "Thunder"
+      },
+      {
+        "level": 38,
+        "move": "Swift"
+      }
+    ],
+    "evolution": null,
+    "sprite": "magneton.png"
+  },
+  {
+    "id": 96,
+    "name": "Drowzee",
+    "types": [
+      "psychic"
+    ],
+    "base_exp": 66,
+    "catch_rate": 190,
+    "abilities": [
+      "insomnia"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "human-like"
+    ],
+    "stats": {
+      "hp": 60,
+      "attack": 48,
+      "defense": 45,
+      "sp_attack": 43,
+      "sp_defense": 90,
+      "speed": 42
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 1,
+        "move": "Disable"
+      },
+      {
+        "level": 9,
+        "move": "Confusion"
+      },
+      {
+        "level": 15,
+        "move": "Headbutt"
+      },
+      {
+        "level": 21,
+        "move": "Psychic"
+      },
+      {
+        "level": 29,
+        "move": "Recover"
+      }
+    ],
+    "evolution": null,
+    "sprite": "drowzee.png"
+  },
+  {
+    "id": 100,
+    "name": "Voltorb",
+    "types": [
+      "electric"
+    ],
+    "base_exp": 66,
+    "catch_rate": 190,
+    "abilities": [
+      "static",
+      "soundproof"
+    ],
+    "gender_ratio": null,
+    "egg_groups": [
+      "mineral"
+    ],
+    "stats": {
+      "hp": 40,
+      "attack": 30,
+      "defense": 50,
+      "sp_attack": 55,
+      "sp_defense": 55,
+      "speed": 100
+    },
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 5,
+        "move": "Screech"
+      },
+      {
+        "level": 9,
+        "move": "Thunder Shock"
+      },
+      {
+        "level": 13,
+        "move": "Self-Destruct"
+      },
+      {
+        "level": 17,
+        "move": "Swift"
+      },
+      {
+        "level": 21,
+        "move": "Thunderbolt"
+      },
+      {
+        "level": 25,
+        "move": "Thunder"
+      }
+    ],
+    "evolution": null,
+    "sprite": "voltorb.png"
   }
 ]

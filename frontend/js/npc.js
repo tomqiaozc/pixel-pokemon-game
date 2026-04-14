@@ -36,6 +36,16 @@ const NPC = (() => {
             shirt: '#6040a0',
             pants: '#6040a0',
         },
+        guard: {
+            hair: '#3050c0',
+            shirt: '#3050c0',
+            pants: '#303060',
+        },
+        rocket: {
+            hair: '#202020',
+            shirt: '#202020',
+            pants: '#404040',
+        },
     };
 
     // NPC sprite cache
@@ -120,6 +130,18 @@ const NPC = (() => {
                 addNPC('Swimmer', 'townsfolk', 22, 12, 2, [
                     "Misty is the Gym Leader here.",
                     "She uses Water-type Pokemon. Watch out for her Starmie!",
+                ]);
+            } else if (mapId === 'route_6') {
+                addNPC('Gate Guard', 'guard', 10, 22, 1, [
+                    "Halt! Vermilion City is just beyond this gate.",
+                    "The road is under construction right now.",
+                    "Please be careful on your way through!",
+                ]);
+            } else if (mapId === 'cerulean_burgled_house') {
+                addNPC('House Owner', 'townsfolk', 2, 4, 0, [
+                    "Someone broke in and stole my TM!",
+                    "I think it was a Team Rocket member...",
+                    "They ran off toward Route 5!",
                 ]);
             }
         }

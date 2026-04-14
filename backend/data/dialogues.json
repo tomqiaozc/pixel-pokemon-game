@@ -162,5 +162,119 @@
     "nodes": [
       {"id": "start", "text": "Grr... You'll regret crossing Team Rocket! We have big plans, and no one can stop us!", "next": null}
     ]
+  },
+  "vermilion_townsfolk_1_dialogue": {
+    "id": "vermilion_townsfolk_1_dialogue",
+    "nodes": [
+      {"id": "start", "text": "The fishing here in Vermilion is great!", "next": "tip"},
+      {"id": "tip", "text": "You should check out the harbor. The S.S. Anne is docked there!", "next": null}
+    ]
+  },
+  "vermilion_townsfolk_2_dialogue": {
+    "id": "vermilion_townsfolk_2_dialogue",
+    "nodes": [
+      {"id": "start", "text": "My husband is a sailor on the S.S. Anne.", "next": "info"},
+      {"id": "info", "text": "He says Lt. Surge, the Gym Leader, is incredibly strong! His Electric-type Pokemon are no joke.", "next": null}
+    ]
+  },
+  "vermilion_townsfolk_3_dialogue": {
+    "id": "vermilion_townsfolk_3_dialogue",
+    "nodes": [
+      {"id": "start", "text": "Vermilion City is known as the port of exquisite sunsets!", "next": "tip"},
+      {"id": "tip", "text": "The Pokemon Fan Club is a great place to visit. The chairman loves to talk about his Pokemon!", "next": null}
+    ]
+  },
+  "vermilion_dock_guard_dialogue": {
+    "id": "vermilion_dock_guard_dialogue",
+    "nodes": [
+      {"id": "start", "text": "The S.S. Anne is docked at the harbor.", "next": "check"},
+      {"id": "check", "text": "You'll need an S.S. Ticket to board. Do you have one?", "next": null}
+    ]
+  },
+  "vermilion_sailor_1_dialogue": {
+    "id": "vermilion_sailor_1_dialogue",
+    "nodes": [
+      {"id": "start", "text": "Ahoy! The S.S. Anne is a luxury cruise ship that visits once a year.", "next": "info"},
+      {"id": "info", "text": "Trainers from all over come aboard to battle and trade Pokemon!", "next": null}
+    ]
+  },
+  "vermilion_shopkeeper_dialogue": {
+    "id": "vermilion_shopkeeper_dialogue",
+    "nodes": [
+      {"id": "start", "text": "Welcome to the Vermilion City Poke Mart! How can I help you?", "next": null}
+    ]
+  },
+  "fan_club_chairman_dialogue": {
+    "id": "fan_club_chairman_dialogue",
+    "nodes": [
+      {"id": "start", "text": "Welcome to the Pokemon Fan Club! I'm the chairman.", "next": "story"},
+      {"id": "story", "text": "Let me tell you about my darling Rapidash! It's simply wonderful, galloping with such grace...", "next": "story2"},
+      {"id": "story2", "text": "...and its mane is so beautiful when it runs at full speed!", "next": "reward"},
+      {"id": "reward", "text": "Oh, you listened to my whole story? You're such a kind trainer! Here, take this Bike Voucher!", "next": null}
+    ]
+  },
+  "fan_club_member_1_dialogue": {
+    "id": "fan_club_member_1_dialogue",
+    "nodes": [
+      {"id": "start", "text": "My Clefairy is the cutest Pokemon ever! I just love how it wiggles its little fingers!", "next": null}
+    ]
+  },
+  "fan_club_member_2_dialogue": {
+    "id": "fan_club_member_2_dialogue",
+    "nodes": [
+      {"id": "start", "text": "I'm a big fan of Pikachu! Those rosy cheeks are just adorable!", "next": null}
+    ]
+  },
+  "vermilion_resident_dialogue": {
+    "id": "vermilion_resident_dialogue",
+    "nodes": [
+      {"id": "start", "text": "Lt. Surge is the Gym Leader here. He's called the Lightning American!", "next": "warning"},
+      {"id": "warning", "text": "Be careful battling him. Ground-type Pokemon are your best bet against Electric types.", "next": null}
+    ]
+  },
+  "ss_anne_sailor_1_dialogue": {
+    "id": "ss_anne_sailor_1_dialogue",
+    "nodes": [
+      {"id": "start", "text": "Welcome aboard the S.S. Anne!", "next": "info"},
+      {"id": "info", "text": "Feel free to explore the ship. The captain's quarters are at the far end of the deck.", "next": null}
+    ]
+  },
+  "ss_anne_passenger_1_dialogue": {
+    "id": "ss_anne_passenger_1_dialogue",
+    "nodes": [
+      {"id": "start", "text": "This cruise is wonderful! The food, the battles... I love it all!", "next": null}
+    ]
+  },
+  "ss_anne_passenger_2_dialogue": {
+    "id": "ss_anne_passenger_2_dialogue",
+    "nodes": [
+      {"id": "start", "text": "I traded my Spearow for a Farfetch'd on this ship last year!", "next": "tip"},
+      {"id": "tip", "text": "Keep your eyes open for good trades with other passengers!", "next": null}
+    ]
+  },
+  "ss_anne_passenger_3_dialogue": {
+    "id": "ss_anne_passenger_3_dialogue",
+    "nodes": [
+      {"id": "start", "text": "The trainers on this ship are really strong. I've been losing all day!", "next": null}
+    ]
+  },
+  "ss_anne_chef_dialogue": {
+    "id": "ss_anne_chef_dialogue",
+    "nodes": [
+      {"id": "start", "text": "I'm the head chef on the S.S. Anne!", "next": "info"},
+      {"id": "info", "text": "I prepare special meals for both the passengers and their Pokemon. A well-fed Pokemon is a happy Pokemon!", "next": null}
+    ]
+  },
+  "ss_anne_captain_dialogue": {
+    "id": "ss_anne_captain_dialogue",
+    "nodes": [
+      {"id": "start", "text": "Urp... I'm the captain, but I'm terribly seasick...", "next": "plea"},
+      {"id": "plea", "text": "Could you give my back a rub? It might help settle my stomach...", "choices": [
+        {"label": "Sure!", "next": "rubbing"},
+        {"label": "That's weird...", "next": "rubbing"}
+      ]},
+      {"id": "rubbing", "text": "Ah, that's much better! Thank you, young trainer!", "next": "reward"},
+      {"id": "reward", "text": "Here, take this HM01 Cut as thanks! You can use it to cut down small trees in your path!", "action": {"type": "give_item", "item_id": 53, "quantity": 1}, "next": null}
+    ]
   }
 }

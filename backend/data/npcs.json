@@ -188,5 +188,175 @@
     "facing": "up",
     "npc_type": "generic",
     "dialogue_tree_id": "vermilion_gate_guard_dialogue"
+  },
+  {
+    "id": "vermilion_townsfolk_1",
+    "name": "Fisherman",
+    "sprite_id": "townsfolk_m",
+    "position": {"x": 10, "y": 10},
+    "map_id": "vermilion_city",
+    "facing": "down",
+    "npc_type": "generic",
+    "dialogue_tree_id": "vermilion_townsfolk_1_dialogue"
+  },
+  {
+    "id": "vermilion_townsfolk_2",
+    "name": "Sailor's Wife",
+    "sprite_id": "townsfolk_f",
+    "position": {"x": 18, "y": 15},
+    "map_id": "vermilion_city",
+    "facing": "left",
+    "npc_type": "generic",
+    "dialogue_tree_id": "vermilion_townsfolk_2_dialogue"
+  },
+  {
+    "id": "vermilion_townsfolk_3",
+    "name": "Youngster",
+    "sprite_id": "townsfolk_m",
+    "position": {"x": 5, "y": 20},
+    "map_id": "vermilion_city",
+    "facing": "right",
+    "npc_type": "generic",
+    "dialogue_tree_id": "vermilion_townsfolk_3_dialogue"
+  },
+  {
+    "id": "vermilion_dock_guard",
+    "name": "Dock Guard",
+    "sprite_id": "sailor",
+    "position": {"x": 22, "y": 25},
+    "map_id": "vermilion_city",
+    "facing": "up",
+    "npc_type": "generic",
+    "dialogue_tree_id": "vermilion_dock_guard_dialogue"
+  },
+  {
+    "id": "vermilion_sailor_1",
+    "name": "Sailor",
+    "sprite_id": "sailor",
+    "position": {"x": 25, "y": 20},
+    "map_id": "vermilion_city",
+    "facing": "down",
+    "npc_type": "generic",
+    "dialogue_tree_id": "vermilion_sailor_1_dialogue"
+  },
+  {
+    "id": "nurse_joy_vermilion",
+    "name": "Nurse Joy",
+    "sprite_id": "nurse",
+    "position": {"x": 5, "y": 2},
+    "map_id": "vermilion_pokemon_center",
+    "facing": "down",
+    "npc_type": "nurse",
+    "dialogue_tree_id": "nurse_dialogue"
+  },
+  {
+    "id": "vermilion_shopkeeper",
+    "name": "Shop Clerk",
+    "sprite_id": "shopkeeper",
+    "position": {"x": 4, "y": 2},
+    "map_id": "vermilion_pokemart",
+    "facing": "down",
+    "npc_type": "shopkeeper",
+    "dialogue_tree_id": "vermilion_shopkeeper_dialogue"
+  },
+  {
+    "id": "fan_club_chairman",
+    "name": "Fan Club Chairman",
+    "sprite_id": "gentleman",
+    "position": {"x": 5, "y": 3},
+    "map_id": "vermilion_fan_club",
+    "facing": "down",
+    "npc_type": "generic",
+    "dialogue_tree_id": "fan_club_chairman_dialogue"
+  },
+  {
+    "id": "fan_club_member_1",
+    "name": "Pokemon Fan",
+    "sprite_id": "townsfolk_f",
+    "position": {"x": 3, "y": 5},
+    "map_id": "vermilion_fan_club",
+    "facing": "right",
+    "npc_type": "generic",
+    "dialogue_tree_id": "fan_club_member_1_dialogue"
+  },
+  {
+    "id": "fan_club_member_2",
+    "name": "Pokemon Fan",
+    "sprite_id": "townsfolk_m",
+    "position": {"x": 7, "y": 5},
+    "map_id": "vermilion_fan_club",
+    "facing": "left",
+    "npc_type": "generic",
+    "dialogue_tree_id": "fan_club_member_2_dialogue"
+  },
+  {
+    "id": "vermilion_resident",
+    "name": "Vermilion Resident",
+    "sprite_id": "townsfolk_m",
+    "position": {"x": 4, "y": 3},
+    "map_id": "vermilion_house_1",
+    "facing": "down",
+    "npc_type": "generic",
+    "dialogue_tree_id": "vermilion_resident_dialogue"
+  },
+  {
+    "id": "ss_anne_sailor_1",
+    "name": "Sailor",
+    "sprite_id": "sailor",
+    "position": {"x": 5, "y": 5},
+    "map_id": "ss_anne_deck",
+    "facing": "down",
+    "npc_type": "generic",
+    "dialogue_tree_id": "ss_anne_sailor_1_dialogue"
+  },
+  {
+    "id": "ss_anne_passenger_1",
+    "name": "Passenger",
+    "sprite_id": "townsfolk_f",
+    "position": {"x": 15, "y": 8},
+    "map_id": "ss_anne_deck",
+    "facing": "left",
+    "npc_type": "generic",
+    "dialogue_tree_id": "ss_anne_passenger_1_dialogue"
+  },
+  {
+    "id": "ss_anne_passenger_2",
+    "name": "Passenger",
+    "sprite_id": "townsfolk_m",
+    "position": {"x": 4, "y": 5},
+    "map_id": "ss_anne_cabins",
+    "facing": "down",
+    "npc_type": "generic",
+    "dialogue_tree_id": "ss_anne_passenger_2_dialogue"
+  },
+  {
+    "id": "ss_anne_passenger_3",
+    "name": "Passenger",
+    "sprite_id": "townsfolk_f",
+    "position": {"x": 10, "y": 12},
+    "map_id": "ss_anne_cabins",
+    "facing": "left",
+    "npc_type": "generic",
+    "dialogue_tree_id": "ss_anne_passenger_3_dialogue"
+  },
+  {
+    "id": "ss_anne_chef",
+    "name": "Chef",
+    "sprite_id": "chef",
+    "position": {"x": 5, "y": 3},
+    "map_id": "ss_anne_kitchen",
+    "facing": "down",
+    "npc_type": "generic",
+    "dialogue_tree_id": "ss_anne_chef_dialogue"
+  },
+  {
+    "id": "ss_anne_captain",
+    "name": "Captain",
+    "sprite_id": "captain",
+    "position": {"x": 4, "y": 3},
+    "map_id": "ss_anne_captains_room",
+    "facing": "down",
+    "npc_type": "generic",
+    "dialogue_tree_id": "ss_anne_captain_dialogue"
   }
 ]

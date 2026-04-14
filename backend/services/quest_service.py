@@ -110,6 +110,31 @@ _QUEST_DEFS: list[dict] = [
         "rewards": {"money": 500, "exp": 200, "unlock_flags": ["rocket_cerulean_resolved"]},
         "prerequisite_quests": ["cascade_badge"],
     },
+    {
+        "id": "ss_anne_adventure",
+        "name": "S.S. Anne Adventure",
+        "description": "Board the S.S. Anne, help the seasick captain, and receive HM01 Cut!",
+        "type": "main",
+        "objectives": [
+            {"id": "board_ss_anne", "description": "Board the S.S. Anne", "type": "visit_location", "target": "ss_anne", "required_progress": 1},
+            {"id": "help_captain", "description": "Help the seasick captain", "type": "collect_item", "target": "captain_helped", "required_progress": 1},
+            {"id": "receive_hm_cut", "description": "Receive HM01 Cut", "type": "collect_item", "target": "hm01_cut", "required_progress": 1},
+        ],
+        "rewards": {"money": 3000, "items": [{"item_id": 53, "quantity": 1}], "unlock_flags": ["ss_anne_complete", "has_hm_cut"]},
+        "prerequisite_quests": ["bill_rescue"],
+    },
+    {
+        "id": "thunder_badge",
+        "name": "The Thunder Badge",
+        "description": "Solve Lt. Surge's trash can puzzle and defeat him to earn the Thunder Badge!",
+        "type": "main",
+        "objectives": [
+            {"id": "solve_puzzle", "description": "Solve the trash can puzzle", "type": "collect_item", "target": "trash_puzzle_solved", "required_progress": 1},
+            {"id": "defeat_surge", "description": "Defeat Gym Leader Lt. Surge", "type": "defeat_gym", "target": "vermilion_gym", "required_progress": 1},
+        ],
+        "rewards": {"money": 4000, "unlock_flags": ["badge_thunder"]},
+        "prerequisite_quests": ["ss_anne_adventure"],
+    },
 ]
 
 
@@ -330,6 +355,9 @@ def check_area_accessible(game_id: str, map_id: str, required_flag: Optional[str
         "nugget_bridge_complete": "You need to complete the Nugget Bridge Challenge first",
         "bill_rescued": "You need to help Bill first",
         "has_ss_ticket": "You need the S.S. Ticket to board",
+        "ss_anne_complete": "You need to complete the S.S. Anne adventure first",
+        "has_hm_cut": "You need HM01 Cut to pass",
+        "badge_thunder": "You need the Thunder Badge to pass",
         "rocket_cerulean_resolved": "You need to defeat the Rocket Grunt first",
     }
     reason = flag_reasons.get(required_flag, f"You need to complete a requirement: {required_flag}")

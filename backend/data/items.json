@@ -335,6 +335,19 @@
     "usable": false
   },
   {
+    "id": 53,
+    "name": "HM01 Cut",
+    "description": "Teaches Cut to a Pokemon",
+    "category": "key_item",
+    "price": 0,
+    "sell_price": 0,
+    "effect": {
+      "type": "teach_move",
+      "move": "Cut"
+    },
+    "usable": false
+  },
+  {
     "id": 101,
     "name": "HM01 Cut",
     "description": "Teaches the move Cut. Can cut down small trees.",

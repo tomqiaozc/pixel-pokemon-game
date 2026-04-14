@@ -47,5 +47,31 @@
         {"species_id": 22, "name": "Starmie", "level": 21, "moves": ["Water Gun", "Tackle", "Swift"]}
       ]
     }
+  },
+  {
+    "id": "vermilion_gym",
+    "name": "Vermilion Gym",
+    "city": "Vermilion City",
+    "type_specialty": "electric",
+    "badge_name": "Thunder Badge",
+    "badge_id": "thunder",
+    "map_id": "vermilion_gym",
+    "gym_trainers": [],
+    "prerequisite_badge": "cascade",
+    "leader": {
+      "id": "lt_surge",
+      "name": "Lt. Surge",
+      "sprite_id": "lt_surge",
+      "badge_id": "thunder",
+      "reward_money": 2800,
+      "ai_difficulty": "hard",
+      "dialogue_before": "Hey kid! You managed to solve my puzzle? Impressive! But that won't help you against my Pokemon!",
+      "dialogue_after": "Whoa! You beat me fair and square! Take this Thunder Badge!",
+      "pokemon_team": [
+        {"species_id": 100, "name": "Voltorb", "level": 21, "moves": ["Tackle", "Screech", "Sonic Boom"]},
+        {"species_id": 15, "name": "Pikachu", "level": 18, "moves": ["Thunder Shock", "Quick Attack", "Thunder Wave"]},
+        {"species_id": 16, "name": "Raichu", "level": 24, "moves": ["Thunder Shock", "Thunderbolt", "Quick Attack", "Slam"]}
+      ]
+    }
   }
 ]

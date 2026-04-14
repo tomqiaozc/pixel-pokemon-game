@@ -38,6 +38,10 @@ def check_evolution(species_id: int, current_level: int) -> EvolutionCheckRespon
     if species is None or species.evolution is None:
         return EvolutionCheckResponse(can_evolve=False)
 
+    # Stone evolutions can't happen via level-up
+    if species.evolution.level is None:
+        return EvolutionCheckResponse(can_evolve=False)
+
     can = current_level >= species.evolution.level
     target = get_species(species.evolution.to)
     return EvolutionCheckResponse(
@@ -55,7 +59,7 @@ def evolve_pokemon(pokemon_data: dict) -> Optional[EvolutionResult]:
         return None
 
     level = pokemon_data["level"]
-    if level < species.evolution.level:
+    if species.evolution.level is None or level < species.evolution.level:
         return None
 
     new_species = get_species(species.evolution.to)
