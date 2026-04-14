@@ -1,0 +1,117 @@
+{
+  "description": "Difficulty settings and scaling options for game balance.",
+  "current_difficulty": "normal",
+  "difficulty_modes": {
+    "easy": {
+      "display_name": "Casual",
+      "description": "Relaxed gameplay with boosted EXP and easier battles.",
+      "exp_multiplier": 1.5,
+      "money_multiplier": 1.5,
+      "wild_level_offset": -2,
+      "trainer_level_offset": -2,
+      "catch_rate_modifier": 1.3,
+      "ai_difficulty": "basic",
+      "healing_item_boost": 1.25,
+      "gym_leader_items": false,
+      "shift_battle_style": true,
+      "show_type_effectiveness": true,
+      "friendship_multiplier": 1.5
+    },
+    "normal": {
+      "display_name": "Normal",
+      "description": "The classic Pokemon experience.",
+      "exp_multiplier": 1.0,
+      "money_multiplier": 1.0,
+      "wild_level_offset": 0,
+      "trainer_level_offset": 0,
+      "catch_rate_modifier": 1.0,
+      "ai_difficulty": "standard",
+      "healing_item_boost": 1.0,
+      "gym_leader_items": false,
+      "shift_battle_style": true,
+      "show_type_effectiveness": false,
+      "friendship_multiplier": 1.0
+    },
+    "hard": {
+      "display_name": "Challenge",
+      "description": "Tougher trainers with smarter AI and fewer resources.",
+      "exp_multiplier": 0.8,
+      "money_multiplier": 0.8,
+      "wild_level_offset": 1,
+      "trainer_level_offset": 2,
+      "catch_rate_modifier": 0.85,
+      "ai_difficulty": "smart",
+      "healing_item_boost": 0.8,
+      "gym_leader_items": true,
+      "shift_battle_style": false,
+      "show_type_effectiveness": false,
+      "friendship_multiplier": 0.8
+    },
+    "nuzlocke": {
+      "display_name": "Nuzlocke",
+      "description": "Hardcore rules: fainted Pokemon are lost, first encounter only.",
+      "exp_multiplier": 1.0,
+      "money_multiplier": 1.0,
+      "wild_level_offset": 0,
+      "trainer_level_offset": 0,
+      "catch_rate_modifier": 1.0,
+      "ai_difficulty": "standard",
+      "healing_item_boost": 1.0,
+      "gym_leader_items": false,
+      "shift_battle_style": false,
+      "show_type_effectiveness": false,
+      "friendship_multiplier": 1.0,
+      "special_rules": {
+        "perma_faint": true,
+        "first_encounter_only": true,
+        "must_nickname": true,
+        "duplicate_clause": true,
+        "blackout_game_over": true
+      }
+    }
+  },
+  "ai_difficulty_levels": {
+    "basic": {
+      "description": "Random move selection, never switches Pokemon.",
+      "use_type_advantage": false,
+      "predict_switches": false,
+      "use_items": false,
+      "switch_on_disadvantage": false
+    },
+    "standard": {
+      "description": "Prefers super-effective moves, basic switching.",
+      "use_type_advantage": true,
+      "predict_switches": false,
+      "use_items": false,
+      "switch_on_disadvantage": false
+    },
+    "smart": {
+      "description": "Strategic play with predictions and item usage.",
+      "use_type_advantage": true,
+      "predict_switches": true,
+      "use_items": true,
+      "switch_on_disadvantage": true
+    }
+  },
+  "level_scaling": {
+    "enabled": false,
+    "method": "badge_based",
+    "level_caps": {
+      "0_badges": 15,
+      "1_badges": 20,
+      "2_badges": 25,
+      "3_badges": 30,
+      "4_badges": 35,
+      "5_badges": 40,
+      "6_badges": 45,
+      "7_badges": 50,
+      "8_badges": 100
+    }
+  },
+  "battle_style": {
+    "options": ["shift", "set"],
+    "default": "shift",
+    "shift_description": "You can switch Pokemon when opponent sends out a new one.",
+    "set_description": "No free switch when opponent sends out a new Pokemon."
+  }
+}

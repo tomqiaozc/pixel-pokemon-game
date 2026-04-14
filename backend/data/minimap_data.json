@@ -1,0 +1,408 @@
+{
+  "description": "Minimap configuration and region layout data for the Kanto overworld.",
+  "minimap_settings": {
+    "enabled": true,
+    "position": "top_right",
+    "size": {"width": 120, "height": 100},
+    "opacity": 0.85,
+    "border_color": "#333333",
+    "background_color": "#1a1a2e",
+    "player_marker_color": "#FF0000",
+    "player_marker_size": 3,
+    "toggle_key": "M",
+    "zoom_levels": [1, 2, 4],
+    "default_zoom": 2
+  },
+  "region_bounds": {
+    "x_min": 0,
+    "y_min": 0,
+    "x_max": 400,
+    "y_max": 360
+  },
+  "tile_colors": {
+    "town": "#88CC88",
+    "city": "#CCCC88",
+    "route": "#AABB99",
+    "cave": "#887766",
+    "water": "#6688CC",
+    "building": "#AA8888",
+    "forest": "#448844",
+    "mountain": "#998877",
+    "gym": "#CC6666",
+    "pokecenter": "#FF6688",
+    "pokemart": "#6688FF",
+    "elite_four": "#AA66CC",
+    "victory_road": "#776655"
+  },
+  "locations": {
+    "pallet_town": {
+      "display_name": "Pallet Town",
+      "minimap_x": 80,
+      "minimap_y": 320,
+      "minimap_w": 20,
+      "minimap_h": 20,
+      "type": "town",
+      "connections": ["route_1"]
+    },
+    "route_1": {
+      "display_name": "Route 1",
+      "minimap_x": 80,
+      "minimap_y": 280,
+      "minimap_w": 16,
+      "minimap_h": 40,
+      "type": "route",
+      "connections": ["pallet_town", "viridian_city"]
+    },
+    "viridian_city": {
+      "display_name": "Viridian City",
+      "minimap_x": 80,
+      "minimap_y": 240,
+      "minimap_w": 24,
+      "minimap_h": 24,
+      "type": "city",
+      "connections": ["route_1", "route_2", "route_22"]
+    },
+    "route_2": {
+      "display_name": "Route 2",
+      "minimap_x": 80,
+      "minimap_y": 200,
+      "minimap_w": 16,
+      "minimap_h": 40,
+      "type": "route",
+      "connections": ["viridian_city", "viridian_forest", "pewter_city"]
+    },
+    "viridian_forest": {
+      "display_name": "Viridian Forest",
+      "minimap_x": 60,
+      "minimap_y": 190,
+      "minimap_w": 30,
+      "minimap_h": 30,
+      "type": "forest",
+      "connections": ["route_2"]
+    },
+    "pewter_city": {
+      "display_name": "Pewter City",
+      "minimap_x": 80,
+      "minimap_y": 160,
+      "minimap_w": 24,
+      "minimap_h": 24,
+      "type": "city",
+      "connections": ["route_2", "route_3"]
+    },
+    "route_3": {
+      "display_name": "Route 3",
+      "minimap_x": 100,
+      "minimap_y": 160,
+      "minimap_w": 60,
+      "minimap_h": 16,
+      "type": "route",
+      "connections": ["pewter_city", "mt_moon"]
+    },
+    "mt_moon": {
+      "display_name": "Mt. Moon",
+      "minimap_x": 160,
+      "minimap_y": 150,
+      "minimap_w": 30,
+      "minimap_h": 30,
+      "type": "cave",
+      "connections": ["route_3", "route_4"]
+    },
+    "route_4": {
+      "display_name": "Route 4",
+      "minimap_x": 190,
+      "minimap_y": 160,
+      "minimap_w": 40,
+      "minimap_h": 16,
+      "type": "route",
+      "connections": ["mt_moon", "cerulean_city"]
+    },
+    "cerulean_city": {
+      "display_name": "Cerulean City",
+      "minimap_x": 230,
+      "minimap_y": 140,
+      "minimap_w": 24,
+      "minimap_h": 24,
+      "type": "city",
+      "connections": ["route_4", "route_5", "route_9", "route_24"]
+    },
+    "route_24": {
+      "display_name": "Route 24",
+      "minimap_x": 230,
+      "minimap_y": 100,
+      "minimap_w": 16,
+      "minimap_h": 40,
+      "type": "route",
+      "connections": ["cerulean_city", "route_25"]
+    },
+    "route_25": {
+      "display_name": "Route 25",
+      "minimap_x": 246,
+      "minimap_y": 100,
+      "minimap_w": 40,
+      "minimap_h": 16,
+      "type": "route",
+      "connections": ["route_24"]
+    },
+    "route_5": {
+      "display_name": "Route 5",
+      "minimap_x": 230,
+      "minimap_y": 164,
+      "minimap_w": 16,
+      "minimap_h": 36,
+      "type": "route",
+      "connections": ["cerulean_city", "saffron_city"]
+    },
+    "saffron_city": {
+      "display_name": "Saffron City",
+      "minimap_x": 220,
+      "minimap_y": 200,
+      "minimap_w": 30,
+      "minimap_h": 30,
+      "type": "city",
+      "connections": ["route_5", "route_6", "route_7", "route_8"]
+    },
+    "route_6": {
+      "display_name": "Route 6",
+      "minimap_x": 230,
+      "minimap_y": 230,
+      "minimap_w": 16,
+      "minimap_h": 30,
+      "type": "route",
+      "connections": ["saffron_city", "vermilion_city"]
+    },
+    "vermilion_city": {
+      "display_name": "Vermilion City",
+      "minimap_x": 220,
+      "minimap_y": 260,
+      "minimap_w": 24,
+      "minimap_h": 24,
+      "type": "city",
+      "connections": ["route_6", "route_11"]
+    },
+    "route_7": {
+      "display_name": "Route 7",
+      "minimap_x": 190,
+      "minimap_y": 210,
+      "minimap_w": 30,
+      "minimap_h": 16,
+      "type": "route",
+      "connections": ["saffron_city", "celadon_city"]
+    },
+    "celadon_city": {
+      "display_name": "Celadon City",
+      "minimap_x": 155,
+      "minimap_y": 200,
+      "minimap_w": 30,
+      "minimap_h": 24,
+      "type": "city",
+      "connections": ["route_7", "route_16"]
+    },
+    "route_8": {
+      "display_name": "Route 8",
+      "minimap_x": 250,
+      "minimap_y": 210,
+      "minimap_w": 30,
+      "minimap_h": 16,
+      "type": "route",
+      "connections": ["saffron_city", "lavender_town"]
+    },
+    "lavender_town": {
+      "display_name": "Lavender Town",
+      "minimap_x": 280,
+      "minimap_y": 200,
+      "minimap_w": 20,
+      "minimap_h": 20,
+      "type": "town",
+      "connections": ["route_8", "route_10", "route_12"]
+    },
+    "route_9": {
+      "display_name": "Route 9",
+      "minimap_x": 254,
+      "minimap_y": 145,
+      "minimap_w": 40,
+      "minimap_h": 16,
+      "type": "route",
+      "connections": ["cerulean_city", "route_10"]
+    },
+    "route_10": {
+      "display_name": "Route 10",
+      "minimap_x": 285,
+      "minimap_y": 155,
+      "minimap_w": 16,
+      "minimap_h": 45,
+      "type": "route",
+      "connections": ["route_9", "lavender_town", "rock_tunnel"]
+    },
+    "rock_tunnel": {
+      "display_name": "Rock Tunnel",
+      "minimap_x": 290,
+      "minimap_y": 165,
+      "minimap_w": 20,
+      "minimap_h": 20,
+      "type": "cave",
+      "connections": ["route_10"]
+    },
+    "route_11": {
+      "display_name": "Route 11",
+      "minimap_x": 244,
+      "minimap_y": 265,
+      "minimap_w": 40,
+      "minimap_h": 16,
+      "type": "route",
+      "connections": ["vermilion_city", "route_12"]
+    },
+    "route_12": {
+      "display_name": "Route 12",
+      "minimap_x": 285,
+      "minimap_y": 220,
+      "minimap_w": 16,
+      "minimap_h": 60,
+      "type": "route",
+      "connections": ["lavender_town", "route_11", "route_13"]
+    },
+    "route_13": {
+      "display_name": "Route 13",
+      "minimap_x": 260,
+      "minimap_y": 280,
+      "minimap_w": 30,
+      "minimap_h": 16,
+      "type": "route",
+      "connections": ["route_12", "route_14"]
+    },
+    "route_14": {
+      "display_name": "Route 14",
+      "minimap_x": 258,
+      "minimap_y": 290,
+      "minimap_w": 16,
+      "minimap_h": 30,
+      "type": "route",
+      "connections": ["route_13", "route_15"]
+    },
+    "route_15": {
+      "display_name": "Route 15",
+      "minimap_x": 220,
+      "minimap_y": 310,
+      "minimap_w": 40,
+      "minimap_h": 16,
+      "type": "route",
+      "connections": ["route_14", "fuchsia_city"]
+    },
+    "fuchsia_city": {
+      "display_name": "Fuchsia City",
+      "minimap_x": 190,
+      "minimap_y": 300,
+      "minimap_w": 24,
+      "minimap_h": 24,
+      "type": "city",
+      "connections": ["route_15", "route_18", "route_19"]
+    },
+    "route_16": {
+      "display_name": "Route 16",
+      "minimap_x": 120,
+      "minimap_y": 200,
+      "minimap_w": 35,
+      "minimap_h": 16,
+      "type": "route",
+      "connections": ["celadon_city", "route_17"]
+    },
+    "route_17": {
+      "display_name": "Route 17",
+      "minimap_x": 118,
+      "minimap_y": 216,
+      "minimap_w": 16,
+      "minimap_h": 90,
+      "type": "route",
+      "connections": ["route_16", "route_18"]
+    },
+    "route_18": {
+      "display_name": "Route 18",
+      "minimap_x": 134,
+      "minimap_y": 305,
+      "minimap_w": 56,
+      "minimap_h": 16,
+      "type": "route",
+      "connections": ["route_17", "fuchsia_city"]
+    },
+    "route_19": {
+      "display_name": "Route 19",
+      "minimap_x": 190,
+      "minimap_y": 324,
+      "minimap_w": 16,
+      "minimap_h": 30,
+      "type": "route",
+      "connections": ["fuchsia_city", "route_20"]
+    },
+    "route_20": {
+      "display_name": "Route 20",
+      "minimap_x": 100,
+      "minimap_y": 340,
+      "minimap_w": 100,
+      "minimap_h": 16,
+      "type": "route",
+      "connections": ["route_19", "cinnabar_island", "seafoam_islands"]
+    },
+    "seafoam_islands": {
+      "display_name": "Seafoam Islands",
+      "minimap_x": 140,
+      "minimap_y": 335,
+      "minimap_w": 20,
+      "minimap_h": 20,
+      "type": "cave",
+      "connections": ["route_20"]
+    },
+    "cinnabar_island": {
+      "display_name": "Cinnabar Island",
+      "minimap_x": 80,
+      "minimap_y": 340,
+      "minimap_w": 20,
+      "minimap_h": 20,
+      "type": "city",
+      "connections": ["route_20", "route_21"]
+    },
+    "route_21": {
+      "display_name": "Route 21",
+      "minimap_x": 80,
+      "minimap_y": 340,
+      "minimap_w": 16,
+      "minimap_h": 16,
+      "type": "route",
+      "connections": ["cinnabar_island", "pallet_town"]
+    },
+    "route_22": {
+      "display_name": "Route 22",
+      "minimap_x": 40,
+      "minimap_y": 240,
+      "minimap_w": 40,
+      "minimap_h": 16,
+      "type": "route",
+      "connections": ["viridian_city", "route_23"]
+    },
+    "route_23": {
+      "display_name": "Route 23",
+      "minimap_x": 40,
+      "minimap_y": 140,
+      "minimap_w": 16,
+      "minimap_h": 100,
+      "type": "route",
+      "connections": ["route_22", "victory_road", "indigo_plateau"]
+    },
+    "victory_road": {
+      "display_name": "Victory Road",
+      "minimap_x": 30,
+      "minimap_y": 120,
+      "minimap_w": 25,
+      "minimap_h": 25,
+      "type": "cave",
+      "connections": ["route_23", "indigo_plateau"]
+    },
+    "indigo_plateau": {
+      "display_name": "Indigo Plateau",
+      "minimap_x": 30,
+      "minimap_y": 90,
+      "minimap_w": 24,
+      "minimap_h": 24,
+      "type": "elite_four",
+      "connections": ["victory_road"]
+    }
+  }
+}
