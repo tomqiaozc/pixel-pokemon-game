@@ -3441,11 +3441,31 @@
       },
       {
         "level": 1,
-        "move": "Confusion"
+        "move": "Kinesis"
       },
       {
         "level": 1,
-        "move": "Kinesis"
+        "move": "Confusion"
+      },
+      {
+        "level": 16,
+        "move": "Confusion"
+      },
+      {
+        "level": 20,
+        "move": "Psybeam"
+      },
+      {
+        "level": 27,
+        "move": "Recover"
+      },
+      {
+        "level": 31,
+        "move": "Psychic"
+      },
+      {
+        "level": 38,
+        "move": "Reflect"
       }
     ],
     "evolution": null,

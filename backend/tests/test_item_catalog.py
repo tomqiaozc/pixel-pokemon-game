@@ -158,7 +158,7 @@ class TestNewEncounterTables:
 class TestTotalCounts:
     def test_total_items(self):
         items = _load_json("items.json")
-        assert len(items) == 75
+        assert len(items) == 93
 
     def test_no_duplicate_item_ids(self):
         items = _load_json("items.json")

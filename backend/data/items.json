@@ -939,5 +939,256 @@
       "type": "restore_pp_single",
       "amount": 10
     }
+  },
+  {
+    "name": "Oran Berry",
+    "description": "A berry that restores 10 HP when held.",
+    "category": "berry",
+    "price": 100,
+    "sell_price": 50,
+    "effect": {
+      "type": "heal_hp",
+      "amount": 10,
+      "trigger": "held"
+    },
+    "usable": true,
+    "id": 141
+  },
+  {
+    "name": "Sitrus Berry",
+    "description": "A berry that restores 30 HP when held.",
+    "category": "berry",
+    "price": 200,
+    "sell_price": 100,
+    "effect": {
+      "type": "heal_hp",
+      "amount": 30,
+      "trigger": "held"
+    },
+    "usable": true,
+    "id": 142
+  },
+  {
+    "name": "Lum Berry",
+    "description": "A berry that cures all status conditions when held.",
+    "category": "berry",
+    "price": 200,
+    "sell_price": 100,
+    "effect": {
+      "type": "cure_status",
+      "status": "all",
+      "trigger": "held"
+    },
+    "usable": true,
+    "id": 143
+  },
+  {
+    "name": "Rawst Berry",
+    "description": "A berry that cures burn when held.",
+    "category": "berry",
+    "price": 100,
+    "sell_price": 50,
+    "effect": {
+      "type": "cure_status",
+      "status": "burn",
+      "trigger": "held"
+    },
+    "usable": true,
+    "id": 144
+  },
+  {
+    "name": "Chesto Berry",
+    "description": "A berry that cures sleep when held.",
+    "category": "berry",
+    "price": 100,
+    "sell_price": 50,
+    "effect": {
+      "type": "cure_status",
+      "status": "sleep",
+      "trigger": "held"
+    },
+    "usable": true,
+    "id": 145
+  },
+  {
+    "name": "Pecha Berry",
+    "description": "A berry that cures poison when held.",
+    "category": "berry",
+    "price": 100,
+    "sell_price": 50,
+    "effect": {
+      "type": "cure_status",
+      "status": "poison",
+      "trigger": "held"
+    },
+    "usable": true,
+    "id": 146
+  },
+  {
+    "name": "Aspear Berry",
+    "description": "A berry that cures freeze when held.",
+    "category": "berry",
+    "price": 100,
+    "sell_price": 50,
+    "effect": {
+      "type": "cure_status",
+      "status": "freeze",
+      "trigger": "held"
+    },
+    "usable": true,
+    "id": 147
+  },
+  {
+    "name": "Cheri Berry",
+    "description": "A berry that cures paralysis when held.",
+    "category": "berry",
+    "price": 100,
+    "sell_price": 50,
+    "effect": {
+      "type": "cure_status",
+      "status": "paralysis",
+      "trigger": "held"
+    },
+    "usable": true,
+    "id": 148
+  },
+  {
+    "name": "Leppa Berry",
+    "description": "A berry that restores 10 PP to a move when held.",
+    "category": "berry",
+    "price": 200,
+    "sell_price": 100,
+    "effect": {
+      "type": "restore_pp",
+      "amount": 10,
+      "trigger": "held"
+    },
+    "usable": true,
+    "id": 149
+  },
+  {
+    "name": "Persim Berry",
+    "description": "A berry that cures confusion when held.",
+    "category": "berry",
+    "price": 100,
+    "sell_price": 50,
+    "effect": {
+      "type": "cure_status",
+      "status": "confusion",
+      "trigger": "held"
+    },
+    "usable": true,
+    "id": 150
+  },
+  {
+    "name": "Leftovers",
+    "description": "An item that gradually restores HP during battle.",
+    "category": "held_item",
+    "price": 0,
+    "sell_price": 0,
+    "effect": {
+      "type": "heal_hp_percent",
+      "amount": 6.25,
+      "trigger": "end_turn"
+    },
+    "usable": false,
+    "id": 151
+  },
+  {
+    "name": "Choice Band",
+    "description": "Boosts Attack by 50%% but locks into one move.",
+    "category": "held_item",
+    "price": 0,
+    "sell_price": 0,
+    "effect": {
+      "type": "boost_stat",
+      "stat": "attack",
+      "multiplier": 1.5,
+      "lock_move": true
+    },
+    "usable": false,
+    "id": 152
+  },
+  {
+    "name": "Choice Specs",
+    "description": "Boosts Sp.Atk by 50%% but locks into one move.",
+    "category": "held_item",
+    "price": 0,
+    "sell_price": 0,
+    "effect": {
+      "type": "boost_stat",
+      "stat": "sp_attack",
+      "multiplier": 1.5,
+      "lock_move": true
+    },
+    "usable": false,
+    "id": 153
+  },
+  {
+    "name": "Focus Sash",
+    "description": "Survives a one-hit KO with 1 HP. Single use.",
+    "category": "held_item",
+    "price": 0,
+    "sell_price": 0,
+    "effect": {
+      "type": "endure",
+      "hp_threshold": 1,
+      "single_use": true
+    },
+    "usable": false,
+    "id": 154
+  },
+  {
+    "name": "Life Orb",
+    "description": "Boosts move power by 30%% but costs HP each attack.",
+    "category": "held_item",
+    "price": 0,
+    "sell_price": 0,
+    "effect": {
+      "type": "boost_power",
+      "multiplier": 1.3,
+      "recoil_percent": 10
+    },
+    "usable": false,
+    "id": 155
+  },
+  {
+    "name": "Shell Bell",
+    "description": "Restores HP equal to 1/8 of damage dealt.",
+    "category": "held_item",
+    "price": 0,
+    "sell_price": 0,
+    "effect": {
+      "type": "drain",
+      "percent": 12.5
+    },
+    "usable": false,
+    "id": 156
+  },
+  {
+    "name": "Quick Claw",
+    "description": "Sometimes allows the holder to strike first.",
+    "category": "held_item",
+    "price": 0,
+    "sell_price": 0,
+    "effect": {
+      "type": "priority_chance",
+      "chance": 20
+    },
+    "usable": false,
+    "id": 157
+  },
+  {
+    "name": "Kings Rock",
+    "description": "May cause flinching when attacking.",
+    "category": "held_item",
+    "price": 0,
+    "sell_price": 0,
+    "effect": {
+      "type": "flinch_chance",
+      "chance": 10
+    },
+    "usable": false,
+    "id": 158
   }
 ]

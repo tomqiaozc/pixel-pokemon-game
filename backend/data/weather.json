@@ -1,0 +1,88 @@
+{
+  "clear": {
+    "name": "Clear",
+    "description": "Normal weather conditions.",
+    "duration": null,
+    "effects": {}
+  },
+  "sun": {
+    "name": "Harsh Sunlight",
+    "description": "The sunlight is harsh. Fire moves are boosted and Water moves are weakened.",
+    "duration": 5,
+    "effects": {
+      "fire_multiplier": 1.5,
+      "water_multiplier": 0.5,
+      "solar_beam_charge": false,
+      "thunder_accuracy": 50,
+      "moonlight_heal": 0.667,
+      "synthesis_heal": 0.667
+    },
+    "ability_triggers": [
+      "drought"
+    ],
+    "set_by_moves": [
+      "Sunny Day"
+    ]
+  },
+  "rain": {
+    "name": "Rain",
+    "description": "It is raining. Water moves are boosted and Fire moves are weakened.",
+    "duration": 5,
+    "effects": {
+      "water_multiplier": 1.5,
+      "fire_multiplier": 0.5,
+      "thunder_accuracy": 100,
+      "solar_beam_power": 60,
+      "moonlight_heal": 0.25,
+      "synthesis_heal": 0.25
+    },
+    "ability_triggers": [
+      "drizzle"
+    ],
+    "set_by_moves": [
+      "Rain Dance"
+    ]
+  },
+  "sandstorm": {
+    "name": "Sandstorm",
+    "description": "A sandstorm is raging. Non Rock/Ground/Steel types take damage each turn.",
+    "duration": 5,
+    "effects": {
+      "damage_per_turn_percent": 6.25,
+      "immune_types": [
+        "rock",
+        "ground",
+        "steel"
+      ],
+      "rock_sp_def_boost": 1.5,
+      "moonlight_heal": 0.25,
+      "synthesis_heal": 0.25
+    },
+    "ability_triggers": [
+      "sand_stream"
+    ],
+    "set_by_moves": [
+      "Sandstorm"
+    ]
+  },
+  "hail": {
+    "name": "Hail",
+    "description": "It is hailing. Non Ice-type Pokemon take damage each turn.",
+    "duration": 5,
+    "effects": {
+      "damage_per_turn_percent": 6.25,
+      "immune_types": [
+        "ice"
+      ],
+      "blizzard_accuracy": 100,
+      "moonlight_heal": 0.25,
+      "synthesis_heal": 0.25
+    },
+    "ability_triggers": [
+      "snow_warning"
+    ],
+    "set_by_moves": [
+      "Hail"
+    ]
+  }
+}

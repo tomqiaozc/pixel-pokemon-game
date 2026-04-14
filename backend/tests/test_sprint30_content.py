@@ -205,7 +205,7 @@ class TestCountsUnchanged:
 
     def test_items_unchanged(self):
         items = _load_json("items.json")
-        assert len(items) == 75
+        assert len(items) == 93
 
     def test_trainers_unchanged(self):
         trainers = _load_json("trainers.json")
