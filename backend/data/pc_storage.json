@@ -1,0 +1,33 @@
+{
+  "total_boxes": 12,
+  "pokemon_per_box": 30,
+  "total_capacity": 360,
+  "default_box_names": [
+    "BOX 1",
+    "BOX 2",
+    "BOX 3",
+    "BOX 4",
+    "BOX 5",
+    "BOX 6",
+    "BOX 7",
+    "BOX 8",
+    "BOX 9",
+    "BOX 10",
+    "BOX 11",
+    "BOX 12"
+  ],
+  "features": {
+    "rename_boxes": true,
+    "move_pokemon": true,
+    "release_pokemon": true,
+    "search_pokemon": true
+  },
+  "auto_switch": {
+    "description": "When current box is full, automatically switches to next available box",
+    "enabled": true
+  },
+  "access_locations": [
+    "pokemon_center",
+    "players_pc"
+  ]
+}

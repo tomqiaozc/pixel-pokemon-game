@@ -1,0 +1,101 @@
+{
+  "boulder_badge": {
+    "badge_number": 1,
+    "name": "Boulder Badge",
+    "gym_leader": "Brock",
+    "location": "pewter_city",
+    "type": "rock",
+    "effects": {
+      "attack_boost": 1.125,
+      "hm_unlock": "HM05",
+      "hm_move": "Flash",
+      "obedience_level": 10
+    }
+  },
+  "cascade_badge": {
+    "badge_number": 2,
+    "name": "Cascade Badge",
+    "gym_leader": "Misty",
+    "location": "cerulean_city",
+    "type": "water",
+    "effects": {
+      "speed_boost": 1.125,
+      "hm_unlock": "HM01",
+      "hm_move": "Cut",
+      "obedience_level": 30
+    }
+  },
+  "thunder_badge": {
+    "badge_number": 3,
+    "name": "Thunder Badge",
+    "gym_leader": "Lt. Surge",
+    "location": "vermilion_city",
+    "type": "electric",
+    "effects": {
+      "defense_boost": 1.125,
+      "hm_unlock": "HM02",
+      "hm_move": "Fly",
+      "obedience_level": 30
+    }
+  },
+  "rainbow_badge": {
+    "badge_number": 4,
+    "name": "Rainbow Badge",
+    "gym_leader": "Erika",
+    "location": "celadon_city",
+    "type": "grass",
+    "effects": {
+      "sp_attack_boost": 1.125,
+      "hm_unlock": "HM04",
+      "hm_move": "Strength",
+      "obedience_level": 50
+    }
+  },
+  "soul_badge": {
+    "badge_number": 5,
+    "name": "Soul Badge",
+    "gym_leader": "Koga",
+    "location": "fuchsia_city",
+    "type": "poison",
+    "effects": {
+      "sp_defense_boost": 1.125,
+      "hm_unlock": "HM03",
+      "hm_move": "Surf",
+      "obedience_level": 70
+    }
+  },
+  "marsh_badge": {
+    "badge_number": 6,
+    "name": "Marsh Badge",
+    "gym_leader": "Sabrina",
+    "location": "saffron_city",
+    "type": "psychic",
+    "effects": {
+      "sp_attack_boost": 1.125,
+      "obedience_level": 70
+    }
+  },
+  "volcano_badge": {
+    "badge_number": 7,
+    "name": "Volcano Badge",
+    "gym_leader": "Blaine",
+    "location": "cinnabar_island",
+    "type": "fire",
+    "effects": {
+      "sp_defense_boost": 1.125,
+      "obedience_level": 100
+    }
+  },
+  "earth_badge": {
+    "badge_number": 8,
+    "name": "Earth Badge",
+    "gym_leader": "Giovanni",
+    "location": "viridian_city",
+    "type": "ground",
+    "effects": {
+      "all_stats_boost": 1.125,
+      "obedience_level": 255,
+      "unlocks_pokemon_league": true
+    }
+  }
+}

@@ -1,0 +1,356 @@
+{
+  "rival_1_oak_lab": {
+    "encounter_name": "Oak's Lab",
+    "location": "pallet_town",
+    "required_badges": 0,
+    "team": [
+      {
+        "species": "Squirtle",
+        "level": 5,
+        "moves": [
+          "Tackle",
+          "Tail Whip"
+        ]
+      }
+    ]
+  },
+  "rival_2_route22": {
+    "encounter_name": "Route 22",
+    "location": "route_22",
+    "required_badges": 0,
+    "team": [
+      {
+        "species": "Pidgey",
+        "level": 9,
+        "moves": [
+          "Gust",
+          "Sand Attack"
+        ]
+      },
+      {
+        "species": "Squirtle",
+        "level": 9,
+        "moves": [
+          "Tackle",
+          "Tail Whip",
+          "Water Gun"
+        ]
+      }
+    ]
+  },
+  "rival_3_cerulean": {
+    "encounter_name": "Cerulean City",
+    "location": "cerulean_city",
+    "required_badges": 1,
+    "team": [
+      {
+        "species": "Pidgeotto",
+        "level": 17,
+        "moves": [
+          "Gust",
+          "Sand Attack",
+          "Quick Attack"
+        ]
+      },
+      {
+        "species": "Raticate",
+        "level": 15,
+        "moves": [
+          "Tackle",
+          "Bite",
+          "Quick Attack"
+        ]
+      },
+      {
+        "species": "Wartortle",
+        "level": 18,
+        "moves": [
+          "Water Gun",
+          "Bite",
+          "Withdraw"
+        ]
+      }
+    ]
+  },
+  "rival_4_ss_anne": {
+    "encounter_name": "S.S. Anne",
+    "location": "ss_anne",
+    "required_badges": 2,
+    "team": [
+      {
+        "species": "Pidgeotto",
+        "level": 19,
+        "moves": [
+          "Gust",
+          "Sand Attack",
+          "Quick Attack",
+          "Wing Attack"
+        ]
+      },
+      {
+        "species": "Raticate",
+        "level": 16,
+        "moves": [
+          "Bite",
+          "Quick Attack",
+          "Hyper Fang"
+        ]
+      },
+      {
+        "species": "Kadabra",
+        "level": 18,
+        "moves": [
+          "Confusion",
+          "Psybeam"
+        ]
+      },
+      {
+        "species": "Wartortle",
+        "level": 20,
+        "moves": [
+          "Water Gun",
+          "Bite",
+          "Withdraw",
+          "Bubble Beam"
+        ]
+      }
+    ]
+  },
+  "rival_5_pokemon_tower": {
+    "encounter_name": "Pokemon Tower",
+    "location": "pokemon_tower",
+    "required_badges": 3,
+    "team": [
+      {
+        "species": "Pidgeotto",
+        "level": 25,
+        "moves": [
+          "Wing Attack",
+          "Quick Attack",
+          "Whirlwind"
+        ]
+      },
+      {
+        "species": "Exeggcute",
+        "level": 23,
+        "moves": [
+          "Confusion",
+          "Leech Seed",
+          "Stun Spore"
+        ]
+      },
+      {
+        "species": "Gyarados",
+        "level": 22,
+        "moves": [
+          "Bite",
+          "Dragon Rage",
+          "Thrash"
+        ]
+      },
+      {
+        "species": "Kadabra",
+        "level": 20,
+        "moves": [
+          "Psybeam",
+          "Confusion",
+          "Recover"
+        ]
+      },
+      {
+        "species": "Wartortle",
+        "level": 25,
+        "moves": [
+          "Water Gun",
+          "Bite",
+          "Bubble Beam",
+          "Ice Beam"
+        ]
+      }
+    ]
+  },
+  "rival_6_silph_co": {
+    "encounter_name": "Silph Co.",
+    "location": "silph_co",
+    "required_badges": 5,
+    "team": [
+      {
+        "species": "Pidgeot",
+        "level": 37,
+        "moves": [
+          "Wing Attack",
+          "Quick Attack",
+          "Fly"
+        ]
+      },
+      {
+        "species": "Exeggcute",
+        "level": 38,
+        "moves": [
+          "Psychic",
+          "Leech Seed",
+          "Sleep Powder"
+        ]
+      },
+      {
+        "species": "Gyarados",
+        "level": 35,
+        "moves": [
+          "Hydro Pump",
+          "Dragon Rage",
+          "Thrash"
+        ]
+      },
+      {
+        "species": "Alakazam",
+        "level": 35,
+        "moves": [
+          "Psychic",
+          "Recover",
+          "Reflect"
+        ]
+      },
+      {
+        "species": "Blastoise",
+        "level": 40,
+        "moves": [
+          "Hydro Pump",
+          "Ice Beam",
+          "Bite",
+          "Skull Bash"
+        ]
+      }
+    ]
+  },
+  "rival_7_route22_2": {
+    "encounter_name": "Route 22 (Second)",
+    "location": "route_22",
+    "required_badges": 7,
+    "team": [
+      {
+        "species": "Pidgeot",
+        "level": 47,
+        "moves": [
+          "Wing Attack",
+          "Fly",
+          "Quick Attack",
+          "Mirror Move"
+        ]
+      },
+      {
+        "species": "Rhyhorn",
+        "level": 45,
+        "moves": [
+          "Earthquake",
+          "Rock Slide",
+          "Horn Drill"
+        ]
+      },
+      {
+        "species": "Exeggutor",
+        "level": 45,
+        "moves": [
+          "Psychic",
+          "Solar Beam",
+          "Sleep Powder"
+        ]
+      },
+      {
+        "species": "Gyarados",
+        "level": 45,
+        "moves": [
+          "Hydro Pump",
+          "Dragon Rage",
+          "Hyper Beam"
+        ]
+      },
+      {
+        "species": "Alakazam",
+        "level": 47,
+        "moves": [
+          "Psychic",
+          "Recover",
+          "Reflect",
+          "Thunder Wave"
+        ]
+      },
+      {
+        "species": "Blastoise",
+        "level": 53,
+        "moves": [
+          "Hydro Pump",
+          "Ice Beam",
+          "Earthquake",
+          "Skull Bash"
+        ]
+      }
+    ]
+  },
+  "rival_8_champion": {
+    "encounter_name": "Champion Battle",
+    "location": "indigo_plateau",
+    "required_badges": 8,
+    "team": [
+      {
+        "species": "Pidgeot",
+        "level": 61,
+        "moves": [
+          "Wing Attack",
+          "Fly",
+          "Quick Attack",
+          "Mirror Move"
+        ]
+      },
+      {
+        "species": "Rhydon",
+        "level": 59,
+        "moves": [
+          "Earthquake",
+          "Rock Slide",
+          "Horn Drill",
+          "Fury Attack"
+        ]
+      },
+      {
+        "species": "Exeggutor",
+        "level": 59,
+        "moves": [
+          "Psychic",
+          "Solar Beam",
+          "Sleep Powder",
+          "Barrage"
+        ]
+      },
+      {
+        "species": "Gyarados",
+        "level": 59,
+        "moves": [
+          "Hydro Pump",
+          "Dragon Rage",
+          "Hyper Beam",
+          "Thrash"
+        ]
+      },
+      {
+        "species": "Alakazam",
+        "level": 57,
+        "moves": [
+          "Psychic",
+          "Recover",
+          "Reflect",
+          "Kinesis"
+        ]
+      },
+      {
+        "species": "Blastoise",
+        "level": 63,
+        "moves": [
+          "Hydro Pump",
+          "Ice Beam",
+          "Earthquake",
+          "Withdraw"
+        ]
+      }
+    ]
+  }
+}
