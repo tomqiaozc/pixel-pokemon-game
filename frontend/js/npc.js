@@ -100,6 +100,27 @@ const NPC = (() => {
                     "Brock is the Gym Leader here.",
                     "He uses Rock-type Pokemon. Be prepared!",
                 ]);
+            } else if (mapId === 'cerulean_city') {
+                addNPC('Nurse Joy', 'nurse', 4, 6, 0, [
+                    "Welcome to the Cerulean Pokemon Center!",
+                    "Let me heal your Pokemon to full health.",
+                ]);
+                addNPC('Shopkeeper', 'shopkeeper', 14, 6, 0, [
+                    "Welcome to the Poke Mart!",
+                    "We have Great Balls and Super Potions in stock.",
+                ]);
+                addNPC('Fisher', 'townsfolk', 19, 18, 0, [
+                    "The water here is crystal clear.",
+                    "I hear rare Water Pokemon live in this pond!",
+                ]);
+                addNPC('Bike Fan', 'townsfolk', 10, 15, 3, [
+                    "The Bike Shop here is famous!",
+                    "A bicycle costs 1,000,000... but they have a voucher deal.",
+                ]);
+                addNPC('Swimmer', 'townsfolk', 22, 12, 2, [
+                    "Misty is the Gym Leader here.",
+                    "She uses Water-type Pokemon. Watch out for her Starmie!",
+                ]);
             }
         }
     }

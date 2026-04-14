@@ -406,6 +406,72 @@ const Routes = (() => {
         return { data: m, width: W, height: H };
     }
 
+    // Build Cerulean City: Water-themed town (25x25 tiles)
+    function buildCeruleanCity() {
+        const W = 25, H = 25;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.GRASS);
+            m.push(row);
+        }
+
+        // Tree border
+        for (let x = 0; x < W; x++) { m[0][x] = T.TREE; m[H - 1][x] = T.TREE; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.TREE; m[y][W - 1] = T.TREE; }
+
+        // Main roads
+        for (let x = 1; x < W - 1; x++) { m[12][x] = T.DIRT; m[13][x] = T.DIRT; }
+        for (let y = 1; y < H - 1; y++) { m[y][12] = T.DIRT; m[y][13] = T.DIRT; }
+
+        // Pokemon Center (left side, red roof feel — uses standard house)
+        buildHouse(m, 3, 4, 6, 4);
+
+        // Poke Mart (center-left)
+        buildHouse(m, 12, 4, 5, 4);
+
+        // Cerulean Gym (right side, larger — Misty's gym)
+        for (let x = 18; x <= 23; x++) {
+            m[4][x] = T.HOUSE_ROOF; m[5][x] = T.HOUSE_ROOF;
+            m[6][x] = T.HOUSE_WALL; m[7][x] = T.HOUSE_WALL;
+        }
+        m[7][20] = T.DOOR;
+
+        // Bike Shop (lower left)
+        buildHouse(m, 3, 16, 5, 4);
+
+        // Residential house (lower right)
+        buildHouse(m, 18, 16, 5, 4);
+
+        // Surfable water pond in southeast corner
+        for (let y = 17; y <= 22; y++) {
+            for (let x = 16; x <= 23; x++) {
+                if (y === 17 && (x === 16 || x === 23)) continue;
+                if (y === 22 && (x === 16 || x === 23)) continue;
+                if (m[y][x] === T.GRASS) m[y][x] = T.WATER;
+            }
+        }
+
+        // Flowers — water-themed decorations
+        m[9][3] = T.FLOWER; m[9][4] = T.FLOWER;
+        m[9][21] = T.FLOWER; m[9][22] = T.FLOWER;
+        m[14][6] = T.FLOWER;
+        m[15][18] = T.FLOWER;
+
+        // Rocks
+        m[10][8] = T.ROCK;
+        m[21][10] = T.ROCK;
+
+        // Extra trees
+        m[15][10] = T.TREE;
+        m[22][5] = T.TREE;
+
+        // Exit west (to Route 4)
+        m[12][0] = T.DIRT; m[13][0] = T.DIRT;
+
+        return { data: m, width: W, height: H };
+    }
+
     // Trainer NPC positions for routes
     const route1Trainers = [
         { x: 12, y: 8, name: 'Youngster Joey', dir: 2, sightRange: 3,
@@ -548,6 +614,34 @@ const Routes = (() => {
             ],
             lamps: [{ x: 12, y: 9 }, { x: 22, y: 9 }],
         });
+
+        const ceruleanCity = buildCeruleanCity();
+        MapLoader.registerMap('cerulean_city', {
+            name: 'Cerulean City',
+            width: ceruleanCity.width,
+            height: ceruleanCity.height,
+            data: ceruleanCity.data,
+            exits: [
+                { edge: 'west', targetMap: 'route_4', spawnX: 28, spawnY: 9, spawnDir: 2 },
+            ],
+            doors: [
+                { x: 5, y: 7, targetMap: 'pokecenter', spawnX: 7, spawnY: 9 },
+                { x: 20, y: 7, targetMap: 'cerulean_gym', spawnX: 7, spawnY: 15 },
+            ],
+            npcs: [
+                { name: 'Nurse Joy', type: 'nurse', x: 4, y: 6, dir: 0,
+                  dialogue: ['Welcome to the Cerulean Pokemon Center!', 'Let me heal your Pokemon to full health.'] },
+                { name: 'Shopkeeper', type: 'shopkeeper', x: 14, y: 6, dir: 0,
+                  dialogue: ['Welcome to the Poke Mart!', 'We have Great Balls and Super Potions in stock.'] },
+                { name: 'Fisher', type: 'townsfolk', x: 19, y: 18, dir: 0,
+                  dialogue: ['The water here is crystal clear.', 'I hear rare Water Pokemon live in this pond!'] },
+                { name: 'Bike Fan', type: 'townsfolk', x: 10, y: 15, dir: 3,
+                  dialogue: ['The Bike Shop here is famous!', 'A bicycle costs 1,000,000... but they have a voucher deal.'] },
+                { name: 'Swimmer', type: 'townsfolk', x: 22, y: 12, dir: 2,
+                  dialogue: ['Misty is the Gym Leader here.', 'She uses Water-type Pokemon. Watch out for her Starmie!'] },
+            ],
+            lamps: [{ x: 8, y: 6 }, { x: 16, y: 6 }, { x: 12, y: 12 }, { x: 20, y: 18 }],
+        });
     }
 
     return {
@@ -557,6 +651,7 @@ const Routes = (() => {
         buildPalletTown,
         buildViridianCity,
         buildPewterCity,
+        buildCeruleanCity,
         registerAll,
         route1Trainers,
         route2Trainers,

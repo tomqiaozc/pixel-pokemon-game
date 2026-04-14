@@ -584,6 +584,11 @@ const Game = (() => {
                 state = 'gym';
                 return;
             }
+            if (door.targetMap === 'cerulean_gym') {
+                Gym.enter('cerulean');
+                state = 'gym';
+                return;
+            }
             MapLoader.transitionTo(door.targetMap, door.spawnX, door.spawnY, door.spawnDir);
             return;
         }

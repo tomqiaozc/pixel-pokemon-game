@@ -22,6 +22,12 @@ const Signs = (() => {
         pewter_city: [
             { x: 13, y: 9, text: ['Pewter City', 'A Stone Gray City'] },
         ],
+        cerulean_city: [
+            { x: 12, y: 10, text: ['Cerulean City', 'A Mysterious, Blue Aura Surrounds It'] },
+        ],
+        route_4: [
+            { x: 15, y: 9, text: ['Route 4', 'Mt. Moon - Cerulean City'] },
+        ],
     };
 
     // Check if player is facing a sign and action is pressed
