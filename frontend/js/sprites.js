@@ -1493,6 +1493,79 @@ const Sprites = (() => {
         return c;
     }
 
+    // Sabrina — Saffron Gym Leader — long dark hair, red outfit
+    function drawSabrina() {
+        if (cache.sabrina) return cache.sabrina;
+        const c = document.createElement('canvas');
+        c.width = TILE; c.height = TILE;
+        const ctx = c.getContext('2d');
+        // Hair (long, dark blue-black)
+        ctx.fillStyle = '#226';
+        ctx.fillRect(3, 0, 10, 7);
+        ctx.fillRect(2, 4, 2, 5);
+        ctx.fillRect(12, 4, 2, 5);
+        // Face
+        ctx.fillStyle = '#fdd';
+        ctx.fillRect(5, 2, 6, 5);
+        // Eyes (red/psychic)
+        ctx.fillStyle = '#c22';
+        ctx.fillRect(6, 3, 2, 1);
+        ctx.fillRect(9, 3, 2, 1);
+        // Mouth
+        ctx.fillStyle = '#a66';
+        ctx.fillRect(7, 5, 2, 1);
+        // Body (red dress)
+        ctx.fillStyle = '#c33';
+        ctx.fillRect(4, 7, 8, 5);
+        // Belt
+        ctx.fillStyle = '#222';
+        ctx.fillRect(4, 9, 8, 1);
+        // Legs
+        ctx.fillStyle = '#fdd';
+        ctx.fillRect(5, 12, 2, 3);
+        ctx.fillRect(9, 12, 2, 3);
+        // Shoes
+        ctx.fillStyle = '#c33';
+        ctx.fillRect(5, 14, 2, 1);
+        ctx.fillRect(9, 14, 2, 1);
+        cache.sabrina = c;
+        return c;
+    }
+
+    // Blackbelt — fighting dojo trainer
+    function drawBlackbelt() {
+        if (cache.blackbelt) return cache.blackbelt;
+        const c = document.createElement('canvas');
+        c.width = TILE; c.height = TILE;
+        const ctx = c.getContext('2d');
+        // Headband
+        ctx.fillStyle = '#c22';
+        ctx.fillRect(4, 1, 8, 2);
+        // Face
+        ctx.fillStyle = '#fdd';
+        ctx.fillRect(5, 3, 6, 4);
+        // Eyes
+        ctx.fillStyle = '#333';
+        ctx.fillRect(6, 4, 2, 1);
+        ctx.fillRect(9, 4, 2, 1);
+        // Gi top (white)
+        ctx.fillStyle = '#eee';
+        ctx.fillRect(3, 7, 10, 5);
+        // Belt (black)
+        ctx.fillStyle = '#222';
+        ctx.fillRect(4, 9, 8, 1);
+        // Gi pants
+        ctx.fillStyle = '#eee';
+        ctx.fillRect(5, 12, 3, 3);
+        ctx.fillRect(9, 12, 3, 3);
+        // Bare feet
+        ctx.fillStyle = '#fdd';
+        ctx.fillRect(5, 14, 3, 1);
+        ctx.fillRect(9, 14, 3, 1);
+        cache.blackbelt = c;
+        return c;
+    }
+
     return {
         TILE,
         PAL,
@@ -1538,5 +1611,7 @@ const Sprites = (() => {
         drawSlotMachine,
         drawGiovanni,
         drawRocketAdmin,
+        drawSabrina,
+        drawBlackbelt,
     };
 })();

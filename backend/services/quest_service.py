@@ -180,6 +180,39 @@ _QUEST_DEFS: list[dict] = [
         "rewards": {"money": 8000, "items": [{"item_id": 54, "quantity": 1}], "unlock_flags": ["giovanni_defeated", "saffron_gate_open"]},
         "prerequisite_quests": ["rainbow_badge"],
     },
+    {
+        "id": "silph_co_rescue",
+        "name": "Silph Co. Under Siege",
+        "description": "Infiltrate Silph Co. and defeat Giovanni to free the building from Team Rocket!",
+        "type": "main",
+        "objectives": [
+            {"id": "defeat_giovanni_silph", "description": "Defeat Giovanni at Silph Co.", "type": "defeat_boss", "target": "giovanni_silph", "required_progress": 1},
+        ],
+        "rewards": {"money": 10000, "items": [{"item_id": 10, "quantity": 1}], "unlock_flags": ["silph_co_cleared", "has_master_ball"]},
+        "prerequisite_quests": ["team_rocket_hideout"],
+    },
+    {
+        "id": "marsh_badge",
+        "name": "The Marsh Badge",
+        "description": "Defeat Sabrina at Saffron Gym to earn the Marsh Badge!",
+        "type": "main",
+        "objectives": [
+            {"id": "defeat_sabrina", "description": "Defeat Gym Leader Sabrina", "type": "defeat_gym", "target": "saffron_gym", "required_progress": 1},
+        ],
+        "rewards": {"money": 6000, "unlock_flags": ["badge_marsh"]},
+        "prerequisite_quests": ["silph_co_rescue"],
+    },
+    {
+        "id": "fighting_dojo",
+        "name": "The Fighting Dojo",
+        "description": "Defeat all trainers in the Fighting Dojo to earn a Fighting-type Pokemon!",
+        "type": "side",
+        "objectives": [
+            {"id": "defeat_dojo", "description": "Defeat the Karate Master", "type": "defeat_trainer", "target": "dojo_master", "required_progress": 1},
+        ],
+        "rewards": {"money": 2000},
+        "prerequisite_quests": [],
+    },
 ]
 
 

@@ -3218,15 +3218,6 @@
     "types": [
       "psychic"
     ],
-    "base_exp": 140,
-    "catch_rate": 100,
-    "abilities": [
-      "synchronize"
-    ],
-    "gender_ratio": 25.0,
-    "egg_groups": [
-      "human-like"
-    ],
     "stats": {
       "hp": 40,
       "attack": 35,
@@ -3235,29 +3226,51 @@
       "sp_defense": 70,
       "speed": 105
     },
+    "base_exp": 145,
+    "catch_rate": 100,
+    "abilities": [
+      "Synchronize",
+      "Inner Focus"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "human_like"
+    ],
     "learnset": [
       {
         "level": 1,
         "move": "Teleport"
       },
       {
+        "level": 1,
+        "move": "Confusion"
+      },
+      {
         "level": 16,
         "move": "Confusion"
       },
       {
-        "level": 21,
+        "level": 20,
         "move": "Disable"
       },
       {
-        "level": 26,
-        "move": "Psychic"
+        "level": 27,
+        "move": "Psybeam"
       },
       {
         "level": 31,
         "move": "Recover"
+      },
+      {
+        "level": 38,
+        "move": "Psychic"
       }
     ],
-    "evolution": null,
+    "evolution": {
+      "to": 65,
+      "level": null,
+      "item": "trade"
+    },
     "sprite": "kadabra.png"
   },
   {
@@ -4292,5 +4305,217 @@
     ],
     "evolution": null,
     "sprite": "tangela.png"
+  },
+  {
+    "id": 65,
+    "name": "Alakazam",
+    "types": [
+      "psychic"
+    ],
+    "stats": {
+      "hp": 55,
+      "attack": 50,
+      "defense": 45,
+      "sp_attack": 135,
+      "sp_defense": 85,
+      "speed": 120
+    },
+    "base_exp": 225,
+    "catch_rate": 50,
+    "abilities": [
+      "Synchronize",
+      "Inner Focus"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "human_like"
+    ],
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Teleport"
+      },
+      {
+        "level": 1,
+        "move": "Confusion"
+      },
+      {
+        "level": 1,
+        "move": "Kinesis"
+      }
+    ],
+    "evolution": null,
+    "sprite": "alakazam.png"
+  },
+  {
+    "id": 106,
+    "name": "Hitmonlee",
+    "types": [
+      "fighting"
+    ],
+    "stats": {
+      "hp": 50,
+      "attack": 120,
+      "defense": 53,
+      "sp_attack": 35,
+      "sp_defense": 110,
+      "speed": 87
+    },
+    "base_exp": 159,
+    "catch_rate": 45,
+    "abilities": [
+      "Limber",
+      "Reckless"
+    ],
+    "gender_ratio": 100.0,
+    "egg_groups": [
+      "human_like"
+    ],
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Double Kick"
+      },
+      {
+        "level": 6,
+        "move": "Meditate"
+      },
+      {
+        "level": 11,
+        "move": "Rolling Kick"
+      },
+      {
+        "level": 16,
+        "move": "Jump Kick"
+      },
+      {
+        "level": 21,
+        "move": "Focus Energy"
+      },
+      {
+        "level": 26,
+        "move": "Hi Jump Kick"
+      },
+      {
+        "level": 31,
+        "move": "Mega Kick"
+      }
+    ],
+    "evolution": null,
+    "sprite": "hitmonlee.png"
+  },
+  {
+    "id": 107,
+    "name": "Hitmonchan",
+    "types": [
+      "fighting"
+    ],
+    "stats": {
+      "hp": 50,
+      "attack": 105,
+      "defense": 79,
+      "sp_attack": 35,
+      "sp_defense": 110,
+      "speed": 76
+    },
+    "base_exp": 159,
+    "catch_rate": 45,
+    "abilities": [
+      "Keen Eye",
+      "Iron Fist"
+    ],
+    "gender_ratio": 100.0,
+    "egg_groups": [
+      "human_like"
+    ],
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Comet Punch"
+      },
+      {
+        "level": 6,
+        "move": "Agility"
+      },
+      {
+        "level": 11,
+        "move": "Fire Punch"
+      },
+      {
+        "level": 16,
+        "move": "Ice Punch"
+      },
+      {
+        "level": 21,
+        "move": "Thunder Punch"
+      },
+      {
+        "level": 26,
+        "move": "Mega Punch"
+      },
+      {
+        "level": 31,
+        "move": "Counter"
+      }
+    ],
+    "evolution": null,
+    "sprite": "hitmonchan.png"
+  },
+  {
+    "id": 122,
+    "name": "Mr. Mime",
+    "types": [
+      "psychic"
+    ],
+    "stats": {
+      "hp": 40,
+      "attack": 45,
+      "defense": 65,
+      "sp_attack": 100,
+      "sp_defense": 120,
+      "speed": 90
+    },
+    "base_exp": 161,
+    "catch_rate": 45,
+    "abilities": [
+      "Soundproof",
+      "Filter"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "human_like"
+    ],
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Barrier"
+      },
+      {
+        "level": 1,
+        "move": "Confusion"
+      },
+      {
+        "level": 15,
+        "move": "Light Screen"
+      },
+      {
+        "level": 23,
+        "move": "Double Slap"
+      },
+      {
+        "level": 31,
+        "move": "Meditate"
+      },
+      {
+        "level": 39,
+        "move": "Substitute"
+      },
+      {
+        "level": 47,
+        "move": "Psychic"
+      }
+    ],
+    "evolution": null,
+    "sprite": "mr_mime.png"
   }
 ]

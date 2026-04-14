@@ -35,4 +35,4 @@ class TestCeladonGymData:
 
     def test_total_gym_count_is_four(self):
         gyms = _load_json("gyms.json")
-        assert len(gyms) == 4
+        assert len(gyms) == 5

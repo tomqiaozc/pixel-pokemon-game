@@ -973,6 +973,28 @@ const API = (() => {
         return post(`${BASE_URL}/rocket-hideout/defeat-giovanni`, { game_id: gameId });
     }
 
+    // --- Silph Co. ---
+
+    async function getSilphCoState() {
+        if (!gameId) return null;
+        return get(`${BASE_URL}/silph-co/state?game_id=${gameId}`);
+    }
+
+    async function enterSilphCo() {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/silph-co/enter`, { game_id: gameId });
+    }
+
+    async function clearSilphRockets() {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/silph-co/clear-rockets`, { game_id: gameId });
+    }
+
+    async function defeatGiovanniSilph() {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/silph-co/defeat-giovanni`, { game_id: gameId });
+    }
+
     return {
         // Game
         createGame, getGameId, getGameState, saveGame, updatePlayTime,
@@ -1047,5 +1069,7 @@ const API = (() => {
         useSilphScope, defeatTowerRockets, rescueFuji,
         // Rocket Hideout
         getRocketHideoutState, enterRocketHideout, clearRocketFloor, defeatGiovanni,
+        // Silph Co.
+        getSilphCoState, enterSilphCo, clearSilphRockets, defeatGiovanniSilph,
     };
 })();

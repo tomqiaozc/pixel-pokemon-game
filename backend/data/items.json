@@ -491,5 +491,18 @@
       "type": "unlock"
     },
     "usable": false
+  },
+  {
+    "id": 60,
+    "name": "TM29 Psychic",
+    "description": "Teaches Psychic to a Pokemon",
+    "category": "tm",
+    "price": 0,
+    "sell_price": 0,
+    "effect": {
+      "type": "teach_move",
+      "move": "Psychic"
+    },
+    "usable": true
   }
 ]

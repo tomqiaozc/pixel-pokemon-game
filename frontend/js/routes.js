@@ -2173,6 +2173,226 @@ const Routes = (() => {
           ] },
     ];
 
+    // ═══════════════════════════════════════════════
+    //  Sprint 17: Saffron City, Silph Co., Sabrina's Gym
+    // ═══════════════════════════════════════════════
+
+    // Saffron City (30x30)
+    function buildSaffronCity() {
+        const W = 30, H = 30;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.GRASS);
+            m.push(row);
+        }
+        for (let x = 0; x < W; x++) { m[0][x] = T.TREE; m[H - 1][x] = T.TREE; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.TREE; m[y][W - 1] = T.TREE; }
+        // Roads
+        for (let x = 1; x < W - 1; x++) { m[14][x] = T.DIRT; m[15][x] = T.DIRT; }
+        for (let y = 1; y < H - 1; y++) { m[y][14] = T.DIRT; m[y][15] = T.DIRT; }
+        // Pokemon Center
+        buildHouse(m, 5, 8, 4, 3);
+        // Pokemart
+        buildHouse(m, 12, 8, 4, 3);
+        // Silph Co. (large building)
+        for (let x = 18; x <= 24; x++) {
+            m[3][x] = T.HOUSE_ROOF; m[4][x] = T.HOUSE_ROOF;
+            m[5][x] = T.HOUSE_WALL; m[6][x] = T.HOUSE_WALL; m[7][x] = T.HOUSE_WALL;
+        }
+        m[7][21] = T.DOOR;
+        // Saffron Gym
+        for (let x = 5; x <= 10; x++) {
+            m[18][x] = T.HOUSE_ROOF; m[19][x] = T.HOUSE_ROOF;
+            m[20][x] = T.HOUSE_WALL; m[21][x] = T.HOUSE_WALL;
+        }
+        m[21][7] = T.DOOR;
+        // Fighting Dojo (next to gym)
+        buildHouse(m, 12, 18, 4, 3);
+        // Copycat's House
+        buildHouse(m, 22, 20, 4, 3);
+        // Flowers
+        m[10][5] = T.FLOWER; m[10][24] = T.FLOWER;
+        m[25][5] = T.FLOWER; m[25][24] = T.FLOWER;
+        // Rocks
+        m[26][3] = T.ROCK; m[26][27] = T.ROCK;
+        // Exits
+        m[14][0] = T.DIRT; m[15][0] = T.DIRT; // west
+        m[14][W - 1] = T.DIRT; m[15][W - 1] = T.DIRT; // east
+        return { data: m, width: W, height: H };
+    }
+
+    // Saffron Pokemon Center (8x8)
+    function buildSaffronPokemonCenter() {
+        const W = 8, H = 8;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.DIRT); m.push(row); }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H-1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W-1] = T.HOUSE_WALL; }
+        m[2][3] = T.HOUSE_WALL; m[2][4] = T.HOUSE_WALL; m[2][5] = T.HOUSE_WALL;
+        m[H-1][4] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Saffron Pokemart (8x8)
+    function buildSaffronPokemart() {
+        const W = 8, H = 8;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.DIRT); m.push(row); }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H-1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W-1] = T.HOUSE_WALL; }
+        m[2][2] = T.HOUSE_WALL; m[2][3] = T.HOUSE_WALL;
+        m[4][5] = T.HOUSE_WALL; m[4][6] = T.HOUSE_WALL;
+        m[H-1][4] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Saffron Gym (12x12) — teleporter tiles
+    function buildSaffronGym() {
+        const W = 12, H = 12;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.DIRT); m.push(row); }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H-1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W-1] = T.HOUSE_WALL; }
+        // Teleporter pads (FLOWER as warp pad indicators)
+        m[2][3] = T.FLOWER; m[2][8] = T.FLOWER;
+        m[5][2] = T.FLOWER; m[5][9] = T.FLOWER;
+        m[8][3] = T.FLOWER; m[8][8] = T.FLOWER;
+        // Path
+        for (let y = 1; y < H-1; y++) { m[y][5] = T.DIRT; m[y][6] = T.DIRT; }
+        m[H-1][5] = T.DOOR; m[H-1][6] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Silph Co. 1F (14x12)
+    function buildSilphCo1F() {
+        const W = 14, H = 12;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.DIRT); m.push(row); }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H-1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W-1] = T.HOUSE_WALL; }
+        // Reception desk
+        for (let x = 4; x <= 9; x++) m[2][x] = T.HOUSE_WALL;
+        // Office dividers
+        for (let y = 5; y <= 7; y++) m[y][6] = T.HOUSE_WALL;
+        m[6][6] = T.DOOR;
+        // Stairs
+        m[0][12] = T.DOOR;
+        m[H-1][7] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Silph Co. 2F (14x12)
+    function buildSilphCo2F() {
+        const W = 14, H = 12;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.DIRT); m.push(row); }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H-1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W-1] = T.HOUSE_WALL; }
+        // Cubicle walls
+        for (let x = 2; x <= 5; x++) { m[3][x] = T.HOUSE_WALL; m[7][x] = T.HOUSE_WALL; }
+        for (let x = 8; x <= 11; x++) { m[3][x] = T.HOUSE_WALL; m[7][x] = T.HOUSE_WALL; }
+        m[3][4] = T.DOOR; m[7][4] = T.DOOR; m[3][9] = T.DOOR; m[7][9] = T.DOOR;
+        // Stairs
+        m[H-1][12] = T.DOOR;
+        m[0][12] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Silph Co. Top Floor (14x12) — President's office + Giovanni
+    function buildSilphCoTop() {
+        const W = 14, H = 12;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.DIRT); m.push(row); }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H-1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W-1] = T.HOUSE_WALL; }
+        // President's desk
+        for (let x = 5; x <= 8; x++) m[2][x] = T.HOUSE_WALL;
+        // Bookshelves
+        for (let x = 2; x <= 11; x++) m[1][x] = T.ROCK;
+        // Carpet
+        for (let y = 3; y <= 5; y++) for (let x = 5; x <= 8; x++) m[y][x] = T.FLOWER;
+        // Stairs
+        m[H-1][12] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Fighting Dojo (10x10)
+    function buildFightingDojo() {
+        const W = 10, H = 10;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.DIRT); m.push(row); }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H-1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W-1] = T.HOUSE_WALL; }
+        // Training mats (grass tiles for tatami)
+        for (let y = 3; y <= 7; y++) for (let x = 2; x <= 7; x++) m[y][x] = T.GRASS;
+        m[H-1][5] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Saffron Gym trainers
+    const saffronGymTrainers = [
+        { x: 3, y: 5, name: 'Psychic Johan', dir: 3, sightRange: 3,
+          dialogue: ['I foresaw your arrival!'],
+          pokemon: [
+              { name: 'Abra', level: 28, hp: 38, maxHp: 38, type: 'Psychic' },
+              { name: 'Kadabra', level: 28, hp: 44, maxHp: 44, type: 'Psychic' },
+          ] },
+        { x: 8, y: 5, name: 'Psychic Tyron', dir: 2, sightRange: 3,
+          dialogue: ['The mind is the greatest weapon!'],
+          pokemon: [
+              { name: 'Mr. Mime', level: 30, hp: 46, maxHp: 46, type: 'Psychic' },
+          ] },
+        { x: 5, y: 8, name: 'Channeler Patricia', dir: 0, sightRange: 3,
+          dialogue: ['The spirits guide my hands...'],
+          pokemon: [
+              { name: 'Gastly', level: 27, hp: 40, maxHp: 40, type: 'Ghost' },
+              { name: 'Haunter', level: 29, hp: 46, maxHp: 46, type: 'Ghost' },
+          ] },
+    ];
+
+    const silphRocketTrainers = [
+        { x: 5, y: 6, name: 'Rocket Grunt', dir: 3, sightRange: 3,
+          dialogue: ['Silph Co. belongs to Team Rocket!'],
+          pokemon: [
+              { name: 'Koffing', level: 27, hp: 50, maxHp: 50, type: 'Poison' },
+              { name: 'Raticate', level: 27, hp: 52, maxHp: 52, type: 'Normal' },
+          ] },
+        { x: 10, y: 8, name: 'Rocket Grunt', dir: 2, sightRange: 3,
+          dialogue: ['You\'re not authorized to be here!'],
+          pokemon: [
+              { name: 'Muk', level: 29, hp: 60, maxHp: 60, type: 'Poison' },
+          ] },
+    ];
+
+    const silphRocketB2Trainers = [
+        { x: 4, y: 5, name: 'Rocket Grunt', dir: 0, sightRange: 3,
+          dialogue: ['For Team Rocket\'s glory!'],
+          pokemon: [
+              { name: 'Weezing', level: 28, hp: 56, maxHp: 56, type: 'Poison' },
+              { name: 'Koffing', level: 26, hp: 48, maxHp: 48, type: 'Poison' },
+          ] },
+        { x: 10, y: 7, name: 'Rocket Grunt', dir: 2, sightRange: 3,
+          dialogue: ['Team Rocket rules!'],
+          pokemon: [
+              { name: 'Raticate', level: 28, hp: 54, maxHp: 54, type: 'Normal' },
+          ] },
+    ];
+
+    const dojoTrainers = [
+        { x: 3, y: 5, name: 'Blackbelt Koichi', dir: 3, sightRange: 3,
+          dialogue: ['The art of fighting is all about discipline!'],
+          pokemon: [
+              { name: 'Machop', level: 28, hp: 50, maxHp: 50, type: 'Fighting' },
+              { name: 'Machoke', level: 28, hp: 56, maxHp: 56, type: 'Fighting' },
+          ] },
+        { x: 7, y: 5, name: 'Blackbelt Mike', dir: 2, sightRange: 3,
+          dialogue: ['I train every day!'],
+          pokemon: [
+              { name: 'Machoke', level: 30, hp: 58, maxHp: 58, type: 'Fighting' },
+          ] },
+    ];
+
     // Register all maps with MapLoader
     function registerAll() {
         const palletTown = buildPalletTown();
@@ -3028,6 +3248,115 @@ const Routes = (() => {
                   dialogue: ['You need special permission to enter Saffron City.', 'Come back when the trouble settles down.'] },
             ],
         });
+
+        // --- Sprint 17: Saffron City, Silph Co., Sabrina's Gym ---
+
+        const saffronCity = buildSaffronCity();
+        MapLoader.registerMap('saffron_city', {
+            name: 'Saffron City',
+            width: saffronCity.width,
+            height: saffronCity.height,
+            data: saffronCity.data,
+            exits: [
+                { edge: 'west', targetMap: 'route_7', spawnX: 18, spawnY: 5, spawnDir: 2 },
+                { edge: 'east', targetMap: 'route_8', spawnX: 1, spawnY: 10, spawnDir: 3 },
+            ],
+            doors: [
+                { x: 7, y: 10, targetMap: 'saffron_pokemon_center', spawnX: 4, spawnY: 6 },
+                { x: 14, y: 10, targetMap: 'saffron_pokemart', spawnX: 4, spawnY: 6 },
+                { x: 21, y: 7, targetMap: 'silph_co_1f', spawnX: 7, spawnY: 10 },
+                { x: 7, y: 21, targetMap: 'saffron_gym', spawnX: 5, spawnY: 10 },
+                { x: 14, y: 20, targetMap: 'fighting_dojo', spawnX: 5, spawnY: 8 },
+                { x: 24, y: 22, targetMap: 'saffron_house', spawnX: 4, spawnY: 6 },
+            ],
+            npcs: [
+                { name: 'Man', type: 'townsfolk', x: 12, y: 10, dir: 0,
+                  dialogue: ['Team Rocket took over Silph Co.!', 'Someone needs to stop them!'] },
+                { name: 'Woman', type: 'townsfolk', x: 20, y: 18, dir: 2,
+                  dialogue: ['Sabrina is the strongest Gym Leader in Kanto.', 'Her psychic powers are incredible!'] },
+            ],
+            lamps: [{ x: 8, y: 6 }, { x: 20, y: 6 }, { x: 8, y: 16 }, { x: 24, y: 16 }],
+        });
+
+        const saffronPC = buildSaffronPokemonCenter();
+        MapLoader.registerMap('saffron_pokemon_center', {
+            name: 'Saffron Pokemon Center',
+            width: saffronPC.width, height: saffronPC.height, data: saffronPC.data,
+            npcs: [{ name: 'Nurse Joy', type: 'nurse', x: 4, y: 2, dir: 0,
+              dialogue: ['Welcome to the Pokemon Center!', 'We\'ll heal your Pokemon.'] }],
+        });
+
+        const saffronMart = buildSaffronPokemart();
+        MapLoader.registerMap('saffron_pokemart', {
+            name: 'Saffron Pokemart',
+            width: saffronMart.width, height: saffronMart.height, data: saffronMart.data,
+            npcs: [{ name: 'Clerk', type: 'townsfolk', x: 4, y: 2, dir: 0,
+              dialogue: ['Welcome to Saffron Pokemart!'] }],
+        });
+
+        const saffronGym = buildSaffronGym();
+        MapLoader.registerMap('saffron_gym', {
+            name: 'Saffron City Gym',
+            width: saffronGym.width, height: saffronGym.height, data: saffronGym.data,
+            trainers: saffronGymTrainers,
+            npcs: [{ name: 'Sabrina', type: 'sabrina', x: 5, y: 2, dir: 0,
+              dialogue: ['I had a vision of your arrival.', 'I have had psychic powers since I was a child.', 'Very well. I shall show you the power of the mind!'] }],
+        });
+
+        const silph1F = buildSilphCo1F();
+        MapLoader.registerMap('silph_co_1f', {
+            name: 'Silph Co. 1F',
+            width: silph1F.width, height: silph1F.height, data: silph1F.data,
+            doors: [
+                { x: 12, y: 0, targetMap: 'silph_co_2f', spawnX: 12, spawnY: 10 },
+            ],
+            trainers: silphRocketTrainers,
+            npcs: [{ name: 'Receptionist', type: 'townsfolk', x: 6, y: 2, dir: 0,
+              dialogue: ['Please help us! Team Rocket has taken over!'] }],
+        });
+
+        const silph2F = buildSilphCo2F();
+        MapLoader.registerMap('silph_co_2f', {
+            name: 'Silph Co. 2F',
+            width: silph2F.width, height: silph2F.height, data: silph2F.data,
+            doors: [
+                { x: 12, y: 11, targetMap: 'silph_co_1f', spawnX: 12, spawnY: 1 },
+                { x: 12, y: 0, targetMap: 'silph_co_top', spawnX: 12, spawnY: 10 },
+            ],
+            trainers: silphRocketB2Trainers,
+        });
+
+        const silphTop = buildSilphCoTop();
+        MapLoader.registerMap('silph_co_top', {
+            name: 'Silph Co. Top Floor',
+            width: silphTop.width, height: silphTop.height, data: silphTop.data,
+            doors: [
+                { x: 12, y: 11, targetMap: 'silph_co_2f', spawnX: 12, spawnY: 1 },
+            ],
+            npcs: [
+                { name: 'Silph President', type: 'townsfolk', x: 7, y: 2, dir: 0,
+                  dialogue: ['Thank you for saving us!', 'Please take this Master Ball as a reward!'] },
+                { name: 'Giovanni', type: 'giovanni', x: 7, y: 5, dir: 1,
+                  dialogue: ['We meet again.', 'I, the leader of Team Rocket, will not be beaten!'] },
+            ],
+        });
+
+        const dojo = buildFightingDojo();
+        MapLoader.registerMap('fighting_dojo', {
+            name: 'Fighting Dojo',
+            width: dojo.width, height: dojo.height, data: dojo.data,
+            trainers: dojoTrainers,
+            npcs: [{ name: 'Karate Master', type: 'blackbelt', x: 5, y: 2, dir: 0,
+              dialogue: ['Welcome to the Fighting Dojo!', 'Defeat my students and I shall reward you with a Fighting-type Pokemon!'] }],
+        });
+
+        MapLoader.registerMap('saffron_house', {
+            name: 'Copycat\'s House',
+            width: 8, height: 8,
+            data: buildSaffronPokemonCenter().data,
+            npcs: [{ name: 'Copycat', type: 'townsfolk', x: 4, y: 3, dir: 0,
+              dialogue: ['I like to mimic people!', 'Do you have a Poke Doll? I\'d love one!'] }],
+        });
     }
 
     return {
@@ -3080,6 +3409,14 @@ const Routes = (() => {
         buildRocketHideoutB3F,
         buildRocketHideoutB4F,
         buildSaffronGate,
+        buildSaffronCity,
+        buildSaffronPokemonCenter,
+        buildSaffronPokemart,
+        buildSaffronGym,
+        buildSilphCo1F,
+        buildSilphCo2F,
+        buildSilphCoTop,
+        buildFightingDojo,
         buildPalletTown,
         buildViridianCity,
         buildPewterCity,
@@ -3100,6 +3437,10 @@ const Routes = (() => {
         rocketHideoutTrainers,
         rocketHideoutB2Trainers,
         rocketHideoutB3Trainers,
+        saffronGymTrainers,
+        silphRocketTrainers,
+        silphRocketB2Trainers,
+        dojoTrainers,
         nuggetBridgeTrainers,
         route25Trainers,
     };

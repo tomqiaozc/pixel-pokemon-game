@@ -752,5 +752,122 @@
     "facing": "down",
     "npc_type": "guard",
     "dialogue_tree_id": "saffron_guard_dialogue"
+  },
+  {
+    "id": "saffron_townsfolk_1",
+    "name": "Man",
+    "sprite_id": "old_man",
+    "position": {
+      "x": 12,
+      "y": 10
+    },
+    "map_id": "saffron_city",
+    "facing": "down",
+    "npc_type": "generic",
+    "dialogue_tree_id": "saffron_townsfolk_1_dialogue"
+  },
+  {
+    "id": "saffron_townsfolk_2",
+    "name": "Woman",
+    "sprite_id": "girl",
+    "position": {
+      "x": 20,
+      "y": 18
+    },
+    "map_id": "saffron_city",
+    "facing": "left",
+    "npc_type": "generic",
+    "dialogue_tree_id": "saffron_townsfolk_2_dialogue"
+  },
+  {
+    "id": "saffron_nurse_joy",
+    "name": "Nurse Joy",
+    "sprite_id": "nurse_joy",
+    "position": {
+      "x": 4,
+      "y": 1
+    },
+    "map_id": "saffron_pokemon_center",
+    "facing": "down",
+    "npc_type": "healer",
+    "dialogue_tree_id": "nurse_joy_dialogue"
+  },
+  {
+    "id": "saffron_mart_clerk",
+    "name": "Clerk",
+    "sprite_id": "clerk",
+    "position": {
+      "x": 4,
+      "y": 1
+    },
+    "map_id": "saffron_pokemart",
+    "facing": "down",
+    "npc_type": "shopkeeper",
+    "dialogue_tree_id": "saffron_mart_clerk_dialogue"
+  },
+  {
+    "id": "silph_receptionist",
+    "name": "Receptionist",
+    "sprite_id": "girl",
+    "position": {
+      "x": 7,
+      "y": 2
+    },
+    "map_id": "silph_co_1f",
+    "facing": "down",
+    "npc_type": "generic",
+    "dialogue_tree_id": "silph_receptionist_dialogue"
+  },
+  {
+    "id": "silph_president",
+    "name": "Silph President",
+    "sprite_id": "old_man",
+    "position": {
+      "x": 7,
+      "y": 2
+    },
+    "map_id": "silph_co_top",
+    "facing": "down",
+    "npc_type": "generic",
+    "dialogue_tree_id": "silph_president_dialogue"
+  },
+  {
+    "id": "giovanni_silph",
+    "name": "Giovanni",
+    "sprite_id": "giovanni",
+    "position": {
+      "x": 7,
+      "y": 5
+    },
+    "map_id": "silph_co_top",
+    "facing": "up",
+    "npc_type": "boss",
+    "dialogue_tree_id": "giovanni_silph_dialogue"
+  },
+  {
+    "id": "dojo_master",
+    "name": "Karate Master",
+    "sprite_id": "blackbelt",
+    "position": {
+      "x": 5,
+      "y": 2
+    },
+    "map_id": "fighting_dojo",
+    "facing": "down",
+    "npc_type": "generic",
+    "dialogue_tree_id": "dojo_master_dialogue"
+  },
+  {
+    "id": "copycat_npc",
+    "name": "Copycat",
+    "sprite_id": "girl",
+    "position": {
+      "x": 4,
+      "y": 3
+    },
+    "map_id": "saffron_house",
+    "facing": "down",
+    "npc_type": "generic",
+    "dialogue_tree_id": "copycat_dialogue"
   }
 ]

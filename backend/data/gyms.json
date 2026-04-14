@@ -202,5 +202,65 @@
         }
       ]
     }
+  },
+  {
+    "id": "saffron_gym",
+    "name": "Saffron City Gym",
+    "city": "Saffron City",
+    "type_specialty": "psychic",
+    "badge_name": "Marsh Badge",
+    "badge_id": "marsh",
+    "map_id": "saffron_gym",
+    "gym_trainers": [
+      "saffron_gym_trainer_1",
+      "saffron_gym_trainer_2",
+      "saffron_gym_trainer_3"
+    ],
+    "prerequisite_badge": "rainbow",
+    "leader": {
+      "id": "sabrina",
+      "name": "Sabrina",
+      "sprite_id": "sabrina",
+      "badge_id": "marsh",
+      "reward_money": 4100,
+      "ai_difficulty": "hard",
+      "dialogue_before": "I had a vision of your arrival. I have had psychic powers since I was a child. I foresaw that you would come. Very well. I shall show you the power of the mind!",
+      "dialogue_after": "Your power... it transcends what I foresaw. I surrender the Marsh Badge.",
+      "pokemon_team": [
+        {
+          "species_id": 64,
+          "name": "Kadabra",
+          "level": 38,
+          "moves": [
+            "Psybeam",
+            "Recover",
+            "Reflect",
+            "Psychic"
+          ]
+        },
+        {
+          "species_id": 122,
+          "name": "Mr. Mime",
+          "level": 37,
+          "moves": [
+            "Barrier",
+            "Psychic",
+            "Double Slap",
+            "Meditate"
+          ]
+        },
+        {
+          "species_id": 65,
+          "name": "Alakazam",
+          "level": 43,
+          "moves": [
+            "Psychic",
+            "Recover",
+            "Reflect",
+            "Kinesis"
+          ]
+        }
+      ]
+    }
   }
 ]

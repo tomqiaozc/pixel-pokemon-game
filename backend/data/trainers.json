@@ -2149,5 +2149,254 @@
     "sight_range": 4,
     "dialogue_before": "I'm a Rocket Admin. You won't get past me!",
     "dialogue_after": "Impressive... but Giovanni will destroy you!"
+  },
+  {
+    "id": "saffron_gym_trainer_1",
+    "name": "Psychic Johan",
+    "trainer_class": "Psychic",
+    "sprite_id": "psychic",
+    "pokemon_team": [
+      {
+        "species_id": 63,
+        "name": "Abra",
+        "level": 28,
+        "moves": [
+          "Teleport",
+          "Confusion"
+        ]
+      },
+      {
+        "species_id": 64,
+        "name": "Kadabra",
+        "level": 28,
+        "moves": [
+          "Confusion",
+          "Psybeam",
+          "Disable"
+        ]
+      }
+    ],
+    "reward_money": 560,
+    "sight_range": 3,
+    "dialogue_before": "I foresaw your arrival!",
+    "dialogue_after": "My psychic powers failed me..."
+  },
+  {
+    "id": "saffron_gym_trainer_2",
+    "name": "Psychic Tyron",
+    "trainer_class": "Psychic",
+    "sprite_id": "psychic",
+    "pokemon_team": [
+      {
+        "species_id": 122,
+        "name": "Mr. Mime",
+        "level": 30,
+        "moves": [
+          "Confusion",
+          "Barrier",
+          "Light Screen",
+          "Double Slap"
+        ]
+      }
+    ],
+    "reward_money": 600,
+    "sight_range": 3,
+    "dialogue_before": "The mind is the greatest weapon!",
+    "dialogue_after": "You have a strong will..."
+  },
+  {
+    "id": "saffron_gym_trainer_3",
+    "name": "Channeler Patricia",
+    "trainer_class": "Channeler",
+    "sprite_id": "channeler",
+    "pokemon_team": [
+      {
+        "species_id": 92,
+        "name": "Gastly",
+        "level": 27,
+        "moves": [
+          "Lick",
+          "Confuse Ray",
+          "Night Shade"
+        ]
+      },
+      {
+        "species_id": 93,
+        "name": "Haunter",
+        "level": 29,
+        "moves": [
+          "Lick",
+          "Confuse Ray",
+          "Night Shade",
+          "Dream Eater"
+        ]
+      }
+    ],
+    "reward_money": 580,
+    "sight_range": 3,
+    "dialogue_before": "The spirits guide my hands...",
+    "dialogue_after": "The spirits have abandoned me..."
+  },
+  {
+    "id": "silph_rocket_grunt_1",
+    "name": "Grunt",
+    "trainer_class": "Rocket Grunt",
+    "sprite_id": "rocket_grunt",
+    "pokemon_team": [
+      {
+        "species_id": 37,
+        "name": "Koffing",
+        "level": 27,
+        "moves": [
+          "Tackle",
+          "Smog",
+          "Sludge"
+        ]
+      },
+      {
+        "species_id": 14,
+        "name": "Raticate",
+        "level": 27,
+        "moves": [
+          "Quick Attack",
+          "Hyper Fang"
+        ]
+      }
+    ],
+    "reward_money": 540,
+    "sight_range": 3,
+    "dialogue_before": "Silph Co. belongs to Team Rocket!",
+    "dialogue_after": "You'll pay for this!"
+  },
+  {
+    "id": "silph_rocket_grunt_2",
+    "name": "Grunt",
+    "trainer_class": "Rocket Grunt",
+    "sprite_id": "rocket_grunt",
+    "pokemon_team": [
+      {
+        "species_id": 41,
+        "name": "Muk",
+        "level": 29,
+        "moves": [
+          "Sludge",
+          "Minimize",
+          "Poison Gas"
+        ]
+      }
+    ],
+    "reward_money": 580,
+    "sight_range": 3,
+    "dialogue_before": "You're not authorized to be here!",
+    "dialogue_after": "I need backup!"
+  },
+  {
+    "id": "silph_rocket_grunt_3",
+    "name": "Grunt",
+    "trainer_class": "Rocket Grunt",
+    "sprite_id": "rocket_grunt",
+    "pokemon_team": [
+      {
+        "species_id": 38,
+        "name": "Weezing",
+        "level": 28,
+        "moves": [
+          "Sludge",
+          "Smog",
+          "Self-Destruct"
+        ]
+      },
+      {
+        "species_id": 37,
+        "name": "Koffing",
+        "level": 26,
+        "moves": [
+          "Smog",
+          "Sludge"
+        ]
+      }
+    ],
+    "reward_money": 560,
+    "sight_range": 3,
+    "dialogue_before": "For Team Rocket's glory!",
+    "dialogue_after": "Giovanni will hear about this!"
+  },
+  {
+    "id": "silph_rocket_grunt_4",
+    "name": "Grunt",
+    "trainer_class": "Rocket Grunt",
+    "sprite_id": "rocket_grunt",
+    "pokemon_team": [
+      {
+        "species_id": 14,
+        "name": "Raticate",
+        "level": 28,
+        "moves": [
+          "Quick Attack",
+          "Hyper Fang",
+          "Super Fang"
+        ]
+      }
+    ],
+    "reward_money": 560,
+    "sight_range": 3,
+    "dialogue_before": "Team Rocket rules!",
+    "dialogue_after": "This isn't the last you'll see of us!"
+  },
+  {
+    "id": "dojo_blackbelt_1",
+    "name": "Blackbelt Koichi",
+    "trainer_class": "Blackbelt",
+    "sprite_id": "blackbelt",
+    "pokemon_team": [
+      {
+        "species_id": 66,
+        "name": "Machop",
+        "level": 28,
+        "moves": [
+          "Karate Chop",
+          "Low Kick",
+          "Seismic Toss"
+        ]
+      },
+      {
+        "species_id": 67,
+        "name": "Machoke",
+        "level": 28,
+        "moves": [
+          "Karate Chop",
+          "Low Kick",
+          "Seismic Toss",
+          "Submission"
+        ]
+      }
+    ],
+    "reward_money": 560,
+    "sight_range": 3,
+    "dialogue_before": "The art of fighting is all about discipline!",
+    "dialogue_after": "Your fighting spirit is impressive!"
+  },
+  {
+    "id": "dojo_blackbelt_2",
+    "name": "Blackbelt Mike",
+    "trainer_class": "Blackbelt",
+    "sprite_id": "blackbelt",
+    "pokemon_team": [
+      {
+        "species_id": 67,
+        "name": "Machoke",
+        "level": 30,
+        "moves": [
+          "Karate Chop",
+          "Low Kick",
+          "Seismic Toss",
+          "Submission"
+        ]
+      }
+    ],
+    "reward_money": 600,
+    "sight_range": 3,
+    "dialogue_before": "I train every day!",
+    "dialogue_after": "I must train harder..."
   }
 ]
