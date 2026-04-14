@@ -1,0 +1,73 @@
+{
+  "description": "Fishing rod mechanics, encounter tables, and fishing spot locations.",
+  "rods": [
+    {
+      "id": "old_rod",
+      "name": "Old Rod",
+      "obtain_location": "vermilion_city",
+      "obtain_npc": "Fishing Guru",
+      "power": 1,
+      "bite_chance": 0.5,
+      "encounters": [
+        {"pokemon": "Magikarp", "level_range": [5, 10], "rate": 100}
+      ]
+    },
+    {
+      "id": "good_rod",
+      "name": "Good Rod",
+      "obtain_location": "fuchsia_city",
+      "obtain_npc": "Fishing Guru",
+      "power": 2,
+      "bite_chance": 0.75,
+      "encounters": [
+        {"pokemon": "Magikarp", "level_range": [10, 15], "rate": 40},
+        {"pokemon": "Poliwag", "level_range": [10, 15], "rate": 20},
+        {"pokemon": "Goldeen", "level_range": [10, 15], "rate": 20},
+        {"pokemon": "Horsea", "level_range": [10, 15], "rate": 10},
+        {"pokemon": "Krabby", "level_range": [10, 15], "rate": 10}
+      ]
+    },
+    {
+      "id": "super_rod",
+      "name": "Super Rod",
+      "obtain_location": "route_12",
+      "obtain_npc": "Fishing Guru",
+      "power": 3,
+      "bite_chance": 1.0,
+      "encounters": [
+        {"pokemon": "Magikarp", "level_range": [15, 25], "rate": 15},
+        {"pokemon": "Poliwag", "level_range": [15, 25], "rate": 15},
+        {"pokemon": "Goldeen", "level_range": [15, 25], "rate": 15},
+        {"pokemon": "Horsea", "level_range": [15, 25], "rate": 10},
+        {"pokemon": "Krabby", "level_range": [15, 25], "rate": 10},
+        {"pokemon": "Staryu", "level_range": [15, 25], "rate": 10},
+        {"pokemon": "Psyduck", "level_range": [15, 25], "rate": 10},
+        {"pokemon": "Shellder", "level_range": [15, 25], "rate": 10},
+        {"pokemon": "Dratini", "level_range": [15, 20], "rate": 5}
+      ]
+    }
+  ],
+  "mechanics": {
+    "face_water_required": true,
+    "animation_ms": 2000,
+    "bite_window_ms": 5000,
+    "reel_prompt": "Oh! A bite!",
+    "miss_message": "Not even a nibble...",
+    "hook_message": "You hooked a Pokemon!",
+    "max_attempts_before_move": null
+  },
+  "fishing_spots": [
+    {"location": "vermilion_city", "has_water": true},
+    {"location": "route_6", "has_water": true},
+    {"location": "route_12", "has_water": true},
+    {"location": "route_13", "has_water": true},
+    {"location": "route_19", "has_water": true},
+    {"location": "route_20", "has_water": true},
+    {"location": "route_21", "has_water": true},
+    {"location": "fuchsia_city", "has_water": true},
+    {"location": "cerulean_city", "has_water": true},
+    {"location": "cinnabar_island", "has_water": true},
+    {"location": "pallet_town", "has_water": true},
+    {"location": "seafoam_islands", "has_water": true}
+  ]
+}

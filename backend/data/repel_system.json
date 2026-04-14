@@ -1,0 +1,54 @@
+{
+  "description": "Repel item mechanics for wild encounter suppression.",
+  "repel_types": [
+    {
+      "id": "repel",
+      "name": "Repel",
+      "steps": 100,
+      "item_id": "repel",
+      "cost": 350
+    },
+    {
+      "id": "super_repel",
+      "name": "Super Repel",
+      "steps": 200,
+      "item_id": "super_repel",
+      "cost": 500
+    },
+    {
+      "id": "max_repel",
+      "name": "Max Repel",
+      "steps": 250,
+      "item_id": "max_repel",
+      "cost": 700
+    }
+  ],
+  "mechanics": {
+    "level_based": true,
+    "compare_to": "first_party_pokemon",
+    "blocks_lower_level": true,
+    "blocks_equal_level": false,
+    "stacking": false,
+    "overwrite_active": true,
+    "works_in_caves": true,
+    "works_in_water": true,
+    "works_in_grass": true
+  },
+  "messages": {
+    "use": "{player} used a {repel}!",
+    "effect_start": "A repelling scent filled the air!",
+    "effect_end": "The repel wore off...",
+    "prompt_reuse": "The repel wore off! Would you like to use another?",
+    "already_active": "A repel is already in effect."
+  },
+  "prompt_on_expire": {
+    "enabled": true,
+    "show_if_has_repel": true,
+    "auto_select_same_type": true
+  },
+  "display": {
+    "show_step_counter": false,
+    "status_icon": "repel_active",
+    "icon_position": "top_right"
+  }
+}

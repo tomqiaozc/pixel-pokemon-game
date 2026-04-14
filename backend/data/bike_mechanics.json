@@ -1,0 +1,52 @@
+{
+  "description": "Bicycle mechanics, speed settings, and Cycling Road configuration.",
+  "bicycle": {
+    "obtain_location": "cerulean_city",
+    "obtain_method": "bike_voucher",
+    "shop_price": 1000000,
+    "voucher_source": "pokemon_fan_club_chairman",
+    "voucher_location": "vermilion_city"
+  },
+  "speed": {
+    "walk_speed": 2,
+    "run_speed": 4,
+    "bike_speed": 6,
+    "bike_speed_pixels_per_frame": 4,
+    "acceleration_frames": 4,
+    "deceleration_frames": 2
+  },
+  "restrictions": {
+    "cannot_use_indoors": true,
+    "cannot_use_on_water": true,
+    "cannot_use_in_cave": false,
+    "auto_dismount_locations": ["buildings", "water_edge", "ledge"],
+    "blocked_maps": ["pokemon_tower", "safari_zone", "ss_anne"]
+  },
+  "cycling_road": {
+    "location": "route_17",
+    "connects": ["celadon_city", "fuchsia_city"],
+    "direction": "south",
+    "auto_move": true,
+    "auto_move_speed": 3,
+    "trainers_on_route": 10,
+    "bike_required": true,
+    "length_tiles": 120,
+    "slope_sections": [
+      {"start_tile": 0, "end_tile": 40, "speed_boost": 1},
+      {"start_tile": 40, "end_tile": 80, "speed_boost": 2},
+      {"start_tile": 80, "end_tile": 120, "speed_boost": 3}
+    ]
+  },
+  "animation": {
+    "mount_frames": 8,
+    "dismount_frames": 8,
+    "pedal_cycle_frames": 4,
+    "sprite_sheet": "player_bike",
+    "directions": ["up", "down", "left", "right"]
+  },
+  "sound": {
+    "mount_sfx": "bike_mount",
+    "bell_sfx": "bike_bell",
+    "music_override": null
+  }
+}
