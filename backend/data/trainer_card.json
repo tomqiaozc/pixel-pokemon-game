@@ -1,0 +1,69 @@
+{
+  "description": "Trainer card display data and customization options.",
+  "card_layout": {
+    "width": 240,
+    "height": 160,
+    "background_color": "#DDDDDD",
+    "border_color": "#333333",
+    "border_width": 2,
+    "trainer_sprite_position": {"x": 16, "y": 24},
+    "trainer_sprite_size": 64,
+    "info_start_x": 96,
+    "info_start_y": 24,
+    "badge_row_y": 120,
+    "badge_spacing": 24
+  },
+  "displayed_fields": [
+    {"field": "name", "label": "NAME", "y_offset": 0},
+    {"field": "id_number", "label": "IDNo.", "y_offset": 16},
+    {"field": "money", "label": "MONEY", "y_offset": 32, "format": "${value}"},
+    {"field": "pokedex_caught", "label": "POKEDEX", "y_offset": 48, "format": "{value}/151"},
+    {"field": "play_time", "label": "TIME", "y_offset": 64, "format": "{hours}:{minutes}"},
+    {"field": "adventure_started", "label": "START", "y_offset": 80}
+  ],
+  "badge_display": {
+    "total_slots": 8,
+    "badge_size": 16,
+    "empty_color": "#888888",
+    "badges": [
+      {"id": "boulder_badge", "gym": "Pewter City", "color": "#AA8866", "leader": "Brock"},
+      {"id": "cascade_badge", "gym": "Cerulean City", "color": "#4488CC", "leader": "Misty"},
+      {"id": "thunder_badge", "gym": "Vermilion City", "color": "#FFCC00", "leader": "Lt. Surge"},
+      {"id": "rainbow_badge", "gym": "Celadon City", "color": "#44CC44", "leader": "Erika"},
+      {"id": "soul_badge", "gym": "Fuchsia City", "color": "#CC44CC", "leader": "Koga"},
+      {"id": "marsh_badge", "gym": "Saffron City", "color": "#FFAA44", "leader": "Sabrina"},
+      {"id": "volcano_badge", "gym": "Cinnabar Island", "color": "#FF4444", "leader": "Blaine"},
+      {"id": "earth_badge", "gym": "Viridian City", "color": "#88BB44", "leader": "Giovanni"}
+    ]
+  },
+  "card_backgrounds": {
+    "default": {"color": "#DDDDDD", "pattern": null},
+    "champion": {"color": "#FFD700", "pattern": "stars", "unlock": "become_champion"},
+    "pokedex_complete": {"color": "#FF6688", "pattern": "pokeballs", "unlock": "catch_151"},
+    "elite": {"color": "#6644AA", "pattern": "diamonds", "unlock": "beat_elite_four"},
+    "adventure": {"color": "#44AACC", "pattern": "waves", "unlock": "visit_all_cities"}
+  },
+  "trainer_sprites": {
+    "red_default": {"sprite_id": "trainer_red", "unlock": null},
+    "red_champion": {"sprite_id": "trainer_red_champion", "unlock": "become_champion"},
+    "red_casual": {"sprite_id": "trainer_red_casual", "unlock": "eight_badges"}
+  },
+  "star_rating": {
+    "enabled": true,
+    "max_stars": 4,
+    "criteria": [
+      {"star": 1, "requirement": "beat_elite_four", "description": "Defeat the Elite Four"},
+      {"star": 2, "requirement": "catch_151", "description": "Complete the Pokedex"},
+      {"star": 3, "requirement": "visit_all_cities", "description": "Visit all cities"},
+      {"star": 4, "requirement": "money_100000", "description": "Save 100,000 money"}
+    ],
+    "star_color": "#FFD700",
+    "star_size": 8,
+    "star_position_y": 8
+  },
+  "flip_animation": {
+    "enabled": true,
+    "duration_ms": 400,
+    "back_content": "badges_detail"
+  }
+}

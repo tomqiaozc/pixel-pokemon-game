@@ -1,0 +1,78 @@
+{
+  "description": "Pokedex interface layout and display configuration.",
+  "modes": {
+    "list": {
+      "display_name": "List View",
+      "entries_per_page": 7,
+      "show_sprite": true,
+      "show_type_icons": true,
+      "show_caught_icon": true,
+      "sort_options": ["number", "name", "type", "caught"]
+    },
+    "detail": {
+      "display_name": "Detail View",
+      "sections": ["info", "stats", "moves", "locations", "evolution"],
+      "show_cry_button": true,
+      "show_size_comparison": true,
+      "show_footprint": true
+    },
+    "area": {
+      "display_name": "Area View",
+      "show_minimap": true,
+      "highlight_routes": true,
+      "show_encounter_rates": true
+    },
+    "search": {
+      "display_name": "Search",
+      "search_by": ["name", "type", "color", "habitat"],
+      "filter_by_caught": true
+    }
+  },
+  "entry_states": {
+    "unseen": {"display": "???", "show_number": true, "show_sprite": false, "show_name": false},
+    "seen": {"display": "silhouette", "show_number": true, "show_sprite": true, "show_name": true},
+    "caught": {"display": "full", "show_number": true, "show_sprite": true, "show_name": true}
+  },
+  "layout": {
+    "screen_width": 240,
+    "screen_height": 160,
+    "list_panel_width": 120,
+    "detail_panel_width": 120,
+    "sprite_size": 48,
+    "type_icon_size": 16,
+    "pokeball_icon_size": 8,
+    "entry_height": 20,
+    "scrollbar_width": 4
+  },
+  "colors": {
+    "background": "#CC3333",
+    "list_background": "#FFFFFF",
+    "selected_entry": "#3388FF",
+    "text_primary": "#000000",
+    "text_secondary": "#666666",
+    "caught_icon": "#FF0000",
+    "unseen_text": "#AAAAAA",
+    "border": "#222222"
+  },
+  "info_fields": {
+    "species": {"label": "Species", "source": "category"},
+    "height": {"label": "Height", "unit": "m", "source": "height"},
+    "weight": {"label": "Weight", "unit": "kg", "source": "weight"},
+    "type": {"label": "Type", "source": "types"},
+    "description": {"label": "", "source": "pokedex_entry", "max_lines": 3}
+  },
+  "completion_display": {
+    "show_percentage": true,
+    "show_caught_count": true,
+    "show_seen_count": true,
+    "total_species": 151,
+    "diploma_threshold": 151
+  },
+  "navigation": {
+    "up_down": "scroll_list",
+    "left_right": "switch_mode",
+    "a_button": "select_entry",
+    "b_button": "back",
+    "start": "close_pokedex"
+  }
+}

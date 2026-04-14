@@ -1,0 +1,104 @@
+{
+  "description": "Map transition animations and loading screen configurations.",
+  "transition_types": {
+    "door_enter": {
+      "animation": "fade_black",
+      "duration_ms": 400,
+      "show_location_name": false,
+      "play_sound": "sfx_door.ogg"
+    },
+    "door_exit": {
+      "animation": "fade_black",
+      "duration_ms": 400,
+      "show_location_name": true,
+      "play_sound": "sfx_door.ogg"
+    },
+    "route_connection": {
+      "animation": "scroll",
+      "duration_ms": 600,
+      "show_location_name": true,
+      "play_sound": null
+    },
+    "cave_enter": {
+      "animation": "fade_black_slow",
+      "duration_ms": 800,
+      "show_location_name": true,
+      "play_sound": "sfx_cave_enter.ogg"
+    },
+    "cave_exit": {
+      "animation": "fade_white",
+      "duration_ms": 600,
+      "show_location_name": true,
+      "play_sound": null
+    },
+    "warp_teleport": {
+      "animation": "spiral",
+      "duration_ms": 500,
+      "show_location_name": true,
+      "play_sound": "sfx_teleport.ogg"
+    },
+    "fly": {
+      "animation": "fly_sequence",
+      "duration_ms": 1500,
+      "show_location_name": true,
+      "play_sound": "sfx_fly.ogg"
+    },
+    "surf_start": {
+      "animation": "wave_wipe",
+      "duration_ms": 500,
+      "show_location_name": false,
+      "play_sound": "sfx_surf.ogg"
+    },
+    "elevator": {
+      "animation": "fade_black",
+      "duration_ms": 600,
+      "show_location_name": false,
+      "play_sound": "sfx_elevator.ogg"
+    },
+    "staircase": {
+      "animation": "scroll_vertical",
+      "duration_ms": 400,
+      "show_location_name": false,
+      "play_sound": null
+    }
+  },
+  "animations": {
+    "fade_black": {"type": "fade", "color": "#000000", "stages": ["out", "in"]},
+    "fade_black_slow": {"type": "fade", "color": "#000000", "stages": ["out", "hold", "in"]},
+    "fade_white": {"type": "fade", "color": "#FFFFFF", "stages": ["out", "in"]},
+    "scroll": {"type": "scroll", "direction": "auto", "stages": ["scroll"]},
+    "scroll_vertical": {"type": "scroll", "direction": "vertical", "stages": ["scroll"]},
+    "spiral": {"type": "spiral", "color": "#000000", "stages": ["close", "open"]},
+    "fly_sequence": {"type": "composite", "stages": ["fade_out", "fly_sprite", "fade_in"]},
+    "wave_wipe": {"type": "wipe", "pattern": "wave", "color": "#3366AA", "stages": ["wipe", "reveal"]}
+  },
+  "location_name_display": {
+    "position": "top_center",
+    "font_size": 14,
+    "background_color": "#000000",
+    "background_opacity": 0.6,
+    "text_color": "#FFFFFF",
+    "padding": 8,
+    "show_duration_ms": 2000,
+    "fade_in_ms": 300,
+    "fade_out_ms": 500
+  },
+  "loading_screen": {
+    "enabled": false,
+    "min_display_ms": 500,
+    "background_color": "#000000",
+    "show_tips": true,
+    "tips": [
+      "Save your game often from the menu!",
+      "Water beats Fire, Fire beats Grass, Grass beats Water.",
+      "Lower a wild Pokemon's HP to make it easier to catch.",
+      "Visit the Pokemon Center to heal your team for free.",
+      "Press B to cancel or go back in menus.",
+      "Use status moves like Sleep and Paralyze to catch rare Pokemon.",
+      "Talk to everyone — you never know what items or tips they'll share!",
+      "Check the Pokedex for information about Pokemon you've seen.",
+      "Some Pokemon only appear at certain times of day.",
+      "Hold B while walking to run!"
+    ]
+  }
+}
