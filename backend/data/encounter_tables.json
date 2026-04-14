@@ -1283,5 +1283,60 @@
     "name": "Power Plant",
     "encounter_type": "grass",
     "base_encounter_rate": 0.15
+  },
+  "cerulean_cave": {
+    "name": "Cerulean Cave",
+    "encounter_type": "cave",
+    "base_encounter_rate": 0.15,
+    "encounters": [
+      {
+        "species_id": 42,
+        "min_level": 46,
+        "max_level": 50,
+        "weight": 20
+      },
+      {
+        "species_id": 64,
+        "min_level": 46,
+        "max_level": 50,
+        "weight": 15
+      },
+      {
+        "species_id": 82,
+        "min_level": 46,
+        "max_level": 50,
+        "weight": 10
+      },
+      {
+        "species_id": 101,
+        "min_level": 46,
+        "max_level": 50,
+        "weight": 10
+      },
+      {
+        "species_id": 112,
+        "min_level": 48,
+        "max_level": 52,
+        "weight": 10
+      },
+      {
+        "species_id": 132,
+        "min_level": 46,
+        "max_level": 50,
+        "weight": 15
+      },
+      {
+        "species_id": 124,
+        "min_level": 46,
+        "max_level": 50,
+        "weight": 10
+      },
+      {
+        "species_id": 68,
+        "min_level": 48,
+        "max_level": 52,
+        "weight": 10
+      }
+    ]
   }
 }

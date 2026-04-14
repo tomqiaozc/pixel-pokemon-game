@@ -38,7 +38,7 @@ class TestEliteFourMaps:
 
     def test_total_maps_count(self):
         maps = _load_json("maps.json")
-        assert len(maps) == 117
+        assert len(maps) == 120
 
 
 # ──── New Pokemon Species ────────────────────────────────────
@@ -70,7 +70,7 @@ class TestEliteFourSpecies:
 
     def test_total_species_count(self):
         species_data = _load_json("pokemon_species.json")
-        assert len(species_data) == 108
+        assert len(species_data) == 110
 
 
 # ──── NPCs ───────────────────────────────────────────────────
@@ -94,7 +94,7 @@ class TestEliteFourNPCs:
 
     def test_total_npc_count(self):
         npcs = _load_json("npcs.json")
-        assert len(npcs) == 91
+        assert len(npcs) == 92
 
 
 # ──── Dialogues ──────────────────────────────────────────────
@@ -118,7 +118,7 @@ class TestEliteFourDialogues:
 
     def test_total_dialogue_count(self):
         dialogues = _load_json("dialogues.json")
-        assert len(dialogues) == 69
+        assert len(dialogues) == 70
 
 
 # ──── Trainers ───────────────────────────────────────────────

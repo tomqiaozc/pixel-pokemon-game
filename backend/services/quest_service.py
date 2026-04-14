@@ -353,6 +353,30 @@ _QUEST_DEFS: list[dict] = [
         "rewards": {"money": 10000, "unlock_flags": ["moltres_encountered"]},
         "prerequisite_quests": [],
     },
+    {
+        "id": "cerulean_cave",
+        "name": "Cerulean Cave Expedition",
+        "description": "Explore the dangerous Cerulean Cave, home to the most powerful wild Pokemon in Kanto!",
+        "type": "side",
+        "objectives": [
+            {"id": "enter_cave", "description": "Enter Cerulean Cave", "type": "visit_location", "target": "cerulean_cave_1f", "required_progress": 1},
+            {"id": "reach_depths", "description": "Reach the deepest level", "type": "visit_location", "target": "cerulean_cave_b1f", "required_progress": 1},
+        ],
+        "rewards": {"money": 15000, "unlock_flags": ["cerulean_cave_explored"]},
+        "prerequisite_quests": ["champion"],
+    },
+    {
+        "id": "legendary_mewtwo",
+        "name": "The Legendary Mewtwo",
+        "description": "A powerful genetic Pokemon lurks in the depths of Cerulean Cave. Find and catch Mewtwo!",
+        "type": "side",
+        "objectives": [
+            {"id": "find_mewtwo", "description": "Find Mewtwo in Cerulean Cave B1F", "type": "visit_location", "target": "cerulean_cave_b1f", "required_progress": 1},
+            {"id": "catch_mewtwo", "description": "Catch or defeat Mewtwo", "type": "defeat_trainer", "target": "mewtwo", "required_progress": 1},
+        ],
+        "rewards": {"money": 25000, "unlock_flags": ["mewtwo_encountered"]},
+        "prerequisite_quests": ["cerulean_cave"],
+    },
 ]
 
 

@@ -3983,5 +3983,75 @@
     "trainers": [],
     "encounter_zones": [],
     "buildings": []
+  },
+  {
+    "id": "cerulean_cave_1f",
+    "name": "cerulean_cave_1f",
+    "display_name": "Cerulean Cave 1F",
+    "map_type": "cave",
+    "width": 16,
+    "height": 16,
+    "connections": [],
+    "npcs": [
+      {
+        "npc_id": "cerulean_cave_guard",
+        "x": 8,
+        "y": 14,
+        "facing": "up"
+      }
+    ],
+    "trainers": [],
+    "encounter_zones": [
+      {
+        "x": 2,
+        "y": 2,
+        "width": 12,
+        "height": 12,
+        "encounter_table_id": "cerulean_cave"
+      }
+    ],
+    "buildings": []
+  },
+  {
+    "id": "cerulean_cave_2f",
+    "name": "cerulean_cave_2f",
+    "display_name": "Cerulean Cave 2F",
+    "map_type": "cave",
+    "width": 16,
+    "height": 16,
+    "connections": [],
+    "npcs": [],
+    "trainers": [],
+    "encounter_zones": [
+      {
+        "x": 2,
+        "y": 2,
+        "width": 12,
+        "height": 12,
+        "encounter_table_id": "cerulean_cave"
+      }
+    ],
+    "buildings": []
+  },
+  {
+    "id": "cerulean_cave_b1f",
+    "name": "cerulean_cave_b1f",
+    "display_name": "Cerulean Cave B1F",
+    "map_type": "cave",
+    "width": 14,
+    "height": 14,
+    "connections": [],
+    "npcs": [],
+    "trainers": [],
+    "encounter_zones": [
+      {
+        "x": 2,
+        "y": 2,
+        "width": 10,
+        "height": 10,
+        "encounter_table_id": "cerulean_cave"
+      }
+    ],
+    "buildings": []
   }
 ]

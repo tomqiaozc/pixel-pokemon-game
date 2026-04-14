@@ -1181,5 +1181,18 @@
     "facing": "down",
     "npc_type": "generic",
     "dialogue_tree_id": "prof_oak_hof_dialogue"
+  },
+  {
+    "id": "cerulean_cave_guard",
+    "name": "Cerulean Cave Guard",
+    "sprite_id": "gate_guard",
+    "position": {
+      "x": 8,
+      "y": 14
+    },
+    "map_id": "cerulean_cave_1f",
+    "facing": "up",
+    "npc_type": "guard",
+    "dialogue_tree_id": "cerulean_cave_guard_dialogue"
   }
 ]

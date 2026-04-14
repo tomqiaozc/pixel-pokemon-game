@@ -1152,5 +1152,25 @@
         "next": null
       }
     ]
+  },
+  "cerulean_cave_guard_dialogue": {
+    "id": "cerulean_cave_guard_dialogue",
+    "nodes": [
+      {
+        "id": "intro",
+        "text": "This cave is extremely dangerous!",
+        "next": "check"
+      },
+      {
+        "id": "check",
+        "text": "Only the Pokemon League Champion may enter.",
+        "next": "warning"
+      },
+      {
+        "id": "warning",
+        "text": "The Pokemon inside are incredibly powerful. Be careful!",
+        "next": null
+      }
+    ]
   }
 }

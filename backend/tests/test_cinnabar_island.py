@@ -42,7 +42,7 @@ class TestCinnabarIslandMaps:
 
     def test_total_maps_count(self):
         maps = _load_json("maps.json")
-        assert len(maps) == 117
+        assert len(maps) == 120
 
 
 # ──── Cinnabar Gym (Blaine) ─────────────────────────────────
@@ -107,7 +107,7 @@ class TestCinnabarIslandSpecies:
 
     def test_total_species_count(self):
         species_data = _load_json("pokemon_species.json")
-        assert len(species_data) == 108
+        assert len(species_data) == 110
 
 
 # ──── New Items ──────────────────────────────────────────────
@@ -146,7 +146,7 @@ class TestCinnabarIslandTrainers:
 class TestCinnabarIslandNPCs:
     def test_total_npc_count(self):
         npcs = _load_json("npcs.json")
-        assert len(npcs) == 91
+        assert len(npcs) == 92
 
 
 # ──── Encounter Tables ───────────────────────────────────────

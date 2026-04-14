@@ -3290,6 +3290,64 @@ const Routes = (() => {
         return { data: m, width: W, height: H };
     }
 
+    // Cerulean Cave 1F (16x16 cave)
+    function buildCeruleanCave1F() {
+        const W = 16, H = 16;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.ROCK); m.push(row); }
+        for (let y = 2; y < H-2; y++) for (let x = 2; x < W-2; x++) m[y][x] = T.DIRT;
+        // Water pools
+        for (let x = 5; x <= 8; x++) m[4][x] = T.WATER;
+        for (let x = 6; x <= 7; x++) m[5][x] = T.WATER;
+        m[10][4] = T.WATER; m[10][5] = T.WATER;
+        m[10][10] = T.WATER; m[10][11] = T.WATER;
+        // Rock formations
+        m[6][3] = T.ROCK; m[6][12] = T.ROCK;
+        m[9][5] = T.ROCK; m[9][10] = T.ROCK;
+        // Entrance (south)
+        m[H-1][8] = T.DOOR;
+        // Stairs up to 2F
+        m[0][8] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Cerulean Cave 2F (16x16 cave)
+    function buildCeruleanCave2F() {
+        const W = 16, H = 16;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.ROCK); m.push(row); }
+        for (let y = 2; y < H-2; y++) for (let x = 2; x < W-2; x++) m[y][x] = T.DIRT;
+        // Narrow passages
+        for (let y = 4; y <= 6; y++) m[y][6] = T.ROCK;
+        for (let y = 4; y <= 6; y++) m[y][9] = T.ROCK;
+        for (let y = 9; y <= 11; y++) m[y][5] = T.ROCK;
+        for (let y = 9; y <= 11; y++) m[y][10] = T.ROCK;
+        // Water
+        m[7][3] = T.WATER; m[7][4] = T.WATER;
+        m[7][11] = T.WATER; m[7][12] = T.WATER;
+        // Stairs down from 1F
+        m[H-1][8] = T.DOOR;
+        // Ladder down to B1F
+        m[0][8] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Cerulean Cave B1F (14x14 cave — Mewtwo chamber)
+    function buildCeruleanCaveB1F() {
+        const W = 14, H = 14;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.ROCK); m.push(row); }
+        for (let y = 2; y < H-2; y++) for (let x = 2; x < W-2; x++) m[y][x] = T.DIRT;
+        // Central island surrounded by water (Mewtwo location)
+        for (let y = 4; y <= 8; y++) for (let x = 4; x <= 9; x++) m[y][x] = T.WATER;
+        for (let y = 5; y <= 7; y++) for (let x = 5; x <= 8; x++) m[y][x] = T.DIRT;
+        // Bridge path
+        for (let x = 2; x <= 4; x++) m[6][x] = T.DIRT;
+        // Ladder up
+        m[H-1][7] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
     // Register all maps with MapLoader
     function registerAll() {
         const palletTown = buildPalletTown();
@@ -4661,10 +4719,39 @@ const Routes = (() => {
                 { x: 5, y: 9, targetMap: 'victory_road_2f', spawnX: 8, spawnY: 1 },
             ],
         });
+
+        const ceruleanCave1f = buildCeruleanCave1F();
+        MapLoader.registerMap('cerulean_cave_1f', {
+            name: 'Cerulean Cave 1F',
+            width: ceruleanCave1f.width, height: ceruleanCave1f.height, data: ceruleanCave1f.data,
+            doors: [
+                { x: 8, y: 0, targetMap: 'cerulean_cave_2f', spawnX: 8, spawnY: 14 },
+            ],
+            npcs: [{ name: 'Cerulean Cave Guard', type: 'guard', x: 8, y: 14, dir: 1,
+              dialogue: ['This cave is extremely dangerous!', 'Only the Pokemon League Champion may enter.', 'The Pokemon inside are incredibly powerful. Be careful!'] }],
+        });
+
+        const ceruleanCave2f = buildCeruleanCave2F();
+        MapLoader.registerMap('cerulean_cave_2f', {
+            name: 'Cerulean Cave 2F',
+            width: ceruleanCave2f.width, height: ceruleanCave2f.height, data: ceruleanCave2f.data,
+            doors: [
+                { x: 8, y: 15, targetMap: 'cerulean_cave_1f', spawnX: 8, spawnY: 1 },
+                { x: 8, y: 0, targetMap: 'cerulean_cave_b1f', spawnX: 7, spawnY: 12 },
+            ],
+        });
+
+        const ceruleanCaveB1f = buildCeruleanCaveB1F();
+        MapLoader.registerMap('cerulean_cave_b1f', {
+            name: 'Cerulean Cave B1F',
+            width: ceruleanCaveB1f.width, height: ceruleanCaveB1f.height, data: ceruleanCaveB1f.data,
+            doors: [
+                { x: 7, y: 13, targetMap: 'cerulean_cave_2f', spawnX: 8, spawnY: 1 },
+            ],
+        });
     }
 
     return {
-        buildRoute1,
         buildRoute2,
         buildRoute4,
         buildRoute5,
@@ -4758,6 +4845,9 @@ const Routes = (() => {
         buildSeafoamIslandsB2F,
         buildPowerPlant,
         buildMoltresChamber,
+        buildCeruleanCave1F,
+        buildCeruleanCave2F,
+        buildCeruleanCaveB1F,
         buildPalletTown,
         buildViridianCity,
         buildPewterCity,
