@@ -1414,6 +1414,85 @@ const Sprites = (() => {
         return c;
     }
 
+    // Giovanni — Team Rocket Boss — suit, slicked hair
+    function drawGiovanni() {
+        if (cache.giovanni) return cache.giovanni;
+        const c = document.createElement('canvas');
+        c.width = TILE; c.height = TILE;
+        const ctx = c.getContext('2d');
+        // Hair (slicked back, dark)
+        ctx.fillStyle = '#333';
+        ctx.fillRect(4, 1, 8, 3);
+        // Face
+        ctx.fillStyle = '#fdd';
+        ctx.fillRect(5, 3, 6, 4);
+        // Eyes (stern)
+        ctx.fillStyle = '#422';
+        ctx.fillRect(6, 4, 2, 1);
+        ctx.fillRect(9, 4, 2, 1);
+        // Mouth
+        ctx.fillStyle = '#a66';
+        ctx.fillRect(7, 6, 2, 1);
+        // Suit (dark orange/brown — boss look)
+        ctx.fillStyle = '#844';
+        ctx.fillRect(3, 7, 10, 5);
+        // Suit lapels
+        ctx.fillStyle = '#622';
+        ctx.fillRect(5, 7, 2, 3);
+        ctx.fillRect(9, 7, 2, 3);
+        // Tie
+        ctx.fillStyle = '#c22';
+        ctx.fillRect(7, 7, 2, 4);
+        // Arms
+        ctx.fillStyle = '#844';
+        ctx.fillRect(2, 8, 1, 3);
+        ctx.fillRect(13, 8, 1, 3);
+        // Pants
+        ctx.fillStyle = '#333';
+        ctx.fillRect(5, 12, 3, 3);
+        ctx.fillRect(9, 12, 3, 3);
+        // Shoes
+        ctx.fillStyle = '#222';
+        ctx.fillRect(5, 14, 3, 1);
+        ctx.fillRect(9, 14, 3, 1);
+        cache.giovanni = c;
+        return c;
+    }
+
+    // Rocket Admin — black uniform, red R
+    function drawRocketAdmin() {
+        if (cache.rocketAdmin) return cache.rocketAdmin;
+        const c = document.createElement('canvas');
+        c.width = TILE; c.height = TILE;
+        const ctx = c.getContext('2d');
+        // Hat (black beret)
+        ctx.fillStyle = '#222';
+        ctx.fillRect(4, 0, 8, 3);
+        // Face
+        ctx.fillStyle = '#fdd';
+        ctx.fillRect(5, 3, 6, 4);
+        // Eyes
+        ctx.fillStyle = '#444';
+        ctx.fillRect(6, 4, 2, 1);
+        ctx.fillRect(9, 4, 2, 1);
+        // Uniform (black)
+        ctx.fillStyle = '#222';
+        ctx.fillRect(3, 7, 10, 5);
+        // Red R
+        ctx.fillStyle = '#c22';
+        ctx.fillRect(6, 8, 1, 3);
+        ctx.fillRect(7, 8, 2, 1);
+        ctx.fillRect(9, 9, 1, 1);
+        ctx.fillRect(7, 10, 2, 1);
+        ctx.fillRect(9, 10, 1, 2);
+        // Boots
+        ctx.fillStyle = '#333';
+        ctx.fillRect(5, 12, 3, 3);
+        ctx.fillRect(9, 12, 3, 3);
+        cache.rocketAdmin = c;
+        return c;
+    }
+
     return {
         TILE,
         PAL,
@@ -1457,5 +1536,7 @@ const Sprites = (() => {
         drawErika,
         drawBiker,
         drawSlotMachine,
+        drawGiovanni,
+        drawRocketAdmin,
     };
 })();

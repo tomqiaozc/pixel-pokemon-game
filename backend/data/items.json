@@ -479,5 +479,17 @@
       "type": "storage"
     },
     "usable": false
+  },
+  {
+    "id": 58,
+    "name": "Lift Key",
+    "description": "A key to operate the elevator in the Rocket Hideout",
+    "category": "key_item",
+    "price": 0,
+    "sell_price": 0,
+    "effect": {
+      "type": "unlock"
+    },
+    "usable": false
   }
 ]

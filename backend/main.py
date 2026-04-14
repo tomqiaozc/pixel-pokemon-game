@@ -30,6 +30,7 @@ from .routes.nugget_bridge import router as nugget_bridge_router
 from .routes.ss_anne import router as ss_anne_router
 from .routes.trash_can_puzzle import router as trash_can_puzzle_router
 from .routes.pokemon_tower import router as pokemon_tower_router
+from .routes.rocket_hideout import router as rocket_hideout_router
 
 app = FastAPI(title="Pixel Pokemon Game API", version="0.1.0")
 
@@ -70,6 +71,7 @@ app.include_router(bill_event_router)
 app.include_router(ss_anne_router)
 app.include_router(trash_can_puzzle_router)
 app.include_router(pokemon_tower_router)
+app.include_router(rocket_hideout_router)
 
 
 @app.get("/api/health")

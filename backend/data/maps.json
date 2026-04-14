@@ -2419,5 +2419,156 @@
     "trainers": [],
     "encounter_zones": [],
     "buildings": []
+  },
+  {
+    "id": "rocket_hideout_b1f",
+    "name": "rocket_hideout_b1f",
+    "display_name": "Rocket Hideout B1F",
+    "map_type": "interior",
+    "width": 14,
+    "height": 14,
+    "connections": [],
+    "buildings": [],
+    "npcs": [],
+    "trainers": [
+      {
+        "trainer_id": "rocket_hideout_grunt_1",
+        "x": 5,
+        "y": 5,
+        "facing": "right",
+        "sight_range": 3
+      },
+      {
+        "trainer_id": "rocket_hideout_grunt_2",
+        "x": 10,
+        "y": 8,
+        "facing": "left",
+        "sight_range": 3
+      }
+    ],
+    "encounter_zones": []
+  },
+  {
+    "id": "rocket_hideout_b2f",
+    "name": "rocket_hideout_b2f",
+    "display_name": "Rocket Hideout B2F",
+    "map_type": "interior",
+    "width": 14,
+    "height": 14,
+    "connections": [],
+    "buildings": [],
+    "npcs": [],
+    "trainers": [
+      {
+        "trainer_id": "rocket_hideout_grunt_3",
+        "x": 3,
+        "y": 7,
+        "facing": "down",
+        "sight_range": 3
+      },
+      {
+        "trainer_id": "rocket_hideout_grunt_4",
+        "x": 10,
+        "y": 4,
+        "facing": "left",
+        "sight_range": 3
+      }
+    ],
+    "encounter_zones": []
+  },
+  {
+    "id": "rocket_hideout_b3f",
+    "name": "rocket_hideout_b3f",
+    "display_name": "Rocket Hideout B3F",
+    "map_type": "interior",
+    "width": 14,
+    "height": 14,
+    "connections": [],
+    "buildings": [],
+    "npcs": [],
+    "trainers": [
+      {
+        "trainer_id": "rocket_hideout_grunt_5",
+        "x": 7,
+        "y": 3,
+        "facing": "down",
+        "sight_range": 3
+      },
+      {
+        "trainer_id": "rocket_hideout_grunt_6",
+        "x": 4,
+        "y": 10,
+        "facing": "right",
+        "sight_range": 3
+      },
+      {
+        "trainer_id": "rocket_hideout_admin_1",
+        "x": 10,
+        "y": 10,
+        "facing": "left",
+        "sight_range": 4
+      }
+    ],
+    "encounter_zones": []
+  },
+  {
+    "id": "rocket_hideout_b4f",
+    "name": "rocket_hideout_b4f",
+    "display_name": "Rocket Hideout B4F",
+    "map_type": "interior",
+    "width": 14,
+    "height": 14,
+    "connections": [],
+    "buildings": [],
+    "npcs": [
+      {
+        "npc_id": "giovanni_npc",
+        "x": 7,
+        "y": 3,
+        "facing": "down"
+      }
+    ],
+    "trainers": [],
+    "encounter_zones": []
+  },
+  {
+    "id": "saffron_gate_north",
+    "name": "saffron_gate_north",
+    "display_name": "Saffron City Gate (North)",
+    "map_type": "interior",
+    "width": 8,
+    "height": 6,
+    "connections": [],
+    "buildings": [],
+    "npcs": [
+      {
+        "npc_id": "saffron_guard_north",
+        "x": 4,
+        "y": 2,
+        "facing": "down"
+      }
+    ],
+    "trainers": [],
+    "encounter_zones": []
+  },
+  {
+    "id": "saffron_gate_south",
+    "name": "saffron_gate_south",
+    "display_name": "Saffron City Gate (South)",
+    "map_type": "interior",
+    "width": 8,
+    "height": 6,
+    "connections": [],
+    "buildings": [],
+    "npcs": [
+      {
+        "npc_id": "saffron_guard_south",
+        "x": 4,
+        "y": 2,
+        "facing": "down"
+      }
+    ],
+    "trainers": [],
+    "encounter_zones": []
   }
 ]

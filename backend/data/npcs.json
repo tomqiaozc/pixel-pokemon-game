@@ -713,5 +713,44 @@
     "facing": "left",
     "npc_type": "generic",
     "dialogue_tree_id": "celadon_rocket_spy_dialogue"
+  },
+  {
+    "id": "giovanni_npc",
+    "name": "Giovanni",
+    "sprite_id": "giovanni",
+    "position": {
+      "x": 7,
+      "y": 3
+    },
+    "map_id": "rocket_hideout_b4f",
+    "facing": "down",
+    "npc_type": "boss",
+    "dialogue_tree_id": "giovanni_dialogue"
+  },
+  {
+    "id": "saffron_guard_north",
+    "name": "Gate Guard",
+    "sprite_id": "gate_guard",
+    "position": {
+      "x": 4,
+      "y": 2
+    },
+    "map_id": "saffron_gate_north",
+    "facing": "down",
+    "npc_type": "guard",
+    "dialogue_tree_id": "saffron_guard_dialogue"
+  },
+  {
+    "id": "saffron_guard_south",
+    "name": "Gate Guard",
+    "sprite_id": "gate_guard",
+    "position": {
+      "x": 4,
+      "y": 2
+    },
+    "map_id": "saffron_gate_south",
+    "facing": "down",
+    "npc_type": "guard",
+    "dialogue_tree_id": "saffron_guard_dialogue"
   }
 ]

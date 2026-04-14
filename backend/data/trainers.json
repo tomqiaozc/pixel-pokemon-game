@@ -1929,5 +1929,225 @@
     "sight_range": 3,
     "dialogue_before": "You made it this far? Not bad!",
     "dialogue_after": "You beat my Muk? Impressive!"
+  },
+  {
+    "id": "rocket_hideout_grunt_1",
+    "name": "Grunt",
+    "trainer_class": "Rocket Grunt",
+    "sprite_id": "rocket_grunt",
+    "pokemon_team": [
+      {
+        "species_id": 13,
+        "name": "Rattata",
+        "level": 23,
+        "moves": [
+          "Tackle",
+          "Quick Attack",
+          "Hyper Fang"
+        ]
+      },
+      {
+        "species_id": 37,
+        "name": "Koffing",
+        "level": 23,
+        "moves": [
+          "Tackle",
+          "Smog",
+          "Sludge"
+        ]
+      }
+    ],
+    "reward_money": 460,
+    "sight_range": 3,
+    "dialogue_before": "Hey! How'd you get down here?!",
+    "dialogue_after": "I'll report you to the boss!"
+  },
+  {
+    "id": "rocket_hideout_grunt_2",
+    "name": "Grunt",
+    "trainer_class": "Rocket Grunt",
+    "sprite_id": "rocket_grunt",
+    "pokemon_team": [
+      {
+        "species_id": 40,
+        "name": "Grimer",
+        "level": 25,
+        "moves": [
+          "Sludge",
+          "Minimize",
+          "Pound"
+        ]
+      }
+    ],
+    "reward_money": 500,
+    "sight_range": 3,
+    "dialogue_before": "Team Rocket will take over the world!",
+    "dialogue_after": "This isn't over!"
+  },
+  {
+    "id": "rocket_hideout_grunt_3",
+    "name": "Grunt",
+    "trainer_class": "Rocket Grunt",
+    "sprite_id": "rocket_grunt",
+    "pokemon_team": [
+      {
+        "species_id": 37,
+        "name": "Koffing",
+        "level": 24,
+        "moves": [
+          "Tackle",
+          "Smog",
+          "Sludge",
+          "Self-Destruct"
+        ]
+      },
+      {
+        "species_id": 38,
+        "name": "Weezing",
+        "level": 24,
+        "moves": [
+          "Tackle",
+          "Smog",
+          "Sludge",
+          "Self-Destruct"
+        ]
+      }
+    ],
+    "reward_money": 480,
+    "sight_range": 3,
+    "dialogue_before": "You can't stop our plans!",
+    "dialogue_after": "Ugh, beaten by a kid..."
+  },
+  {
+    "id": "rocket_hideout_grunt_4",
+    "name": "Grunt",
+    "trainer_class": "Rocket Grunt",
+    "sprite_id": "rocket_grunt",
+    "pokemon_team": [
+      {
+        "species_id": 14,
+        "name": "Raticate",
+        "level": 25,
+        "moves": [
+          "Tackle",
+          "Quick Attack",
+          "Hyper Fang",
+          "Super Fang"
+        ]
+      }
+    ],
+    "reward_money": 500,
+    "sight_range": 3,
+    "dialogue_before": "Get out of our hideout!",
+    "dialogue_after": "I'm calling backup!"
+  },
+  {
+    "id": "rocket_hideout_grunt_5",
+    "name": "Grunt",
+    "trainer_class": "Rocket Grunt",
+    "sprite_id": "rocket_grunt",
+    "pokemon_team": [
+      {
+        "species_id": 41,
+        "name": "Muk",
+        "level": 26,
+        "moves": [
+          "Sludge",
+          "Minimize",
+          "Poison Gas",
+          "Pound"
+        ]
+      },
+      {
+        "species_id": 40,
+        "name": "Grimer",
+        "level": 24,
+        "moves": [
+          "Sludge",
+          "Minimize",
+          "Pound"
+        ]
+      }
+    ],
+    "reward_money": 520,
+    "sight_range": 3,
+    "dialogue_before": "Nobody gets past this floor!",
+    "dialogue_after": "How are you so strong?!"
+  },
+  {
+    "id": "rocket_hideout_grunt_6",
+    "name": "Grunt",
+    "trainer_class": "Rocket Grunt",
+    "sprite_id": "rocket_grunt",
+    "pokemon_team": [
+      {
+        "species_id": 37,
+        "name": "Koffing",
+        "level": 25,
+        "moves": [
+          "Tackle",
+          "Smog",
+          "Sludge"
+        ]
+      },
+      {
+        "species_id": 13,
+        "name": "Rattata",
+        "level": 23,
+        "moves": [
+          "Tackle",
+          "Quick Attack"
+        ]
+      }
+    ],
+    "reward_money": 500,
+    "sight_range": 3,
+    "dialogue_before": "For Team Rocket!",
+    "dialogue_after": "The boss will deal with you!"
+  },
+  {
+    "id": "rocket_hideout_admin_1",
+    "name": "Admin Archer",
+    "trainer_class": "Rocket Admin",
+    "sprite_id": "rocket_admin",
+    "pokemon_team": [
+      {
+        "species_id": 41,
+        "name": "Muk",
+        "level": 28,
+        "moves": [
+          "Sludge",
+          "Minimize",
+          "Poison Gas",
+          "Pound"
+        ]
+      },
+      {
+        "species_id": 38,
+        "name": "Weezing",
+        "level": 28,
+        "moves": [
+          "Tackle",
+          "Smog",
+          "Sludge",
+          "Self-Destruct"
+        ]
+      },
+      {
+        "species_id": 14,
+        "name": "Raticate",
+        "level": 28,
+        "moves": [
+          "Tackle",
+          "Quick Attack",
+          "Hyper Fang",
+          "Super Fang"
+        ]
+      }
+    ],
+    "reward_money": 1120,
+    "sight_range": 4,
+    "dialogue_before": "I'm a Rocket Admin. You won't get past me!",
+    "dialogue_after": "Impressive... but Giovanni will destroy you!"
   }
 ]

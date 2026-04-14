@@ -2001,6 +2001,178 @@ const Routes = (() => {
           ] },
     ];
 
+    // ═══════════════════════════════════════════════
+    //  Sprint 16: Team Rocket Hideout & Saffron Gates
+    // ═══════════════════════════════════════════════
+
+    // Rocket Hideout B1F (14x14) — entrance floor
+    function buildRocketHideoutB1F() {
+        const W = 14, H = 14;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.DIRT);
+            m.push(row);
+        }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H - 1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W - 1] = T.HOUSE_WALL; }
+        // Interior walls / corridors
+        for (let x = 1; x <= 6; x++) m[5][x] = T.HOUSE_WALL;
+        for (let x = 8; x <= 12; x++) m[8][x] = T.HOUSE_WALL;
+        m[5][4] = T.DOOR; // gap in wall
+        m[8][10] = T.DOOR; // gap in wall
+        // Stairs entrance from Game Corner
+        m[0][7] = T.DOOR;
+        // Stairs down to B2F
+        m[H - 1][11] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Rocket Hideout B2F (14x14) — spin tile puzzle floor
+    function buildRocketHideoutB2F() {
+        const W = 14, H = 14;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.DIRT);
+            m.push(row);
+        }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H - 1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W - 1] = T.HOUSE_WALL; }
+        // Arrow/spin tiles represented as FLOWER tiles (visual indicator of directional tiles)
+        m[3][3] = T.FLOWER; m[3][6] = T.FLOWER; m[3][10] = T.FLOWER;
+        m[6][4] = T.FLOWER; m[6][8] = T.FLOWER;
+        m[9][3] = T.FLOWER; m[9][7] = T.FLOWER; m[9][11] = T.FLOWER;
+        // Walls creating maze
+        for (let y = 2; y <= 5; y++) m[y][7] = T.HOUSE_WALL;
+        for (let y = 7; y <= 10; y++) m[y][5] = T.HOUSE_WALL;
+        // Stairs
+        m[0][11] = T.DOOR; // up to B1F
+        m[H - 1][2] = T.DOOR; // down to B3F
+        return { data: m, width: W, height: H };
+    }
+
+    // Rocket Hideout B3F (14x14) — item storage
+    function buildRocketHideoutB3F() {
+        const W = 14, H = 14;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.DIRT);
+            m.push(row);
+        }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H - 1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W - 1] = T.HOUSE_WALL; }
+        // Storage crates (ROCK tiles)
+        for (let x = 2; x <= 4; x++) { m[2][x] = T.ROCK; m[3][x] = T.ROCK; }
+        for (let x = 9; x <= 11; x++) { m[2][x] = T.ROCK; m[3][x] = T.ROCK; }
+        for (let x = 2; x <= 4; x++) { m[9][x] = T.ROCK; m[10][x] = T.ROCK; }
+        // Corridor walls
+        for (let y = 5; y <= 7; y++) m[y][6] = T.HOUSE_WALL;
+        m[6][6] = T.DOOR; // gap
+        // Stairs
+        m[0][2] = T.DOOR; // up to B2F
+        m[H - 1][12] = T.DOOR; // down to B4F (elevator)
+        return { data: m, width: W, height: H };
+    }
+
+    // Rocket Hideout B4F (14x14) — Giovanni's office
+    function buildRocketHideoutB4F() {
+        const W = 14, H = 14;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.DIRT);
+            m.push(row);
+        }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H - 1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W - 1] = T.HOUSE_WALL; }
+        // Giovanni's desk
+        for (let x = 5; x <= 8; x++) m[3][x] = T.HOUSE_WALL;
+        // Bookshelves behind desk
+        for (let x = 3; x <= 10; x++) m[1][x] = T.ROCK;
+        // Office divider
+        for (let x = 1; x <= 5; x++) m[8][x] = T.HOUSE_WALL;
+        m[8][3] = T.DOOR;
+        // Carpet (flowers as luxury carpet)
+        for (let y = 4; y <= 6; y++) {
+            for (let x = 5; x <= 8; x++) m[y][x] = T.FLOWER;
+        }
+        // Stairs/elevator
+        m[H - 1][12] = T.DOOR; // elevator up
+        return { data: m, width: W, height: H };
+    }
+
+    // Saffron Gate (8x6) — generic gate building
+    function buildSaffronGate() {
+        const W = 8, H = 6;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.DIRT);
+            m.push(row);
+        }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H - 1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W - 1] = T.HOUSE_WALL; }
+        // Guard desk
+        m[2][3] = T.HOUSE_WALL; m[2][4] = T.HOUSE_WALL;
+        // Entrances
+        m[0][4] = T.DOOR;
+        m[H - 1][4] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Rocket Hideout trainers
+    const rocketHideoutTrainers = [
+        { x: 5, y: 5, name: 'Rocket Grunt', dir: 3, sightRange: 3,
+          dialogue: ['Hey! How\'d you get down here?!'],
+          pokemon: [
+              { name: 'Rattata', level: 23, hp: 45, maxHp: 45, type: 'Normal' },
+              { name: 'Koffing', level: 23, hp: 48, maxHp: 48, type: 'Poison' },
+          ] },
+        { x: 10, y: 8, name: 'Rocket Grunt', dir: 2, sightRange: 3,
+          dialogue: ['Team Rocket will take over the world!'],
+          pokemon: [
+              { name: 'Grimer', level: 25, hp: 52, maxHp: 52, type: 'Poison' },
+          ] },
+    ];
+
+    const rocketHideoutB2Trainers = [
+        { x: 3, y: 7, name: 'Rocket Grunt', dir: 0, sightRange: 3,
+          dialogue: ['You can\'t stop our plans!'],
+          pokemon: [
+              { name: 'Koffing', level: 24, hp: 48, maxHp: 48, type: 'Poison' },
+              { name: 'Weezing', level: 24, hp: 54, maxHp: 54, type: 'Poison' },
+          ] },
+        { x: 10, y: 4, name: 'Rocket Grunt', dir: 2, sightRange: 3,
+          dialogue: ['Get out of our hideout!'],
+          pokemon: [
+              { name: 'Raticate', level: 25, hp: 52, maxHp: 52, type: 'Normal' },
+          ] },
+    ];
+
+    const rocketHideoutB3Trainers = [
+        { x: 7, y: 3, name: 'Rocket Grunt', dir: 0, sightRange: 3,
+          dialogue: ['Nobody gets past this floor!'],
+          pokemon: [
+              { name: 'Muk', level: 26, hp: 58, maxHp: 58, type: 'Poison' },
+              { name: 'Grimer', level: 24, hp: 50, maxHp: 50, type: 'Poison' },
+          ] },
+        { x: 4, y: 10, name: 'Rocket Grunt', dir: 3, sightRange: 3,
+          dialogue: ['For Team Rocket!'],
+          pokemon: [
+              { name: 'Koffing', level: 25, hp: 50, maxHp: 50, type: 'Poison' },
+              { name: 'Rattata', level: 23, hp: 44, maxHp: 44, type: 'Normal' },
+          ] },
+        { x: 10, y: 10, name: 'Admin Archer', dir: 2, sightRange: 4,
+          dialogue: ['I\'m a Rocket Admin. You won\'t get past me!'],
+          pokemon: [
+              { name: 'Muk', level: 28, hp: 62, maxHp: 62, type: 'Poison' },
+              { name: 'Weezing', level: 28, hp: 58, maxHp: 58, type: 'Poison' },
+              { name: 'Raticate', level: 28, hp: 56, maxHp: 56, type: 'Normal' },
+          ] },
+    ];
+
     // Register all maps with MapLoader
     function registerAll() {
         const palletTown = buildPalletTown();
@@ -2779,6 +2951,83 @@ const Routes = (() => {
             ],
             trainers: cyclingRoadTrainers,
         });
+
+        // --- Sprint 16: Team Rocket Hideout & Saffron Gates ---
+
+        const rocketB1F = buildRocketHideoutB1F();
+        MapLoader.registerMap('rocket_hideout_b1f', {
+            name: 'Rocket Hideout B1F',
+            width: rocketB1F.width,
+            height: rocketB1F.height,
+            data: rocketB1F.data,
+            doors: [
+                { x: 7, y: 0, targetMap: 'celadon_game_corner', spawnX: 10, spawnY: 5 },
+                { x: 11, y: 13, targetMap: 'rocket_hideout_b2f', spawnX: 11, spawnY: 1 },
+            ],
+            trainers: rocketHideoutTrainers,
+        });
+
+        const rocketB2F = buildRocketHideoutB2F();
+        MapLoader.registerMap('rocket_hideout_b2f', {
+            name: 'Rocket Hideout B2F',
+            width: rocketB2F.width,
+            height: rocketB2F.height,
+            data: rocketB2F.data,
+            doors: [
+                { x: 11, y: 0, targetMap: 'rocket_hideout_b1f', spawnX: 11, spawnY: 12 },
+                { x: 2, y: 13, targetMap: 'rocket_hideout_b3f', spawnX: 2, spawnY: 1 },
+            ],
+            trainers: rocketHideoutB2Trainers,
+        });
+
+        const rocketB3F = buildRocketHideoutB3F();
+        MapLoader.registerMap('rocket_hideout_b3f', {
+            name: 'Rocket Hideout B3F',
+            width: rocketB3F.width,
+            height: rocketB3F.height,
+            data: rocketB3F.data,
+            doors: [
+                { x: 2, y: 0, targetMap: 'rocket_hideout_b2f', spawnX: 2, spawnY: 12 },
+                { x: 12, y: 13, targetMap: 'rocket_hideout_b4f', spawnX: 12, spawnY: 12 },
+            ],
+            trainers: rocketHideoutB3Trainers,
+        });
+
+        const rocketB4F = buildRocketHideoutB4F();
+        MapLoader.registerMap('rocket_hideout_b4f', {
+            name: 'Rocket Hideout B4F',
+            width: rocketB4F.width,
+            height: rocketB4F.height,
+            data: rocketB4F.data,
+            npcs: [
+                { name: 'Giovanni', type: 'giovanni', x: 7, y: 3, dir: 0,
+                  dialogue: ['So, you\'ve made it this far.', 'I am Giovanni, the leader of Team Rocket!', 'I shall not be Pokemon League Champion... but I cannot lose to a child!'] },
+            ],
+        });
+
+        const saffronGateN = buildSaffronGate();
+        MapLoader.registerMap('saffron_gate_north', {
+            name: 'Saffron Gate (North)',
+            width: saffronGateN.width,
+            height: saffronGateN.height,
+            data: saffronGateN.data,
+            npcs: [
+                { name: 'Gate Guard', type: 'gate_guard', x: 3, y: 2, dir: 0,
+                  dialogue: ['The road to Saffron City is closed right now.', 'There\'s been some trouble with Team Rocket...'] },
+            ],
+        });
+
+        const saffronGateS = buildSaffronGate();
+        MapLoader.registerMap('saffron_gate_south', {
+            name: 'Saffron Gate (South)',
+            width: saffronGateS.width,
+            height: saffronGateS.height,
+            data: saffronGateS.data,
+            npcs: [
+                { name: 'Gate Guard', type: 'gate_guard', x: 3, y: 2, dir: 0,
+                  dialogue: ['You need special permission to enter Saffron City.', 'Come back when the trouble settles down.'] },
+            ],
+        });
     }
 
     return {
@@ -2826,6 +3075,11 @@ const Routes = (() => {
         buildCeladonCondominiums,
         buildRoute16,
         buildCyclingRoad,
+        buildRocketHideoutB1F,
+        buildRocketHideoutB2F,
+        buildRocketHideoutB3F,
+        buildRocketHideoutB4F,
+        buildSaffronGate,
         buildPalletTown,
         buildViridianCity,
         buildPewterCity,
@@ -2843,6 +3097,9 @@ const Routes = (() => {
         celadonGymTrainers,
         route16Trainers,
         cyclingRoadTrainers,
+        rocketHideoutTrainers,
+        rocketHideoutB2Trainers,
+        rocketHideoutB3Trainers,
         nuggetBridgeTrainers,
         route25Trainers,
     };

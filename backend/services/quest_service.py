@@ -169,6 +169,17 @@ _QUEST_DEFS: list[dict] = [
         "rewards": {"money": 5000, "unlock_flags": ["badge_rainbow"]},
         "prerequisite_quests": ["pokemon_tower"],
     },
+    {
+        "id": "team_rocket_hideout",
+        "name": "Team Rocket's Secret Hideout",
+        "description": "Infiltrate Team Rocket's hideout beneath the Game Corner and defeat Giovanni!",
+        "type": "main",
+        "objectives": [
+            {"id": "defeat_giovanni", "description": "Defeat Giovanni in the Rocket Hideout", "type": "defeat_boss", "target": "giovanni", "required_progress": 1},
+        ],
+        "rewards": {"money": 8000, "items": [{"item_id": 54, "quantity": 1}], "unlock_flags": ["giovanni_defeated", "saffron_gate_open"]},
+        "prerequisite_quests": ["rainbow_badge"],
+    },
 ]
 
 

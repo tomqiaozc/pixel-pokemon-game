@@ -951,6 +951,28 @@ const API = (() => {
         return post(`${BASE_URL}/hm/surf/exit`, { game_id: gameId });
     }
 
+    // --- Rocket Hideout ---
+
+    async function getRocketHideoutState() {
+        if (!gameId) return null;
+        return get(`${BASE_URL}/rocket-hideout/state?game_id=${gameId}`);
+    }
+
+    async function enterRocketHideout() {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/rocket-hideout/enter`, { game_id: gameId });
+    }
+
+    async function clearRocketFloor(floor) {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/rocket-hideout/clear-floor`, { game_id: gameId, floor });
+    }
+
+    async function defeatGiovanni() {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/rocket-hideout/defeat-giovanni`, { game_id: gameId });
+    }
+
     return {
         // Game
         createGame, getGameId, getGameState, saveGame, updatePlayTime,
@@ -1023,5 +1045,7 @@ const API = (() => {
         // Pokemon Tower
         getPokemonTowerState, enterPokemonTower, encounterTowerGhost,
         useSilphScope, defeatTowerRockets, rescueFuji,
+        // Rocket Hideout
+        getRocketHideoutState, enterRocketHideout, clearRocketFloor, defeatGiovanni,
     };
 })();
