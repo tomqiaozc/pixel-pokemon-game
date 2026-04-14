@@ -1,5 +1,5 @@
 {
-  "description": "Records of Pokemon League Champions",
+  "description": "Hall of Fame records for Champion victories.",
   "max_entries": 50,
   "record_format": {
     "entry_number": "Sequential number",
@@ -27,5 +27,66 @@
       "increment_entry_count": true,
       "team_recorded_again": true
     }
-  }
+  },
+  "hall_of_fame": {
+    "max_records": 30,
+    "location": "indigo_plateau",
+    "accessible_after": "first_champion_victory"
+  },
+  "record_structure": {
+    "fields": [
+      {"id": "record_number", "type": "integer", "description": "Sequential victory number"},
+      {"id": "timestamp", "type": "string", "format": "ISO8601", "description": "Date and time of victory"},
+      {"id": "playtime_seconds", "type": "integer", "description": "Total playtime at victory"},
+      {"id": "team", "type": "array", "max_items": 6, "description": "Pokemon team at time of victory"}
+    ],
+    "team_member_fields": [
+      {"id": "species", "type": "string", "description": "Pokemon species name"},
+      {"id": "nickname", "type": "string", "description": "Pokemon nickname or null"},
+      {"id": "level", "type": "integer", "description": "Level at time of victory"},
+      {"id": "moves", "type": "array", "max_items": 4, "description": "Known moves"},
+      {"id": "met_location", "type": "string", "description": "Where the Pokemon was obtained"},
+      {"id": "original_trainer", "type": "string", "description": "OT name"}
+    ]
+  },
+  "display": {
+    "screen_size": {"width": 240, "height": 160},
+    "background": "hall_of_fame_chamber",
+    "background_color": "#1A1A2E",
+    "title_text": "HALL OF FAME",
+    "title_color": "#FFD700",
+    "show_sprite": true,
+    "sprite_size": 48,
+    "sprite_animation": "idle_bounce",
+    "show_playtime": true,
+    "show_date": true,
+    "pokemon_per_page": 3,
+    "page_transition_ms": 500
+  },
+  "ceremony": {
+    "enabled": true,
+    "music_track": "hall_of_fame",
+    "fade_in_ms": 2000,
+    "pokemon_display_ms": 3000,
+    "sparkle_effect": true,
+    "final_message": "Congratulations! Your team was recorded in the HALL OF FAME!",
+    "credits_after": true,
+    "credits_duration_ms": 60000,
+    "credits_music": "ending_theme",
+    "return_to": "players_room"
+  },
+  "viewing": {
+    "npc_name": "Hall of Fame PC",
+    "npc_location": "indigo_plateau_lobby",
+    "browse_records": true,
+    "newest_first": true,
+    "show_record_number": true,
+    "empty_message": "No records yet."
+  },
+  "first_victory_rewards": [
+    {"type": "unlock", "value": "national_dex_upgrade", "description": "Pokedex upgraded"},
+    {"type": "unlock", "value": "postgame_events", "description": "Postgame content unlocked"},
+    {"type": "unlock", "value": "ss_anne_return", "description": "S.S. Anne returns to port"},
+    {"type": "title", "value": "Pokemon Champion", "description": "Champion title earned"}
+  ]
 }

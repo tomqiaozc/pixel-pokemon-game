@@ -1,11 +1,16 @@
 {
-  "description": "Save system configuration and structure for the game.",
+  "description": "Save file system configuration for game state persistence.",
   "save_slots": 3,
   "autosave": {
     "enabled": true,
     "interval_seconds": 300,
     "triggers": ["enter_building", "heal_at_pokecenter", "after_battle"],
     "slot": 0
+  },
+  "quick_save": {
+    "enabled": true,
+    "hotkey": "F5",
+    "slot": "last_used"
   },
   "save_data_structure": {
     "header": {
@@ -61,7 +66,19 @@
       "step_count": "integer",
       "hall_of_fame_entries": "integer",
       "current_quest": "string or null"
-    }
+    },
+    "sections": [
+      {"id": "player", "description": "Player position, name, money, badges", "compressed": false},
+      {"id": "party", "description": "Current party Pokemon (up to 6)", "compressed": false},
+      {"id": "pc_storage", "description": "All PC box Pokemon", "compressed": true},
+      {"id": "bag", "description": "All items in bag pockets", "compressed": false},
+      {"id": "pokedex", "description": "Seen/caught flags for all 151 species", "compressed": true},
+      {"id": "event_flags", "description": "Story progress and event completion flags", "compressed": true},
+      {"id": "map_state", "description": "NPC positions, item pickups, cut trees", "compressed": true},
+      {"id": "stats", "description": "Player statistics from stats tracker", "compressed": false},
+      {"id": "options", "description": "Game settings and preferences", "compressed": false},
+      {"id": "hall_of_fame", "description": "Champion victory records", "compressed": true}
+    ]
   },
   "validation": {
     "checksum_algorithm": "crc32",
@@ -69,5 +86,18 @@
     "backup_previous_save": true
   },
   "storage_format": "json",
-  "storage_key_prefix": "pixel_pokemon_save_"
+  "storage_key_prefix": "pixel_pokemon_save_",
+  "save_screen": {
+    "show_preview": true,
+    "preview_fields": ["player_name", "badge_count", "pokedex_caught", "playtime_seconds", "location_name"],
+    "confirm_overwrite": true,
+    "save_animation_ms": 2000,
+    "save_complete_message": "The game has been saved.",
+    "saving_message": "Saving... Don't turn off the power."
+  },
+  "file_config": {
+    "format": "json",
+    "extension": ".sav",
+    "directory": "saves"
+  }
 }

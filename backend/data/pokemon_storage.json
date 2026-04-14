@@ -1,0 +1,74 @@
+{
+  "description": "PC Pokemon storage box system configuration.",
+  "box_config": {
+    "total_boxes": 12,
+    "pokemon_per_box": 30,
+    "total_capacity": 360,
+    "default_box": 1,
+    "auto_switch_when_full": true
+  },
+  "boxes": [
+    {"id": 1, "default_name": "BOX 1", "default_wallpaper": "forest"},
+    {"id": 2, "default_name": "BOX 2", "default_wallpaper": "city"},
+    {"id": 3, "default_name": "BOX 3", "default_wallpaper": "desert"},
+    {"id": 4, "default_name": "BOX 4", "default_wallpaper": "savanna"},
+    {"id": 5, "default_name": "BOX 5", "default_wallpaper": "crag"},
+    {"id": 6, "default_name": "BOX 6", "default_wallpaper": "volcano"},
+    {"id": 7, "default_name": "BOX 7", "default_wallpaper": "snow"},
+    {"id": 8, "default_name": "BOX 8", "default_wallpaper": "cave"},
+    {"id": 9, "default_name": "BOX 9", "default_wallpaper": "beach"},
+    {"id": 10, "default_name": "BOX 10", "default_wallpaper": "river"},
+    {"id": 11, "default_name": "BOX 11", "default_wallpaper": "sky"},
+    {"id": 12, "default_name": "BOX 12", "default_wallpaper": "stars"}
+  ],
+  "wallpapers": [
+    {"id": "forest", "display_name": "Forest", "bg_color": "#2D5A27", "unlocked": true},
+    {"id": "city", "display_name": "City", "bg_color": "#6B6B6B", "unlocked": true},
+    {"id": "desert", "display_name": "Desert", "bg_color": "#C2A645", "unlocked": true},
+    {"id": "savanna", "display_name": "Savanna", "bg_color": "#8B9A46", "unlocked": true},
+    {"id": "crag", "display_name": "Crag", "bg_color": "#7A5C3C", "unlocked": true},
+    {"id": "volcano", "display_name": "Volcano", "bg_color": "#8B2500", "unlocked": true},
+    {"id": "snow", "display_name": "Snow", "bg_color": "#B0C4DE", "unlocked": true},
+    {"id": "cave", "display_name": "Cave", "bg_color": "#3B3B3B", "unlocked": true},
+    {"id": "beach", "display_name": "Beach", "bg_color": "#D4A574", "unlocked": false},
+    {"id": "river", "display_name": "River", "bg_color": "#4169E1", "unlocked": false},
+    {"id": "sky", "display_name": "Sky", "bg_color": "#87CEEB", "unlocked": false},
+    {"id": "stars", "display_name": "Stars", "bg_color": "#191970", "unlocked": false}
+  ],
+  "operations": [
+    {"id": "deposit", "name": "Deposit Pokemon", "description": "Move a Pokemon from party to box"},
+    {"id": "withdraw", "name": "Withdraw Pokemon", "description": "Move a Pokemon from box to party"},
+    {"id": "move", "name": "Move Pokemon", "description": "Rearrange Pokemon within or between boxes"},
+    {"id": "release", "name": "Release Pokemon", "description": "Release a Pokemon permanently"},
+    {"id": "rename_box", "name": "Rename Box", "description": "Change a box name"},
+    {"id": "change_wallpaper", "name": "Change Wallpaper", "description": "Change box wallpaper"}
+  ],
+  "restrictions": {
+    "min_party_size": 1,
+    "cannot_deposit_last_pokemon": true,
+    "cannot_deposit_hm_only": false,
+    "release_confirm_required": true,
+    "release_double_confirm": true,
+    "max_box_name_length": 8
+  },
+  "sorting_options": [
+    {"id": "manual", "name": "Manual", "description": "No automatic sorting"},
+    {"id": "species_number", "name": "By Number", "description": "Sort by Pokedex number"},
+    {"id": "alphabetical", "name": "A-Z", "description": "Sort alphabetically by name"},
+    {"id": "level", "name": "By Level", "description": "Sort by level descending"},
+    {"id": "type", "name": "By Type", "description": "Sort by primary type"}
+  ],
+  "ui_config": {
+    "box_view_columns": 6,
+    "box_view_rows": 5,
+    "sprite_size": 32,
+    "show_held_item_icon": true,
+    "show_gender_icon": true,
+    "hover_preview": true,
+    "preview_fields": ["species", "level", "nature", "held_item"]
+  },
+  "access_locations": [
+    {"location": "pokemon_center", "npc": "pc_terminal"},
+    {"location": "players_room", "npc": "players_pc"}
+  ]
+}
