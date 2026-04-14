@@ -1,0 +1,175 @@
+{
+  "description": "Battle scene background configurations per location type.",
+  "backgrounds": {
+    "grass": {
+      "display_name": "Grass Field",
+      "base_color": "#44AA44",
+      "ground_pattern": "grass_tiles",
+      "sky_color": "#88CCFF",
+      "horizon_y": 0.35,
+      "elements": ["trees_bg", "clouds"],
+      "used_in": ["route_1", "route_2", "route_5", "route_6", "route_7", "route_8", "route_13", "route_14", "route_15"]
+    },
+    "forest": {
+      "display_name": "Forest",
+      "base_color": "#336633",
+      "ground_pattern": "forest_floor",
+      "sky_color": "#446644",
+      "horizon_y": 0.25,
+      "elements": ["dense_trees", "leaf_particles"],
+      "used_in": ["viridian_forest"]
+    },
+    "cave": {
+      "display_name": "Cave",
+      "base_color": "#554433",
+      "ground_pattern": "rock_floor",
+      "sky_color": "#221111",
+      "horizon_y": 0.2,
+      "elements": ["stalactites", "cave_glow"],
+      "used_in": ["mt_moon", "rock_tunnel", "victory_road", "seafoam_islands", "cerulean_cave"]
+    },
+    "water": {
+      "display_name": "Open Water",
+      "base_color": "#3366AA",
+      "ground_pattern": "water_surface",
+      "sky_color": "#88CCFF",
+      "horizon_y": 0.4,
+      "elements": ["waves", "clouds"],
+      "used_in": ["route_19", "route_20", "route_21"]
+    },
+    "mountain": {
+      "display_name": "Mountain Path",
+      "base_color": "#887766",
+      "ground_pattern": "rocky_terrain",
+      "sky_color": "#AABBCC",
+      "horizon_y": 0.3,
+      "elements": ["boulders", "distant_peaks"],
+      "used_in": ["route_3", "route_4", "route_9", "route_10"]
+    },
+    "city": {
+      "display_name": "Urban Area",
+      "base_color": "#999999",
+      "ground_pattern": "pavement",
+      "sky_color": "#88CCFF",
+      "horizon_y": 0.35,
+      "elements": ["buildings_bg", "streetlights"],
+      "used_in": ["saffron_city", "celadon_city", "vermilion_city"]
+    },
+    "gym_rock": {
+      "display_name": "Rock Gym",
+      "base_color": "#AA8866",
+      "ground_pattern": "gym_floor_rock",
+      "sky_color": null,
+      "horizon_y": 0.3,
+      "elements": ["boulders", "gym_pillars"],
+      "used_in": ["pewter_gym"]
+    },
+    "gym_water": {
+      "display_name": "Water Gym",
+      "base_color": "#3377BB",
+      "ground_pattern": "gym_floor_water",
+      "sky_color": null,
+      "horizon_y": 0.3,
+      "elements": ["pool_water", "diving_boards"],
+      "used_in": ["cerulean_gym"]
+    },
+    "gym_electric": {
+      "display_name": "Electric Gym",
+      "base_color": "#CCAA33",
+      "ground_pattern": "gym_floor_electric",
+      "sky_color": null,
+      "horizon_y": 0.3,
+      "elements": ["generators", "spark_effects"],
+      "used_in": ["vermilion_gym"]
+    },
+    "gym_grass": {
+      "display_name": "Grass Gym",
+      "base_color": "#44BB44",
+      "ground_pattern": "gym_floor_grass",
+      "sky_color": null,
+      "horizon_y": 0.3,
+      "elements": ["garden_plants", "flower_pots"],
+      "used_in": ["celadon_gym"]
+    },
+    "gym_poison": {
+      "display_name": "Poison Gym",
+      "base_color": "#884488",
+      "ground_pattern": "gym_floor_poison",
+      "sky_color": null,
+      "horizon_y": 0.3,
+      "elements": ["toxic_barrels", "smoke_effects"],
+      "used_in": ["fuchsia_gym"]
+    },
+    "gym_psychic": {
+      "display_name": "Psychic Gym",
+      "base_color": "#CC66AA",
+      "ground_pattern": "gym_floor_psychic",
+      "sky_color": null,
+      "horizon_y": 0.3,
+      "elements": ["teleport_pads", "psychic_glow"],
+      "used_in": ["saffron_gym"]
+    },
+    "gym_fire": {
+      "display_name": "Fire Gym",
+      "base_color": "#CC4422",
+      "ground_pattern": "gym_floor_fire",
+      "sky_color": null,
+      "horizon_y": 0.3,
+      "elements": ["lava_pools", "fire_torches"],
+      "used_in": ["cinnabar_gym"]
+    },
+    "gym_ground": {
+      "display_name": "Ground Gym",
+      "base_color": "#BBAA77",
+      "ground_pattern": "gym_floor_ground",
+      "sky_color": null,
+      "horizon_y": 0.3,
+      "elements": ["earth_cracks", "sand_piles"],
+      "used_in": ["viridian_gym"]
+    },
+    "elite_four_chamber": {
+      "display_name": "Elite Four Chamber",
+      "base_color": "#442255",
+      "ground_pattern": "elite_floor",
+      "sky_color": null,
+      "horizon_y": 0.25,
+      "elements": ["champion_pillars", "spotlights"],
+      "used_in": ["indigo_plateau"]
+    },
+    "pokemon_tower": {
+      "display_name": "Pokemon Tower",
+      "base_color": "#443355",
+      "ground_pattern": "tower_floor",
+      "sky_color": null,
+      "horizon_y": 0.3,
+      "elements": ["tombstones", "ghost_wisps"],
+      "used_in": ["pokemon_tower"]
+    },
+    "safari": {
+      "display_name": "Safari Zone",
+      "base_color": "#66AA55",
+      "ground_pattern": "safari_grass",
+      "sky_color": "#88CCFF",
+      "horizon_y": 0.35,
+      "elements": ["exotic_trees", "tall_grass_bg"],
+      "used_in": ["safari_zone"]
+    },
+    "beach": {
+      "display_name": "Beach",
+      "base_color": "#DDCC88",
+      "ground_pattern": "sand",
+      "sky_color": "#88CCFF",
+      "horizon_y": 0.4,
+      "elements": ["ocean_waves", "palm_trees"],
+      "used_in": ["cinnabar_island", "route_18"]
+    }
+  },
+  "background_config": {
+    "width": 240,
+    "height": 160,
+    "parallax_enabled": true,
+    "parallax_speed": 0.5,
+    "day_night_tint": true,
+    "weather_overlay": true
+  }
+}

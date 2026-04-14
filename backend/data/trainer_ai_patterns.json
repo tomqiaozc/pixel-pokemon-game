@@ -1,0 +1,194 @@
+{
+  "description": "AI behavior patterns for trainer classes defining battle strategy.",
+  "patterns": {
+    "youngster": {
+      "class_id": "youngster",
+      "strategy": "aggressive",
+      "move_selection": "highest_power",
+      "switch_threshold_hp_pct": 15,
+      "use_items": false,
+      "predict_player_switch": false,
+      "preferred_moves": [],
+      "avoid_moves": [],
+      "description": "Attacks with the strongest move available."
+    },
+    "lass": {
+      "class_id": "lass",
+      "strategy": "balanced",
+      "move_selection": "type_advantage",
+      "switch_threshold_hp_pct": 20,
+      "use_items": false,
+      "predict_player_switch": false,
+      "preferred_moves": [],
+      "avoid_moves": [],
+      "description": "Tries to use super-effective moves."
+    },
+    "bug_catcher": {
+      "class_id": "bug_catcher",
+      "strategy": "aggressive",
+      "move_selection": "random",
+      "switch_threshold_hp_pct": 10,
+      "use_items": false,
+      "predict_player_switch": false,
+      "preferred_moves": ["status"],
+      "avoid_moves": [],
+      "description": "Randomly selects moves with some status preference."
+    },
+    "hiker": {
+      "class_id": "hiker",
+      "strategy": "defensive",
+      "move_selection": "type_advantage",
+      "switch_threshold_hp_pct": 25,
+      "use_items": false,
+      "predict_player_switch": false,
+      "preferred_moves": ["defense_boost"],
+      "avoid_moves": [],
+      "description": "Bulky strategy with defense boosts."
+    },
+    "fisherman": {
+      "class_id": "fisherman",
+      "strategy": "aggressive",
+      "move_selection": "highest_power",
+      "switch_threshold_hp_pct": 10,
+      "use_items": false,
+      "predict_player_switch": false,
+      "preferred_moves": [],
+      "avoid_moves": [],
+      "description": "Simple power-based attack selection."
+    },
+    "swimmer_m": {
+      "class_id": "swimmer_m",
+      "strategy": "balanced",
+      "move_selection": "type_advantage",
+      "switch_threshold_hp_pct": 20,
+      "use_items": false,
+      "predict_player_switch": false,
+      "preferred_moves": [],
+      "avoid_moves": [],
+      "description": "Standard type-advantage play."
+    },
+    "blackbelt": {
+      "class_id": "blackbelt",
+      "strategy": "aggressive",
+      "move_selection": "highest_power",
+      "switch_threshold_hp_pct": 10,
+      "use_items": false,
+      "predict_player_switch": false,
+      "preferred_moves": ["fighting"],
+      "avoid_moves": [],
+      "description": "All-out attack with fighting moves."
+    },
+    "psychic_trainer": {
+      "class_id": "psychic_trainer",
+      "strategy": "tactical",
+      "move_selection": "type_advantage",
+      "switch_threshold_hp_pct": 30,
+      "use_items": false,
+      "predict_player_switch": true,
+      "preferred_moves": ["sp_attack_boost", "psychic"],
+      "avoid_moves": [],
+      "description": "Strategic with stat boosts and type coverage."
+    },
+    "scientist": {
+      "class_id": "scientist",
+      "strategy": "tactical",
+      "move_selection": "type_advantage",
+      "switch_threshold_hp_pct": 25,
+      "use_items": false,
+      "predict_player_switch": false,
+      "preferred_moves": ["status"],
+      "avoid_moves": [],
+      "description": "Uses status moves and type coverage."
+    },
+    "rocket_grunt": {
+      "class_id": "rocket_grunt",
+      "strategy": "aggressive",
+      "move_selection": "type_advantage",
+      "switch_threshold_hp_pct": 15,
+      "use_items": false,
+      "predict_player_switch": false,
+      "preferred_moves": ["poison"],
+      "avoid_moves": [],
+      "description": "Aggressive with poison preference."
+    },
+    "cooltrainer_m": {
+      "class_id": "cooltrainer_m",
+      "strategy": "tactical",
+      "move_selection": "optimal",
+      "switch_threshold_hp_pct": 30,
+      "use_items": true,
+      "predict_player_switch": true,
+      "preferred_moves": [],
+      "avoid_moves": [],
+      "description": "Skilled trainer with optimal move selection."
+    },
+    "cooltrainer_f": {
+      "class_id": "cooltrainer_f",
+      "strategy": "tactical",
+      "move_selection": "optimal",
+      "switch_threshold_hp_pct": 30,
+      "use_items": true,
+      "predict_player_switch": true,
+      "preferred_moves": [],
+      "avoid_moves": [],
+      "description": "Skilled trainer with optimal move selection."
+    },
+    "ace_trainer": {
+      "class_id": "ace_trainer",
+      "strategy": "tactical",
+      "move_selection": "optimal",
+      "switch_threshold_hp_pct": 35,
+      "use_items": true,
+      "predict_player_switch": true,
+      "preferred_moves": [],
+      "avoid_moves": [],
+      "description": "Expert-level AI with predictions and items."
+    },
+    "gym_leader": {
+      "class_id": "gym_leader",
+      "strategy": "expert",
+      "move_selection": "optimal",
+      "switch_threshold_hp_pct": 40,
+      "use_items": true,
+      "predict_player_switch": true,
+      "preferred_moves": [],
+      "avoid_moves": [],
+      "description": "Top-tier AI that adapts to player strategy."
+    },
+    "elite_four": {
+      "class_id": "elite_four",
+      "strategy": "expert",
+      "move_selection": "optimal",
+      "switch_threshold_hp_pct": 40,
+      "use_items": true,
+      "predict_player_switch": true,
+      "preferred_moves": [],
+      "avoid_moves": [],
+      "description": "Elite AI with full strategic depth."
+    },
+    "champion": {
+      "class_id": "champion",
+      "strategy": "expert",
+      "move_selection": "optimal",
+      "switch_threshold_hp_pct": 45,
+      "use_items": true,
+      "predict_player_switch": true,
+      "preferred_moves": [],
+      "avoid_moves": [],
+      "description": "Highest-level AI with perfect play."
+    }
+  },
+  "strategies": {
+    "aggressive": {"description": "Prioritizes damage output, rarely switches.", "switch_weight": 0.1, "attack_weight": 0.9},
+    "defensive": {"description": "Prioritizes survival, uses defensive moves.", "switch_weight": 0.3, "attack_weight": 0.5},
+    "balanced": {"description": "Mix of offense and defense.", "switch_weight": 0.2, "attack_weight": 0.7},
+    "tactical": {"description": "Uses status, setup moves, and smart switching.", "switch_weight": 0.4, "attack_weight": 0.6},
+    "expert": {"description": "Full strategic play with predictions.", "switch_weight": 0.5, "attack_weight": 0.7}
+  },
+  "move_selection_methods": {
+    "random": "Randomly picks a move.",
+    "highest_power": "Always picks the highest base power move.",
+    "type_advantage": "Prefers super-effective moves against the opponent.",
+    "optimal": "Considers type advantage, STAB, stat modifiers, and prediction."
+  }
+}
