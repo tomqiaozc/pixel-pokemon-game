@@ -1,0 +1,145 @@
+{
+  "old_rod": {
+    "name": "Old Rod",
+    "description": "A basic fishing rod. Can only hook common water Pokemon.",
+    "obtainable_location": "vermilion_city",
+    "obtainable_from": "Fishing Guru",
+    "encounter_table": [
+      {
+        "species_id": 129,
+        "name": "Magikarp",
+        "min_level": 5,
+        "max_level": 15,
+        "rate": 100
+      }
+    ]
+  },
+  "good_rod": {
+    "name": "Good Rod",
+    "description": "A decent fishing rod. Can hook a wider variety of Pokemon.",
+    "obtainable_location": "fuchsia_city",
+    "obtainable_from": "Fishing Guru",
+    "encounter_table": [
+      {
+        "species_id": 129,
+        "name": "Magikarp",
+        "min_level": 10,
+        "max_level": 20,
+        "rate": 40
+      },
+      {
+        "species_id": 60,
+        "name": "Poliwag",
+        "min_level": 10,
+        "max_level": 20,
+        "rate": 20
+      },
+      {
+        "species_id": 118,
+        "name": "Goldeen",
+        "min_level": 10,
+        "max_level": 20,
+        "rate": 20
+      },
+      {
+        "species_id": 116,
+        "name": "Horsea",
+        "min_level": 10,
+        "max_level": 20,
+        "rate": 15
+      },
+      {
+        "species_id": 98,
+        "name": "Krabby",
+        "min_level": 10,
+        "max_level": 20,
+        "rate": 5
+      }
+    ]
+  },
+  "super_rod": {
+    "name": "Super Rod",
+    "description": "The best fishing rod. Can hook rare and powerful water Pokemon.",
+    "obtainable_location": "route_12",
+    "obtainable_from": "Fishing Guru",
+    "encounter_table": [
+      {
+        "species_id": 129,
+        "name": "Magikarp",
+        "min_level": 15,
+        "max_level": 25,
+        "rate": 15
+      },
+      {
+        "species_id": 60,
+        "name": "Poliwag",
+        "min_level": 15,
+        "max_level": 25,
+        "rate": 15
+      },
+      {
+        "species_id": 61,
+        "name": "Poliwhirl",
+        "min_level": 20,
+        "max_level": 30,
+        "rate": 10
+      },
+      {
+        "species_id": 118,
+        "name": "Goldeen",
+        "min_level": 15,
+        "max_level": 25,
+        "rate": 15
+      },
+      {
+        "species_id": 119,
+        "name": "Seaking",
+        "min_level": 20,
+        "max_level": 30,
+        "rate": 10
+      },
+      {
+        "species_id": 116,
+        "name": "Horsea",
+        "min_level": 15,
+        "max_level": 25,
+        "rate": 10
+      },
+      {
+        "species_id": 117,
+        "name": "Seadra",
+        "min_level": 25,
+        "max_level": 35,
+        "rate": 5
+      },
+      {
+        "species_id": 130,
+        "name": "Gyarados",
+        "min_level": 25,
+        "max_level": 35,
+        "rate": 5
+      },
+      {
+        "species_id": 99,
+        "name": "Kingler",
+        "min_level": 20,
+        "max_level": 30,
+        "rate": 5
+      },
+      {
+        "species_id": 54,
+        "name": "Psyduck",
+        "min_level": 15,
+        "max_level": 25,
+        "rate": 5
+      },
+      {
+        "species_id": 120,
+        "name": "Staryu",
+        "min_level": 15,
+        "max_level": 25,
+        "rate": 5
+      }
+    ]
+  }
+}

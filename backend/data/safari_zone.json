@@ -1,0 +1,280 @@
+{
+  "entry_fee": 500,
+  "safari_balls": 30,
+  "max_steps": 600,
+  "zones": [
+    {
+      "id": "safari_zone_center",
+      "name": "Center Area",
+      "encounters": [
+        {
+          "species_id": 29,
+          "name": "Nidoran-F",
+          "min_level": 22,
+          "max_level": 25,
+          "rate": 20
+        },
+        {
+          "species_id": 32,
+          "name": "Nidoran-M",
+          "min_level": 22,
+          "max_level": 25,
+          "rate": 20
+        },
+        {
+          "species_id": 46,
+          "name": "Paras",
+          "min_level": 22,
+          "max_level": 25,
+          "rate": 15
+        },
+        {
+          "species_id": 48,
+          "name": "Venonat",
+          "min_level": 22,
+          "max_level": 25,
+          "rate": 15
+        },
+        {
+          "species_id": 102,
+          "name": "Exeggcute",
+          "min_level": 24,
+          "max_level": 27,
+          "rate": 10
+        },
+        {
+          "species_id": 111,
+          "name": "Rhyhorn",
+          "min_level": 25,
+          "max_level": 27,
+          "rate": 10
+        },
+        {
+          "species_id": 113,
+          "name": "Chansey",
+          "min_level": 23,
+          "max_level": 26,
+          "rate": 4
+        },
+        {
+          "species_id": 115,
+          "name": "Kangaskhan",
+          "min_level": 25,
+          "max_level": 28,
+          "rate": 4
+        },
+        {
+          "species_id": 128,
+          "name": "Tauros",
+          "min_level": 25,
+          "max_level": 28,
+          "rate": 2
+        }
+      ]
+    },
+    {
+      "id": "safari_zone_east",
+      "name": "Area 1 (East)",
+      "encounters": [
+        {
+          "species_id": 29,
+          "name": "Nidoran-F",
+          "min_level": 24,
+          "max_level": 26,
+          "rate": 20
+        },
+        {
+          "species_id": 30,
+          "name": "Nidorina",
+          "min_level": 26,
+          "max_level": 28,
+          "rate": 10
+        },
+        {
+          "species_id": 84,
+          "name": "Doduo",
+          "min_level": 24,
+          "max_level": 26,
+          "rate": 15
+        },
+        {
+          "species_id": 102,
+          "name": "Exeggcute",
+          "min_level": 25,
+          "max_level": 27,
+          "rate": 15
+        },
+        {
+          "species_id": 123,
+          "name": "Scyther",
+          "min_level": 25,
+          "max_level": 28,
+          "rate": 5
+        },
+        {
+          "species_id": 127,
+          "name": "Pinsir",
+          "min_level": 25,
+          "max_level": 28,
+          "rate": 5
+        },
+        {
+          "species_id": 113,
+          "name": "Chansey",
+          "min_level": 24,
+          "max_level": 27,
+          "rate": 3
+        },
+        {
+          "species_id": 128,
+          "name": "Tauros",
+          "min_level": 26,
+          "max_level": 28,
+          "rate": 2
+        }
+      ]
+    },
+    {
+      "id": "safari_zone_north",
+      "name": "Area 2 (North)",
+      "encounters": [
+        {
+          "species_id": 32,
+          "name": "Nidoran-M",
+          "min_level": 24,
+          "max_level": 26,
+          "rate": 20
+        },
+        {
+          "species_id": 33,
+          "name": "Nidorino",
+          "min_level": 26,
+          "max_level": 28,
+          "rate": 10
+        },
+        {
+          "species_id": 46,
+          "name": "Paras",
+          "min_level": 24,
+          "max_level": 26,
+          "rate": 15
+        },
+        {
+          "species_id": 47,
+          "name": "Parasect",
+          "min_level": 27,
+          "max_level": 30,
+          "rate": 5
+        },
+        {
+          "species_id": 48,
+          "name": "Venonat",
+          "min_level": 24,
+          "max_level": 26,
+          "rate": 15
+        },
+        {
+          "species_id": 111,
+          "name": "Rhyhorn",
+          "min_level": 26,
+          "max_level": 29,
+          "rate": 10
+        },
+        {
+          "species_id": 115,
+          "name": "Kangaskhan",
+          "min_level": 26,
+          "max_level": 28,
+          "rate": 3
+        },
+        {
+          "species_id": 128,
+          "name": "Tauros",
+          "min_level": 26,
+          "max_level": 28,
+          "rate": 2
+        }
+      ]
+    },
+    {
+      "id": "safari_zone_west",
+      "name": "Area 3 (West)",
+      "encounters": [
+        {
+          "species_id": 84,
+          "name": "Doduo",
+          "min_level": 26,
+          "max_level": 28,
+          "rate": 20
+        },
+        {
+          "species_id": 102,
+          "name": "Exeggcute",
+          "min_level": 26,
+          "max_level": 28,
+          "rate": 15
+        },
+        {
+          "species_id": 111,
+          "name": "Rhyhorn",
+          "min_level": 26,
+          "max_level": 29,
+          "rate": 15
+        },
+        {
+          "species_id": 113,
+          "name": "Chansey",
+          "min_level": 26,
+          "max_level": 28,
+          "rate": 5
+        },
+        {
+          "species_id": 115,
+          "name": "Kangaskhan",
+          "min_level": 28,
+          "max_level": 30,
+          "rate": 5
+        },
+        {
+          "species_id": 123,
+          "name": "Scyther",
+          "min_level": 28,
+          "max_level": 30,
+          "rate": 4
+        },
+        {
+          "species_id": 127,
+          "name": "Pinsir",
+          "min_level": 28,
+          "max_level": 30,
+          "rate": 4
+        },
+        {
+          "species_id": 128,
+          "name": "Tauros",
+          "min_level": 28,
+          "max_level": 30,
+          "rate": 3
+        }
+      ]
+    }
+  ],
+  "mechanics": {
+    "bait": {
+      "description": "Throwing bait makes Pokemon less likely to flee but harder to catch.",
+      "flee_modifier": 0.5,
+      "catch_modifier": 0.5,
+      "duration_turns": 3
+    },
+    "rock": {
+      "description": "Throwing a rock makes Pokemon easier to catch but more likely to flee.",
+      "flee_modifier": 2.0,
+      "catch_modifier": 2.0,
+      "duration_turns": 3
+    },
+    "safari_ball": {
+      "catch_rate_multiplier": 1.5,
+      "description": "Special ball used only in the Safari Zone."
+    }
+  }
+}
