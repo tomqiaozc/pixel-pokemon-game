@@ -39,7 +39,7 @@ class TestViridianGymMaps:
 
     def test_total_maps_count(self):
         maps = _load_json("maps.json")
-        assert len(maps) == 105
+        assert len(maps) == 112
 
 
 # ──── Viridian Gym (Giovanni) ─────────────────────────────────
@@ -104,7 +104,7 @@ class TestGiovanniSpecies:
 
     def test_total_species_count(self):
         species_data = _load_json("pokemon_species.json")
-        assert len(species_data) == 100
+        assert len(species_data) == 105
 
 
 # ──── New Items ──────────────────────────────────────────────
@@ -142,7 +142,7 @@ class TestViridianGymTrainers:
 class TestViridianGymNPCs:
     def test_total_npc_count(self):
         npcs = _load_json("npcs.json")
-        assert len(npcs) == 84
+        assert len(npcs) == 91
 
 
 # ──── Encounter Tables ───────────────────────────────────────

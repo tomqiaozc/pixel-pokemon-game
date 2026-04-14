@@ -3070,6 +3070,135 @@ const Routes = (() => {
           ] },
     ];
 
+    // Elite Four Lobby (10x10)
+    function buildEliteFourLobby() {
+        const W = 10, H = 10;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.DIRT); m.push(row); }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H-1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W-1] = T.HOUSE_WALL; }
+        // Entrance door (south)
+        m[H-1][5] = T.DOOR;
+        // Elite Four door (north)
+        m[0][5] = T.DOOR;
+        // Red carpet path
+        for (let y = 2; y < H-1; y++) m[y][5] = T.FLOWER;
+        // Pillars
+        m[3][2] = T.ROCK; m[3][7] = T.ROCK;
+        m[6][2] = T.ROCK; m[6][7] = T.ROCK;
+        return { data: m, width: W, height: H };
+    }
+
+    // Lorelei's Room (12x12, icy theme)
+    function buildLoreleiRoom() {
+        const W = 12, H = 12;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.WATER); m.push(row); }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H-1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W-1] = T.HOUSE_WALL; }
+        // Walking path (ice floor as dirt)
+        for (let y = 1; y < H-1; y++) for (let x = 4; x <= 7; x++) m[y][x] = T.DIRT;
+        for (let x = 1; x < W-1; x++) { m[1][x] = T.DIRT; m[H-2][x] = T.DIRT; }
+        // Exit doors
+        m[0][6] = T.DOOR;
+        m[H-1][6] = T.DOOR;
+        // Ice crystal decorations
+        m[4][2] = T.ROCK; m[4][9] = T.ROCK;
+        m[7][2] = T.ROCK; m[7][9] = T.ROCK;
+        return { data: m, width: W, height: H };
+    }
+
+    // Bruno's Room (12x12, rocky theme)
+    function buildBrunoRoom() {
+        const W = 12, H = 12;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.DIRT); m.push(row); }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H-1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W-1] = T.HOUSE_WALL; }
+        // Exit doors
+        m[0][6] = T.DOOR;
+        m[H-1][6] = T.DOOR;
+        // Boulders scattered (training rocks)
+        m[3][3] = T.ROCK; m[3][8] = T.ROCK;
+        m[5][2] = T.ROCK; m[5][9] = T.ROCK;
+        m[7][3] = T.ROCK; m[7][8] = T.ROCK;
+        m[9][4] = T.ROCK; m[9][7] = T.ROCK;
+        return { data: m, width: W, height: H };
+    }
+
+    // Agatha's Room (12x12, dark/ghost theme)
+    function buildAgathaRoom() {
+        const W = 12, H = 12;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.DIRT); m.push(row); }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H-1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W-1] = T.HOUSE_WALL; }
+        // Exit doors
+        m[0][6] = T.DOOR;
+        m[H-1][6] = T.DOOR;
+        // Tombstones (spooky atmosphere)
+        m[3][2] = T.ROCK; m[3][4] = T.ROCK; m[3][7] = T.ROCK; m[3][9] = T.ROCK;
+        m[8][2] = T.ROCK; m[8][4] = T.ROCK; m[8][7] = T.ROCK; m[8][9] = T.ROCK;
+        return { data: m, width: W, height: H };
+    }
+
+    // Lance's Room (12x14, dragon theme)
+    function buildLanceRoom() {
+        const W = 12, H = 14;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.DIRT); m.push(row); }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H-1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W-1] = T.HOUSE_WALL; }
+        // Exit doors
+        m[0][6] = T.DOOR;
+        m[H-1][6] = T.DOOR;
+        // Dragon statues (boulders)
+        m[3][2] = T.ROCK; m[3][9] = T.ROCK;
+        m[7][2] = T.ROCK; m[7][9] = T.ROCK;
+        m[10][2] = T.ROCK; m[10][9] = T.ROCK;
+        // Lava pools
+        m[5][4] = T.WATER; m[5][7] = T.WATER;
+        m[9][4] = T.WATER; m[9][7] = T.WATER;
+        return { data: m, width: W, height: H };
+    }
+
+    // Champion's Room (14x14, grand)
+    function buildChampionRoom() {
+        const W = 14, H = 14;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.DIRT); m.push(row); }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H-1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W-1] = T.HOUSE_WALL; }
+        // Exit door (north to Hall of Fame)
+        m[0][7] = T.DOOR;
+        // Entrance (south)
+        m[H-1][7] = T.DOOR;
+        // Grand carpet
+        for (let y = 2; y < H-1; y++) m[y][7] = T.FLOWER;
+        // Pillars along sides
+        for (let y = 3; y < H-2; y += 3) {
+            m[y][3] = T.ROCK; m[y][10] = T.ROCK;
+        }
+        return { data: m, width: W, height: H };
+    }
+
+    // Hall of Fame (10x10)
+    function buildHallOfFame() {
+        const W = 10, H = 10;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.DIRT); m.push(row); }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H-1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W-1] = T.HOUSE_WALL; }
+        // Entrance
+        m[H-1][5] = T.DOOR;
+        // Central platform (flower carpet)
+        for (let y = 3; y <= 6; y++) for (let x = 3; x <= 6; x++) m[y][x] = T.FLOWER;
+        // Display pedestals
+        m[2][2] = T.ROCK; m[2][7] = T.ROCK;
+        m[7][2] = T.ROCK; m[7][7] = T.ROCK;
+        return { data: m, width: W, height: H };
+    }
+
     // Register all maps with MapLoader
     function registerAll() {
         const palletTown = buildPalletTown();
@@ -4304,6 +4433,7 @@ const Routes = (() => {
             ],
             doors: [
                 { x: 7, y: 7, targetMap: 'indigo_pokemon_center', spawnX: 4, spawnY: 6 },
+                { x: 7, y: 3, targetMap: 'elite_four_lobby', spawnX: 5, spawnY: 8 },
             ],
             npcs: [{ name: 'Badge Checker', type: 'townsfolk', x: 7, y: 8, dir: 0,
               dialogue: ['Welcome to the Indigo Plateau!', 'Only trainers with 8 badges may enter the Pokemon League.'] }],
@@ -4316,6 +4446,83 @@ const Routes = (() => {
             width: indigoPC.width, height: indigoPC.height, data: indigoPC.data,
             npcs: [{ name: 'Nurse Joy', type: 'nurse', x: 4, y: 2, dir: 0,
               dialogue: ['Welcome to the Pokemon Center!', 'You should heal before challenging the Elite Four!'] }],
+        });
+
+        const e4Lobby = buildEliteFourLobby();
+        MapLoader.registerMap('elite_four_lobby', {
+            name: 'Elite Four Lobby',
+            width: e4Lobby.width, height: e4Lobby.height, data: e4Lobby.data,
+            exits: [
+                { edge: 'south', targetMap: 'indigo_plateau', spawnX: 7, spawnY: 1, spawnDir: 0 },
+            ],
+            doors: [
+                { x: 5, y: 1, targetMap: 'lorelei_room', spawnX: 6, spawnY: 10 },
+            ],
+            npcs: [{ name: 'Elite Four Guide', type: 'townsfolk', x: 5, y: 5, dir: 0,
+              dialogue: ['The Elite Four await beyond this door.', 'Once you enter, there is no turning back until you defeat all four and the Champion!'] }],
+        });
+
+        const loreleiRoom = buildLoreleiRoom();
+        MapLoader.registerMap('lorelei_room', {
+            name: 'Lorelei\'s Chamber',
+            width: loreleiRoom.width, height: loreleiRoom.height, data: loreleiRoom.data,
+            doors: [
+                { x: 6, y: 1, targetMap: 'bruno_room', spawnX: 6, spawnY: 10 },
+            ],
+            npcs: [{ name: 'Lorelei', type: 'elite_four', x: 6, y: 3, dir: 0,
+              dialogue: ['Welcome to the Pokemon League!', 'I am Lorelei of the Elite Four.', 'No one can best me when it comes to icy Pokemon!'] }],
+        });
+
+        const brunoRoom = buildBrunoRoom();
+        MapLoader.registerMap('bruno_room', {
+            name: 'Bruno\'s Chamber',
+            width: brunoRoom.width, height: brunoRoom.height, data: brunoRoom.data,
+            doors: [
+                { x: 6, y: 1, targetMap: 'agatha_room', spawnX: 6, spawnY: 10 },
+            ],
+            npcs: [{ name: 'Bruno', type: 'elite_four', x: 6, y: 3, dir: 0,
+              dialogue: ['I am Bruno of the Elite Four.', 'Through rigorous training, people and Pokemon can become stronger without limit.', 'I\'ll prove that to you!'] }],
+        });
+
+        const agathaRoom = buildAgathaRoom();
+        MapLoader.registerMap('agatha_room', {
+            name: 'Agatha\'s Chamber',
+            width: agathaRoom.width, height: agathaRoom.height, data: agathaRoom.data,
+            doors: [
+                { x: 6, y: 1, targetMap: 'lance_room', spawnX: 6, spawnY: 12 },
+            ],
+            npcs: [{ name: 'Agatha', type: 'elite_four', x: 6, y: 3, dir: 0,
+              dialogue: ['I am Agatha of the Elite Four.', 'I hear Oak\'s taken a lot of interest in you.', 'That old dud was once tough and handsome. But that was decades ago.'] }],
+        });
+
+        const lanceRoom = buildLanceRoom();
+        MapLoader.registerMap('lance_room', {
+            name: 'Lance\'s Chamber',
+            width: lanceRoom.width, height: lanceRoom.height, data: lanceRoom.data,
+            doors: [
+                { x: 6, y: 1, targetMap: 'champion_room', spawnX: 7, spawnY: 12 },
+            ],
+            npcs: [{ name: 'Lance', type: 'elite_four', x: 6, y: 3, dir: 0,
+              dialogue: ['I am Lance, the Dragon Master!', 'You know that Dragons are mythical Pokemon.', 'They are hard to catch and raise, but their powers are superior!', 'Prepare to lose!'] }],
+        });
+
+        const championRoom = buildChampionRoom();
+        MapLoader.registerMap('champion_room', {
+            name: 'Champion\'s Chamber',
+            width: championRoom.width, height: championRoom.height, data: championRoom.data,
+            doors: [
+                { x: 7, y: 1, targetMap: 'hall_of_fame', spawnX: 5, spawnY: 8 },
+            ],
+            npcs: [{ name: 'Champion', type: 'champion', x: 7, y: 3, dir: 0,
+              dialogue: ['Hey! I was looking forward to seeing you!', 'My Pokemon and I have been getting stronger!', 'This is the Pokemon League! I\'m the Champion!'] }],
+        });
+
+        const hallOfFame = buildHallOfFame();
+        MapLoader.registerMap('hall_of_fame', {
+            name: 'Hall of Fame',
+            width: hallOfFame.width, height: hallOfFame.height, data: hallOfFame.data,
+            npcs: [{ name: 'Professor Oak', type: 'professor', x: 5, y: 3, dir: 0,
+              dialogue: ['Congratulations! You are the new Pokemon League Champion!', 'Your Pokemon have been recorded in the Hall of Fame!'] }],
         });
     }
 
@@ -4402,6 +4609,13 @@ const Routes = (() => {
         buildVictoryRoad2F,
         buildIndigoPlateauExterior,
         buildIndigoPokemonCenter,
+        buildEliteFourLobby,
+        buildLoreleiRoom,
+        buildBrunoRoom,
+        buildAgathaRoom,
+        buildLanceRoom,
+        buildChampionRoom,
+        buildHallOfFame,
         buildPalletTown,
         buildViridianCity,
         buildPewterCity,

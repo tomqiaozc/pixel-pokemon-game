@@ -1032,5 +1032,125 @@
         "next": null
       }
     ]
+  },
+  "elite_four_guide_dialogue": {
+    "id": "elite_four_guide_dialogue",
+    "nodes": [
+      {
+        "id": "start",
+        "text": "Welcome to the Pokemon League!",
+        "next": "line2"
+      },
+      {
+        "id": "line2",
+        "text": "Beyond these doors, you will face the Elite Four and the Champion.",
+        "next": "line3"
+      },
+      {
+        "id": "line3",
+        "text": "Are you ready?",
+        "next": null
+      }
+    ]
+  },
+  "lorelei_dialogue": {
+    "id": "lorelei_dialogue",
+    "nodes": [
+      {
+        "id": "start",
+        "text": "Welcome to the Pokemon League! I am Lorelei of the Elite Four.",
+        "next": "line2"
+      },
+      {
+        "id": "line2",
+        "text": "No one can best my icy Pokemon! Shall we begin?",
+        "next": null
+      }
+    ]
+  },
+  "bruno_dialogue": {
+    "id": "bruno_dialogue",
+    "nodes": [
+      {
+        "id": "start",
+        "text": "I am Bruno of the Elite Four!",
+        "next": "line2"
+      },
+      {
+        "id": "line2",
+        "text": "Through rigorous training, my fighting Pokemon and I have become one!",
+        "next": null
+      }
+    ]
+  },
+  "agatha_dialogue": {
+    "id": "agatha_dialogue",
+    "nodes": [
+      {
+        "id": "start",
+        "text": "I am Agatha of the Elite Four.",
+        "next": "line2"
+      },
+      {
+        "id": "line2",
+        "text": "I hear Oak's taken a shine to you. But I shan't hold back!",
+        "next": null
+      }
+    ]
+  },
+  "lance_dialogue": {
+    "id": "lance_dialogue",
+    "nodes": [
+      {
+        "id": "start",
+        "text": "I am Lance of the Elite Four, the Dragon Master!",
+        "next": "line2"
+      },
+      {
+        "id": "line2",
+        "text": "You have fought your way through to me. I commend you!",
+        "next": "line3"
+      },
+      {
+        "id": "line3",
+        "text": "But know that my Dragon-type Pokemon are unbeatable!",
+        "next": null
+      }
+    ]
+  },
+  "champion_dialogue": {
+    "id": "champion_dialogue",
+    "nodes": [
+      {
+        "id": "start",
+        "text": "Hey! I was looking forward to seeing you!",
+        "next": "line2"
+      },
+      {
+        "id": "line2",
+        "text": "I became the Pokemon League Champion! And now I'm going to prove I'm the best!",
+        "next": null
+      }
+    ]
+  },
+  "prof_oak_hof_dialogue": {
+    "id": "prof_oak_hof_dialogue",
+    "nodes": [
+      {
+        "id": "start",
+        "text": "Congratulations! You've become the Pokemon League Champion!",
+        "next": "line2"
+      },
+      {
+        "id": "line2",
+        "text": "Your Pokemon and you have been inducted into the Hall of Fame!",
+        "next": "line3"
+      },
+      {
+        "id": "line3",
+        "text": "Well done, Champion!",
+        "next": null
+      }
+    ]
   }
 }

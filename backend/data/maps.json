@@ -3746,5 +3746,145 @@
     "trainers": [],
     "encounter_zones": [],
     "buildings": []
+  },
+  {
+    "id": "elite_four_lobby",
+    "name": "elite_four_lobby",
+    "display_name": "Elite Four Lobby",
+    "map_type": "interior",
+    "width": 10,
+    "height": 10,
+    "connections": [],
+    "npcs": [
+      {
+        "npc_id": "elite_four_guide",
+        "x": 5,
+        "y": 4,
+        "facing": "down"
+      }
+    ],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": []
+  },
+  {
+    "id": "lorelei_room",
+    "name": "lorelei_room",
+    "display_name": "Lorelei's Chamber",
+    "map_type": "interior",
+    "width": 12,
+    "height": 12,
+    "connections": [],
+    "npcs": [
+      {
+        "npc_id": "lorelei_npc",
+        "x": 5,
+        "y": 2,
+        "facing": "down"
+      }
+    ],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": []
+  },
+  {
+    "id": "bruno_room",
+    "name": "bruno_room",
+    "display_name": "Bruno's Chamber",
+    "map_type": "interior",
+    "width": 12,
+    "height": 12,
+    "connections": [],
+    "npcs": [
+      {
+        "npc_id": "bruno_npc",
+        "x": 5,
+        "y": 2,
+        "facing": "down"
+      }
+    ],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": []
+  },
+  {
+    "id": "agatha_room",
+    "name": "agatha_room",
+    "display_name": "Agatha's Chamber",
+    "map_type": "interior",
+    "width": 12,
+    "height": 12,
+    "connections": [],
+    "npcs": [
+      {
+        "npc_id": "agatha_npc",
+        "x": 5,
+        "y": 2,
+        "facing": "down"
+      }
+    ],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": []
+  },
+  {
+    "id": "lance_room",
+    "name": "lance_room",
+    "display_name": "Lance's Chamber",
+    "map_type": "interior",
+    "width": 12,
+    "height": 14,
+    "connections": [],
+    "npcs": [
+      {
+        "npc_id": "lance_npc",
+        "x": 5,
+        "y": 2,
+        "facing": "down"
+      }
+    ],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": []
+  },
+  {
+    "id": "champion_room",
+    "name": "champion_room",
+    "display_name": "Champion's Chamber",
+    "map_type": "interior",
+    "width": 14,
+    "height": 14,
+    "connections": [],
+    "npcs": [
+      {
+        "npc_id": "champion_rival_npc",
+        "x": 7,
+        "y": 3,
+        "facing": "down"
+      }
+    ],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": []
+  },
+  {
+    "id": "hall_of_fame",
+    "name": "hall_of_fame",
+    "display_name": "Hall of Fame",
+    "map_type": "interior",
+    "width": 10,
+    "height": 10,
+    "connections": [],
+    "npcs": [
+      {
+        "npc_id": "prof_oak_hof",
+        "x": 5,
+        "y": 3,
+        "facing": "down"
+      }
+    ],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": []
   }
 ]

@@ -1090,5 +1090,96 @@
     "facing": "down",
     "npc_type": "nurse",
     "dialogue_tree_id": "indigo_nurse_dialogue"
+  },
+  {
+    "id": "elite_four_guide",
+    "name": "Elite Four Guide",
+    "sprite_id": "guard",
+    "position": {
+      "x": 5,
+      "y": 4
+    },
+    "map_id": "elite_four_lobby",
+    "facing": "down",
+    "npc_type": "generic",
+    "dialogue_tree_id": "elite_four_guide_dialogue"
+  },
+  {
+    "id": "lorelei_npc",
+    "name": "Lorelei",
+    "sprite_id": "lorelei",
+    "position": {
+      "x": 5,
+      "y": 2
+    },
+    "map_id": "lorelei_room",
+    "facing": "down",
+    "npc_type": "elite_four",
+    "dialogue_tree_id": "lorelei_dialogue"
+  },
+  {
+    "id": "bruno_npc",
+    "name": "Bruno",
+    "sprite_id": "bruno",
+    "position": {
+      "x": 5,
+      "y": 2
+    },
+    "map_id": "bruno_room",
+    "facing": "down",
+    "npc_type": "elite_four",
+    "dialogue_tree_id": "bruno_dialogue"
+  },
+  {
+    "id": "agatha_npc",
+    "name": "Agatha",
+    "sprite_id": "agatha",
+    "position": {
+      "x": 5,
+      "y": 2
+    },
+    "map_id": "agatha_room",
+    "facing": "down",
+    "npc_type": "elite_four",
+    "dialogue_tree_id": "agatha_dialogue"
+  },
+  {
+    "id": "lance_npc",
+    "name": "Lance",
+    "sprite_id": "lance",
+    "position": {
+      "x": 5,
+      "y": 2
+    },
+    "map_id": "lance_room",
+    "facing": "down",
+    "npc_type": "elite_four",
+    "dialogue_tree_id": "lance_dialogue"
+  },
+  {
+    "id": "champion_rival_npc",
+    "name": "Champion",
+    "sprite_id": "rival",
+    "position": {
+      "x": 7,
+      "y": 3
+    },
+    "map_id": "champion_room",
+    "facing": "down",
+    "npc_type": "champion",
+    "dialogue_tree_id": "champion_dialogue"
+  },
+  {
+    "id": "prof_oak_hof",
+    "name": "Professor Oak",
+    "sprite_id": "professor",
+    "position": {
+      "x": 5,
+      "y": 3
+    },
+    "map_id": "hall_of_fame",
+    "facing": "down",
+    "npc_type": "generic",
+    "dialogue_tree_id": "prof_oak_hof_dialogue"
   }
 ]

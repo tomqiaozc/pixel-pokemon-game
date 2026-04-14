@@ -995,6 +995,42 @@ const API = (() => {
         return post(`${BASE_URL}/silph-co/defeat-giovanni`, { game_id: gameId });
     }
 
+    // --- Elite Four ---
+
+    async function getEliteFourState() {
+        if (!gameId) return null;
+        return get(`${BASE_URL}/elite-four/${gameId}`);
+    }
+
+    async function enterEliteFour() {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/elite-four/${gameId}/enter`, {});
+    }
+
+    async function getEliteFourMember(memberId) {
+        return get(`${BASE_URL}/elite-four/member/${memberId}`);
+    }
+
+    async function defeatEliteFourMember(memberId) {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/elite-four/${gameId}/defeat/${memberId}`, {});
+    }
+
+    async function enterHallOfFame() {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/elite-four/${gameId}/hall-of-fame`, {});
+    }
+
+    async function getHallOfFame() {
+        if (!gameId) return null;
+        return get(`${BASE_URL}/hall-of-fame/${gameId}`);
+    }
+
+    async function resetEliteFour() {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/elite-four/${gameId}/reset`, {});
+    }
+
     return {
         // Game
         createGame, getGameId, getGameState, saveGame, updatePlayTime,
@@ -1071,5 +1107,8 @@ const API = (() => {
         getRocketHideoutState, enterRocketHideout, clearRocketFloor, defeatGiovanni,
         // Silph Co.
         getSilphCoState, enterSilphCo, clearSilphRockets, defeatGiovanniSilph,
+        // Elite Four
+        getEliteFourState, enterEliteFour, getEliteFourMember,
+        defeatEliteFourMember, enterHallOfFame, getHallOfFame, resetEliteFour,
     };
 })();

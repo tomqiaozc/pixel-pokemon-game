@@ -5463,5 +5463,345 @@
     ],
     "evolution": null,
     "sprite": "rhydon.png"
+  },
+  {
+    "id": 87,
+    "name": "Dewgong",
+    "types": [
+      "water",
+      "ice"
+    ],
+    "stats": {
+      "hp": 90,
+      "attack": 70,
+      "defense": 80,
+      "sp_attack": 70,
+      "sp_defense": 95,
+      "speed": 70
+    },
+    "base_exp": 166,
+    "catch_rate": 75,
+    "abilities": [
+      "Thick Fat",
+      "Hydration"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "water1",
+      "field"
+    ],
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Headbutt"
+      },
+      {
+        "level": 1,
+        "move": "Growl"
+      },
+      {
+        "level": 7,
+        "move": "Icy Wind"
+      },
+      {
+        "level": 13,
+        "move": "Encore"
+      },
+      {
+        "level": 21,
+        "move": "Aurora Beam"
+      },
+      {
+        "level": 27,
+        "move": "Rest"
+      },
+      {
+        "level": 31,
+        "move": "Ice Beam"
+      },
+      {
+        "level": 37,
+        "move": "Safeguard"
+      },
+      {
+        "level": 43,
+        "move": "Sheer Cold"
+      }
+    ],
+    "evolution": null,
+    "sprite": "dewgong.png"
+  },
+  {
+    "id": 91,
+    "name": "Cloyster",
+    "types": [
+      "water",
+      "ice"
+    ],
+    "stats": {
+      "hp": 50,
+      "attack": 95,
+      "defense": 180,
+      "sp_attack": 85,
+      "sp_defense": 45,
+      "speed": 70
+    },
+    "base_exp": 184,
+    "catch_rate": 60,
+    "abilities": [
+      "Shell Armor",
+      "Skill Link"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "water3"
+    ],
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 1,
+        "move": "Withdraw"
+      },
+      {
+        "level": 1,
+        "move": "Supersonic"
+      },
+      {
+        "level": 1,
+        "move": "Aurora Beam"
+      },
+      {
+        "level": 1,
+        "move": "Spike Cannon"
+      },
+      {
+        "level": 33,
+        "move": "Ice Beam"
+      },
+      {
+        "level": 41,
+        "move": "Hydro Pump"
+      }
+    ],
+    "evolution": null,
+    "sprite": "cloyster.png"
+  },
+  {
+    "id": 131,
+    "name": "Lapras",
+    "types": [
+      "water",
+      "ice"
+    ],
+    "stats": {
+      "hp": 130,
+      "attack": 85,
+      "defense": 80,
+      "sp_attack": 85,
+      "sp_defense": 95,
+      "speed": 60
+    },
+    "base_exp": 187,
+    "catch_rate": 45,
+    "abilities": [
+      "Water Absorb",
+      "Shell Armor"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "monster",
+      "water1"
+    ],
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Water Gun"
+      },
+      {
+        "level": 1,
+        "move": "Growl"
+      },
+      {
+        "level": 1,
+        "move": "Sing"
+      },
+      {
+        "level": 7,
+        "move": "Mist"
+      },
+      {
+        "level": 13,
+        "move": "Confuse Ray"
+      },
+      {
+        "level": 18,
+        "move": "Ice Shard"
+      },
+      {
+        "level": 25,
+        "move": "Body Slam"
+      },
+      {
+        "level": 31,
+        "move": "Ice Beam"
+      },
+      {
+        "level": 37,
+        "move": "Rain Dance"
+      },
+      {
+        "level": 43,
+        "move": "Hydro Pump"
+      },
+      {
+        "level": 49,
+        "move": "Perish Song"
+      },
+      {
+        "level": 55,
+        "move": "Sheer Cold"
+      }
+    ],
+    "evolution": null,
+    "sprite": "lapras.png"
+  },
+  {
+    "id": 148,
+    "name": "Dragonair",
+    "types": [
+      "dragon"
+    ],
+    "stats": {
+      "hp": 61,
+      "attack": 84,
+      "defense": 65,
+      "sp_attack": 70,
+      "sp_defense": 70,
+      "speed": 70
+    },
+    "base_exp": 147,
+    "catch_rate": 45,
+    "abilities": [
+      "Shed Skin",
+      "Marvel Scale"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "water1",
+      "dragon"
+    ],
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Wrap"
+      },
+      {
+        "level": 1,
+        "move": "Leer"
+      },
+      {
+        "level": 1,
+        "move": "Thunder Wave"
+      },
+      {
+        "level": 1,
+        "move": "Twister"
+      },
+      {
+        "level": 33,
+        "move": "Dragon Rage"
+      },
+      {
+        "level": 38,
+        "move": "Slam"
+      },
+      {
+        "level": 44,
+        "move": "Agility"
+      },
+      {
+        "level": 50,
+        "move": "Dragon Rush"
+      },
+      {
+        "level": 55,
+        "move": "Outrage"
+      },
+      {
+        "level": 61,
+        "move": "Hyper Beam"
+      }
+    ],
+    "evolution": {
+      "to": 149,
+      "level": 55
+    },
+    "sprite": "dragonair.png"
+  },
+  {
+    "id": 149,
+    "name": "Dragonite",
+    "types": [
+      "dragon",
+      "flying"
+    ],
+    "stats": {
+      "hp": 91,
+      "attack": 134,
+      "defense": 95,
+      "sp_attack": 100,
+      "sp_defense": 100,
+      "speed": 80
+    },
+    "base_exp": 270,
+    "catch_rate": 45,
+    "abilities": [
+      "Inner Focus",
+      "Multiscale"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "water1",
+      "dragon"
+    ],
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Fire Punch"
+      },
+      {
+        "level": 1,
+        "move": "Thunder Punch"
+      },
+      {
+        "level": 1,
+        "move": "Wing Attack"
+      },
+      {
+        "level": 1,
+        "move": "Twister"
+      },
+      {
+        "level": 55,
+        "move": "Dragon Rush"
+      },
+      {
+        "level": 61,
+        "move": "Outrage"
+      },
+      {
+        "level": 67,
+        "move": "Hyper Beam"
+      },
+      {
+        "level": 75,
+        "move": "Dragon Dance"
+      }
+    ],
+    "evolution": null,
+    "sprite": "dragonite.png"
   }
 ]

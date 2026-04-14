@@ -292,6 +292,31 @@ _QUEST_DEFS: list[dict] = [
         "rewards": {"money": 5000, "unlock_flags": ["reached_indigo_plateau"]},
         "prerequisite_quests": ["earth_badge"],
     },
+    {
+        "id": "elite_four",
+        "name": "The Elite Four",
+        "description": "Defeat the Elite Four — Lorelei, Bruno, Agatha, and Lance — at the Indigo Plateau!",
+        "type": "main",
+        "objectives": [
+            {"id": "defeat_lorelei", "description": "Defeat Lorelei", "type": "defeat_trainer", "target": "lorelei", "required_progress": 1},
+            {"id": "defeat_bruno", "description": "Defeat Bruno", "type": "defeat_trainer", "target": "bruno", "required_progress": 1},
+            {"id": "defeat_agatha", "description": "Defeat Agatha", "type": "defeat_trainer", "target": "agatha", "required_progress": 1},
+            {"id": "defeat_lance", "description": "Defeat Lance", "type": "defeat_trainer", "target": "lance", "required_progress": 1},
+        ],
+        "rewards": {"money": 20000, "unlock_flags": ["elite_four_defeated"]},
+        "prerequisite_quests": ["victory_road"],
+    },
+    {
+        "id": "champion",
+        "name": "The Champion",
+        "description": "Defeat the Champion and enter the Hall of Fame to become the Pokemon League Champion!",
+        "type": "main",
+        "objectives": [
+            {"id": "defeat_champion", "description": "Defeat the Champion", "type": "defeat_trainer", "target": "champion", "required_progress": 1},
+        ],
+        "rewards": {"money": 50000, "unlock_flags": ["pokemon_league_champion", "hall_of_fame"]},
+        "prerequisite_quests": ["elite_four"],
+    },
 ]
 
 

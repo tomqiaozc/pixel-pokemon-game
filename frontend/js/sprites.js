@@ -1804,6 +1804,178 @@ const Sprites = (() => {
         return c;
     }
 
+    // Lorelei — Elite Four #1, Ice specialist
+    function drawLorelei() {
+        if (cache.lorelei) return cache.lorelei;
+        const c = document.createElement('canvas');
+        c.width = TILE; c.height = TILE;
+        const ctx = c.getContext('2d');
+        // Red hair (long, flowing)
+        ctx.fillStyle = '#c33';
+        ctx.fillRect(3, 0, 10, 5);
+        ctx.fillRect(2, 3, 2, 6);
+        ctx.fillRect(12, 3, 2, 6);
+        // Face
+        ctx.fillStyle = '#fdd';
+        ctx.fillRect(5, 2, 6, 5);
+        // Glasses
+        ctx.fillStyle = '#68f';
+        ctx.fillRect(5, 3, 2, 2);
+        ctx.fillRect(9, 3, 2, 2);
+        ctx.fillStyle = '#333';
+        ctx.fillRect(7, 3, 2, 1);
+        // Lips
+        ctx.fillStyle = '#f66';
+        ctx.fillRect(7, 5, 2, 1);
+        // Blue dress
+        ctx.fillStyle = '#48c';
+        ctx.fillRect(4, 7, 8, 5);
+        // Arms
+        ctx.fillStyle = '#fdd';
+        ctx.fillRect(3, 7, 1, 3);
+        ctx.fillRect(12, 7, 1, 3);
+        // Legs
+        ctx.fillStyle = '#fdd';
+        ctx.fillRect(5, 12, 2, 2);
+        ctx.fillRect(9, 12, 2, 2);
+        // High heels
+        ctx.fillStyle = '#c33';
+        ctx.fillRect(5, 14, 2, 1);
+        ctx.fillRect(9, 14, 2, 1);
+        cache.lorelei = c;
+        return c;
+    }
+
+    // Bruno — Elite Four #2, Fighting specialist
+    function drawBruno() {
+        if (cache.bruno) return cache.bruno;
+        const c = document.createElement('canvas');
+        c.width = TILE; c.height = TILE;
+        const ctx = c.getContext('2d');
+        // Black hair (short, spiky)
+        ctx.fillStyle = '#222';
+        ctx.fillRect(4, 0, 8, 3);
+        ctx.fillRect(3, 1, 1, 2);
+        ctx.fillRect(12, 1, 1, 2);
+        // Face
+        ctx.fillStyle = '#da8';
+        ctx.fillRect(5, 2, 6, 5);
+        // Eyes (fierce)
+        ctx.fillStyle = '#222';
+        ctx.fillRect(6, 3, 1, 1);
+        ctx.fillRect(9, 3, 1, 1);
+        // Mouth
+        ctx.fillStyle = '#a66';
+        ctx.fillRect(7, 5, 2, 1);
+        // Bare muscular chest
+        ctx.fillStyle = '#da8';
+        ctx.fillRect(3, 7, 10, 5);
+        // Belt
+        ctx.fillStyle = '#862';
+        ctx.fillRect(3, 10, 10, 1);
+        ctx.fillStyle = '#ff0';
+        ctx.fillRect(7, 10, 2, 1);
+        // Pants
+        ctx.fillStyle = '#555';
+        ctx.fillRect(4, 11, 3, 3);
+        ctx.fillRect(9, 11, 3, 3);
+        // Boots
+        ctx.fillStyle = '#432';
+        ctx.fillRect(4, 14, 3, 1);
+        ctx.fillRect(9, 14, 3, 1);
+        cache.bruno = c;
+        return c;
+    }
+
+    // Agatha — Elite Four #3, Ghost specialist
+    function drawAgatha() {
+        if (cache.agatha) return cache.agatha;
+        const c = document.createElement('canvas');
+        c.width = TILE; c.height = TILE;
+        const ctx = c.getContext('2d');
+        // Gray hair (pulled back)
+        ctx.fillStyle = '#aaa';
+        ctx.fillRect(4, 0, 8, 4);
+        ctx.fillRect(3, 1, 1, 3);
+        ctx.fillRect(12, 1, 1, 3);
+        // Bun
+        ctx.fillStyle = '#999';
+        ctx.fillRect(5, 0, 6, 1);
+        // Face (elderly)
+        ctx.fillStyle = '#fdd';
+        ctx.fillRect(5, 2, 6, 5);
+        // Eyes
+        ctx.fillStyle = '#636';
+        ctx.fillRect(6, 3, 1, 1);
+        ctx.fillRect(9, 3, 1, 1);
+        // Mouth
+        ctx.fillStyle = '#a66';
+        ctx.fillRect(7, 5, 2, 1);
+        // Purple dress/robe
+        ctx.fillStyle = '#639';
+        ctx.fillRect(4, 7, 8, 6);
+        // Walking cane
+        ctx.fillStyle = '#862';
+        ctx.fillRect(13, 7, 1, 7);
+        ctx.fillStyle = '#ff0';
+        ctx.fillRect(13, 7, 1, 1);
+        // Shoes
+        ctx.fillStyle = '#333';
+        ctx.fillRect(5, 13, 2, 1);
+        ctx.fillRect(9, 13, 2, 1);
+        cache.agatha = c;
+        return c;
+    }
+
+    // Lance — Elite Four #4, Dragon specialist
+    function drawLance() {
+        if (cache.lance) return cache.lance;
+        const c = document.createElement('canvas');
+        c.width = TILE; c.height = TILE;
+        const ctx = c.getContext('2d');
+        // Red spiky hair
+        ctx.fillStyle = '#c33';
+        ctx.fillRect(4, 0, 8, 4);
+        ctx.fillRect(3, 0, 1, 2);
+        ctx.fillRect(12, 0, 1, 2);
+        ctx.fillRect(5, 0, 1, 1);
+        ctx.fillRect(10, 0, 1, 1);
+        // Face
+        ctx.fillStyle = '#fdd';
+        ctx.fillRect(5, 2, 6, 5);
+        // Eyes
+        ctx.fillStyle = '#222';
+        ctx.fillRect(6, 3, 1, 1);
+        ctx.fillRect(9, 3, 1, 1);
+        // Mouth
+        ctx.fillStyle = '#a66';
+        ctx.fillRect(7, 5, 2, 1);
+        // Cape (black)
+        ctx.fillStyle = '#222';
+        ctx.fillRect(2, 7, 2, 7);
+        ctx.fillRect(12, 7, 2, 7);
+        // Cape inner (red)
+        ctx.fillStyle = '#c22';
+        ctx.fillRect(3, 8, 1, 5);
+        ctx.fillRect(12, 8, 1, 5);
+        // Body armor (dark)
+        ctx.fillStyle = '#335';
+        ctx.fillRect(4, 7, 8, 5);
+        // Dragon emblem
+        ctx.fillStyle = '#f80';
+        ctx.fillRect(7, 8, 2, 2);
+        // Pants
+        ctx.fillStyle = '#335';
+        ctx.fillRect(5, 12, 2, 2);
+        ctx.fillRect(9, 12, 2, 2);
+        // Boots
+        ctx.fillStyle = '#222';
+        ctx.fillRect(5, 14, 2, 1);
+        ctx.fillRect(9, 14, 2, 1);
+        cache.lance = c;
+        return c;
+    }
+
     return {
         TILE,
         PAL,
@@ -1857,5 +2029,9 @@ const Sprites = (() => {
         drawBurglar,
         drawSwimmer,
         drawCooltrainer,
+        drawLorelei,
+        drawBruno,
+        drawAgatha,
+        drawLance,
     };
 })();
