@@ -1,0 +1,85 @@
+{
+  "reflect": {
+    "name": "Reflect",
+    "type": "screen",
+    "effect": "halve_physical_damage",
+    "duration_turns": 5,
+    "set_by_move": "Reflect",
+    "description": "Reduces physical damage taken by 50% for 5 turns."
+  },
+  "light_screen": {
+    "name": "Light Screen",
+    "type": "screen",
+    "effect": "halve_special_damage",
+    "duration_turns": 5,
+    "set_by_move": "Light Screen",
+    "description": "Reduces special damage taken by 50% for 5 turns."
+  },
+  "mist": {
+    "name": "Mist",
+    "type": "protection",
+    "effect": "prevent_stat_reduction",
+    "duration_turns": 5,
+    "set_by_move": "Mist",
+    "description": "Prevents stat reductions for 5 turns."
+  },
+  "safeguard": {
+    "name": "Safeguard",
+    "type": "protection",
+    "effect": "prevent_status_conditions",
+    "duration_turns": 5,
+    "set_by_move": "Safeguard",
+    "description": "Prevents status conditions for 5 turns."
+  },
+  "leech_seed": {
+    "name": "Leech Seed",
+    "type": "hazard",
+    "effect": "drain_hp_per_turn",
+    "drain_percent": 12.5,
+    "duration": "until_switch",
+    "set_by_move": "Leech Seed",
+    "description": "Drains 1/8 HP each turn and restores it to the user."
+  },
+  "toxic_spikes": {
+    "name": "Toxic Spikes",
+    "type": "entry_hazard",
+    "effect": "poison_on_switch_in",
+    "max_layers": 2,
+    "layer_effects": {
+      "1": "poison",
+      "2": "badly_poisoned"
+    },
+    "immune_types": [
+      "poison",
+      "flying",
+      "steel"
+    ],
+    "set_by_move": "Toxic Spikes",
+    "description": "Poisons grounded Pokemon that switch in."
+  },
+  "stealth_rock": {
+    "name": "Stealth Rock",
+    "type": "entry_hazard",
+    "effect": "damage_on_switch_in",
+    "base_damage_percent": 12.5,
+    "type_effectiveness_applied": true,
+    "set_by_move": "Stealth Rock",
+    "description": "Damages Pokemon that switch in based on type effectiveness vs Rock."
+  },
+  "spikes": {
+    "name": "Spikes",
+    "type": "entry_hazard",
+    "effect": "damage_on_switch_in",
+    "max_layers": 3,
+    "layer_damage": {
+      "1": 12.5,
+      "2": 16.67,
+      "3": 25.0
+    },
+    "immune_types": [
+      "flying"
+    ],
+    "set_by_move": "Spikes",
+    "description": "Damages grounded Pokemon that switch in. Up to 3 layers."
+  }
+}

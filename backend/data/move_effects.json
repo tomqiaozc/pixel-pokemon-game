@@ -1,0 +1,281 @@
+{
+  "Flamethrower": {
+    "secondary": {
+      "type": "status",
+      "status": "burn",
+      "chance": 10
+    }
+  },
+  "Ice Beam": {
+    "secondary": {
+      "type": "status",
+      "status": "freeze",
+      "chance": 10
+    }
+  },
+  "Thunderbolt": {
+    "secondary": {
+      "type": "status",
+      "status": "paralysis",
+      "chance": 10
+    }
+  },
+  "Blizzard": {
+    "secondary": {
+      "type": "status",
+      "status": "freeze",
+      "chance": 10
+    }
+  },
+  "Thunder": {
+    "secondary": {
+      "type": "status",
+      "status": "paralysis",
+      "chance": 30
+    }
+  },
+  "Fire Blast": {
+    "secondary": {
+      "type": "status",
+      "status": "burn",
+      "chance": 30
+    }
+  },
+  "Body Slam": {
+    "secondary": {
+      "type": "status",
+      "status": "paralysis",
+      "chance": 30
+    }
+  },
+  "Headbutt": {
+    "secondary": {
+      "type": "flinch",
+      "chance": 30
+    }
+  },
+  "Bite": {
+    "secondary": {
+      "type": "flinch",
+      "chance": 30
+    }
+  },
+  "Stomp": {
+    "secondary": {
+      "type": "flinch",
+      "chance": 30
+    }
+  },
+  "Hyper Beam": {
+    "secondary": {
+      "type": "recharge",
+      "turns": 1
+    }
+  },
+  "Take Down": {
+    "secondary": {
+      "type": "recoil",
+      "percent": 25
+    }
+  },
+  "Double Edge": {
+    "secondary": {
+      "type": "recoil",
+      "percent": 33
+    }
+  },
+  "Submission": {
+    "secondary": {
+      "type": "recoil",
+      "percent": 25
+    }
+  },
+  "Acid": {
+    "secondary": {
+      "type": "stat_change",
+      "stat": "defense",
+      "stages": -1,
+      "chance": 10,
+      "target": "opponent"
+    }
+  },
+  "Psychic": {
+    "secondary": {
+      "type": "stat_change",
+      "stat": "sp_defense",
+      "stages": -1,
+      "chance": 10,
+      "target": "opponent"
+    }
+  },
+  "Bubble Beam": {
+    "secondary": {
+      "type": "stat_change",
+      "stat": "speed",
+      "stages": -1,
+      "chance": 10,
+      "target": "opponent"
+    }
+  },
+  "Lick": {
+    "secondary": {
+      "type": "status",
+      "status": "paralysis",
+      "chance": 30
+    }
+  },
+  "Poison Sting": {
+    "secondary": {
+      "type": "status",
+      "status": "poison",
+      "chance": 30
+    }
+  },
+  "Sludge": {
+    "secondary": {
+      "type": "status",
+      "status": "poison",
+      "chance": 30
+    }
+  },
+  "Confusion": {
+    "secondary": {
+      "type": "status",
+      "status": "confusion",
+      "chance": 10
+    }
+  },
+  "Psybeam": {
+    "secondary": {
+      "type": "status",
+      "status": "confusion",
+      "chance": 10
+    }
+  },
+  "Smog": {
+    "secondary": {
+      "type": "status",
+      "status": "poison",
+      "chance": 40
+    }
+  },
+  "Bone Club": {
+    "secondary": {
+      "type": "flinch",
+      "chance": 10
+    }
+  },
+  "Rock Slide": {
+    "secondary": {
+      "type": "flinch",
+      "chance": 30
+    }
+  },
+  "Waterfall": {
+    "secondary": {
+      "type": "flinch",
+      "chance": 20
+    }
+  },
+  "Tri Attack": {
+    "secondary": {
+      "type": "random_status",
+      "statuses": [
+        "burn",
+        "freeze",
+        "paralysis"
+      ],
+      "chance": 20
+    }
+  },
+  "Absorb": {
+    "secondary": {
+      "type": "drain",
+      "percent": 50
+    }
+  },
+  "Mega Drain": {
+    "secondary": {
+      "type": "drain",
+      "percent": 50
+    }
+  },
+  "Leech Life": {
+    "secondary": {
+      "type": "drain",
+      "percent": 50
+    }
+  },
+  "Dream Eater": {
+    "secondary": {
+      "type": "drain",
+      "percent": 50
+    }
+  },
+  "Self Destruct": {
+    "secondary": {
+      "type": "self_faint"
+    }
+  },
+  "Explosion": {
+    "secondary": {
+      "type": "self_faint"
+    }
+  },
+  "Swords Dance": {
+    "secondary": {
+      "type": "stat_change",
+      "stat": "attack",
+      "stages": 2,
+      "target": "self"
+    }
+  },
+  "Agility": {
+    "secondary": {
+      "type": "stat_change",
+      "stat": "speed",
+      "stages": 2,
+      "target": "self"
+    }
+  },
+  "Growth": {
+    "secondary": {
+      "type": "stat_change",
+      "stat": "sp_attack",
+      "stages": 1,
+      "target": "self"
+    }
+  },
+  "Amnesia": {
+    "secondary": {
+      "type": "stat_change",
+      "stat": "sp_defense",
+      "stages": 2,
+      "target": "self"
+    }
+  },
+  "Meditate": {
+    "secondary": {
+      "type": "stat_change",
+      "stat": "attack",
+      "stages": 1,
+      "target": "self"
+    }
+  },
+  "Harden": {
+    "secondary": {
+      "type": "stat_change",
+      "stat": "defense",
+      "stages": 1,
+      "target": "self"
+    }
+  },
+  "Withdraw": {
+    "secondary": {
+      "type": "stat_change",
+      "stat": "defense",
+      "stages": 1,
+      "target": "self"
+    }
+  }
+}

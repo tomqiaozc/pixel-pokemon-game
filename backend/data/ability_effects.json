@@ -1,0 +1,177 @@
+{
+  "overgrow": {
+    "trigger": "hp_below_third",
+    "effect": "boost_type_power",
+    "type": "grass",
+    "multiplier": 1.5
+  },
+  "blaze": {
+    "trigger": "hp_below_third",
+    "effect": "boost_type_power",
+    "type": "fire",
+    "multiplier": 1.5
+  },
+  "torrent": {
+    "trigger": "hp_below_third",
+    "effect": "boost_type_power",
+    "type": "water",
+    "multiplier": 1.5
+  },
+  "static": {
+    "trigger": "on_contact_received",
+    "effect": "inflict_status",
+    "status": "paralysis",
+    "chance": 30
+  },
+  "poison_point": {
+    "trigger": "on_contact_received",
+    "effect": "inflict_status",
+    "status": "poison",
+    "chance": 30
+  },
+  "flame_body": {
+    "trigger": "on_contact_received",
+    "effect": "inflict_status",
+    "status": "burn",
+    "chance": 30
+  },
+  "water_absorb": {
+    "trigger": "hit_by_type",
+    "type": "water",
+    "effect": "heal_hp_percent",
+    "amount": 25,
+    "negate_damage": true
+  },
+  "flash_fire": {
+    "trigger": "hit_by_type",
+    "type": "fire",
+    "effect": "boost_type_power",
+    "boost_type": "fire",
+    "multiplier": 1.5,
+    "negate_damage": true
+  },
+  "volt_absorb": {
+    "trigger": "hit_by_type",
+    "type": "electric",
+    "effect": "heal_hp_percent",
+    "amount": 25,
+    "negate_damage": true
+  },
+  "levitate": {
+    "trigger": "hit_by_type",
+    "type": "ground",
+    "effect": "immune",
+    "negate_damage": true
+  },
+  "intimidate": {
+    "trigger": "on_switch_in",
+    "effect": "lower_opponent_stat",
+    "stat": "attack",
+    "stages": -1
+  },
+  "synchronize": {
+    "trigger": "on_status_received",
+    "effect": "inflict_same_status",
+    "statuses": [
+      "burn",
+      "poison",
+      "paralysis"
+    ]
+  },
+  "guts": {
+    "trigger": "has_status",
+    "effect": "boost_stat",
+    "stat": "attack",
+    "multiplier": 1.5,
+    "ignore_burn_penalty": true
+  },
+  "thick_fat": {
+    "trigger": "passive",
+    "effect": "reduce_type_damage",
+    "types": [
+      "fire",
+      "ice"
+    ],
+    "multiplier": 0.5
+  },
+  "natural_cure": {
+    "trigger": "on_switch_out",
+    "effect": "cure_status"
+  },
+  "sturdy": {
+    "trigger": "hit_by_ohko",
+    "effect": "survive_with_1hp"
+  },
+  "keen_eye": {
+    "trigger": "passive",
+    "effect": "prevent_accuracy_loss"
+  },
+  "inner_focus": {
+    "trigger": "passive",
+    "effect": "prevent_flinch"
+  },
+  "insomnia": {
+    "trigger": "passive",
+    "effect": "prevent_status",
+    "status": "sleep"
+  },
+  "own_tempo": {
+    "trigger": "passive",
+    "effect": "prevent_status",
+    "status": "confusion"
+  },
+  "limber": {
+    "trigger": "passive",
+    "effect": "prevent_status",
+    "status": "paralysis"
+  },
+  "immunity": {
+    "trigger": "passive",
+    "effect": "prevent_status",
+    "status": "poison"
+  },
+  "oblivious": {
+    "trigger": "passive",
+    "effect": "prevent_status",
+    "status": "infatuation"
+  },
+  "rock_head": {
+    "trigger": "passive",
+    "effect": "prevent_recoil"
+  },
+  "shell_armor": {
+    "trigger": "passive",
+    "effect": "prevent_critical_hit"
+  },
+  "pressure": {
+    "trigger": "on_switch_in",
+    "effect": "double_pp_usage_opponent"
+  },
+  "shed_skin": {
+    "trigger": "end_of_turn",
+    "effect": "cure_status_chance",
+    "chance": 30
+  },
+  "chlorophyll": {
+    "trigger": "in_weather",
+    "weather": "sun",
+    "effect": "double_speed"
+  },
+  "swift_swim": {
+    "trigger": "in_weather",
+    "weather": "rain",
+    "effect": "double_speed"
+  },
+  "sand_veil": {
+    "trigger": "in_weather",
+    "weather": "sandstorm",
+    "effect": "boost_evasion",
+    "multiplier": 1.25
+  },
+  "rain_dish": {
+    "trigger": "in_weather",
+    "weather": "rain",
+    "effect": "heal_hp_percent_per_turn",
+    "amount": 6.25
+  }
+}
