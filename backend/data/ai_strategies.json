@@ -1,0 +1,154 @@
+{
+  "random": {
+    "name": "Random",
+    "description": "Selects moves at random with no strategy.",
+    "difficulty": "easy",
+    "used_by": ["wild_pokemon"],
+    "behavior": {
+      "move_selection": "random",
+      "switch_threshold": null,
+      "item_usage": false
+    }
+  },
+  "basic": {
+    "name": "Basic",
+    "description": "Prefers super-effective moves but otherwise random.",
+    "difficulty": "easy",
+    "used_by": ["youngster", "lass", "bug_catcher"],
+    "behavior": {
+      "move_selection": "prefer_super_effective",
+      "switch_threshold": null,
+      "item_usage": false,
+      "super_effective_weight": 2.0
+    }
+  },
+  "defensive": {
+    "name": "Defensive",
+    "description": "Prioritizes healing and status moves when HP is low.",
+    "difficulty": "medium",
+    "used_by": ["hiker", "beauty", "gentleman"],
+    "behavior": {
+      "move_selection": "defensive_priority",
+      "heal_threshold_percent": 30,
+      "prefer_status_moves": true,
+      "switch_threshold": null,
+      "item_usage": true,
+      "item_heal_threshold_percent": 25
+    }
+  },
+  "aggressive": {
+    "name": "Aggressive",
+    "description": "Always picks highest damage move, ignores survivability.",
+    "difficulty": "medium",
+    "used_by": ["blackbelt", "biker", "tamer"],
+    "behavior": {
+      "move_selection": "max_damage",
+      "switch_threshold": null,
+      "item_usage": false,
+      "ignore_accuracy": false
+    }
+  },
+  "smart": {
+    "name": "Smart",
+    "description": "Considers type matchups, stat stages, and switches strategically.",
+    "difficulty": "hard",
+    "used_by": ["ace_trainer", "psychic_trainer", "scientist"],
+    "behavior": {
+      "move_selection": "weighted_evaluation",
+      "switch_threshold_percent": 20,
+      "switch_on_disadvantage": true,
+      "item_usage": true,
+      "item_heal_threshold_percent": 30,
+      "consider_stat_moves": true,
+      "stat_move_turn_limit": 3,
+      "weights": {
+        "damage": 1.0,
+        "type_advantage": 1.5,
+        "stab_bonus": 1.2,
+        "accuracy": 0.8,
+        "status_value": 0.6
+      }
+    }
+  },
+  "gym_leader": {
+    "name": "Gym Leader",
+    "description": "Expert AI that leads with setup moves and predicts switches.",
+    "difficulty": "hard",
+    "used_by": ["gym_leader"],
+    "behavior": {
+      "move_selection": "expert_evaluation",
+      "switch_threshold_percent": 25,
+      "switch_on_disadvantage": true,
+      "lead_with_setup": true,
+      "setup_moves_first_turn": true,
+      "item_usage": true,
+      "item_heal_threshold_percent": 30,
+      "predict_switches": true,
+      "consider_stat_moves": true,
+      "stat_move_turn_limit": 2,
+      "weights": {
+        "damage": 1.2,
+        "type_advantage": 2.0,
+        "stab_bonus": 1.5,
+        "accuracy": 1.0,
+        "status_value": 0.8,
+        "setup_value": 1.0
+      }
+    }
+  },
+  "elite_four": {
+    "name": "Elite Four",
+    "description": "Top-tier AI with switching, item use, and move prediction.",
+    "difficulty": "very_hard",
+    "used_by": ["elite_four"],
+    "behavior": {
+      "move_selection": "expert_evaluation",
+      "switch_threshold_percent": 30,
+      "switch_on_disadvantage": true,
+      "lead_with_setup": true,
+      "setup_moves_first_turn": true,
+      "item_usage": true,
+      "item_heal_threshold_percent": 35,
+      "predict_switches": true,
+      "consider_stat_moves": true,
+      "stat_move_turn_limit": 2,
+      "use_held_items_strategically": true,
+      "weights": {
+        "damage": 1.5,
+        "type_advantage": 2.5,
+        "stab_bonus": 1.5,
+        "accuracy": 1.0,
+        "status_value": 1.0,
+        "setup_value": 1.2
+      }
+    }
+  },
+  "champion": {
+    "name": "Champion",
+    "description": "Maximum difficulty AI with perfect coverage and prediction.",
+    "difficulty": "very_hard",
+    "used_by": ["champion"],
+    "behavior": {
+      "move_selection": "perfect_evaluation",
+      "switch_threshold_percent": 35,
+      "switch_on_disadvantage": true,
+      "lead_with_setup": true,
+      "setup_moves_first_turn": true,
+      "item_usage": true,
+      "item_heal_threshold_percent": 40,
+      "predict_switches": true,
+      "predict_player_moves": true,
+      "consider_stat_moves": true,
+      "stat_move_turn_limit": 2,
+      "use_held_items_strategically": true,
+      "weights": {
+        "damage": 2.0,
+        "type_advantage": 3.0,
+        "stab_bonus": 2.0,
+        "accuracy": 1.2,
+        "status_value": 1.2,
+        "setup_value": 1.5
+      }
+    }
+  }
+}

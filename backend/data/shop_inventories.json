@@ -1,0 +1,165 @@
+[
+  {
+    "id": "viridian_mart",
+    "name": "Viridian City Poke Mart",
+    "location": "viridian_city",
+    "items": [
+      {"item": "Poke Ball", "price": 200},
+      {"item": "Potion", "price": 300},
+      {"item": "Antidote", "price": 100},
+      {"item": "Parlyz Heal", "price": 200}
+    ]
+  },
+  {
+    "id": "pewter_mart",
+    "name": "Pewter City Poke Mart",
+    "location": "pewter_city",
+    "items": [
+      {"item": "Poke Ball", "price": 200},
+      {"item": "Potion", "price": 300},
+      {"item": "Escape Rope", "price": 550},
+      {"item": "Antidote", "price": 100},
+      {"item": "Burn Heal", "price": 250},
+      {"item": "Repel", "price": 350}
+    ]
+  },
+  {
+    "id": "cerulean_mart",
+    "name": "Cerulean City Poke Mart",
+    "location": "cerulean_city",
+    "items": [
+      {"item": "Poke Ball", "price": 200},
+      {"item": "Great Ball", "price": 600},
+      {"item": "Potion", "price": 300},
+      {"item": "Super Potion", "price": 700},
+      {"item": "Escape Rope", "price": 550},
+      {"item": "Repel", "price": 350},
+      {"item": "Awakening", "price": 250}
+    ]
+  },
+  {
+    "id": "vermilion_mart",
+    "name": "Vermilion City Poke Mart",
+    "location": "vermilion_city",
+    "items": [
+      {"item": "Great Ball", "price": 600},
+      {"item": "Super Potion", "price": 700},
+      {"item": "Escape Rope", "price": 550},
+      {"item": "Repel", "price": 350},
+      {"item": "Super Repel", "price": 500},
+      {"item": "Parlyz Heal", "price": 200},
+      {"item": "Ice Heal", "price": 250}
+    ]
+  },
+  {
+    "id": "lavender_mart",
+    "name": "Lavender Town Poke Mart",
+    "location": "lavender_town",
+    "items": [
+      {"item": "Great Ball", "price": 600},
+      {"item": "Super Potion", "price": 700},
+      {"item": "Revive", "price": 1500},
+      {"item": "Escape Rope", "price": 550},
+      {"item": "Super Repel", "price": 500},
+      {"item": "Antidote", "price": 100},
+      {"item": "Parlyz Heal", "price": 200},
+      {"item": "Burn Heal", "price": 250}
+    ]
+  },
+  {
+    "id": "celadon_mart_2f",
+    "name": "Celadon Dept. Store 2F",
+    "location": "celadon_city",
+    "items": [
+      {"item": "Great Ball", "price": 600},
+      {"item": "Super Potion", "price": 700},
+      {"item": "Revive", "price": 1500},
+      {"item": "Super Repel", "price": 500},
+      {"item": "Antidote", "price": 100},
+      {"item": "Burn Heal", "price": 250},
+      {"item": "Ice Heal", "price": 250},
+      {"item": "Awakening", "price": 250},
+      {"item": "Parlyz Heal", "price": 200}
+    ]
+  },
+  {
+    "id": "celadon_mart_4f",
+    "name": "Celadon Dept. Store 4F",
+    "location": "celadon_city",
+    "items": [
+      {"item": "Poke Doll", "price": 1000},
+      {"item": "Fire Stone", "price": 2100},
+      {"item": "Thunder Stone", "price": 2100},
+      {"item": "Water Stone", "price": 2100},
+      {"item": "Leaf Stone", "price": 2100}
+    ]
+  },
+  {
+    "id": "celadon_mart_5f",
+    "name": "Celadon Dept. Store 5F",
+    "location": "celadon_city",
+    "items": [
+      {"item": "X Attack", "price": 500},
+      {"item": "X Defend", "price": 550},
+      {"item": "X Speed", "price": 350},
+      {"item": "X Special", "price": 350},
+      {"item": "X Accuracy", "price": 950},
+      {"item": "Guard Spec.", "price": 700},
+      {"item": "Dire Hit", "price": 650}
+    ]
+  },
+  {
+    "id": "saffron_mart",
+    "name": "Saffron City Poke Mart",
+    "location": "saffron_city",
+    "items": [
+      {"item": "Great Ball", "price": 600},
+      {"item": "Ultra Ball", "price": 1200},
+      {"item": "Hyper Potion", "price": 1200},
+      {"item": "Max Repel", "price": 700},
+      {"item": "Escape Rope", "price": 550},
+      {"item": "Revive", "price": 1500},
+      {"item": "Full Heal", "price": 600}
+    ]
+  },
+  {
+    "id": "fuchsia_mart",
+    "name": "Fuchsia City Poke Mart",
+    "location": "fuchsia_city",
+    "items": [
+      {"item": "Ultra Ball", "price": 1200},
+      {"item": "Great Ball", "price": 600},
+      {"item": "Hyper Potion", "price": 1200},
+      {"item": "Revive", "price": 1500},
+      {"item": "Full Heal", "price": 600},
+      {"item": "Max Repel", "price": 700}
+    ]
+  },
+  {
+    "id": "cinnabar_mart",
+    "name": "Cinnabar Island Poke Mart",
+    "location": "cinnabar_island",
+    "items": [
+      {"item": "Ultra Ball", "price": 1200},
+      {"item": "Hyper Potion", "price": 1200},
+      {"item": "Max Potion", "price": 2500},
+      {"item": "Full Heal", "price": 600},
+      {"item": "Revive", "price": 1500},
+      {"item": "Max Repel", "price": 700},
+      {"item": "Escape Rope", "price": 550}
+    ]
+  },
+  {
+    "id": "indigo_mart",
+    "name": "Indigo Plateau Poke Mart",
+    "location": "indigo_plateau",
+    "items": [
+      {"item": "Ultra Ball", "price": 1200},
+      {"item": "Max Potion", "price": 2500},
+      {"item": "Full Restore", "price": 3000},
+      {"item": "Full Heal", "price": 600},
+      {"item": "Revive", "price": 1500},
+      {"item": "Max Repel", "price": 700}
+    ]
+  }
+]
