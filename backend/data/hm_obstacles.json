@@ -1,0 +1,93 @@
+[
+  {
+    "id": "route_1_tree_1",
+    "map_id": "route_1",
+    "obstacle_type": "cuttable_tree",
+    "x": 8,
+    "y": 12,
+    "width": 1,
+    "height": 1,
+    "hm_required": "Cut",
+    "badge_required": "cascade",
+    "blocks_path_to": "route_1_secret_patch",
+    "removed": false
+  },
+  {
+    "id": "route_2_tree_1",
+    "map_id": "route_2",
+    "obstacle_type": "cuttable_tree",
+    "x": 12,
+    "y": 8,
+    "width": 1,
+    "height": 1,
+    "hm_required": "Cut",
+    "badge_required": "cascade",
+    "blocks_path_to": "route_2_hidden_path",
+    "removed": false
+  },
+  {
+    "id": "viridian_tree_1",
+    "map_id": "viridian_city",
+    "obstacle_type": "cuttable_tree",
+    "x": 22,
+    "y": 12,
+    "width": 1,
+    "height": 1,
+    "hm_required": "Cut",
+    "badge_required": "cascade",
+    "blocks_path_to": "viridian_shortcut",
+    "removed": false
+  },
+  {
+    "id": "route_2_boulder_1",
+    "map_id": "route_2",
+    "obstacle_type": "pushable_boulder",
+    "x": 14,
+    "y": 10,
+    "width": 1,
+    "height": 1,
+    "hm_required": "Strength",
+    "badge_required": "rainbow",
+    "push_direction": null,
+    "push_limit": 5,
+    "removed": false
+  },
+  {
+    "id": "pewter_boulder_1",
+    "map_id": "pewter_city",
+    "obstacle_type": "pushable_boulder",
+    "x": 6,
+    "y": 22,
+    "width": 1,
+    "height": 1,
+    "hm_required": "Strength",
+    "badge_required": "rainbow",
+    "push_direction": null,
+    "push_limit": 3,
+    "removed": false
+  },
+  {
+    "id": "pallet_town_water_1",
+    "map_id": "pallet_town",
+    "obstacle_type": "surf_zone",
+    "x": 10,
+    "y": 14,
+    "width": 4,
+    "height": 4,
+    "hm_required": "Surf",
+    "badge_required": "soul",
+    "removed": false
+  },
+  {
+    "id": "viridian_water_1",
+    "map_id": "viridian_city",
+    "obstacle_type": "surf_zone",
+    "x": 2,
+    "y": 20,
+    "width": 3,
+    "height": 3,
+    "hm_required": "Surf",
+    "badge_required": "soul",
+    "removed": false
+  }
+]

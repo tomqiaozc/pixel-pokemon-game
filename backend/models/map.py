@@ -46,11 +46,20 @@ class MapBuilding(BaseModel):
     interior_map_id: Optional[str] = None
 
 
+class HiddenEntrance(BaseModel):
+    x: int
+    y: int
+    target_map_id: str
+    entry_x: int
+    entry_y: int
+    visible_after_discovery: bool = True
+
+
 class GameMap(BaseModel):
     id: str
     name: str
     display_name: str
-    map_type: str  # town, route, interior, gym
+    map_type: str  # town, route, interior, gym, cave
     width: int
     height: int
     connections: list[MapConnection] = []
@@ -58,7 +67,10 @@ class GameMap(BaseModel):
     trainers: list[MapTrainer] = []
     encounter_zones: list[EncounterZone] = []
     buildings: list[MapBuilding] = []
+    hidden_entrances: list[HiddenEntrance] = []
     default_weather: Optional[str] = None
+    is_dark: bool = False
+    cave_level: int = 0
 
 
 class MapTransitionRequest(BaseModel):

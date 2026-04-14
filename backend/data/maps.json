@@ -245,11 +245,65 @@
     "width": 20,
     "height": 30,
     "connections": [
-      {"direction": "west", "target_map_id": "pewter_city", "entry_x": 24, "entry_y": 12}
+      {"direction": "west", "target_map_id": "pewter_city", "entry_x": 24, "entry_y": 12},
+      {"direction": "east", "target_map_id": "mt_moon_entrance", "entry_x": 0, "entry_y": 15}
     ],
     "npcs": [],
     "trainers": [],
     "encounter_zones": [],
+    "buildings": []
+  },
+  {
+    "id": "mt_moon_entrance",
+    "name": "mt_moon_entrance",
+    "display_name": "Mt. Moon",
+    "map_type": "cave",
+    "width": 25,
+    "height": 30,
+    "is_dark": false,
+    "cave_level": 0,
+    "connections": [
+      {"direction": "south", "target_map_id": "route_3", "entry_x": 18, "entry_y": 0}
+    ],
+    "npcs": [],
+    "trainers": [],
+    "encounter_zones": [
+      {"x": 3, "y": 3, "width": 20, "height": 25, "encounter_table_id": "mt_moon_1f"}
+    ],
+    "buildings": []
+  },
+  {
+    "id": "mt_moon_b1",
+    "name": "mt_moon_b1",
+    "display_name": "Mt. Moon B1F",
+    "map_type": "cave",
+    "width": 30,
+    "height": 30,
+    "is_dark": true,
+    "cave_level": 1,
+    "connections": [],
+    "npcs": [],
+    "trainers": [],
+    "encounter_zones": [
+      {"x": 2, "y": 2, "width": 26, "height": 26, "encounter_table_id": "mt_moon_b1"}
+    ],
+    "buildings": []
+  },
+  {
+    "id": "digletts_cave",
+    "name": "digletts_cave",
+    "display_name": "Diglett's Cave",
+    "map_type": "cave",
+    "width": 15,
+    "height": 40,
+    "is_dark": true,
+    "cave_level": 1,
+    "connections": [],
+    "npcs": [],
+    "trainers": [],
+    "encounter_zones": [
+      {"x": 2, "y": 2, "width": 11, "height": 36, "encounter_table_id": "digletts_cave"}
+    ],
     "buildings": []
   }
 ]

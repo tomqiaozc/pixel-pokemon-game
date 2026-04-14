@@ -117,5 +117,38 @@
       {"species_id": 118, "min_level": 15, "max_level": 25, "weight": 25},
       {"species_id": 60, "min_level": 15, "max_level": 25, "weight": 25}
     ]
+  },
+  "mt_moon_1f": {
+    "name": "Mt. Moon 1F",
+    "encounter_type": "cave",
+    "base_encounter_rate": 0.15,
+    "encounters": [
+      {"species_id": 41, "min_level": 7, "max_level": 10, "weight": 40},
+      {"species_id": 46, "min_level": 8, "max_level": 10, "weight": 25},
+      {"species_id": 35, "min_level": 8, "max_level": 12, "weight": 15},
+      {"species_id": 74, "min_level": 7, "max_level": 10, "weight": 15},
+      {"species_id": 27, "min_level": 8, "max_level": 10, "weight": 5}
+    ]
+  },
+  "mt_moon_b1": {
+    "name": "Mt. Moon B1F",
+    "encounter_type": "cave",
+    "base_encounter_rate": 0.20,
+    "encounters": [
+      {"species_id": 41, "min_level": 9, "max_level": 12, "weight": 35},
+      {"species_id": 46, "min_level": 9, "max_level": 12, "weight": 25},
+      {"species_id": 35, "min_level": 9, "max_level": 14, "weight": 15},
+      {"species_id": 74, "min_level": 9, "max_level": 12, "weight": 15},
+      {"species_id": 95, "min_level": 10, "max_level": 12, "weight": 10}
+    ]
+  },
+  "digletts_cave": {
+    "name": "Diglett's Cave",
+    "encounter_type": "cave",
+    "base_encounter_rate": 0.20,
+    "encounters": [
+      {"species_id": 50, "min_level": 15, "max_level": 22, "weight": 60},
+      {"species_id": 51, "min_level": 25, "max_level": 31, "weight": 40}
+    ]
   }
 }
