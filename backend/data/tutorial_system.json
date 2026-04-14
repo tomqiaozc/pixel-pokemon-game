@@ -1,0 +1,126 @@
+[
+  {
+    "id": "tutorial_movement",
+    "name": "Basic Movement",
+    "trigger": "game_start",
+    "trigger_location": "pallet_town",
+    "steps": [
+      {"text": "Use the arrow keys or WASD to move your character.", "highlight": "controls"},
+      {"text": "Try walking around Pallet Town!", "highlight": "none"}
+    ],
+    "skippable": true,
+    "completed_flag": "tutorial_movement_done"
+  },
+  {
+    "id": "tutorial_talking",
+    "name": "Talking to NPCs",
+    "trigger": "first_npc_nearby",
+    "trigger_location": "pallet_town",
+    "steps": [
+      {"text": "Press A or Enter to talk to people and interact with objects.", "highlight": "action_button"},
+      {"text": "Try talking to your Mom or Professor Oak!", "highlight": "none"}
+    ],
+    "skippable": true,
+    "completed_flag": "tutorial_talking_done"
+  },
+  {
+    "id": "tutorial_first_pokemon",
+    "name": "Choosing Your Partner",
+    "trigger": "enter_oaks_lab",
+    "trigger_location": "oaks_lab",
+    "steps": [
+      {"text": "Professor Oak has 3 Pokemon for you to choose from.", "highlight": "pokeball_table"},
+      {"text": "Bulbasaur is a Grass type, Charmander is Fire, and Squirtle is Water.", "highlight": "pokeball_table"},
+      {"text": "Choose wisely - this will be your partner throughout your journey!", "highlight": "none"}
+    ],
+    "skippable": false,
+    "completed_flag": "tutorial_starter_done"
+  },
+  {
+    "id": "tutorial_battle",
+    "name": "Your First Battle",
+    "trigger": "first_wild_encounter",
+    "trigger_location": "any",
+    "steps": [
+      {"text": "A wild Pokemon appeared! This is a battle.", "highlight": "battle_ui"},
+      {"text": "Choose FIGHT to attack, BAG to use items, POKEMON to switch, or RUN to flee.", "highlight": "battle_menu"},
+      {"text": "Reduce the wild Pokemon's HP to catch it or defeat it!", "highlight": "hp_bar"}
+    ],
+    "skippable": true,
+    "completed_flag": "tutorial_battle_done"
+  },
+  {
+    "id": "tutorial_catching",
+    "name": "Catching Pokemon",
+    "trigger": "receive_pokeballs",
+    "trigger_location": "any",
+    "steps": [
+      {"text": "You received Poke Balls! Now you can catch wild Pokemon.", "highlight": "bag"},
+      {"text": "Weaken a Pokemon first, then throw a Poke Ball from your BAG.", "highlight": "battle_menu"},
+      {"text": "Lower HP and status conditions increase your catch chance!", "highlight": "hp_bar"}
+    ],
+    "skippable": true,
+    "completed_flag": "tutorial_catching_done"
+  },
+  {
+    "id": "tutorial_pokecenter",
+    "name": "Pokemon Center",
+    "trigger": "enter_pokecenter",
+    "trigger_location": "any",
+    "steps": [
+      {"text": "Welcome to the Pokemon Center! Nurse Joy will heal your Pokemon for free.", "highlight": "nurse_joy"},
+      {"text": "You can also access the PC to manage your Pokemon storage.", "highlight": "pc"}
+    ],
+    "skippable": true,
+    "completed_flag": "tutorial_pokecenter_done"
+  },
+  {
+    "id": "tutorial_pokemart",
+    "name": "Poke Mart",
+    "trigger": "enter_pokemart",
+    "trigger_location": "any",
+    "steps": [
+      {"text": "The Poke Mart sells useful items for your journey.", "highlight": "shopkeeper"},
+      {"text": "Stock up on Potions and Poke Balls before heading out!", "highlight": "shop_menu"}
+    ],
+    "skippable": true,
+    "completed_flag": "tutorial_pokemart_done"
+  },
+  {
+    "id": "tutorial_type_advantage",
+    "name": "Type Matchups",
+    "trigger": "first_gym_approach",
+    "trigger_location": "pewter_city",
+    "steps": [
+      {"text": "Gym Leaders specialize in one type. Use type advantages!", "highlight": "none"},
+      {"text": "Water beats Fire, Fire beats Grass, Grass beats Water.", "highlight": "none"},
+      {"text": "Check your Pokedex for type information on your Pokemon.", "highlight": "pokedex"}
+    ],
+    "skippable": true,
+    "completed_flag": "tutorial_types_done"
+  },
+  {
+    "id": "tutorial_menu",
+    "name": "The Menu",
+    "trigger": "first_menu_open",
+    "trigger_location": "any",
+    "steps": [
+      {"text": "Press Start or Escape to open the menu.", "highlight": "menu"},
+      {"text": "Here you can check your Pokemon, Bag, Trainer Card, and more.", "highlight": "menu_items"}
+    ],
+    "skippable": true,
+    "completed_flag": "tutorial_menu_done"
+  },
+  {
+    "id": "tutorial_saving",
+    "name": "Saving Your Game",
+    "trigger": "first_menu_open",
+    "trigger_location": "any",
+    "steps": [
+      {"text": "Don't forget to save your game from the menu!", "highlight": "save_option"},
+      {"text": "The game also auto-saves at certain points.", "highlight": "none"}
+    ],
+    "skippable": true,
+    "completed_flag": "tutorial_saving_done"
+  }
+]

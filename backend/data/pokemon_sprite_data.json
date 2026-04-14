@@ -1,0 +1,3154 @@
+{
+  "description": "Sprite sheet data and animation properties for all Pokemon species.",
+  "sprite_sheets": {
+    "pokemon_sprites_1.png": {
+      "species_range": "1-32",
+      "sheet_width": 512,
+      "sheet_height": 512
+    },
+    "pokemon_sprites_2.png": {
+      "species_range": "33-64",
+      "sheet_width": 512,
+      "sheet_height": 512
+    },
+    "pokemon_sprites_3.png": {
+      "species_range": "65-96",
+      "sheet_width": 512,
+      "sheet_height": 512
+    },
+    "pokemon_sprites_4.png": {
+      "species_range": "97-128",
+      "sheet_width": 512,
+      "sheet_height": 512
+    },
+    "pokemon_sprites_5.png": {
+      "species_range": "129-151",
+      "sheet_width": 512,
+      "sheet_height": 512
+    }
+  },
+  "animation_states": [
+    "idle",
+    "attack",
+    "hurt",
+    "faint"
+  ],
+  "palettes": {
+    "normal": {
+      "source": "palette_normal"
+    },
+    "fire": {
+      "source": "palette_fire"
+    },
+    "water": {
+      "source": "palette_water"
+    },
+    "grass": {
+      "source": "palette_grass"
+    },
+    "electric": {
+      "source": "palette_electric"
+    },
+    "ice": {
+      "source": "palette_ice"
+    },
+    "fighting": {
+      "source": "palette_fighting"
+    },
+    "poison": {
+      "source": "palette_poison"
+    },
+    "ground": {
+      "source": "palette_ground"
+    },
+    "flying": {
+      "source": "palette_flying"
+    },
+    "psychic": {
+      "source": "palette_psychic"
+    },
+    "bug": {
+      "source": "palette_bug"
+    },
+    "rock": {
+      "source": "palette_rock"
+    },
+    "ghost": {
+      "source": "palette_ghost"
+    },
+    "dragon": {
+      "source": "palette_dragon"
+    },
+    "fairy": {
+      "source": "palette_fairy"
+    }
+  },
+  "sprites": {
+    "Bulbasaur": {
+      "species_id": 1,
+      "sprite_sheet": "pokemon_sprites_1.png",
+      "sheet_position": {
+        "row": 0,
+        "col": 0
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_grass",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Ivysaur": {
+      "species_id": 2,
+      "sprite_sheet": "pokemon_sprites_1.png",
+      "sheet_position": {
+        "row": 0,
+        "col": 1
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_grass",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Venusaur": {
+      "species_id": 3,
+      "sprite_sheet": "pokemon_sprites_1.png",
+      "sheet_position": {
+        "row": 0,
+        "col": 2
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_grass",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    },
+    "Charmander": {
+      "species_id": 4,
+      "sprite_sheet": "pokemon_sprites_1.png",
+      "sheet_position": {
+        "row": 0,
+        "col": 3
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_fire",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Charmeleon": {
+      "species_id": 5,
+      "sprite_sheet": "pokemon_sprites_1.png",
+      "sheet_position": {
+        "row": 0,
+        "col": 4
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_fire",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Charizard": {
+      "species_id": 6,
+      "sprite_sheet": "pokemon_sprites_1.png",
+      "sheet_position": {
+        "row": 0,
+        "col": 5
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 4,
+        "attack": 6,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_fire",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    },
+    "Squirtle": {
+      "species_id": 7,
+      "sprite_sheet": "pokemon_sprites_1.png",
+      "sheet_position": {
+        "row": 0,
+        "col": 6
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 3,
+        "attack": 5,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_water",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Wartortle": {
+      "species_id": 8,
+      "sprite_sheet": "pokemon_sprites_1.png",
+      "sheet_position": {
+        "row": 0,
+        "col": 7
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 3,
+        "attack": 5,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_water",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Blastoise": {
+      "species_id": 9,
+      "sprite_sheet": "pokemon_sprites_1.png",
+      "sheet_position": {
+        "row": 0,
+        "col": 8
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 3,
+        "attack": 5,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_water",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    },
+    "Pidgey": {
+      "species_id": 10,
+      "sprite_sheet": "pokemon_sprites_1.png",
+      "sheet_position": {
+        "row": 0,
+        "col": 9
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 4,
+        "attack": 6,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_normal",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Pidgeotto": {
+      "species_id": 11,
+      "sprite_sheet": "pokemon_sprites_1.png",
+      "sheet_position": {
+        "row": 0,
+        "col": 10
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 4,
+        "attack": 6,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_normal",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Pidgeot": {
+      "species_id": 12,
+      "sprite_sheet": "pokemon_sprites_1.png",
+      "sheet_position": {
+        "row": 0,
+        "col": 11
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 4,
+        "attack": 6,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_normal",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    },
+    "Rattata": {
+      "species_id": 13,
+      "sprite_sheet": "pokemon_sprites_1.png",
+      "sheet_position": {
+        "row": 0,
+        "col": 12
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_normal",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Raticate": {
+      "species_id": 14,
+      "sprite_sheet": "pokemon_sprites_1.png",
+      "sheet_position": {
+        "row": 0,
+        "col": 13
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_normal",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Pikachu": {
+      "species_id": 15,
+      "sprite_sheet": "pokemon_sprites_1.png",
+      "sheet_position": {
+        "row": 0,
+        "col": 14
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_electric",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Raichu": {
+      "species_id": 26,
+      "sprite_sheet": "pokemon_sprites_1.png",
+      "sheet_position": {
+        "row": 1,
+        "col": 9
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_electric",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Geodude": {
+      "species_id": 74,
+      "sprite_sheet": "pokemon_sprites_3.png",
+      "sheet_position": {
+        "row": 4,
+        "col": 9
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_rock",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Onix": {
+      "species_id": 95,
+      "sprite_sheet": "pokemon_sprites_3.png",
+      "sheet_position": {
+        "row": 5,
+        "col": 14
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_rock",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    },
+    "Caterpie": {
+      "species_id": 19,
+      "sprite_sheet": "pokemon_sprites_1.png",
+      "sheet_position": {
+        "row": 1,
+        "col": 2
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_bug",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Weedle": {
+      "species_id": 20,
+      "sprite_sheet": "pokemon_sprites_1.png",
+      "sheet_position": {
+        "row": 1,
+        "col": 3
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_bug",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Staryu": {
+      "species_id": 120,
+      "sprite_sheet": "pokemon_sprites_4.png",
+      "sheet_position": {
+        "row": 7,
+        "col": 7
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 3,
+        "attack": 5,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_water",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Starmie": {
+      "species_id": 121,
+      "sprite_sheet": "pokemon_sprites_4.png",
+      "sheet_position": {
+        "row": 7,
+        "col": 8
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 3,
+        "attack": 5,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_water",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    },
+    "Ekans": {
+      "species_id": 23,
+      "sprite_sheet": "pokemon_sprites_1.png",
+      "sheet_position": {
+        "row": 1,
+        "col": 6
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_poison",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Arbok": {
+      "species_id": 24,
+      "sprite_sheet": "pokemon_sprites_1.png",
+      "sheet_position": {
+        "row": 1,
+        "col": 7
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_poison",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Spearow": {
+      "species_id": 25,
+      "sprite_sheet": "pokemon_sprites_1.png",
+      "sheet_position": {
+        "row": 1,
+        "col": 8
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 4,
+        "attack": 6,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_normal",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Sandshrew": {
+      "species_id": 27,
+      "sprite_sheet": "pokemon_sprites_1.png",
+      "sheet_position": {
+        "row": 1,
+        "col": 10
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_ground",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Sandslash": {
+      "species_id": 28,
+      "sprite_sheet": "pokemon_sprites_1.png",
+      "sheet_position": {
+        "row": 1,
+        "col": 11
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_ground",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Nidoran-F": {
+      "species_id": 29,
+      "sprite_sheet": "pokemon_sprites_1.png",
+      "sheet_position": {
+        "row": 1,
+        "col": 12
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_poison",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Nidorina": {
+      "species_id": 30,
+      "sprite_sheet": "pokemon_sprites_1.png",
+      "sheet_position": {
+        "row": 1,
+        "col": 13
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_poison",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Nidoqueen": {
+      "species_id": 31,
+      "sprite_sheet": "pokemon_sprites_1.png",
+      "sheet_position": {
+        "row": 1,
+        "col": 14
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_poison",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    },
+    "Nidoran-M": {
+      "species_id": 32,
+      "sprite_sheet": "pokemon_sprites_1.png",
+      "sheet_position": {
+        "row": 1,
+        "col": 15
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_poison",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Nidorino": {
+      "species_id": 33,
+      "sprite_sheet": "pokemon_sprites_2.png",
+      "sheet_position": {
+        "row": 2,
+        "col": 0
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_poison",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Nidoking": {
+      "species_id": 34,
+      "sprite_sheet": "pokemon_sprites_2.png",
+      "sheet_position": {
+        "row": 2,
+        "col": 1
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_poison",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    },
+    "Clefairy": {
+      "species_id": 35,
+      "sprite_sheet": "pokemon_sprites_2.png",
+      "sheet_position": {
+        "row": 2,
+        "col": 2
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_fairy",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Clefable": {
+      "species_id": 36,
+      "sprite_sheet": "pokemon_sprites_2.png",
+      "sheet_position": {
+        "row": 2,
+        "col": 3
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_fairy",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Vulpix": {
+      "species_id": 37,
+      "sprite_sheet": "pokemon_sprites_2.png",
+      "sheet_position": {
+        "row": 2,
+        "col": 4
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_fire",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Ninetales": {
+      "species_id": 38,
+      "sprite_sheet": "pokemon_sprites_2.png",
+      "sheet_position": {
+        "row": 2,
+        "col": 5
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_fire",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Jigglypuff": {
+      "species_id": 39,
+      "sprite_sheet": "pokemon_sprites_2.png",
+      "sheet_position": {
+        "row": 2,
+        "col": 6
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_normal",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Wigglytuff": {
+      "species_id": 40,
+      "sprite_sheet": "pokemon_sprites_2.png",
+      "sheet_position": {
+        "row": 2,
+        "col": 7
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_normal",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Zubat": {
+      "species_id": 41,
+      "sprite_sheet": "pokemon_sprites_2.png",
+      "sheet_position": {
+        "row": 2,
+        "col": 8
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 4,
+        "attack": 6,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_poison",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Golbat": {
+      "species_id": 42,
+      "sprite_sheet": "pokemon_sprites_2.png",
+      "sheet_position": {
+        "row": 2,
+        "col": 9
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 4,
+        "attack": 6,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_poison",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Oddish": {
+      "species_id": 43,
+      "sprite_sheet": "pokemon_sprites_2.png",
+      "sheet_position": {
+        "row": 2,
+        "col": 10
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_grass",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Gloom": {
+      "species_id": 44,
+      "sprite_sheet": "pokemon_sprites_2.png",
+      "sheet_position": {
+        "row": 2,
+        "col": 11
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_grass",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Vileplume": {
+      "species_id": 45,
+      "sprite_sheet": "pokemon_sprites_2.png",
+      "sheet_position": {
+        "row": 2,
+        "col": 12
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_grass",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Paras": {
+      "species_id": 46,
+      "sprite_sheet": "pokemon_sprites_2.png",
+      "sheet_position": {
+        "row": 2,
+        "col": 13
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_bug",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Parasect": {
+      "species_id": 47,
+      "sprite_sheet": "pokemon_sprites_2.png",
+      "sheet_position": {
+        "row": 2,
+        "col": 14
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_bug",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Venonat": {
+      "species_id": 48,
+      "sprite_sheet": "pokemon_sprites_2.png",
+      "sheet_position": {
+        "row": 2,
+        "col": 15
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_bug",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Venomoth": {
+      "species_id": 49,
+      "sprite_sheet": "pokemon_sprites_2.png",
+      "sheet_position": {
+        "row": 3,
+        "col": 0
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_bug",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Diglett": {
+      "species_id": 50,
+      "sprite_sheet": "pokemon_sprites_2.png",
+      "sheet_position": {
+        "row": 3,
+        "col": 1
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_ground",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Dugtrio": {
+      "species_id": 51,
+      "sprite_sheet": "pokemon_sprites_2.png",
+      "sheet_position": {
+        "row": 3,
+        "col": 2
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_ground",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Meowth": {
+      "species_id": 52,
+      "sprite_sheet": "pokemon_sprites_2.png",
+      "sheet_position": {
+        "row": 3,
+        "col": 3
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_normal",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Persian": {
+      "species_id": 53,
+      "sprite_sheet": "pokemon_sprites_2.png",
+      "sheet_position": {
+        "row": 3,
+        "col": 4
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_normal",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Psyduck": {
+      "species_id": 54,
+      "sprite_sheet": "pokemon_sprites_2.png",
+      "sheet_position": {
+        "row": 3,
+        "col": 5
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 3,
+        "attack": 5,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_water",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Golduck": {
+      "species_id": 55,
+      "sprite_sheet": "pokemon_sprites_2.png",
+      "sheet_position": {
+        "row": 3,
+        "col": 6
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 3,
+        "attack": 5,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_water",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Mankey": {
+      "species_id": 56,
+      "sprite_sheet": "pokemon_sprites_2.png",
+      "sheet_position": {
+        "row": 3,
+        "col": 7
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_fighting",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Primeape": {
+      "species_id": 57,
+      "sprite_sheet": "pokemon_sprites_2.png",
+      "sheet_position": {
+        "row": 3,
+        "col": 8
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_fighting",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Growlithe": {
+      "species_id": 58,
+      "sprite_sheet": "pokemon_sprites_2.png",
+      "sheet_position": {
+        "row": 3,
+        "col": 9
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_fire",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Arcanine": {
+      "species_id": 59,
+      "sprite_sheet": "pokemon_sprites_2.png",
+      "sheet_position": {
+        "row": 3,
+        "col": 10
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_fire",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    },
+    "Poliwag": {
+      "species_id": 60,
+      "sprite_sheet": "pokemon_sprites_2.png",
+      "sheet_position": {
+        "row": 3,
+        "col": 11
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 3,
+        "attack": 5,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_water",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Poliwhirl": {
+      "species_id": 61,
+      "sprite_sheet": "pokemon_sprites_2.png",
+      "sheet_position": {
+        "row": 3,
+        "col": 12
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 3,
+        "attack": 5,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_water",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Poliwrath": {
+      "species_id": 62,
+      "sprite_sheet": "pokemon_sprites_2.png",
+      "sheet_position": {
+        "row": 3,
+        "col": 13
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 3,
+        "attack": 5,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_water",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Abra": {
+      "species_id": 63,
+      "sprite_sheet": "pokemon_sprites_2.png",
+      "sheet_position": {
+        "row": 3,
+        "col": 14
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_psychic",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Kadabra": {
+      "species_id": 64,
+      "sprite_sheet": "pokemon_sprites_2.png",
+      "sheet_position": {
+        "row": 3,
+        "col": 15
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_psychic",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Alakazam": {
+      "species_id": 65,
+      "sprite_sheet": "pokemon_sprites_3.png",
+      "sheet_position": {
+        "row": 4,
+        "col": 0
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_psychic",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    },
+    "Machop": {
+      "species_id": 66,
+      "sprite_sheet": "pokemon_sprites_3.png",
+      "sheet_position": {
+        "row": 4,
+        "col": 1
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_fighting",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Machoke": {
+      "species_id": 67,
+      "sprite_sheet": "pokemon_sprites_3.png",
+      "sheet_position": {
+        "row": 4,
+        "col": 2
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_fighting",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Machamp": {
+      "species_id": 68,
+      "sprite_sheet": "pokemon_sprites_3.png",
+      "sheet_position": {
+        "row": 4,
+        "col": 3
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_fighting",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    },
+    "Bellsprout": {
+      "species_id": 69,
+      "sprite_sheet": "pokemon_sprites_3.png",
+      "sheet_position": {
+        "row": 4,
+        "col": 4
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_grass",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Weepinbell": {
+      "species_id": 70,
+      "sprite_sheet": "pokemon_sprites_3.png",
+      "sheet_position": {
+        "row": 4,
+        "col": 5
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_grass",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Victreebel": {
+      "species_id": 71,
+      "sprite_sheet": "pokemon_sprites_3.png",
+      "sheet_position": {
+        "row": 4,
+        "col": 6
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_grass",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Tentacool": {
+      "species_id": 72,
+      "sprite_sheet": "pokemon_sprites_3.png",
+      "sheet_position": {
+        "row": 4,
+        "col": 7
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 3,
+        "attack": 5,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_water",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Tentacruel": {
+      "species_id": 73,
+      "sprite_sheet": "pokemon_sprites_3.png",
+      "sheet_position": {
+        "row": 4,
+        "col": 8
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 3,
+        "attack": 5,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_water",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    },
+    "Graveler": {
+      "species_id": 75,
+      "sprite_sheet": "pokemon_sprites_3.png",
+      "sheet_position": {
+        "row": 4,
+        "col": 10
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_rock",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Golem": {
+      "species_id": 76,
+      "sprite_sheet": "pokemon_sprites_3.png",
+      "sheet_position": {
+        "row": 4,
+        "col": 11
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_rock",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    },
+    "Ponyta": {
+      "species_id": 77,
+      "sprite_sheet": "pokemon_sprites_3.png",
+      "sheet_position": {
+        "row": 4,
+        "col": 12
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_fire",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Rapidash": {
+      "species_id": 78,
+      "sprite_sheet": "pokemon_sprites_3.png",
+      "sheet_position": {
+        "row": 4,
+        "col": 13
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_fire",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    },
+    "Slowpoke": {
+      "species_id": 79,
+      "sprite_sheet": "pokemon_sprites_3.png",
+      "sheet_position": {
+        "row": 4,
+        "col": 14
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 3,
+        "attack": 5,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_water",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Slowbro": {
+      "species_id": 80,
+      "sprite_sheet": "pokemon_sprites_3.png",
+      "sheet_position": {
+        "row": 4,
+        "col": 15
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 3,
+        "attack": 5,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_water",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Magnemite": {
+      "species_id": 81,
+      "sprite_sheet": "pokemon_sprites_3.png",
+      "sheet_position": {
+        "row": 5,
+        "col": 0
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_electric",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Magneton": {
+      "species_id": 82,
+      "sprite_sheet": "pokemon_sprites_3.png",
+      "sheet_position": {
+        "row": 5,
+        "col": 1
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_electric",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Farfetchd": {
+      "species_id": 83,
+      "sprite_sheet": "pokemon_sprites_3.png",
+      "sheet_position": {
+        "row": 5,
+        "col": 2
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 4,
+        "attack": 6,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_normal",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Doduo": {
+      "species_id": 84,
+      "sprite_sheet": "pokemon_sprites_3.png",
+      "sheet_position": {
+        "row": 5,
+        "col": 3
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 4,
+        "attack": 6,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_normal",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Dodrio": {
+      "species_id": 85,
+      "sprite_sheet": "pokemon_sprites_3.png",
+      "sheet_position": {
+        "row": 5,
+        "col": 4
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 4,
+        "attack": 6,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_normal",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Seel": {
+      "species_id": 86,
+      "sprite_sheet": "pokemon_sprites_3.png",
+      "sheet_position": {
+        "row": 5,
+        "col": 5
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 3,
+        "attack": 5,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_water",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Dewgong": {
+      "species_id": 87,
+      "sprite_sheet": "pokemon_sprites_3.png",
+      "sheet_position": {
+        "row": 5,
+        "col": 6
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 3,
+        "attack": 5,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_water",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    },
+    "Grimer": {
+      "species_id": 88,
+      "sprite_sheet": "pokemon_sprites_3.png",
+      "sheet_position": {
+        "row": 5,
+        "col": 7
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_poison",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Muk": {
+      "species_id": 89,
+      "sprite_sheet": "pokemon_sprites_3.png",
+      "sheet_position": {
+        "row": 5,
+        "col": 8
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_poison",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    },
+    "Shellder": {
+      "species_id": 90,
+      "sprite_sheet": "pokemon_sprites_3.png",
+      "sheet_position": {
+        "row": 5,
+        "col": 9
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 3,
+        "attack": 5,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_water",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Cloyster": {
+      "species_id": 91,
+      "sprite_sheet": "pokemon_sprites_3.png",
+      "sheet_position": {
+        "row": 5,
+        "col": 10
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 3,
+        "attack": 5,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_water",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Gastly": {
+      "species_id": 92,
+      "sprite_sheet": "pokemon_sprites_3.png",
+      "sheet_position": {
+        "row": 5,
+        "col": 11
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 4,
+        "attack": 5,
+        "hurt": 2,
+        "faint": 4
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_ghost",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Haunter": {
+      "species_id": 93,
+      "sprite_sheet": "pokemon_sprites_3.png",
+      "sheet_position": {
+        "row": 5,
+        "col": 12
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 4,
+        "attack": 5,
+        "hurt": 2,
+        "faint": 4
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_ghost",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Gengar": {
+      "species_id": 94,
+      "sprite_sheet": "pokemon_sprites_3.png",
+      "sheet_position": {
+        "row": 5,
+        "col": 13
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 4,
+        "attack": 5,
+        "hurt": 2,
+        "faint": 4
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_ghost",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    },
+    "Drowzee": {
+      "species_id": 96,
+      "sprite_sheet": "pokemon_sprites_3.png",
+      "sheet_position": {
+        "row": 5,
+        "col": 15
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_psychic",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Hypno": {
+      "species_id": 97,
+      "sprite_sheet": "pokemon_sprites_4.png",
+      "sheet_position": {
+        "row": 6,
+        "col": 0
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_psychic",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Krabby": {
+      "species_id": 98,
+      "sprite_sheet": "pokemon_sprites_4.png",
+      "sheet_position": {
+        "row": 6,
+        "col": 1
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 3,
+        "attack": 5,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_water",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Kingler": {
+      "species_id": 99,
+      "sprite_sheet": "pokemon_sprites_4.png",
+      "sheet_position": {
+        "row": 6,
+        "col": 2
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 3,
+        "attack": 5,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_water",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Voltorb": {
+      "species_id": 100,
+      "sprite_sheet": "pokemon_sprites_4.png",
+      "sheet_position": {
+        "row": 6,
+        "col": 3
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_electric",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Electrode": {
+      "species_id": 101,
+      "sprite_sheet": "pokemon_sprites_4.png",
+      "sheet_position": {
+        "row": 6,
+        "col": 4
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_electric",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Exeggcute": {
+      "species_id": 102,
+      "sprite_sheet": "pokemon_sprites_4.png",
+      "sheet_position": {
+        "row": 6,
+        "col": 5
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_grass",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Exeggutor": {
+      "species_id": 103,
+      "sprite_sheet": "pokemon_sprites_4.png",
+      "sheet_position": {
+        "row": 6,
+        "col": 6
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_grass",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    },
+    "Cubone": {
+      "species_id": 104,
+      "sprite_sheet": "pokemon_sprites_4.png",
+      "sheet_position": {
+        "row": 6,
+        "col": 7
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_ground",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Marowak": {
+      "species_id": 105,
+      "sprite_sheet": "pokemon_sprites_4.png",
+      "sheet_position": {
+        "row": 6,
+        "col": 8
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_ground",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Hitmonlee": {
+      "species_id": 106,
+      "sprite_sheet": "pokemon_sprites_4.png",
+      "sheet_position": {
+        "row": 6,
+        "col": 9
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_fighting",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Hitmonchan": {
+      "species_id": 107,
+      "sprite_sheet": "pokemon_sprites_4.png",
+      "sheet_position": {
+        "row": 6,
+        "col": 10
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_fighting",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Lickitung": {
+      "species_id": 108,
+      "sprite_sheet": "pokemon_sprites_4.png",
+      "sheet_position": {
+        "row": 6,
+        "col": 11
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_normal",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Koffing": {
+      "species_id": 109,
+      "sprite_sheet": "pokemon_sprites_4.png",
+      "sheet_position": {
+        "row": 6,
+        "col": 12
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_poison",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Weezing": {
+      "species_id": 110,
+      "sprite_sheet": "pokemon_sprites_4.png",
+      "sheet_position": {
+        "row": 6,
+        "col": 13
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_poison",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    },
+    "Rhyhorn": {
+      "species_id": 111,
+      "sprite_sheet": "pokemon_sprites_4.png",
+      "sheet_position": {
+        "row": 6,
+        "col": 14
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_ground",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Rhydon": {
+      "species_id": 112,
+      "sprite_sheet": "pokemon_sprites_4.png",
+      "sheet_position": {
+        "row": 6,
+        "col": 15
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_ground",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    },
+    "Chansey": {
+      "species_id": 113,
+      "sprite_sheet": "pokemon_sprites_4.png",
+      "sheet_position": {
+        "row": 7,
+        "col": 0
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_normal",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Tangela": {
+      "species_id": 114,
+      "sprite_sheet": "pokemon_sprites_4.png",
+      "sheet_position": {
+        "row": 7,
+        "col": 1
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_grass",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Kangaskhan": {
+      "species_id": 115,
+      "sprite_sheet": "pokemon_sprites_4.png",
+      "sheet_position": {
+        "row": 7,
+        "col": 2
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_normal",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    },
+    "Horsea": {
+      "species_id": 116,
+      "sprite_sheet": "pokemon_sprites_4.png",
+      "sheet_position": {
+        "row": 7,
+        "col": 3
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 3,
+        "attack": 5,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_water",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Seadra": {
+      "species_id": 117,
+      "sprite_sheet": "pokemon_sprites_4.png",
+      "sheet_position": {
+        "row": 7,
+        "col": 4
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 3,
+        "attack": 5,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_water",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Goldeen": {
+      "species_id": 118,
+      "sprite_sheet": "pokemon_sprites_4.png",
+      "sheet_position": {
+        "row": 7,
+        "col": 5
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 3,
+        "attack": 5,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_water",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Seaking": {
+      "species_id": 119,
+      "sprite_sheet": "pokemon_sprites_4.png",
+      "sheet_position": {
+        "row": 7,
+        "col": 6
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 3,
+        "attack": 5,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_water",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Mr. Mime": {
+      "species_id": 122,
+      "sprite_sheet": "pokemon_sprites_4.png",
+      "sheet_position": {
+        "row": 7,
+        "col": 9
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_psychic",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Scyther": {
+      "species_id": 123,
+      "sprite_sheet": "pokemon_sprites_4.png",
+      "sheet_position": {
+        "row": 7,
+        "col": 10
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 4,
+        "attack": 6,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_bug",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Jynx": {
+      "species_id": 124,
+      "sprite_sheet": "pokemon_sprites_4.png",
+      "sheet_position": {
+        "row": 7,
+        "col": 11
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_ice",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Electabuzz": {
+      "species_id": 125,
+      "sprite_sheet": "pokemon_sprites_4.png",
+      "sheet_position": {
+        "row": 7,
+        "col": 12
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_electric",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Magmar": {
+      "species_id": 126,
+      "sprite_sheet": "pokemon_sprites_4.png",
+      "sheet_position": {
+        "row": 7,
+        "col": 13
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_fire",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Pinsir": {
+      "species_id": 127,
+      "sprite_sheet": "pokemon_sprites_4.png",
+      "sheet_position": {
+        "row": 7,
+        "col": 14
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_bug",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    },
+    "Tauros": {
+      "species_id": 128,
+      "sprite_sheet": "pokemon_sprites_4.png",
+      "sheet_position": {
+        "row": 7,
+        "col": 15
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_normal",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    },
+    "Magikarp": {
+      "species_id": 129,
+      "sprite_sheet": "pokemon_sprites_5.png",
+      "sheet_position": {
+        "row": 8,
+        "col": 0
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 3,
+        "attack": 5,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_water",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Gyarados": {
+      "species_id": 130,
+      "sprite_sheet": "pokemon_sprites_5.png",
+      "sheet_position": {
+        "row": 8,
+        "col": 1
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 4,
+        "attack": 6,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_water",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    },
+    "Lapras": {
+      "species_id": 131,
+      "sprite_sheet": "pokemon_sprites_5.png",
+      "sheet_position": {
+        "row": 8,
+        "col": 2
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 3,
+        "attack": 5,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_water",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    },
+    "Ditto": {
+      "species_id": 132,
+      "sprite_sheet": "pokemon_sprites_5.png",
+      "sheet_position": {
+        "row": 8,
+        "col": 3
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_normal",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Eevee": {
+      "species_id": 133,
+      "sprite_sheet": "pokemon_sprites_5.png",
+      "sheet_position": {
+        "row": 8,
+        "col": 4
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_normal",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Vaporeon": {
+      "species_id": 134,
+      "sprite_sheet": "pokemon_sprites_5.png",
+      "sheet_position": {
+        "row": 8,
+        "col": 5
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 3,
+        "attack": 5,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_water",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Jolteon": {
+      "species_id": 135,
+      "sprite_sheet": "pokemon_sprites_5.png",
+      "sheet_position": {
+        "row": 8,
+        "col": 6
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_electric",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Flareon": {
+      "species_id": 136,
+      "sprite_sheet": "pokemon_sprites_5.png",
+      "sheet_position": {
+        "row": 8,
+        "col": 7
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_fire",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Porygon": {
+      "species_id": 137,
+      "sprite_sheet": "pokemon_sprites_5.png",
+      "sheet_position": {
+        "row": 8,
+        "col": 8
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_normal",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Omanyte": {
+      "species_id": 138,
+      "sprite_sheet": "pokemon_sprites_5.png",
+      "sheet_position": {
+        "row": 8,
+        "col": 9
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 3,
+        "attack": 5,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_rock",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Omastar": {
+      "species_id": 139,
+      "sprite_sheet": "pokemon_sprites_5.png",
+      "sheet_position": {
+        "row": 8,
+        "col": 10
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 3,
+        "attack": 5,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_rock",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    },
+    "Kabuto": {
+      "species_id": 140,
+      "sprite_sheet": "pokemon_sprites_5.png",
+      "sheet_position": {
+        "row": 8,
+        "col": 11
+      },
+      "size": "small",
+      "pixel_width": 16,
+      "pixel_height": 16,
+      "animation_frames": {
+        "idle": 3,
+        "attack": 5,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_rock",
+      "has_shiny": true,
+      "shadow_offset_y": 2
+    },
+    "Kabutops": {
+      "species_id": 141,
+      "sprite_sheet": "pokemon_sprites_5.png",
+      "sheet_position": {
+        "row": 8,
+        "col": 12
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 3,
+        "attack": 5,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_rock",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    },
+    "Aerodactyl": {
+      "species_id": 142,
+      "sprite_sheet": "pokemon_sprites_5.png",
+      "sheet_position": {
+        "row": 8,
+        "col": 13
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 4,
+        "attack": 6,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_rock",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    },
+    "Snorlax": {
+      "species_id": 143,
+      "sprite_sheet": "pokemon_sprites_5.png",
+      "sheet_position": {
+        "row": 8,
+        "col": 14
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_normal",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    },
+    "Articuno": {
+      "species_id": 144,
+      "sprite_sheet": "pokemon_sprites_5.png",
+      "sheet_position": {
+        "row": 8,
+        "col": 15
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 4,
+        "attack": 6,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_ice",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    },
+    "Zapdos": {
+      "species_id": 145,
+      "sprite_sheet": "pokemon_sprites_5.png",
+      "sheet_position": {
+        "row": 9,
+        "col": 0
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 4,
+        "attack": 6,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_electric",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    },
+    "Moltres": {
+      "species_id": 146,
+      "sprite_sheet": "pokemon_sprites_5.png",
+      "sheet_position": {
+        "row": 9,
+        "col": 1
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 4,
+        "attack": 6,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_fire",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    },
+    "Dratini": {
+      "species_id": 147,
+      "sprite_sheet": "pokemon_sprites_5.png",
+      "sheet_position": {
+        "row": 9,
+        "col": 2
+      },
+      "size": "medium",
+      "pixel_width": 24,
+      "pixel_height": 24,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_dragon",
+      "has_shiny": true,
+      "shadow_offset_y": 3
+    },
+    "Dragonair": {
+      "species_id": 148,
+      "sprite_sheet": "pokemon_sprites_5.png",
+      "sheet_position": {
+        "row": 9,
+        "col": 3
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_dragon",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    },
+    "Dragonite": {
+      "species_id": 149,
+      "sprite_sheet": "pokemon_sprites_5.png",
+      "sheet_position": {
+        "row": 9,
+        "col": 4
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 4,
+        "attack": 6,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_dragon",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    },
+    "Mewtwo": {
+      "species_id": 150,
+      "sprite_sheet": "pokemon_sprites_5.png",
+      "sheet_position": {
+        "row": 9,
+        "col": 5
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_psychic",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    },
+    "Mew": {
+      "species_id": 151,
+      "sprite_sheet": "pokemon_sprites_5.png",
+      "sheet_position": {
+        "row": 9,
+        "col": 6
+      },
+      "size": "large",
+      "pixel_width": 32,
+      "pixel_height": 32,
+      "animation_frames": {
+        "idle": 2,
+        "attack": 4,
+        "hurt": 2,
+        "faint": 3
+      },
+      "frame_duration_ms": 150,
+      "palette": "palette_psychic",
+      "has_shiny": true,
+      "shadow_offset_y": 4
+    }
+  }
+}
