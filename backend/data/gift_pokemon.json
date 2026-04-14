@@ -1,0 +1,101 @@
+[
+  {
+    "id": "starter_bulbasaur",
+    "species": "Bulbasaur",
+    "level": 5,
+    "location": "pallet_town",
+    "given_by": "Professor Oak",
+    "condition": "game_start_choice",
+    "one_time": true
+  },
+  {
+    "id": "starter_charmander",
+    "species": "Charmander",
+    "level": 5,
+    "location": "pallet_town",
+    "given_by": "Professor Oak",
+    "condition": "game_start_choice",
+    "one_time": true
+  },
+  {
+    "id": "starter_squirtle",
+    "species": "Squirtle",
+    "level": 5,
+    "location": "pallet_town",
+    "given_by": "Professor Oak",
+    "condition": "game_start_choice",
+    "one_time": true
+  },
+  {
+    "id": "gift_eevee",
+    "species": "Eevee",
+    "level": 25,
+    "location": "celadon_city",
+    "given_by": "Celadon Mansion Resident",
+    "condition": "visit_celadon_mansion_roof",
+    "one_time": true
+  },
+  {
+    "id": "gift_lapras",
+    "species": "Lapras",
+    "level": 25,
+    "location": "silph_co",
+    "given_by": "Silph Co. Employee",
+    "condition": "defeat_team_rocket_silph",
+    "one_time": true
+  },
+  {
+    "id": "gift_hitmonlee",
+    "species": "Hitmonlee",
+    "level": 25,
+    "location": "saffron_city",
+    "given_by": "Fighting Dojo Master",
+    "condition": "defeat_fighting_dojo",
+    "one_time": true
+  },
+  {
+    "id": "gift_hitmonchan",
+    "species": "Hitmonchan",
+    "level": 25,
+    "location": "saffron_city",
+    "given_by": "Fighting Dojo Master",
+    "condition": "defeat_fighting_dojo",
+    "one_time": true
+  },
+  {
+    "id": "gift_magikarp",
+    "species": "Magikarp",
+    "level": 5,
+    "location": "mt_moon",
+    "given_by": "Shady Salesman",
+    "condition": "pay_500",
+    "one_time": true
+  },
+  {
+    "id": "fossil_omanyte",
+    "species": "Omanyte",
+    "level": 30,
+    "location": "cinnabar_island",
+    "given_by": "Lab Scientist",
+    "condition": "bring_helix_fossil",
+    "one_time": true
+  },
+  {
+    "id": "fossil_kabuto",
+    "species": "Kabuto",
+    "level": 30,
+    "location": "cinnabar_island",
+    "given_by": "Lab Scientist",
+    "condition": "bring_dome_fossil",
+    "one_time": true
+  },
+  {
+    "id": "fossil_aerodactyl",
+    "species": "Aerodactyl",
+    "level": 30,
+    "location": "cinnabar_island",
+    "given_by": "Lab Scientist",
+    "condition": "bring_old_amber",
+    "one_time": true
+  }
+]

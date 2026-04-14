@@ -1,0 +1,194 @@
+[
+  {
+    "trainer_id": "bug_catcher_route_3",
+    "original_location": "route_3",
+    "rematch_condition": "post_elite_four",
+    "team": [
+      {
+        "species": "Butterfree",
+        "level": 45,
+        "moves": [
+          "Psychic",
+          "Sleep Powder",
+          "Stun Spore",
+          "Psybeam"
+        ]
+      },
+      {
+        "species": "Beedrill",
+        "level": 45,
+        "moves": [
+          "Twineedle",
+          "Swords Dance",
+          "Fury Attack",
+          "Pin Missile"
+        ]
+      },
+      {
+        "species": "Scyther",
+        "level": 47,
+        "moves": [
+          "Slash",
+          "Swords Dance",
+          "Wing Attack",
+          "Quick Attack"
+        ]
+      }
+    ]
+  },
+  {
+    "trainer_id": "youngster_route_3",
+    "original_location": "route_3",
+    "rematch_condition": "post_elite_four",
+    "team": [
+      {
+        "species": "Raticate",
+        "level": 44,
+        "moves": [
+          "Hyper Fang",
+          "Super Fang",
+          "Quick Attack",
+          "Body Slam"
+        ]
+      },
+      {
+        "species": "Fearow",
+        "level": 46,
+        "moves": [
+          "Drill Peck",
+          "Fly",
+          "Quick Attack",
+          "Mirror Move"
+        ]
+      }
+    ]
+  },
+  {
+    "trainer_id": "hiker_mt_moon",
+    "original_location": "mt_moon",
+    "rematch_condition": "post_elite_four",
+    "team": [
+      {
+        "species": "Golem",
+        "level": 48,
+        "moves": [
+          "Earthquake",
+          "Rock Slide",
+          "Explosion",
+          "Body Slam"
+        ]
+      },
+      {
+        "species": "Onix",
+        "level": 46,
+        "moves": [
+          "Rock Slide",
+          "Earthquake",
+          "Slam",
+          "Harden"
+        ]
+      },
+      {
+        "species": "Rhydon",
+        "level": 50,
+        "moves": [
+          "Earthquake",
+          "Rock Slide",
+          "Horn Drill",
+          "Fury Attack"
+        ]
+      }
+    ]
+  },
+  {
+    "trainer_id": "lass_route_4",
+    "original_location": "route_4",
+    "rematch_condition": "post_elite_four",
+    "team": [
+      {
+        "species": "Clefable",
+        "level": 46,
+        "moves": [
+          "Metronome",
+          "Minimize",
+          "Body Slam",
+          "Psychic"
+        ]
+      },
+      {
+        "species": "Wigglytuff",
+        "level": 46,
+        "moves": [
+          "Body Slam",
+          "Sing",
+          "Double Edge",
+          "Rest"
+        ]
+      }
+    ]
+  },
+  {
+    "trainer_id": "fisherman_route_12",
+    "original_location": "route_12",
+    "rematch_condition": "post_elite_four",
+    "team": [
+      {
+        "species": "Gyarados",
+        "level": 50,
+        "moves": [
+          "Hydro Pump",
+          "Hyper Beam",
+          "Dragon Rage",
+          "Thrash"
+        ]
+      },
+      {
+        "species": "Seaking",
+        "level": 48,
+        "moves": [
+          "Waterfall",
+          "Horn Drill",
+          "Fury Attack",
+          "Agility"
+        ]
+      },
+      {
+        "species": "Kingler",
+        "level": 48,
+        "moves": [
+          "Crabhammer",
+          "Guillotine",
+          "Stomp",
+          "Harden"
+        ]
+      }
+    ]
+  },
+  {
+    "trainer_id": "beauty_route_19",
+    "original_location": "route_19",
+    "rematch_condition": "post_elite_four",
+    "team": [
+      {
+        "species": "Dewgong",
+        "level": 49,
+        "moves": [
+          "Ice Beam",
+          "Surf",
+          "Aurora Beam",
+          "Rest"
+        ]
+      },
+      {
+        "species": "Starmie",
+        "level": 49,
+        "moves": [
+          "Psychic",
+          "Surf",
+          "Thunderbolt",
+          "Recover"
+        ]
+      }
+    ]
+  }
+]

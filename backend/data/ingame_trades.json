@@ -1,0 +1,82 @@
+[
+  {
+    "id": "trade_mr_mime",
+    "location": "route_2",
+    "npc": "Trade Girl",
+    "offered_species": "Mr. Mime",
+    "offered_level": 15,
+    "offered_nickname": "MARCEL",
+    "requested_species": "Abra",
+    "dialogue": "I'll trade my Mr. Mime for your Abra!"
+  },
+  {
+    "id": "trade_jynx",
+    "location": "cerulean_city",
+    "npc": "Trade Man",
+    "offered_species": "Jynx",
+    "offered_level": 22,
+    "offered_nickname": "LOLA",
+    "requested_species": "Poliwhirl",
+    "dialogue": "Want to trade your Poliwhirl for my Jynx?"
+  },
+  {
+    "id": "trade_farfetchd",
+    "location": "vermilion_city",
+    "npc": "Trade Girl",
+    "offered_species": "Farfetchd",
+    "offered_level": 20,
+    "offered_nickname": "DUX",
+    "requested_species": "Spearow",
+    "dialogue": "I'll give you my Farfetch'd for a Spearow!"
+  },
+  {
+    "id": "trade_nidorina",
+    "location": "route_11",
+    "npc": "Trade Boy",
+    "offered_species": "Nidorina",
+    "offered_level": 16,
+    "offered_nickname": "NINA",
+    "requested_species": "Nidorino",
+    "dialogue": "Let's trade! My Nidorina for your Nidorino!"
+  },
+  {
+    "id": "trade_electrode",
+    "location": "cinnabar_island",
+    "npc": "Lab Trader",
+    "offered_species": "Electrode",
+    "offered_level": 35,
+    "offered_nickname": "DORIS",
+    "requested_species": "Raichu",
+    "dialogue": "I'm researching Raichu. Trade me one for my Electrode?"
+  },
+  {
+    "id": "trade_muk",
+    "location": "cinnabar_island",
+    "npc": "Lab Trader 2",
+    "offered_species": "Muk",
+    "offered_level": 35,
+    "offered_nickname": "SLUDGE",
+    "requested_species": "Kangaskhan",
+    "dialogue": "I need a Kangaskhan for my research. Want my Muk?"
+  },
+  {
+    "id": "trade_tangela",
+    "location": "cinnabar_island",
+    "npc": "Lab Trader 3",
+    "offered_species": "Tangela",
+    "offered_level": 35,
+    "offered_nickname": "VINE",
+    "requested_species": "Venonat",
+    "dialogue": "I'll trade you my Tangela for a Venonat!"
+  },
+  {
+    "id": "trade_lickitung",
+    "location": "route_18",
+    "npc": "Gate Guard",
+    "offered_species": "Lickitung",
+    "offered_level": 25,
+    "offered_nickname": "MARC",
+    "requested_species": "Slowbro",
+    "dialogue": "I want a Slowbro! Here, take my Lickitung!"
+  }
+]
