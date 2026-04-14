@@ -1,0 +1,241 @@
+[
+  {
+    "id": "quest_old_rod",
+    "name": "A Fisher's Gift",
+    "type": "side",
+    "description": "Talk to the fisherman in Vermilion City to receive the Old Rod.",
+    "location": "vermilion_city",
+    "prerequisites": [],
+    "objectives": [
+      {"type": "talk_to_npc", "npc_id": "vermilion_fisherman", "description": "Talk to the fisherman on the pier"}
+    ],
+    "rewards": [
+      {"type": "item", "item": "Old Rod", "quantity": 1}
+    ],
+    "repeatable": false
+  },
+  {
+    "id": "quest_good_rod",
+    "name": "The Better Rod",
+    "type": "side",
+    "description": "Find the fishing guru in Fuchsia City for a Good Rod.",
+    "location": "fuchsia_city",
+    "prerequisites": ["quest_old_rod"],
+    "objectives": [
+      {"type": "talk_to_npc", "npc_id": "fuchsia_fishing_guru", "description": "Visit the fishing guru"}
+    ],
+    "rewards": [
+      {"type": "item", "item": "Good Rod", "quantity": 1}
+    ],
+    "repeatable": false
+  },
+  {
+    "id": "quest_super_rod",
+    "name": "Master Angler",
+    "type": "side",
+    "description": "Prove your fishing skill to the guru in Route 12.",
+    "location": "route_12",
+    "prerequisites": ["quest_good_rod"],
+    "objectives": [
+      {"type": "catch_pokemon", "species": "Magikarp", "description": "Catch a Magikarp using any rod"},
+      {"type": "talk_to_npc", "npc_id": "route12_fishing_guru", "description": "Show your catch to the guru"}
+    ],
+    "rewards": [
+      {"type": "item", "item": "Super Rod", "quantity": 1}
+    ],
+    "repeatable": false
+  },
+  {
+    "id": "quest_bill_ticket",
+    "name": "Bill's Errand",
+    "type": "story",
+    "description": "Help Bill transform back from his Pokemon form on Route 25.",
+    "location": "route_25",
+    "prerequisites": [],
+    "objectives": [
+      {"type": "talk_to_npc", "npc_id": "bill", "description": "Meet Bill at his house"},
+      {"type": "interact", "target": "bills_pc", "description": "Use Bill's PC to help him"},
+      {"type": "talk_to_npc", "npc_id": "bill", "description": "Talk to Bill after transformation"}
+    ],
+    "rewards": [
+      {"type": "item", "item": "S.S. Ticket", "quantity": 1}
+    ],
+    "repeatable": false
+  },
+  {
+    "id": "quest_coin_case",
+    "name": "The Coin Case",
+    "type": "side",
+    "description": "Find a way to get the Coin Case for the Game Corner.",
+    "location": "celadon_city",
+    "prerequisites": [],
+    "objectives": [
+      {"type": "talk_to_npc", "npc_id": "celadon_cafe_man", "description": "Buy the man a drink at the cafe"}
+    ],
+    "rewards": [
+      {"type": "item", "item": "Coin Case", "quantity": 1}
+    ],
+    "repeatable": false
+  },
+  {
+    "id": "quest_silph_scope",
+    "name": "Team Rocket's Plot",
+    "type": "story",
+    "description": "Defeat Team Rocket in their hideout to obtain the Silph Scope.",
+    "location": "celadon_city",
+    "prerequisites": [],
+    "objectives": [
+      {"type": "enter_area", "area": "rocket_hideout", "description": "Enter the Rocket Hideout"},
+      {"type": "defeat_trainer", "trainer_id": "giovanni_hideout", "description": "Defeat Giovanni"}
+    ],
+    "rewards": [
+      {"type": "item", "item": "Silph Scope", "quantity": 1}
+    ],
+    "repeatable": false
+  },
+  {
+    "id": "quest_poke_flute",
+    "name": "Restless Spirits",
+    "type": "story",
+    "description": "Rescue Mr. Fuji from Team Rocket in Pokemon Tower.",
+    "location": "lavender_town",
+    "prerequisites": ["quest_silph_scope"],
+    "objectives": [
+      {"type": "enter_area", "area": "pokemon_tower", "description": "Enter Pokemon Tower"},
+      {"type": "defeat_trainer", "trainer_id": "rocket_tower_boss", "description": "Defeat Team Rocket grunts"},
+      {"type": "talk_to_npc", "npc_id": "mr_fuji", "description": "Rescue Mr. Fuji"}
+    ],
+    "rewards": [
+      {"type": "item", "item": "Poke Flute", "quantity": 1}
+    ],
+    "repeatable": false
+  },
+  {
+    "id": "quest_safari_warden",
+    "name": "The Warden's Teeth",
+    "type": "side",
+    "description": "Find the warden's Gold Teeth in the Safari Zone.",
+    "location": "fuchsia_city",
+    "prerequisites": [],
+    "objectives": [
+      {"type": "collect_item", "item_id": "safari_gold_teeth", "description": "Find Gold Teeth in Safari Zone"},
+      {"type": "talk_to_npc", "npc_id": "safari_warden", "description": "Return them to the warden"}
+    ],
+    "rewards": [
+      {"type": "hm", "hm": "HM04", "move": "Strength"}
+    ],
+    "repeatable": false
+  },
+  {
+    "id": "quest_fossil_revival",
+    "name": "Ancient Revival",
+    "type": "side",
+    "description": "Bring a fossil to the Cinnabar Lab to revive an ancient Pokemon.",
+    "location": "cinnabar_island",
+    "prerequisites": [],
+    "objectives": [
+      {"type": "have_item", "items": ["Helix Fossil", "Dome Fossil", "Old Amber"], "description": "Have a fossil in your bag"},
+      {"type": "talk_to_npc", "npc_id": "cinnabar_scientist", "description": "Give fossil to the scientist"}
+    ],
+    "rewards": [
+      {"type": "pokemon", "species": "varies", "level": 30}
+    ],
+    "repeatable": true
+  },
+  {
+    "id": "quest_itemfinder",
+    "name": "Professor's Assistant",
+    "type": "side",
+    "description": "Register 30 species in your Pokedex to receive the Itemfinder.",
+    "location": "route_11",
+    "prerequisites": [],
+    "objectives": [
+      {"type": "pokedex_count", "count": 30, "mode": "caught", "description": "Catch 30 different Pokemon species"},
+      {"type": "talk_to_npc", "npc_id": "oak_aide_route11", "description": "Report to Oak's aide on Route 11"}
+    ],
+    "rewards": [
+      {"type": "item", "item": "Itemfinder", "quantity": 1}
+    ],
+    "repeatable": false
+  },
+  {
+    "id": "quest_exp_share",
+    "name": "Research Data",
+    "type": "side",
+    "description": "Register 50 species to receive the Exp. Share.",
+    "location": "fuchsia_city",
+    "prerequisites": [],
+    "objectives": [
+      {"type": "pokedex_count", "count": 50, "mode": "caught", "description": "Catch 50 different Pokemon species"},
+      {"type": "talk_to_npc", "npc_id": "oak_aide_fuchsia", "description": "Report to Oak's aide in Fuchsia"}
+    ],
+    "rewards": [
+      {"type": "item", "item": "Exp. Share", "quantity": 1}
+    ],
+    "repeatable": false
+  },
+  {
+    "id": "quest_bike_voucher",
+    "name": "Fan Club President",
+    "type": "side",
+    "description": "Listen to the Pokemon Fan Club president's story for a Bike Voucher.",
+    "location": "vermilion_city",
+    "prerequisites": [],
+    "objectives": [
+      {"type": "talk_to_npc", "npc_id": "fan_club_president", "description": "Listen to the president's story"}
+    ],
+    "rewards": [
+      {"type": "item", "item": "Bike Voucher", "quantity": 1}
+    ],
+    "repeatable": false
+  },
+  {
+    "id": "quest_tea",
+    "name": "Thirsty Guards",
+    "type": "story",
+    "description": "Bring the Saffron City guards something to drink.",
+    "location": "celadon_city",
+    "prerequisites": [],
+    "objectives": [
+      {"type": "obtain_item", "item": "Tea", "description": "Get Tea from the Celadon Mansion lady"},
+      {"type": "talk_to_npc", "npc_id": "saffron_guard", "description": "Give Tea to a Saffron gate guard"}
+    ],
+    "rewards": [
+      {"type": "access", "area": "saffron_city", "description": "Access to Saffron City"}
+    ],
+    "repeatable": false
+  },
+  {
+    "id": "quest_master_ball",
+    "name": "Silph Co. Rescue",
+    "type": "story",
+    "description": "Save the Silph Co. president from Team Rocket.",
+    "location": "saffron_city",
+    "prerequisites": ["quest_tea"],
+    "objectives": [
+      {"type": "enter_area", "area": "silph_co", "description": "Enter Silph Co. building"},
+      {"type": "defeat_trainer", "trainer_id": "giovanni_silph", "description": "Defeat Giovanni at Silph Co."},
+      {"type": "talk_to_npc", "npc_id": "silph_president", "description": "Talk to the president"}
+    ],
+    "rewards": [
+      {"type": "item", "item": "Master Ball", "quantity": 1}
+    ],
+    "repeatable": false
+  },
+  {
+    "id": "quest_pokedex_diploma",
+    "name": "Gotta Catch 'Em All",
+    "type": "side",
+    "description": "Complete the Pokedex by catching all 151 Pokemon.",
+    "location": "pallet_town",
+    "prerequisites": [],
+    "objectives": [
+      {"type": "pokedex_count", "count": 151, "mode": "caught", "description": "Catch all 151 Pokemon"},
+      {"type": "talk_to_npc", "npc_id": "professor_oak", "description": "Show completed Pokedex to Professor Oak"}
+    ],
+    "rewards": [
+      {"type": "item", "item": "Diploma", "quantity": 1}
+    ],
+    "repeatable": false
+  }
+]

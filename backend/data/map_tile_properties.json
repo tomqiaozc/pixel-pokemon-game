@@ -1,0 +1,178 @@
+{
+  "description": "Map tile type definitions with movement and encounter properties.",
+  "tiles": {
+    "grass": {
+      "name": "Grass",
+      "walkable": true,
+      "encounter_rate": 0,
+      "movement_cost": 1,
+      "sprite_id": "tile_grass",
+      "description": "Standard grass terrain, no wild encounters."
+    },
+    "tall_grass": {
+      "name": "Tall Grass",
+      "walkable": true,
+      "encounter_rate": 20,
+      "movement_cost": 1,
+      "sprite_id": "tile_tall_grass",
+      "description": "Wild Pokemon may appear when walking through."
+    },
+    "water": {
+      "name": "Water",
+      "walkable": false,
+      "surfable": true,
+      "encounter_rate": 15,
+      "movement_cost": 1,
+      "requires_hm": "Surf",
+      "sprite_id": "tile_water",
+      "description": "Requires Surf to traverse. May encounter water Pokemon."
+    },
+    "deep_water": {
+      "name": "Deep Water",
+      "walkable": false,
+      "surfable": true,
+      "encounter_rate": 20,
+      "movement_cost": 1,
+      "requires_hm": "Surf",
+      "fishable": true,
+      "sprite_id": "tile_deep_water",
+      "description": "Deep water for surfing and fishing."
+    },
+    "wall": {
+      "name": "Wall",
+      "walkable": false,
+      "encounter_rate": 0,
+      "sprite_id": "tile_wall",
+      "description": "Impassable wall or building."
+    },
+    "ledge_down": {
+      "name": "Ledge (Down)",
+      "walkable": true,
+      "one_way": true,
+      "direction": "down",
+      "encounter_rate": 0,
+      "movement_cost": 1,
+      "sprite_id": "tile_ledge_down",
+      "description": "One-way jump ledge, can only traverse downward."
+    },
+    "ledge_left": {
+      "name": "Ledge (Left)",
+      "walkable": true,
+      "one_way": true,
+      "direction": "left",
+      "encounter_rate": 0,
+      "movement_cost": 1,
+      "sprite_id": "tile_ledge_left",
+      "description": "One-way jump ledge, can only traverse leftward."
+    },
+    "ledge_right": {
+      "name": "Ledge (Right)",
+      "walkable": true,
+      "one_way": true,
+      "direction": "right",
+      "encounter_rate": 0,
+      "movement_cost": 1,
+      "sprite_id": "tile_ledge_right",
+      "description": "One-way jump ledge, can only traverse rightward."
+    },
+    "ice": {
+      "name": "Ice",
+      "walkable": true,
+      "encounter_rate": 0,
+      "movement_cost": 1,
+      "sliding": true,
+      "sprite_id": "tile_ice",
+      "description": "Slippery ice floor, player slides until hitting a wall or non-ice tile."
+    },
+    "sand": {
+      "name": "Sand",
+      "walkable": true,
+      "encounter_rate": 0,
+      "movement_cost": 2,
+      "sprite_id": "tile_sand",
+      "description": "Sandy terrain, movement is slower."
+    },
+    "path": {
+      "name": "Path",
+      "walkable": true,
+      "encounter_rate": 0,
+      "movement_cost": 1,
+      "sprite_id": "tile_path",
+      "description": "Paved path, no encounters."
+    },
+    "cave_floor": {
+      "name": "Cave Floor",
+      "walkable": true,
+      "encounter_rate": 15,
+      "movement_cost": 1,
+      "dark": false,
+      "sprite_id": "tile_cave_floor",
+      "description": "Standard cave floor. Wild Pokemon may appear."
+    },
+    "dark_cave": {
+      "name": "Dark Cave",
+      "walkable": true,
+      "encounter_rate": 15,
+      "movement_cost": 1,
+      "dark": true,
+      "requires_hm": "Flash",
+      "sprite_id": "tile_dark_cave",
+      "description": "Dark cave requiring Flash to see properly."
+    },
+    "whirlpool": {
+      "name": "Whirlpool",
+      "walkable": false,
+      "surfable": false,
+      "encounter_rate": 0,
+      "sprite_id": "tile_whirlpool",
+      "description": "Impassable water hazard."
+    },
+    "cuttable_tree": {
+      "name": "Cuttable Tree",
+      "walkable": false,
+      "cuttable": true,
+      "requires_hm": "Cut",
+      "encounter_rate": 0,
+      "sprite_id": "tile_small_tree",
+      "description": "Small tree that can be cut down with Cut."
+    },
+    "boulder": {
+      "name": "Boulder",
+      "walkable": false,
+      "pushable": true,
+      "requires_hm": "Strength",
+      "encounter_rate": 0,
+      "sprite_id": "tile_boulder",
+      "description": "Heavy boulder that can be pushed with Strength."
+    },
+    "indoor_floor": {
+      "name": "Indoor Floor",
+      "walkable": true,
+      "encounter_rate": 0,
+      "movement_cost": 1,
+      "sprite_id": "tile_indoor_floor",
+      "description": "Building interior floor."
+    },
+    "stairs": {
+      "name": "Stairs",
+      "walkable": true,
+      "encounter_rate": 0,
+      "movement_cost": 1,
+      "warp": true,
+      "sprite_id": "tile_stairs",
+      "description": "Stairs connecting floors."
+    }
+  },
+  "encounter_modifiers": {
+    "repel_active": 0,
+    "cleanse_tag_held": 0.33,
+    "bike_riding": 0.5,
+    "running_shoes": 1.0
+  },
+  "movement_modifiers": {
+    "bike": 2.0,
+    "running_shoes": 1.5,
+    "surfing": 1.0,
+    "walking": 1.0
+  }
+}

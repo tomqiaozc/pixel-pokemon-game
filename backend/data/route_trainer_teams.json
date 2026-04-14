@@ -1,0 +1,375 @@
+[
+  {
+    "route": "route_1",
+    "trainers": []
+  },
+  {
+    "route": "route_2",
+    "trainers": [
+      {
+        "id": "route2_bug_catcher_1",
+        "name": "Bug Catcher Rick",
+        "class": "bug_catcher",
+        "team": [
+          {"species": "Weedle", "level": 7, "moves": ["Poison Sting", "String Shot"]},
+          {"species": "Caterpie", "level": 7, "moves": ["Tackle", "String Shot"]}
+        ]
+      }
+    ]
+  },
+  {
+    "route": "route_3",
+    "trainers": [
+      {
+        "id": "route3_bug_catcher_1",
+        "name": "Bug Catcher Colton",
+        "class": "bug_catcher",
+        "team": [
+          {"species": "Caterpie", "level": 10, "moves": ["Tackle", "String Shot"]},
+          {"species": "Weedle", "level": 10, "moves": ["Poison Sting", "String Shot"]},
+          {"species": "Caterpie", "level": 10, "moves": ["Tackle", "String Shot"]}
+        ]
+      },
+      {
+        "id": "route3_youngster_1",
+        "name": "Youngster Calvin",
+        "class": "youngster",
+        "team": [
+          {"species": "Rattata", "level": 11, "moves": ["Tackle", "Tail Whip", "Quick Attack"]},
+          {"species": "Spearow", "level": 11, "moves": ["Peck", "Leer", "Fury Attack"]}
+        ]
+      },
+      {
+        "id": "route3_lass_1",
+        "name": "Lass Janice",
+        "class": "lass",
+        "team": [
+          {"species": "Pidgey", "level": 9, "moves": ["Gust", "Sand Attack"]},
+          {"species": "Pidgey", "level": 9, "moves": ["Gust", "Sand Attack"]},
+          {"species": "Pidgey", "level": 12, "moves": ["Gust", "Quick Attack", "Sand Attack"]}
+        ]
+      }
+    ]
+  },
+  {
+    "route": "route_4",
+    "trainers": [
+      {
+        "id": "route4_youngster_1",
+        "name": "Youngster Timmy",
+        "class": "youngster",
+        "team": [
+          {"species": "Sandshrew", "level": 14, "moves": ["Scratch", "Sand Attack", "Poison Sting"]}
+        ]
+      }
+    ]
+  },
+  {
+    "route": "route_5",
+    "trainers": []
+  },
+  {
+    "route": "route_6",
+    "trainers": [
+      {
+        "id": "route6_bug_catcher_1",
+        "name": "Bug Catcher Keigo",
+        "class": "bug_catcher",
+        "team": [
+          {"species": "Caterpie", "level": 14, "moves": ["Tackle", "String Shot"]},
+          {"species": "Weedle", "level": 14, "moves": ["Poison Sting", "String Shot"]},
+          {"species": "Caterpie", "level": 14, "moves": ["Tackle", "String Shot"]}
+        ]
+      },
+      {
+        "id": "route6_youngster_1",
+        "name": "Youngster Dave",
+        "class": "youngster",
+        "team": [
+          {"species": "Rattata", "level": 16, "moves": ["Tackle", "Quick Attack", "Hyper Fang"]},
+          {"species": "Raticate", "level": 16, "moves": ["Quick Attack", "Hyper Fang", "Tail Whip"]}
+        ]
+      }
+    ]
+  },
+  {
+    "route": "route_8",
+    "trainers": [
+      {
+        "id": "route8_gambler_1",
+        "name": "Gambler Dirk",
+        "class": "gambler",
+        "team": [
+          {"species": "Voltorb", "level": 24, "moves": ["Sonic Boom", "Self Destruct", "Screech"]},
+          {"species": "Magnemite", "level": 24, "moves": ["Thunder Shock", "Sonic Boom", "Supersonic"]}
+        ]
+      },
+      {
+        "id": "route8_lass_1",
+        "name": "Lass Megan",
+        "class": "lass",
+        "team": [
+          {"species": "Pidgeotto", "level": 24, "moves": ["Wing Attack", "Quick Attack", "Gust"]},
+          {"species": "Raticate", "level": 24, "moves": ["Quick Attack", "Hyper Fang", "Pursuit"]}
+        ]
+      }
+    ]
+  },
+  {
+    "route": "route_9",
+    "trainers": [
+      {
+        "id": "route9_hiker_1",
+        "name": "Hiker Alan",
+        "class": "hiker",
+        "team": [
+          {"species": "Geodude", "level": 25, "moves": ["Rock Slide", "Tackle", "Defense Curl"]},
+          {"species": "Onix", "level": 25, "moves": ["Rock Slide", "Bind", "Slam"]}
+        ]
+      }
+    ]
+  },
+  {
+    "route": "route_10",
+    "trainers": [
+      {
+        "id": "route10_hiker_1",
+        "name": "Hiker Clark",
+        "class": "hiker",
+        "team": [
+          {"species": "Geodude", "level": 21, "moves": ["Tackle", "Rock Slide"]},
+          {"species": "Geodude", "level": 21, "moves": ["Tackle", "Rock Slide"]},
+          {"species": "Graveler", "level": 21, "moves": ["Rock Slide", "Magnitude", "Defense Curl"]}
+        ]
+      },
+      {
+        "id": "route10_picnicker_1",
+        "name": "Picnicker Carol",
+        "class": "picnicker",
+        "team": [
+          {"species": "Pidgey", "level": 21, "moves": ["Gust", "Quick Attack"]},
+          {"species": "Pikachu", "level": 21, "moves": ["Thunder Shock", "Quick Attack"]}
+        ]
+      }
+    ]
+  },
+  {
+    "route": "route_11",
+    "trainers": [
+      {
+        "id": "route11_youngster_1",
+        "name": "Youngster Yasu",
+        "class": "youngster",
+        "team": [
+          {"species": "Rattata", "level": 21, "moves": ["Tackle", "Quick Attack"]},
+          {"species": "Rattata", "level": 21, "moves": ["Tackle", "Quick Attack"]},
+          {"species": "Raticate", "level": 21, "moves": ["Quick Attack", "Hyper Fang"]}
+        ]
+      },
+      {
+        "id": "route11_gambler_1",
+        "name": "Gambler Jasper",
+        "class": "gambler",
+        "team": [
+          {"species": "Diglett", "level": 22, "moves": ["Dig", "Scratch", "Sand Attack"]},
+          {"species": "Diglett", "level": 22, "moves": ["Dig", "Scratch", "Sand Attack"]}
+        ]
+      }
+    ]
+  },
+  {
+    "route": "route_12",
+    "trainers": [
+      {
+        "id": "route12_fisherman_1",
+        "name": "Fisherman Andrew",
+        "class": "fisherman",
+        "team": [
+          {"species": "Magikarp", "level": 22, "moves": ["Splash", "Tackle"]},
+          {"species": "Magikarp", "level": 22, "moves": ["Splash", "Tackle"]},
+          {"species": "Magikarp", "level": 22, "moves": ["Splash", "Tackle"]},
+          {"species": "Gyarados", "level": 25, "moves": ["Bite", "Waterfall", "Dragon Rage"]}
+        ]
+      }
+    ]
+  },
+  {
+    "route": "route_13",
+    "trainers": [
+      {
+        "id": "route13_birdkeeper_1",
+        "name": "Bird Keeper Perry",
+        "class": "bird_keeper",
+        "team": [
+          {"species": "Pidgey", "level": 26, "moves": ["Wing Attack", "Quick Attack"]},
+          {"species": "Pidgeotto", "level": 26, "moves": ["Wing Attack", "Quick Attack", "Gust"]},
+          {"species": "Pidgey", "level": 26, "moves": ["Wing Attack", "Quick Attack"]}
+        ]
+      },
+      {
+        "id": "route13_beauty_1",
+        "name": "Beauty Lola",
+        "class": "beauty",
+        "team": [
+          {"species": "Clefairy", "level": 27, "moves": ["Pound", "Sing", "Double Slap"]},
+          {"species": "Jigglypuff", "level": 27, "moves": ["Pound", "Sing", "Double Slap"]}
+        ]
+      }
+    ]
+  },
+  {
+    "route": "route_14",
+    "trainers": [
+      {
+        "id": "route14_biker_1",
+        "name": "Biker Jared",
+        "class": "biker",
+        "team": [
+          {"species": "Grimer", "level": 28, "moves": ["Sludge", "Poison Gas", "Pound"]},
+          {"species": "Grimer", "level": 28, "moves": ["Sludge", "Poison Gas", "Pound"]}
+        ]
+      }
+    ]
+  },
+  {
+    "route": "route_15",
+    "trainers": [
+      {
+        "id": "route15_birdkeeper_1",
+        "name": "Bird Keeper Chester",
+        "class": "bird_keeper",
+        "team": [
+          {"species": "Doduo", "level": 29, "moves": ["Drill Peck", "Fury Attack"]},
+          {"species": "Dodrio", "level": 29, "moves": ["Drill Peck", "Tri Attack", "Fury Attack"]}
+        ]
+      }
+    ]
+  },
+  {
+    "route": "route_16",
+    "trainers": [
+      {
+        "id": "route16_biker_1",
+        "name": "Biker Virgil",
+        "class": "biker",
+        "team": [
+          {"species": "Grimer", "level": 28, "moves": ["Sludge", "Pound"]},
+          {"species": "Koffing", "level": 28, "moves": ["Sludge", "Smokescreen", "Tackle"]},
+          {"species": "Grimer", "level": 28, "moves": ["Sludge", "Poison Gas"]}
+        ]
+      }
+    ]
+  },
+  {
+    "route": "route_17",
+    "trainers": [
+      {
+        "id": "route17_biker_1",
+        "name": "Biker Ruben",
+        "class": "biker",
+        "team": [
+          {"species": "Weezing", "level": 30, "moves": ["Sludge", "Smokescreen", "Self Destruct"]},
+          {"species": "Koffing", "level": 30, "moves": ["Sludge", "Smokescreen", "Tackle"]}
+        ]
+      },
+      {
+        "id": "route17_biker_2",
+        "name": "Biker Billy",
+        "class": "biker",
+        "team": [
+          {"species": "Muk", "level": 32, "moves": ["Sludge", "Poison Gas", "Pound", "Screech"]}
+        ]
+      }
+    ]
+  },
+  {
+    "route": "route_19",
+    "trainers": [
+      {
+        "id": "route19_swimmer_1",
+        "name": "Swimmer Barry",
+        "class": "swimmer",
+        "team": [
+          {"species": "Tentacool", "level": 30, "moves": ["Water Gun", "Poison Sting", "Wrap"]},
+          {"species": "Horsea", "level": 30, "moves": ["Water Gun", "Smokescreen", "Bubble Beam"]}
+        ]
+      }
+    ]
+  },
+  {
+    "route": "route_20",
+    "trainers": [
+      {
+        "id": "route20_swimmer_1",
+        "name": "Swimmer Nora",
+        "class": "swimmer",
+        "team": [
+          {"species": "Tentacruel", "level": 33, "moves": ["Surf", "Poison Sting", "Wrap"]},
+          {"species": "Seadra", "level": 33, "moves": ["Surf", "Smokescreen", "Bubble Beam"]}
+        ]
+      }
+    ]
+  },
+  {
+    "route": "route_21",
+    "trainers": [
+      {
+        "id": "route21_fisherman_1",
+        "name": "Fisherman Wade",
+        "class": "fisherman",
+        "team": [
+          {"species": "Seaking", "level": 35, "moves": ["Waterfall", "Horn Attack", "Fury Attack"]},
+          {"species": "Goldeen", "level": 33, "moves": ["Water Gun", "Horn Attack"]},
+          {"species": "Seaking", "level": 35, "moves": ["Waterfall", "Horn Attack", "Supersonic"]}
+        ]
+      }
+    ]
+  },
+  {
+    "route": "route_24",
+    "trainers": [
+      {
+        "id": "route24_youngster_1",
+        "name": "Youngster Tyler",
+        "class": "youngster",
+        "team": [
+          {"species": "Rattata", "level": 14, "moves": ["Tackle", "Quick Attack"]},
+          {"species": "Ekans", "level": 14, "moves": ["Poison Sting", "Bite", "Wrap"]}
+        ]
+      },
+      {
+        "id": "route24_lass_1",
+        "name": "Lass Ali",
+        "class": "lass",
+        "team": [
+          {"species": "Pidgey", "level": 15, "moves": ["Gust", "Quick Attack"]},
+          {"species": "Oddish", "level": 15, "moves": ["Absorb", "Poison Powder"]},
+          {"species": "Bellsprout", "level": 15, "moves": ["Vine Whip", "Wrap"]}
+        ]
+      }
+    ]
+  },
+  {
+    "route": "route_25",
+    "trainers": [
+      {
+        "id": "route25_hiker_1",
+        "name": "Hiker Franklin",
+        "class": "hiker",
+        "team": [
+          {"species": "Machop", "level": 15, "moves": ["Karate Chop", "Leer"]},
+          {"species": "Geodude", "level": 15, "moves": ["Tackle", "Rock Slide"]}
+        ]
+      },
+      {
+        "id": "route25_youngster_1",
+        "name": "Youngster Chad",
+        "class": "youngster",
+        "team": [
+          {"species": "Ekans", "level": 16, "moves": ["Poison Sting", "Bite"]},
+          {"species": "Sandshrew", "level": 16, "moves": ["Scratch", "Sand Attack"]}
+        ]
+      }
+    ]
+  }
+]
