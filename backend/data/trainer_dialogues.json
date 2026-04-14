@@ -1,0 +1,147 @@
+[
+  {
+    "trainer_id": "route2_bug_catcher_1",
+    "pre_battle": "Hey! I just caught some cool bugs!",
+    "post_battle": "Aww, my bugs weren't strong enough..."
+  },
+  {
+    "trainer_id": "route3_bug_catcher_1",
+    "pre_battle": "I'm gonna be the best Bug Catcher ever!",
+    "post_battle": "I need to find stronger bugs..."
+  },
+  {
+    "trainer_id": "route3_youngster_1",
+    "pre_battle": "My Pokemon are tougher than they look!",
+    "post_battle": "I guess looks aren't everything..."
+  },
+  {
+    "trainer_id": "route3_lass_1",
+    "pre_battle": "Aren't my Pidgey adorable?",
+    "post_battle": "Even adorable Pokemon can lose, I guess."
+  },
+  {
+    "trainer_id": "route4_youngster_1",
+    "pre_battle": "You won't get past me!",
+    "post_battle": "Okay, maybe you will..."
+  },
+  {
+    "trainer_id": "route6_bug_catcher_1",
+    "pre_battle": "Bug Pokemon are underrated!",
+    "post_battle": "Maybe they're rated just right..."
+  },
+  {
+    "trainer_id": "route6_youngster_1",
+    "pre_battle": "My Raticate is super fast!",
+    "post_battle": "Speed isn't everything, huh?"
+  },
+  {
+    "trainer_id": "route8_gambler_1",
+    "pre_battle": "I bet I can beat you!",
+    "post_battle": "I should stick to the Game Corner..."
+  },
+  {
+    "trainer_id": "route8_lass_1",
+    "pre_battle": "I've trained hard for this!",
+    "post_battle": "I need to train even harder."
+  },
+  {
+    "trainer_id": "route9_hiker_1",
+    "pre_battle": "These mountains made my Pokemon tough!",
+    "post_battle": "The mountain trail continues..."
+  },
+  {
+    "trainer_id": "route10_hiker_1",
+    "pre_battle": "Rock types are the toughest!",
+    "post_battle": "Even rocks can crumble..."
+  },
+  {
+    "trainer_id": "route10_picnicker_1",
+    "pre_battle": "What a lovely day for a battle!",
+    "post_battle": "Well, it was lovely until now."
+  },
+  {
+    "trainer_id": "route11_youngster_1",
+    "pre_battle": "Rattata might be common, but mine are special!",
+    "post_battle": "Okay, maybe not that special."
+  },
+  {
+    "trainer_id": "route11_gambler_1",
+    "pre_battle": "Double or nothing!",
+    "post_battle": "I'll win it back eventually..."
+  },
+  {
+    "trainer_id": "route12_fisherman_1",
+    "pre_battle": "I've been fishing here all day. Want to battle?",
+    "post_battle": "My Gyarados is still a work in progress."
+  },
+  {
+    "trainer_id": "route13_birdkeeper_1",
+    "pre_battle": "My birds will soar to victory!",
+    "post_battle": "They soared, but not to victory."
+  },
+  {
+    "trainer_id": "route13_beauty_1",
+    "pre_battle": "Cute Pokemon are the strongest!",
+    "post_battle": "Even cute Pokemon have limits."
+  },
+  {
+    "trainer_id": "route14_biker_1",
+    "pre_battle": "Get out of the road!",
+    "post_battle": "Fine, you can pass."
+  },
+  {
+    "trainer_id": "route15_birdkeeper_1",
+    "pre_battle": "My Dodrio has three heads and three times the power!",
+    "post_battle": "Three heads and zero wins..."
+  },
+  {
+    "trainer_id": "route16_biker_1",
+    "pre_battle": "The Cycling Road belongs to us!",
+    "post_battle": "Keep riding, I won't stop you."
+  },
+  {
+    "trainer_id": "route17_biker_1",
+    "pre_battle": "Poison types are nasty!",
+    "post_battle": "Not nasty enough, apparently."
+  },
+  {
+    "trainer_id": "route17_biker_2",
+    "pre_battle": "My Muk will smother you!",
+    "post_battle": "Muk needs more training."
+  },
+  {
+    "trainer_id": "route19_swimmer_1",
+    "pre_battle": "The ocean is my battlefield!",
+    "post_battle": "I should've stayed on land."
+  },
+  {
+    "trainer_id": "route20_swimmer_1",
+    "pre_battle": "Water Pokemon rule the seas!",
+    "post_battle": "Ruling the seas doesn't mean ruling battles."
+  },
+  {
+    "trainer_id": "route21_fisherman_1",
+    "pre_battle": "I caught all these Pokemon myself!",
+    "post_battle": "Maybe I should catch stronger ones."
+  },
+  {
+    "trainer_id": "route24_youngster_1",
+    "pre_battle": "Are you challenging the Nugget Bridge?",
+    "post_battle": "You're pretty strong!"
+  },
+  {
+    "trainer_id": "route24_lass_1",
+    "pre_battle": "I love my Grass Pokemon!",
+    "post_battle": "Even Grass Pokemon need water to grow stronger."
+  },
+  {
+    "trainer_id": "route25_hiker_1",
+    "pre_battle": "This path leads to Bill's house!",
+    "post_battle": "Keep going, Bill's just ahead."
+  },
+  {
+    "trainer_id": "route25_youngster_1",
+    "pre_battle": "You're not getting past me easily!",
+    "post_battle": "Okay, you got past me easily."
+  }
+]

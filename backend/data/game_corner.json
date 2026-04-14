@@ -1,0 +1,50 @@
+{
+  "location": "celadon_city",
+  "description": "The Celadon Game Corner, featuring slot machines and prize exchanges.",
+  "entry_fee": 0,
+  "coin_purchase": {
+    "50_coins": 1000,
+    "500_coins": 10000
+  },
+  "slot_machines": {
+    "count": 15,
+    "cost_per_play": 3,
+    "symbols": ["7", "BAR", "cherry", "Pikachu", "moon", "star"],
+    "payouts": {
+      "777": 300,
+      "BAR_BAR_BAR": 100,
+      "cherry_cherry_cherry": 15,
+      "cherry_cherry_any": 8,
+      "cherry_any_any": 2,
+      "Pikachu_Pikachu_Pikachu": 50
+    },
+    "rigged_machine_id": 12,
+    "best_odds_machine_id": 12
+  },
+  "prizes": {
+    "pokemon": [
+      {"species": "Abra", "cost_coins": 180, "level": 9},
+      {"species": "Clefairy", "cost_coins": 500, "level": 8},
+      {"species": "Dratini", "cost_coins": 2800, "level": 18},
+      {"species": "Scyther", "cost_coins": 5500, "level": 25},
+      {"species": "Porygon", "cost_coins": 9999, "level": 26}
+    ],
+    "tms": [
+      {"item": "TM15", "move": "Hyper Beam", "cost_coins": 5500},
+      {"item": "TM23", "move": "Dragon Rage", "cost_coins": 3300},
+      {"item": "TM50", "move": "Substitute", "cost_coins": 7700}
+    ],
+    "items": [
+      {"item": "Smoke Ball", "cost_coins": 800},
+      {"item": "Miracle Seed", "cost_coins": 1000},
+      {"item": "Charcoal", "cost_coins": 1000},
+      {"item": "Mystic Water", "cost_coins": 1000}
+    ]
+  },
+  "team_rocket_hideout": {
+    "entrance": "poster_switch",
+    "accessible_before_story": false,
+    "floors": 4,
+    "boss": "giovanni"
+  }
+}

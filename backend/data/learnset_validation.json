@@ -1,0 +1,237 @@
+{
+  "description": "Learnset validation data: maps species to their valid learnable moves.",
+  "total_species": 151,
+  "total_moves": 174,
+  "species_with_learnsets": 151,
+  "species_without_learnsets": 0,
+  "invalid_moves_found": [
+    {
+      "species": "Nidoqueen",
+      "move": "Superpower"
+    },
+    {
+      "species": "Nidoqueen",
+      "move": "Earth Power"
+    },
+    {
+      "species": "Nidoking",
+      "move": "Earth Power"
+    },
+    {
+      "species": "Nidoking",
+      "move": "Megahorn"
+    },
+    {
+      "species": "Clefable",
+      "move": "Moonblast"
+    },
+    {
+      "species": "Golbat",
+      "move": "Air Slash"
+    },
+    {
+      "species": "Golbat",
+      "move": "Mean Look"
+    },
+    {
+      "species": "Parasect",
+      "move": "X-Scissor"
+    },
+    {
+      "species": "Venomoth",
+      "move": "Silver Wind"
+    },
+    {
+      "species": "Persian",
+      "move": "Nasty Plot"
+    },
+    {
+      "species": "Persian",
+      "move": "Play Rough"
+    },
+    {
+      "species": "Mankey",
+      "move": "Cross Chop"
+    },
+    {
+      "species": "Primeape",
+      "move": "Cross Chop"
+    },
+    {
+      "species": "Primeape",
+      "move": "Close Combat"
+    },
+    {
+      "species": "Growlithe",
+      "move": "Odor Sleuth"
+    },
+    {
+      "species": "Growlithe",
+      "move": "Flame Wheel"
+    },
+    {
+      "species": "Arcanine",
+      "move": "Fire Fang"
+    },
+    {
+      "species": "Arcanine",
+      "move": "Extreme Speed"
+    },
+    {
+      "species": "Poliwrath",
+      "move": "Dynamic Punch"
+    },
+    {
+      "species": "Poliwrath",
+      "move": "Mind Reader"
+    }
+  ],
+  "species_learnset_sizes": {
+    "Bulbasaur": 6,
+    "Ivysaur": 6,
+    "Venusaur": 7,
+    "Charmander": 6,
+    "Charmeleon": 7,
+    "Charizard": 8,
+    "Squirtle": 6,
+    "Wartortle": 7,
+    "Blastoise": 8,
+    "Pidgey": 5,
+    "Pidgeotto": 6,
+    "Pidgeot": 7,
+    "Rattata": 5,
+    "Raticate": 6,
+    "Pikachu": 6,
+    "Raichu": 4,
+    "Geodude": 5,
+    "Onix": 5,
+    "Caterpie": 2,
+    "Weedle": 2,
+    "Staryu": 14,
+    "Starmie": 6,
+    "Ekans": 6,
+    "Arbok": 6,
+    "Spearow": 7,
+    "Sandshrew": 5,
+    "Sandslash": 7,
+    "Nidoran-F": 6,
+    "Nidorina": 6,
+    "Nidoqueen": 6,
+    "Nidoran-M": 6,
+    "Nidorino": 6,
+    "Nidoking": 6,
+    "Clefairy": 4,
+    "Clefable": 4,
+    "Vulpix": 7,
+    "Ninetales": 4,
+    "Jigglypuff": 5,
+    "Wigglytuff": 5,
+    "Zubat": 5,
+    "Golbat": 7,
+    "Oddish": 6,
+    "Gloom": 6,
+    "Vileplume": 5,
+    "Paras": 5,
+    "Parasect": 5,
+    "Venonat": 8,
+    "Venomoth": 4,
+    "Diglett": 5,
+    "Dugtrio": 6,
+    "Meowth": 7,
+    "Persian": 6,
+    "Psyduck": 7,
+    "Golduck": 5,
+    "Mankey": 8,
+    "Primeape": 6,
+    "Growlithe": 9,
+    "Arcanine": 5,
+    "Poliwag": 5,
+    "Poliwhirl": 5,
+    "Poliwrath": 6,
+    "Abra": 1,
+    "Kadabra": 7,
+    "Alakazam": 8,
+    "Machop": 6,
+    "Machoke": 7,
+    "Machamp": 8,
+    "Bellsprout": 5,
+    "Weepinbell": 6,
+    "Victreebel": 4,
+    "Tentacool": 6,
+    "Tentacruel": 5,
+    "Graveler": 7,
+    "Golem": 5,
+    "Ponyta": 10,
+    "Rapidash": 8,
+    "Slowpoke": 10,
+    "Slowbro": 6,
+    "Magnemite": 7,
+    "Magneton": 6,
+    "Farfetchd": 9,
+    "Doduo": 6,
+    "Dodrio": 6,
+    "Seel": 10,
+    "Dewgong": 9,
+    "Grimer": 10,
+    "Muk": 6,
+    "Shellder": 5,
+    "Cloyster": 7,
+    "Gastly": 6,
+    "Haunter": 5,
+    "Gengar": 7,
+    "Drowzee": 6,
+    "Hypno": 6,
+    "Krabby": 10,
+    "Kingler": 6,
+    "Voltorb": 7,
+    "Electrode": 10,
+    "Exeggcute": 5,
+    "Exeggutor": 8,
+    "Cubone": 6,
+    "Marowak": 7,
+    "Hitmonlee": 7,
+    "Hitmonchan": 7,
+    "Lickitung": 10,
+    "Koffing": 11,
+    "Weezing": 6,
+    "Rhyhorn": 9,
+    "Rhydon": 7,
+    "Chansey": 8,
+    "Tangela": 6,
+    "Kangaskhan": 14,
+    "Horsea": 5,
+    "Seadra": 4,
+    "Goldeen": 6,
+    "Seaking": 5,
+    "Mr. Mime": 7,
+    "Scyther": 8,
+    "Jynx": 14,
+    "Electabuzz": 14,
+    "Magmar": 10,
+    "Pinsir": 16,
+    "Tauros": 9,
+    "Magikarp": 2,
+    "Gyarados": 6,
+    "Lapras": 12,
+    "Ditto": 1,
+    "Eevee": 8,
+    "Vaporeon": 10,
+    "Jolteon": 10,
+    "Flareon": 10,
+    "Porygon": 6,
+    "Omanyte": 14,
+    "Omastar": 6,
+    "Kabuto": 12,
+    "Kabutops": 6,
+    "Aerodactyl": 13,
+    "Snorlax": 16,
+    "Articuno": 11,
+    "Zapdos": 12,
+    "Moltres": 12,
+    "Dratini": 5,
+    "Dragonair": 10,
+    "Dragonite": 8,
+    "Mewtwo": 11,
+    "Mew": 11
+  }
+}
