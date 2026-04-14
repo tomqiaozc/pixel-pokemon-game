@@ -77,6 +77,39 @@ _QUEST_DEFS: list[dict] = [
         "rewards": {"money": 1500, "unlock_flags": ["rival_defeated_route2"]},
         "prerequisite_quests": ["oaks_parcel"],
     },
+    {
+        "id": "nugget_bridge",
+        "name": "Nugget Bridge Challenge",
+        "description": "Defeat all 5 trainers on Route 24's Nugget Bridge to earn a prize!",
+        "type": "main",
+        "objectives": [
+            {"id": "defeat_bridge_trainers", "description": "Defeat 5 trainers on Nugget Bridge", "type": "defeat_trainer", "target": "nugget_bridge", "required_progress": 5},
+        ],
+        "rewards": {"money": 500, "items": [{"item_id": 51, "quantity": 1}], "unlock_flags": ["nugget_bridge_complete"]},
+        "prerequisite_quests": ["cascade_badge"],
+    },
+    {
+        "id": "bill_rescue",
+        "name": "Help Bill!",
+        "description": "Visit Bill's House on Route 25 and help him transform back from a Pokemon!",
+        "type": "main",
+        "objectives": [
+            {"id": "rescue_bill", "description": "Help Bill transform back to human", "type": "collect_item", "target": "bill_rescue", "required_progress": 1},
+        ],
+        "rewards": {"money": 300, "items": [{"item_id": 52, "quantity": 1}], "unlock_flags": ["bill_rescued", "has_ss_ticket"]},
+        "prerequisite_quests": ["nugget_bridge"],
+    },
+    {
+        "id": "rocket_cerulean",
+        "name": "The Cerulean Robbery",
+        "description": "A Team Rocket grunt has robbed a house in Cerulean City. Find and defeat the grunt!",
+        "type": "side",
+        "objectives": [
+            {"id": "defeat_rocket_cerulean", "description": "Defeat the Rocket Grunt in Cerulean City", "type": "defeat_trainer", "target": "rocket_grunt_cerulean", "required_progress": 1},
+        ],
+        "rewards": {"money": 500, "exp": 200, "unlock_flags": ["rocket_cerulean_resolved"]},
+        "prerequisite_quests": ["cascade_badge"],
+    },
 ]
 
 
@@ -294,6 +327,10 @@ def check_area_accessible(game_id: str, map_id: str, required_flag: Optional[str
         "badge_boulder": "You need the Boulder Badge to pass",
         "badge_cascade": "You need the Cascade Badge to pass",
         "rival_defeated_route2": "You need to defeat your rival on Route 2 first",
+        "nugget_bridge_complete": "You need to complete the Nugget Bridge Challenge first",
+        "bill_rescued": "You need to help Bill first",
+        "has_ss_ticket": "You need the S.S. Ticket to board",
+        "rocket_cerulean_resolved": "You need to defeat the Rocket Grunt first",
     }
     reason = flag_reasons.get(required_flag, f"You need to complete a requirement: {required_flag}")
     return {"accessible": False, "reason": reason}
