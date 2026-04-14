@@ -1,0 +1,127 @@
+{
+  "hardy": {
+    "name": "Hardy",
+    "increased_stat": null,
+    "decreased_stat": null
+  },
+  "lonely": {
+    "name": "Lonely",
+    "increased_stat": "attack",
+    "decreased_stat": "defense"
+  },
+  "brave": {
+    "name": "Brave",
+    "increased_stat": "attack",
+    "decreased_stat": "speed"
+  },
+  "adamant": {
+    "name": "Adamant",
+    "increased_stat": "attack",
+    "decreased_stat": "sp_attack"
+  },
+  "naughty": {
+    "name": "Naughty",
+    "increased_stat": "attack",
+    "decreased_stat": "sp_defense"
+  },
+  "bold": {
+    "name": "Bold",
+    "increased_stat": "defense",
+    "decreased_stat": "attack"
+  },
+  "docile": {
+    "name": "Docile",
+    "increased_stat": null,
+    "decreased_stat": null
+  },
+  "relaxed": {
+    "name": "Relaxed",
+    "increased_stat": "defense",
+    "decreased_stat": "speed"
+  },
+  "impish": {
+    "name": "Impish",
+    "increased_stat": "defense",
+    "decreased_stat": "sp_attack"
+  },
+  "lax": {
+    "name": "Lax",
+    "increased_stat": "defense",
+    "decreased_stat": "sp_defense"
+  },
+  "timid": {
+    "name": "Timid",
+    "increased_stat": "speed",
+    "decreased_stat": "attack"
+  },
+  "hasty": {
+    "name": "Hasty",
+    "increased_stat": "speed",
+    "decreased_stat": "defense"
+  },
+  "serious": {
+    "name": "Serious",
+    "increased_stat": null,
+    "decreased_stat": null
+  },
+  "jolly": {
+    "name": "Jolly",
+    "increased_stat": "speed",
+    "decreased_stat": "sp_attack"
+  },
+  "naive": {
+    "name": "Naive",
+    "increased_stat": "speed",
+    "decreased_stat": "sp_defense"
+  },
+  "modest": {
+    "name": "Modest",
+    "increased_stat": "sp_attack",
+    "decreased_stat": "attack"
+  },
+  "mild": {
+    "name": "Mild",
+    "increased_stat": "sp_attack",
+    "decreased_stat": "defense"
+  },
+  "quiet": {
+    "name": "Quiet",
+    "increased_stat": "sp_attack",
+    "decreased_stat": "speed"
+  },
+  "bashful": {
+    "name": "Bashful",
+    "increased_stat": null,
+    "decreased_stat": null
+  },
+  "rash": {
+    "name": "Rash",
+    "increased_stat": "sp_attack",
+    "decreased_stat": "sp_defense"
+  },
+  "calm": {
+    "name": "Calm",
+    "increased_stat": "sp_defense",
+    "decreased_stat": "attack"
+  },
+  "gentle": {
+    "name": "Gentle",
+    "increased_stat": "sp_defense",
+    "decreased_stat": "defense"
+  },
+  "sassy": {
+    "name": "Sassy",
+    "increased_stat": "sp_defense",
+    "decreased_stat": "speed"
+  },
+  "careful": {
+    "name": "Careful",
+    "increased_stat": "sp_defense",
+    "decreased_stat": "sp_attack"
+  },
+  "quirky": {
+    "name": "Quirky",
+    "increased_stat": null,
+    "decreased_stat": null
+  }
+}

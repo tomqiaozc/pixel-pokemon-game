@@ -1,0 +1,118 @@
+{
+  "burn": {
+    "name": "Burn",
+    "abbreviation": "BRN",
+    "type": "non_volatile",
+    "damage_per_turn_percent": 6.25,
+    "attack_modifier": 0.5,
+    "prevents_freeze": true,
+    "cured_by": [
+      "Rawst Berry",
+      "Full Heal",
+      "Lum Berry",
+      "Full Restore"
+    ]
+  },
+  "poison": {
+    "name": "Poison",
+    "abbreviation": "PSN",
+    "type": "non_volatile",
+    "damage_per_turn_percent": 12.5,
+    "cured_by": [
+      "Pecha Berry",
+      "Antidote",
+      "Full Heal",
+      "Lum Berry",
+      "Full Restore"
+    ]
+  },
+  "badly_poisoned": {
+    "name": "Badly Poisoned",
+    "abbreviation": "TOX",
+    "type": "non_volatile",
+    "damage_per_turn_start": 6.25,
+    "damage_increment": 6.25,
+    "cured_by": [
+      "Pecha Berry",
+      "Antidote",
+      "Full Heal",
+      "Lum Berry",
+      "Full Restore"
+    ]
+  },
+  "paralysis": {
+    "name": "Paralysis",
+    "abbreviation": "PAR",
+    "type": "non_volatile",
+    "speed_modifier": 0.25,
+    "cant_move_chance": 25,
+    "cured_by": [
+      "Cheri Berry",
+      "Paralyze Heal",
+      "Full Heal",
+      "Lum Berry",
+      "Full Restore"
+    ]
+  },
+  "sleep": {
+    "name": "Sleep",
+    "abbreviation": "SLP",
+    "type": "non_volatile",
+    "min_turns": 1,
+    "max_turns": 3,
+    "cant_move": true,
+    "cured_by": [
+      "Chesto Berry",
+      "Awakening",
+      "Full Heal",
+      "Lum Berry",
+      "Full Restore"
+    ]
+  },
+  "freeze": {
+    "name": "Freeze",
+    "abbreviation": "FRZ",
+    "type": "non_volatile",
+    "cant_move": true,
+    "thaw_chance_per_turn": 20,
+    "thaw_on_fire_move": true,
+    "cured_by": [
+      "Aspear Berry",
+      "Ice Heal",
+      "Full Heal",
+      "Lum Berry",
+      "Full Restore"
+    ]
+  },
+  "confusion": {
+    "name": "Confusion",
+    "abbreviation": "CNF",
+    "type": "volatile",
+    "min_turns": 2,
+    "max_turns": 5,
+    "self_hit_chance": 33,
+    "self_hit_power": 40,
+    "cured_by": [
+      "Persim Berry",
+      "Full Heal",
+      "Lum Berry"
+    ]
+  },
+  "flinch": {
+    "name": "Flinch",
+    "abbreviation": "FLN",
+    "type": "volatile",
+    "duration": 1,
+    "cant_move": true,
+    "cured_by": []
+  },
+  "infatuation": {
+    "name": "Infatuation",
+    "abbreviation": "INF",
+    "type": "volatile",
+    "cant_move_chance": 50,
+    "cured_by": [
+      "Mental Herb"
+    ]
+  }
+}

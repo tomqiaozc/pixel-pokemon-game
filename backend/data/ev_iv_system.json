@@ -1,0 +1,97 @@
+{
+  "ivs": {
+    "description": "Individual Values - inherent Pokemon stats determined at encounter/hatch",
+    "min_value": 0,
+    "max_value": 31,
+    "stats": [
+      "hp",
+      "attack",
+      "defense",
+      "sp_attack",
+      "sp_defense",
+      "speed"
+    ],
+    "generation_method": "random_per_stat"
+  },
+  "evs": {
+    "description": "Effort Values - stats gained through battling specific Pokemon",
+    "min_value": 0,
+    "max_value_per_stat": 252,
+    "max_total": 510,
+    "stats": [
+      "hp",
+      "attack",
+      "defense",
+      "sp_attack",
+      "sp_defense",
+      "speed"
+    ],
+    "ev_yield_examples": {
+      "bulbasaur": {
+        "sp_attack": 1
+      },
+      "charmander": {
+        "speed": 1
+      },
+      "squirtle": {
+        "defense": 1
+      },
+      "rattata": {
+        "speed": 1
+      },
+      "pidgey": {
+        "speed": 1
+      },
+      "geodude": {
+        "defense": 1
+      },
+      "machop": {
+        "attack": 1
+      },
+      "abra": {
+        "sp_attack": 1
+      },
+      "gastly": {
+        "sp_attack": 1
+      },
+      "dratini": {
+        "attack": 1
+      }
+    }
+  },
+  "stat_formula": {
+    "hp": "((2 * base + iv + ev/4) * level / 100) + level + 10",
+    "other": "(((2 * base + iv + ev/4) * level / 100) + 5) * nature_modifier"
+  },
+  "nature_modifier": {
+    "increased": 1.1,
+    "decreased": 0.9,
+    "neutral": 1.0
+  },
+  "vitamins": {
+    "HP Up": {
+      "stat": "hp",
+      "ev_gain": 10
+    },
+    "Protein": {
+      "stat": "attack",
+      "ev_gain": 10
+    },
+    "Iron": {
+      "stat": "defense",
+      "ev_gain": 10
+    },
+    "Calcium": {
+      "stat": "sp_attack",
+      "ev_gain": 10
+    },
+    "Zinc": {
+      "stat": "sp_defense",
+      "ev_gain": 10
+    },
+    "Carbos": {
+      "stat": "speed",
+      "ev_gain": 10
+    }
+  }
+}
