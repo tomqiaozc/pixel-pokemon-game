@@ -326,6 +326,86 @@ const Routes = (() => {
         m[sy + h - 1][sx + Math.floor(w / 2)] = T.DOOR;
     }
 
+    // Build Route 4: Path from Mt. Moon to Cerulean City (30x20 tiles)
+    function buildRoute4() {
+        const W = 30, H = 20;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.GRASS);
+            m.push(row);
+        }
+
+        // Tree borders (top and bottom)
+        for (let x = 0; x < W; x++) { m[0][x] = T.TREE; m[H - 1][x] = T.TREE; }
+        // Left/right borders (with gaps for exits)
+        for (let y = 0; y < H; y++) {
+            m[y][0] = T.TREE;
+            m[y][W - 1] = T.TREE;
+        }
+
+        // Main dirt path — winding east-west
+        for (let x = 0; x < W; x++) {
+            const offset = Math.floor(Math.sin(x * 0.25) * 2);
+            const pathY = 10 + offset;
+            for (let y = pathY - 1; y <= pathY; y++) {
+                if (y >= 1 && y < H - 1) m[y][x] = T.DIRT;
+            }
+        }
+        // Widen path at exits
+        for (let y = 8; y <= 11; y++) {
+            m[y][1] = T.DIRT;
+            m[y][W - 2] = T.DIRT;
+        }
+
+        // Tall grass encounter zone 1 — upper left
+        for (let y = 3; y <= 6; y++) {
+            for (let x = 4; x <= 10; x++) {
+                if (m[y][x] === T.GRASS) m[y][x] = T.TALL_GRASS;
+            }
+        }
+        // Tall grass encounter zone 2 — lower right
+        for (let y = 13; y <= 16; y++) {
+            for (let x = 18; x <= 25; x++) {
+                if (m[y][x] === T.GRASS) m[y][x] = T.TALL_GRASS;
+            }
+        }
+
+        // South-facing ledges (shortcuts going south)
+        for (let x = 5; x <= 9; x++) m[7][x] = T.ROCK;
+        for (let x = 20; x <= 25; x++) m[12][x] = T.ROCK;
+
+        // Scattered trees for decoration
+        m[3][15] = T.TREE;
+        m[5][22] = T.TREE;
+        m[14][8] = T.TREE;
+        m[16][13] = T.TREE;
+        m[4][26] = T.TREE;
+
+        // Flowers
+        m[6][13] = T.FLOWER;
+        m[8][20] = T.FLOWER;
+        m[15][5] = T.FLOWER;
+        m[3][24] = T.FLOWER;
+        m[17][17] = T.FLOWER;
+
+        // Rocks
+        m[5][17] = T.ROCK;
+        m[15][27] = T.ROCK;
+
+        // Small water feature (puddle)
+        m[14][3] = T.WATER;
+        m[14][4] = T.WATER;
+        m[15][3] = T.WATER;
+
+        // Exit west (to mt_moon_entrance) — gap in left border
+        m[9][0] = T.DIRT; m[10][0] = T.DIRT;
+        // Exit east (to cerulean_city) — gap in right border
+        m[9][W - 1] = T.DIRT; m[10][W - 1] = T.DIRT;
+
+        return { data: m, width: W, height: H };
+    }
+
     // Trainer NPC positions for routes
     const route1Trainers = [
         { x: 12, y: 8, name: 'Youngster Joey', dir: 2, sightRange: 3,
@@ -346,6 +426,26 @@ const Routes = (() => {
         { x: 14, y: 22, name: 'Lass Robin', dir: 2, sightRange: 3,
           dialogue: ['Have you been to the forest?'],
           pokemon: [{ name: 'Oddish', level: 7, hp: 20, maxHp: 20, type: 'Grass' }] },
+    ];
+
+    const route4Trainers = [
+        { x: 8, y: 5, name: 'Hiker Marcos', dir: 0, sightRange: 4,
+          dialogue: ['I just came through Mt. Moon! What a trip!'],
+          pokemon: [
+            { name: 'Geodude', level: 12, hp: 32, maxHp: 32, type: 'Rock' },
+            { name: 'Onix', level: 13, hp: 36, maxHp: 36, type: 'Rock' },
+          ] },
+        { x: 20, y: 9, name: 'Lass Dana', dir: 2, sightRange: 3,
+          dialogue: ['Cerulean City is just ahead!'],
+          pokemon: [
+            { name: 'Oddish', level: 13, hp: 34, maxHp: 34, type: 'Grass' },
+            { name: 'Jigglypuff', level: 12, hp: 38, maxHp: 38, type: 'Normal' },
+          ] },
+        { x: 14, y: 15, name: 'Youngster Timmy', dir: 1, sightRange: 3,
+          dialogue: ['I train here every day!'],
+          pokemon: [
+            { name: 'Ekans', level: 14, hp: 35, maxHp: 35, type: 'Poison' },
+          ] },
     ];
 
     // Register all maps with MapLoader
@@ -430,16 +530,36 @@ const Routes = (() => {
             ],
             lamps: [{ x: 10, y: 6 }, { x: 18, y: 6 }, { x: 14, y: 10 }],
         });
+
+        const route4 = buildRoute4();
+        MapLoader.registerMap('route_4', {
+            name: 'Route 4',
+            width: route4.width,
+            height: route4.height,
+            data: route4.data,
+            exits: [
+                { edge: 'west', targetMap: 'mt_moon_entrance', spawnX: 18, spawnY: 10, spawnDir: 3 },
+                { edge: 'east', targetMap: 'cerulean_city', spawnX: 1, spawnY: 10, spawnDir: 3 },
+            ],
+            trainers: route4Trainers,
+            ledges: [
+                { x1: 5, x2: 9, y: 7 },
+                { x1: 20, x2: 25, y: 12 },
+            ],
+            lamps: [{ x: 12, y: 9 }, { x: 22, y: 9 }],
+        });
     }
 
     return {
         buildRoute1,
         buildRoute2,
+        buildRoute4,
         buildPalletTown,
         buildViridianCity,
         buildPewterCity,
         registerAll,
         route1Trainers,
         route2Trainers,
+        route4Trainers,
     };
 })();

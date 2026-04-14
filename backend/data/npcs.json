@@ -58,5 +58,85 @@
     "facing": "down",
     "npc_type": "nurse",
     "dialogue_tree_id": "nurse_dialogue"
+  },
+  {
+    "id": "cerulean_townsfolk_1",
+    "name": "Swimmer",
+    "sprite_id": "townsfolk_m",
+    "position": {"x": 8, "y": 12},
+    "map_id": "cerulean_city",
+    "facing": "down",
+    "npc_type": "generic",
+    "dialogue_tree_id": "cerulean_townsfolk_1_dialogue"
+  },
+  {
+    "id": "cerulean_townsfolk_2",
+    "name": "Lass",
+    "sprite_id": "townsfolk_f",
+    "position": {"x": 15, "y": 8},
+    "map_id": "cerulean_city",
+    "facing": "left",
+    "npc_type": "generic",
+    "dialogue_tree_id": "cerulean_townsfolk_2_dialogue"
+  },
+  {
+    "id": "cerulean_townsfolk_3",
+    "name": "Youngster",
+    "sprite_id": "townsfolk_m",
+    "position": {"x": 20, "y": 15},
+    "map_id": "cerulean_city",
+    "facing": "up",
+    "npc_type": "generic",
+    "dialogue_tree_id": "cerulean_townsfolk_3_dialogue"
+  },
+  {
+    "id": "bike_shop_owner",
+    "name": "Bike Shop Owner",
+    "sprite_id": "shopkeeper",
+    "position": {"x": 4, "y": 2},
+    "map_id": "bike_shop",
+    "facing": "down",
+    "npc_type": "shopkeeper",
+    "dialogue_tree_id": "bike_shop_owner_dialogue"
+  },
+  {
+    "id": "cerulean_officer",
+    "name": "Officer Jenny",
+    "sprite_id": "officer",
+    "position": {"x": 12, "y": 20},
+    "map_id": "cerulean_city",
+    "facing": "right",
+    "npc_type": "generic",
+    "dialogue_tree_id": "cerulean_officer_dialogue"
+  },
+  {
+    "id": "nurse_joy_cerulean",
+    "name": "Nurse Joy",
+    "sprite_id": "nurse",
+    "position": {"x": 5, "y": 2},
+    "map_id": "cerulean_pokemon_center",
+    "facing": "down",
+    "npc_type": "nurse",
+    "dialogue_tree_id": "nurse_dialogue"
+  },
+  {
+    "id": "cerulean_shopkeeper",
+    "name": "Shop Clerk",
+    "sprite_id": "shopkeeper",
+    "position": {"x": 4, "y": 2},
+    "map_id": "cerulean_pokemart",
+    "facing": "down",
+    "npc_type": "shopkeeper",
+    "dialogue_tree_id": "cerulean_shopkeeper_dialogue"
+  },
+  {
+    "id": "bike_shop_npc",
+    "name": "Bike Enthusiast",
+    "sprite_id": "townsfolk_m",
+    "position": {"x": 6, "y": 4},
+    "map_id": "bike_shop",
+    "facing": "left",
+    "npc_type": "generic",
+    "dialogue_tree_id": "bike_shop_npc_dialogue"
   }
 ]

@@ -59,5 +59,52 @@
       {"id": "healed", "text": "Your Pokemon are fighting fit! We hope to see you again!", "next": null},
       {"id": "goodbye", "text": "OK! We hope to see you again!", "next": null}
     ]
+  },
+  "cerulean_townsfolk_1_dialogue": {
+    "id": "cerulean_townsfolk_1_dialogue",
+    "nodes": [
+      {"id": "start", "text": "The water routes north of here are beautiful!", "next": "tip"},
+      {"id": "tip", "text": "If you have a Pokemon that knows Surf, you can explore them!", "next": null}
+    ]
+  },
+  "cerulean_townsfolk_2_dialogue": {
+    "id": "cerulean_townsfolk_2_dialogue",
+    "nodes": [
+      {"id": "start", "text": "Misty is so tough! Her Starmie's Water Pulse is devastating!", "next": "tip"},
+      {"id": "tip", "text": "You'll need some Grass or Electric types to beat her.", "next": null}
+    ]
+  },
+  "cerulean_townsfolk_3_dialogue": {
+    "id": "cerulean_townsfolk_3_dialogue",
+    "nodes": [
+      {"id": "start", "text": "Have you been to Nugget Bridge north of here?", "next": "tip"},
+      {"id": "tip", "text": "They say if you beat all five trainers, you get a prize!", "next": null}
+    ]
+  },
+  "bike_shop_owner_dialogue": {
+    "id": "bike_shop_owner_dialogue",
+    "nodes": [
+      {"id": "start", "text": "Welcome to the Cerulean Bike Shop!", "next": "price"},
+      {"id": "price", "text": "A bicycle costs 1,000,000 Pokedollars! But if you have a Bike Voucher, it's free!", "next": null}
+    ]
+  },
+  "cerulean_officer_dialogue": {
+    "id": "cerulean_officer_dialogue",
+    "nodes": [
+      {"id": "start", "text": "I'm Officer Jenny! We've had reports of suspicious activity...", "next": "warning"},
+      {"id": "warning", "text": "Some shady characters in black uniforms were seen near the city. Be careful!", "next": null}
+    ]
+  },
+  "cerulean_shopkeeper_dialogue": {
+    "id": "cerulean_shopkeeper_dialogue",
+    "nodes": [
+      {"id": "start", "text": "Welcome to the Cerulean City Poke Mart! How can I help you?", "next": null}
+    ]
+  },
+  "bike_shop_npc_dialogue": {
+    "id": "bike_shop_npc_dialogue",
+    "nodes": [
+      {"id": "start", "text": "I love bikes! But they're so expensive here...", "next": null}
+    ]
   }
 }
