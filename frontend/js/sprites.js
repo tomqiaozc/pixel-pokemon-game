@@ -456,6 +456,523 @@ const Sprites = (() => {
         return c;
     }
 
+    // ---- Pokemon species sprites ----
+
+    // #23 Ekans — Purple snake, coiled, yellow rattle
+    function drawSpecies23() {
+        if (cache.species23) return cache.species23;
+        const c = createCanvas(TILE, TILE);
+        const ctx = c.getContext('2d');
+        // Coiled body
+        ctx.fillStyle = '#9060b0';
+        ctx.fillRect(5, 8, 8, 3);
+        ctx.fillRect(4, 7, 3, 1);
+        ctx.fillRect(10, 7, 3, 1);
+        ctx.fillRect(3, 8, 2, 4);
+        ctx.fillRect(11, 8, 2, 4);
+        ctx.fillRect(5, 11, 8, 2);
+        // Inner coil darker
+        ctx.fillStyle = '#704890';
+        ctx.fillRect(6, 9, 6, 2);
+        // Yellow belly stripes
+        ctx.fillStyle = '#e8d040';
+        ctx.fillRect(5, 10, 2, 1);
+        ctx.fillRect(9, 10, 2, 1);
+        // Head (raised up from coil)
+        ctx.fillStyle = '#9060b0';
+        ctx.fillRect(5, 3, 4, 4);
+        ctx.fillRect(4, 4, 6, 3);
+        // Eyes
+        px(ctx, 5, 4, '#e02020');
+        px(ctx, 8, 4, '#e02020');
+        // Tongue
+        px(ctx, 6, 7, '#e04060');
+        px(ctx, 7, 7, '#e04060');
+        // Yellow rattle tail
+        ctx.fillStyle = '#e8d040';
+        ctx.fillRect(12, 11, 2, 1);
+        ctx.fillRect(13, 10, 2, 2);
+        cache.species23 = c;
+        return c;
+    }
+
+    // #24 Arbok — Larger purple cobra, hood pattern
+    function drawSpecies24() {
+        if (cache.species24) return cache.species24;
+        const c = createCanvas(TILE, TILE);
+        const ctx = c.getContext('2d');
+        // Body coil (bottom)
+        ctx.fillStyle = '#7848a0';
+        ctx.fillRect(4, 10, 9, 4);
+        ctx.fillRect(3, 11, 11, 3);
+        // Yellow belly
+        ctx.fillStyle = '#e8d040';
+        ctx.fillRect(6, 12, 5, 2);
+        // Hood (wide)
+        ctx.fillStyle = '#9060b0';
+        ctx.fillRect(2, 3, 12, 7);
+        ctx.fillRect(3, 2, 10, 1);
+        ctx.fillRect(1, 5, 1, 3);
+        ctx.fillRect(14, 5, 1, 3);
+        // Hood pattern (face design)
+        ctx.fillStyle = '#e02020';
+        ctx.fillRect(5, 5, 2, 2);
+        ctx.fillRect(9, 5, 2, 2);
+        // Hood eyes pattern
+        ctx.fillStyle = '#202020';
+        px(ctx, 6, 5, '#202020');
+        px(ctx, 9, 5, '#202020');
+        // Actual eyes
+        px(ctx, 6, 3, '#e02020');
+        px(ctx, 9, 3, '#e02020');
+        // Mouth
+        px(ctx, 7, 8, '#e04060');
+        px(ctx, 8, 8, '#e04060');
+        cache.species24 = c;
+        return c;
+    }
+
+    // #29 Nidoran-F — Small blue quadruped, spots, horn
+    function drawSpecies29() {
+        if (cache.species29) return cache.species29;
+        const c = createCanvas(TILE, TILE);
+        const ctx = c.getContext('2d');
+        // Body
+        ctx.fillStyle = '#80a0d0';
+        ctx.fillRect(4, 7, 8, 5);
+        ctx.fillRect(3, 8, 10, 4);
+        // Head
+        ctx.fillRect(3, 5, 6, 4);
+        ctx.fillRect(4, 4, 4, 1);
+        // Ears
+        ctx.fillRect(4, 2, 2, 3);
+        ctx.fillRect(7, 2, 2, 3);
+        // Ear inner
+        ctx.fillStyle = '#c0a0c0';
+        px(ctx, 5, 3, '#c0a0c0');
+        px(ctx, 7, 3, '#c0a0c0');
+        // Eye
+        px(ctx, 5, 6, '#e02020');
+        // Horn
+        px(ctx, 4, 1, '#e8e8e8');
+        // Spots
+        ctx.fillStyle = '#5878a8';
+        px(ctx, 6, 8, '#5878a8');
+        px(ctx, 9, 9, '#5878a8');
+        px(ctx, 7, 10, '#5878a8');
+        // Legs
+        ctx.fillStyle = '#80a0d0';
+        ctx.fillRect(4, 12, 2, 2);
+        ctx.fillRect(9, 12, 2, 2);
+        // Feet
+        ctx.fillStyle = '#6888b0';
+        ctx.fillRect(4, 13, 2, 1);
+        ctx.fillRect(9, 13, 2, 1);
+        cache.species29 = c;
+        return c;
+    }
+
+    // #30 Nidorina — Larger blue, spines, darker spots
+    function drawSpecies30() {
+        if (cache.species30) return cache.species30;
+        const c = createCanvas(TILE, TILE);
+        const ctx = c.getContext('2d');
+        // Body (larger)
+        ctx.fillStyle = '#6890c0';
+        ctx.fillRect(3, 7, 10, 6);
+        ctx.fillRect(2, 8, 12, 5);
+        // Head
+        ctx.fillRect(2, 4, 7, 5);
+        ctx.fillRect(3, 3, 5, 1);
+        // Ears
+        ctx.fillRect(3, 1, 2, 3);
+        ctx.fillRect(6, 1, 2, 3);
+        // Ear inner
+        px(ctx, 4, 2, '#c0a0c0');
+        px(ctx, 6, 2, '#c0a0c0');
+        // Eye
+        px(ctx, 4, 5, '#e02020');
+        // Horn
+        px(ctx, 3, 0, '#e8e8e8');
+        // Spines on back
+        ctx.fillStyle = '#5070a0';
+        px(ctx, 7, 6, '#5070a0');
+        px(ctx, 9, 6, '#5070a0');
+        px(ctx, 11, 6, '#5070a0');
+        // Darker spots
+        ctx.fillStyle = '#4868a0';
+        px(ctx, 5, 9, '#4868a0');
+        px(ctx, 8, 10, '#4868a0');
+        px(ctx, 10, 9, '#4868a0');
+        px(ctx, 6, 11, '#4868a0');
+        // Legs
+        ctx.fillStyle = '#6890c0';
+        ctx.fillRect(3, 13, 2, 2);
+        ctx.fillRect(10, 13, 2, 2);
+        // Feet
+        ctx.fillStyle = '#5878a8';
+        ctx.fillRect(3, 14, 2, 1);
+        ctx.fillRect(10, 14, 2, 1);
+        cache.species30 = c;
+        return c;
+    }
+
+    // #32 Nidoran-M — Small purple quadruped, large ears, horn
+    function drawSpecies32() {
+        if (cache.species32) return cache.species32;
+        const c = createCanvas(TILE, TILE);
+        const ctx = c.getContext('2d');
+        // Body
+        ctx.fillStyle = '#b070c0';
+        ctx.fillRect(4, 7, 8, 5);
+        ctx.fillRect(3, 8, 10, 4);
+        // Head
+        ctx.fillRect(3, 5, 6, 4);
+        ctx.fillRect(4, 4, 4, 1);
+        // Large ears (taller than Nidoran-F)
+        ctx.fillRect(3, 1, 2, 4);
+        ctx.fillRect(7, 1, 2, 4);
+        // Ear inner
+        px(ctx, 4, 2, '#d0a0d0');
+        px(ctx, 7, 2, '#d0a0d0');
+        // Eye
+        px(ctx, 5, 6, '#e02020');
+        // Larger horn
+        px(ctx, 5, 0, '#e8e8e8');
+        px(ctx, 5, 1, '#e8e8e8');
+        // Spots
+        ctx.fillStyle = '#8850a0';
+        px(ctx, 6, 8, '#8850a0');
+        px(ctx, 9, 9, '#8850a0');
+        // Legs
+        ctx.fillStyle = '#b070c0';
+        ctx.fillRect(4, 12, 2, 2);
+        ctx.fillRect(9, 12, 2, 2);
+        // Feet
+        ctx.fillStyle = '#9058a0';
+        ctx.fillRect(4, 13, 2, 1);
+        ctx.fillRect(9, 13, 2, 1);
+        cache.species32 = c;
+        return c;
+    }
+
+    // #33 Nidorino — Larger purple, bigger horn, spines
+    function drawSpecies33() {
+        if (cache.species33) return cache.species33;
+        const c = createCanvas(TILE, TILE);
+        const ctx = c.getContext('2d');
+        // Body (larger)
+        ctx.fillStyle = '#9858b0';
+        ctx.fillRect(3, 7, 10, 6);
+        ctx.fillRect(2, 8, 12, 5);
+        // Head
+        ctx.fillRect(2, 4, 7, 5);
+        ctx.fillRect(3, 3, 5, 1);
+        // Large ears
+        ctx.fillRect(2, 1, 2, 3);
+        ctx.fillRect(6, 1, 2, 3);
+        // Ear inner
+        px(ctx, 3, 2, '#d0a0d0');
+        px(ctx, 6, 2, '#d0a0d0');
+        // Eye
+        px(ctx, 4, 5, '#e02020');
+        // Bigger horn
+        ctx.fillStyle = '#e8e8e8';
+        px(ctx, 4, 0, '#e8e8e8');
+        ctx.fillRect(3, 1, 2, 2);
+        // Spines on back
+        ctx.fillStyle = '#7840a0';
+        px(ctx, 7, 6, '#7840a0');
+        px(ctx, 9, 6, '#7840a0');
+        px(ctx, 11, 6, '#7840a0');
+        px(ctx, 8, 5, '#7840a0');
+        px(ctx, 10, 5, '#7840a0');
+        // Spots
+        px(ctx, 5, 9, '#7840a0');
+        px(ctx, 8, 10, '#7840a0');
+        px(ctx, 10, 9, '#7840a0');
+        // Legs
+        ctx.fillStyle = '#9858b0';
+        ctx.fillRect(3, 13, 2, 2);
+        ctx.fillRect(10, 13, 2, 2);
+        // Feet
+        ctx.fillStyle = '#7840a0';
+        ctx.fillRect(3, 14, 2, 1);
+        ctx.fillRect(10, 14, 2, 1);
+        cache.species33 = c;
+        return c;
+    }
+
+    // #39 Jigglypuff — Round pink circle, tuft, big eyes
+    function drawSpecies39() {
+        if (cache.species39) return cache.species39;
+        const c = createCanvas(TILE, TILE);
+        const ctx = c.getContext('2d');
+        // Round body
+        ctx.fillStyle = '#f8a0b8';
+        ctx.fillRect(4, 4, 8, 8);
+        ctx.fillRect(3, 5, 10, 6);
+        ctx.fillRect(5, 3, 6, 1);
+        ctx.fillRect(5, 12, 6, 1);
+        // Hair tuft
+        ctx.fillStyle = '#f8a0b8';
+        ctx.fillRect(6, 1, 3, 3);
+        px(ctx, 7, 0, '#f8a0b8');
+        // Tuft curl
+        ctx.fillStyle = '#e888a0';
+        px(ctx, 8, 1, '#e888a0');
+        px(ctx, 7, 2, '#e888a0');
+        // Big eyes
+        ctx.fillStyle = '#40a0e0';
+        ctx.fillRect(5, 6, 2, 2);
+        ctx.fillRect(9, 6, 2, 2);
+        // Pupils
+        px(ctx, 5, 7, '#202020');
+        px(ctx, 9, 7, '#202020');
+        // Eye shine
+        px(ctx, 6, 6, '#e8f8ff');
+        px(ctx, 10, 6, '#e8f8ff');
+        // Mouth
+        px(ctx, 7, 9, '#e04060');
+        px(ctx, 8, 9, '#e04060');
+        // Ear points
+        ctx.fillStyle = '#f8a0b8';
+        px(ctx, 2, 4, '#f8a0b8');
+        px(ctx, 13, 4, '#f8a0b8');
+        // Ear inner
+        px(ctx, 2, 4, '#e888a0');
+        px(ctx, 13, 4, '#e888a0');
+        // Feet
+        ctx.fillStyle = '#e888a0';
+        ctx.fillRect(5, 13, 2, 1);
+        ctx.fillRect(9, 13, 2, 1);
+        cache.species39 = c;
+        return c;
+    }
+
+    // #40 Wigglytuff — Taller pink, rabbit ears, big eyes
+    function drawSpecies40() {
+        if (cache.species40) return cache.species40;
+        const c = createCanvas(TILE, TILE);
+        const ctx = c.getContext('2d');
+        // Tall ears
+        ctx.fillStyle = '#f8a0b8';
+        ctx.fillRect(4, 0, 2, 4);
+        ctx.fillRect(10, 0, 2, 4);
+        // Ear inner
+        ctx.fillStyle = '#e888a0';
+        px(ctx, 5, 1, '#e888a0');
+        px(ctx, 10, 1, '#e888a0');
+        // Round body (taller/wider than Jigglypuff)
+        ctx.fillStyle = '#f8a0b8';
+        ctx.fillRect(3, 4, 10, 9);
+        ctx.fillRect(2, 5, 12, 7);
+        ctx.fillRect(4, 3, 8, 1);
+        ctx.fillRect(4, 13, 8, 1);
+        // Big eyes
+        ctx.fillStyle = '#40a0e0';
+        ctx.fillRect(4, 6, 3, 3);
+        ctx.fillRect(9, 6, 3, 3);
+        // Pupils
+        ctx.fillStyle = '#202020';
+        ctx.fillRect(5, 7, 2, 2);
+        ctx.fillRect(10, 7, 2, 2);
+        // Eye shine
+        px(ctx, 5, 6, '#e8f8ff');
+        px(ctx, 10, 6, '#e8f8ff');
+        // Mouth
+        px(ctx, 7, 10, '#e04060');
+        px(ctx, 8, 10, '#e04060');
+        // White belly
+        ctx.fillStyle = '#f8e0e8';
+        ctx.fillRect(6, 10, 4, 3);
+        // Feet
+        ctx.fillStyle = '#e888a0';
+        ctx.fillRect(4, 14, 3, 1);
+        ctx.fillRect(9, 14, 3, 1);
+        cache.species40 = c;
+        return c;
+    }
+
+    // #43 Oddish — Blue body, green leaves on top
+    function drawSpecies43() {
+        if (cache.species43) return cache.species43;
+        const c = createCanvas(TILE, TILE);
+        const ctx = c.getContext('2d');
+        // Green leaves (top)
+        ctx.fillStyle = '#48a048';
+        ctx.fillRect(4, 1, 2, 5);
+        ctx.fillRect(7, 0, 2, 5);
+        ctx.fillRect(10, 1, 2, 5);
+        // Darker leaf veins
+        px(ctx, 5, 2, '#388038');
+        px(ctx, 7, 1, '#388038');
+        px(ctx, 11, 2, '#388038');
+        // Additional leaf
+        ctx.fillStyle = '#48a048';
+        ctx.fillRect(2, 3, 2, 3);
+        ctx.fillRect(12, 3, 2, 3);
+        // Blue body (round)
+        ctx.fillStyle = '#5070c0';
+        ctx.fillRect(4, 6, 8, 6);
+        ctx.fillRect(3, 7, 10, 5);
+        ctx.fillRect(5, 5, 6, 1);
+        // Eyes (red)
+        px(ctx, 5, 8, '#e02020');
+        px(ctx, 9, 8, '#e02020');
+        // Mouth
+        px(ctx, 7, 10, '#e04060');
+        // Feet
+        ctx.fillStyle = '#4060a0';
+        ctx.fillRect(4, 12, 2, 2);
+        ctx.fillRect(9, 12, 2, 2);
+        cache.species43 = c;
+        return c;
+    }
+
+    // #44 Gloom — Larger blue, droopy flower, drool
+    function drawSpecies44() {
+        if (cache.species44) return cache.species44;
+        const c = createCanvas(TILE, TILE);
+        const ctx = c.getContext('2d');
+        // Droopy flower petals (top)
+        ctx.fillStyle = '#c04040';
+        ctx.fillRect(3, 0, 3, 3);
+        ctx.fillRect(6, 0, 4, 2);
+        ctx.fillRect(10, 0, 3, 3);
+        // Droopy petal tips
+        ctx.fillRect(2, 2, 2, 2);
+        ctx.fillRect(12, 2, 2, 2);
+        // Flower center
+        ctx.fillStyle = '#e8d040';
+        ctx.fillRect(6, 1, 4, 2);
+        // Blue body (larger)
+        ctx.fillStyle = '#4868b0';
+        ctx.fillRect(3, 5, 10, 7);
+        ctx.fillRect(2, 6, 12, 6);
+        ctx.fillRect(4, 4, 8, 1);
+        // Eyes (half-closed, sleepy)
+        ctx.fillStyle = '#e02020';
+        ctx.fillRect(4, 7, 3, 1);
+        ctx.fillRect(9, 7, 3, 1);
+        // Eyelids
+        ctx.fillStyle = '#4868b0';
+        px(ctx, 4, 7, '#4868b0');
+        px(ctx, 11, 7, '#4868b0');
+        // Drool
+        ctx.fillStyle = '#d0e8f8';
+        px(ctx, 6, 10, '#d0e8f8');
+        px(ctx, 6, 11, '#d0e8f8');
+        px(ctx, 7, 10, '#d0e8f8');
+        // Mouth
+        px(ctx, 7, 9, '#804040');
+        px(ctx, 8, 9, '#804040');
+        // Feet
+        ctx.fillStyle = '#3858a0';
+        ctx.fillRect(3, 12, 3, 2);
+        ctx.fillRect(10, 12, 3, 2);
+        cache.species44 = c;
+        return c;
+    }
+
+    // #63 Abra — Yellow, seated pose, fox-like
+    function drawSpecies63() {
+        if (cache.species63) return cache.species63;
+        const c = createCanvas(TILE, TILE);
+        const ctx = c.getContext('2d');
+        // Body (seated, yellow)
+        ctx.fillStyle = '#e8c848';
+        ctx.fillRect(4, 7, 8, 5);
+        ctx.fillRect(3, 8, 10, 4);
+        // Head (fox-like, pointed)
+        ctx.fillRect(4, 3, 7, 5);
+        ctx.fillRect(5, 2, 5, 1);
+        // Ears (pointed, tall)
+        ctx.fillRect(4, 0, 2, 3);
+        ctx.fillRect(9, 0, 2, 3);
+        // Ear inner
+        ctx.fillStyle = '#c0a040';
+        px(ctx, 5, 1, '#c0a040');
+        px(ctx, 9, 1, '#c0a040');
+        // Eyes (closed — Abra is always sleeping)
+        ctx.fillStyle = '#202020';
+        ctx.fillRect(5, 5, 2, 1);
+        ctx.fillRect(8, 5, 2, 1);
+        // Snout/nose
+        ctx.fillStyle = '#c0a040';
+        ctx.fillRect(6, 6, 3, 2);
+        // Brown armor segments
+        ctx.fillStyle = '#a08030';
+        ctx.fillRect(5, 8, 6, 1);
+        ctx.fillRect(5, 10, 6, 1);
+        // Arms (crossed in front — seated meditation)
+        ctx.fillStyle = '#e8c848';
+        ctx.fillRect(3, 9, 2, 2);
+        ctx.fillRect(10, 9, 2, 2);
+        // Legs (tucked, seated)
+        ctx.fillRect(5, 12, 2, 2);
+        ctx.fillRect(8, 12, 2, 2);
+        // Tail
+        ctx.fillStyle = '#c0a040';
+        ctx.fillRect(11, 10, 2, 1);
+        ctx.fillRect(12, 9, 2, 1);
+        cache.species63 = c;
+        return c;
+    }
+
+    // #64 Kadabra — Yellow/brown, spoon, mustache
+    function drawSpecies64() {
+        if (cache.species64) return cache.species64;
+        const c = createCanvas(TILE, TILE);
+        const ctx = c.getContext('2d');
+        // Body (standing, yellow-brown)
+        ctx.fillStyle = '#d0a838';
+        ctx.fillRect(5, 7, 6, 6);
+        ctx.fillRect(4, 8, 8, 5);
+        // Head (fox-like, larger)
+        ctx.fillRect(4, 2, 8, 6);
+        ctx.fillRect(5, 1, 6, 1);
+        // Star on forehead
+        px(ctx, 7, 2, '#e02020');
+        px(ctx, 8, 2, '#e02020');
+        // Ears (pointed)
+        ctx.fillRect(3, 0, 2, 3);
+        ctx.fillRect(11, 0, 2, 3);
+        // Ear inner
+        px(ctx, 4, 1, '#a08030');
+        px(ctx, 11, 1, '#a08030');
+        // Eyes (open, narrow)
+        px(ctx, 5, 4, '#202020');
+        px(ctx, 10, 4, '#202020');
+        // Mustache
+        ctx.fillStyle = '#d0a838';
+        ctx.fillRect(4, 6, 2, 1);
+        ctx.fillRect(10, 6, 2, 1);
+        // Brown armor
+        ctx.fillStyle = '#8a6828';
+        ctx.fillRect(5, 9, 6, 1);
+        ctx.fillRect(5, 11, 6, 1);
+        // Spoon in right hand
+        ctx.fillStyle = '#c0c0c0';
+        ctx.fillRect(13, 5, 1, 4);
+        ctx.fillRect(12, 5, 3, 1);
+        ctx.fillRect(12, 4, 3, 1);
+        // Right arm holding spoon
+        ctx.fillStyle = '#d0a838';
+        ctx.fillRect(11, 7, 2, 3);
+        // Left arm
+        ctx.fillRect(3, 8, 2, 2);
+        // Legs
+        ctx.fillRect(5, 13, 2, 2);
+        ctx.fillRect(9, 13, 2, 2);
+        // Tail
+        ctx.fillStyle = '#a08030';
+        ctx.fillRect(3, 11, 2, 1);
+        ctx.fillRect(2, 10, 2, 1);
+        cache.species64 = c;
+        return c;
+    }
+
     return {
         TILE,
         PAL,
@@ -474,5 +991,17 @@ const Sprites = (() => {
         drawDoor,
         drawCuttableTree,
         drawPushableBoulder,
+        drawSpecies23,
+        drawSpecies24,
+        drawSpecies29,
+        drawSpecies30,
+        drawSpecies32,
+        drawSpecies33,
+        drawSpecies39,
+        drawSpecies40,
+        drawSpecies43,
+        drawSpecies44,
+        drawSpecies63,
+        drawSpecies64,
     };
 })();
