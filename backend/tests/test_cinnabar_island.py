@@ -42,7 +42,7 @@ class TestCinnabarIslandMaps:
 
     def test_total_maps_count(self):
         maps = _load_json("maps.json")
-        assert len(maps) == 120
+        assert len(maps) == 128
 
 
 # ──── Cinnabar Gym (Blaine) ─────────────────────────────────
@@ -131,7 +131,7 @@ class TestCinnabarIslandItems:
 class TestCinnabarIslandTrainers:
     def test_total_trainer_count(self):
         trainers = _load_json("trainers.json")
-        assert len(trainers) == 94
+        assert len(trainers) == 112
 
     def test_all_trainers_have_teams(self):
         trainers = _load_json("trainers.json")

@@ -1542,6 +1542,210 @@ const Routes = (() => {
         return { data: m, width: W, height: H };
     }
 
+    // Build Route 9 (30x20) — rocky path from Cerulean City to Route 10
+    function buildRoute9() {
+        const W = 30, H = 20;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.GRASS);
+            m.push(row);
+        }
+        for (let x = 0; x < W; x++) { m[0][x] = T.TREE; m[H - 1][x] = T.TREE; }
+        for (let y = 0; y < H; y++) { m[y][W - 1] = T.TREE; }
+        // Main path
+        for (let x = 0; x < W; x++) { m[9][x] = T.DIRT; m[10][x] = T.DIRT; }
+        // Rocky ledges
+        m[4][10] = T.ROCK; m[4][11] = T.ROCK; m[6][20] = T.ROCK;
+        m[14][8] = T.ROCK; m[14][22] = T.ROCK;
+        // Tall grass
+        for (let y = 3; y <= 7; y++) for (let x = 4; x <= 8; x++) if (m[y][x] === T.GRASS) m[y][x] = T.TALL_GRASS;
+        for (let y = 12; y <= 16; y++) for (let x = 14; x <= 20; x++) if (m[y][x] === T.GRASS) m[y][x] = T.TALL_GRASS;
+        // Exits
+        m[9][0] = T.DIRT; m[10][0] = T.DIRT;
+        m[9][W - 1] = T.DIRT; m[10][W - 1] = T.DIRT;
+        return { data: m, width: W, height: H };
+    }
+
+    // Build Route 10 (20x30) — vertical route near Rock Tunnel / Power Plant
+    function buildRoute10() {
+        const W = 20, H = 30;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.GRASS);
+            m.push(row);
+        }
+        for (let y = 0; y < H; y++) { m[y][0] = T.TREE; m[y][W - 1] = T.TREE; }
+        for (let x = 0; x < W; x++) m[H - 1][x] = T.TREE;
+        // Main path
+        for (let y = 0; y < H; y++) { m[y][9] = T.DIRT; m[y][10] = T.DIRT; }
+        // Water pond
+        for (let y = 12; y <= 15; y++) for (let x = 3; x <= 6; x++) m[y][x] = T.WATER;
+        // Tall grass
+        for (let y = 4; y <= 9; y++) for (let x = 12; x <= 17; x++) if (m[y][x] === T.GRASS) m[y][x] = T.TALL_GRASS;
+        for (let y = 20; y <= 26; y++) for (let x = 2; x <= 7; x++) if (m[y][x] === T.GRASS) m[y][x] = T.TALL_GRASS;
+        // Rocks
+        m[8][4] = T.ROCK; m[18][14] = T.ROCK; m[22][15] = T.ROCK;
+        // Exit west
+        m[9][0] = T.DIRT; m[10][0] = T.DIRT;
+        // Exit south
+        m[H - 1][9] = T.DIRT; m[H - 1][10] = T.DIRT;
+        return { data: m, width: W, height: H };
+    }
+
+    // Build Route 13 (30x20) — fenced maze route east of Fuchsia area
+    function buildRoute13() {
+        const W = 30, H = 20;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.GRASS);
+            m.push(row);
+        }
+        for (let x = 0; x < W; x++) { m[0][x] = T.TREE; m[H - 1][x] = T.TREE; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.TREE; }
+        // Maze fences (rock walls)
+        for (let x = 5; x <= 12; x++) m[5][x] = T.ROCK;
+        for (let x = 10; x <= 18; x++) m[10][x] = T.ROCK;
+        for (let x = 16; x <= 24; x++) m[14][x] = T.ROCK;
+        // Paths through maze
+        m[5][8] = T.DIRT; m[10][14] = T.DIRT; m[14][20] = T.DIRT;
+        for (let x = 1; x < W; x++) { m[8][x] = T.DIRT; m[17][x] = T.DIRT; }
+        // Tall grass
+        for (let y = 2; y <= 4; y++) for (let x = 6; x <= 11; x++) if (m[y][x] === T.GRASS) m[y][x] = T.TALL_GRASS;
+        for (let y = 11; y <= 13; y++) for (let x = 12; x <= 17; x++) if (m[y][x] === T.GRASS) m[y][x] = T.TALL_GRASS;
+        // Flowers
+        m[3][20] = T.FLOWER; m[7][25] = T.FLOWER; m[16][5] = T.FLOWER;
+        // Exit north
+        m[0][10] = T.DIRT;
+        // Exit west
+        m[8][0] = T.DIRT; m[17][0] = T.DIRT;
+        return { data: m, width: W, height: H };
+    }
+
+    // Build Route 14 (20x30) — vertical route connecting Routes 13 and 15
+    function buildRoute14() {
+        const W = 20, H = 30;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.GRASS);
+            m.push(row);
+        }
+        for (let y = 0; y < H; y++) { m[y][0] = T.TREE; m[y][W - 1] = T.TREE; }
+        // Main path
+        for (let y = 0; y < H; y++) { m[y][9] = T.DIRT; m[y][10] = T.DIRT; }
+        // Tall grass
+        for (let y = 5; y <= 12; y++) for (let x = 2; x <= 7; x++) if (m[y][x] === T.GRASS) m[y][x] = T.TALL_GRASS;
+        for (let y = 18; y <= 25; y++) for (let x = 12; x <= 17; x++) if (m[y][x] === T.GRASS) m[y][x] = T.TALL_GRASS;
+        // Rocks
+        m[8][14] = T.ROCK; m[15][4] = T.ROCK; m[22][16] = T.ROCK;
+        // Exit east
+        m[9][W - 1] = T.DIRT; m[10][W - 1] = T.DIRT;
+        // Exit south
+        m[H - 1][9] = T.DIRT; m[H - 1][10] = T.DIRT;
+        return { data: m, width: W, height: H };
+    }
+
+    // Build Route 15 (30x20) — east-west route to Fuchsia City
+    function buildRoute15() {
+        const W = 30, H = 20;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.GRASS);
+            m.push(row);
+        }
+        for (let x = 0; x < W; x++) { m[0][x] = T.TREE; m[H - 1][x] = T.TREE; }
+        // Main path
+        for (let x = 0; x < W; x++) { m[9][x] = T.DIRT; m[10][x] = T.DIRT; }
+        // Tall grass
+        for (let y = 3; y <= 7; y++) for (let x = 5; x <= 12; x++) if (m[y][x] === T.GRASS) m[y][x] = T.TALL_GRASS;
+        for (let y = 12; y <= 17; y++) for (let x = 18; x <= 26; x++) if (m[y][x] === T.GRASS) m[y][x] = T.TALL_GRASS;
+        // Flowers & trees
+        m[4][20] = T.FLOWER; m[15][8] = T.FLOWER;
+        m[6][16] = T.TREE; m[14][24] = T.TREE;
+        // Exit north
+        m[0][9] = T.DIRT; m[0][10] = T.DIRT;
+        // Exit west
+        m[9][0] = T.DIRT; m[10][0] = T.DIRT;
+        return { data: m, width: W, height: H };
+    }
+
+    // Build Route 17 (20x40) — Cycling Road, long vertical route
+    function buildRoute17() {
+        const W = 20, H = 40;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.GRASS);
+            m.push(row);
+        }
+        for (let y = 0; y < H; y++) { m[y][0] = T.ROCK; m[y][W - 1] = T.ROCK; }
+        // Paved cycling road
+        for (let y = 0; y < H; y++) {
+            for (let x = 5; x <= 14; x++) m[y][x] = T.DIRT;
+        }
+        // Guardrails (rocks)
+        for (let y = 0; y < H; y++) { m[y][4] = T.ROCK; m[y][15] = T.ROCK; }
+        // Grass patches beside road
+        for (let y = 5; y <= 14; y++) for (let x = 1; x <= 3; x++) m[y][x] = T.TALL_GRASS;
+        for (let y = 25; y <= 34; y++) for (let x = 16; x <= 18; x++) m[y][x] = T.TALL_GRASS;
+        // Exit north
+        for (let x = 5; x <= 14; x++) m[0][x] = T.DIRT;
+        // Exit south
+        for (let x = 5; x <= 14; x++) m[H - 1][x] = T.DIRT;
+        return { data: m, width: W, height: H };
+    }
+
+    // Build Route 18 (30x20) — east-west route at bottom of Cycling Road
+    function buildRoute18() {
+        const W = 30, H = 20;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.GRASS);
+            m.push(row);
+        }
+        for (let x = 0; x < W; x++) { m[0][x] = T.TREE; m[H - 1][x] = T.TREE; }
+        // Main path
+        for (let x = 0; x < W; x++) { m[9][x] = T.DIRT; m[10][x] = T.DIRT; }
+        // Tall grass
+        for (let y = 3; y <= 7; y++) for (let x = 5; x <= 12; x++) if (m[y][x] === T.GRASS) m[y][x] = T.TALL_GRASS;
+        for (let y = 12; y <= 17; y++) for (let x = 18; x <= 26; x++) if (m[y][x] === T.GRASS) m[y][x] = T.TALL_GRASS;
+        // Trees
+        m[5][20] = T.TREE; m[15][8] = T.TREE;
+        // Exit north (from cycling road)
+        m[0][9] = T.DIRT; m[0][10] = T.DIRT;
+        // Exit east (to Fuchsia)
+        m[9][W - 1] = T.DIRT; m[10][W - 1] = T.DIRT;
+        return { data: m, width: W, height: H };
+    }
+
+    // Build Route 19 (20x30) — water route south of Fuchsia to Seafoam
+    function buildRoute19() {
+        const W = 20, H = 30;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.WATER);
+            m.push(row);
+        }
+        // Beach at top
+        for (let x = 0; x < W; x++) { m[0][x] = T.GRASS; m[1][x] = T.GRASS; }
+        for (let x = 3; x <= 16; x++) m[2][x] = T.GRASS;
+        // Small islands
+        for (let y = 10; y <= 12; y++) for (let x = 3; x <= 5; x++) m[y][x] = T.GRASS;
+        for (let y = 20; y <= 22; y++) for (let x = 14; x <= 16; x++) m[y][x] = T.GRASS;
+        // Rocks in water
+        m[8][10] = T.ROCK; m[15][7] = T.ROCK; m[24][12] = T.ROCK;
+        // Entry path at top
+        m[0][9] = T.DIRT; m[0][10] = T.DIRT;
+        m[1][9] = T.DIRT; m[1][10] = T.DIRT;
+        return { data: m, width: W, height: H };
+    }
+
     // Build Route 12 (15x35) — vertical route south of Lavender with Snorlax
     function buildRoute12() {
         const W = 15, H = 35;
@@ -1623,6 +1827,135 @@ const Routes = (() => {
           pokemon: [
             { name: 'Rattata', level: 23, hp: 40, maxHp: 40, type: 'Normal' },
             { name: 'Raticate', level: 23, hp: 52, maxHp: 52, type: 'Normal' },
+          ] },
+    ];
+
+    const route9Trainers = [
+        { x: 8, y: 8, name: 'Hiker Clark', dir: 3, sightRange: 3,
+          dialogue: ['These rocks are tough!'],
+          pokemon: [
+            { name: 'Geodude', level: 15, hp: 38, maxHp: 38, type: 'Rock' },
+            { name: 'Onix', level: 17, hp: 42, maxHp: 42, type: 'Rock' },
+          ] },
+        { x: 18, y: 12, name: 'Jr. Trainer Ellen', dir: 2, sightRange: 3,
+          dialogue: ['I can beat you!'],
+          pokemon: [
+            { name: 'Nidorina', level: 17, hp: 48, maxHp: 48, type: 'Poison' },
+          ] },
+        { x: 24, y: 6, name: 'Bug Catcher Brent', dir: 0, sightRange: 4,
+          dialogue: ['My bugs are the best!'],
+          pokemon: [
+            { name: 'Beedrill', level: 16, hp: 45, maxHp: 45, type: 'Bug' },
+          ] },
+    ];
+
+    const route10Trainers = [
+        { x: 10, y: 8, name: 'PokéManiac Mark', dir: 0, sightRange: 3,
+          dialogue: ['I love rare Pokémon!'],
+          pokemon: [
+            { name: 'Slowpoke', level: 17, hp: 54, maxHp: 54, type: 'Water' },
+            { name: 'Cubone', level: 17, hp: 46, maxHp: 46, type: 'Ground' },
+          ] },
+        { x: 6, y: 20, name: 'Hiker Trent', dir: 3, sightRange: 4,
+          dialogue: ['The mountain air is great!'],
+          pokemon: [
+            { name: 'Geodude', level: 16, hp: 36, maxHp: 36, type: 'Rock' },
+            { name: 'Geodude', level: 16, hp: 36, maxHp: 36, type: 'Rock' },
+            { name: 'Graveler', level: 17, hp: 48, maxHp: 48, type: 'Rock' },
+          ] },
+    ];
+
+    const route13Trainers = [
+        { x: 8, y: 6, name: 'Bird Keeper Perry', dir: 0, sightRange: 4,
+          dialogue: ['My birds will peck you!'],
+          pokemon: [
+            { name: 'Spearow', level: 25, hp: 52, maxHp: 52, type: 'Flying' },
+            { name: 'Fearow', level: 27, hp: 68, maxHp: 68, type: 'Flying' },
+          ] },
+        { x: 20, y: 14, name: 'Beauty Lola', dir: 2, sightRange: 3,
+          dialogue: ['Beauty is power!'],
+          pokemon: [
+            { name: 'Jynx', level: 27, hp: 62, maxHp: 62, type: 'Ice' },
+          ] },
+    ];
+
+    const route14Trainers = [
+        { x: 10, y: 8, name: 'Bird Keeper Carter', dir: 0, sightRange: 4,
+          dialogue: ['Watch my birds soar!'],
+          pokemon: [
+            { name: 'Doduo', level: 26, hp: 54, maxHp: 54, type: 'Flying' },
+            { name: 'Dodrio', level: 28, hp: 64, maxHp: 64, type: 'Flying' },
+          ] },
+        { x: 6, y: 22, name: 'Biker Ruben', dir: 3, sightRange: 3,
+          dialogue: ['Vroom vroom!'],
+          pokemon: [
+            { name: 'Koffing', level: 26, hp: 50, maxHp: 50, type: 'Poison' },
+            { name: 'Weezing', level: 28, hp: 62, maxHp: 62, type: 'Poison' },
+          ] },
+    ];
+
+    const route15Trainers = [
+        { x: 10, y: 8, name: 'Jr. Trainer Kay', dir: 3, sightRange: 3,
+          dialogue: ['Let me test my skills!'],
+          pokemon: [
+            { name: 'Venonat', level: 26, hp: 56, maxHp: 56, type: 'Bug' },
+            { name: 'Venomoth', level: 27, hp: 60, maxHp: 60, type: 'Bug' },
+          ] },
+        { x: 22, y: 14, name: 'Beauty Connie', dir: 2, sightRange: 3,
+          dialogue: ['I look fabulous!'],
+          pokemon: [
+            { name: 'Vulpix', level: 27, hp: 50, maxHp: 50, type: 'Fire' },
+          ] },
+    ];
+
+    const route17Trainers = [
+        { x: 10, y: 10, name: 'Cue Ball Koji', dir: 0, sightRange: 4,
+          dialogue: ['Time to rumble!'],
+          pokemon: [
+            { name: 'Mankey', level: 27, hp: 52, maxHp: 52, type: 'Fighting' },
+            { name: 'Primeape', level: 29, hp: 62, maxHp: 62, type: 'Fighting' },
+          ] },
+        { x: 6, y: 22, name: 'Biker Virgil', dir: 3, sightRange: 3,
+          dialogue: ['Get off the road!'],
+          pokemon: [
+            { name: 'Koffing', level: 28, hp: 52, maxHp: 52, type: 'Poison' },
+            { name: 'Grimer', level: 28, hp: 54, maxHp: 54, type: 'Poison' },
+          ] },
+        { x: 14, y: 32, name: 'Biker Billy', dir: 2, sightRange: 3,
+          dialogue: ['Pedal to the metal!'],
+          pokemon: [
+            { name: 'Weezing', level: 30, hp: 66, maxHp: 66, type: 'Poison' },
+          ] },
+    ];
+
+    const route18Trainers = [
+        { x: 10, y: 8, name: 'Bird Keeper Jacob', dir: 3, sightRange: 4,
+          dialogue: ['These birds never rest!'],
+          pokemon: [
+            { name: 'Spearow', level: 26, hp: 52, maxHp: 52, type: 'Flying' },
+            { name: 'Fearow', level: 28, hp: 68, maxHp: 68, type: 'Flying' },
+            { name: 'Dodrio', level: 29, hp: 66, maxHp: 66, type: 'Flying' },
+          ] },
+        { x: 22, y: 14, name: 'Bird Keeper Wilton', dir: 2, sightRange: 3,
+          dialogue: ['Fly high, my friends!'],
+          pokemon: [
+            { name: 'Doduo', level: 28, hp: 56, maxHp: 56, type: 'Flying' },
+            { name: 'Fearow', level: 29, hp: 70, maxHp: 70, type: 'Flying' },
+          ] },
+    ];
+
+    const route19Trainers = [
+        { x: 10, y: 10, name: 'Swimmer Axle', dir: 0, sightRange: 4,
+          dialogue: ['Race me across the waves!'],
+          pokemon: [
+            { name: 'Horsea', level: 28, hp: 48, maxHp: 48, type: 'Water' },
+            { name: 'Seadra', level: 30, hp: 58, maxHp: 58, type: 'Water' },
+          ] },
+        { x: 6, y: 22, name: 'Swimmer Alice', dir: 3, sightRange: 3,
+          dialogue: ['The water is lovely!'],
+          pokemon: [
+            { name: 'Staryu', level: 29, hp: 52, maxHp: 52, type: 'Water' },
+            { name: 'Starmie', level: 30, hp: 60, maxHp: 60, type: 'Water' },
           ] },
     ];
 
@@ -3945,6 +4278,118 @@ const Routes = (() => {
             lamps: [{ x: 10, y: 10 }, { x: 20, y: 10 }],
         });
 
+        const route9 = buildRoute9();
+        MapLoader.registerMap('route_9', {
+            name: 'Route 9',
+            width: route9.width,
+            height: route9.height,
+            data: route9.data,
+            exits: [
+                { edge: 'west', targetMap: 'cerulean_city', spawnX: 23, spawnY: 14, spawnDir: 2 },
+                { edge: 'east', targetMap: 'route_10', spawnX: 1, spawnY: 10, spawnDir: 3 },
+            ],
+            trainers: route9Trainers,
+            lamps: [{ x: 10, y: 10 }, { x: 22, y: 10 }],
+        });
+
+        const route10 = buildRoute10();
+        MapLoader.registerMap('route_10', {
+            name: 'Route 10',
+            width: route10.width,
+            height: route10.height,
+            data: route10.data,
+            exits: [
+                { edge: 'west', targetMap: 'route_9', spawnX: 28, spawnY: 10, spawnDir: 2 },
+                { edge: 'south', targetMap: 'lavender_town', spawnX: 10, spawnY: 1, spawnDir: 0 },
+            ],
+            trainers: route10Trainers,
+            lamps: [{ x: 10, y: 10 }, { x: 10, y: 22 }],
+        });
+
+        const route13 = buildRoute13();
+        MapLoader.registerMap('route_13', {
+            name: 'Route 13',
+            width: route13.width,
+            height: route13.height,
+            data: route13.data,
+            exits: [
+                { edge: 'north', targetMap: 'route_12', spawnX: 7, spawnY: 33, spawnDir: 1 },
+                { edge: 'west', targetMap: 'route_14', spawnX: 18, spawnY: 10, spawnDir: 2 },
+            ],
+            trainers: route13Trainers,
+            lamps: [{ x: 10, y: 8 }, { x: 22, y: 17 }],
+        });
+
+        const route14 = buildRoute14();
+        MapLoader.registerMap('route_14', {
+            name: 'Route 14',
+            width: route14.width,
+            height: route14.height,
+            data: route14.data,
+            exits: [
+                { edge: 'east', targetMap: 'route_13', spawnX: 1, spawnY: 8, spawnDir: 3 },
+                { edge: 'south', targetMap: 'route_15', spawnX: 10, spawnY: 1, spawnDir: 0 },
+            ],
+            trainers: route14Trainers,
+            lamps: [{ x: 10, y: 8 }, { x: 10, y: 24 }],
+        });
+
+        const route15 = buildRoute15();
+        MapLoader.registerMap('route_15', {
+            name: 'Route 15',
+            width: route15.width,
+            height: route15.height,
+            data: route15.data,
+            exits: [
+                { edge: 'north', targetMap: 'route_14', spawnX: 10, spawnY: 28, spawnDir: 1 },
+                { edge: 'west', targetMap: 'fuchsia_city', spawnX: 17, spawnY: 8, spawnDir: 2 },
+            ],
+            trainers: route15Trainers,
+            lamps: [{ x: 10, y: 10 }, { x: 22, y: 10 }],
+        });
+
+        const route17 = buildRoute17();
+        MapLoader.registerMap('route_17', {
+            name: 'Route 17',
+            width: route17.width,
+            height: route17.height,
+            data: route17.data,
+            exits: [
+                { edge: 'north', targetMap: 'route_16', spawnX: 10, spawnY: 17, spawnDir: 1 },
+                { edge: 'south', targetMap: 'route_18', spawnX: 10, spawnY: 1, spawnDir: 0 },
+            ],
+            trainers: route17Trainers,
+            lamps: [{ x: 10, y: 10 }, { x: 10, y: 30 }],
+        });
+
+        const route18 = buildRoute18();
+        MapLoader.registerMap('route_18', {
+            name: 'Route 18',
+            width: route18.width,
+            height: route18.height,
+            data: route18.data,
+            exits: [
+                { edge: 'north', targetMap: 'route_17', spawnX: 10, spawnY: 38, spawnDir: 1 },
+                { edge: 'east', targetMap: 'fuchsia_city', spawnX: 1, spawnY: 8, spawnDir: 3 },
+            ],
+            trainers: route18Trainers,
+            lamps: [{ x: 10, y: 10 }, { x: 22, y: 10 }],
+        });
+
+        const route19 = buildRoute19();
+        MapLoader.registerMap('route_19', {
+            name: 'Route 19',
+            width: route19.width,
+            height: route19.height,
+            data: route19.data,
+            exits: [
+                { edge: 'north', targetMap: 'fuchsia_city', spawnX: 10, spawnY: 17, spawnDir: 1 },
+                { edge: 'south', targetMap: 'route_20', spawnX: 1, spawnY: 10, spawnDir: 0 },
+            ],
+            trainers: route19Trainers,
+            lamps: [],
+        });
+
         const route12 = buildRoute12();
         MapLoader.registerMap('route_12', {
             name: 'Route 12',
@@ -4884,5 +5329,21 @@ const Routes = (() => {
         victoryRoad2FTrainers,
         nuggetBridgeTrainers,
         route25Trainers,
+        route9Trainers,
+        route10Trainers,
+        route13Trainers,
+        route14Trainers,
+        route15Trainers,
+        route17Trainers,
+        route18Trainers,
+        route19Trainers,
+        buildRoute9,
+        buildRoute10,
+        buildRoute13,
+        buildRoute14,
+        buildRoute15,
+        buildRoute17,
+        buildRoute18,
+        buildRoute19,
     };
 })();

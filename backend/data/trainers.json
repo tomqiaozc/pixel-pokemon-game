@@ -2962,5 +2962,518 @@
     "sight_range": 4,
     "dialogue_before": "The Indigo Plateau is just ahead!",
     "dialogue_after": "Go on, the Elite Four await!"
+  },
+  {
+    "id": "route9_hiker_1",
+    "name": "Hiker Clark",
+    "trainer_class": "Hiker",
+    "sprite_id": "hiker",
+    "reward_money": 612,
+    "sight_range": 3,
+    "dialogue_before": "These rocks are tough!",
+    "dialogue_after": "You broke through my defense!",
+    "pokemon_team": [
+      {
+        "species_id": 74,
+        "name": "Geodude",
+        "level": 15,
+        "moves": [
+          "tackle",
+          "rock_throw"
+        ]
+      },
+      {
+        "species_id": 95,
+        "name": "Onix",
+        "level": 17,
+        "moves": [
+          "rock_throw",
+          "bind"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "route9_jr_trainer_1",
+    "name": "Jr. Trainer Ellen",
+    "trainer_class": "Jr. Trainer",
+    "sprite_id": "jr_trainer_f",
+    "reward_money": 340,
+    "sight_range": 3,
+    "dialogue_before": "I can beat you!",
+    "dialogue_after": "Maybe next time...",
+    "pokemon_team": [
+      {
+        "species_id": 30,
+        "name": "Nidorina",
+        "level": 17,
+        "moves": [
+          "poison_sting",
+          "scratch"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "route9_bug_catcher_1",
+    "name": "Bug Catcher Brent",
+    "trainer_class": "Bug Catcher",
+    "sprite_id": "bug_catcher",
+    "reward_money": 170,
+    "sight_range": 4,
+    "dialogue_before": "My bugs are the best!",
+    "dialogue_after": "Aww, my bugs...",
+    "pokemon_team": [
+      {
+        "species_id": 15,
+        "name": "Beedrill",
+        "level": 16,
+        "moves": [
+          "twineedle",
+          "poison_sting"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "route10_pokemaniac_1",
+    "name": "Pok\u00e9Maniac Mark",
+    "trainer_class": "Pok\u00e9Maniac",
+    "sprite_id": "pokemaniac",
+    "reward_money": 680,
+    "sight_range": 3,
+    "dialogue_before": "I love rare Pok\u00e9mon!",
+    "dialogue_after": "You have rare ones too!",
+    "pokemon_team": [
+      {
+        "species_id": 79,
+        "name": "Slowpoke",
+        "level": 17,
+        "moves": [
+          "water_gun",
+          "confusion"
+        ]
+      },
+      {
+        "species_id": 104,
+        "name": "Cubone",
+        "level": 17,
+        "moves": [
+          "bone_club",
+          "headbutt"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "route10_hiker_1",
+    "name": "Hiker Trent",
+    "trainer_class": "Hiker",
+    "sprite_id": "hiker",
+    "reward_money": 680,
+    "sight_range": 4,
+    "dialogue_before": "The mountain air is great!",
+    "dialogue_after": "Hmph, strong winds today.",
+    "pokemon_team": [
+      {
+        "species_id": 74,
+        "name": "Geodude",
+        "level": 16,
+        "moves": [
+          "tackle",
+          "rock_throw"
+        ]
+      },
+      {
+        "species_id": 74,
+        "name": "Geodude",
+        "level": 16,
+        "moves": [
+          "tackle",
+          "rock_throw"
+        ]
+      },
+      {
+        "species_id": 75,
+        "name": "Graveler",
+        "level": 17,
+        "moves": [
+          "rock_throw",
+          "magnitude"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "route13_bird_keeper_1",
+    "name": "Bird Keeper Perry",
+    "trainer_class": "Bird Keeper",
+    "sprite_id": "bird_keeper",
+    "reward_money": 550,
+    "sight_range": 4,
+    "dialogue_before": "My birds will peck you!",
+    "dialogue_after": "My birds are grounded...",
+    "pokemon_team": [
+      {
+        "species_id": 21,
+        "name": "Spearow",
+        "level": 25,
+        "moves": [
+          "peck",
+          "fury_attack"
+        ]
+      },
+      {
+        "species_id": 22,
+        "name": "Fearow",
+        "level": 27,
+        "moves": [
+          "drill_peck",
+          "fury_attack"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "route13_beauty_1",
+    "name": "Beauty Lola",
+    "trainer_class": "Beauty",
+    "sprite_id": "beauty",
+    "reward_money": 1350,
+    "sight_range": 3,
+    "dialogue_before": "Beauty is power!",
+    "dialogue_after": "You ruined my makeup!",
+    "pokemon_team": [
+      {
+        "species_id": 124,
+        "name": "Jynx",
+        "level": 27,
+        "moves": [
+          "ice_punch",
+          "confusion"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "route14_bird_keeper_1",
+    "name": "Bird Keeper Carter",
+    "trainer_class": "Bird Keeper",
+    "sprite_id": "bird_keeper",
+    "reward_money": 550,
+    "sight_range": 4,
+    "dialogue_before": "Watch my birds soar!",
+    "dialogue_after": "They crashed down...",
+    "pokemon_team": [
+      {
+        "species_id": 84,
+        "name": "Doduo",
+        "level": 26,
+        "moves": [
+          "peck",
+          "fury_attack"
+        ]
+      },
+      {
+        "species_id": 85,
+        "name": "Dodrio",
+        "level": 28,
+        "moves": [
+          "drill_peck",
+          "tri_attack"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "route14_biker_1",
+    "name": "Biker Ruben",
+    "trainer_class": "Biker",
+    "sprite_id": "biker",
+    "reward_money": 500,
+    "sight_range": 3,
+    "dialogue_before": "Vroom vroom!",
+    "dialogue_after": "You popped my tire!",
+    "pokemon_team": [
+      {
+        "species_id": 109,
+        "name": "Koffing",
+        "level": 26,
+        "moves": [
+          "sludge",
+          "smokescreen"
+        ]
+      },
+      {
+        "species_id": 110,
+        "name": "Weezing",
+        "level": 28,
+        "moves": [
+          "sludge",
+          "self_destruct"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "route15_jr_trainer_1",
+    "name": "Jr. Trainer Kay",
+    "trainer_class": "Jr. Trainer",
+    "sprite_id": "jr_trainer_f",
+    "reward_money": 540,
+    "sight_range": 3,
+    "dialogue_before": "Let me test my skills!",
+    "dialogue_after": "Good practice!",
+    "pokemon_team": [
+      {
+        "species_id": 48,
+        "name": "Venonat",
+        "level": 26,
+        "moves": [
+          "psybeam",
+          "poison_powder"
+        ]
+      },
+      {
+        "species_id": 49,
+        "name": "Venomoth",
+        "level": 27,
+        "moves": [
+          "psybeam",
+          "sleep_powder"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "route15_beauty_1",
+    "name": "Beauty Connie",
+    "trainer_class": "Beauty",
+    "sprite_id": "beauty",
+    "reward_money": 1350,
+    "sight_range": 3,
+    "dialogue_before": "I look fabulous!",
+    "dialogue_after": "My beauty faded...",
+    "pokemon_team": [
+      {
+        "species_id": 37,
+        "name": "Vulpix",
+        "level": 27,
+        "moves": [
+          "flamethrower",
+          "quick_attack"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "route17_cue_ball_1",
+    "name": "Cue Ball Koji",
+    "trainer_class": "Cue Ball",
+    "sprite_id": "cue_ball",
+    "reward_money": 625,
+    "sight_range": 4,
+    "dialogue_before": "Time to rumble!",
+    "dialogue_after": "You knocked me out!",
+    "pokemon_team": [
+      {
+        "species_id": 56,
+        "name": "Mankey",
+        "level": 27,
+        "moves": [
+          "karate_chop",
+          "low_kick"
+        ]
+      },
+      {
+        "species_id": 57,
+        "name": "Primeape",
+        "level": 29,
+        "moves": [
+          "karate_chop",
+          "cross_chop"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "route17_biker_1",
+    "name": "Biker Virgil",
+    "trainer_class": "Biker",
+    "sprite_id": "biker",
+    "reward_money": 550,
+    "sight_range": 3,
+    "dialogue_before": "Get off the road!",
+    "dialogue_after": "Argh, roadkill!",
+    "pokemon_team": [
+      {
+        "species_id": 109,
+        "name": "Koffing",
+        "level": 28,
+        "moves": [
+          "sludge",
+          "smokescreen"
+        ]
+      },
+      {
+        "species_id": 88,
+        "name": "Grimer",
+        "level": 28,
+        "moves": [
+          "sludge",
+          "minimize"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "route17_biker_2",
+    "name": "Biker Billy",
+    "trainer_class": "Biker",
+    "sprite_id": "biker",
+    "reward_money": 600,
+    "sight_range": 3,
+    "dialogue_before": "Pedal to the metal!",
+    "dialogue_after": "Flat tire...",
+    "pokemon_team": [
+      {
+        "species_id": 110,
+        "name": "Weezing",
+        "level": 30,
+        "moves": [
+          "sludge_bomb",
+          "self_destruct"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "route18_bird_keeper_1",
+    "name": "Bird Keeper Jacob",
+    "trainer_class": "Bird Keeper",
+    "sprite_id": "bird_keeper",
+    "reward_money": 575,
+    "sight_range": 4,
+    "dialogue_before": "These birds never rest!",
+    "dialogue_after": "They need a rest now...",
+    "pokemon_team": [
+      {
+        "species_id": 21,
+        "name": "Spearow",
+        "level": 26,
+        "moves": [
+          "peck",
+          "fury_attack"
+        ]
+      },
+      {
+        "species_id": 22,
+        "name": "Fearow",
+        "level": 28,
+        "moves": [
+          "drill_peck",
+          "mirror_move"
+        ]
+      },
+      {
+        "species_id": 85,
+        "name": "Dodrio",
+        "level": 29,
+        "moves": [
+          "drill_peck",
+          "tri_attack"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "route18_bird_keeper_2",
+    "name": "Bird Keeper Wilton",
+    "trainer_class": "Bird Keeper",
+    "sprite_id": "bird_keeper",
+    "reward_money": 575,
+    "sight_range": 3,
+    "dialogue_before": "Fly high, my friends!",
+    "dialogue_after": "Shot down...",
+    "pokemon_team": [
+      {
+        "species_id": 84,
+        "name": "Doduo",
+        "level": 28,
+        "moves": [
+          "drill_peck",
+          "fury_attack"
+        ]
+      },
+      {
+        "species_id": 22,
+        "name": "Fearow",
+        "level": 29,
+        "moves": [
+          "drill_peck",
+          "mirror_move"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "route19_swimmer_1",
+    "name": "Swimmer Axle",
+    "trainer_class": "Swimmer",
+    "sprite_id": "swimmer_m",
+    "reward_money": 290,
+    "sight_range": 4,
+    "dialogue_before": "Race me across the waves!",
+    "dialogue_after": "You swim fast!",
+    "pokemon_team": [
+      {
+        "species_id": 116,
+        "name": "Horsea",
+        "level": 28,
+        "moves": [
+          "water_gun",
+          "smokescreen"
+        ]
+      },
+      {
+        "species_id": 117,
+        "name": "Seadra",
+        "level": 30,
+        "moves": [
+          "hydro_pump",
+          "smokescreen"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "route19_swimmer_2",
+    "name": "Swimmer Alice",
+    "trainer_class": "Swimmer",
+    "sprite_id": "swimmer_f",
+    "reward_money": 290,
+    "sight_range": 3,
+    "dialogue_before": "The water is lovely!",
+    "dialogue_after": "I need to dry off...",
+    "pokemon_team": [
+      {
+        "species_id": 120,
+        "name": "Staryu",
+        "level": 29,
+        "moves": [
+          "water_gun",
+          "swift"
+        ]
+      },
+      {
+        "species_id": 121,
+        "name": "Starmie",
+        "level": 30,
+        "moves": [
+          "surf",
+          "psychic"
+        ]
+      }
+    ]
   }
 ]

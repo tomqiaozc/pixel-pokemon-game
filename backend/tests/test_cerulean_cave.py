@@ -32,7 +32,7 @@ class TestCeruleanCaveMaps:
 
     def test_total_maps_count(self):
         maps = _load_json("maps.json")
-        assert len(maps) == 120
+        assert len(maps) == 128
 
 
 # ──── Mewtwo & Mew Species ──────────────────────────────
@@ -84,7 +84,7 @@ class TestCeruleanCaveEncounters:
 
     def test_total_encounter_tables(self):
         tables = _load_json("encounter_tables.json")
-        assert len(tables) == 38
+        assert len(tables) == 46
 
 
 # ──── Guard NPC ──────────────────────────────────────────
@@ -136,4 +136,4 @@ class TestCountsUnchanged:
 
     def test_trainer_count_unchanged(self):
         trainers = _load_json("trainers.json")
-        assert len(trainers) == 94
+        assert len(trainers) == 112

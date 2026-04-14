@@ -4053,5 +4053,467 @@
       }
     ],
     "buildings": []
+  },
+  {
+    "id": "route_9",
+    "name": "route_9",
+    "display_name": "Route 9",
+    "map_type": "route",
+    "width": 30,
+    "height": 20,
+    "connections": [
+      {
+        "direction": "west",
+        "target_map_id": "cerulean_city",
+        "entry_x": 24,
+        "entry_y": 14
+      },
+      {
+        "direction": "east",
+        "target_map_id": "route_10",
+        "entry_x": 0,
+        "entry_y": 10
+      }
+    ],
+    "npcs": [],
+    "trainers": [
+      {
+        "trainer_id": "route9_hiker_1",
+        "x": 8,
+        "y": 8,
+        "facing": "right",
+        "sight_range": 3
+      },
+      {
+        "trainer_id": "route9_jr_trainer_1",
+        "x": 18,
+        "y": 12,
+        "facing": "left",
+        "sight_range": 3
+      },
+      {
+        "trainer_id": "route9_bug_catcher_1",
+        "x": 24,
+        "y": 6,
+        "facing": "down",
+        "sight_range": 4
+      }
+    ],
+    "encounter_zones": [
+      {
+        "x": 4,
+        "y": 3,
+        "width": 10,
+        "height": 6,
+        "encounter_table_id": "route_9"
+      },
+      {
+        "x": 18,
+        "y": 10,
+        "width": 8,
+        "height": 6,
+        "encounter_table_id": "route_9"
+      }
+    ],
+    "buildings": []
+  },
+  {
+    "id": "route_10",
+    "name": "route_10",
+    "display_name": "Route 10",
+    "map_type": "route",
+    "width": 20,
+    "height": 30,
+    "connections": [
+      {
+        "direction": "west",
+        "target_map_id": "route_9",
+        "entry_x": 28,
+        "entry_y": 10
+      },
+      {
+        "direction": "south",
+        "target_map_id": "lavender_town",
+        "entry_x": 10,
+        "entry_y": 0
+      }
+    ],
+    "npcs": [],
+    "trainers": [
+      {
+        "trainer_id": "route10_pokemaniac_1",
+        "x": 10,
+        "y": 8,
+        "facing": "down",
+        "sight_range": 3
+      },
+      {
+        "trainer_id": "route10_hiker_1",
+        "x": 6,
+        "y": 20,
+        "facing": "right",
+        "sight_range": 4
+      }
+    ],
+    "encounter_zones": [
+      {
+        "x": 3,
+        "y": 4,
+        "width": 14,
+        "height": 8,
+        "encounter_table_id": "route_10"
+      },
+      {
+        "x": 3,
+        "y": 18,
+        "width": 14,
+        "height": 8,
+        "encounter_table_id": "route_10"
+      }
+    ],
+    "buildings": []
+  },
+  {
+    "id": "route_13",
+    "name": "route_13",
+    "display_name": "Route 13",
+    "map_type": "route",
+    "width": 30,
+    "height": 20,
+    "connections": [
+      {
+        "direction": "west",
+        "target_map_id": "route_14",
+        "entry_x": 28,
+        "entry_y": 10
+      },
+      {
+        "direction": "north",
+        "target_map_id": "route_12",
+        "entry_x": 10,
+        "entry_y": 38
+      }
+    ],
+    "npcs": [],
+    "trainers": [
+      {
+        "trainer_id": "route13_bird_keeper_1",
+        "x": 8,
+        "y": 6,
+        "facing": "down",
+        "sight_range": 4
+      },
+      {
+        "trainer_id": "route13_beauty_1",
+        "x": 20,
+        "y": 14,
+        "facing": "left",
+        "sight_range": 3
+      }
+    ],
+    "encounter_zones": [
+      {
+        "x": 4,
+        "y": 3,
+        "width": 10,
+        "height": 6,
+        "encounter_table_id": "route_13"
+      },
+      {
+        "x": 16,
+        "y": 10,
+        "width": 10,
+        "height": 6,
+        "encounter_table_id": "route_13"
+      }
+    ],
+    "buildings": []
+  },
+  {
+    "id": "route_14",
+    "name": "route_14",
+    "display_name": "Route 14",
+    "map_type": "route",
+    "width": 20,
+    "height": 30,
+    "connections": [
+      {
+        "direction": "east",
+        "target_map_id": "route_13",
+        "entry_x": 0,
+        "entry_y": 10
+      },
+      {
+        "direction": "south",
+        "target_map_id": "route_15",
+        "entry_x": 10,
+        "entry_y": 0
+      }
+    ],
+    "npcs": [],
+    "trainers": [
+      {
+        "trainer_id": "route14_bird_keeper_1",
+        "x": 10,
+        "y": 8,
+        "facing": "down",
+        "sight_range": 4
+      },
+      {
+        "trainer_id": "route14_biker_1",
+        "x": 6,
+        "y": 22,
+        "facing": "right",
+        "sight_range": 3
+      }
+    ],
+    "encounter_zones": [
+      {
+        "x": 3,
+        "y": 4,
+        "width": 14,
+        "height": 8,
+        "encounter_table_id": "route_14"
+      },
+      {
+        "x": 3,
+        "y": 18,
+        "width": 14,
+        "height": 8,
+        "encounter_table_id": "route_14"
+      }
+    ],
+    "buildings": []
+  },
+  {
+    "id": "route_15",
+    "name": "route_15",
+    "display_name": "Route 15",
+    "map_type": "route",
+    "width": 30,
+    "height": 20,
+    "connections": [
+      {
+        "direction": "north",
+        "target_map_id": "route_14",
+        "entry_x": 10,
+        "entry_y": 28
+      },
+      {
+        "direction": "west",
+        "target_map_id": "fuchsia_city",
+        "entry_x": 18,
+        "entry_y": 8
+      }
+    ],
+    "npcs": [],
+    "trainers": [
+      {
+        "trainer_id": "route15_jr_trainer_1",
+        "x": 10,
+        "y": 8,
+        "facing": "right",
+        "sight_range": 3
+      },
+      {
+        "trainer_id": "route15_beauty_1",
+        "x": 22,
+        "y": 14,
+        "facing": "left",
+        "sight_range": 3
+      }
+    ],
+    "encounter_zones": [
+      {
+        "x": 4,
+        "y": 3,
+        "width": 10,
+        "height": 6,
+        "encounter_table_id": "route_15"
+      },
+      {
+        "x": 18,
+        "y": 10,
+        "width": 8,
+        "height": 6,
+        "encounter_table_id": "route_15"
+      }
+    ],
+    "buildings": []
+  },
+  {
+    "id": "route_17",
+    "name": "route_17",
+    "display_name": "Route 17",
+    "map_type": "route",
+    "width": 20,
+    "height": 40,
+    "connections": [
+      {
+        "direction": "north",
+        "target_map_id": "route_16",
+        "entry_x": 10,
+        "entry_y": 18
+      },
+      {
+        "direction": "south",
+        "target_map_id": "route_18",
+        "entry_x": 10,
+        "entry_y": 0
+      }
+    ],
+    "npcs": [],
+    "trainers": [
+      {
+        "trainer_id": "route17_cue_ball_1",
+        "x": 10,
+        "y": 10,
+        "facing": "down",
+        "sight_range": 4
+      },
+      {
+        "trainer_id": "route17_biker_1",
+        "x": 6,
+        "y": 22,
+        "facing": "right",
+        "sight_range": 3
+      },
+      {
+        "trainer_id": "route17_biker_2",
+        "x": 14,
+        "y": 32,
+        "facing": "left",
+        "sight_range": 3
+      }
+    ],
+    "encounter_zones": [
+      {
+        "x": 3,
+        "y": 5,
+        "width": 14,
+        "height": 10,
+        "encounter_table_id": "route_17"
+      },
+      {
+        "x": 3,
+        "y": 25,
+        "width": 14,
+        "height": 10,
+        "encounter_table_id": "route_17"
+      }
+    ],
+    "buildings": []
+  },
+  {
+    "id": "route_18",
+    "name": "route_18",
+    "display_name": "Route 18",
+    "map_type": "route",
+    "width": 30,
+    "height": 20,
+    "connections": [
+      {
+        "direction": "north",
+        "target_map_id": "route_17",
+        "entry_x": 10,
+        "entry_y": 38
+      },
+      {
+        "direction": "east",
+        "target_map_id": "fuchsia_city",
+        "entry_x": 0,
+        "entry_y": 8
+      }
+    ],
+    "npcs": [],
+    "trainers": [
+      {
+        "trainer_id": "route18_bird_keeper_1",
+        "x": 10,
+        "y": 8,
+        "facing": "right",
+        "sight_range": 4
+      },
+      {
+        "trainer_id": "route18_bird_keeper_2",
+        "x": 22,
+        "y": 14,
+        "facing": "left",
+        "sight_range": 3
+      }
+    ],
+    "encounter_zones": [
+      {
+        "x": 4,
+        "y": 3,
+        "width": 10,
+        "height": 6,
+        "encounter_table_id": "route_18"
+      },
+      {
+        "x": 18,
+        "y": 10,
+        "width": 8,
+        "height": 6,
+        "encounter_table_id": "route_18"
+      }
+    ],
+    "buildings": []
+  },
+  {
+    "id": "route_19",
+    "name": "route_19",
+    "display_name": "Route 19",
+    "map_type": "route",
+    "width": 20,
+    "height": 30,
+    "connections": [
+      {
+        "direction": "north",
+        "target_map_id": "fuchsia_city",
+        "entry_x": 10,
+        "entry_y": 18
+      },
+      {
+        "direction": "south",
+        "target_map_id": "route_20",
+        "entry_x": 0,
+        "entry_y": 10
+      }
+    ],
+    "npcs": [],
+    "trainers": [
+      {
+        "trainer_id": "route19_swimmer_1",
+        "x": 10,
+        "y": 10,
+        "facing": "down",
+        "sight_range": 4
+      },
+      {
+        "trainer_id": "route19_swimmer_2",
+        "x": 6,
+        "y": 22,
+        "facing": "right",
+        "sight_range": 3
+      }
+    ],
+    "encounter_zones": [
+      {
+        "x": 3,
+        "y": 4,
+        "width": 14,
+        "height": 8,
+        "encounter_table_id": "route_19"
+      },
+      {
+        "x": 3,
+        "y": 18,
+        "width": 14,
+        "height": 8,
+        "encounter_table_id": "route_19"
+      }
+    ],
+    "buildings": []
   }
 ]
