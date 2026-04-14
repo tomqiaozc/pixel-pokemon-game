@@ -1,0 +1,49 @@
+{
+  "fast": {
+    "name": "Fast",
+    "formula": "0.8 * n^3",
+    "level_100_exp": 800000,
+    "pokemon_examples": [
+      "Clefairy",
+      "Jigglypuff",
+      "Pikachu",
+      "Vulpix"
+    ]
+  },
+  "medium_fast": {
+    "name": "Medium Fast",
+    "formula": "n^3",
+    "level_100_exp": 1000000,
+    "pokemon_examples": [
+      "Bulbasaur",
+      "Charmander",
+      "Squirtle",
+      "Pidgey",
+      "Rattata",
+      "Nidoran"
+    ]
+  },
+  "medium_slow": {
+    "name": "Medium Slow",
+    "formula": "1.2*n^3 - 15*n^2 + 100*n - 140",
+    "level_100_exp": 1059860,
+    "pokemon_examples": [
+      "Abra",
+      "Machop",
+      "Geodude",
+      "Gastly",
+      "Eevee"
+    ]
+  },
+  "slow": {
+    "name": "Slow",
+    "formula": "1.25 * n^3",
+    "level_100_exp": 1250000,
+    "pokemon_examples": [
+      "Dratini",
+      "Larvitar",
+      "Snorlax",
+      "Chansey"
+    ]
+  }
+}

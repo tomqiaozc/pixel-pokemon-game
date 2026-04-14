@@ -1,0 +1,158 @@
+{
+  "youngster": {
+    "name": "Youngster",
+    "prize_per_level": 16,
+    "sprite": "youngster",
+    "gender": "male"
+  },
+  "lass": {
+    "name": "Lass",
+    "prize_per_level": 16,
+    "sprite": "lass",
+    "gender": "female"
+  },
+  "bug_catcher": {
+    "name": "Bug Catcher",
+    "prize_per_level": 12,
+    "sprite": "bug_catcher",
+    "gender": "male"
+  },
+  "hiker": {
+    "name": "Hiker",
+    "prize_per_level": 36,
+    "sprite": "hiker",
+    "gender": "male"
+  },
+  "swimmer_m": {
+    "name": "Swimmer",
+    "prize_per_level": 8,
+    "sprite": "swimmer_m",
+    "gender": "male"
+  },
+  "swimmer_f": {
+    "name": "Swimmer",
+    "prize_per_level": 8,
+    "sprite": "swimmer_f",
+    "gender": "female"
+  },
+  "fisherman": {
+    "name": "Fisherman",
+    "prize_per_level": 20,
+    "sprite": "fisherman",
+    "gender": "male"
+  },
+  "super_nerd": {
+    "name": "Super Nerd",
+    "prize_per_level": 24,
+    "sprite": "super_nerd",
+    "gender": "male"
+  },
+  "engineer": {
+    "name": "Engineer",
+    "prize_per_level": 48,
+    "sprite": "engineer",
+    "gender": "male"
+  },
+  "beauty": {
+    "name": "Beauty",
+    "prize_per_level": 56,
+    "sprite": "beauty",
+    "gender": "female"
+  },
+  "psychic_trainer": {
+    "name": "Psychic",
+    "prize_per_level": 24,
+    "sprite": "psychic",
+    "gender": "male"
+  },
+  "rocker": {
+    "name": "Rocker",
+    "prize_per_level": 24,
+    "sprite": "rocker",
+    "gender": "male"
+  },
+  "juggler": {
+    "name": "Juggler",
+    "prize_per_level": 28,
+    "sprite": "juggler",
+    "gender": "male"
+  },
+  "tamer": {
+    "name": "Tamer",
+    "prize_per_level": 40,
+    "sprite": "tamer",
+    "gender": "male"
+  },
+  "bird_keeper": {
+    "name": "Bird Keeper",
+    "prize_per_level": 24,
+    "sprite": "bird_keeper",
+    "gender": "male"
+  },
+  "blackbelt": {
+    "name": "Black Belt",
+    "prize_per_level": 24,
+    "sprite": "blackbelt",
+    "gender": "male"
+  },
+  "scientist": {
+    "name": "Scientist",
+    "prize_per_level": 48,
+    "sprite": "scientist",
+    "gender": "male"
+  },
+  "rocket_grunt": {
+    "name": "Team Rocket Grunt",
+    "prize_per_level": 24,
+    "sprite": "rocket_grunt",
+    "gender": "male"
+  },
+  "cooltrainer_m": {
+    "name": "Cooltrainer",
+    "prize_per_level": 48,
+    "sprite": "cooltrainer_m",
+    "gender": "male"
+  },
+  "cooltrainer_f": {
+    "name": "Cooltrainer",
+    "prize_per_level": 48,
+    "sprite": "cooltrainer_f",
+    "gender": "female"
+  },
+  "gentleman": {
+    "name": "Gentleman",
+    "prize_per_level": 72,
+    "sprite": "gentleman",
+    "gender": "male"
+  },
+  "channeler": {
+    "name": "Channeler",
+    "prize_per_level": 24,
+    "sprite": "channeler",
+    "gender": "female"
+  },
+  "ace_trainer": {
+    "name": "Ace Trainer",
+    "prize_per_level": 56,
+    "sprite": "ace_trainer",
+    "gender": "male"
+  },
+  "gym_leader": {
+    "name": "Gym Leader",
+    "prize_per_level": 100,
+    "sprite": "gym_leader",
+    "gender": null
+  },
+  "elite_four": {
+    "name": "Elite Four",
+    "prize_per_level": 120,
+    "sprite": "elite_four",
+    "gender": null
+  },
+  "champion": {
+    "name": "Champion",
+    "prize_per_level": 200,
+    "sprite": "champion",
+    "gender": null
+  }
+}
