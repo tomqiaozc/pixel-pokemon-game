@@ -1,0 +1,79 @@
+{
+  "description": "Trading and battling configuration for local multiplayer features.",
+  "trading": {
+    "enabled": true,
+    "method": "local_link",
+    "trade_animation_ms": 3000,
+    "trade_evolution_enabled": true,
+    "trade_restrictions": {
+      "allow_hm_pokemon": false,
+      "allow_egg": false,
+      "allow_fainted": true,
+      "min_party_after_trade": 1
+    },
+    "trade_screen": {
+      "show_stats": true,
+      "show_moves": true,
+      "show_held_item": true,
+      "confirm_required": true,
+      "cancel_window_ms": 5000
+    }
+  },
+  "link_battle": {
+    "enabled": true,
+    "method": "local_link",
+    "battle_formats": [
+      {
+        "id": "singles",
+        "name": "Single Battle",
+        "team_size": 6,
+        "active_pokemon": 1,
+        "level_cap": null,
+        "item_clause": false,
+        "species_clause": false,
+        "timer_seconds": null
+      },
+      {
+        "id": "singles_flat",
+        "name": "Flat Battle",
+        "team_size": 3,
+        "active_pokemon": 1,
+        "level_cap": 50,
+        "item_clause": true,
+        "species_clause": true,
+        "timer_seconds": 300
+      },
+      {
+        "id": "doubles",
+        "name": "Double Battle",
+        "team_size": 6,
+        "active_pokemon": 2,
+        "level_cap": null,
+        "item_clause": false,
+        "species_clause": false,
+        "timer_seconds": null
+      }
+    ],
+    "battle_rules": {
+      "sleep_clause": true,
+      "freeze_clause": false,
+      "ohko_clause": false,
+      "evasion_clause": false
+    }
+  },
+  "connection": {
+    "type": "websocket",
+    "port": 8765,
+    "timeout_ms": 30000,
+    "reconnect_attempts": 3,
+    "heartbeat_interval_ms": 5000,
+    "max_players": 2
+  },
+  "colosseum": {
+    "enabled": true,
+    "location": "celadon_city",
+    "building": "celadon_colosseum",
+    "unlock_requirement": "four_badges",
+    "description": "Battle other trainers in the Celadon Colosseum!"
+  }
+}

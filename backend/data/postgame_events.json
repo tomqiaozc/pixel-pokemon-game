@@ -1,0 +1,117 @@
+{
+  "description": "Postgame event triggers and special encounters after becoming Champion.",
+  "unlock_trigger": "champion_defeated",
+  "events": [
+    {
+      "id": "cerulean_cave_open",
+      "name": "Cerulean Cave Unlocked",
+      "description": "The guard blocking Cerulean Cave steps aside.",
+      "trigger": "champion_defeated",
+      "location": "cerulean_city",
+      "type": "access",
+      "one_time": true
+    },
+    {
+      "id": "mewtwo_encounter",
+      "name": "Mewtwo Encounter",
+      "description": "Mewtwo awaits at the deepest floor of Cerulean Cave.",
+      "trigger": "enter_cerulean_cave_b2f",
+      "location": "cerulean_cave",
+      "type": "legendary",
+      "pokemon": "Mewtwo",
+      "level": 70,
+      "one_time": true
+    },
+    {
+      "id": "legendary_birds_roam",
+      "name": "Legendary Birds Available",
+      "description": "Articuno, Zapdos, and Moltres can now be found.",
+      "trigger": "champion_defeated",
+      "location": "various",
+      "type": "legendary",
+      "encounters": [
+        {"pokemon": "Articuno", "location": "seafoam_islands", "level": 50},
+        {"pokemon": "Zapdos", "location": "power_plant", "level": 50},
+        {"pokemon": "Moltres", "location": "victory_road", "level": 50}
+      ],
+      "one_time": true
+    },
+    {
+      "id": "gym_leader_rematches",
+      "name": "Gym Leader Rematches",
+      "description": "Gym Leaders are available for stronger rematches.",
+      "trigger": "champion_defeated",
+      "location": "all_gyms",
+      "type": "rematch",
+      "level_boost": 20,
+      "cooldown_steps": 1000,
+      "one_time": false
+    },
+    {
+      "id": "rival_rematch",
+      "name": "Rival Rematch at Indigo Plateau",
+      "description": "Your rival trains at the Indigo Plateau for rematches.",
+      "trigger": "champion_defeated",
+      "location": "indigo_plateau",
+      "type": "rematch",
+      "level_range": [65, 75],
+      "cooldown_steps": 500,
+      "one_time": false
+    },
+    {
+      "id": "battle_tower_open",
+      "name": "Battle Tower Opens",
+      "description": "The Battle Tower is now accessible.",
+      "trigger": "champion_defeated",
+      "location": "battle_tower",
+      "type": "facility",
+      "one_time": true
+    },
+    {
+      "id": "professor_oak_evaluation",
+      "name": "Oak's Evaluation",
+      "description": "Professor Oak evaluates your Pokedex completion.",
+      "trigger": "champion_defeated",
+      "location": "oaks_lab",
+      "type": "story",
+      "one_time": false
+    },
+    {
+      "id": "elite_four_rematch",
+      "name": "Elite Four Rematch",
+      "description": "The Elite Four has stronger teams for rematches.",
+      "trigger": "champion_defeated",
+      "location": "indigo_plateau",
+      "type": "rematch",
+      "level_boost": 15,
+      "cooldown_steps": 2000,
+      "one_time": false
+    },
+    {
+      "id": "safari_zone_expansion",
+      "name": "Safari Zone Expansion",
+      "description": "New areas in the Safari Zone are now accessible.",
+      "trigger": "champion_defeated",
+      "location": "safari_zone",
+      "type": "access",
+      "one_time": true
+    },
+    {
+      "id": "mew_event",
+      "name": "Mew Event",
+      "description": "A mysterious Pokemon appears after completing the Pokedex.",
+      "trigger": "pokedex_150",
+      "location": "faraway_island",
+      "type": "legendary",
+      "pokemon": "Mew",
+      "level": 30,
+      "one_time": true
+    }
+  ],
+  "postgame_difficulty": {
+    "wild_level_boost": 10,
+    "trainer_level_boost": 15,
+    "new_pokemon_available": true,
+    "rare_item_drops_enabled": true
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "description": "In-game statistics tracking system for player accomplishments.",
+  "tracked_stats": [
+    {"id": "steps_taken", "name": "Steps Taken", "category": "exploration", "default": 0, "format": "{value:,}"},
+    {"id": "battles_won", "name": "Battles Won", "category": "battle", "default": 0, "format": "{value:,}"},
+    {"id": "battles_lost", "name": "Battles Lost", "category": "battle", "default": 0, "format": "{value:,}"},
+    {"id": "battles_fled", "name": "Battles Fled", "category": "battle", "default": 0, "format": "{value:,}"},
+    {"id": "pokemon_caught", "name": "Pokemon Caught", "category": "collection", "default": 0, "format": "{value}"},
+    {"id": "pokemon_seen", "name": "Pokemon Seen", "category": "collection", "default": 0, "format": "{value}"},
+    {"id": "pokemon_evolved", "name": "Pokemon Evolved", "category": "collection", "default": 0, "format": "{value}"},
+    {"id": "eggs_hatched", "name": "Eggs Hatched", "category": "collection", "default": 0, "format": "{value}"},
+    {"id": "trainers_defeated", "name": "Trainers Defeated", "category": "battle", "default": 0, "format": "{value}"},
+    {"id": "gym_badges", "name": "Gym Badges", "category": "progress", "default": 0, "format": "{value}/8"},
+    {"id": "money_earned", "name": "Total Money Earned", "category": "economy", "default": 0, "format": "${value:,}"},
+    {"id": "money_spent", "name": "Total Money Spent", "category": "economy", "default": 0, "format": "${value:,}"},
+    {"id": "items_used", "name": "Items Used", "category": "economy", "default": 0, "format": "{value}"},
+    {"id": "pokeballs_thrown", "name": "Poke Balls Thrown", "category": "collection", "default": 0, "format": "{value}"},
+    {"id": "critical_hits", "name": "Critical Hits Landed", "category": "battle", "default": 0, "format": "{value}"},
+    {"id": "super_effective_hits", "name": "Super Effective Hits", "category": "battle", "default": 0, "format": "{value}"},
+    {"id": "pokemon_healed", "name": "Pokemon Healed", "category": "collection", "default": 0, "format": "{value}"},
+    {"id": "save_count", "name": "Times Saved", "category": "system", "default": 0, "format": "{value}"},
+    {"id": "play_time_seconds", "name": "Play Time", "category": "system", "default": 0, "format": "{hours}h {minutes}m"},
+    {"id": "blackout_count", "name": "Times Blacked Out", "category": "battle", "default": 0, "format": "{value}"},
+    {"id": "fishing_attempts", "name": "Fishing Attempts", "category": "exploration", "default": 0, "format": "{value}"},
+    {"id": "bike_steps", "name": "Steps on Bike", "category": "exploration", "default": 0, "format": "{value:,}"},
+    {"id": "surf_steps", "name": "Steps Surfing", "category": "exploration", "default": 0, "format": "{value:,}"},
+    {"id": "cut_uses", "name": "Cut Uses", "category": "exploration", "default": 0, "format": "{value}"},
+    {"id": "fly_uses", "name": "Fly Uses", "category": "exploration", "default": 0, "format": "{value}"}
+  ],
+  "categories": ["exploration", "battle", "collection", "economy", "progress", "system"],
+  "display_settings": {
+    "accessible_from_menu": true,
+    "menu_label": "STATS",
+    "stats_per_page": 8,
+    "show_category_tabs": true,
+    "background_color": "#F0F0F0",
+    "header_color": "#333333"
+  },
+  "milestones": [
+    {"stat_id": "steps_taken", "threshold": 10000, "reward": "Running Shoes flavor text"},
+    {"stat_id": "steps_taken", "threshold": 100000, "reward": "Marathon Walker title"},
+    {"stat_id": "battles_won", "threshold": 100, "reward": "Battle Veteran title"},
+    {"stat_id": "pokemon_caught", "threshold": 151, "reward": "Pokedex completion"},
+    {"stat_id": "trainers_defeated", "threshold": 50, "reward": "Trainer Slayer title"}
+  ]
+}
