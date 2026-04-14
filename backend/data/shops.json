@@ -2,21 +2,364 @@
   "pallet_shop": {
     "name": "Pallet Town Shop",
     "items": [
-      {"item_id": 7, "stock": -1},
-      {"item_id": 1, "stock": -1}
+      {
+        "item_id": 7,
+        "stock": -1
+      },
+      {
+        "item_id": 1,
+        "stock": -1
+      }
     ]
   },
   "viridian_shop": {
     "name": "Viridian City Pokemart",
     "items": [
-      {"item_id": 7, "stock": -1},
-      {"item_id": 8, "stock": -1},
-      {"item_id": 1, "stock": -1},
-      {"item_id": 2, "stock": -1},
-      {"item_id": 3, "stock": -1},
-      {"item_id": 4, "stock": -1},
-      {"item_id": 5, "stock": -1},
-      {"item_id": 6, "stock": -1}
+      {
+        "item_id": 7,
+        "stock": -1
+      },
+      {
+        "item_id": 1,
+        "stock": -1
+      },
+      {
+        "item_id": 3,
+        "stock": -1
+      },
+      {
+        "item_id": 4,
+        "stock": -1
+      }
+    ]
+  },
+  "pewter_shop": {
+    "name": "Pewter City Pokemart",
+    "items": [
+      {
+        "item_id": 7,
+        "stock": -1
+      },
+      {
+        "item_id": 1,
+        "stock": -1
+      },
+      {
+        "item_id": 3,
+        "stock": -1
+      },
+      {
+        "item_id": 4,
+        "stock": -1
+      },
+      {
+        "item_id": 6,
+        "stock": -1
+      }
+    ]
+  },
+  "cerulean_shop": {
+    "name": "Cerulean City Pokemart",
+    "items": [
+      {
+        "item_id": 7,
+        "stock": -1
+      },
+      {
+        "item_id": 8,
+        "stock": -1
+      },
+      {
+        "item_id": 2,
+        "stock": -1
+      },
+      {
+        "item_id": 1,
+        "stock": -1
+      },
+      {
+        "item_id": 3,
+        "stock": -1
+      },
+      {
+        "item_id": 6,
+        "stock": -1
+      }
+    ]
+  },
+  "vermilion_shop": {
+    "name": "Vermilion City Pokemart",
+    "items": [
+      {
+        "item_id": 7,
+        "stock": -1
+      },
+      {
+        "item_id": 8,
+        "stock": -1
+      },
+      {
+        "item_id": 2,
+        "stock": -1
+      },
+      {
+        "item_id": 3,
+        "stock": -1
+      },
+      {
+        "item_id": 4,
+        "stock": -1
+      },
+      {
+        "item_id": 5,
+        "stock": -1
+      },
+      {
+        "item_id": 6,
+        "stock": -1
+      }
+    ]
+  },
+  "lavender_shop": {
+    "name": "Lavender Town Pokemart",
+    "items": [
+      {
+        "item_id": 8,
+        "stock": -1
+      },
+      {
+        "item_id": 2,
+        "stock": -1
+      },
+      {
+        "item_id": 5,
+        "stock": -1
+      },
+      {
+        "item_id": 6,
+        "stock": -1
+      },
+      {
+        "item_id": 140,
+        "stock": -1
+      }
+    ]
+  },
+  "celadon_shop": {
+    "name": "Celadon Department Store",
+    "items": [
+      {
+        "item_id": 7,
+        "stock": -1
+      },
+      {
+        "item_id": 8,
+        "stock": -1
+      },
+      {
+        "item_id": 9,
+        "stock": -1
+      },
+      {
+        "item_id": 1,
+        "stock": -1
+      },
+      {
+        "item_id": 2,
+        "stock": -1
+      },
+      {
+        "item_id": 134,
+        "stock": -1
+      },
+      {
+        "item_id": 3,
+        "stock": -1
+      },
+      {
+        "item_id": 4,
+        "stock": -1
+      },
+      {
+        "item_id": 5,
+        "stock": -1
+      },
+      {
+        "item_id": 6,
+        "stock": -1
+      },
+      {
+        "item_id": 140,
+        "stock": -1
+      },
+      {
+        "item_id": 111,
+        "stock": -1
+      },
+      {
+        "item_id": 112,
+        "stock": -1
+      },
+      {
+        "item_id": 113,
+        "stock": -1
+      },
+      {
+        "item_id": 114,
+        "stock": -1
+      },
+      {
+        "item_id": 115,
+        "stock": -1
+      },
+      {
+        "item_id": 116,
+        "stock": -1
+      },
+      {
+        "item_id": 106,
+        "stock": -1
+      },
+      {
+        "item_id": 107,
+        "stock": -1
+      },
+      {
+        "item_id": 108,
+        "stock": -1
+      },
+      {
+        "item_id": 109,
+        "stock": -1
+      }
+    ]
+  },
+  "saffron_shop": {
+    "name": "Saffron City Pokemart",
+    "items": [
+      {
+        "item_id": 8,
+        "stock": -1
+      },
+      {
+        "item_id": 9,
+        "stock": -1
+      },
+      {
+        "item_id": 2,
+        "stock": -1
+      },
+      {
+        "item_id": 134,
+        "stock": -1
+      },
+      {
+        "item_id": 5,
+        "stock": -1
+      },
+      {
+        "item_id": 6,
+        "stock": -1
+      },
+      {
+        "item_id": 140,
+        "stock": -1
+      }
+    ]
+  },
+  "fuchsia_shop": {
+    "name": "Fuchsia City Pokemart",
+    "items": [
+      {
+        "item_id": 8,
+        "stock": -1
+      },
+      {
+        "item_id": 9,
+        "stock": -1
+      },
+      {
+        "item_id": 2,
+        "stock": -1
+      },
+      {
+        "item_id": 134,
+        "stock": -1
+      },
+      {
+        "item_id": 5,
+        "stock": -1
+      },
+      {
+        "item_id": 6,
+        "stock": -1
+      },
+      {
+        "item_id": 135,
+        "stock": -1
+      }
+    ]
+  },
+  "cinnabar_shop": {
+    "name": "Cinnabar Island Pokemart",
+    "items": [
+      {
+        "item_id": 9,
+        "stock": -1
+      },
+      {
+        "item_id": 134,
+        "stock": -1
+      },
+      {
+        "item_id": 135,
+        "stock": -1
+      },
+      {
+        "item_id": 5,
+        "stock": -1
+      },
+      {
+        "item_id": 6,
+        "stock": -1
+      },
+      {
+        "item_id": 137,
+        "stock": -1
+      }
+    ]
+  },
+  "indigo_shop": {
+    "name": "Indigo Plateau Pokemart",
+    "items": [
+      {
+        "item_id": 9,
+        "stock": -1
+      },
+      {
+        "item_id": 134,
+        "stock": -1
+      },
+      {
+        "item_id": 135,
+        "stock": -1
+      },
+      {
+        "item_id": 6,
+        "stock": -1
+      },
+      {
+        "item_id": 137,
+        "stock": -1
+      },
+      {
+        "item_id": 138,
+        "stock": -1
+      },
+      {
+        "item_id": 139,
+        "stock": -1
+      }
     ]
   }
 }

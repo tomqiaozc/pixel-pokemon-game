@@ -92,7 +92,7 @@ class TestShops:
         shop = get_shop("viridian_shop")
         assert shop is not None
         assert shop.name == "Viridian City Pokemart"
-        assert len(shop.items) == 8
+        assert len(shop.items) == 4
 
     def test_invalid_shop(self):
         assert get_shop("nonexistent") is None
