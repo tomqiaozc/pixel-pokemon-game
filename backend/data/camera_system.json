@@ -1,0 +1,70 @@
+{
+  "description": "Camera/viewport configuration for the overworld map rendering.",
+  "viewport": {
+    "width": 240,
+    "height": 160,
+    "tile_size": 16,
+    "visible_tiles_x": 15,
+    "visible_tiles_y": 10,
+    "render_buffer_tiles": 2
+  },
+  "follow_settings": {
+    "target": "player",
+    "smoothing": true,
+    "smoothing_speed": 0.15,
+    "dead_zone": {
+      "x": 2,
+      "y": 2
+    },
+    "look_ahead": {
+      "enabled": true,
+      "distance_tiles": 2,
+      "delay_ms": 300
+    }
+  },
+  "bounds": {
+    "clamp_to_map": true,
+    "edge_padding_tiles": 0
+  },
+  "effects": {
+    "shake": {
+      "enabled": true,
+      "max_offset": 4,
+      "decay_rate": 0.9,
+      "frequency_ms": 16
+    },
+    "zoom": {
+      "enabled": false,
+      "default_level": 1.0,
+      "min_level": 0.5,
+      "max_level": 2.0,
+      "zoom_speed": 0.1
+    },
+    "pan": {
+      "enabled": true,
+      "speed_tiles_per_second": 4,
+      "return_to_player_after_ms": 2000
+    },
+    "fade": {
+      "color": "#000000",
+      "speed_ms": 300
+    }
+  },
+  "cutscene_camera": {
+    "enabled": true,
+    "pan_speed": 2,
+    "hold_duration_ms": 1000,
+    "auto_return": true,
+    "letterbox": {
+      "enabled": true,
+      "bar_height": 20,
+      "color": "#000000",
+      "fade_in_ms": 300
+    }
+  },
+  "indoor_settings": {
+    "center_on_room": true,
+    "min_room_width_tiles": 8,
+    "min_room_height_tiles": 6
+  }
+}

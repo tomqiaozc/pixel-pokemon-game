@@ -1,0 +1,52 @@
+{
+  "description": "Music playback system and unlockable jukebox feature.",
+  "jukebox": {
+    "enabled": true,
+    "unlock_requirement": "become_champion",
+    "location": "celadon_city",
+    "building": "celadon_mansion",
+    "max_favorites": 10
+  },
+  "tracks": [
+    {"id": "title_screen", "name": "Title Screen", "category": "menu", "duration_seconds": 120, "unlocked_by_default": true},
+    {"id": "pallet_town", "name": "Pallet Town", "category": "town", "duration_seconds": 90, "unlocked_by_default": true},
+    {"id": "oaks_lab", "name": "Oak's Lab", "category": "indoor", "duration_seconds": 60, "unlocked_by_default": true},
+    {"id": "route_1", "name": "Route 1", "category": "route", "duration_seconds": 105, "unlocked_by_default": true},
+    {"id": "viridian_city", "name": "Viridian City", "category": "town", "duration_seconds": 95, "unlocked_by_default": false},
+    {"id": "pewter_city", "name": "Pewter City", "category": "town", "duration_seconds": 90, "unlocked_by_default": false},
+    {"id": "cerulean_city", "name": "Cerulean City", "category": "town", "duration_seconds": 100, "unlocked_by_default": false},
+    {"id": "vermilion_city", "name": "Vermilion City", "category": "town", "duration_seconds": 90, "unlocked_by_default": false},
+    {"id": "celadon_city", "name": "Celadon City", "category": "town", "duration_seconds": 95, "unlocked_by_default": false},
+    {"id": "lavender_town", "name": "Lavender Town", "category": "town", "duration_seconds": 80, "unlocked_by_default": false},
+    {"id": "saffron_city", "name": "Saffron City", "category": "town", "duration_seconds": 100, "unlocked_by_default": false},
+    {"id": "fuchsia_city", "name": "Fuchsia City", "category": "town", "duration_seconds": 90, "unlocked_by_default": false},
+    {"id": "cinnabar_island", "name": "Cinnabar Island", "category": "town", "duration_seconds": 85, "unlocked_by_default": false},
+    {"id": "mt_moon", "name": "Mt. Moon", "category": "dungeon", "duration_seconds": 110, "unlocked_by_default": false},
+    {"id": "ss_anne", "name": "S.S. Anne", "category": "indoor", "duration_seconds": 95, "unlocked_by_default": false},
+    {"id": "pokemon_tower", "name": "Pokemon Tower", "category": "dungeon", "duration_seconds": 100, "unlocked_by_default": false},
+    {"id": "team_rocket_hideout", "name": "Team Rocket Hideout", "category": "dungeon", "duration_seconds": 105, "unlocked_by_default": false},
+    {"id": "silph_co", "name": "Silph Co.", "category": "dungeon", "duration_seconds": 100, "unlocked_by_default": false},
+    {"id": "victory_road", "name": "Victory Road", "category": "dungeon", "duration_seconds": 115, "unlocked_by_default": false},
+    {"id": "wild_battle", "name": "Wild Pokemon Battle", "category": "battle", "duration_seconds": 120, "unlocked_by_default": true},
+    {"id": "trainer_battle", "name": "Trainer Battle", "category": "battle", "duration_seconds": 130, "unlocked_by_default": true},
+    {"id": "gym_leader_battle", "name": "Gym Leader Battle", "category": "battle", "duration_seconds": 140, "unlocked_by_default": false},
+    {"id": "champion_battle", "name": "Champion Battle", "category": "battle", "duration_seconds": 150, "unlocked_by_default": false},
+    {"id": "elite_four_battle", "name": "Elite Four Battle", "category": "battle", "duration_seconds": 135, "unlocked_by_default": false},
+    {"id": "rival_battle", "name": "Rival Battle", "category": "battle", "duration_seconds": 125, "unlocked_by_default": false},
+    {"id": "gym_theme", "name": "Pokemon Gym", "category": "indoor", "duration_seconds": 80, "unlocked_by_default": false},
+    {"id": "pokecenter", "name": "Pokemon Center", "category": "indoor", "duration_seconds": 45, "unlocked_by_default": true},
+    {"id": "evolution", "name": "Evolution", "category": "event", "duration_seconds": 40, "unlocked_by_default": false},
+    {"id": "hall_of_fame", "name": "Hall of Fame", "category": "event", "duration_seconds": 60, "unlocked_by_default": false},
+    {"id": "credits", "name": "Credits", "category": "event", "duration_seconds": 180, "unlocked_by_default": false},
+    {"id": "bicycle", "name": "Bicycle Theme", "category": "event", "duration_seconds": 90, "unlocked_by_default": false},
+    {"id": "surf_theme", "name": "Surfing", "category": "event", "duration_seconds": 100, "unlocked_by_default": false}
+  ],
+  "categories": ["menu", "town", "route", "indoor", "dungeon", "battle", "event"],
+  "playback_settings": {
+    "crossfade_ms": 1000,
+    "fade_out_ms": 500,
+    "loop_by_default": true,
+    "remember_position": false,
+    "resume_overworld_on_exit": true
+  }
+}
