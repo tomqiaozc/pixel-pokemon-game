@@ -1764,6 +1764,46 @@ const Sprites = (() => {
         return c;
     }
 
+    // Cooltrainer — Victory Road / Viridian Gym trainer
+    function drawCooltrainer() {
+        if (cache.cooltrainer) return cache.cooltrainer;
+        const c = document.createElement('canvas');
+        c.width = TILE; c.height = TILE;
+        const ctx = c.getContext('2d');
+        // Hair (styled, brown)
+        ctx.fillStyle = '#863';
+        ctx.fillRect(4, 0, 8, 4);
+        ctx.fillRect(3, 2, 1, 2);
+        // Face
+        ctx.fillStyle = '#fdd';
+        ctx.fillRect(5, 2, 6, 5);
+        // Eyes
+        ctx.fillStyle = '#222';
+        ctx.fillRect(6, 3, 1, 1);
+        ctx.fillRect(9, 3, 1, 1);
+        // Mouth
+        ctx.fillStyle = '#a66';
+        ctx.fillRect(7, 5, 2, 1);
+        // Body (blue jacket, white collar)
+        ctx.fillStyle = '#fff';
+        ctx.fillRect(5, 7, 6, 1);
+        ctx.fillStyle = '#36c';
+        ctx.fillRect(4, 8, 8, 4);
+        // Belt
+        ctx.fillStyle = '#c22';
+        ctx.fillRect(4, 10, 8, 1);
+        // Legs
+        ctx.fillStyle = '#447';
+        ctx.fillRect(5, 12, 2, 3);
+        ctx.fillRect(9, 12, 2, 3);
+        // Shoes
+        ctx.fillStyle = '#333';
+        ctx.fillRect(5, 14, 2, 1);
+        ctx.fillRect(9, 14, 2, 1);
+        cache.cooltrainer = c;
+        return c;
+    }
+
     return {
         TILE,
         PAL,
@@ -1816,5 +1856,6 @@ const Sprites = (() => {
         drawBlaine,
         drawBurglar,
         drawSwimmer,
+        drawCooltrainer,
     };
 })();

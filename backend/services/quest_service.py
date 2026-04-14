@@ -270,6 +270,28 @@ _QUEST_DEFS: list[dict] = [
         "rewards": {"money": 7000, "unlock_flags": ["badge_volcano"]},
         "prerequisite_quests": ["soul_badge"],
     },
+    {
+        "id": "earth_badge",
+        "name": "The Earth Badge",
+        "description": "Defeat Giovanni at Viridian Gym to earn the final Earth Badge!",
+        "type": "main",
+        "objectives": [
+            {"id": "defeat_giovanni_gym", "description": "Defeat Gym Leader Giovanni", "type": "defeat_gym", "target": "viridian_gym", "required_progress": 1},
+        ],
+        "rewards": {"money": 8000, "unlock_flags": ["badge_earth", "all_badges"]},
+        "prerequisite_quests": ["volcano_badge"],
+    },
+    {
+        "id": "victory_road",
+        "name": "Victory Road",
+        "description": "Traverse Victory Road to reach the Indigo Plateau and the Pokemon League!",
+        "type": "main",
+        "objectives": [
+            {"id": "traverse_victory_road", "description": "Traverse Victory Road", "type": "visit_location", "target": "indigo_plateau", "required_progress": 1},
+        ],
+        "rewards": {"money": 5000, "unlock_flags": ["reached_indigo_plateau"]},
+        "prerequisite_quests": ["earth_badge"],
+    },
 ]
 
 
@@ -504,6 +526,9 @@ def check_area_accessible(game_id: str, map_id: str, required_flag: Optional[str
         "has_hm_strength": "You need HM04 Strength",
         "has_secret_key": "You need the Secret Key to enter Blaine's Gym",
         "badge_volcano": "You need the Volcano Badge to pass",
+        "badge_earth": "You need the Earth Badge to pass",
+        "all_badges": "You need all 8 badges",
+        "reached_indigo_plateau": "You need to reach the Indigo Plateau",
     }
     reason = flag_reasons.get(required_flag, f"You need to complete a requirement: {required_flag}")
     return {"accessible": False, "reason": reason}

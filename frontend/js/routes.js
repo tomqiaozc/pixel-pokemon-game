@@ -2856,6 +2856,220 @@ const Routes = (() => {
           ] },
     ];
 
+    // --- Sprint 20: Viridian Gym, Victory Road ---
+
+    // Viridian City Gym (12x12 — ground-type, Giovanni)
+    function buildViridianGym() {
+        const W = 12, H = 12;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.DIRT); m.push(row); }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H-1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W-1] = T.HOUSE_WALL; }
+        // Interior walls creating maze paths
+        for (let x = 1; x <= 4; x++) m[3][x] = T.HOUSE_WALL;
+        for (let x = 7; x <= 10; x++) m[3][x] = T.HOUSE_WALL;
+        for (let x = 1; x <= 4; x++) m[6][x] = T.HOUSE_WALL;
+        for (let x = 7; x <= 10; x++) m[6][x] = T.HOUSE_WALL;
+        for (let x = 3; x <= 8; x++) m[9][x] = T.HOUSE_WALL;
+        // Passages
+        m[3][4] = T.DOOR; m[3][7] = T.DOOR; m[6][2] = T.DOOR; m[6][9] = T.DOOR; m[9][5] = T.DOOR; m[9][6] = T.DOOR;
+        // Central path
+        for (let y = 1; y < H-1; y++) { m[y][5] = T.DIRT; m[y][6] = T.DIRT; }
+        m[H-1][5] = T.DOOR; m[H-1][6] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Route 22 (20x15)
+    function buildRoute22() {
+        const W = 20, H = 15;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.GRASS); m.push(row); }
+        for (let x = 0; x < W; x++) { m[0][x] = T.TREE; m[H-1][x] = T.TREE; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.TREE; m[y][W-1] = T.TREE; }
+        // Dirt path
+        for (let x = 1; x < W-1; x++) { m[7][x] = T.DIRT; m[8][x] = T.DIRT; }
+        // Tall grass
+        for (let dy = 0; dy < 4; dy++) for (let dx = 0; dx < 5; dx++) { if (m[2+dy][3+dx] === T.GRASS) m[2+dy][3+dx] = T.TALL_GRASS; }
+        for (let dy = 0; dy < 4; dy++) for (let dx = 0; dx < 5; dx++) { if (m[10+dy][12+dx] === T.GRASS) m[10+dy][12+dx] = T.TALL_GRASS; }
+        // Water pond
+        for (let dy = 0; dy < 2; dy++) for (let dx = 0; dx < 3; dx++) m[3+dy][13+dx] = T.WATER;
+        // East/west exits
+        m[7][W-1] = T.DIRT; m[8][W-1] = T.DIRT;
+        m[7][0] = T.DIRT; m[8][0] = T.DIRT;
+        return { data: m, width: W, height: H };
+    }
+
+    // Route 23 (15x30 — badge check route)
+    function buildRoute23() {
+        const W = 15, H = 30;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.GRASS); m.push(row); }
+        for (let x = 0; x < W; x++) { m[0][x] = T.TREE; m[H-1][x] = T.TREE; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.TREE; m[y][W-1] = T.TREE; }
+        // Main path
+        for (let y = 1; y < H-1; y++) { m[y][7] = T.DIRT; m[y][8] = T.DIRT; }
+        // Badge check gates
+        for (let x = 3; x <= 11; x++) { m[5][x] = T.HOUSE_WALL; m[12][x] = T.HOUSE_WALL; m[19][x] = T.HOUSE_WALL; m[25][x] = T.HOUSE_WALL; }
+        m[5][7] = T.DOOR; m[5][8] = T.DOOR;
+        m[12][7] = T.DOOR; m[12][8] = T.DOOR;
+        m[19][7] = T.DOOR; m[19][8] = T.DOOR;
+        m[25][7] = T.DOOR; m[25][8] = T.DOOR;
+        // Rocks
+        m[8][3] = T.ROCK; m[8][11] = T.ROCK; m[15][3] = T.ROCK; m[22][11] = T.ROCK;
+        // North/south exits
+        m[0][7] = T.DIRT; m[0][8] = T.DIRT;
+        m[H-1][7] = T.DIRT; m[H-1][8] = T.DIRT;
+        return { data: m, width: W, height: H };
+    }
+
+    // Victory Road 1F (16x16 cave)
+    function buildVictoryRoad1F() {
+        const W = 16, H = 16;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.ROCK); m.push(row); }
+        // Carve cave interior
+        for (let y = 2; y < H-2; y++) for (let x = 2; x < W-2; x++) m[y][x] = T.DIRT;
+        // Boulder obstacles
+        m[4][5] = T.ROCK; m[4][10] = T.ROCK;
+        m[7][3] = T.ROCK; m[7][7] = T.ROCK; m[7][12] = T.ROCK;
+        m[10][5] = T.ROCK; m[10][9] = T.ROCK;
+        m[12][3] = T.ROCK; m[12][11] = T.ROCK;
+        // Pressure plates (FLOWER markers)
+        m[6][5] = T.FLOWER; m[9][10] = T.FLOWER;
+        // Entrance (south)
+        m[H-1][8] = T.DOOR;
+        // Stairs up
+        m[0][8] = T.DOOR;
+        // Ledges
+        for (let x = 4; x <= 7; x++) m[5][x] = T.HOUSE_WALL;
+        m[5][6] = T.DOOR;
+        for (let x = 9; x <= 12; x++) m[11][x] = T.HOUSE_WALL;
+        m[11][10] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Victory Road 2F (16x16 cave)
+    function buildVictoryRoad2F() {
+        const W = 16, H = 16;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.ROCK); m.push(row); }
+        // Carve cave interior
+        for (let y = 2; y < H-2; y++) for (let x = 2; x < W-2; x++) m[y][x] = T.DIRT;
+        // More boulders
+        m[4][4] = T.ROCK; m[4][8] = T.ROCK; m[4][11] = T.ROCK;
+        m[8][3] = T.ROCK; m[8][6] = T.ROCK; m[8][10] = T.ROCK; m[8][13] = T.ROCK;
+        m[11][5] = T.ROCK; m[11][9] = T.ROCK;
+        // Pressure plates
+        m[5][8] = T.FLOWER; m[10][6] = T.FLOWER;
+        // Stairs from 1F
+        m[H-1][8] = T.DOOR;
+        // Exit to Indigo Plateau
+        m[0][8] = T.DOOR;
+        // Ledges
+        for (let x = 3; x <= 6; x++) m[6][x] = T.HOUSE_WALL;
+        m[6][5] = T.DOOR;
+        for (let x = 10; x <= 13; x++) m[10][x] = T.HOUSE_WALL;
+        m[10][11] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Indigo Plateau (15x15)
+    function buildIndigoPlateauExterior() {
+        const W = 15, H = 15;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.GRASS); m.push(row); }
+        // Fancy border
+        for (let x = 0; x < W; x++) { m[0][x] = T.ROCK; m[H-1][x] = T.ROCK; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.ROCK; m[y][W-1] = T.ROCK; }
+        // Central grand path
+        for (let y = 1; y < H-1; y++) { m[y][7] = T.DIRT; }
+        for (let x = 4; x <= 10; x++) m[7][x] = T.DIRT;
+        // Pokemon Center (4x3 at 5,5)
+        for (let dy = 0; dy < 3; dy++) for (let dx = 0; dx < 4; dx++) m[5+dy][5+dx] = T.HOUSE_WALL;
+        m[5][5] = T.HOUSE_ROOF; m[5][6] = T.HOUSE_ROOF; m[5][7] = T.HOUSE_ROOF; m[5][8] = T.HOUSE_ROOF;
+        m[7][7] = T.DOOR;
+        // Pokemon League entrance (big building, top)
+        for (let dy = 0; dy < 3; dy++) for (let dx = 0; dx < 5; dx++) m[1+dy][5+dx] = T.HOUSE_WALL;
+        m[1][5] = T.HOUSE_ROOF; m[1][6] = T.HOUSE_ROOF; m[1][7] = T.HOUSE_ROOF; m[1][8] = T.HOUSE_ROOF; m[1][9] = T.HOUSE_ROOF;
+        m[3][7] = T.DOOR;
+        // Flowers and decorations
+        m[10][3] = T.FLOWER; m[10][5] = T.FLOWER; m[10][9] = T.FLOWER; m[10][11] = T.FLOWER;
+        m[12][4] = T.FLOWER; m[12][10] = T.FLOWER;
+        // South exit
+        m[H-1][7] = T.DIRT;
+        return { data: m, width: W, height: H };
+    }
+
+    // Indigo Pokemon Center (8x8)
+    function buildIndigoPokemonCenter() {
+        const W = 8, H = 8;
+        const m = [];
+        for (let y = 0; y < H; y++) { const row = []; for (let x = 0; x < W; x++) row.push(T.DIRT); m.push(row); }
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H-1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W-1] = T.HOUSE_WALL; }
+        for (let x = 2; x <= 5; x++) m[2][x] = T.HOUSE_WALL;
+        m[5][2] = T.HOUSE_WALL; m[5][5] = T.HOUSE_WALL;
+        m[H-1][4] = T.DOOR;
+        return { data: m, width: W, height: H };
+    }
+
+    // Viridian Gym trainers
+    const viridianGymTrainers = [
+        { x: 3, y: 4, name: 'Cooltrainer Samuel', dir: 3, sightRange: 3,
+          dialogue: ['Giovanni trained us well!'],
+          pokemon: [
+              { name: 'Rhyhorn', level: 42, hp: 68, maxHp: 68, type: 'Ground' },
+              { name: 'Dugtrio', level: 42, hp: 48, maxHp: 48, type: 'Ground' },
+          ] },
+        { x: 8, y: 6, name: 'Cooltrainer Alexa', dir: 2, sightRange: 3,
+          dialogue: ['You\'ll need more than type advantage!'],
+          pokemon: [
+              { name: 'Onix', level: 44, hp: 46, maxHp: 46, type: 'Rock' },
+          ] },
+        { x: 3, y: 8, name: 'Cooltrainer George', dir: 3, sightRange: 3,
+          dialogue: ['The Earth Badge is Giovanni\'s pride!'],
+          pokemon: [
+              { name: 'Marowak', level: 43, hp: 58, maxHp: 58, type: 'Ground' },
+              { name: 'Rhydon', level: 43, hp: 72, maxHp: 72, type: 'Ground' },
+          ] },
+    ];
+
+    // Route 22 trainer
+    const route22Trainers = [
+        { x: 10, y: 7, name: 'Cooltrainer Naomi', dir: 0, sightRange: 4,
+          dialogue: ['Only the strongest trainers pass through here!'],
+          pokemon: [
+              { name: 'Rhydon', level: 44, hp: 72, maxHp: 72, type: 'Ground' },
+              { name: 'Arcanine', level: 44, hp: 72, maxHp: 72, type: 'Fire' },
+          ] },
+    ];
+
+    // Victory Road trainers
+    const victoryRoad1FTrainers = [
+        { x: 5, y: 6, name: 'Cooltrainer Caroline', dir: 3, sightRange: 4,
+          dialogue: ['Victory Road is the final test!'],
+          pokemon: [
+              { name: 'Onix', level: 44, hp: 46, maxHp: 46, type: 'Rock' },
+              { name: 'Marowak', level: 44, hp: 58, maxHp: 58, type: 'Ground' },
+          ] },
+        { x: 12, y: 10, name: 'Cooltrainer Vincent', dir: 2, sightRange: 4,
+          dialogue: ['Think you can handle Victory Road?'],
+          pokemon: [
+              { name: 'Dugtrio', level: 45, hp: 48, maxHp: 48, type: 'Ground' },
+              { name: 'Rhyhorn', level: 45, hp: 68, maxHp: 68, type: 'Ground' },
+              { name: 'Rhydon', level: 45, hp: 72, maxHp: 72, type: 'Ground' },
+          ] },
+    ];
+
+    const victoryRoad2FTrainers = [
+        { x: 8, y: 8, name: 'Cooltrainer Colby', dir: 0, sightRange: 4,
+          dialogue: ['The Indigo Plateau is just ahead!'],
+          pokemon: [
+              { name: 'Marowak', level: 46, hp: 60, maxHp: 60, type: 'Ground' },
+              { name: 'Arcanine', level: 46, hp: 74, maxHp: 74, type: 'Fire' },
+          ] },
+    ];
+
     // Register all maps with MapLoader
     function registerAll() {
         const palletTown = buildPalletTown();
@@ -4027,6 +4241,82 @@ const Routes = (() => {
             ],
             trainers: route21Trainers,
         });
+
+        // --- Sprint 20: Viridian Gym, Victory Road, Indigo Plateau ---
+
+        const viridianGym = buildViridianGym();
+        MapLoader.registerMap('viridian_gym', {
+            name: 'Viridian City Gym',
+            width: viridianGym.width, height: viridianGym.height, data: viridianGym.data,
+            trainers: viridianGymTrainers,
+            npcs: [{ name: 'Giovanni', type: 'giovanni', x: 5, y: 2, dir: 0,
+              dialogue: ['So, you have come this far. I am the Gym Leader here, Giovanni!', 'I shall show you the true power of Ground-type Pokemon!'] }],
+        });
+
+        const r22 = buildRoute22();
+        MapLoader.registerMap('route_22', {
+            name: 'Route 22',
+            width: r22.width, height: r22.height, data: r22.data,
+            exits: [
+                { edge: 'east', targetMap: 'viridian_city', spawnX: 1, spawnY: 10, spawnDir: 3 },
+                { edge: 'west', targetMap: 'route_23', spawnX: 14, spawnY: 28, spawnDir: 2 },
+            ],
+            trainers: route22Trainers,
+        });
+
+        const r23 = buildRoute23();
+        MapLoader.registerMap('route_23', {
+            name: 'Route 23',
+            width: r23.width, height: r23.height, data: r23.data,
+            exits: [
+                { edge: 'south', targetMap: 'route_22', spawnX: 1, spawnY: 7, spawnDir: 3 },
+                { edge: 'north', targetMap: 'victory_road_1f', spawnX: 8, spawnY: 14, spawnDir: 1 },
+            ],
+        });
+
+        const vr1f = buildVictoryRoad1F();
+        MapLoader.registerMap('victory_road_1f', {
+            name: 'Victory Road 1F',
+            width: vr1f.width, height: vr1f.height, data: vr1f.data,
+            doors: [
+                { x: 8, y: 0, targetMap: 'victory_road_2f', spawnX: 8, spawnY: 14 },
+            ],
+            trainers: victoryRoad1FTrainers,
+        });
+
+        const vr2f = buildVictoryRoad2F();
+        MapLoader.registerMap('victory_road_2f', {
+            name: 'Victory Road 2F',
+            width: vr2f.width, height: vr2f.height, data: vr2f.data,
+            doors: [
+                { x: 8, y: 15, targetMap: 'victory_road_1f', spawnX: 8, spawnY: 1 },
+                { x: 8, y: 0, targetMap: 'indigo_plateau', spawnX: 7, spawnY: 13 },
+            ],
+            trainers: victoryRoad2FTrainers,
+        });
+
+        const indigoPlateau = buildIndigoPlateauExterior();
+        MapLoader.registerMap('indigo_plateau', {
+            name: 'Indigo Plateau',
+            width: indigoPlateau.width, height: indigoPlateau.height, data: indigoPlateau.data,
+            exits: [
+                { edge: 'south', targetMap: 'victory_road_2f', spawnX: 8, spawnY: 1, spawnDir: 0 },
+            ],
+            doors: [
+                { x: 7, y: 7, targetMap: 'indigo_pokemon_center', spawnX: 4, spawnY: 6 },
+            ],
+            npcs: [{ name: 'Badge Checker', type: 'townsfolk', x: 7, y: 8, dir: 0,
+              dialogue: ['Welcome to the Indigo Plateau!', 'Only trainers with 8 badges may enter the Pokemon League.'] }],
+            lamps: [{ x: 5, y: 4 }, { x: 9, y: 4 }],
+        });
+
+        const indigoPC = buildIndigoPokemonCenter();
+        MapLoader.registerMap('indigo_pokemon_center', {
+            name: 'Indigo Plateau Pokemon Center',
+            width: indigoPC.width, height: indigoPC.height, data: indigoPC.data,
+            npcs: [{ name: 'Nurse Joy', type: 'nurse', x: 4, y: 2, dir: 0,
+              dialogue: ['Welcome to the Pokemon Center!', 'You should heal before challenging the Elite Four!'] }],
+        });
     }
 
     return {
@@ -4105,6 +4395,13 @@ const Routes = (() => {
         buildPokemonLab,
         buildRoute20,
         buildRoute21,
+        buildViridianGym,
+        buildRoute22,
+        buildRoute23,
+        buildVictoryRoad1F,
+        buildVictoryRoad2F,
+        buildIndigoPlateauExterior,
+        buildIndigoPokemonCenter,
         buildPalletTown,
         buildViridianCity,
         buildPewterCity,
@@ -4135,6 +4432,10 @@ const Routes = (() => {
         mansion2FTrainers,
         route20Trainers,
         route21Trainers,
+        viridianGymTrainers,
+        route22Trainers,
+        victoryRoad1FTrainers,
+        victoryRoad2FTrainers,
         nuggetBridgeTrainers,
         route25Trainers,
     };

@@ -5134,5 +5134,334 @@
     ],
     "evolution": null,
     "sprite": "magmar.png"
+  },
+  {
+    "id": 51,
+    "name": "Dugtrio",
+    "types": [
+      "ground"
+    ],
+    "stats": {
+      "hp": 35,
+      "attack": 100,
+      "defense": 50,
+      "sp_attack": 50,
+      "sp_defense": 70,
+      "speed": 120
+    },
+    "base_exp": 149,
+    "catch_rate": 50,
+    "abilities": [
+      "Sand Veil",
+      "Arena Trap"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "field"
+    ],
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Scratch"
+      },
+      {
+        "level": 1,
+        "move": "Sand Attack"
+      },
+      {
+        "level": 1,
+        "move": "Growl"
+      },
+      {
+        "level": 15,
+        "move": "Dig"
+      },
+      {
+        "level": 25,
+        "move": "Slash"
+      },
+      {
+        "level": 33,
+        "move": "Earthquake"
+      },
+      {
+        "level": 40,
+        "move": "Fissure"
+      }
+    ],
+    "evolution": null,
+    "sprite": "dugtrio.png"
+  },
+  {
+    "id": 95,
+    "name": "Onix",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "stats": {
+      "hp": 35,
+      "attack": 45,
+      "defense": 160,
+      "sp_attack": 30,
+      "sp_defense": 45,
+      "speed": 70
+    },
+    "base_exp": 77,
+    "catch_rate": 45,
+    "abilities": [
+      "Rock Head",
+      "Sturdy"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "mineral"
+    ],
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Tackle"
+      },
+      {
+        "level": 1,
+        "move": "Screech"
+      },
+      {
+        "level": 6,
+        "move": "Bind"
+      },
+      {
+        "level": 9,
+        "move": "Rock Throw"
+      },
+      {
+        "level": 14,
+        "move": "Rage"
+      },
+      {
+        "level": 17,
+        "move": "Rock Tomb"
+      },
+      {
+        "level": 22,
+        "move": "Sandstorm"
+      },
+      {
+        "level": 25,
+        "move": "Slam"
+      },
+      {
+        "level": 30,
+        "move": "Rock Slide"
+      },
+      {
+        "level": 33,
+        "move": "Iron Tail"
+      }
+    ],
+    "evolution": null,
+    "sprite": "onix.png"
+  },
+  {
+    "id": 105,
+    "name": "Marowak",
+    "types": [
+      "ground"
+    ],
+    "stats": {
+      "hp": 60,
+      "attack": 80,
+      "defense": 110,
+      "sp_attack": 50,
+      "sp_defense": 80,
+      "speed": 45
+    },
+    "base_exp": 149,
+    "catch_rate": 75,
+    "abilities": [
+      "Rock Head",
+      "Lightning Rod"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "monster"
+    ],
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Growl"
+      },
+      {
+        "level": 1,
+        "move": "Tail Whip"
+      },
+      {
+        "level": 1,
+        "move": "Bone Club"
+      },
+      {
+        "level": 13,
+        "move": "Headbutt"
+      },
+      {
+        "level": 17,
+        "move": "Leer"
+      },
+      {
+        "level": 21,
+        "move": "Focus Energy"
+      },
+      {
+        "level": 28,
+        "move": "Bonemerang"
+      },
+      {
+        "level": 33,
+        "move": "Rage"
+      },
+      {
+        "level": 38,
+        "move": "Thrash"
+      },
+      {
+        "level": 43,
+        "move": "Bone Rush"
+      },
+      {
+        "level": 48,
+        "move": "Double-Edge"
+      }
+    ],
+    "evolution": null,
+    "sprite": "marowak.png"
+  },
+  {
+    "id": 111,
+    "name": "Rhyhorn",
+    "types": [
+      "ground",
+      "rock"
+    ],
+    "stats": {
+      "hp": 80,
+      "attack": 85,
+      "defense": 95,
+      "sp_attack": 30,
+      "sp_defense": 30,
+      "speed": 25
+    },
+    "base_exp": 69,
+    "catch_rate": 120,
+    "abilities": [
+      "Lightning Rod",
+      "Rock Head"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "monster",
+      "field"
+    ],
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Horn Attack"
+      },
+      {
+        "level": 1,
+        "move": "Tail Whip"
+      },
+      {
+        "level": 9,
+        "move": "Stomp"
+      },
+      {
+        "level": 13,
+        "move": "Fury Attack"
+      },
+      {
+        "level": 21,
+        "move": "Scary Face"
+      },
+      {
+        "level": 29,
+        "move": "Rock Blast"
+      },
+      {
+        "level": 37,
+        "move": "Take Down"
+      },
+      {
+        "level": 41,
+        "move": "Earthquake"
+      },
+      {
+        "level": 45,
+        "move": "Megahorn"
+      }
+    ],
+    "evolution": {
+      "to": 112,
+      "level": 42
+    },
+    "sprite": "rhyhorn.png"
+  },
+  {
+    "id": 112,
+    "name": "Rhydon",
+    "types": [
+      "ground",
+      "rock"
+    ],
+    "stats": {
+      "hp": 105,
+      "attack": 130,
+      "defense": 120,
+      "sp_attack": 45,
+      "sp_defense": 45,
+      "speed": 40
+    },
+    "base_exp": 170,
+    "catch_rate": 60,
+    "abilities": [
+      "Lightning Rod",
+      "Rock Head"
+    ],
+    "gender_ratio": 50.0,
+    "egg_groups": [
+      "monster",
+      "field"
+    ],
+    "learnset": [
+      {
+        "level": 1,
+        "move": "Horn Attack"
+      },
+      {
+        "level": 1,
+        "move": "Tail Whip"
+      },
+      {
+        "level": 1,
+        "move": "Stomp"
+      },
+      {
+        "level": 1,
+        "move": "Fury Attack"
+      },
+      {
+        "level": 42,
+        "move": "Horn Drill"
+      },
+      {
+        "level": 49,
+        "move": "Earthquake"
+      },
+      {
+        "level": 57,
+        "move": "Megahorn"
+      }
+    ],
+    "evolution": null,
+    "sprite": "rhydon.png"
   }
 ]

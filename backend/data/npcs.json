@@ -1051,5 +1051,44 @@
     "facing": "down",
     "npc_type": "generic",
     "dialogue_tree_id": "lab_scientist_dialogue"
+  },
+  {
+    "id": "giovanni_gym_npc",
+    "name": "Giovanni",
+    "sprite_id": "giovanni",
+    "position": {
+      "x": 5,
+      "y": 2
+    },
+    "map_id": "viridian_gym",
+    "facing": "down",
+    "npc_type": "gym_leader",
+    "dialogue_tree_id": "giovanni_gym_dialogue"
+  },
+  {
+    "id": "indigo_guard",
+    "name": "Badge Checker",
+    "sprite_id": "guard",
+    "position": {
+      "x": 7,
+      "y": 8
+    },
+    "map_id": "indigo_plateau",
+    "facing": "down",
+    "npc_type": "generic",
+    "dialogue_tree_id": "indigo_guard_dialogue"
+  },
+  {
+    "id": "indigo_nurse",
+    "name": "Nurse Joy",
+    "sprite_id": "nurse",
+    "position": {
+      "x": 4,
+      "y": 1
+    },
+    "map_id": "indigo_pokemon_center",
+    "facing": "down",
+    "npc_type": "nurse",
+    "dialogue_tree_id": "indigo_nurse_dialogue"
   }
 ]

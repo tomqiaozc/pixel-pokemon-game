@@ -40,7 +40,7 @@ class TestFuchsiaCityMaps:
 
     def test_total_maps_count(self):
         maps = _load_json("maps.json")
-        assert len(maps) == 98
+        assert len(maps) == 105
 
 
 # ──── Fuchsia Gym (Koga) ─────────────────────────────────
@@ -73,7 +73,7 @@ class TestFuchsiaGymData:
 
     def test_total_gym_count(self):
         gyms = _load_json("gyms.json")
-        assert len(gyms) == 7
+        assert len(gyms) == 8
 
 
 # ──── New Pokemon Species ─────────────────────────────────
@@ -105,7 +105,7 @@ class TestFuchsiaCitySpecies:
 
     def test_total_species_count(self):
         species_data = _load_json("pokemon_species.json")
-        assert len(species_data) == 95
+        assert len(species_data) == 100
 
 
 # ──── New Items ───────────────────────────────────────────
@@ -130,7 +130,7 @@ class TestFuchsiaCityItems:
 class TestFuchsiaCityTrainers:
     def test_three_new_trainers(self):
         trainers = _load_json("trainers.json")
-        assert len(trainers) == 87
+        assert len(trainers) == 94
 
     def test_all_trainers_have_teams(self):
         trainers = _load_json("trainers.json")
@@ -145,7 +145,7 @@ class TestFuchsiaCityTrainers:
 class TestFuchsiaCityNPCs:
     def test_total_npc_count(self):
         npcs = _load_json("npcs.json")
-        assert len(npcs) == 81
+        assert len(npcs) == 84
 
 
 # ──── Encounter Tables ────────────────────────────────────

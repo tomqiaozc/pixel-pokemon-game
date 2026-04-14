@@ -3506,5 +3506,245 @@
       }
     ],
     "buildings": []
+  },
+  {
+    "id": "viridian_gym",
+    "name": "viridian_gym",
+    "display_name": "Viridian City Gym",
+    "map_type": "gym",
+    "width": 12,
+    "height": 12,
+    "connections": [],
+    "npcs": [
+      {
+        "npc_id": "giovanni_gym_npc",
+        "x": 5,
+        "y": 2,
+        "facing": "down"
+      }
+    ],
+    "trainers": [
+      {
+        "trainer_id": "viridian_gym_trainer_1",
+        "x": 3,
+        "y": 4,
+        "facing": "right",
+        "sight_range": 3
+      },
+      {
+        "trainer_id": "viridian_gym_trainer_2",
+        "x": 8,
+        "y": 6,
+        "facing": "left",
+        "sight_range": 3
+      },
+      {
+        "trainer_id": "viridian_gym_trainer_3",
+        "x": 3,
+        "y": 8,
+        "facing": "right",
+        "sight_range": 3
+      }
+    ],
+    "encounter_zones": [],
+    "buildings": []
+  },
+  {
+    "id": "route_22",
+    "name": "route_22",
+    "display_name": "Route 22",
+    "map_type": "route",
+    "width": 20,
+    "height": 15,
+    "connections": [
+      {
+        "direction": "east",
+        "target_map_id": "viridian_city",
+        "entry_x": 1,
+        "entry_y": 10
+      },
+      {
+        "direction": "west",
+        "target_map_id": "route_23",
+        "entry_x": 14,
+        "entry_y": 14
+      }
+    ],
+    "npcs": [],
+    "trainers": [
+      {
+        "trainer_id": "route_22_cooltrainer_1",
+        "x": 10,
+        "y": 7,
+        "facing": "down",
+        "sight_range": 4
+      }
+    ],
+    "encounter_zones": [
+      {
+        "x": 3,
+        "y": 3,
+        "width": 7,
+        "height": 5,
+        "encounter_table_id": "route_22"
+      },
+      {
+        "x": 12,
+        "y": 6,
+        "width": 6,
+        "height": 5,
+        "encounter_table_id": "route_22"
+      }
+    ],
+    "buildings": []
+  },
+  {
+    "id": "route_23",
+    "name": "route_23",
+    "display_name": "Route 23",
+    "map_type": "route",
+    "width": 15,
+    "height": 30,
+    "connections": [
+      {
+        "direction": "east",
+        "target_map_id": "route_22",
+        "entry_x": 1,
+        "entry_y": 7
+      },
+      {
+        "direction": "north",
+        "target_map_id": "victory_road_1f",
+        "entry_x": 8,
+        "entry_y": 15
+      }
+    ],
+    "npcs": [],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": []
+  },
+  {
+    "id": "victory_road_1f",
+    "name": "victory_road_1f",
+    "display_name": "Victory Road 1F",
+    "map_type": "cave",
+    "width": 16,
+    "height": 16,
+    "connections": [],
+    "npcs": [],
+    "trainers": [
+      {
+        "trainer_id": "victory_road_trainer_1",
+        "x": 5,
+        "y": 6,
+        "facing": "right",
+        "sight_range": 4
+      },
+      {
+        "trainer_id": "victory_road_trainer_2",
+        "x": 12,
+        "y": 10,
+        "facing": "left",
+        "sight_range": 4
+      }
+    ],
+    "encounter_zones": [
+      {
+        "x": 2,
+        "y": 2,
+        "width": 12,
+        "height": 12,
+        "encounter_table_id": "victory_road"
+      }
+    ],
+    "buildings": []
+  },
+  {
+    "id": "victory_road_2f",
+    "name": "victory_road_2f",
+    "display_name": "Victory Road 2F",
+    "map_type": "cave",
+    "width": 16,
+    "height": 16,
+    "connections": [],
+    "npcs": [],
+    "trainers": [
+      {
+        "trainer_id": "victory_road_trainer_3",
+        "x": 8,
+        "y": 8,
+        "facing": "down",
+        "sight_range": 4
+      }
+    ],
+    "encounter_zones": [
+      {
+        "x": 2,
+        "y": 2,
+        "width": 12,
+        "height": 12,
+        "encounter_table_id": "victory_road"
+      }
+    ],
+    "buildings": []
+  },
+  {
+    "id": "indigo_plateau",
+    "name": "indigo_plateau",
+    "display_name": "Indigo Plateau",
+    "map_type": "city",
+    "width": 15,
+    "height": 15,
+    "connections": [
+      {
+        "direction": "south",
+        "target_map_id": "victory_road_2f",
+        "entry_x": 8,
+        "entry_y": 1
+      }
+    ],
+    "npcs": [
+      {
+        "npc_id": "indigo_guard",
+        "x": 7,
+        "y": 8,
+        "facing": "down"
+      }
+    ],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": [
+      {
+        "name": "Pokemon Center",
+        "x": 5,
+        "y": 5,
+        "width": 4,
+        "height": 3,
+        "door_x": 7,
+        "door_y": 7,
+        "interior_map_id": "indigo_pokemon_center"
+      }
+    ]
+  },
+  {
+    "id": "indigo_pokemon_center",
+    "name": "indigo_pokemon_center",
+    "display_name": "Indigo Plateau Pokemon Center",
+    "map_type": "interior",
+    "width": 8,
+    "height": 8,
+    "connections": [],
+    "npcs": [
+      {
+        "npc_id": "indigo_nurse",
+        "x": 4,
+        "y": 1,
+        "facing": "down"
+      }
+    ],
+    "trainers": [],
+    "encounter_zones": [],
+    "buildings": []
   }
 ]

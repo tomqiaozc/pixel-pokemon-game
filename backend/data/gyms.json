@@ -404,5 +404,87 @@
         }
       ]
     }
+  },
+  {
+    "id": "viridian_gym",
+    "name": "Viridian City Gym",
+    "city": "Viridian City",
+    "type_specialty": "ground",
+    "badge_name": "Earth Badge",
+    "badge_id": "earth",
+    "map_id": "viridian_gym",
+    "gym_trainers": [
+      "viridian_gym_trainer_1",
+      "viridian_gym_trainer_2",
+      "viridian_gym_trainer_3"
+    ],
+    "prerequisite_badge": "volcano",
+    "leader": {
+      "id": "giovanni_gym",
+      "name": "Giovanni",
+      "sprite_id": "giovanni",
+      "badge_id": "earth",
+      "reward_money": 7200,
+      "ai_difficulty": "hard",
+      "dialogue_before": "So, you have come this far. I am the Gym Leader here, Giovanni! I shall show you the true power of Ground-type Pokemon!",
+      "dialogue_after": "Ha! That was a truly intense fight! You have won! As proof, here is the Earth Badge!",
+      "pokemon_team": [
+        {
+          "species_id": 111,
+          "name": "Rhyhorn",
+          "level": 45,
+          "moves": [
+            "Earthquake",
+            "Rock Blast",
+            "Take Down",
+            "Horn Attack"
+          ]
+        },
+        {
+          "species_id": 51,
+          "name": "Dugtrio",
+          "level": 42,
+          "moves": [
+            "Earthquake",
+            "Slash",
+            "Dig",
+            "Sand Attack"
+          ]
+        },
+        {
+          "species_id": 95,
+          "name": "Onix",
+          "level": 44,
+          "moves": [
+            "Rock Slide",
+            "Iron Tail",
+            "Slam",
+            "Sandstorm"
+          ]
+        },
+        {
+          "species_id": 112,
+          "name": "Rhydon",
+          "level": 50,
+          "moves": [
+            "Earthquake",
+            "Horn Drill",
+            "Megahorn",
+            "Rock Blast"
+          ]
+        },
+        {
+          "species_id": 105,
+          "name": "Marowak",
+          "level": 44,
+          "moves": [
+            "Bonemerang",
+            "Bone Rush",
+            "Thrash",
+            "Double-Edge"
+          ]
+        }
+      ]
+    }
   }
 ]

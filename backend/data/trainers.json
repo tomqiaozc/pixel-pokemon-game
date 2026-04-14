@@ -2724,5 +2724,243 @@
     "sight_range": 5,
     "dialogue_before": "Route 21 is the fastest way to Cinnabar!",
     "dialogue_after": "You're faster than me on land and sea!"
+  },
+  {
+    "id": "viridian_gym_trainer_1",
+    "name": "Cooltrainer Samuel",
+    "trainer_class": "Cooltrainer",
+    "sprite_id": "cooltrainer",
+    "pokemon_team": [
+      {
+        "species_id": 111,
+        "name": "Rhyhorn",
+        "level": 42,
+        "moves": [
+          "Horn Attack",
+          "Stomp",
+          "Rock Blast",
+          "Earthquake"
+        ]
+      },
+      {
+        "species_id": 51,
+        "name": "Dugtrio",
+        "level": 42,
+        "moves": [
+          "Dig",
+          "Slash",
+          "Earthquake",
+          "Sand Attack"
+        ]
+      }
+    ],
+    "reward_money": 840,
+    "sight_range": 3,
+    "dialogue_before": "Giovanni trained us well!",
+    "dialogue_after": "You're even stronger than Giovanni..."
+  },
+  {
+    "id": "viridian_gym_trainer_2",
+    "name": "Cooltrainer Alexa",
+    "trainer_class": "Cooltrainer",
+    "sprite_id": "cooltrainer",
+    "pokemon_team": [
+      {
+        "species_id": 95,
+        "name": "Onix",
+        "level": 44,
+        "moves": [
+          "Rock Slide",
+          "Slam",
+          "Iron Tail",
+          "Sandstorm"
+        ]
+      }
+    ],
+    "reward_money": 880,
+    "sight_range": 3,
+    "dialogue_before": "You'll need more than type advantage!",
+    "dialogue_after": "Impressive strategy..."
+  },
+  {
+    "id": "viridian_gym_trainer_3",
+    "name": "Cooltrainer George",
+    "trainer_class": "Cooltrainer",
+    "sprite_id": "cooltrainer",
+    "pokemon_team": [
+      {
+        "species_id": 105,
+        "name": "Marowak",
+        "level": 43,
+        "moves": [
+          "Bonemerang",
+          "Headbutt",
+          "Thrash",
+          "Bone Rush"
+        ]
+      },
+      {
+        "species_id": 112,
+        "name": "Rhydon",
+        "level": 43,
+        "moves": [
+          "Horn Attack",
+          "Earthquake",
+          "Rock Blast",
+          "Fury Attack"
+        ]
+      }
+    ],
+    "reward_money": 860,
+    "sight_range": 3,
+    "dialogue_before": "The Earth Badge is Giovanni's pride!",
+    "dialogue_after": "You've earned the right to face Giovanni."
+  },
+  {
+    "id": "route_22_cooltrainer_1",
+    "name": "Cooltrainer Naomi",
+    "trainer_class": "Cooltrainer",
+    "sprite_id": "cooltrainer",
+    "pokemon_team": [
+      {
+        "species_id": 112,
+        "name": "Rhydon",
+        "level": 44,
+        "moves": [
+          "Earthquake",
+          "Horn Drill",
+          "Rock Slide",
+          "Fury Attack"
+        ]
+      },
+      {
+        "species_id": 59,
+        "name": "Arcanine",
+        "level": 44,
+        "moves": [
+          "Flamethrower",
+          "Extreme Speed",
+          "Bite",
+          "Fire Blast"
+        ]
+      }
+    ],
+    "reward_money": 880,
+    "sight_range": 4,
+    "dialogue_before": "Only the strongest trainers pass through here!",
+    "dialogue_after": "You truly are ready for the Pokemon League!"
+  },
+  {
+    "id": "victory_road_trainer_1",
+    "name": "Cooltrainer Caroline",
+    "trainer_class": "Cooltrainer",
+    "sprite_id": "cooltrainer",
+    "pokemon_team": [
+      {
+        "species_id": 95,
+        "name": "Onix",
+        "level": 44,
+        "moves": [
+          "Rock Slide",
+          "Iron Tail",
+          "Sandstorm",
+          "Bind"
+        ]
+      },
+      {
+        "species_id": 105,
+        "name": "Marowak",
+        "level": 44,
+        "moves": [
+          "Bonemerang",
+          "Bone Rush",
+          "Thrash",
+          "Headbutt"
+        ]
+      }
+    ],
+    "reward_money": 880,
+    "sight_range": 4,
+    "dialogue_before": "Victory Road is the final test!",
+    "dialogue_after": "You've passed the test."
+  },
+  {
+    "id": "victory_road_trainer_2",
+    "name": "Cooltrainer Vincent",
+    "trainer_class": "Cooltrainer",
+    "sprite_id": "cooltrainer",
+    "pokemon_team": [
+      {
+        "species_id": 51,
+        "name": "Dugtrio",
+        "level": 45,
+        "moves": [
+          "Earthquake",
+          "Slash",
+          "Dig",
+          "Sand Attack"
+        ]
+      },
+      {
+        "species_id": 111,
+        "name": "Rhyhorn",
+        "level": 45,
+        "moves": [
+          "Earthquake",
+          "Rock Blast",
+          "Take Down",
+          "Horn Attack"
+        ]
+      },
+      {
+        "species_id": 112,
+        "name": "Rhydon",
+        "level": 45,
+        "moves": [
+          "Earthquake",
+          "Megahorn",
+          "Horn Drill",
+          "Rock Blast"
+        ]
+      }
+    ],
+    "reward_money": 900,
+    "sight_range": 4,
+    "dialogue_before": "Think you can handle Victory Road?",
+    "dialogue_after": "Incredible power..."
+  },
+  {
+    "id": "victory_road_trainer_3",
+    "name": "Cooltrainer Colby",
+    "trainer_class": "Cooltrainer",
+    "sprite_id": "cooltrainer",
+    "pokemon_team": [
+      {
+        "species_id": 105,
+        "name": "Marowak",
+        "level": 46,
+        "moves": [
+          "Bonemerang",
+          "Bone Rush",
+          "Double-Edge",
+          "Thrash"
+        ]
+      },
+      {
+        "species_id": 59,
+        "name": "Arcanine",
+        "level": 46,
+        "moves": [
+          "Flamethrower",
+          "Extreme Speed",
+          "Fire Blast",
+          "Bite"
+        ]
+      }
+    ],
+    "reward_money": 920,
+    "sight_range": 4,
+    "dialogue_before": "The Indigo Plateau is just ahead!",
+    "dialogue_after": "Go on, the Elite Four await!"
   }
 ]

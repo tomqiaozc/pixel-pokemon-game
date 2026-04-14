@@ -987,5 +987,50 @@
         "next": null
       }
     ]
+  },
+  "giovanni_gym_dialogue": {
+    "id": "giovanni_gym_dialogue",
+    "nodes": [
+      {
+        "id": "start",
+        "text": "So, you have come this far. I am the Gym Leader here, Giovanni!",
+        "next": "line2"
+      },
+      {
+        "id": "line2",
+        "text": "I shall show you the true power of Ground-type Pokemon!",
+        "next": null
+      }
+    ]
+  },
+  "indigo_guard_dialogue": {
+    "id": "indigo_guard_dialogue",
+    "nodes": [
+      {
+        "id": "start",
+        "text": "Welcome to the Indigo Plateau!",
+        "next": "line2"
+      },
+      {
+        "id": "line2",
+        "text": "Only trainers with 8 badges may enter the Pokemon League.",
+        "next": null
+      }
+    ]
+  },
+  "indigo_nurse_dialogue": {
+    "id": "indigo_nurse_dialogue",
+    "nodes": [
+      {
+        "id": "start",
+        "text": "Welcome to the Pokemon Center!",
+        "next": "line2"
+      },
+      {
+        "id": "line2",
+        "text": "You should heal before challenging the Elite Four!",
+        "next": null
+      }
+    ]
   }
 }

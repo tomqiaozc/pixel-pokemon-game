@@ -1,7 +1,7 @@
-"""Tests for Sprint 19: Cinnabar Island, Blaine's Gym, Pokemon Mansion.
+"""Tests for Sprint 20: Viridian City Gym (Giovanni), Victory Road.
 
-These tests verify Cinnabar Island maps, Blaine's Gym data, Pokemon Mansion
-encounter tables, new species, items, trainers, and NPCs.
+These tests verify Viridian Gym maps, Giovanni's Gym data, Victory Road
+encounter tables, new items, trainers, and NPCs.
 Written ahead of backend implementation -- will FAIL until data is committed.
 """
 import json
@@ -16,22 +16,19 @@ def _load_json(filename):
         return json.load(f)
 
 
-# ──── Cinnabar Island Maps ──────────────────────────────────
+# ──── Viridian City / Victory Road Maps ───────────────────────
 
-class TestCinnabarIslandMaps:
-    """All 10 new maps must exist in maps.json."""
+class TestViridianGymMaps:
+    """All 7 new maps must exist in maps.json."""
 
     EXPECTED_MAPS = [
-        "cinnabar_island",
-        "cinnabar_pokemon_center",
-        "cinnabar_pokemart",
-        "cinnabar_gym",
-        "pokemon_mansion_1f",
-        "pokemon_mansion_2f",
-        "pokemon_mansion_top",
-        "pokemon_lab",
-        "route_20",
-        "route_21",
+        "viridian_gym",
+        "route_22",
+        "route_23",
+        "victory_road_1f",
+        "victory_road_2f",
+        "indigo_plateau",
+        "indigo_pokemon_center",
     ]
 
     @pytest.mark.parametrize("map_id", EXPECTED_MAPS)
@@ -45,48 +42,48 @@ class TestCinnabarIslandMaps:
         assert len(maps) == 105
 
 
-# ──── Cinnabar Gym (Blaine) ─────────────────────────────────
+# ──── Viridian Gym (Giovanni) ─────────────────────────────────
 
-class TestCinnabarGymData:
-    def test_cinnabar_gym_exists_in_gyms(self):
+class TestViridianGymData:
+    def test_viridian_gym_exists_in_gyms(self):
         gyms = _load_json("gyms.json")
-        gym = next((g for g in gyms if g["id"] == "cinnabar_gym"), None)
+        gym = next((g for g in gyms if g["id"] == "viridian_gym"), None)
         assert gym is not None
 
-    def test_cinnabar_gym_leader_is_blaine(self):
+    def test_viridian_gym_leader_is_giovanni(self):
         gyms = _load_json("gyms.json")
-        gym = next(g for g in gyms if g["id"] == "cinnabar_gym")
-        assert gym["leader"]["name"] == "Blaine"
+        gym = next(g for g in gyms if g["id"] == "viridian_gym")
+        assert gym["leader"]["name"] == "Giovanni"
 
-    def test_cinnabar_gym_type_is_fire(self):
+    def test_viridian_gym_type_is_ground(self):
         gyms = _load_json("gyms.json")
-        gym = next(g for g in gyms if g["id"] == "cinnabar_gym")
-        assert gym["type_specialty"] == "fire"
+        gym = next(g for g in gyms if g["id"] == "viridian_gym")
+        assert gym["type_specialty"] == "ground"
 
-    def test_cinnabar_gym_has_volcano_badge(self):
+    def test_viridian_gym_has_earth_badge(self):
         gyms = _load_json("gyms.json")
-        gym = next(g for g in gyms if g["id"] == "cinnabar_gym")
-        assert gym["badge_name"] == "Volcano Badge"
+        gym = next(g for g in gyms if g["id"] == "viridian_gym")
+        assert gym["badge_name"] == "Earth Badge"
 
-    def test_blaine_has_four_pokemon(self):
+    def test_giovanni_has_five_pokemon(self):
         gyms = _load_json("gyms.json")
-        gym = next(g for g in gyms if g["id"] == "cinnabar_gym")
-        assert len(gym["leader"]["pokemon_team"]) == 4
+        gym = next(g for g in gyms if g["id"] == "viridian_gym")
+        assert len(gym["leader"]["pokemon_team"]) == 5
 
     def test_total_gym_count(self):
         gyms = _load_json("gyms.json")
         assert len(gyms) == 8
 
 
-# ──── New Pokemon Species ────────────────────────────────────
+# ──── Giovanni's Pokemon Species ────────────────────────────────
 
-class TestCinnabarIslandSpecies:
+class TestGiovanniSpecies:
     EXPECTED_SPECIES = [
-        (58, "Growlithe"),
-        (59, "Arcanine"),
-        (77, "Ponyta"),
-        (78, "Rapidash"),
-        (126, "Magmar"),
+        (51, "Dugtrio"),
+        (95, "Onix"),
+        (105, "Marowak"),
+        (111, "Rhyhorn"),
+        (112, "Rhydon"),
     ]
 
     @pytest.mark.parametrize("species_id,name", EXPECTED_SPECIES)
@@ -112,10 +109,9 @@ class TestCinnabarIslandSpecies:
 
 # ──── New Items ──────────────────────────────────────────────
 
-class TestCinnabarIslandItems:
+class TestViridianGymItems:
     EXPECTED_ITEMS = [
-        (64, "Secret Key"),
-        (65, "TM38 Fire Blast"),
+        (66, "TM26 Earthquake"),
     ]
 
     @pytest.mark.parametrize("item_id,name", EXPECTED_ITEMS)
@@ -128,7 +124,7 @@ class TestCinnabarIslandItems:
 
 # ──── Trainers ───────────────────────────────────────────────
 
-class TestCinnabarIslandTrainers:
+class TestViridianGymTrainers:
     def test_total_trainer_count(self):
         trainers = _load_json("trainers.json")
         assert len(trainers) == 94
@@ -143,7 +139,7 @@ class TestCinnabarIslandTrainers:
 
 # ──── NPCs ───────────────────────────────────────────────────
 
-class TestCinnabarIslandNPCs:
+class TestViridianGymNPCs:
     def test_total_npc_count(self):
         npcs = _load_json("npcs.json")
         assert len(npcs) == 84
@@ -151,18 +147,13 @@ class TestCinnabarIslandNPCs:
 
 # ──── Encounter Tables ───────────────────────────────────────
 
-class TestCinnabarEncounters:
-    def test_route_20_encounters_exist(self):
+class TestViridianEncounters:
+    def test_route_22_encounters_exist(self):
         tables = _load_json("encounter_tables.json")
-        assert "route_20" in tables, "Encounter table route_20 not found"
-        assert len(tables["route_20"].get("encounters", [])) >= 1
+        assert "route_22" in tables, "Encounter table route_22 not found"
+        assert len(tables["route_22"].get("encounters", [])) >= 1
 
-    def test_route_21_encounters_exist(self):
+    def test_victory_road_encounters_exist(self):
         tables = _load_json("encounter_tables.json")
-        assert "route_21" in tables, "Encounter table route_21 not found"
-        assert len(tables["route_21"].get("encounters", [])) >= 1
-
-    def test_pokemon_mansion_encounters_exist(self):
-        tables = _load_json("encounter_tables.json")
-        assert "pokemon_mansion" in tables, "Encounter table pokemon_mansion not found"
-        assert len(tables["pokemon_mansion"].get("encounters", [])) >= 1
+        assert "victory_road" in tables, "Encounter table victory_road not found"
+        assert len(tables["victory_road"].get("encounters", [])) >= 1

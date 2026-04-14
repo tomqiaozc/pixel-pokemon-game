@@ -567,5 +567,18 @@
       "move": "Fire Blast"
     },
     "usable": true
+  },
+  {
+    "id": 66,
+    "name": "TM26 Earthquake",
+    "description": "A powerful Ground-type move that hits all adjacent Pokemon.",
+    "category": "tm",
+    "price": 3000,
+    "sell_price": 1500,
+    "effect": {
+      "type": "teach_move",
+      "move": "Earthquake"
+    },
+    "usable": true
   }
 ]

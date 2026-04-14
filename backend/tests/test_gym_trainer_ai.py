@@ -46,7 +46,7 @@ def reset_gym_state():
 class TestGymData:
     def test_gyms_loaded(self):
         gyms = get_all_gyms()
-        assert len(gyms) == 7  # Pewter, Cerulean, Vermilion, Celadon, Saffron, Fuchsia, and Cinnabar
+        assert len(gyms) == 8  # Pewter, Cerulean, Vermilion, Celadon, Saffron, Fuchsia, Cinnabar, and Viridian
 
     def test_pewter_gym(self):
         gym = get_gym("pewter_gym")
@@ -534,7 +534,7 @@ class TestGymTrainerAPI:
         resp = client.get("/api/gyms")
         assert resp.status_code == 200
         data = resp.json()
-        assert len(data) == 7
+        assert len(data) == 8
     def test_gym_detail_endpoint(self, client):
         resp = client.get("/api/gyms/pewter_gym")
         assert resp.status_code == 200
