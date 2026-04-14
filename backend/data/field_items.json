@@ -1,0 +1,182 @@
+[
+  {
+    "id": "fi_route1_potion",
+    "map_id": "route_1",
+    "x": 8,
+    "y": 3,
+    "item": "Potion",
+    "visible": true,
+    "respawn": false
+  },
+  {
+    "id": "fi_viridian_forest_antidote",
+    "map_id": "viridian_forest",
+    "x": 12,
+    "y": 8,
+    "item": "Antidote",
+    "visible": true,
+    "respawn": false
+  },
+  {
+    "id": "fi_viridian_forest_pokeball",
+    "map_id": "viridian_forest",
+    "x": 5,
+    "y": 15,
+    "item": "Pokeball",
+    "visible": true,
+    "respawn": false
+  },
+  {
+    "id": "fi_mt_moon_rare_candy",
+    "map_id": "mt_moon_b2f",
+    "x": 10,
+    "y": 5,
+    "item": "Rare Candy",
+    "visible": false,
+    "respawn": false
+  },
+  {
+    "id": "fi_mt_moon_moon_stone",
+    "map_id": "mt_moon_b2f",
+    "x": 15,
+    "y": 12,
+    "item": "Moon Stone",
+    "visible": true,
+    "respawn": false
+  },
+  {
+    "id": "fi_route4_tm",
+    "map_id": "route_4",
+    "x": 20,
+    "y": 3,
+    "item": "TM04",
+    "visible": true,
+    "respawn": false
+  },
+  {
+    "id": "fi_cerulean_nugget",
+    "map_id": "route_24",
+    "x": 5,
+    "y": 2,
+    "item": "Nugget",
+    "visible": false,
+    "respawn": false
+  },
+  {
+    "id": "fi_vermilion_max_potion",
+    "map_id": "route_6",
+    "x": 10,
+    "y": 8,
+    "item": "Max Potion",
+    "visible": false,
+    "respawn": false
+  },
+  {
+    "id": "fi_route9_ether",
+    "map_id": "route_9",
+    "x": 25,
+    "y": 5,
+    "item": "Ether",
+    "visible": true,
+    "respawn": false
+  },
+  {
+    "id": "fi_rock_tunnel_revive",
+    "map_id": "rock_tunnel_1f",
+    "x": 8,
+    "y": 12,
+    "item": "Revive",
+    "visible": true,
+    "respawn": false
+  },
+  {
+    "id": "fi_route10_super_potion",
+    "map_id": "route_10",
+    "x": 5,
+    "y": 10,
+    "item": "Super Potion",
+    "visible": true,
+    "respawn": false
+  },
+  {
+    "id": "fi_pokemon_tower_elixir",
+    "map_id": "pokemon_tower_5f",
+    "x": 6,
+    "y": 3,
+    "item": "Elixir",
+    "visible": true,
+    "respawn": false
+  },
+  {
+    "id": "fi_safari_gold_teeth",
+    "map_id": "safari_zone_west",
+    "x": 12,
+    "y": 8,
+    "item": "Gold Teeth",
+    "visible": true,
+    "respawn": false
+  },
+  {
+    "id": "fi_power_plant_elixir",
+    "map_id": "power_plant",
+    "x": 18,
+    "y": 6,
+    "item": "Max Elixir",
+    "visible": false,
+    "respawn": false
+  },
+  {
+    "id": "fi_seafoam_rare_candy",
+    "map_id": "seafoam_islands_b3f",
+    "x": 8,
+    "y": 5,
+    "item": "Rare Candy",
+    "visible": false,
+    "respawn": false
+  },
+  {
+    "id": "fi_victory_road_tm",
+    "map_id": "victory_road_2f",
+    "x": 15,
+    "y": 8,
+    "item": "TM05",
+    "visible": true,
+    "respawn": false
+  },
+  {
+    "id": "fi_cerulean_cave_pp_up",
+    "map_id": "cerulean_cave_b1f",
+    "x": 10,
+    "y": 10,
+    "item": "PP Up",
+    "visible": false,
+    "respawn": false
+  },
+  {
+    "id": "fi_route25_nugget",
+    "map_id": "route_25",
+    "x": 30,
+    "y": 3,
+    "item": "Nugget",
+    "visible": false,
+    "respawn": false
+  },
+  {
+    "id": "fi_celadon_eevee_room_coin",
+    "map_id": "celadon_mansion_roof",
+    "x": 3,
+    "y": 3,
+    "item": "Rare Candy",
+    "visible": false,
+    "respawn": false
+  },
+  {
+    "id": "fi_silph_card_key",
+    "map_id": "silph_co_5f",
+    "x": 8,
+    "y": 5,
+    "item": "Card Key",
+    "visible": true,
+    "respawn": false
+  }
+]

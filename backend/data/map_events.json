@@ -1,0 +1,139 @@
+[
+  {
+    "id": "oak_parcel",
+    "type": "story",
+    "location": "viridian_city",
+    "trigger": "enter_pokemart_first_time",
+    "description": "Oak's Parcel delivery quest",
+    "required_progress": null,
+    "one_time": true
+  },
+  {
+    "id": "ss_anne_arrive",
+    "type": "story",
+    "location": "vermilion_city",
+    "trigger": "have_ss_ticket",
+    "description": "Board the S.S. Anne",
+    "required_progress": "cascade_badge",
+    "one_time": true
+  },
+  {
+    "id": "snorlax_route12",
+    "type": "blocking",
+    "location": "route_12",
+    "trigger": "approach_snorlax",
+    "description": "Sleeping Snorlax blocks the path",
+    "required_progress": null,
+    "required_item": "Poke Flute",
+    "one_time": true
+  },
+  {
+    "id": "snorlax_route16",
+    "type": "blocking",
+    "location": "route_16",
+    "trigger": "approach_snorlax",
+    "description": "Sleeping Snorlax blocks the path",
+    "required_progress": null,
+    "required_item": "Poke Flute",
+    "one_time": true
+  },
+  {
+    "id": "team_rocket_mt_moon",
+    "type": "story",
+    "location": "mt_moon",
+    "trigger": "reach_fossil_room",
+    "description": "Team Rocket fossil heist",
+    "required_progress": null,
+    "one_time": true
+  },
+  {
+    "id": "team_rocket_nugget_bridge",
+    "type": "story",
+    "location": "route_24",
+    "trigger": "defeat_nugget_bridge_trainers",
+    "description": "Team Rocket recruitment attempt",
+    "required_progress": "cascade_badge",
+    "one_time": true
+  },
+  {
+    "id": "team_rocket_game_corner",
+    "type": "story",
+    "location": "celadon_city",
+    "trigger": "find_secret_switch",
+    "description": "Discover Team Rocket HQ under Game Corner",
+    "required_progress": "rainbow_badge",
+    "one_time": true
+  },
+  {
+    "id": "team_rocket_pokemon_tower",
+    "type": "story",
+    "location": "pokemon_tower",
+    "trigger": "reach_top_floor",
+    "description": "Rescue Mr. Fuji from Team Rocket",
+    "required_progress": "silph_scope",
+    "one_time": true
+  },
+  {
+    "id": "team_rocket_silph_co",
+    "type": "story",
+    "location": "silph_co",
+    "trigger": "reach_president_office",
+    "description": "Defeat Giovanni at Silph Co.",
+    "required_progress": "card_key",
+    "one_time": true
+  },
+  {
+    "id": "legendary_articuno",
+    "type": "legendary",
+    "location": "seafoam_islands_b4f",
+    "trigger": "solve_ice_puzzle",
+    "description": "Encounter Articuno",
+    "required_progress": "soul_badge",
+    "one_time": true
+  },
+  {
+    "id": "legendary_zapdos",
+    "type": "legendary",
+    "location": "power_plant",
+    "trigger": "reach_end",
+    "description": "Encounter Zapdos",
+    "required_progress": "soul_badge",
+    "one_time": true
+  },
+  {
+    "id": "legendary_moltres",
+    "type": "legendary",
+    "location": "victory_road_3f",
+    "trigger": "reach_end",
+    "description": "Encounter Moltres",
+    "required_progress": "earth_badge",
+    "one_time": true
+  },
+  {
+    "id": "legendary_mewtwo",
+    "type": "legendary",
+    "location": "cerulean_cave_b1f",
+    "trigger": "reach_end",
+    "description": "Encounter Mewtwo",
+    "required_progress": "become_champion",
+    "one_time": true
+  },
+  {
+    "id": "ghost_marowak",
+    "type": "story",
+    "location": "pokemon_tower",
+    "trigger": "reach_floor_6",
+    "description": "Ghost Marowak encounter",
+    "required_progress": "silph_scope",
+    "one_time": true
+  },
+  {
+    "id": "rival_champion",
+    "type": "story",
+    "location": "indigo_plateau",
+    "trigger": "defeat_elite_four",
+    "description": "Final battle with rival as Champion",
+    "required_progress": "eight_badges",
+    "one_time": true
+  }
+]
