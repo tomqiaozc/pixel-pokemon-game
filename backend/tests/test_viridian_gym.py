@@ -104,7 +104,7 @@ class TestGiovanniSpecies:
 
     def test_total_species_count(self):
         species_data = _load_json("pokemon_species.json")
-        assert len(species_data) == 110
+        assert len(species_data) == 151
 
 
 # ──── New Items ──────────────────────────────────────────────
