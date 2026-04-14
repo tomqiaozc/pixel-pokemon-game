@@ -1,0 +1,72 @@
+{
+  "description": "Input configuration and key rebinding options.",
+  "default_bindings": {
+    "move_up": {"primary": "ArrowUp", "secondary": "w", "gamepad": "dpad_up"},
+    "move_down": {"primary": "ArrowDown", "secondary": "s", "gamepad": "dpad_down"},
+    "move_left": {"primary": "ArrowLeft", "secondary": "a", "gamepad": "dpad_left"},
+    "move_right": {"primary": "ArrowRight", "secondary": "d", "gamepad": "dpad_right"},
+    "action": {"primary": "Enter", "secondary": "z", "gamepad": "button_a"},
+    "cancel": {"primary": "Escape", "secondary": "x", "gamepad": "button_b"},
+    "menu": {"primary": "Escape", "secondary": "Tab", "gamepad": "button_start"},
+    "run": {"primary": "Shift", "secondary": null, "gamepad": "button_b"},
+    "bike": {"primary": "b", "secondary": null, "gamepad": "button_select"},
+    "registered_item": {"primary": "r", "secondary": "Select", "gamepad": "button_y"},
+    "minimap_toggle": {"primary": "m", "secondary": null, "gamepad": "button_x"},
+    "quick_save": {"primary": "F5", "secondary": null, "gamepad": null},
+    "quick_load": {"primary": "F9", "secondary": null, "gamepad": null},
+    "screenshot": {"primary": "F12", "secondary": null, "gamepad": null},
+    "volume_up": {"primary": "+", "secondary": null, "gamepad": null},
+    "volume_down": {"primary": "-", "secondary": null, "gamepad": null},
+    "fullscreen": {"primary": "F11", "secondary": null, "gamepad": null},
+    "text_speed_toggle": {"primary": "t", "secondary": null, "gamepad": null}
+  },
+  "action_categories": {
+    "movement": ["move_up", "move_down", "move_left", "move_right", "run", "bike"],
+    "interaction": ["action", "cancel", "menu", "registered_item"],
+    "ui": ["minimap_toggle", "text_speed_toggle", "fullscreen"],
+    "system": ["quick_save", "quick_load", "screenshot", "volume_up", "volume_down"]
+  },
+  "rebinding_rules": {
+    "allow_rebind": true,
+    "protected_keys": ["F5", "F9"],
+    "max_bindings_per_action": 2,
+    "conflict_resolution": "warn_and_swap",
+    "reset_to_defaults_key": "F1"
+  },
+  "gamepad_config": {
+    "enabled": true,
+    "deadzone": 0.15,
+    "vibration_enabled": true,
+    "vibration_intensity": 0.5,
+    "button_map": {
+      "button_a": "Cross/A",
+      "button_b": "Circle/B",
+      "button_x": "Square/X",
+      "button_y": "Triangle/Y",
+      "button_start": "Start/Menu",
+      "button_select": "Select/View",
+      "dpad_up": "D-Pad Up",
+      "dpad_down": "D-Pad Down",
+      "dpad_left": "D-Pad Left",
+      "dpad_right": "D-Pad Right"
+    }
+  },
+  "touch_controls": {
+    "enabled": false,
+    "dpad_position": "bottom_left",
+    "dpad_size": 120,
+    "dpad_opacity": 0.6,
+    "action_buttons": {
+      "a_button": {"position": "bottom_right", "offset_x": -40, "offset_y": -80},
+      "b_button": {"position": "bottom_right", "offset_x": -90, "offset_y": -40},
+      "start_button": {"position": "top_right", "offset_x": -30, "offset_y": 30}
+    }
+  },
+  "input_settings": {
+    "key_repeat_delay_ms": 400,
+    "key_repeat_rate_ms": 80,
+    "diagonal_movement": false,
+    "hold_to_run": true,
+    "auto_run_after_ms": 2000
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "description": "Time-based event definitions tied to the day/night cycle.",
+  "time_periods": {
+    "dawn": {"start_hour": 5, "end_hour": 7, "sky_color": "#FFB366", "ambient_light": 0.6},
+    "morning": {"start_hour": 7, "end_hour": 12, "sky_color": "#88CCFF", "ambient_light": 1.0},
+    "afternoon": {"start_hour": 12, "end_hour": 17, "sky_color": "#66AAFF", "ambient_light": 1.0},
+    "evening": {"start_hour": 17, "end_hour": 20, "sky_color": "#FF8844", "ambient_light": 0.7},
+    "night": {"start_hour": 20, "end_hour": 5, "sky_color": "#1a1a3e", "ambient_light": 0.3}
+  },
+  "time_scale": {
+    "real_seconds_per_game_minute": 1,
+    "minutes_per_hour": 60,
+    "hours_per_day": 24
+  },
+  "timed_encounters": [
+    {"pokemon": "Gastly", "location": "pokemon_tower", "time_period": "night", "level_range": [20, 25], "rate_boost": 1.5},
+    {"pokemon": "Clefairy", "location": "mt_moon", "time_period": "night", "level_range": [8, 12], "rate_boost": 2.0},
+    {"pokemon": "Zubat", "location": "mt_moon", "time_period": "night", "level_range": [6, 12], "rate_boost": 1.3},
+    {"pokemon": "Oddish", "location": "route_5", "time_period": "night", "level_range": [13, 16], "rate_boost": 1.5},
+    {"pokemon": "Drowzee", "location": "route_11", "time_period": "evening", "level_range": [15, 18], "rate_boost": 1.4},
+    {"pokemon": "Pidgey", "location": "route_1", "time_period": "morning", "level_range": [2, 5], "rate_boost": 1.5},
+    {"pokemon": "Rattata", "location": "route_1", "time_period": "night", "level_range": [2, 5], "rate_boost": 1.5},
+    {"pokemon": "Venonat", "location": "route_14", "time_period": "night", "level_range": [24, 27], "rate_boost": 1.3},
+    {"pokemon": "Paras", "location": "mt_moon", "time_period": "evening", "level_range": [8, 10], "rate_boost": 1.4},
+    {"pokemon": "Mankey", "location": "route_22", "time_period": "morning", "level_range": [3, 5], "rate_boost": 1.3},
+    {"pokemon": "Abra", "location": "route_5", "time_period": "dawn", "level_range": [10, 13], "rate_boost": 1.6},
+    {"pokemon": "Jigglypuff", "location": "route_3", "time_period": "evening", "level_range": [5, 8], "rate_boost": 1.5}
+  ],
+  "shop_hours": {
+    "pokemart": {"open_hour": 6, "close_hour": 23, "always_open": false},
+    "department_store": {"open_hour": 9, "close_hour": 21, "always_open": false},
+    "pokecenter": {"open_hour": 0, "close_hour": 24, "always_open": true},
+    "game_corner": {"open_hour": 10, "close_hour": 2, "always_open": false}
+  },
+  "npc_time_events": [
+    {"npc_id": "guard_saffron_gate", "event": "sleep", "time_period": "night", "dialogue": "Zzz... The gate is closed at night..."},
+    {"npc_id": "fisherman_route_12", "event": "appear", "time_period": "morning", "dialogue": "The fish bite best in the morning!"},
+    {"npc_id": "ghost_pokemon_tower", "event": "appear", "time_period": "night", "dialogue": "..."},
+    {"npc_id": "jogger_route_6", "event": "appear", "time_period": "morning", "dialogue": "Nothing like a morning jog!"},
+    {"npc_id": "stargazer_mt_moon", "event": "appear", "time_period": "night", "dialogue": "The stars are beautiful from up here."},
+    {"npc_id": "baker_celadon", "event": "appear", "time_period": "dawn", "dialogue": "Early bird gets the fresh bread!"},
+    {"npc_id": "night_owl_lavender", "event": "appear", "time_period": "night", "dialogue": "I prefer the quiet of the night."},
+    {"npc_id": "surfer_route_19", "event": "appear", "time_period": "afternoon", "dialogue": "The waves are perfect this afternoon!"}
+  ],
+  "world_changes": {
+    "night": {
+      "building_lights": true,
+      "streetlamps": true,
+      "window_glow_color": "#FFDD88",
+      "reduced_npc_count": 0.5,
+      "wild_encounter_rate_modifier": 1.2
+    },
+    "dawn": {
+      "building_lights": false,
+      "streetlamps": false,
+      "dew_particles": true,
+      "wild_encounter_rate_modifier": 0.8
+    }
+  }
+}

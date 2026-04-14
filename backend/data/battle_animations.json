@@ -1,0 +1,148 @@
+{
+  "description": "Battle scene visual animations for screen effects, UI elements, and transitions.",
+  "screen_effects": {
+    "screen_shake": {
+      "intensity_light": {"offset_x": 2, "offset_y": 1, "duration_ms": 150, "frequency": 30},
+      "intensity_medium": {"offset_x": 4, "offset_y": 3, "duration_ms": 250, "frequency": 25},
+      "intensity_heavy": {"offset_x": 8, "offset_y": 6, "duration_ms": 400, "frequency": 20}
+    },
+    "screen_flash": {
+      "white_flash": {"color": "#FFFFFF", "opacity": 0.8, "duration_ms": 100, "fade_out_ms": 50},
+      "red_flash": {"color": "#FF0000", "opacity": 0.5, "duration_ms": 150, "fade_out_ms": 100},
+      "dark_flash": {"color": "#000000", "opacity": 0.9, "duration_ms": 200, "fade_out_ms": 150},
+      "yellow_flash": {"color": "#FFFF00", "opacity": 0.6, "duration_ms": 80, "fade_out_ms": 60},
+      "blue_flash": {"color": "#0044FF", "opacity": 0.5, "duration_ms": 120, "fade_out_ms": 80}
+    },
+    "screen_tint": {
+      "poison_tint": {"color": "#880088", "opacity": 0.15, "pulse": true, "pulse_speed_ms": 1000},
+      "burn_tint": {"color": "#FF4400", "opacity": 0.1, "pulse": true, "pulse_speed_ms": 800},
+      "freeze_tint": {"color": "#88CCFF", "opacity": 0.2, "pulse": false, "pulse_speed_ms": 0},
+      "sandstorm_tint": {"color": "#CCAA66", "opacity": 0.15, "pulse": false, "pulse_speed_ms": 0},
+      "rain_tint": {"color": "#334466", "opacity": 0.1, "pulse": false, "pulse_speed_ms": 0}
+    }
+  },
+  "sprite_animations": {
+    "attack_lunge": {
+      "description": "Attacker lunges forward toward target",
+      "offset_x": 20,
+      "offset_y": 0,
+      "duration_ms": 200,
+      "ease": "ease_out",
+      "return_ms": 150
+    },
+    "damage_recoil": {
+      "description": "Target recoils backward from hit",
+      "offset_x": -10,
+      "offset_y": 0,
+      "duration_ms": 100,
+      "ease": "ease_in",
+      "return_ms": 200
+    },
+    "damage_blink": {
+      "description": "Target blinks on/off to show damage",
+      "blink_count": 3,
+      "blink_duration_ms": 80,
+      "total_duration_ms": 480
+    },
+    "faint_drop": {
+      "description": "Pokemon drops down and fades when fainting",
+      "offset_y": 30,
+      "fade_to": 0,
+      "duration_ms": 600,
+      "ease": "ease_in"
+    },
+    "switch_slide_out": {
+      "description": "Pokemon slides out when switched",
+      "offset_x": -60,
+      "fade_to": 0,
+      "duration_ms": 300,
+      "ease": "ease_in"
+    },
+    "switch_slide_in": {
+      "description": "Pokemon slides in when sent out",
+      "start_offset_x": 60,
+      "fade_from": 0,
+      "duration_ms": 400,
+      "ease": "ease_out"
+    },
+    "pokeball_send": {
+      "description": "Pokeball arc when sending out Pokemon",
+      "arc_height": 40,
+      "duration_ms": 500,
+      "open_flash_ms": 100
+    },
+    "evolution_glow": {
+      "description": "White glow during evolution",
+      "glow_color": "#FFFFFF",
+      "glow_pulses": 5,
+      "pulse_duration_ms": 800,
+      "final_flash_ms": 200
+    }
+  },
+  "ui_animations": {
+    "hp_bar": {
+      "drain_speed_ms_per_pixel": 15,
+      "color_thresholds": {
+        "high": {"min_percent": 50, "color": "#44CC44"},
+        "medium": {"min_percent": 20, "color": "#CCCC44"},
+        "low": {"min_percent": 0, "color": "#CC4444"}
+      },
+      "critical_pulse": true,
+      "critical_pulse_speed_ms": 500
+    },
+    "exp_bar": {
+      "fill_speed_ms_per_pixel": 8,
+      "color": "#4488CC",
+      "level_up_flash_color": "#FFFFFF",
+      "level_up_flash_ms": 300
+    },
+    "text_box": {
+      "slide_in_ms": 200,
+      "slide_out_ms": 150,
+      "cursor_blink_ms": 500
+    },
+    "menu_transition": {
+      "slide_direction": "right",
+      "slide_duration_ms": 150,
+      "highlight_color": "#4488FF",
+      "highlight_blink_ms": 400
+    },
+    "stat_change_arrow": {
+      "up_color": "#44CC44",
+      "down_color": "#CC4444",
+      "animation_duration_ms": 600,
+      "arrow_size": 8
+    },
+    "catch_shake": {
+      "shake_offset": 4,
+      "shake_duration_ms": 300,
+      "pause_between_ms": 500,
+      "max_shakes": 3,
+      "sparkle_on_catch": true
+    }
+  },
+  "transitions": {
+    "battle_enter": {
+      "type": "spiral_wipe",
+      "duration_ms": 800,
+      "color": "#000000"
+    },
+    "battle_exit": {
+      "type": "fade",
+      "duration_ms": 500,
+      "color": "#000000"
+    },
+    "trainer_encounter": {
+      "type": "horizontal_bars",
+      "bar_count": 6,
+      "duration_ms": 600,
+      "color": "#000000"
+    },
+    "wild_encounter": {
+      "type": "screen_shatter",
+      "shard_count": 12,
+      "duration_ms": 700,
+      "color": "#000000"
+    }
+  }
+}
