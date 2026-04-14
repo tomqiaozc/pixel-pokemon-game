@@ -774,6 +774,61 @@ const API = (() => {
 
     // --- HM Overworld ---
 
+    // --- Nugget Bridge ---
+
+    async function getNuggetBridgeState() {
+        if (!gameId) return null;
+        return get(`${BASE_URL}/nugget-bridge/state/${gameId}`);
+    }
+
+    async function defeatBridgeTrainer(trainerIndex) {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/nugget-bridge/defeat`, {
+            game_id: gameId,
+            trainer_index: trainerIndex,
+        });
+    }
+
+    async function awardNugget() {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/nugget-bridge/award`, {
+            game_id: gameId,
+        });
+    }
+
+    // --- Bill's Event ---
+
+    async function getBillState() {
+        if (!gameId) return null;
+        return get(`${BASE_URL}/bill/state/${gameId}`);
+    }
+
+    async function billTransform() {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/bill/transform`, { game_id: gameId });
+    }
+
+    async function billComplete() {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/bill/complete`, { game_id: gameId });
+    }
+
+    async function billTicket() {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/bill/ticket`, { game_id: gameId });
+    }
+
+    // --- Item Give ---
+
+    async function giveItem(itemId, quantity) {
+        if (!gameId) return null;
+        return post(`${BASE_URL}/inventory/give`, {
+            game_id: gameId,
+            item_id: itemId,
+            quantity: quantity || 1,
+        });
+    }
+
     async function useHM(hmMove, mapId, targetX, targetY, pokemonIndex) {
         if (!gameId) return null;
         return post(`${BASE_URL}/hm/use`, {
@@ -873,5 +928,11 @@ const API = (() => {
         getCaveState, useFlash, caveTransition, getCaveMaps,
         // HM Overworld
         useHM, pushBoulder, getHMObstacles, getHMObstacleState, getSurfState, exitSurf,
+        // Nugget Bridge
+        getNuggetBridgeState, defeatBridgeTrainer, awardNugget,
+        // Bill's Event
+        getBillState, billTransform, billComplete, billTicket,
+        // Item Give
+        giveItem,
     };
 })();

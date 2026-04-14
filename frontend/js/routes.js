@@ -469,6 +469,9 @@ const Routes = (() => {
         // Exit west (to Route 4)
         m[12][0] = T.DIRT; m[13][0] = T.DIRT;
 
+        // Exit south (to Route 5)
+        m[H - 1][12] = T.DIRT; m[H - 1][13] = T.DIRT;
+
         return { data: m, width: W, height: H };
     }
 
@@ -513,6 +516,383 @@ const Routes = (() => {
             { name: 'Ekans', level: 14, hp: 35, maxHp: 35, type: 'Poison' },
           ] },
     ];
+
+    // Build Route 5: Vertical path south of Cerulean City (20x25 tiles)
+    function buildRoute5() {
+        const W = 20, H = 25;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.GRASS);
+            m.push(row);
+        }
+
+        // Tree borders
+        for (let y = 0; y < H; y++) {
+            m[y][0] = T.TREE; m[y][1] = T.TREE;
+            m[y][W - 1] = T.TREE; m[y][W - 2] = T.TREE;
+        }
+
+        // Central dirt path (3 tiles wide)
+        for (let y = 0; y < H; y++) {
+            m[y][9] = T.DIRT; m[y][10] = T.DIRT; m[y][11] = T.DIRT;
+        }
+
+        // Tall grass patches
+        for (let y = 4; y <= 8; y++) {
+            for (let x = 3; x <= 7; x++) {
+                if (m[y][x] === T.GRASS) m[y][x] = T.TALL_GRASS;
+            }
+        }
+        for (let y = 10; y <= 14; y++) {
+            for (let x = 13; x <= 17; x++) {
+                if (m[y][x] === T.GRASS) m[y][x] = T.TALL_GRASS;
+            }
+        }
+        for (let y = 16; y <= 19; y++) {
+            for (let x = 3; x <= 6; x++) {
+                if (m[y][x] === T.GRASS) m[y][x] = T.TALL_GRASS;
+            }
+        }
+
+        // Scattered trees
+        m[6][13] = T.TREE;
+        m[12][4] = T.TREE;
+        m[18][15] = T.TREE;
+
+        // Flowers
+        m[3][14] = T.FLOWER;
+        m[9][5] = T.FLOWER;
+        m[15][16] = T.FLOWER;
+
+        // Rocks
+        m[7][15] = T.ROCK;
+        m[20][4] = T.ROCK;
+
+        // Underground entrance building at south (y=20-23)
+        buildHouse(m, 8, 20, 5, 4);
+
+        // Exit north (to Cerulean City)
+        m[0][9] = T.DIRT; m[0][10] = T.DIRT; m[0][11] = T.DIRT;
+
+        return { data: m, width: W, height: H };
+    }
+
+    // Build Underground Path: Long narrow corridor (4x30 tiles)
+    function buildUndergroundPath() {
+        const W = 4, H = 30;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.DIRT);
+            m.push(row);
+        }
+
+        // Stone walls on sides
+        for (let y = 0; y < H; y++) {
+            m[y][0] = T.ROCK;
+            m[y][W - 1] = T.ROCK;
+        }
+
+        // Entry/exit points (doors at top and bottom)
+        m[0][1] = T.DOOR; m[0][2] = T.DOOR;
+        m[H - 1][1] = T.DOOR; m[H - 1][2] = T.DOOR;
+
+        return { data: m, width: W, height: H };
+    }
+
+    // Build Route 6: Vertical path to Vermilion City (20x25 tiles)
+    function buildRoute6() {
+        const W = 20, H = 25;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.GRASS);
+            m.push(row);
+        }
+
+        // Tree borders
+        for (let y = 0; y < H; y++) {
+            m[y][0] = T.TREE; m[y][1] = T.TREE;
+            m[y][W - 1] = T.TREE; m[y][W - 2] = T.TREE;
+        }
+
+        // Central dirt path (3 tiles wide)
+        for (let y = 0; y < H; y++) {
+            m[y][9] = T.DIRT; m[y][10] = T.DIRT; m[y][11] = T.DIRT;
+        }
+
+        // Tall grass patches
+        for (let y = 5; y <= 9; y++) {
+            for (let x = 3; x <= 7; x++) {
+                if (m[y][x] === T.GRASS) m[y][x] = T.TALL_GRASS;
+            }
+        }
+        for (let y = 11; y <= 15; y++) {
+            for (let x = 13; x <= 17; x++) {
+                if (m[y][x] === T.GRASS) m[y][x] = T.TALL_GRASS;
+            }
+        }
+        for (let y = 17; y <= 20; y++) {
+            for (let x = 4; x <= 7; x++) {
+                if (m[y][x] === T.GRASS) m[y][x] = T.TALL_GRASS;
+            }
+        }
+
+        // Scattered trees
+        m[3][14] = T.TREE;
+        m[10][4] = T.TREE;
+        m[16][15] = T.TREE;
+
+        // Flowers
+        m[4][5] = T.FLOWER;
+        m[13][16] = T.FLOWER;
+        m[19][6] = T.FLOWER;
+
+        // Rocks
+        m[8][16] = T.ROCK;
+        m[14][3] = T.ROCK;
+
+        // Underground entrance building at north (y=0-3)
+        buildHouse(m, 8, 0, 5, 4);
+
+        // Gate building at south end (y=21-24)
+        buildHouse(m, 8, 21, 5, 4);
+
+        return { data: m, width: W, height: H };
+    }
+
+    // Build Cerulean Burgled House interior (8x8)
+    function buildCeruleanBurgledHouse() {
+        const W = 8, H = 8;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.DIRT);
+            m.push(row);
+        }
+
+        // Walls
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H - 1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W - 1] = T.HOUSE_WALL; }
+
+        // Door at bottom center
+        m[H - 1][4] = T.DOOR;
+
+        // Bookshelf (top-left corner, uses ROCK as placeholder)
+        m[1][1] = T.ROCK; m[1][2] = T.ROCK; m[1][3] = T.ROCK;
+
+        // Table (center, uses ROCK as placeholder)
+        m[3][3] = T.ROCK; m[3][4] = T.ROCK;
+
+        return { data: m, width: W, height: H };
+    }
+
+    // Trainers for Route 6
+    const route6Trainers = [
+        { x: 6, y: 8, name: 'Bug Catcher Elijah', dir: 3, sightRange: 3,
+          dialogue: ['These bugs are tougher than they look!'],
+          pokemon: [
+            { name: 'Butterfree', level: 16, hp: 42, maxHp: 42, type: 'Bug' },
+          ] },
+        { x: 14, y: 14, name: 'Youngster Dave', dir: 2, sightRange: 3,
+          dialogue: ['I train on this route every day!'],
+          pokemon: [
+            { name: 'Rattata', level: 15, hp: 38, maxHp: 38, type: 'Normal' },
+            { name: 'Spearow', level: 15, hp: 37, maxHp: 37, type: 'Flying' },
+          ] },
+    ];
+
+    // Build Route 24: Nugget Bridge (10x40 tiles, narrow bridge over water)
+    function buildRoute24() {
+        const W = 10, H = 40;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.WATER);
+            m.push(row);
+        }
+
+        // Bridge deck — 4 tiles wide in center
+        for (let y = 0; y < H; y++) {
+            for (let x = 3; x <= 6; x++) m[y][x] = T.DIRT;
+        }
+
+        // Grass areas at top and bottom
+        for (let y = 0; y < 5; y++) {
+            for (let x = 0; x < W; x++) m[y][x] = T.GRASS;
+        }
+        for (let y = H - 5; y < H; y++) {
+            for (let x = 0; x < W; x++) m[y][x] = T.GRASS;
+        }
+
+        // Tall grass encounter zones at top
+        for (let y = 1; y <= 3; y++) {
+            for (let x = 0; x <= 2; x++) m[y][x] = T.TALL_GRASS;
+            for (let x = 7; x <= 9; x++) m[y][x] = T.TALL_GRASS;
+        }
+
+        // Bridge railing (rocks on sides of bridge)
+        for (let y = 5; y < H - 5; y++) {
+            m[y][2] = T.ROCK;
+            m[y][7] = T.ROCK;
+        }
+
+        // Trees at top corners
+        m[0][0] = T.TREE; m[0][1] = T.TREE;
+        m[0][8] = T.TREE; m[0][9] = T.TREE;
+
+        // Exit south (to Cerulean City)
+        m[H - 1][4] = T.DIRT; m[H - 1][5] = T.DIRT;
+        // Exit north (to Route 25)
+        m[0][4] = T.DIRT; m[0][5] = T.DIRT;
+
+        return { data: m, width: W, height: H };
+    }
+
+    // Trainers for Nugget Bridge (Route 24)
+    const nuggetBridgeTrainers = [
+        { x: 5, y: 32, name: 'Bug Catcher Ethan', dir: 0, sightRange: 2,
+          dialogue: ['I caught all these bugs on Route 24!'],
+          pokemon: [
+            { name: 'Caterpie', level: 14, hp: 33, maxHp: 33, type: 'Bug' },
+            { name: 'Weedle', level: 14, hp: 32, maxHp: 32, type: 'Bug' },
+          ] },
+        { x: 5, y: 27, name: 'Lass Ali', dir: 0, sightRange: 2,
+          dialogue: ['Aren\'t flowers lovely? My Pokemon think so too!'],
+          pokemon: [
+            { name: 'Oddish', level: 16, hp: 40, maxHp: 40, type: 'Grass' },
+            { name: 'Pidgey', level: 16, hp: 38, maxHp: 38, type: 'Flying' },
+          ] },
+        { x: 5, y: 22, name: 'Youngster Calvin', dir: 0, sightRange: 2,
+          dialogue: ['I\'m tougher than I look! Bring it on!'],
+          pokemon: [
+            { name: 'Rattata', level: 15, hp: 36, maxHp: 36, type: 'Normal' },
+            { name: 'Ekans', level: 15, hp: 35, maxHp: 35, type: 'Poison' },
+          ] },
+        { x: 5, y: 17, name: 'Lass Shannon', dir: 0, sightRange: 2,
+          dialogue: ['My Pokemon are so cute, but they pack a punch!'],
+          pokemon: [
+            { name: 'Nidoran-F', level: 16, hp: 40, maxHp: 40, type: 'Poison' },
+            { name: 'Jigglypuff', level: 16, hp: 48, maxHp: 48, type: 'Normal' },
+          ] },
+        { x: 5, y: 12, name: 'Hiker Josh', dir: 0, sightRange: 2,
+          dialogue: ['The mountains are my playground!'],
+          pokemon: [
+            { name: 'Geodude', level: 15, hp: 35, maxHp: 35, type: 'Rock' },
+            { name: 'Onix', level: 13, hp: 30, maxHp: 30, type: 'Rock' },
+          ] },
+        { x: 5, y: 5, name: 'Rocket Grunt', dir: 0, sightRange: 3,
+          dialogue: ['Hey kid! You beat all 5 trainers? Impressive!',
+                     'How about joining Team Rocket? We could use someone like you!',
+                     '...No?! Then I\'ll make you regret it!'],
+          pokemon: [
+            { name: 'Ekans', level: 15, hp: 37, maxHp: 37, type: 'Poison' },
+            { name: 'Zubat', level: 15, hp: 35, maxHp: 35, type: 'Poison' },
+          ] },
+    ];
+
+    // Build Route 25: Horizontal path to Bill's House (30x20 tiles)
+    function buildRoute25() {
+        const W = 30, H = 20;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.GRASS);
+            m.push(row);
+        }
+
+        // Tree borders
+        for (let x = 0; x < W; x++) { m[0][x] = T.TREE; m[H - 1][x] = T.TREE; }
+        for (let y = 0; y < H; y++) { m[y][W - 1] = T.TREE; }
+
+        // Winding dirt path east
+        for (let x = 0; x < W; x++) {
+            const offset = Math.floor(Math.sin(x * 0.3) * 2);
+            const pathY = 10 + offset;
+            for (let y = pathY - 1; y <= pathY; y++) {
+                if (y >= 1 && y < H - 1) m[y][x] = T.DIRT;
+            }
+        }
+
+        // Tall grass patches
+        for (let y = 3; y <= 6; y++) {
+            for (let x = 3; x <= 10; x++) {
+                if (m[y][x] === T.GRASS) m[y][x] = T.TALL_GRASS;
+            }
+        }
+        for (let y = 12; y <= 16; y++) {
+            for (let x = 15; x <= 22; x++) {
+                if (m[y][x] === T.GRASS) m[y][x] = T.TALL_GRASS;
+            }
+        }
+
+        // Fence border at top
+        for (let x = 1; x < W - 1; x++) m[1][x] = T.ROCK;
+
+        // Bill's House at east end (25-28, 3-6)
+        buildHouse(m, 25, 3, 4, 4);
+
+        // Scattered trees
+        m[5][18] = T.TREE;
+        m[14][7] = T.TREE;
+        m[7][25] = T.TREE;
+
+        // Flowers
+        m[4][14] = T.FLOWER;
+        m[13][5] = T.FLOWER;
+        m[8][22] = T.FLOWER;
+
+        // Exit south (to Route 24)
+        m[H - 1][4] = T.DIRT; m[H - 1][5] = T.DIRT;
+
+        return { data: m, width: W, height: H };
+    }
+
+    // Route 25 trainers
+    const route25Trainers = [
+        { x: 10, y: 10, name: 'Hiker Wayne', dir: 2, sightRange: 3,
+          dialogue: ['These mountains hide many secrets!'],
+          pokemon: [
+            { name: 'Geodude', level: 15, hp: 35, maxHp: 35, type: 'Rock' },
+            { name: 'Onix', level: 15, hp: 32, maxHp: 32, type: 'Rock' },
+          ] },
+        { x: 20, y: 8, name: 'Lass Haley', dir: 0, sightRange: 3,
+          dialogue: ['I love watching the ocean from here!'],
+          pokemon: [
+            { name: 'Oddish', level: 17, hp: 42, maxHp: 42, type: 'Grass' },
+            { name: 'Pidgey', level: 17, hp: 40, maxHp: 40, type: 'Flying' },
+          ] },
+    ];
+
+    // Build Bill's House interior (8x8)
+    function buildBillsHouse() {
+        const W = 8, H = 8;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.DIRT);
+            m.push(row);
+        }
+
+        // Walls
+        for (let x = 0; x < W; x++) { m[0][x] = T.HOUSE_WALL; m[H - 1][x] = T.HOUSE_WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.HOUSE_WALL; m[y][W - 1] = T.HOUSE_WALL; }
+
+        // Door at bottom center
+        m[H - 1][4] = T.DOOR;
+
+        // Bookshelves (top wall, uses ROCK as furniture)
+        m[1][1] = T.ROCK; m[1][2] = T.ROCK; m[1][3] = T.ROCK;
+
+        // Cell Separation System / PC (top-right, uses ROCK as machine)
+        m[1][5] = T.ROCK; m[1][6] = T.ROCK;
+
+        // Table
+        m[4][2] = T.ROCK; m[4][3] = T.ROCK;
+
+        return { data: m, width: W, height: H };
+    }
 
     // Register all maps with MapLoader
     function registerAll() {
@@ -623,12 +1003,15 @@ const Routes = (() => {
             data: ceruleanCity.data,
             exits: [
                 { edge: 'west', targetMap: 'route_4', spawnX: 28, spawnY: 9, spawnDir: 2 },
+                { edge: 'north', targetMap: 'route_24', spawnX: 5, spawnY: 38, spawnDir: 1 },
+                { edge: 'south', targetMap: 'route_5', spawnX: 10, spawnY: 1, spawnDir: 0 },
             ],
             doors: [
                 { x: 5, y: 7, targetMap: 'pokecenter', spawnX: 7, spawnY: 9 },
                 { x: 14, y: 7, targetMap: 'pokemart', spawnX: 5, spawnY: 9 },
                 { x: 20, y: 7, targetMap: 'cerulean_gym', spawnX: 7, spawnY: 15 },
                 { x: 5, y: 19, targetMap: 'bike_shop', spawnX: 5, spawnY: 7 },
+                { x: 20, y: 19, targetMap: 'cerulean_burgled_house', spawnX: 4, spawnY: 6 },
             ],
             npcs: [
                 { name: 'Nurse Joy', type: 'nurse', x: 4, y: 6, dir: 0,
@@ -644,12 +1027,123 @@ const Routes = (() => {
             ],
             lamps: [{ x: 8, y: 6 }, { x: 16, y: 6 }, { x: 12, y: 12 }, { x: 20, y: 18 }],
         });
+
+        const route24 = buildRoute24();
+        MapLoader.registerMap('route_24', {
+            name: 'Route 24 - Nugget Bridge',
+            width: route24.width,
+            height: route24.height,
+            data: route24.data,
+            exits: [
+                { edge: 'south', targetMap: 'cerulean_city', spawnX: 12, spawnY: 1, spawnDir: 0 },
+                { edge: 'north', targetMap: 'route_25', spawnX: 5, spawnY: 18, spawnDir: 1 },
+            ],
+            trainers: nuggetBridgeTrainers,
+            lamps: [{ x: 5, y: 10 }, { x: 5, y: 20 }, { x: 5, y: 30 }],
+        });
+
+        const route25 = buildRoute25();
+        MapLoader.registerMap('route_25', {
+            name: 'Route 25',
+            width: route25.width,
+            height: route25.height,
+            data: route25.data,
+            exits: [
+                { edge: 'south', targetMap: 'route_24', spawnX: 5, spawnY: 1, spawnDir: 0 },
+            ],
+            doors: [
+                { x: 27, y: 7, targetMap: 'bills_house', spawnX: 4, spawnY: 6 },
+            ],
+            trainers: route25Trainers,
+            lamps: [{ x: 10, y: 8 }, { x: 20, y: 10 }],
+        });
+
+        const billsHouse = buildBillsHouse();
+        MapLoader.registerMap('bills_house', {
+            name: 'Bill\'s House',
+            width: billsHouse.width,
+            height: billsHouse.height,
+            data: billsHouse.data,
+            doors: [
+                { x: 4, y: 7, targetMap: 'route_25', spawnX: 27, spawnY: 8 },
+            ],
+            npcs: [
+                { name: 'Bill', type: 'townsfolk', x: 4, y: 3, dir: 0,
+                  dialogue: ['Help! I was experimenting with my Cell Separation System and got merged with a Pokemon!',
+                             'Please run the Cell Separation System on my PC to change me back!'] },
+            ],
+        });
+
+        const route5 = buildRoute5();
+        MapLoader.registerMap('route_5', {
+            name: 'Route 5',
+            width: route5.width,
+            height: route5.height,
+            data: route5.data,
+            exits: [
+                { edge: 'north', targetMap: 'cerulean_city', spawnX: 12, spawnY: 23, spawnDir: 1 },
+            ],
+            doors: [
+                { x: 10, y: 23, targetMap: 'underground_path', spawnX: 1, spawnY: 1 },
+            ],
+            lamps: [{ x: 10, y: 10 }, { x: 10, y: 20 }],
+        });
+
+        const undergroundPath = buildUndergroundPath();
+        MapLoader.registerMap('underground_path', {
+            name: 'Underground Path',
+            width: undergroundPath.width,
+            height: undergroundPath.height,
+            data: undergroundPath.data,
+            doors: [
+                { x: 1, y: 0, targetMap: 'route_5', spawnX: 10, spawnY: 22 },
+                { x: 2, y: 0, targetMap: 'route_5', spawnX: 10, spawnY: 22 },
+                { x: 1, y: 29, targetMap: 'route_6', spawnX: 10, spawnY: 2 },
+                { x: 2, y: 29, targetMap: 'route_6', spawnX: 10, spawnY: 2 },
+            ],
+        });
+
+        const route6 = buildRoute6();
+        MapLoader.registerMap('route_6', {
+            name: 'Route 6',
+            width: route6.width,
+            height: route6.height,
+            data: route6.data,
+            doors: [
+                { x: 10, y: 3, targetMap: 'underground_path', spawnX: 1, spawnY: 28 },
+                { x: 10, y: 24, targetMap: 'vermilion_gate', spawnX: 4, spawnY: 7 },
+            ],
+            trainers: route6Trainers,
+            lamps: [{ x: 10, y: 10 }, { x: 10, y: 20 }],
+        });
+
+        const burgledHouse = buildCeruleanBurgledHouse();
+        MapLoader.registerMap('cerulean_burgled_house', {
+            name: 'Burgled House',
+            width: burgledHouse.width,
+            height: burgledHouse.height,
+            data: burgledHouse.data,
+            doors: [
+                { x: 4, y: 7, targetMap: 'cerulean_city', spawnX: 20, spawnY: 20 },
+            ],
+            npcs: [
+                { name: 'House Owner', type: 'townsfolk', x: 2, y: 4, dir: 0,
+                  dialogue: ['Someone broke in and stole my TM!', 'I think it was a Team Rocket member...', 'They ran off toward Route 5!'] },
+            ],
+        });
     }
 
     return {
         buildRoute1,
         buildRoute2,
         buildRoute4,
+        buildRoute5,
+        buildRoute6,
+        buildRoute24,
+        buildRoute25,
+        buildBillsHouse,
+        buildUndergroundPath,
+        buildCeruleanBurgledHouse,
         buildPalletTown,
         buildViridianCity,
         buildPewterCity,
@@ -658,5 +1152,8 @@ const Routes = (() => {
         route1Trainers,
         route2Trainers,
         route4Trainers,
+        route6Trainers,
+        nuggetBridgeTrainers,
+        route25Trainers,
     };
 })();

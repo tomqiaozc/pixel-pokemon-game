@@ -973,6 +973,75 @@ const Sprites = (() => {
         return c;
     }
 
+    // Rocket Grunt NPC sprite (16x16)
+    function drawRocketGrunt() {
+        if (cache.rocketGrunt) return cache.rocketGrunt;
+        const c = createCanvas(TILE, TILE);
+        const ctx = c.getContext('2d');
+        // Black cap/hat
+        ctx.fillStyle = '#202020';
+        ctx.fillRect(5, 0, 6, 3);
+        ctx.fillRect(4, 2, 8, 1);
+        // Skin face
+        ctx.fillStyle = '#f8b878';
+        ctx.fillRect(5, 3, 6, 3);
+        // Eyes
+        px(ctx, 6, 4, '#202020');
+        px(ctx, 9, 4, '#202020');
+        // Black outfit body
+        ctx.fillStyle = '#202020';
+        ctx.fillRect(4, 6, 8, 5);
+        // White "R" on chest
+        ctx.fillStyle = '#f0f0f0';
+        ctx.fillRect(6, 7, 1, 3);
+        ctx.fillRect(7, 7, 2, 1);
+        ctx.fillRect(7, 8, 2, 1);
+        px(ctx, 9, 9, '#f0f0f0');
+        // Dark gray pants
+        ctx.fillStyle = '#404040';
+        ctx.fillRect(5, 11, 3, 3);
+        ctx.fillRect(8, 11, 3, 3);
+        // Black shoes
+        ctx.fillStyle = '#202020';
+        ctx.fillRect(4, 14, 3, 2);
+        ctx.fillRect(9, 14, 3, 2);
+        cache.rocketGrunt = c;
+        return c;
+    }
+
+    // Gate Guard NPC sprite (16x16)
+    function drawGateGuard() {
+        if (cache.gateGuard) return cache.gateGuard;
+        const c = createCanvas(TILE, TILE);
+        const ctx = c.getContext('2d');
+        // Blue cap
+        ctx.fillStyle = '#3050c0';
+        ctx.fillRect(5, 0, 6, 3);
+        ctx.fillRect(4, 2, 8, 1);
+        // Skin face
+        ctx.fillStyle = '#f8b878';
+        ctx.fillRect(5, 3, 6, 3);
+        // Eyes
+        px(ctx, 6, 4, '#202020');
+        px(ctx, 9, 4, '#202020');
+        // Blue uniform body
+        ctx.fillStyle = '#3050c0';
+        ctx.fillRect(4, 6, 8, 5);
+        // Gold badge
+        ctx.fillStyle = '#d0a838';
+        ctx.fillRect(6, 7, 2, 2);
+        // Dark pants
+        ctx.fillStyle = '#303060';
+        ctx.fillRect(5, 11, 3, 3);
+        ctx.fillRect(8, 11, 3, 3);
+        // Black shoes
+        ctx.fillStyle = '#202020';
+        ctx.fillRect(4, 14, 3, 2);
+        ctx.fillRect(9, 14, 3, 2);
+        cache.gateGuard = c;
+        return c;
+    }
+
     return {
         TILE,
         PAL,
@@ -1003,5 +1072,7 @@ const Sprites = (() => {
         drawSpecies44,
         drawSpecies63,
         drawSpecies64,
+        drawRocketGrunt,
+        drawGateGuard,
     };
 })();
