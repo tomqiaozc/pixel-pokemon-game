@@ -49,6 +49,7 @@ class Gym(BaseModel):
     leader: GymLeader
     gym_trainers: list[str] = []  # trainer IDs
     map_id: str
+    prerequisite_badge: Optional[str] = None
 
 
 class Badge(BaseModel):

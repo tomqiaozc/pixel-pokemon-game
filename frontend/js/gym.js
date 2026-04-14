@@ -48,6 +48,24 @@ const Gym = (() => {
                 ] },
             ],
         },
+        cerulean: {
+            name: 'Cerulean City Gym',
+            leader: { name: 'Misty', type: 'Water', title: 'The Tomboyish Mermaid!' },
+            badge: { name: 'Cascade Badge', index: 1 },
+            interior: buildCeruleanGym(),
+            width: 12,
+            height: 12,
+            leaderPos: { x: 5, y: 2 },
+            trainers: [
+                { x: 4, y: 6, name: 'Swimmer Diana', type: 'Water', dir: 3, pokemon: [
+                    { name: 'Goldeen', level: 16, hp: 40, maxHp: 40, type: 'Water' },
+                ] },
+                { x: 8, y: 6, name: 'Swimmer Luis', type: 'Water', dir: 2, pokemon: [
+                    { name: 'Horsea', level: 16, hp: 38, maxHp: 38, type: 'Water' },
+                    { name: 'Shellder', level: 17, hp: 42, maxHp: 42, type: 'Water' },
+                ] },
+            ],
+        },
     };
 
     function buildPewterGym() {
@@ -155,6 +173,55 @@ const Gym = (() => {
 
         // Rug
         for (let x = 6; x <= 8; x++) {
+            m[H - 2][x] = T.RUG;
+            m[H - 3][x] = T.RUG;
+        }
+
+        return m;
+    }
+
+    function buildCeruleanGym() {
+        const W = 12, H = 12;
+        const m = [];
+        for (let y = 0; y < H; y++) {
+            const row = [];
+            for (let x = 0; x < W; x++) row.push(T.FLOOR);
+            m.push(row);
+        }
+
+        // Walls
+        for (let x = 0; x < W; x++) { m[0][x] = T.WALL; m[1][x] = T.WALL; }
+        for (let y = 0; y < H; y++) { m[y][0] = T.WALL; m[y][W - 1] = T.WALL; }
+
+        // Gym leader platform (top center)
+        for (let x = 3; x <= 7; x++) {
+            m[2][x] = T.PLATFORM;
+            m[3][x] = T.PLATFORM;
+        }
+
+        // Central water pool (puzzle tiles representing water)
+        for (let y = 5; y <= 8; y++) {
+            for (let x = 3; x <= 8; x++) {
+                m[y][x] = T.PUZZLE;
+            }
+        }
+        // Walkways around water: left column (x=1,2), right column (x=9,10), top/bottom rows stay floor
+
+        // Barriers flanking the pool edges
+        m[4][3] = T.BARRIER;
+        m[4][8] = T.BARRIER;
+        m[9][3] = T.BARRIER;
+        m[9][8] = T.BARRIER;
+
+        // Statues at entrance
+        m[10][2] = T.STATUE;
+        m[10][9] = T.STATUE;
+
+        // Door
+        m[H - 1][5] = T.DOOR;
+
+        // Rug at entrance
+        for (let x = 4; x <= 6; x++) {
             m[H - 2][x] = T.RUG;
             m[H - 3][x] = T.RUG;
         }
@@ -339,6 +406,7 @@ const Gym = (() => {
         const themeColors = {
             Rock:   { floor: '#d0c8b0', wall: '#a09080', platform: '#c0a070', puzzle: '#b8a060', barrier: '#908060' },
             Ground: { floor: '#d8d0b8', wall: '#806040', platform: '#a08050', puzzle: '#c0a868', barrier: '#705830' },
+            Water:  { floor: '#c0d8e8', wall: '#4070a0', platform: '#5090c0', puzzle: '#3080c0', barrier: '#406890' },
         };
         const theme = themeColors[gymType] || themeColors.Rock;
 
@@ -410,7 +478,7 @@ const Gym = (() => {
 
     function drawTrainerSprite(ctx, x, y, scale, dir, type) {
         const s = scale;
-        const typeColor = type === 'Rock' ? '#a08060' : type === 'Ground' ? '#c0a050' : '#4080c0';
+        const typeColor = type === 'Rock' ? '#a08060' : type === 'Ground' ? '#c0a050' : type === 'Water' ? '#4090c0' : '#4080c0';
 
         // Head
         ctx.fillStyle = '#f8c098';
@@ -433,10 +501,10 @@ const Gym = (() => {
 
     function drawLeaderSprite(ctx, x, y, scale, type) {
         const s = scale;
-        const typeColor = type === 'Rock' ? '#a08060' : type === 'Ground' ? '#805020' : '#4080c0';
+        const typeColor = type === 'Rock' ? '#a08060' : type === 'Ground' ? '#805020' : type === 'Water' ? '#4090c0' : '#4080c0';
 
-        // Hair (spiky for Brock, slicked for Giovanni)
-        ctx.fillStyle = '#302010';
+        // Hair (spiky for Brock, slicked for Giovanni, orange for Misty)
+        ctx.fillStyle = type === 'Water' ? '#e06030' : '#302010';
         ctx.fillRect(x + 3 * s, y, 10 * s, 4 * s);
         ctx.fillRect(x + 5 * s, y - s, 6 * s, 2 * s);
         // Face
