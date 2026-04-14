@@ -1,0 +1,75 @@
+{
+  "unlocked_after_champion": [
+    {
+      "id": "cerulean_cave",
+      "type": "dungeon",
+      "description": "Cerulean Cave (Unknown Dungeon) becomes accessible. Mewtwo awaits at the deepest level.",
+      "location": "cerulean_city"
+    },
+    {
+      "id": "trainer_rematches",
+      "type": "feature",
+      "description": "Previously defeated trainers offer rematches with upgraded teams.",
+      "location": "various"
+    },
+    {
+      "id": "national_dex",
+      "type": "feature",
+      "description": "Professor Oak upgrades the Pokedex to the National Dex.",
+      "location": "pallet_town"
+    },
+    {
+      "id": "elite_four_rematch",
+      "type": "battle",
+      "description": "The Elite Four can be challenged again with higher-level teams.",
+      "location": "indigo_plateau"
+    },
+    {
+      "id": "safari_zone_expansion",
+      "type": "area",
+      "description": "New rare Pokemon appear in the Safari Zone after becoming Champion.",
+      "location": "fuchsia_city"
+    },
+    {
+      "id": "legendary_respawn",
+      "type": "feature",
+      "description": "Legendary birds respawn if defeated (not caught) during the story.",
+      "location": "various"
+    }
+  ],
+  "daily_events": [
+    {
+      "id": "daily_berry",
+      "description": "Berry trees regrow berries once per day.",
+      "reset_time": "midnight"
+    },
+    {
+      "id": "daily_lottery",
+      "description": "Daily lottery at Celadon Department Store.",
+      "reset_time": "midnight",
+      "location": "celadon_city"
+    },
+    {
+      "id": "daily_trainer_tips",
+      "description": "Random trainer tips NPC in Pokemon Centers.",
+      "reset_time": "midnight"
+    }
+  ],
+  "completion_rewards": {
+    "pokedex_50": {
+      "reward": "Exp. Share",
+      "given_by": "Professor Oak's Aide",
+      "location": "route_15"
+    },
+    "pokedex_100": {
+      "reward": "Itemfinder",
+      "given_by": "Professor Oak's Aide",
+      "location": "route_11"
+    },
+    "pokedex_151": {
+      "reward": "Diploma",
+      "given_by": "Game Director",
+      "location": "celadon_city"
+    }
+  }
+}

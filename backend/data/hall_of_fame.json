@@ -1,0 +1,31 @@
+{
+  "description": "Records of Pokemon League Champions",
+  "max_entries": 50,
+  "record_format": {
+    "entry_number": "Sequential number",
+    "player_name": "Player's name",
+    "date_completed": "Timestamp of completion",
+    "play_time_hours": "Total play time in hours",
+    "team": [
+      {
+        "species": "Pokemon species name",
+        "level": "Pokemon level",
+        "nickname": "Pokemon nickname or null",
+        "met_location": "Where the Pokemon was obtained",
+        "original_trainer": "OT name"
+      }
+    ]
+  },
+  "rewards": {
+    "first_completion": {
+      "unlock_cerulean_cave": true,
+      "unlock_unknown_dungeon": true,
+      "national_dex_upgrade": true,
+      "trainer_rematches_available": true
+    },
+    "subsequent_completions": {
+      "increment_entry_count": true,
+      "team_recorded_again": true
+    }
+  }
+}

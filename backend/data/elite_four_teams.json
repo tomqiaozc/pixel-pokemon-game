@@ -1,0 +1,278 @@
+{
+  "lorelei": {
+    "name": "Lorelei",
+    "title": "Elite Four",
+    "specialty": "ice",
+    "pre_battle_dialogue": "No one can best me when it comes to icy Pokemon! Freezing moves are powerful!",
+    "defeat_dialogue": "You're better than I thought! Go on ahead!",
+    "team": [
+      {
+        "species": "Dewgong",
+        "level": 54,
+        "held_item": "Leftovers",
+        "moves": [
+          "Ice Beam",
+          "Surf",
+          "Rest",
+          "Sleep Powder"
+        ],
+        "ability": "thick_fat"
+      },
+      {
+        "species": "Cloyster",
+        "level": 53,
+        "held_item": null,
+        "moves": [
+          "Spike Cannon",
+          "Clamp",
+          "Ice Beam",
+          "Supersonic"
+        ],
+        "ability": "shell_armor"
+      },
+      {
+        "species": "Slowbro",
+        "level": 54,
+        "held_item": null,
+        "moves": [
+          "Psychic",
+          "Surf",
+          "Amnesia",
+          "Withdraw"
+        ],
+        "ability": "own_tempo"
+      },
+      {
+        "species": "Jynx",
+        "level": 56,
+        "held_item": null,
+        "moves": [
+          "Ice Beam",
+          "Psychic",
+          "Lovely Kiss",
+          "Double Slap"
+        ],
+        "ability": "oblivious"
+      },
+      {
+        "species": "Lapras",
+        "level": 56,
+        "held_item": "Sitrus Berry",
+        "moves": [
+          "Blizzard",
+          "Surf",
+          "Body Slam",
+          "Confuse Ray"
+        ],
+        "ability": "water_absorb"
+      }
+    ]
+  },
+  "bruno": {
+    "name": "Bruno",
+    "title": "Elite Four",
+    "specialty": "fighting",
+    "pre_battle_dialogue": "Hoo hah! I am Bruno of the Elite Four! Through vigorous training, I have become one with my Pokemon!",
+    "defeat_dialogue": "My fighting Pokemon lost? How can this be?",
+    "team": [
+      {
+        "species": "Onix",
+        "level": 53,
+        "held_item": null,
+        "moves": [
+          "Rock Slide",
+          "Earthquake",
+          "Slam",
+          "Harden"
+        ],
+        "ability": "sturdy"
+      },
+      {
+        "species": "Hitmonchan",
+        "level": 55,
+        "held_item": null,
+        "moves": [
+          "Ice Punch",
+          "Fire Punch",
+          "Thunder Punch",
+          "Mega Punch"
+        ],
+        "ability": "keen_eye"
+      },
+      {
+        "species": "Hitmonlee",
+        "level": 55,
+        "held_item": null,
+        "moves": [
+          "High Jump Kick",
+          "Mega Kick",
+          "Meditate",
+          "Jump Kick"
+        ],
+        "ability": "limber"
+      },
+      {
+        "species": "Onix",
+        "level": 56,
+        "held_item": null,
+        "moves": [
+          "Rock Slide",
+          "Earthquake",
+          "Rage",
+          "Slam"
+        ],
+        "ability": "rock_head"
+      },
+      {
+        "species": "Machamp",
+        "level": 58,
+        "held_item": "Focus Sash",
+        "moves": [
+          "Submission",
+          "Earthquake",
+          "Rock Slide",
+          "Karate Chop"
+        ],
+        "ability": "guts"
+      }
+    ]
+  },
+  "agatha": {
+    "name": "Agatha",
+    "title": "Elite Four",
+    "specialty": "ghost",
+    "pre_battle_dialogue": "I am Agatha of the Elite Four! I hear Oak's taken a shine to you. But that old dolt's judgement is Pokemon battles is pokemon battles worth nothing!",
+    "defeat_dialogue": "You win! I see what the old dude sees in you now.",
+    "team": [
+      {
+        "species": "Gengar",
+        "level": 56,
+        "held_item": null,
+        "moves": [
+          "Confuse Ray",
+          "Night Shade",
+          "Hypnosis",
+          "Dream Eater"
+        ],
+        "ability": "levitate"
+      },
+      {
+        "species": "Golbat",
+        "level": 56,
+        "held_item": null,
+        "moves": [
+          "Wing Attack",
+          "Bite",
+          "Confuse Ray",
+          "Toxic"
+        ],
+        "ability": "inner_focus"
+      },
+      {
+        "species": "Haunter",
+        "level": 55,
+        "held_item": null,
+        "moves": [
+          "Hypnosis",
+          "Dream Eater",
+          "Lick",
+          "Night Shade"
+        ],
+        "ability": "levitate"
+      },
+      {
+        "species": "Arbok",
+        "level": 58,
+        "held_item": null,
+        "moves": [
+          "Bite",
+          "Glare",
+          "Acid",
+          "Wrap"
+        ],
+        "ability": "intimidate"
+      },
+      {
+        "species": "Gengar",
+        "level": 60,
+        "held_item": "Sitrus Berry",
+        "moves": [
+          "Psychic",
+          "Hypnosis",
+          "Dream Eater",
+          "Night Shade"
+        ],
+        "ability": "levitate"
+      }
+    ]
+  },
+  "lance": {
+    "name": "Lance",
+    "title": "Elite Four",
+    "specialty": "dragon",
+    "pre_battle_dialogue": "I am the last of the Elite Four! I have been waiting for you! My dragon Pokemon are unbeatable!",
+    "defeat_dialogue": "I still cant believe you beat my dragons! You are now the Pokemon League Champion!",
+    "team": [
+      {
+        "species": "Gyarados",
+        "level": 58,
+        "held_item": null,
+        "moves": [
+          "Hydro Pump",
+          "Dragon Rage",
+          "Hyper Beam",
+          "Thrash"
+        ],
+        "ability": "intimidate"
+      },
+      {
+        "species": "Dragonair",
+        "level": 56,
+        "held_item": null,
+        "moves": [
+          "Dragon Rage",
+          "Thunder Wave",
+          "Slam",
+          "Agility"
+        ],
+        "ability": "shed_skin"
+      },
+      {
+        "species": "Dragonair",
+        "level": 56,
+        "held_item": null,
+        "moves": [
+          "Dragon Rage",
+          "Thunder Wave",
+          "Slam",
+          "Ice Beam"
+        ],
+        "ability": "shed_skin"
+      },
+      {
+        "species": "Aerodactyl",
+        "level": 60,
+        "held_item": null,
+        "moves": [
+          "Wing Attack",
+          "Hyper Beam",
+          "Bite",
+          "Fly"
+        ],
+        "ability": "rock_head"
+      },
+      {
+        "species": "Dragonite",
+        "level": 62,
+        "held_item": "Sitrus Berry",
+        "moves": [
+          "Hyper Beam",
+          "Blizzard",
+          "Fire Blast",
+          "Thunder"
+        ],
+        "ability": "inner_focus"
+      }
+    ]
+  }
+}
