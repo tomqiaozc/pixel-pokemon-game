@@ -1,0 +1,47 @@
+{
+  "description": "PP (Power Points) configuration for moves and PP-modifying items.",
+  "pp_stages": {
+    "description": "PP Up increases max PP by 20% of base per use, up to 3 times (60% total). PP Max sets to maximum in one use.",
+    "max_pp_ups": 3,
+    "pp_up_increase_percent": 20,
+    "pp_max_total_increase_percent": 60
+  },
+  "pp_restore_items": [
+    {"item": "Ether", "effect": "restore_single", "amount": 10},
+    {"item": "Max Ether", "effect": "restore_single_full", "amount": "full"},
+    {"item": "Elixir", "effect": "restore_all", "amount": 10},
+    {"item": "Max Elixir", "effect": "restore_all_full", "amount": "full"},
+    {"item": "Leppa Berry", "effect": "restore_single", "amount": 10}
+  ],
+  "pp_tiers_description": "Base PP values used by Gen 1 moves, grouped by tier.",
+  "pp_tiers": {
+    "tier_5": {"base_pp": 5, "max_pp": 8, "moves_count": 12},
+    "tier_10": {"base_pp": 10, "max_pp": 16, "moves_count": 28},
+    "tier_15": {"base_pp": 15, "max_pp": 24, "moves_count": 20},
+    "tier_20": {"base_pp": 20, "max_pp": 32, "moves_count": 42},
+    "tier_25": {"base_pp": 25, "max_pp": 40, "moves_count": 18},
+    "tier_30": {"base_pp": 30, "max_pp": 48, "moves_count": 24},
+    "tier_35": {"base_pp": 35, "max_pp": 56, "moves_count": 16},
+    "tier_40": {"base_pp": 40, "max_pp": 64, "moves_count": 14}
+  },
+  "struggle": {
+    "name": "Struggle",
+    "description": "Used automatically when all moves have 0 PP.",
+    "power": 50,
+    "type": "normal",
+    "accuracy": 100,
+    "recoil_percent": 25,
+    "pp": null,
+    "cannot_be_disabled": true
+  },
+  "pp_rules": {
+    "min_pp": 0,
+    "struggle_at_zero": true,
+    "pp_restored_at_pokecenter": true,
+    "pp_restored_on_level_up": false,
+    "pp_tracks_per_move_slot": true,
+    "transform_copies_current_pp": false,
+    "mimic_uses_own_pp": true
+  },
+  "total_pp_tiers": 8
+}
