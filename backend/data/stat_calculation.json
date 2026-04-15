@@ -1,0 +1,54 @@
+{
+  "description": "Stat calculation formulas for Gen 1 Pokemon.",
+  "hp_formula": {
+    "description": "HP = ((2 * Base + IV + EV/4) * Level / 100) + Level + 10",
+    "components": {
+      "base": "Species base HP stat",
+      "iv": "Individual Value (0-31)",
+      "ev": "Effort Value (0-252, divided by 4)",
+      "level": "Pokemon's current level"
+    }
+  },
+  "other_stat_formula": {
+    "description": "Stat = (((2 * Base + IV + EV/4) * Level / 100) + 5) * Nature",
+    "components": {
+      "base": "Species base stat",
+      "iv": "Individual Value (0-31)",
+      "ev": "Effort Value (0-252, divided by 4)",
+      "level": "Pokemon's current level",
+      "nature": "Nature multiplier (0.9, 1.0, or 1.1)"
+    }
+  },
+  "iv_config": {
+    "min": 0,
+    "max": 31,
+    "stats_with_iv": ["hp", "attack", "defense", "sp_attack", "sp_defense", "speed"],
+    "total_stats": 6,
+    "randomly_assigned": true,
+    "inheritable_from_parents": 3
+  },
+  "ev_config": {
+    "min_per_stat": 0,
+    "max_per_stat": 252,
+    "max_total": 510,
+    "gained_from_battle": true,
+    "vitamins_give": 10,
+    "vitamin_cap_per_stat": 100,
+    "ev_per_4_equals_1_stat_point": true
+  },
+  "nature_multipliers": {
+    "neutral": 1.0,
+    "positive": 1.1,
+    "negative": 0.9,
+    "total_natures": 25,
+    "neutral_natures": 5
+  },
+  "level_range": {
+    "min": 1,
+    "max": 100
+  },
+  "shedinja_hp_exception": {
+    "description": "Shedinja always has 1 HP regardless of stats.",
+    "applies_in_gen1": false
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "description": "Move categories and special move mechanics for Gen 1.",
+  "categories": {
+    "physical": {
+      "description": "Uses Attack vs Defense.",
+      "stat_used": "attack",
+      "defense_used": "defense",
+      "contact_possible": true
+    },
+    "special": {
+      "description": "Uses Sp. Atk vs Sp. Def.",
+      "stat_used": "sp_attack",
+      "defense_used": "sp_defense",
+      "contact_possible": false
+    },
+    "status": {
+      "description": "Does not deal direct damage.",
+      "stat_used": null,
+      "defense_used": null,
+      "contact_possible": false
+    }
+  },
+  "special_mechanics": {
+    "recoil_moves": [
+      {"move": "Take Down", "recoil_percent": 25},
+      {"move": "Double Edge", "recoil_percent": 33},
+      {"move": "Submission", "recoil_percent": 25},
+      {"move": "Struggle", "recoil_percent": 25}
+    ],
+    "drain_moves": [
+      {"move": "Absorb", "drain_percent": 50},
+      {"move": "Mega Drain", "drain_percent": 50},
+      {"move": "Leech Life", "drain_percent": 50},
+      {"move": "Dream Eater", "drain_percent": 50}
+    ],
+    "two_turn_moves": [
+      {"move": "Solar Beam", "charge_turn": "absorbing_light", "weather_skip": "sun"},
+      {"move": "Fly", "semi_invulnerable": true, "charge_turn": "flew_up_high"},
+      {"move": "Dig", "semi_invulnerable": true, "charge_turn": "dug_underground"},
+      {"move": "Skull Bash", "charge_turn": "lowered_its_head", "raises_defense": true},
+      {"move": "Razor Wind", "charge_turn": "whipped_up_a_whirlwind"},
+      {"move": "Sky Attack", "charge_turn": "is_glowing"}
+    ],
+    "self_destruct_moves": [
+      {"move": "Self Destruct", "user_faints": true},
+      {"move": "Explosion", "user_faints": true}
+    ],
+    "ohko_moves": [
+      {"move": "Fissure", "accuracy_formula": "(user_level - target_level + 30)%", "fails_if_lower_level": true},
+      {"move": "Horn Drill", "accuracy_formula": "(user_level - target_level + 30)%", "fails_if_lower_level": true},
+      {"move": "Guillotine", "accuracy_formula": "(user_level - target_level + 30)%", "fails_if_lower_level": true}
+    ]
+  },
+  "total_categories": 3,
+  "total_recoil_moves": 4,
+  "total_drain_moves": 4,
+  "total_two_turn_moves": 6,
+  "total_ohko_moves": 3
+}

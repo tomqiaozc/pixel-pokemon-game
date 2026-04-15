@@ -1,0 +1,37 @@
+{
+  "description": "Pokemon nickname system configuration.",
+  "max_nickname_length": 10,
+  "default_nickname": "species_name",
+  "name_rater": {
+    "location": "lavender_town",
+    "npc_name": "Name Rater",
+    "can_rename_own_pokemon": true,
+    "cannot_rename_traded": true,
+    "free_service": true,
+    "dialogue_offer": "Want me to rate your Pokemons nickname? I can rename it if you want!",
+    "dialogue_traded": "That Pokemon came from another trainer. I cant rename it for you.",
+    "dialogue_done": "Thats a fine name! Your Pokemon seems to like it!"
+  },
+  "naming_rules": {
+    "allowed_characters": "A-Z a-z 0-9 spaces hyphens",
+    "no_profanity_filter": false,
+    "prompt_on_capture": true,
+    "prompt_on_hatch": true,
+    "can_skip_naming": true,
+    "default_if_skipped": "species_name"
+  },
+  "keyboard_layout": {
+    "type": "QWERTY",
+    "pages": ["uppercase", "lowercase"],
+    "has_symbols": false,
+    "backspace_available": true,
+    "end_button": true
+  },
+  "special_cases": {
+    "starter_prompted": true,
+    "gift_pokemon_prompted": true,
+    "traded_keeps_name": true,
+    "evolved_keeps_nickname": true,
+    "evolved_default_updates": true
+  }
+}
