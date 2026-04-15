@@ -1,0 +1,43 @@
+{
+  "description": "Slot machine minigame at the Celadon Game Corner.",
+  "location": "celadon_game_corner",
+  "machine_count": 30,
+  "cost_per_play": 3,
+  "currency": "coins",
+  "reels": {
+    "count": 3,
+    "symbols": [
+      {"symbol": "7", "rarity": "rare", "weight": 1},
+      {"symbol": "BAR", "rarity": "uncommon", "weight": 3},
+      {"symbol": "Cherry", "rarity": "common", "weight": 6},
+      {"symbol": "Pikachu", "rarity": "uncommon", "weight": 3},
+      {"symbol": "Pokeball", "rarity": "common", "weight": 5},
+      {"symbol": "Blank", "rarity": "very_common", "weight": 12}
+    ],
+    "spin_duration_ms": 2000,
+    "reel_stop_delay_ms": 300
+  },
+  "payouts": [
+    {"combination": ["7", "7", "7"], "payout": 300, "name": "Jackpot"},
+    {"combination": ["BAR", "BAR", "BAR"], "payout": 100, "name": "Triple BAR"},
+    {"combination": ["Pikachu", "Pikachu", "Pikachu"], "payout": 50, "name": "Triple Pikachu"},
+    {"combination": ["Cherry", "Cherry", "Cherry"], "payout": 15, "name": "Triple Cherry"},
+    {"combination": ["Cherry", "Cherry", "*"], "payout": 8, "name": "Double Cherry"},
+    {"combination": ["Cherry", "*", "*"], "payout": 4, "name": "Single Cherry"}
+  ],
+  "lucky_machines": {
+    "exist": true,
+    "count": 3,
+    "payout_multiplier": 1.5,
+    "npc_hints_available": true,
+    "positions": [5, 15, 24]
+  },
+  "coin_purchase": {
+    "50_coins": 1000,
+    "500_coins": 10000
+  },
+  "max_coins": 9999,
+  "coin_case_required": true,
+  "total_payouts": 6,
+  "total_symbols": 6
+}

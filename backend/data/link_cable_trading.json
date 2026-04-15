@@ -1,0 +1,47 @@
+{
+  "description": "Link cable trading system configuration for Pokemon exchange.",
+  "location": "pokemon_center",
+  "floor": "2F",
+  "access_npc": "Link Cable Attendant",
+  "available_centers": ["cerulean_city", "vermilion_city", "celadon_city", "saffron_city"],
+  "trade_rules": {
+    "max_party_size": 6,
+    "min_party_after_trade": 1,
+    "cannot_trade_last_pokemon": true,
+    "cannot_trade_eggs": true,
+    "hm_pokemon_warning": true,
+    "traded_pokemon_obey_rules": true,
+    "evolution_on_trade": true
+  },
+  "trade_evolution_pokemon": [
+    {"pokemon": "Kadabra", "evolves_to": "Alakazam"},
+    {"pokemon": "Machoke", "evolves_to": "Machamp"},
+    {"pokemon": "Graveler", "evolves_to": "Golem"},
+    {"pokemon": "Haunter", "evolves_to": "Gengar"}
+  ],
+  "trade_flow": [
+    {"step": 1, "action": "connect", "description": "Both players connect via link cable."},
+    {"step": 2, "action": "select", "description": "Each player selects a Pokemon to trade."},
+    {"step": 3, "action": "confirm", "description": "Both players confirm the trade."},
+    {"step": 4, "action": "animate", "description": "Trade animation plays."},
+    {"step": 5, "action": "evolve_check", "description": "Check if traded Pokemon evolves."},
+    {"step": 6, "action": "complete", "description": "Trade complete. Pokemon now belongs to new trainer."}
+  ],
+  "traded_pokemon_properties": {
+    "original_trainer_preserved": true,
+    "gains_boosted_exp": true,
+    "exp_multiplier": 1.5,
+    "obedience_requires_badges": true,
+    "nickname_cannot_be_changed": true
+  },
+  "dialogue": {
+    "welcome": "Welcome to the Cable Club! You can trade Pokemon with a friend here.",
+    "connect_prompt": "Please make sure your link cable is connected.",
+    "select_prompt": "Please select a Pokemon to trade.",
+    "confirm_prompt": "Are you sure you want to trade this Pokemon?",
+    "success": "The trade was completed successfully!",
+    "cancel": "The trade was cancelled."
+  },
+  "total_trade_steps": 6,
+  "total_trade_evolutions": 4
+}

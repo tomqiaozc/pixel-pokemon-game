@@ -1,0 +1,72 @@
+{
+  "description": "Battle UI layout and element configuration.",
+  "layout": {
+    "screen_width": 240,
+    "screen_height": 160,
+    "background_area": {"x": 0, "y": 0, "width": 240, "height": 80},
+    "player_pokemon_area": {"x": 16, "y": 48, "width": 64, "height": 64},
+    "enemy_pokemon_area": {"x": 144, "y": 0, "width": 64, "height": 64},
+    "text_box": {"x": 0, "y": 112, "width": 240, "height": 48},
+    "player_info_box": {"x": 120, "y": 72, "width": 120, "height": 40},
+    "enemy_info_box": {"x": 0, "y": 0, "width": 120, "height": 32}
+  },
+  "hp_bar": {
+    "width": 48,
+    "height": 3,
+    "colors": {
+      "high": "#00FF00",
+      "medium": "#FFFF00",
+      "low": "#FF0000"
+    },
+    "thresholds": {
+      "high_above": 0.5,
+      "medium_above": 0.2,
+      "low_at_or_below": 0.2
+    },
+    "animation_speed_ms_per_pixel": 30
+  },
+  "exp_bar": {
+    "width": 64,
+    "height": 2,
+    "color": "#00BFFF",
+    "shows_for_player_only": true,
+    "animation_speed_ms_per_pixel": 15
+  },
+  "move_menu": {
+    "columns": 2,
+    "rows": 2,
+    "shows_pp": true,
+    "shows_type": true,
+    "disabled_color": "#888888",
+    "selected_color": "#FFFFFF",
+    "background_color": "#000000"
+  },
+  "action_menu": {
+    "options": ["FIGHT", "BAG", "POKEMON", "RUN"],
+    "columns": 2,
+    "rows": 2,
+    "cursor_start": "FIGHT"
+  },
+  "text_speed_options": {
+    "slow": 60,
+    "medium": 30,
+    "fast": 10
+  },
+  "animations": {
+    "pokemon_enter_ms": 500,
+    "pokemon_faint_ms": 800,
+    "damage_flash_count": 3,
+    "damage_flash_ms": 100,
+    "ball_throw_ms": 1000,
+    "ball_shake_ms": 500,
+    "catch_success_ms": 1500
+  },
+  "status_icons": {
+    "poison": {"color": "#A040A0", "abbreviation": "PSN"},
+    "burn": {"color": "#F08030", "abbreviation": "BRN"},
+    "freeze": {"color": "#98D8D8", "abbreviation": "FRZ"},
+    "paralysis": {"color": "#F8D030", "abbreviation": "PAR"},
+    "sleep": {"color": "#A8A878", "abbreviation": "SLP"}
+  },
+  "total_status_icons": 5
+}
