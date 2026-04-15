@@ -1,0 +1,38 @@
+{
+  "description": "Experience gain formula and modifiers for Gen 1 battles.",
+  "base_formula": {
+    "description": "EXP = (base_exp * level * modifiers) / 7",
+    "components": {
+      "base_exp": "Defeated Pokemon's base experience yield",
+      "level": "Defeated Pokemon's level",
+      "modifiers": "Product of all applicable multipliers"
+    }
+  },
+  "modifiers": {
+    "traded_pokemon": {"multiplier": 1.5, "description": "Pokemon received via trade gains 50% more EXP."},
+    "exp_share_holder": {"multiplier": 1.0, "description": "Pokemon holding Exp. Share gets full EXP even if it didn't battle."},
+    "exp_share_split": {"description": "EXP is split: 50% to battler, 50% split among Exp. Share holders."},
+    "lucky_egg": {"multiplier": 1.5, "description": "Holder gains 50% more EXP."},
+    "wild_pokemon": {"multiplier": 1.0, "description": "Standard EXP from wild battles."},
+    "trainer_pokemon": {"multiplier": 1.5, "description": "Trainer-owned Pokemon give 50% more EXP."}
+  },
+  "exp_share_config": {
+    "item_name": "Exp. Share",
+    "obtain_location": "route_15",
+    "obtain_npc": "Professor Oaks Aide",
+    "obtain_condition": "50_pokemon_registered",
+    "type": "held_item",
+    "affects_party": false,
+    "splits_exp": true
+  },
+  "lucky_egg_config": {
+    "item_name": "Lucky Egg",
+    "obtain_method": "wild_chansey",
+    "hold_chance_percent": 5,
+    "stackable_with_trade": true
+  },
+  "level_cap": 100,
+  "exp_on_faint_only": true,
+  "exp_all_participants": true,
+  "switch_training_shares_exp": true
+}

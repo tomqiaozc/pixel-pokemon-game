@@ -1,0 +1,66 @@
+{
+  "description": "Trainer prize money calculation and class-based pay rates.",
+  "formula": {
+    "description": "Prize Money = base_payout * highest_level_pokemon * badge_multiplier",
+    "components": {
+      "base_payout": "Determined by trainer class",
+      "highest_level": "Level of the highest-level Pokemon on the losing trainer's team",
+      "badge_multiplier": "Increases with player badge count"
+    }
+  },
+  "badge_multipliers": {
+    "0": 1.0,
+    "1": 1.0,
+    "2": 1.0,
+    "3": 1.0,
+    "4": 1.5,
+    "5": 1.5,
+    "6": 2.0,
+    "7": 2.0,
+    "8": 2.5
+  },
+  "class_payouts": [
+    {"class": "Youngster", "base_payout": 15},
+    {"class": "Bug Catcher", "base_payout": 10},
+    {"class": "Lass", "base_payout": 15},
+    {"class": "Hiker", "base_payout": 35},
+    {"class": "Biker", "base_payout": 20},
+    {"class": "Fisherman", "base_payout": 35},
+    {"class": "Swimmer", "base_payout": 5},
+    {"class": "Super Nerd", "base_payout": 25},
+    {"class": "Scientist", "base_payout": 50},
+    {"class": "Gentleman", "base_payout": 70},
+    {"class": "Gambler", "base_payout": 70},
+    {"class": "Beauty", "base_payout": 70},
+    {"class": "Ace Trainer", "base_payout": 50},
+    {"class": "Bird Keeper", "base_payout": 25},
+    {"class": "Blackbelt", "base_payout": 25},
+    {"class": "Channeler", "base_payout": 30},
+    {"class": "Psychic", "base_payout": 30},
+    {"class": "Rocket Grunt", "base_payout": 25},
+    {"class": "Tamer", "base_payout": 40},
+    {"class": "Juggler", "base_payout": 35},
+    {"class": "Sailor", "base_payout": 20},
+    {"class": "Gym Leader", "base_payout": 100},
+    {"class": "Elite Four", "base_payout": 110},
+    {"class": "Champion", "base_payout": 120}
+  ],
+  "amulet_coin": {
+    "item_name": "Amulet Coin",
+    "multiplier": 2.0,
+    "obtain_location": "route_16",
+    "description": "Doubles prize money when held by lead Pokemon."
+  },
+  "pay_day_move": {
+    "move_name": "Pay Day",
+    "coins_per_use": "5 * user_level",
+    "max_per_battle": 99999,
+    "stacks_with_amulet_coin": false
+  },
+  "loss_penalty": {
+    "player_loses_half_money": true,
+    "minimum_money_after_loss": 0,
+    "blackout_message": "You blacked out! You lost some money..."
+  },
+  "total_trainer_classes": 24
+}

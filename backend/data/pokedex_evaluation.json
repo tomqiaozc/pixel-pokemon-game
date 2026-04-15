@@ -1,0 +1,44 @@
+{
+  "description": "Professor Oak's Pokedex evaluation system and completion rewards.",
+  "evaluator": "Professor Oak",
+  "location": "oaks_lab",
+  "evaluation_thresholds": [
+    {"caught": 0, "rating": "You still havent caught any Pokemon? Come on, get with it!"},
+    {"caught": 10, "rating": "Your Pokedex is coming along. Keep working at it!"},
+    {"caught": 25, "rating": "Youve caught a good number! Your Pokedex is filling up nicely!"},
+    {"caught": 50, "rating": "Wonderful! You are halfway to completing the Pokedex!"},
+    {"caught": 75, "rating": "Excellent! Your dedication to Pokemon is impressive!"},
+    {"caught": 100, "rating": "Superb! Almost there! Just a few more Pokemon to go!"},
+    {"caught": 120, "rating": "Outstanding! The Pokedex is nearly complete!"},
+    {"caught": 140, "rating": "Incredible! You are so close to catching them all!"},
+    {"caught": 150, "rating": "Magnificent! Just one more Pokemon! You can do it!"},
+    {"caught": 151, "rating": "Congratulations! Your Pokedex is complete! You are a true Pokemon Master!"}
+  ],
+  "completion_rewards": {
+    "seen_all_151": {
+      "reward": "diploma_seen",
+      "description": "Certificate for seeing all 151 Pokemon.",
+      "location": "celadon_mansion"
+    },
+    "caught_all_151": {
+      "reward": "diploma_caught",
+      "description": "Certificate for catching all 151 Pokemon.",
+      "location": "celadon_mansion",
+      "npc": "Game Freak Director"
+    }
+  },
+  "pokedex_modes": {
+    "seen": {"description": "Pokemon encountered in battle or otherwise observed.", "records_silhouette": true},
+    "caught": {"description": "Pokemon successfully captured.", "records_full_entry": true}
+  },
+  "oaks_aide_rewards": [
+    {"pokemon_caught": 10, "location": "route_2", "reward": "Flash", "reward_type": "hm"},
+    {"pokemon_caught": 20, "location": "route_16", "reward": "Fly", "reward_type": "hm"},
+    {"pokemon_caught": 30, "location": "route_11", "reward": "Itemfinder", "reward_type": "item"},
+    {"pokemon_caught": 40, "location": "route_15", "reward": "Exp. Share", "reward_type": "item"},
+    {"pokemon_caught": 50, "location": "route_12", "reward": "Amulet Coin", "reward_type": "item"}
+  ],
+  "total_pokemon": 151,
+  "total_evaluations": 10,
+  "total_aide_rewards": 5
+}
