@@ -1,0 +1,109 @@
+{
+  "description": "Static encounters for legendary and special Pokemon in Kanto.",
+  "encounters": [
+    {
+      "id": "enc_articuno",
+      "pokemon": "Articuno",
+      "level": 50,
+      "location": "seafoam_islands",
+      "floor": "B4F",
+      "type": "static",
+      "one_time": true,
+      "respawns_if_defeated": true,
+      "respawn_condition": "defeat_elite_four",
+      "prerequisite": "solve_strength_puzzle",
+      "catch_rate": 3
+    },
+    {
+      "id": "enc_zapdos",
+      "pokemon": "Zapdos",
+      "level": 50,
+      "location": "power_plant",
+      "floor": "1F",
+      "type": "static",
+      "one_time": true,
+      "respawns_if_defeated": true,
+      "respawn_condition": "defeat_elite_four",
+      "prerequisite": "surf_to_power_plant",
+      "catch_rate": 3
+    },
+    {
+      "id": "enc_moltres",
+      "pokemon": "Moltres",
+      "level": 50,
+      "location": "victory_road",
+      "floor": "2F",
+      "type": "static",
+      "one_time": true,
+      "respawns_if_defeated": true,
+      "respawn_condition": "defeat_elite_four",
+      "prerequisite": "strength_puzzle_victory_road",
+      "catch_rate": 3
+    },
+    {
+      "id": "enc_mewtwo",
+      "pokemon": "Mewtwo",
+      "level": 70,
+      "location": "cerulean_cave",
+      "floor": "B1F",
+      "type": "static",
+      "one_time": true,
+      "respawns_if_defeated": false,
+      "respawn_condition": null,
+      "prerequisite": "champion_defeated",
+      "catch_rate": 3
+    },
+    {
+      "id": "enc_snorlax_route12",
+      "pokemon": "Snorlax",
+      "level": 30,
+      "location": "route_12",
+      "floor": null,
+      "type": "static",
+      "one_time": true,
+      "respawns_if_defeated": false,
+      "respawn_condition": null,
+      "prerequisite": "poke_flute",
+      "catch_rate": 25
+    },
+    {
+      "id": "enc_snorlax_route16",
+      "pokemon": "Snorlax",
+      "level": 30,
+      "location": "route_16",
+      "floor": null,
+      "type": "static",
+      "one_time": true,
+      "respawns_if_defeated": false,
+      "respawn_condition": null,
+      "prerequisite": "poke_flute",
+      "catch_rate": 25
+    },
+    {
+      "id": "enc_mew",
+      "pokemon": "Mew",
+      "level": 5,
+      "location": "faraway_island",
+      "floor": null,
+      "type": "event",
+      "one_time": true,
+      "respawns_if_defeated": false,
+      "respawn_condition": null,
+      "prerequisite": "event_ticket",
+      "catch_rate": 45
+    }
+  ],
+  "legendary_rules": {
+    "flee_allowed": true,
+    "master_ball_guaranteed": true,
+    "save_before_recommended": true,
+    "unique_battle_music": true,
+    "music_track": "legendary_battle"
+  },
+  "bird_trio": {
+    "members": ["Articuno", "Zapdos", "Moltres"],
+    "shared_catch_rate": 3,
+    "shared_level": 50
+  },
+  "total_encounters": 7
+}

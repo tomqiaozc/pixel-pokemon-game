@@ -1,0 +1,54 @@
+{
+  "description": "Elite Four challenge configuration, rules, and rematch system.",
+  "location": "indigo_plateau",
+  "entry_requirement": "8_badges",
+  "members": ["Lorelei", "Bruno", "Agatha", "Lance"],
+  "champion": "Blue",
+  "challenge_rules": {
+    "must_fight_in_order": true,
+    "no_leaving_between_battles": true,
+    "no_pokecenter_between_battles": true,
+    "can_use_items_in_battle": true,
+    "can_switch_pokemon": true,
+    "blackout_restarts_from_first": true,
+    "party_not_healed_between_battles": true,
+    "save_before_entering": true
+  },
+  "battle_format": {
+    "type": "single",
+    "level_cap": null,
+    "species_clause": false,
+    "item_clause": false,
+    "max_party_size": 6
+  },
+  "reward": {
+    "first_clear": {
+      "hall_of_fame_entry": true,
+      "unlock_cerulean_cave": true,
+      "unlock_postgame": true,
+      "credits_roll": true
+    },
+    "money_per_member": {
+      "lorelei": 5940,
+      "bruno": 6380,
+      "agatha": 6600,
+      "lance": 6820,
+      "champion": 6930
+    }
+  },
+  "rematch": {
+    "available_after": "champion_defeated",
+    "level_increase": 10,
+    "rematch_members": ["Lorelei", "Bruno", "Agatha", "Lance"],
+    "rematch_champion": "Blue",
+    "unlimited_rematches": true,
+    "hall_of_fame_each_clear": true
+  },
+  "dialogue": {
+    "guard_no_badges": "You need all 8 badges to enter the Pokemon League!",
+    "guard_enter": "The Pokemon League awaits! Good luck!",
+    "between_battles": "The next room lies ahead...",
+    "champion_intro": "Hey! I was looking forward to seeing you here!"
+  },
+  "total_battles": 5
+}

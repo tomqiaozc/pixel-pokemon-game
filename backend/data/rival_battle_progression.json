@@ -1,0 +1,107 @@
+{
+  "description": "Rival battle progression metadata, reward scaling, and encounter triggers.",
+  "rival_name_default": "Blue",
+  "total_encounters": 8,
+  "encounters": [
+    {
+      "id": "rival_1_oak_lab",
+      "battle_number": 1,
+      "location": "oaks_lab",
+      "trigger": "receive_starter",
+      "badges_required": 0,
+      "reward_money": 175,
+      "can_lose": true,
+      "lose_consequence": "none",
+      "team_size": 1
+    },
+    {
+      "id": "rival_2_route22",
+      "battle_number": 2,
+      "location": "route_22",
+      "trigger": "approach_route22_gate",
+      "badges_required": 0,
+      "reward_money": 315,
+      "can_lose": true,
+      "lose_consequence": "blackout",
+      "team_size": 2
+    },
+    {
+      "id": "rival_3_cerulean",
+      "battle_number": 3,
+      "location": "cerulean_city",
+      "trigger": "exit_nugget_bridge",
+      "badges_required": 1,
+      "reward_money": 630,
+      "can_lose": true,
+      "lose_consequence": "blackout",
+      "team_size": 3
+    },
+    {
+      "id": "rival_4_ss_anne",
+      "battle_number": 4,
+      "location": "ss_anne",
+      "trigger": "approach_captain_room",
+      "badges_required": 2,
+      "reward_money": 700,
+      "can_lose": true,
+      "lose_consequence": "blackout",
+      "team_size": 4
+    },
+    {
+      "id": "rival_5_pokemon_tower",
+      "battle_number": 5,
+      "location": "pokemon_tower",
+      "trigger": "reach_tower_floor_2",
+      "badges_required": 3,
+      "reward_money": 875,
+      "can_lose": true,
+      "lose_consequence": "blackout",
+      "team_size": 5
+    },
+    {
+      "id": "rival_6_silph_co",
+      "battle_number": 6,
+      "location": "silph_co",
+      "trigger": "approach_silph_7f",
+      "badges_required": 5,
+      "reward_money": 1400,
+      "can_lose": true,
+      "lose_consequence": "blackout",
+      "team_size": 5
+    },
+    {
+      "id": "rival_7_route22_2",
+      "battle_number": 7,
+      "location": "route_22",
+      "trigger": "approach_victory_road",
+      "badges_required": 7,
+      "reward_money": 1855,
+      "can_lose": true,
+      "lose_consequence": "blackout",
+      "team_size": 6
+    },
+    {
+      "id": "rival_8_champion",
+      "battle_number": 8,
+      "location": "indigo_plateau",
+      "trigger": "defeat_lance",
+      "badges_required": 8,
+      "reward_money": 2205,
+      "can_lose": true,
+      "lose_consequence": "restart_elite_four",
+      "team_size": 6
+    }
+  ],
+  "rival_starter_logic": {
+    "player_chooses_bulbasaur": "Charmander",
+    "player_chooses_charmander": "Squirtle",
+    "player_chooses_squirtle": "Bulbasaur",
+    "advantage": "rival_always_has_type_advantage"
+  },
+  "progression_rules": {
+    "team_grows_each_battle": true,
+    "levels_scale_with_story": true,
+    "rival_heals_between_battles": true,
+    "rematch_available": false
+  }
+}
