@@ -1,0 +1,54 @@
+{
+  "description": "Wild Pokemon battle rules and encounter mechanics.",
+  "encounter_trigger": {
+    "grass": {"chance_per_step": 0.085, "requires_no_repel": true},
+    "cave": {"chance_per_step": 0.085, "requires_no_repel": true},
+    "water": {"chance_per_step": 0.085, "requires_surf": true},
+    "fishing": {"chance_per_cast": 1.0, "requires_rod": true}
+  },
+  "battle_options": [
+    {"action": "fight", "description": "Select a move to use against the wild Pokemon."},
+    {"action": "bag", "description": "Use an item from your bag (Poke Balls, healing items, etc.)."},
+    {"action": "pokemon", "description": "Switch to a different Pokemon in your party."},
+    {"action": "run", "description": "Attempt to flee from the wild Pokemon."}
+  ],
+  "flee_formula": {
+    "description": "Flee chance = (player_speed * 128 / wild_speed + 30 * escape_attempts) mod 256",
+    "guaranteed_flee_items": ["Poke Doll", "Smoke Ball"],
+    "always_flee_if_higher_level": false,
+    "escape_attempts_increase_chance": true
+  },
+  "wild_pokemon_rules": {
+    "no_items": true,
+    "no_switching": true,
+    "random_moves": false,
+    "uses_ai": true,
+    "ai_level": "basic",
+    "can_struggle": true,
+    "exp_given_on_defeat": true,
+    "exp_given_on_capture": true,
+    "money_given": false
+  },
+  "repel_interaction": {
+    "blocks_encounters": true,
+    "level_based": true,
+    "compares_to": "first_party_pokemon_level",
+    "blocks_if_wild_lower": true,
+    "does_not_block_static": true,
+    "prompt_on_expire": true
+  },
+  "shiny_odds": {
+    "base_chance": "1/8192",
+    "numerator": 1,
+    "denominator": 8192,
+    "method": "iv_based",
+    "shiny_charm_available": false
+  },
+  "level_range": {
+    "determined_by": "encounter_table",
+    "min_possible": 2,
+    "max_possible": 65,
+    "cerulean_cave_highest": 65
+  },
+  "total_battle_options": 4
+}

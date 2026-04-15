@@ -1,0 +1,25 @@
+{
+  "description": "Old Man catch tutorial event in Viridian City.",
+  "location": "viridian_city",
+  "npc": "Old Man",
+  "trigger": "talk_to_old_man_after_coffee",
+  "prerequisite": "deliver_parcel_to_oak",
+  "tutorial_steps": [
+    {"step": 1, "action": "dialogue", "text": "Ive had my coffee now and Im feeling great! Sure, Ill show you how to catch a Pokemon!"},
+    {"step": 2, "action": "transition", "text": "The Old Man walks to the tall grass on Route 1."},
+    {"step": 3, "action": "encounter", "pokemon": "Weedle", "level": 5},
+    {"step": 4, "action": "demonstrate", "text": "First, you weaken the Pokemon with attacks..."},
+    {"step": 5, "action": "throw_ball", "text": "Then throw a Poke Ball when its weak!"},
+    {"step": 6, "action": "capture", "text": "All right! The Pokemon was caught!", "always_succeeds": true},
+    {"step": 7, "action": "dialogue", "text": "Thats how you do it! Once you have your own Pokemon, you can catch wild Pokemon too!"},
+    {"step": 8, "action": "return", "text": "The Old Man returns to Viridian City."}
+  ],
+  "rewards": {
+    "teaches_catching": true,
+    "gives_pokeballs": false,
+    "pokemon_not_added_to_party": true
+  },
+  "can_skip": false,
+  "one_time": true,
+  "total_steps": 8
+}

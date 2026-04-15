@@ -1,0 +1,148 @@
+{
+  "description": "Detailed type matchup information for all 15 Gen 1 types.",
+  "types": [
+    {
+      "name": "Normal",
+      "super_effective_against": [],
+      "not_very_effective_against": ["Rock"],
+      "no_effect_against": ["Ghost"],
+      "weak_to": ["Fighting"],
+      "resists": [],
+      "immune_to": ["Ghost"]
+    },
+    {
+      "name": "Fire",
+      "super_effective_against": ["Grass", "Ice", "Bug"],
+      "not_very_effective_against": ["Fire", "Water", "Rock", "Dragon"],
+      "no_effect_against": [],
+      "weak_to": ["Water", "Ground", "Rock"],
+      "resists": ["Fire", "Grass", "Ice", "Bug"],
+      "immune_to": []
+    },
+    {
+      "name": "Water",
+      "super_effective_against": ["Fire", "Ground", "Rock"],
+      "not_very_effective_against": ["Water", "Grass", "Dragon"],
+      "no_effect_against": [],
+      "weak_to": ["Electric", "Grass"],
+      "resists": ["Fire", "Water", "Ice"],
+      "immune_to": []
+    },
+    {
+      "name": "Electric",
+      "super_effective_against": ["Water", "Flying"],
+      "not_very_effective_against": ["Electric", "Grass", "Dragon"],
+      "no_effect_against": ["Ground"],
+      "weak_to": ["Ground"],
+      "resists": ["Electric", "Flying"],
+      "immune_to": []
+    },
+    {
+      "name": "Grass",
+      "super_effective_against": ["Water", "Ground", "Rock"],
+      "not_very_effective_against": ["Fire", "Grass", "Poison", "Flying", "Bug", "Dragon"],
+      "no_effect_against": [],
+      "weak_to": ["Fire", "Ice", "Poison", "Flying", "Bug"],
+      "resists": ["Water", "Electric", "Grass", "Ground"],
+      "immune_to": []
+    },
+    {
+      "name": "Ice",
+      "super_effective_against": ["Grass", "Ground", "Flying", "Dragon"],
+      "not_very_effective_against": ["Fire", "Water", "Ice"],
+      "no_effect_against": [],
+      "weak_to": ["Fire", "Fighting", "Rock"],
+      "resists": ["Ice"],
+      "immune_to": []
+    },
+    {
+      "name": "Fighting",
+      "super_effective_against": ["Normal", "Ice", "Rock"],
+      "not_very_effective_against": ["Poison", "Flying", "Psychic", "Bug"],
+      "no_effect_against": ["Ghost"],
+      "weak_to": ["Flying", "Psychic"],
+      "resists": ["Bug", "Rock"],
+      "immune_to": []
+    },
+    {
+      "name": "Poison",
+      "super_effective_against": ["Grass"],
+      "not_very_effective_against": ["Poison", "Ground", "Rock", "Ghost"],
+      "no_effect_against": [],
+      "weak_to": ["Ground", "Psychic"],
+      "resists": ["Grass", "Fighting", "Poison", "Bug"],
+      "immune_to": []
+    },
+    {
+      "name": "Ground",
+      "super_effective_against": ["Fire", "Electric", "Poison", "Rock"],
+      "not_very_effective_against": ["Grass", "Bug"],
+      "no_effect_against": ["Flying"],
+      "weak_to": ["Water", "Grass", "Ice"],
+      "resists": ["Poison", "Rock"],
+      "immune_to": ["Electric"]
+    },
+    {
+      "name": "Flying",
+      "super_effective_against": ["Grass", "Fighting", "Bug"],
+      "not_very_effective_against": ["Electric", "Rock"],
+      "no_effect_against": [],
+      "weak_to": ["Electric", "Ice", "Rock"],
+      "resists": ["Grass", "Fighting", "Bug"],
+      "immune_to": ["Ground"]
+    },
+    {
+      "name": "Psychic",
+      "super_effective_against": ["Fighting", "Poison"],
+      "not_very_effective_against": ["Psychic"],
+      "no_effect_against": [],
+      "weak_to": ["Bug", "Ghost"],
+      "resists": ["Fighting", "Psychic"],
+      "immune_to": []
+    },
+    {
+      "name": "Bug",
+      "super_effective_against": ["Grass", "Psychic", "Poison"],
+      "not_very_effective_against": ["Fire", "Fighting", "Flying", "Ghost"],
+      "no_effect_against": [],
+      "weak_to": ["Fire", "Flying", "Rock"],
+      "resists": ["Grass", "Fighting", "Ground"],
+      "immune_to": []
+    },
+    {
+      "name": "Rock",
+      "super_effective_against": ["Fire", "Ice", "Flying", "Bug"],
+      "not_very_effective_against": ["Fighting", "Ground"],
+      "no_effect_against": [],
+      "weak_to": ["Water", "Grass", "Fighting", "Ground"],
+      "resists": ["Normal", "Fire", "Poison", "Flying"],
+      "immune_to": []
+    },
+    {
+      "name": "Ghost",
+      "super_effective_against": ["Ghost"],
+      "not_very_effective_against": [],
+      "no_effect_against": ["Normal"],
+      "weak_to": ["Ghost"],
+      "resists": ["Poison", "Bug"],
+      "immune_to": ["Normal", "Fighting"]
+    },
+    {
+      "name": "Dragon",
+      "super_effective_against": ["Dragon"],
+      "not_very_effective_against": [],
+      "no_effect_against": [],
+      "weak_to": ["Ice", "Dragon"],
+      "resists": ["Fire", "Water", "Electric", "Grass"],
+      "immune_to": []
+    }
+  ],
+  "total_types": 15,
+  "gen1_notes": {
+    "no_steel_type": true,
+    "no_dark_type": true,
+    "no_fairy_type": true,
+    "psychic_op": "Ghost and Bug moves are very weak in Gen 1, making Psychic dominant.",
+    "ghost_bug_interaction": "In Gen 1, Ghost is immune to Normal but Normal is NOT immune to Ghost for Lick specifically."
+  }
+}
